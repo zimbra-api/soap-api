@@ -33,7 +33,7 @@ class GetSignaturesResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlList(inline = true, entry = "signature")
      */
-    private $signatures;
+    private $signatures = [];
 
     /**
      * Constructor method for GetSignaturesResponse

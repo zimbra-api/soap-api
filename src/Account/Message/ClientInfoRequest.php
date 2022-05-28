@@ -32,7 +32,7 @@ class ClientInfoRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Constructor method for ClientInfoRequest

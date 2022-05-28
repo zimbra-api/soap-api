@@ -32,7 +32,7 @@ class CreateIdentityResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement
      */
-    private $identity;
+    private Identity $identity;
 
     /**
      * Constructor method for CreateIdentityResponse

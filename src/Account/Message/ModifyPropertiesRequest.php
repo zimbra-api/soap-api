@@ -33,7 +33,7 @@ class ModifyPropertiesRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline = true, entry = "prop")
      */
-    private $props;
+    private $props = [];
 
     /**
      * Constructor method for ModifyPropertiesRequest

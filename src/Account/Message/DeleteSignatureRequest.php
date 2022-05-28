@@ -34,7 +34,7 @@ class DeleteSignatureRequest extends Request
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement
      */
-    private $signature;
+    private NameId $signature;
 
     /**
      * Constructor method for DeleteSignatureRequest

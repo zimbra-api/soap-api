@@ -32,7 +32,7 @@ class CreateDistributionListResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\DLInfo")
      * @XmlElement
      */
-    private $dl;
+    private DLInfo $dl;
 
     /**
      * Constructor method for CreateDistributionListResponse

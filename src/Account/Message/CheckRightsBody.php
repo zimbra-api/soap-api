@@ -30,7 +30,7 @@ class CheckRightsBody extends Body
      * @Type("Zimbra\Account\Message\CheckRightsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CheckRightsBody extends Body
      * @Type("Zimbra\Account\Message\CheckRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for CheckRightsBody

@@ -32,7 +32,7 @@ class GetAccountDistributionListsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\DLInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dlList;
+    private $dlList = [];
 
     /**
      * Constructor method for GetAccountDistributionListsResponse

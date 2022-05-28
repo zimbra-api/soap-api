@@ -30,7 +30,7 @@ class ModifyWhiteBlackListBody extends Body
      * @Type("Zimbra\Account\Message\ModifyWhiteBlackListRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifyWhiteBlackListBody extends Body
      * @Type("Zimbra\Account\Message\ModifyWhiteBlackListResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for ModifyWhiteBlackListBody

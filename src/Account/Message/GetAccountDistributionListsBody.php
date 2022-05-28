@@ -30,7 +30,7 @@ class GetAccountDistributionListsBody extends Body
      * @Type("Zimbra\Account\Message\GetAccountDistributionListsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAccountDistributionListsBody extends Body
      * @Type("Zimbra\Account\Message\GetAccountDistributionListsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetAccountDistributionListsBody

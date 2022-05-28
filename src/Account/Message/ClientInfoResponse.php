@@ -32,7 +32,7 @@ class ClientInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrList;
+    private $attrList = [];
 
     /**
      * Constructor method for ClientInfoResponse

@@ -32,7 +32,7 @@ class CreateSignatureResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement
      */
-    private $signature;
+    private NameId $signature;
 
     /**
      * Constructor method for CreateSignatureResponse

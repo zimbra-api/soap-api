@@ -30,7 +30,7 @@ class GrantRightsBody extends Body
      * @Type("Zimbra\Account\Message\GrantRightsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GrantRightsBody extends Body
      * @Type("Zimbra\Account\Message\GrantRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for GrantRightsBody

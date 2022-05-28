@@ -32,7 +32,7 @@ class DiscoverRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlList(inline = true, entry = "targets")
      */
-    private $discoveredRights;
+    private $discoveredRights = [];
 
     /**
      * Constructor method for DiscoverRightsResponse

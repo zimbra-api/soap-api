@@ -35,7 +35,7 @@ class CreateIdentityRequest extends Request
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement
      */
-    private $identity;
+    private Identity $identity;
 
     /**
      * Constructor method for CreateIdentityRequest

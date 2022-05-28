@@ -31,7 +31,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Constructor method for ModifyZimletPrefsResponse

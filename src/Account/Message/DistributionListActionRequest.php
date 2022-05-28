@@ -49,7 +49,7 @@ class DistributionListActionRequest extends Request
      * @Type("Zimbra\Account\Struct\DistributionListAction")
      * @XmlElement
      */
-    private $action;
+    private DistributionListAction $action;
 
     /**
      * Constructor method for DistributionListActionRequest

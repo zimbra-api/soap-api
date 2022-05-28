@@ -33,7 +33,7 @@ class GetVersionInfoResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\VersionInfo")
      * @XmlElement
      */
-    private $versionInfo;
+    private VersionInfo $versionInfo;
 
     /**
      * Constructor method for GetVersionInfoResponse

@@ -33,7 +33,7 @@ class RevokeRightsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline = true, entry = "ace")
      */
-    private $aces;
+    private $aces = [];
 
     /**
      * Constructor method for RevokeRightsRequest

@@ -165,7 +165,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Cos")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * User-settable preferences
@@ -174,7 +174,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = false, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * Account attributes that aren't user-settable, but the front-end needs.
@@ -184,7 +184,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Zimlets
@@ -193,7 +193,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\AccountZimletInfo>")
      * @XmlList(inline = false, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Properties
@@ -202,7 +202,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline = false, entry = "prop")
      */
-    private $props;
+    private $props = [];
 
     /**
      * Identities
@@ -211,7 +211,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlList(inline = false, entry = "identity")
      */
-    private $identities;
+    private $identities = [];
 
     /**
      * Signatures
@@ -220,7 +220,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlList(inline = false, entry = "signature")
      */
-    private $signatures;
+    private $signatures = [];
 
     /**
      * Data sources
@@ -238,7 +238,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\ChildAccount>")
      * @XmlList(inline = false, entry = "childAccount")
      */
-    private $childAccounts;
+    private $childAccounts = [];
 
     /**
      * Discovered Rights - same as for DiscoverRightsResponse
@@ -247,7 +247,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlList(inline = false, entry = "targets")
      */
-    private $discoveredRights;
+    private $discoveredRights = [];
 
     /**
      * URL to talk to for soap service for this account.

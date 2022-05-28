@@ -35,7 +35,7 @@ class GetRightsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Right>")
      * @XmlList(inline = true, entry = "ace")
      */
-    private $aces;
+    private $aces = [];
 
     /**
      * Constructor method for GetRightsRequest

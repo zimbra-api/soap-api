@@ -33,7 +33,7 @@ class ModifyZimletPrefsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
      * @XmlList(inline = true, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Constructor method for ModifyZimletPrefsRequest

@@ -30,7 +30,7 @@ class ModifyPrefsBody extends Body
      * @Type("Zimbra\Account\Message\ModifyPrefsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifyPrefsBody extends Body
      * @Type("Zimbra\Account\Message\ModifyPrefsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for ModifyPrefsBody

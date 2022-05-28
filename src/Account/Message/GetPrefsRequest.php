@@ -35,7 +35,7 @@ class GetPrefsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = true, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * Constructor method for GetPrefsRequest

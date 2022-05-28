@@ -32,7 +32,7 @@ class GetIdentitiesEnvelope extends Envelope
      * @Type("Zimbra\Account\Message\GetIdentitiesBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $body;
+    private ?BodyInterface $body = NULL;
 
     /**
      * Constructor method for GetIdentitiesEnvelope

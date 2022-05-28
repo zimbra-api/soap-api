@@ -59,7 +59,7 @@ class AuthResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Session")
      * @XmlElement
      */
-    private $session;
+    private ?Session $session = NULL;
 
     /**
      * host additional SOAP requests should be directed to.
@@ -122,7 +122,7 @@ class AuthResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = false, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
@@ -130,7 +130,7 @@ class AuthResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")

@@ -34,7 +34,7 @@ class DeleteIdentityRequest extends Request
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement
      */
-    private $identity;
+    private NameId $identity;
 
     /**
      * Constructor method for DeleteIdentityRequest

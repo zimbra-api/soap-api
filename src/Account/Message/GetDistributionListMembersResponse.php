@@ -51,7 +51,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $dlMembers;
+    private $dlMembers = [];
 
     /**
      * HAB Group members
@@ -61,7 +61,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\HABGroupMember>")
      * @XmlList(inline = false, entry = "groupMember")
      */
-    private $habGroupMembers;
+    private $habGroupMembers = [];
 
     /**
      * Constructor method for GetDistributionListMembersResponse

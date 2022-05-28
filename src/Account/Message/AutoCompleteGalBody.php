@@ -30,7 +30,7 @@ class AutoCompleteGalBody extends Body
      * @Type("Zimbra\Account\Message\AutoCompleteGalRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AutoCompleteGalBody extends Body
      * @Type("Zimbra\Account\Message\AutoCompleteGalResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for AutoCompleteGalBody

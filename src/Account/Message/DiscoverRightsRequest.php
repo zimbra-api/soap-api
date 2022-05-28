@@ -43,7 +43,7 @@ class DiscoverRightsRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DiscoverRightsRequest

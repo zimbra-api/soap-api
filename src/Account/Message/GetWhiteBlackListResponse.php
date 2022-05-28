@@ -33,7 +33,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $whiteListEntries;
+    private $whiteListEntries = [];
 
     /**
      * Black list
@@ -43,7 +43,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $blackListEntries;
+    private $blackListEntries = [];
 
     /**
      * Constructor method for GetWhiteBlackListResponse

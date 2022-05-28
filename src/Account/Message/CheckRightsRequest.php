@@ -33,7 +33,7 @@ class CheckRightsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
      * @XmlList(inline = true, entry = "target")
      */
-    private $targets;
+    private $targets = [];
 
     /**
      * Constructor method for CheckRightsRequest

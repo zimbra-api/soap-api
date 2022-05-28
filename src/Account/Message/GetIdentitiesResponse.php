@@ -33,7 +33,7 @@ class GetIdentitiesResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlList(inline = true, entry = "identity")
      */
-    private $identities;
+    private $identities = [];
 
     /**
      * Constructor method for GetIdentitiesResponse

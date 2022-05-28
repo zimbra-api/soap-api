@@ -52,7 +52,7 @@ class ChangePasswordResponse implements ResponseInterface
     public function __construct(string $authToken, int $lifetime)
     {
         $this->setAuthToken($authToken)
-            ->setLifetime($lifetime);
+             ->setLifetime($lifetime);
     }
 
     /**

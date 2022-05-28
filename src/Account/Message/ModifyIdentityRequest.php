@@ -34,7 +34,7 @@ class ModifyIdentityRequest extends Request
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement
      */
-    private $identity;
+    private Identity $identity;
 
     /**
      * Constructor method for ModifyIdentityRequest

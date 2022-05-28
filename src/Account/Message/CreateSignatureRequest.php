@@ -36,7 +36,7 @@ class CreateSignatureRequest extends Request
      * @Type("Zimbra\Account\Struct\Signature")
      * @XmlElement
      */
-    private $signature;
+    private Signature $signature;
 
     /**
      * Constructor method for CreateSignatureRequest
