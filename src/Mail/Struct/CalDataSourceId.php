@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 
 /**
  * CalDataSourceId struct class

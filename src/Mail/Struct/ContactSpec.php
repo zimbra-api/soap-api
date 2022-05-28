@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Struct\SpecifyContact;
+use Zimbra\Common\Struct\SpecifyContact;
 
 /**
  * ContactSpec struct class
@@ -67,7 +67,7 @@ class ContactSpec implements SpecifyContact
      * @Type("Zimbra\Mail\Struct\VCardInfo")
      * @XmlElement
      */
-    private $vcard;
+    private ?VCardInfo $vcard = NULL;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these

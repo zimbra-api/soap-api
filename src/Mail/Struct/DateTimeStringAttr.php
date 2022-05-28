@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\DateTimeStringAttrInterface;
+use Zimbra\Common\Struct\DateTimeStringAttrInterface;
 
 /**
  * DateTimeStringAttr class

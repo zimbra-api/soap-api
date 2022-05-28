@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -75,10 +75,10 @@ class CreateCalendarItemResponse implements ResponseInterface
      * Message information
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $msg;
+    private ?Id $msg = NULL;
 
     /**
      * Included if "echo" was set in the request
@@ -87,7 +87,7 @@ class CreateCalendarItemResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\CalEcho")
      * @XmlElement
      */
-    private $echo;
+    private ?CalEcho $echo = NULL;
 
     /**
      * Constructor method for CreateCalendarItemResponse

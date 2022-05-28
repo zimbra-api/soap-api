@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\AlarmRelated;
-use Zimbra\Struct\DurationInfoInterface;
+use Zimbra\Common\Struct\DurationInfoInterface;
 
 /**
  * DurationInfo class

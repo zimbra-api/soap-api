@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * InviteAsMP class
@@ -87,13 +87,13 @@ class InviteAsMP extends MessageCommon
      * @Type("Zimbra\Mail\Struct\MPInviteInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?MPInviteInfo $invite = NULL;
 
     /**
      * Headers
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
-     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "header")
      */
     private $headers = [];

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\ByYearDayRuleInterface;
+use Zimbra\Common\Struct\ByYearDayRuleInterface;
 
 /**
  * ByYearDayRule class

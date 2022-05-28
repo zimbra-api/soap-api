@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\RangeType;
-use Zimbra\Struct\ExceptionRecurIdInfoInterface;
+use Zimbra\Common\Struct\ExceptionRecurIdInfoInterface;
 
 /**
  * ExceptionRecurIdInfo class

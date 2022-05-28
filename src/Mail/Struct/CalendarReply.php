@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\ParticipationStatus;
-use Zimbra\Struct\CalendarReplyInterface;
+use Zimbra\Common\Struct\CalendarReplyInterface;
 
 /**
  * CalendarReply class

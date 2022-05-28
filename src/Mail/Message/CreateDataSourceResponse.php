@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
+use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\ImapDataSourceId;
 use Zimbra\Mail\Struct\Pop3DataSourceId;
 use Zimbra\Mail\Struct\CaldavDataSourceId;
@@ -19,7 +20,6 @@ use Zimbra\Mail\Struct\RssDataSourceId;
 use Zimbra\Mail\Struct\GalDataSourceId;
 use Zimbra\Mail\Struct\CalDataSourceId;
 use Zimbra\Mail\Struct\UnknownDataSourceId;
-use Zimbra\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -37,7 +37,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * ID information for the created data source
      * @Exclude
      */
-    private $dataSource;
+    private ?Id $dataSource = NULL;
 
     /**
      * Constructor method for CreateDataSourceResponse

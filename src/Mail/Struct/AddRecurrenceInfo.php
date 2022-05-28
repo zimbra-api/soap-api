@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\AddRecurrenceInfoInterface;
+use Zimbra\Common\Struct\AddRecurrenceInfoInterface;
 
 /**
  * AddRecurrenceInfo struct class

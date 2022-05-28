@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\ExcludeRecurrenceInfoInterface;
+use Zimbra\Common\Struct\ExcludeRecurrenceInfoInterface;
 
 /**
  * ExcludeRecurrenceInfo struct class

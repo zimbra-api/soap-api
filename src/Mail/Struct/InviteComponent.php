@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     AlarmInfoInterface,
     CalendarAttendeeInterface,
     CalOrganizerInterface,
@@ -70,7 +70,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement
      */
-    private $geo;
+    private ?GeoInfoInterface $geo = NULL;
 
     /**
      * Attendees
@@ -133,7 +133,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement
      */
-    private $organizer;
+    private ?CalOrganizerInterface $organizer = NULL;
 
     /**
      * Recurrence information
@@ -142,7 +142,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $recurrence;
+    private ?RecurrenceInfoInterface $recurrence = NULL;
 
     /**
      * Recurrence id, if this is an exception
@@ -151,7 +151,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
 
     /**
      * Start date-time (required)
@@ -160,7 +160,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $dtStart;
+    private ?DtTimeInfoInterface $dtStart = NULL;
 
     /**
      * End date-time
@@ -169,7 +169,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $dtEnd;
+    private ?DtTimeInfoInterface $dtEnd = NULL;
 
     /**
      * Duration
@@ -178,7 +178,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $duration;
+    private ?DurationInfoInterface $duration = NULL;
 
     /**
      * Constructor method

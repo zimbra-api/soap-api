@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Enum\InviteType;
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     CalendarReplyInterface, CalTZInfoInterface, InviteComponentInterface, InviteInfoInterface
 };
 

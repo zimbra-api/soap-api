@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Struct\PartInfoInterface;
+use Zimbra\Common\Struct\PartInfoInterface;
 
 /**
  * PartInfo class

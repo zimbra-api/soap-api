@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Enum\ConnectionType;
-use Zimbra\Struct\DataSource;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailDataSource struct class

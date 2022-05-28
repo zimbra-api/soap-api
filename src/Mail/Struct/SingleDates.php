@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{DtValInterface, SingleDatesInterface};
+use Zimbra\Common\Struct\{DtValInterface, SingleDatesInterface};
 
 /**
  * SingleDates class

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\DtTimeInfoInterface;
+use Zimbra\Common\Struct\DtTimeInfoInterface;
 
 /**
  * DtTimeInfo struct class

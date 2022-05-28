@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
 };
-use Zimbra\Struct\{KeyValuePair, UrlAndValue};
+use Zimbra\Common\Struct\{KeyValuePair, UrlAndValue};
 
 /**
  * MsgWithGroupInfo class
@@ -178,13 +178,13 @@ class MsgWithGroupInfo extends MessageCommon
      * @Type("Zimbra\Mail\Struct\InviteWithGroupInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $invite;
+    private ?InviteWithGroupInfo $invite = NULL;
 
     /**
      * Headers
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
-     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "header", namespace="urn:zimbraMail")
      */
     private $headers = [];
@@ -196,7 +196,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Type("Zimbra\Mail\Struct\PartInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $mimePart;
+    private ?MimePartInfo $mimePart = NULL;
 
     /**
      * Share Notification information
@@ -205,7 +205,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Type("Zimbra\Mail\Struct\ShareNotification")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $shr;
+    private ?ShareNotification $shr = NULL;
 
     /**
      * DL Subscription Notification information
@@ -214,16 +214,16 @@ class MsgWithGroupInfo extends MessageCommon
      * @Type("Zimbra\Mail\Struct\DLSubscriptionNotification")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $dlSubs;
+    private ?DLSubscriptionNotification $dlSubs = NULL;
 
     /**
      * Content
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
-     * @Type("Zimbra\Struct\UrlAndValue")
+     * @Type("Zimbra\Common\Struct\UrlAndValue")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $content;
+    private ?UrlAndValue $content = NULL;
 
     /**
      * Constructor method for Msg
@@ -747,7 +747,7 @@ class MsgWithGroupInfo extends MessageCommon
      *
      * @return DLSubscriptionNotification
      */
-    public function getDLSubs(): DLSubscriptionNotification
+    public function getDLSubs(): ?DLSubscriptionNotification
     {
         return $this->dlSubs;
     }

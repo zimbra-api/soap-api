@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\{ExceptionRuleInfoInterface, RecurrenceInfoInterface};
+use Zimbra\Common\Struct\{ExceptionRuleInfoInterface, RecurrenceInfoInterface};
 
 /**
  * ExceptionRuleInfo struct class
@@ -32,7 +32,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $add;
+    private ?RecurrenceInfoInterface $add = NULL;
 
     /**
      * Dates or rules which EXCLUDE instances
@@ -41,7 +41,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $exclude;
+    private ?RecurrenceInfoInterface $exclude = NULL;
 
     /**
      * Constructor method

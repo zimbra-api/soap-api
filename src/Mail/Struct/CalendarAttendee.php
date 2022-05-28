@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Enum\ParticipationStatus as PartStat;
-use Zimbra\Struct\{CalendarAttendeeInterface, XParamInterface};
+use Zimbra\Common\Struct\{CalendarAttendeeInterface, XParamInterface};
 
 /**
  * CalendarAttendee struct class

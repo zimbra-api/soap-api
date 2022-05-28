@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -29,10 +29,10 @@ class AddCommentResponse implements ResponseInterface
      * Item ID for the comment
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $comment;
+    private Id $comment;
 
     /**
      * Constructor method for AddCommentResponse

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{XParamInterface, XPropInterface};
+use Zimbra\Common\Struct\{XParamInterface, XPropInterface};
 
 /**
  * XProp class
@@ -50,7 +50,7 @@ class XProp implements XPropInterface
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline = true, entry = "xparam")
      */
-    private $xParams;
+    private $xParams = [];
 
     /**
      * Constructor method for XProp

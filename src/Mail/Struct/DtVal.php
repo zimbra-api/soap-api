@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\{DtTimeInfoInterface, DtValInterface, DurationInfoInterface};
+use Zimbra\Common\Struct\{DtTimeInfoInterface, DtValInterface, DurationInfoInterface};
 
 /**
  * DtVal struct class
@@ -32,7 +32,7 @@ class DtVal implements DtValInterface
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $startTime;
+    private ?DtTimeInfoInterface $startTime = NULL;
 
     /**
      * Start DATE-TIME
@@ -41,7 +41,7 @@ class DtVal implements DtValInterface
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $endTime;
+    private ?DtTimeInfoInterface $endTime = NULL;
 
     /**
      * Duration information
@@ -50,7 +50,7 @@ class DtVal implements DtValInterface
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $duration;
+    private ?DurationInfoInterface $duration = NULL;
 
     /**
      * Constructor method

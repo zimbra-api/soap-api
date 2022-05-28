@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\MemberType;
-use Zimbra\Struct\{ContactGroupMemberInterface, ContactInterface};
+use Zimbra\Common\Struct\{ContactGroupMemberInterface, ContactInterface};
 
 /**
  * ContactGroupMember struct class
@@ -57,7 +57,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement
      */
-    private $contact;
+    private ?ContactInterface $contact = NULL;
 
     /**
      * Constructor method for ContactGroupMember

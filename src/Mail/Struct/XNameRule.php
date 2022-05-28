@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\XNameRuleInterface;
+use Zimbra\Common\Struct\XNameRuleInterface;
 
 /**
  * XNameRule class

@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Enum\Frequency;
-use Zimbra\Struct\{
+use Zimbra\Common\Struct\{
     ByDayRuleInterface,
     ByHourRuleInterface,
     ByMinuteRuleInterface,

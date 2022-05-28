@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\WeekDay;
-use Zimbra\Struct\WkstRuleInterface;
+use Zimbra\Common\Struct\WkstRuleInterface;
 
 /**
  * WkstRule class

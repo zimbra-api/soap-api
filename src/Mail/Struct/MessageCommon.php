@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{CustomMetadataInterface, MessageCommonInterface};
+use Zimbra\Common\Struct\{CustomMetadataInterface, MessageCommonInterface};
 
 /**
  * MessageCommon struct class

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Struct\NotificationInterface;
+use Zimbra\Common\Struct\NotificationInterface;
 
 /**
  * Notification class

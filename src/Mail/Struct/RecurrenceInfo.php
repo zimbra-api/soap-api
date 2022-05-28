@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Struct\{RecurrenceInfoInterface, RecurRuleBaseInterface};
+use Zimbra\Common\Struct\{RecurrenceInfoInterface, RecurRuleBaseInterface};
 
 /**
  * RecurrenceInfo struct class

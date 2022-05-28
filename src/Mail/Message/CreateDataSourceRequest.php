@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
+use Zimbra\Common\Struct\DataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Mail\Struct\MailPop3DataSource;
 use Zimbra\Mail\Struct\MailCaldavDataSource;
@@ -20,7 +21,6 @@ use Zimbra\Mail\Struct\MailGalDataSource;
 use Zimbra\Mail\Struct\MailCalDataSource;
 use Zimbra\Mail\Struct\MailUnknownDataSource;
 use Zimbra\Mail\Struct\MailDataSource;
-use Zimbra\Struct\DataSource;
 use Zimbra\Soap\Request;
 
 /**
@@ -40,7 +40,7 @@ class CreateDataSourceRequest extends Request
      * The data source
      * @Exclude
      */
-    private $dataSource;
+    private ?DataSource $dataSource = NULL;
 
     /**
      * Constructor method for CreateDataSourceRequest
@@ -48,7 +48,7 @@ class CreateDataSourceRequest extends Request
      * @param  DataSource $dataSource
      * @return self
      */
-    public function __construct(DataSource $dataSource = NULL)
+    public function __construct(?DataSource $dataSource = NULL)
     {
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);

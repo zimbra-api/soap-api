@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\DataSource;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailUnknownDataSource struct class

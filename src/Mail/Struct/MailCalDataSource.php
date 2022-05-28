@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\CalDataSource;
+use Zimbra\Common\Struct\CalDataSource;
 
 /**
  * MailCalDataSource struct class

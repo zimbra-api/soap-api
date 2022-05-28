@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\AddressType;
-use Zimbra\Struct\EmailInfoInterface;
+use Zimbra\Common\Struct\EmailInfoInterface;
 
 /**
  * EmailInfo struct class

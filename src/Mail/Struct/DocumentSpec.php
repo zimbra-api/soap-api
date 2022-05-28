@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement
 };
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 
 /**
  * DocumentSpec class
@@ -112,10 +112,10 @@ class DocumentSpec
      * Upload specification
      * @Accessor(getter="getUpload", setter="setUpload")
      * @SerializedName("upload")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $upload;
+    private ?Id $upload = NULL;
 
     /**
      * Message part specification
@@ -124,7 +124,7 @@ class DocumentSpec
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
      * @XmlElement
      */
-    private $messagePart;
+    private ?MessagePartSpec $messagePart = NULL;
 
     /**
      * Information on document version to restore to
@@ -133,7 +133,7 @@ class DocumentSpec
      * @Type("Zimbra\Mail\Struct\IdVersion")
      * @XmlElement
      */
-    private $docRevision;
+    private ?IdVersion $docRevision = NULL;
 
     /**
      * Constructor method for Folder

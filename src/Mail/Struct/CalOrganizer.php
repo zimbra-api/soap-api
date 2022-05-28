@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Struct\{CalOrganizerInterface, XParamInterface};
+use Zimbra\Common\Struct\{CalOrganizerInterface, XParamInterface};
 
 /**
  * CalOrganizer struct class
@@ -86,7 +86,7 @@ class CalOrganizer implements CalOrganizerInterface
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline = true, entry = "xparam")
      */
-    private $xParams;
+    private $xParams = [];
 
     /**
      * Constructor mothod

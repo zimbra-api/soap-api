@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Struct\CancelRuleInfoInterface;
+use Zimbra\Common\Struct\CancelRuleInfoInterface;
 
 /**
  * CancelRuleInfo struct class

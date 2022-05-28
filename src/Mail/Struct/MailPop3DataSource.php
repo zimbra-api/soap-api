@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Struct\Pop3DataSource;
+use Zimbra\Common\Struct\Pop3DataSource;
 
 /**
  * MailPop3DataSource struct class

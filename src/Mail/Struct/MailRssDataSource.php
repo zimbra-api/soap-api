@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\RssDataSource;
+use Zimbra\Common\Struct\RssDataSource;
 
 /**
  * MailRssDataSource struct class

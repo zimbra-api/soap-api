@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\KeyValuePairs;
+use Zimbra\Common\Struct\KeyValuePairs;
 
 /**
  * MailKeyValuePairs class

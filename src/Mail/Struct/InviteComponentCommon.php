@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
-use Zimbra\Struct\InviteComponentCommonInterface;
+use Zimbra\Common\Struct\InviteComponentCommonInterface;
 
 /**
  * InviteComponentCommon struct class
@@ -217,7 +217,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @Type("Zimbra\Common\Enum\InviteStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ?InviteStatus $status = NULL;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
@@ -226,7 +226,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @Type("Zimbra\Common\Enum\InviteClass")
      * @XmlAttribute
      */
-    private $calClass;
+    private ?InviteClass $calClass = NULL;
 
     /**
      * URL
