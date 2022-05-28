@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

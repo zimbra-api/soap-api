@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
+use Zimbra\Common\Enum\AddressType;
 
 use Zimbra\Mail\Message\BounceMsgEnvelope;
 use Zimbra\Mail\Message\BounceMsgBody;

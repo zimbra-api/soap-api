@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Mail\Struct\MailDataSource;
 use Zimbra\Mail\Struct\MailImapDataSource;
 use Zimbra\Tests\ZimbraTestCase;

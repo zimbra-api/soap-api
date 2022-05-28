@@ -12,7 +12,7 @@ use Zimbra\Admin\Struct\AdminZimletConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Enum\ZimletPresence;
+use Zimbra\Common\Enum\ZimletPresence;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

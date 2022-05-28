@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Tests\ZimbraTestCase;
 

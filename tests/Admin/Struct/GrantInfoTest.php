@@ -6,7 +6,7 @@ use Zimbra\Admin\Struct\GrantInfo;
 use Zimbra\Admin\Struct\TypeIdName;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Admin\Struct\RightModifierInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

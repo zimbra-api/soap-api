@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServiceStatus;
-use Zimbra\Enum\ZeroOrOne;
+use Zimbra\Common\Enum\ZeroOrOne;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

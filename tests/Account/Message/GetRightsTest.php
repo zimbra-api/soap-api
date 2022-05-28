@@ -8,8 +8,8 @@ use Zimbra\Account\Message\GetRightsRequest;
 use Zimbra\Account\Message\GetRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Account\Struct\Right;
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\AceRightType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -9,7 +9,7 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchRule;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

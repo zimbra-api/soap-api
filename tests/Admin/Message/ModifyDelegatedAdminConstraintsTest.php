@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsRequest;
 use Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse;
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

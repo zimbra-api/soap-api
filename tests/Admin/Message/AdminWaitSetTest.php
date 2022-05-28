@@ -3,9 +3,9 @@
 namespace Zimbra\Tests\Admin\Response;
 
 use Zimbra\Admin\Message\{AdminWaitSetBody, AdminWaitSetEnvelope, AdminWaitSetRequest, AdminWaitSetResponse};
-use Zimbra\Enum\InterestType;
+use Zimbra\Common\Enum\InterestType;
 use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
-use Zimbra\Struct\{Id, IdAndType, WaitSetAddSpec};
+use Zimbra\Common\Struct\{Id, IdAndType, WaitSetAddSpec};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

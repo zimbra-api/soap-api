@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\SyncGalAccountRequest;
 use Zimbra\Admin\Message\SyncGalAccountResponse;
 use Zimbra\Admin\Struct\SyncGalAccountSpec;
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec;
-use Zimbra\Enum\DataSourceBy;
+use Zimbra\Common\Enum\DataSourceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

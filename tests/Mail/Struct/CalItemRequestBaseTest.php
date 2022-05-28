@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ReplyType;
 
 use Zimbra\Mail\Struct\CalItemRequestBase;
 

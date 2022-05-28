@@ -7,7 +7,7 @@ use Zimbra\Account\Message\SyncGalBody;
 use Zimbra\Account\Message\SyncGalRequest;
 use Zimbra\Account\Message\SyncGalResponse;
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for SyncGal.

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\EditheaderTest;
-use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

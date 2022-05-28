@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetUCServiceBody, GetUCServiceEnvelope, GetUCServiceRe
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

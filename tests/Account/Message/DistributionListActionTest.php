@@ -4,19 +4,19 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{DistributionListActionEnvelope, DistributionListActionBody, DistributionListActionRequest, DistributionListActionResponse};
 
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\Operation;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\Operation;
 
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListAction;
 
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\KeyValuePair;
+use Zimbra\Common\Struct\DistributionListSelector;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**

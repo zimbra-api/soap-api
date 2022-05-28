@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\AuthEnvelope;
 use Zimbra\Admin\Message\AuthBody;
 use Zimbra\Admin\Message\AuthRequest;
 use Zimbra\Admin\Message\AuthResponse;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

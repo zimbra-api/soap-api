@@ -33,11 +33,11 @@ use Zimbra\Mail\Struct\CommunityRequestsTest;
 use Zimbra\Mail\Struct\CommunityContentTest;
 use Zimbra\Mail\Struct\CommunityConnectionsTest;
 use Zimbra\Mail\Struct\FilterTests;
-use Zimbra\Enum\FilterCondition;
-use Zimbra\Enum\Importance;
-use Zimbra\Enum\DateComparison;
-use Zimbra\Enum\NumberComparison;
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\FilterCondition;
+use Zimbra\Common\Enum\Importance;
+use Zimbra\Common\Enum\DateComparison;
+use Zimbra\Common\Enum\NumberComparison;
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

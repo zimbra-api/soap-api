@@ -8,9 +8,9 @@ use Zimbra\Admin\Message\ReIndexRequest;
 use Zimbra\Admin\Message\ReIndexResponse;
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
 use Zimbra\Admin\Struct\ReindexProgressInfo;
-use Zimbra\Enum\ReIndexAction;
-use Zimbra\Enum\ReIndexStatus;
-use Zimbra\Enum\ReindexType;
+use Zimbra\Common\Enum\ReIndexAction;
+use Zimbra\Common\Enum\ReIndexStatus;
+use Zimbra\Common\Enum\ReindexType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Tests\ZimbraTestCase;

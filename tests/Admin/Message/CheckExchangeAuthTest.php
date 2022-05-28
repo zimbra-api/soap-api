@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\CheckExchangeAuthEnvelope;
 use Zimbra\Admin\Message\CheckExchangeAuthRequest;
 use Zimbra\Admin\Message\CheckExchangeAuthResponse;
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
-use Zimbra\Enum\AuthScheme;
+use Zimbra\Common\Enum\AuthScheme;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

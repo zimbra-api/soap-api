@@ -9,8 +9,8 @@ use Zimbra\Admin\Message\SearchAutoProvDirectoryResponse;
 
 use Zimbra\Admin\Struct\AutoProvDirectoryEntry;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\GetServerNIfsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\NetworkInformation;
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\IpType;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\IpType;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

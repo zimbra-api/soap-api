@@ -11,12 +11,12 @@ use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
 use Zimbra\Mail\Struct\SearchFolder;
 
-use Zimbra\Enum\{ActionGrantRight, GrantGranteeType};
-use Zimbra\Enum\RemoteFolderAccess;
-use Zimbra\Enum\Type;
-use Zimbra\Enum\ViewType;
+use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
+use Zimbra\Common\Enum\RemoteFolderAccess;
+use Zimbra\Common\Enum\Type;
+use Zimbra\Common\Enum\ViewType;
 
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

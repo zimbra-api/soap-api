@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\ModifyAdminSavedSearchesBody;
 use Zimbra\Admin\Message\ModifyAdminSavedSearchesEnvelope;
 use Zimbra\Admin\Message\ModifyAdminSavedSearchesRequest;
 use Zimbra\Admin\Message\ModifyAdminSavedSearchesResponse;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

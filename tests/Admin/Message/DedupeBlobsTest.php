@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\DedupeBlobsRequest;
 use Zimbra\Admin\Message\DedupeBlobsResponse;
 use Zimbra\Admin\Struct\IntIdAttr;
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
-use Zimbra\Enum\DedupAction;
-use Zimbra\Enum\DedupStatus;
+use Zimbra\Common\Enum\DedupAction;
+use Zimbra\Common\Enum\DedupStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

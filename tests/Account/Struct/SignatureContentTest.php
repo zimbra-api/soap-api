@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Tests\ZimbraTestCase;
 

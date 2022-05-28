@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Common\Enum\FreeBusyStatus;
 use Zimbra\Mail\Struct\ConflictRecurrenceInstance;
 use Zimbra\Mail\Struct\FreeBusyUserStatus;
 use Zimbra\Tests\ZimbraTestCase;

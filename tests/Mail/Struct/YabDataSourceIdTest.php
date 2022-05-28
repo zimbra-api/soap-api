@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\YabDataSourceId;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

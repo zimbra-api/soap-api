@@ -6,7 +6,7 @@ use Zimbra\Account\Message\GetAvailableCsvFormatsBody;
 use Zimbra\Account\Message\GetAvailableCsvFormatsEnvelope;
 use Zimbra\Account\Message\GetAvailableCsvFormatsRequest;
 use Zimbra\Account\Message\GetAvailableCsvFormatsResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

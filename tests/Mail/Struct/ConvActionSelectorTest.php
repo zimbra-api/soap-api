@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ConvActionOp;
+use Zimbra\Common\Enum\ConvActionOp;
 use Zimbra\Mail\Struct\ConvActionSelector;
 use Zimbra\Tests\ZimbraTestCase;
 

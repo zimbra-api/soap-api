@@ -15,10 +15,10 @@ use Zimbra\Admin\Struct\RightViaInfo;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\GranteeWithType;
 
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -13,10 +13,10 @@ use Zimbra\Account\Message\SearchCalendarResourcesResponse;
 use Zimbra\Account\Struct\CalendarResourceInfo;
 use Zimbra\Account\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 
-use Zimbra\Struct\CursorInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 

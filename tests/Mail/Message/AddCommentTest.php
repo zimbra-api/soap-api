@@ -9,7 +9,7 @@ use Zimbra\Mail\Message\AddCommentBody;
 use Zimbra\Mail\Message\AddCommentRequest;
 use Zimbra\Mail\Message\AddCommentResponse;
 
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

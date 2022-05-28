@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\RenameDistributionListRequest;
 use Zimbra\Admin\Message\RenameDistributionListResponse;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

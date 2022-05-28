@@ -9,7 +9,7 @@ use Zimbra\Admin\Message\GetServiceStatusResponse;
 
 use Zimbra\Admin\Struct\ServiceStatus;
 use Zimbra\Admin\Struct\TimeZoneInfo;
-use Zimbra\Enum\ZeroOrOne;
+use Zimbra\Common\Enum\ZeroOrOne;
 
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AlarmRelated;
+use Zimbra\Common\Enum\AlarmRelated;
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\GetVolumeEnvelope;
 use Zimbra\Admin\Message\GetVolumeRequest;
 use Zimbra\Admin\Message\GetVolumeResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

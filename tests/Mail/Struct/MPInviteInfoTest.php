@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\CalendarReply;
 use Zimbra\Mail\Struct\CalTZInfo;

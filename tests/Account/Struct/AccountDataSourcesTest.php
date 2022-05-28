@@ -13,7 +13,7 @@ use Zimbra\Account\Struct\AccountRssDataSource;
 use Zimbra\Account\Struct\AccountGalDataSource;
 use Zimbra\Account\Struct\AccountCalDataSource;
 use Zimbra\Account\Struct\AccountUnknownDataSource;
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

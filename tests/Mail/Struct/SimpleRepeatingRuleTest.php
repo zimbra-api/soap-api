@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
-use Zimbra\Enum\WeekDay;
+use Zimbra\Common\Enum\Frequency;
+use Zimbra\Common\Enum\WeekDay;
 
 use Zimbra\Mail\Struct\DateTimeStringAttr;
 use Zimbra\Mail\Struct\NumAttr;

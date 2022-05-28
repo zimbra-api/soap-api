@@ -10,7 +10,7 @@ use Zimbra\Admin\Message\GetServerResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

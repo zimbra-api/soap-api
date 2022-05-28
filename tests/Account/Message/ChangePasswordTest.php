@@ -6,8 +6,8 @@ use Zimbra\Account\Message\ChangePasswordEnvelope;
 use Zimbra\Account\Message\ChangePasswordBody;
 use Zimbra\Account\Message\ChangePasswordRequest;
 use Zimbra\Account\Message\ChangePasswordResponse;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ChangePassword.

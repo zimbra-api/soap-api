@@ -7,10 +7,10 @@ use Zimbra\Account\Message\SubscribeDistributionListBody;
 use Zimbra\Account\Message\SubscribeDistributionListRequest;
 use Zimbra\Account\Message\SubscribeDistributionListResponse;
 
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
-use Zimbra\Enum\DistributionListSubscribeStatus as SubscribeStatus;
-use Zimbra\Struct\DistributionListSelector;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as SubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeStatus as SubscribeStatus;
+use Zimbra\Common\Struct\DistributionListSelector;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**

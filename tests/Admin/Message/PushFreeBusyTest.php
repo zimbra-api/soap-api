@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\PushFreeBusyEnvelope;
 use Zimbra\Admin\Message\PushFreeBusyRequest;
 use Zimbra\Admin\Message\PushFreeBusyResponse;
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

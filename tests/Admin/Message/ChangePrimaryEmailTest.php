@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\ChangePrimaryEmailRequest;
 use Zimbra\Admin\Message\ChangePrimaryEmailResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\CreateXMPPComponentEnvelope;
 use Zimbra\Admin\Message\CreateXMPPComponentRequest;
 use Zimbra\Admin\Message\CreateXMPPComponentResponse;
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentInfo, XMPPComponentSpec};
-use Zimbra\Enum\{DomainBy, ServerBy};
+use Zimbra\Common\Enum\{DomainBy, ServerBy};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

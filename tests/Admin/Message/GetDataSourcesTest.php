@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\GetDataSourcesEnvelope;
 use Zimbra\Admin\Message\GetDataSourcesRequest;
 use Zimbra\Admin\Message\GetDataSourcesResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

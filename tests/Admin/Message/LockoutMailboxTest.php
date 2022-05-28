@@ -7,9 +7,9 @@ use Zimbra\Admin\Message\LockoutMailboxEnvelope;
 use Zimbra\Admin\Message\LockoutMailboxRequest;
 use Zimbra\Admin\Message\LockoutMailboxResponse;
 
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\LockoutOperation;
-use Zimbra\Struct\AccountNameSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\LockoutOperation;
+use Zimbra\Common\Struct\AccountNameSelector;
 
 use Zimbra\Tests\ZimbraTestCase;
 

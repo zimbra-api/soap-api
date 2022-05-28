@@ -6,9 +6,9 @@ use Zimbra\Admin\Message\AdminCreateWaitSetBody;
 use Zimbra\Admin\Message\AdminCreateWaitSetEnvelope;
 use Zimbra\Admin\Message\AdminCreateWaitSetRequest;
 use Zimbra\Admin\Message\AdminCreateWaitSetResponse;
-use Zimbra\Enum\InterestType;
-use Zimbra\Struct\IdAndType;
-use Zimbra\Struct\WaitSetAddSpec;
+use Zimbra\Common\Enum\InterestType;
+use Zimbra\Common\Struct\IdAndType;
+use Zimbra\Common\Struct\WaitSetAddSpec;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

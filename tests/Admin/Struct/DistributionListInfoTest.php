@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

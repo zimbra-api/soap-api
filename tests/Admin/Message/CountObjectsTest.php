@@ -8,10 +8,10 @@ use Zimbra\Admin\Message\CountObjectsRequest;
 use Zimbra\Admin\Message\CountObjectsResponse;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\CompactIndexStatus;
-use Zimbra\Enum\CountObjectsType;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\CompactIndexStatus;
+use Zimbra\Common\Enum\CountObjectsType;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetMailQueueInfoBody, GetMailQueueInfoEnvelope, GetMai
 
 use Zimbra\Admin\Struct\ServerQueues;
 use Zimbra\Admin\Struct\MailQueueCount;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 

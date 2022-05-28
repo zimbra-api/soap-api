@@ -17,9 +17,9 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzReplaceInfo;
-use Zimbra\Struct\Id;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -7,7 +7,7 @@ use Zimbra\Account\Message\ModifyZimletPrefsEnvelope;
 use Zimbra\Account\Message\ModifyZimletPrefsRequest;
 use Zimbra\Account\Message\ModifyZimletPrefsResponse;
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\ZimletStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

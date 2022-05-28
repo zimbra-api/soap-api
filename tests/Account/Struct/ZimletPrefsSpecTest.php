@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\ZimletStatus;
 use Zimbra\Account\Struct\ZimletPrefsSpec;
 use Zimbra\Tests\ZimbraTestCase;
 

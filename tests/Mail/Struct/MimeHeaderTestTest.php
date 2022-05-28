@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\MimeHeaderTest;
-use Zimbra\Enum\StringComparison;
+use Zimbra\Common\Enum\StringComparison;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

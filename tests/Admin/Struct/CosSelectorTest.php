@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Enum\CosBy;
+use Zimbra\Common\Enum\CosBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

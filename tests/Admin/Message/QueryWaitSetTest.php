@@ -11,7 +11,7 @@ use Zimbra\Admin\Struct\BufferedCommitInfo;
 use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
-use Zimbra\Struct\IdAndType;
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

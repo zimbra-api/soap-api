@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\GetSessionsRequest;
 use Zimbra\Admin\Message\GetSessionsResponse;
 
 use Zimbra\Admin\Struct\SimpleSessionInfo;
-use Zimbra\Enum\GetSessionsSortBy;
-use Zimbra\Enum\SessionType;
+use Zimbra\Common\Enum\GetSessionsSortBy;
+use Zimbra\Common\Enum\SessionType;
 
 use Zimbra\Tests\ZimbraTestCase;
 

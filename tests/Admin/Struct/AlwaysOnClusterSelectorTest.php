@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
-use Zimbra\Enum\AlwaysOnClusterBy;
+use Zimbra\Common\Enum\AlwaysOnClusterBy;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for AlwaysOnClusterSelector.

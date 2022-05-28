@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\DelegateAuthBody;
 use Zimbra\Admin\Message\DelegateAuthEnvelope;
 use Zimbra\Admin\Message\DelegateAuthRequest;
 use Zimbra\Admin\Message\DelegateAuthResponse;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

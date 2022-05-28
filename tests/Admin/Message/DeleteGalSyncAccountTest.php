@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\DeleteGalSyncAccountBody;
 use Zimbra\Admin\Message\DeleteGalSyncAccountEnvelope;
 use Zimbra\Admin\Message\DeleteGalSyncAccountRequest;
 use Zimbra\Admin\Message\DeleteGalSyncAccountResponse;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

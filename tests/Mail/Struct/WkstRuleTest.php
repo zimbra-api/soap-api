@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\WeekDay;
+use Zimbra\Common\Enum\WeekDay;
 use Zimbra\Mail\Struct\WkstRule;
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -10,7 +10,7 @@ use Zimbra\Admin\Message\GetZimletStatusResponse;
 use Zimbra\Admin\Struct\ZimletStatus;
 use Zimbra\Admin\Struct\ZimletStatusCos;
 use Zimbra\Admin\Struct\ZimletStatusParent;
-use Zimbra\Enum\ZimletStatusSetting;
+use Zimbra\Common\Enum\ZimletStatusSetting;
 
 use Zimbra\Tests\ZimbraTestCase;
 

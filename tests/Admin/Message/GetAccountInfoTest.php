@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\{GetAccountInfoBody, GetAccountInfoEnvelope, GetAccount
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

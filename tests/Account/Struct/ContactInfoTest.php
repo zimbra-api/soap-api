@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\AccountCustomMetadata;
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Account\Struct\ContactGroupMember;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Struct\ContactAttr;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

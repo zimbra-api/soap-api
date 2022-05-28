@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\SetCurrentVolumeBody;
 use Zimbra\Admin\Message\SetCurrentVolumeEnvelope;
 use Zimbra\Admin\Message\SetCurrentVolumeRequest;
 use Zimbra\Admin\Message\SetCurrentVolumeResponse;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

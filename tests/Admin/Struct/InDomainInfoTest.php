@@ -8,7 +8,7 @@ use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\EffectiveRightsInfo;
 use Zimbra\Admin\Struct\InDomainInfo;
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

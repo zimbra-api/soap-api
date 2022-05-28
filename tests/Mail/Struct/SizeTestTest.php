@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\SizeTest;
-use Zimbra\Enum\NumberComparison;
+use Zimbra\Common\Enum\NumberComparison;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

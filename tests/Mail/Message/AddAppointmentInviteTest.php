@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ParticipationStatus;
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ParticipationStatus;
+use Zimbra\Common\Enum\ReplyType;
 
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;

@@ -7,8 +7,8 @@ use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
 use Zimbra\Admin\Struct\RightsAttrs;
 use Zimbra\Admin\Struct\RightInfo;
-use Zimbra\Enum\RightClass;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightClass;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

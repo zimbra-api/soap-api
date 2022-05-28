@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetZimletBody, GetZimletEnvelope, GetZimletRequest, Ge
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 

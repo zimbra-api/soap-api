@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Message\AddMsgEnvelope;
 use Zimbra\Mail\Message\AddMsgBody;

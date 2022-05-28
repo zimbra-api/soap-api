@@ -3,8 +3,8 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\AceRightType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

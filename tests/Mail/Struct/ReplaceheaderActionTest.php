@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\ReplaceheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Tests\ZimbraTestCase;

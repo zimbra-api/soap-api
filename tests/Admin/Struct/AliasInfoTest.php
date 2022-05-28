@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AliasInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ComboRightInfo;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

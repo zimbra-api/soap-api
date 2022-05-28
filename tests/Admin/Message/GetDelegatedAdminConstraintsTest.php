@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\GetDelegatedAdminConstraintsRequest;
 use Zimbra\Admin\Message\GetDelegatedAdminConstraintsResponse;
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
-use Zimbra\Enum\ReindexType;
+use Zimbra\Common\Enum\ReindexType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

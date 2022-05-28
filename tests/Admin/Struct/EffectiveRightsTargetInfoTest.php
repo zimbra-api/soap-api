@@ -7,7 +7,7 @@ use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\EffectiveRightsTargetInfo;
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -7,9 +7,9 @@ use Zimbra\Admin\Message\AddAccountLoggerEnvelope;
 use Zimbra\Admin\Message\AddAccountLoggerRequest;
 use Zimbra\Admin\Message\AddAccountLoggerResponse;
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

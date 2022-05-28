@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\GetAdminSavedSearchesBody;
 use Zimbra\Admin\Message\GetAdminSavedSearchesEnvelope;
 use Zimbra\Admin\Message\GetAdminSavedSearchesRequest;
 use Zimbra\Admin\Message\GetAdminSavedSearchesResponse;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

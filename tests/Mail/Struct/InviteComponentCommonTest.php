@@ -2,11 +2,11 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\FreeBusyStatus;
-use Zimbra\Enum\InviteChange;
-use Zimbra\Enum\InviteClass;
-use Zimbra\Enum\InviteStatus;
-use Zimbra\Enum\Transparency;
+use Zimbra\Common\Enum\FreeBusyStatus;
+use Zimbra\Common\Enum\InviteChange;
+use Zimbra\Common\Enum\InviteClass;
+use Zimbra\Common\Enum\InviteStatus;
+use Zimbra\Common\Enum\Transparency;
 use Zimbra\Mail\Struct\InviteComponentCommon;
 use Zimbra\Tests\ZimbraTestCase;
 

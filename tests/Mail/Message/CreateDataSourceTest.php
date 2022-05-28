@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Mail\Message;
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Mail\SerializerHandler;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 
 use Zimbra\Mail\Message\CreateDataSourceEnvelope;
 use Zimbra\Mail\Message\CreateDataSourceBody;

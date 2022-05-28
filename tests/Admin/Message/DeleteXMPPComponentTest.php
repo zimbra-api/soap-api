@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\DeleteXMPPComponentEnvelope;
 use Zimbra\Admin\Message\DeleteXMPPComponentRequest;
 use Zimbra\Admin\Message\DeleteXMPPComponentResponse;
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

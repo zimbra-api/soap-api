@@ -13,9 +13,9 @@ use Zimbra\Admin\Struct\PackageRightsInfo;
 use Zimbra\Admin\Struct\PackageSelector;
 use Zimbra\Admin\Struct\RightWithName;
 
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

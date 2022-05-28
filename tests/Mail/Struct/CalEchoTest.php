@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\EmailInfo;
 use Zimbra\Mail\Struct\MPInviteInfo;
@@ -12,7 +12,7 @@ use Zimbra\Mail\Struct\CalEcho;
 use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

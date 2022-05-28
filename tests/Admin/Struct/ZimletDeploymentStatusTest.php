@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
-use Zimbra\Enum\ZimletDeployStatus;
+use Zimbra\Common\Enum\ZimletDeployStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

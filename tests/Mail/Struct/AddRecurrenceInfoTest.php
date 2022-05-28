@@ -2,11 +2,11 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
+use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\AddRecurrenceInfo;
 use Zimbra\Mail\Struct\RecurrenceInfo;
-use Zimbra\Struct\AddRecurrenceInfoInterface;
+use Zimbra\Common\Struct\AddRecurrenceInfoInterface;
 
 use Zimbra\Tests\ZimbraTestCase;
 

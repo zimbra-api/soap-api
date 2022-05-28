@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AccountLoggerInfo;
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

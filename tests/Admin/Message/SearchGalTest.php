@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\SearchGalResponse;
 use Zimbra\Admin\Struct\AdminCustomMetadata;
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Admin\Struct\ContactGroupMember;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Common\Struct\ContactAttr;
 
 use Zimbra\Tests\ZimbraTestCase;
 

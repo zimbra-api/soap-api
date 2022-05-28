@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\Acl;
 use Zimbra\Mail\Struct\Grant;
-use Zimbra\Enum\{ActionGrantRight, GrantGranteeType};
+use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

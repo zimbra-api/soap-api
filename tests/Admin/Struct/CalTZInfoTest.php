@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalTZInfo;
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

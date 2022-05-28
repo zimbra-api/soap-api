@@ -6,7 +6,7 @@ use Zimbra\Common\SerializerFactory;
 use Zimbra\Admin\SerializerHandler;
 
 use Zimbra\Admin\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

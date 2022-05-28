@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{CheckRightsEnvelope, CheckRightsBody, CheckRightsRequest, CheckRightsResponse};
 use Zimbra\Account\Struct\{CheckRightsRightInfo, CheckRightsTargetInfo, CheckRightsTargetSpec};
-use Zimbra\Enum\{TargetType, TargetBy};
+use Zimbra\Common\Enum\{TargetType, TargetBy};
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CheckRights.

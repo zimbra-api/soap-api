@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\ContactActionOp;
+use Zimbra\Common\Enum\ContactActionOp;
 
 use Zimbra\Mail\Message\ContactActionEnvelope;
 use Zimbra\Mail\Message\ContactActionBody;

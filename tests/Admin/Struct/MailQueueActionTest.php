@@ -6,8 +6,8 @@ use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Enum\QueueAction;
-use Zimbra\Enum\QueueActionBy;
+use Zimbra\Common\Enum\QueueAction;
+use Zimbra\Common\Enum\QueueActionBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

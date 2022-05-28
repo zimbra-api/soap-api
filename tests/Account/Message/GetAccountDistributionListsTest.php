@@ -8,8 +8,8 @@ use Zimbra\Account\Message\GetAccountDistributionListsRequest;
 use Zimbra\Account\Message\GetAccountDistributionListsResponse;
 
 use Zimbra\Account\Struct\DLInfo;
-use Zimbra\Enum\MemberOfSelector;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Enum\MemberOfSelector;
+use Zimbra\Common\Struct\KeyValuePair;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**

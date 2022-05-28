@@ -7,11 +7,11 @@ use Zimbra\Admin\Message\GetShareInfoEnvelope;
 use Zimbra\Admin\Message\GetShareInfoRequest;
 use Zimbra\Admin\Message\GetShareInfoResponse;
 
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Enum\AccountBy;
 
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\GranteeChooser;
-use Zimbra\Struct\ShareInfo;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Struct\GranteeChooser;
+use Zimbra\Common\Struct\ShareInfo;
 
 use Zimbra\Tests\ZimbraTestCase;
 

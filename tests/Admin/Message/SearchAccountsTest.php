@@ -17,8 +17,8 @@ use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 

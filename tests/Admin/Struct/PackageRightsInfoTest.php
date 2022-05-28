@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CmdRightsInfo;
 use Zimbra\Admin\Struct\PackageRightsInfo;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\FixCalendarEndTimeBody;
 use Zimbra\Admin\Message\FixCalendarEndTimeEnvelope;
 use Zimbra\Admin\Message\FixCalendarEndTimeRequest;
 use Zimbra\Admin\Message\FixCalendarEndTimeResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

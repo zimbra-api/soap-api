@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Common\Enum\CalendarResourceBy as CalResBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

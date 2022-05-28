@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListSelector;
-use Zimbra\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

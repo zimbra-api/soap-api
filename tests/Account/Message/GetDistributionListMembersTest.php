@@ -8,7 +8,7 @@ use Zimbra\Account\Message\GetDistributionListMembersRequest;
 use Zimbra\Account\Message\GetDistributionListMembersResponse;
 
 use Zimbra\Account\Struct\HABGroupMember;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**

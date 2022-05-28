@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

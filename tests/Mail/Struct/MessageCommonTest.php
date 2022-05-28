@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Mail\Struct\MessageCommon;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

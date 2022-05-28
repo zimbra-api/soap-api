@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\GetFreeBusyQueueInfoRequest;
 use Zimbra\Admin\Message\GetFreeBusyQueueInfoResponse;
 
 use Zimbra\Admin\Struct\FreeBusyQueueProvider;
-use Zimbra\Struct\Id;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 

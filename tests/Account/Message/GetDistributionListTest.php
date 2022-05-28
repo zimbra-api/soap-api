@@ -12,11 +12,11 @@ use Zimbra\Account\Struct\DistributionListInfo;
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
 
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
 
-use Zimbra\Struct\DistributionListSelector;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

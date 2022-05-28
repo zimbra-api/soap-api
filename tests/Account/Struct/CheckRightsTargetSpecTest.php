@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
+use Zimbra\Common\Enum\AddressType;
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Tests\ZimbraTestCase;
 

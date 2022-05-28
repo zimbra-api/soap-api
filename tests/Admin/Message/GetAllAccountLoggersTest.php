@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\GetAllAccountLoggersRequest;
 use Zimbra\Admin\Message\GetAllAccountLoggersResponse;
 use Zimbra\Admin\Struct\AccountLoggerInfo;
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

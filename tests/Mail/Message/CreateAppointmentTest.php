@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ReplyType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ReplyType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Message\CreateAppointmentEnvelope;
 use Zimbra\Mail\Message\CreateAppointmentBody;
@@ -28,8 +28,8 @@ use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
 
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\KeyValuePair;
+use Zimbra\Common\Struct\Id;
 
 use Zimbra\Tests\ZimbraTestCase;
 

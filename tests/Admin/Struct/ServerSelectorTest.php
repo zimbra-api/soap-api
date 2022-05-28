@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

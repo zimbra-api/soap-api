@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Importance;
+use Zimbra\Common\Enum\Importance;
 use Zimbra\Mail\Struct\ImportanceTest;
 use Zimbra\Tests\ZimbraTestCase;
 

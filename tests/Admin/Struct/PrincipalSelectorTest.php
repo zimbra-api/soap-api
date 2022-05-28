@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\PrincipalSelector;
-use Zimbra\Enum\AutoProvPrincipalBy as PrincipalBy;
+use Zimbra\Common\Enum\AutoProvPrincipalBy as PrincipalBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -8,7 +8,7 @@ use Zimbra\Account\Message\GetSignaturesRequest;
 use Zimbra\Account\Message\GetSignaturesResponse;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

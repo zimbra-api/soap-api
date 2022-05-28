@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

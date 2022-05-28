@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AutoCompleteMatchType as MatchType;
+use Zimbra\Common\Enum\AutoCompleteMatchType as MatchType;
 use Zimbra\Mail\Struct\AutoCompleteMatch;
 use Zimbra\Tests\ZimbraTestCase;
 

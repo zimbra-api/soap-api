@@ -5,8 +5,8 @@ namespace Zimbra\Tests\Admin\Message;
 use Zimbra\Admin\Message\{GetAccountMembershipBody, GetAccountMembershipEnvelope, GetAccountMembershipRequest, GetAccountMembershipResponse};
 use Zimbra\Admin\Struct\DLInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
+use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;

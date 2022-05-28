@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 use Zimbra\Mail\Struct\CalendarAttendee;
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Tests\ZimbraTestCase;

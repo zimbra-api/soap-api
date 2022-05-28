@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\{GetXMPPComponentBody, GetXMPPComponentEnvelope, GetXMP
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

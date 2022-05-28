@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\DeleteDataSourceEnvelope;
 use Zimbra\Admin\Message\DeleteDataSourceRequest;
 use Zimbra\Admin\Message\DeleteDataSourceResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

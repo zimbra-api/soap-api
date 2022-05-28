@@ -9,8 +9,8 @@ use Zimbra\Admin\Message\GetSystemRetentionPolicyResponse;
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
-use Zimbra\Enum\CosBy;
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\CosBy;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

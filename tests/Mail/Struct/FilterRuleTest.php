@@ -58,13 +58,13 @@ use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Mail\Struct\NestedRule;
 use Zimbra\Mail\Struct\FilterRule;
 
-use Zimbra\Enum\FilterCondition;
-use Zimbra\Enum\Importance;
-use Zimbra\Enum\DateComparison;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Enum\NumberComparison;
-use Zimbra\Enum\{MatchType, RelationalComparator};
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\FilterCondition;
+use Zimbra\Common\Enum\Importance;
+use Zimbra\Common\Enum\DateComparison;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Enum\NumberComparison;
+use Zimbra\Common\Enum\{MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

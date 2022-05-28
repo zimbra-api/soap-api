@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletContext;
-use Zimbra\Enum\ZimletPresence;
+use Zimbra\Common\Enum\ZimletPresence;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\DeleteZimletBody;
 use Zimbra\Admin\Message\DeleteZimletEnvelope;
 use Zimbra\Admin\Message\DeleteZimletRequest;
 use Zimbra\Admin\Message\DeleteZimletResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

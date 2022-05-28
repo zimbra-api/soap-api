@@ -2,7 +2,7 @@
 
 namespace Zimbra\Account\Struct\Tests;
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond;
 use Zimbra\Tests\ZimbraTestCase;
 

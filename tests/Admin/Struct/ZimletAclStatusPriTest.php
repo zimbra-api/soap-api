@@ -6,8 +6,8 @@ use Zimbra\Admin\Struct\IntegerValueAttrib;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Admin\Struct\ZimletAclStatusPri;
-use Zimbra\Enum\AclType;
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\AclType;
+use Zimbra\Common\Enum\ZimletStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

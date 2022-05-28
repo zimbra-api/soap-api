@@ -2,15 +2,15 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\Operation;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\Operation;
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListAction;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

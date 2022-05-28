@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ExcludeRecurrenceInfo;
 use Zimbra\Mail\Struct\RecurrenceInfo;
-use Zimbra\Struct\ExcludeRecurrenceInfoInterface;
+use Zimbra\Common\Struct\ExcludeRecurrenceInfoInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\ActionGrantSelector;
-use Zimbra\Enum\{ActionGrantRight, GranteeType};
+use Zimbra\Common\Enum\{ActionGrantRight, GranteeType};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

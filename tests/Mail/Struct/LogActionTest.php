@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Mail\Struct\LogAction;
 use Zimbra\Tests\ZimbraTestCase;
 

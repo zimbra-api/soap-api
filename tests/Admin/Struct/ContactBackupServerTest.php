@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ContactBackupServer;
-use Zimbra\Enum\ContactBackupStatus;
+use Zimbra\Common\Enum\ContactBackupStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

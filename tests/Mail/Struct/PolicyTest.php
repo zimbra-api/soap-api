@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Tests\ZimbraTestCase;
 

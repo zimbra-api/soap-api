@@ -7,8 +7,8 @@ use Zimbra\Admin\Message\CompactIndexEnvelope;
 use Zimbra\Admin\Message\CompactIndexRequest;
 use Zimbra\Admin\Message\CompactIndexResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
-use Zimbra\Enum\CompactIndexAction;
-use Zimbra\Enum\CompactIndexStatus;
+use Zimbra\Common\Enum\CompactIndexAction;
+use Zimbra\Common\Enum\CompactIndexStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

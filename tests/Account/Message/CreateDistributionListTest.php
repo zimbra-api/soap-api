@@ -7,7 +7,7 @@ use Zimbra\Account\Message\CreateDistributionListEnvelope;
 use Zimbra\Account\Message\CreateDistributionListRequest;
 use Zimbra\Account\Message\CreateDistributionListResponse;
 use Zimbra\Account\Struct\DLInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

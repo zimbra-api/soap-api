@@ -45,11 +45,11 @@ use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
 
-use Zimbra\Enum\ConnectionType;
-use Zimbra\Enum\ContentType;
-use Zimbra\Enum\InfoSection;
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\ZimletPresence;
+use Zimbra\Common\Enum\ConnectionType;
+use Zimbra\Common\Enum\ContentType;
+use Zimbra\Common\Enum\InfoSection;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\ZimletPresence;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**

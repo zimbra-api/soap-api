@@ -11,8 +11,8 @@ use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Account\Struct\Session;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for Auth.

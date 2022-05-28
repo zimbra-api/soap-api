@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -11,8 +11,8 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

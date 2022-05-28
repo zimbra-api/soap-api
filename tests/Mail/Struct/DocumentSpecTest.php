@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Mail\Struct;
 use Zimbra\Mail\Struct\DocumentSpec;
 use Zimbra\Mail\Struct\MessagePartSpec;
 use Zimbra\Mail\Struct\IdVersion;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 
 use Zimbra\Tests\ZimbraTestCase;
 

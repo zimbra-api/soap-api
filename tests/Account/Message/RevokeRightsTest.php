@@ -7,8 +7,8 @@ use Zimbra\Account\Message\RevokeRightsEnvelope;
 use Zimbra\Account\Message\RevokeRightsRequest;
 use Zimbra\Account\Message\RevokeRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\AceRightType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

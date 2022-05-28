@@ -10,7 +10,7 @@ use Zimbra\Admin\Message\GetDomainInfoResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

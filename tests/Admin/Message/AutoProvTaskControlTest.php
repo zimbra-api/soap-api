@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Response;
 
 use Zimbra\Admin\Message\{AutoProvTaskControlBody, AutoProvTaskControlEnvelope, AutoProvTaskControlRequest, AutoProvTaskControlResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
-use Zimbra\Enum\{AutoProvTaskAction, AutoProvTaskStatus};
+use Zimbra\Common\Enum\{AutoProvTaskAction, AutoProvTaskStatus};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

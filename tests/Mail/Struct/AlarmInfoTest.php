@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AlarmAction;
-use Zimbra\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\AlarmAction;
+use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 
 use Zimbra\Mail\Struct\AlarmInfo;
 use Zimbra\Mail\Struct\AlarmTriggerInfo;

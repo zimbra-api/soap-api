@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\HABGroupMember;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

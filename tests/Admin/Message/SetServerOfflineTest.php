@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\SetServerOfflineRequest;
 use Zimbra\Admin\Message\SetServerOfflineResponse;
 
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

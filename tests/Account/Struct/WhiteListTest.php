@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\WhiteList;
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

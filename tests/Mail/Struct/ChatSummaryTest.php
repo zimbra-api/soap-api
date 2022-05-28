@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\EmailInfo;
 use Zimbra\Mail\Struct\InviteInfo;

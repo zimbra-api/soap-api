@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\ObjectInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

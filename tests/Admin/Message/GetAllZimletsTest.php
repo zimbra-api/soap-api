@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\GetAllZimletsRequest;
 use Zimbra\Admin\Message\GetAllZimletsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
-use Zimbra\Enum\ZimletExcludeType;
+use Zimbra\Common\Enum\ZimletExcludeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

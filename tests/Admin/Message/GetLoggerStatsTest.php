@@ -17,7 +17,7 @@ use Zimbra\Admin\Struct\StatsInfo;
 use Zimbra\Admin\Struct\StatsValues;
 use Zimbra\Admin\Struct\NameAndValue;
 
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 

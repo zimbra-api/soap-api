@@ -5,7 +5,7 @@ namespace Zimbra\Account\Struct\Tests;
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Account\SerializerHandler;
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Account\Struct\{EntrySearchFilterSingleCond, EntrySearchFilterMultiCond};
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\MailQueueFlushEnvelope;
 use Zimbra\Admin\Message\MailQueueFlushRequest;
 use Zimbra\Admin\Message\MailQueueFlushResponse;
 
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -4,8 +4,8 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Admin\Struct\TzReplaceInfo;
-use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

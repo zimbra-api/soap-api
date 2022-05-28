@@ -10,8 +10,8 @@ use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\TargetWithType;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\CosBy;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\CosBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

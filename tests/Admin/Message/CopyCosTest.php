@@ -9,7 +9,7 @@ use Zimbra\Admin\Message\CopyCosResponse;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Enum\CosBy;
+use Zimbra\Common\Enum\CosBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

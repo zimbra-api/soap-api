@@ -14,10 +14,10 @@ use Zimbra\Admin\Struct\TypeIdName;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Admin\Struct\RightModifierInfo;
 
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
 
 use Zimbra\Tests\ZimbraTestCase;
 

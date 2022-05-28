@@ -10,8 +10,8 @@ use Zimbra\Admin\Struct\EffectiveRightsTarget;
 use Zimbra\Admin\Struct\InDomainInfo;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Admin\Struct\RightsEntriesInfo;
-use Zimbra\Enum\TargetType;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

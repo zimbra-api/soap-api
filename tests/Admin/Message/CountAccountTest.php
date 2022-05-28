@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\CountAccountRequest;
 use Zimbra\Admin\Message\CountAccountResponse;
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

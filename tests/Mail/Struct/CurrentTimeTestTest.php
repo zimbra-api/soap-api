@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\CurrentTimeTest;
-use Zimbra\Enum\DateComparison;
+use Zimbra\Common\Enum\DateComparison;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

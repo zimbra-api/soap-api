@@ -6,7 +6,7 @@ use Zimbra\Account\Message\ModifyWhiteBlackListBody;
 use Zimbra\Account\Message\ModifyWhiteBlackListEnvelope;
 use Zimbra\Account\Message\ModifyWhiteBlackListRequest;
 use Zimbra\Account\Message\ModifyWhiteBlackListResponse;
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

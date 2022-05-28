@@ -6,7 +6,7 @@ use Zimbra\Account\Message\{CreateSignatureEnvelope, CreateSignatureBody, Create
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CreateSignature.

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\MemberType;
+use Zimbra\Common\Enum\MemberType;
 use Zimbra\Mail\Struct\ContactGroupMember;
 use Zimbra\Mail\Struct\ContactInfo;
 use Zimbra\Tests\ZimbraTestCase;

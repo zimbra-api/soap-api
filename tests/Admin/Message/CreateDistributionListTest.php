@@ -9,7 +9,7 @@ use Zimbra\Admin\Message\CreateDistributionListResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

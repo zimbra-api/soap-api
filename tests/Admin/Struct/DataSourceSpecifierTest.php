@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

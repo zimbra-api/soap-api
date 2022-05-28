@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\PurgeFreeBusyQueueBody;
 use Zimbra\Admin\Message\PurgeFreeBusyQueueEnvelope;
 use Zimbra\Admin\Message\PurgeFreeBusyQueueRequest;
 use Zimbra\Admin\Message\PurgeFreeBusyQueueResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

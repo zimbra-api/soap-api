@@ -19,10 +19,10 @@ use Zimbra\Admin\Struct\InDomainInfo;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Admin\Struct\RightsEntriesInfo;
 
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 

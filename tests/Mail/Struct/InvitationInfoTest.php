@@ -9,7 +9,7 @@ use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\RawInvite;
 
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -15,13 +15,13 @@ use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Account\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
 
-use Zimbra\Enum\ConditionOperator as CondOp;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Enum\MemberOfSelector;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Common\Enum\MemberOfSelector;
 
-use Zimbra\Struct\ContactAttr;
-use Zimbra\Struct\CursorInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\ContactAttr;
+use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 

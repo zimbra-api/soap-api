@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\DeployZimletRequest;
 use Zimbra\Admin\Message\DeployZimletResponse;
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
-use Zimbra\Enum\ZimletDeployAction;
-use Zimbra\Enum\ZimletDeployStatus;
+use Zimbra\Common\Enum\ZimletDeployAction;
+use Zimbra\Common\Enum\ZimletDeployStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

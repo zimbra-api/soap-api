@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\AutoCompleteGalBody;
 use Zimbra\Admin\Message\AutoCompleteGalEnvelope;
 use Zimbra\Admin\Message\AutoCompleteGalRequest;
 use Zimbra\Admin\Message\AutoCompleteGalResponse;
-use Zimbra\Enum\GalSearchType;
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Tests\ZimbraTestCase;
 

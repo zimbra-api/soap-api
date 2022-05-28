@@ -3,9 +3,9 @@
 namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{GetAccountInfoEnvelope, GetAccountInfoBody, GetAccountInfoRequest, GetAccountInfoResponse};
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetAccountInfo.

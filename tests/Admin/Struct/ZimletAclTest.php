@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletAcl;
-use Zimbra\Enum\AclType;
+use Zimbra\Common\Enum\AclType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

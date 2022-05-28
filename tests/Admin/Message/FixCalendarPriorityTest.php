@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\FixCalendarPriorityBody;
 use Zimbra\Admin\Message\FixCalendarPriorityEnvelope;
 use Zimbra\Admin\Message\FixCalendarPriorityRequest;
 use Zimbra\Admin\Message\FixCalendarPriorityResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

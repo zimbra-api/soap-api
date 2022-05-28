@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
-use Zimbra\Enum\AuthScheme;
+use Zimbra\Common\Enum\AuthScheme;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

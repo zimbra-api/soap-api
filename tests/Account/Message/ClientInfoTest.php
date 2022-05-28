@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{ClientInfoEnvelope, ClientInfoBody, ClientInfoRequest, ClientInfoResponse};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ClientInfo.

@@ -8,9 +8,9 @@ use Zimbra\Admin\Message\CreateGalSyncAccountRequest;
 use Zimbra\Admin\Message\CreateGalSyncAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\GalMode;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\GalMode;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

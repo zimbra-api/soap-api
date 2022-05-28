@@ -4,8 +4,8 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Admin\Struct\CacheSelector;
-use Zimbra\Enum\CacheEntryBy;
-use Zimbra\Enum\CacheType;
+use Zimbra\Common\Enum\CacheEntryBy;
+use Zimbra\Common\Enum\CacheType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

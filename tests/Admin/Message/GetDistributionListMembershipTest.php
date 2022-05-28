@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\GetDistributionListMembershipResponse;
 use Zimbra\Admin\Struct\DistributionListMembershipInfo;
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ContactActionOp;
+use Zimbra\Common\Enum\ContactActionOp;
 use Zimbra\Mail\Struct\ContactActionSelector;
 use Zimbra\Mail\Struct\NewContactAttr;
 use Zimbra\Tests\ZimbraTestCase;

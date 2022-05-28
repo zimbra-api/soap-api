@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountRssDataSource;
 use Zimbra\Tests\ZimbraTestCase;
 

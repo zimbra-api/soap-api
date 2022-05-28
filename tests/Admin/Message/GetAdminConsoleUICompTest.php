@@ -5,9 +5,9 @@ namespace Zimbra\Tests\Admin\Message;
 use Zimbra\Admin\Message\{GetAdminConsoleUICompBody, GetAdminConsoleUICompEnvelope, GetAdminConsoleUICompRequest, GetAdminConsoleUICompResponse};
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Admin\Struct\InheritedFlaggedValue;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

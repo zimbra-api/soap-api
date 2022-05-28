@@ -6,7 +6,7 @@ use Zimbra\Account\Message\GetAvailableSkinsBody;
 use Zimbra\Account\Message\GetAvailableSkinsEnvelope;
 use Zimbra\Account\Message\GetAvailableSkinsRequest;
 use Zimbra\Account\Message\GetAvailableSkinsResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

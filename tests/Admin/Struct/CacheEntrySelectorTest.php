@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CacheEntrySelector;
-use Zimbra\Enum\CacheEntryBy;
+use Zimbra\Common\Enum\CacheEntryBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

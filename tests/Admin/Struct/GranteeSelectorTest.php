@@ -3,8 +3,8 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\GranteeSelector;
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

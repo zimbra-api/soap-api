@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetCalendarResourceBody, GetCalendarResourceEnvelope, 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Common\Enum\CalendarResourceBy as CalResBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

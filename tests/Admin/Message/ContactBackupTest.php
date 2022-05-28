@@ -7,9 +7,9 @@ use Zimbra\Admin\Message\ContactBackupEnvelope;
 use Zimbra\Admin\Message\ContactBackupRequest;
 use Zimbra\Admin\Message\ContactBackupResponse;
 use Zimbra\Admin\Struct\{ContactBackupServer, ServerSelector};
-use Zimbra\Enum\ContactBackupStatus;
-use Zimbra\Enum\ContactBackupOp;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ContactBackupStatus;
+use Zimbra\Common\Enum\ContactBackupOp;
+use Zimbra\Common\Enum\ServerBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

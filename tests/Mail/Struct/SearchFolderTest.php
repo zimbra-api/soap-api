@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ItemType;
-use Zimbra\Enum\SearchSortBy;
+use Zimbra\Common\Enum\ItemType;
+use Zimbra\Common\Enum\SearchSortBy;
 use Zimbra\Mail\Struct\Folder;
 use Zimbra\Mail\Struct\SearchFolder;
 use Zimbra\Tests\ZimbraTestCase;

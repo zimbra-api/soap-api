@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\GetAllSkinsBody;
 use Zimbra\Admin\Message\GetAllSkinsEnvelope;
 use Zimbra\Admin\Message\GetAllSkinsRequest;
 use Zimbra\Admin\Message\GetAllSkinsResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

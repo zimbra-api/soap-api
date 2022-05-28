@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetAlwaysOnClusterBody, GetAlwaysOnClusterEnvelope, Ge
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AlwaysOnClusterBy;
+use Zimbra\Common\Enum\AlwaysOnClusterBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
