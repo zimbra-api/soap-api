@@ -62,7 +62,7 @@ class CheckRightsTargetInfo
      * @Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckRightsTargetInfo

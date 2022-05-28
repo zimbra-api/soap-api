@@ -57,7 +57,8 @@ class Session
      */
     public function __construct(string $id, ?string $type = NULL)
     {
-        $this->setValue($id)->setId($id);
+        $this->setValue($id)
+             ->setId($id);
         if (NULL !== $type) {
             $this->setType($type);
         }

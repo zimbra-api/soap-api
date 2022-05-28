@@ -57,7 +57,7 @@ class Prop
     public function __construct(string $zimlet, string $name, ?string $value = NULL)
     {
         $this->setZimlet($zimlet)
-            ->setName($name);
+             ->setName($name);
         if (NULL !== $value) {
             $this->setValue($value);
         }

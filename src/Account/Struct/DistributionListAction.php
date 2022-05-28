@@ -48,7 +48,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
      * @XmlElement
      */
-    private $subsReq;
+    private ?Subscribe $subsReq = NULL;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
@@ -57,7 +57,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @XmlList(inline = true, entry = "dlm")
      * @XmlElement(cdata = false)
      */
-    private $members;
+    private $members = [];
 
     /**
      * @Accessor(getter="getOwners", setter="setOwners")
@@ -65,7 +65,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline = true, entry = "owner")
      */
-    private $owners;
+    private $owners = [];
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
@@ -73,7 +73,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DistributionListAction

@@ -40,7 +40,7 @@ class DistributionListRightSpec
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline = true, entry = "grantee")
      */
-    private $grantees;
+    private $grantees = [];
 
     /**
      * Constructor method for DistributionListRightSpec

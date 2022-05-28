@@ -66,7 +66,7 @@ class ChildAccount
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for ChildAccount

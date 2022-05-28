@@ -54,7 +54,7 @@ class CheckRightsTargetSpec
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckRightsTargetSpec

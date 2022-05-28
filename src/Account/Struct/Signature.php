@@ -55,7 +55,7 @@ class Signature
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline = true, entry = "content")
      */
-    private $contents;
+    private $contents = [];
 
     /**
      * Constructor method for signature
@@ -72,6 +72,7 @@ class Signature
         array $contents = []
 	)
     {
+        $this->setContents($contents);
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -81,7 +82,6 @@ class Signature
         if (NULL !== $cid) {
             $this->setCid($cid);
         }
-        $this->setContents($contents);
     }
 
     /**

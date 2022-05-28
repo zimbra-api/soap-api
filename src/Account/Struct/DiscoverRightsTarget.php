@@ -67,7 +67,7 @@ class DiscoverRightsTarget
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
      * @XmlList(inline = true, entry = "email")
      */
-    private $emails;
+    private $emails = [];
 
     /**
      * Constructor method for DiscoverRightsTarget

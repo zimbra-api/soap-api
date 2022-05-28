@@ -29,7 +29,7 @@ trait AttrsImplTrait
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for AttrsImpl

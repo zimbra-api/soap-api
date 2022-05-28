@@ -39,7 +39,7 @@ class DistributionListRightInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline = true, entry = "grantee")
      */
-    private $grantees;
+    private $grantees = [];
 
     /**
      * Constructor method for DistributionListRightInfo

@@ -104,8 +104,8 @@ class ZmgDeviceSpec
     )
     {
         $this->setAppId($appId)
-            ->setRegistrationId($registrationId)
-            ->setPushProvider($pushProvider);
+             ->setRegistrationId($registrationId)
+             ->setPushProvider($pushProvider);
         if (NULL !== $osName) {
             $this->setOSName($osName);
         }

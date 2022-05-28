@@ -48,7 +48,7 @@ class NameId
     public function __construct(string $name, string $id)
     {
         $this->setName($name)
-            ->setId($id);
+             ->setId($id);
     }
 
     /**

@@ -39,7 +39,7 @@ class DiscoverRightsInfo
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline = true, entry = "target")
      */
-    private $targets;
+    private $targets = [];
 
     /**
      * Constructor method for DiscoverRightsInfo
@@ -54,7 +54,7 @@ class DiscoverRightsInfo
     )
     {
         $this->setRight($right)
-            ->setTargets($targets);
+             ->setTargets($targets);
     }
 
     /**

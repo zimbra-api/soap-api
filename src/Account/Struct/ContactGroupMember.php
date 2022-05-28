@@ -48,7 +48,7 @@ class ContactGroupMember
      * @Type("Zimbra\Account\Struct\ContactInfo")
      * @XmlElement
      */
-    private $contact;
+    private ?ContactInfo $contact = NULL;
 
     /**
      * Constructor method for ContactGroupMember
@@ -60,7 +60,7 @@ class ContactGroupMember
     public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
     {
         $this->setType($type)
-            ->setValue($value);
+             ->setValue($value);
         if ($contact instanceof ContactInfo) {
             $this->setContact($contact);
         }

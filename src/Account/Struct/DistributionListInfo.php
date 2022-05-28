@@ -59,7 +59,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Group owners
@@ -68,7 +68,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline = false, entry = "owner")
      */
-    private $owners;
+    private $owners = [];
 
     /**
      * Rights
@@ -77,7 +77,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DistributionListInfo
