@@ -15,7 +15,7 @@ use Zimbra\Admin\Struct\LDAPEntryInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * CreateLDAPEntryResponse class
+ * ModifyLDAPEntryResponse class
  *
  * @package    Zimbra
  * @subpackage Admin
@@ -23,10 +23,10 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CreateLDAPEntryResponse implements ResponseInterface
+class ModifyLDAPEntryResponse implements ResponseInterface
 {
     /**
-     * Information about the newly created LDAPEntry
+     * Information about LDAP entry
      * @Accessor(getter="getLDAPEntry", setter="setLDAPEntry")
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
@@ -35,14 +35,16 @@ class CreateLDAPEntryResponse implements ResponseInterface
     private $LDAPEntry;
 
     /**
-     * Constructor method for CreateLDAPEntryResponse
+     * Constructor method for ModifyLDAPEntryResponse
      *
      * @param LDAPEntryInfo $LDAPEntry
      * @return self
      */
-    public function __construct(LDAPEntryInfo $LDAPEntry)
+    public function __construct(?LDAPEntryInfo $LDAPEntry = NULL)
     {
-        $this->setLDAPEntry($LDAPEntry);
+        if ($LDAPEntry instanceof LDAPEntryInfo) {
+            $this->setLDAPEntry($LDAPEntry);
+        }
     }
 
     /**
@@ -50,15 +52,15 @@ class CreateLDAPEntryResponse implements ResponseInterface
      *
      * @return LDAPEntryInfo
      */
-    public function getLDAPEntry(): LDAPEntryInfo
+    public function getLDAPEntry(): ?LDAPEntryInfo
     {
         return $this->LDAPEntry;
     }
 
     /**
-     * Sets the LDAPEntry.
+     * Sets the LDAPEntryInfo.
      *
-     * @param  LDAPEntryInfo $LDAPEntry
+     * @param  LDAPEntryInfo $LDAPEntryInfo
      * @return self
      */
     public function setLDAPEntry(LDAPEntryInfo $LDAPEntry): self

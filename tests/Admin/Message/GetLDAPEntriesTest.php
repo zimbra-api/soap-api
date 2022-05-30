@@ -54,13 +54,13 @@ class GetLDAPEntriesTest extends ZimbraTestCase
         $this->assertSame($query, $request->getQuery());
 
         $response = new GetLDAPEntriesResponse([$LDAPEntry]);
-        $this->assertSame([$LDAPEntry], $response->getLDAPentries());
+        $this->assertSame([$LDAPEntry], $response->getLDAPEntries());
 
         $response = new GetLDAPEntriesResponse();
-        $response->setLDAPentries([$LDAPEntry])
+        $response->setLDAPEntries([$LDAPEntry])
             ->addLDAPentry($LDAPEntry);
-        $this->assertSame([$LDAPEntry, $LDAPEntry], $response->getLDAPentries());
-        $response->setLDAPentries([$LDAPEntry]);
+        $this->assertSame([$LDAPEntry, $LDAPEntry], $response->getLDAPEntries());
+        $response->setLDAPEntries([$LDAPEntry]);
 
         $body = new GetLDAPEntriesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

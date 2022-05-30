@@ -2,57 +2,53 @@
 
 namespace Zimbra\Tests\Admin\Message;
 
-use Zimbra\Admin\Message\CreateLDAPEntryBody;
-use Zimbra\Admin\Message\CreateLDAPEntryEnvelope;
-use Zimbra\Admin\Message\CreateLDAPEntryRequest;
-use Zimbra\Admin\Message\CreateLDAPEntryResponse;
+use Zimbra\Admin\Message\ModifyLDAPEntryBody;
+use Zimbra\Admin\Message\ModifyLDAPEntryEnvelope;
+use Zimbra\Admin\Message\ModifyLDAPEntryRequest;
+use Zimbra\Admin\Message\ModifyLDAPEntryResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\LDAPEntryInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for CreateLDAPEntry.
+ * Testcase class for ModifyLDAPEntry.
  */
-class CreateLDAPEntryTest extends ZimbraTestCase
+class ModifyLDAPEntryTest extends ZimbraTestCase
 {
-    public function testCreateLDAPEntry()
+    public function testModifyLDAPEntry()
     {
+        $dn = $this->faker->word;
+        $name = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $name = $this->faker->word;
-        $dn = $this->faker->uuid;
 
-        $attr = new Attr($key, $value);
-        $ldap = new LDAPEntryInfo($name, [$attr]);
-
-        $request = new CreateLDAPEntryRequest(
-            $dn, [$attr]
-        );
+        $request = new ModifyLDAPEntryRequest($dn);
         $this->assertSame($dn, $request->getDn());
-        $request = new CreateLDAPEntryRequest('');
+        $request = new ModifyLDAPEntryRequest('');
         $request->setDn($dn)
-            ->setAttrs([$attr]);
+            ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($dn, $request->getDn());
 
-        $response = new CreateLDAPEntryResponse($ldap);
-        $this->assertSame($ldap, $response->getLDAPEntry());
-        $response = new CreateLDAPEntryResponse(new LDAPEntryInfo(''));
-        $response->setLDAPEntry($ldap);
-        $this->assertSame($ldap, $response->getLDAPEntry());
+        $LDAPEntry = new LDAPEntryInfo($name, [new Attr($key, $value)]);
+        $response = new ModifyLDAPEntryResponse($LDAPEntry);
+        $this->assertEquals($LDAPEntry, $response->getLDAPEntry());
+        $response = new ModifyLDAPEntryResponse();
+        $response->setLDAPEntry($LDAPEntry);
+        $this->assertEquals($LDAPEntry, $response->getLDAPEntry());
 
-        $body = new CreateLDAPEntryBody($request, $response);
+        $body = new ModifyLDAPEntryBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-        $body = new CreateLDAPEntryBody();
+        $body = new ModifyLDAPEntryBody();
         $body->setRequest($request)
              ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CreateLDAPEntryEnvelope($body);
+        $envelope = new ModifyLDAPEntryEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
 
-        $envelope = new CreateLDAPEntryEnvelope();
+        $envelope = new ModifyLDAPEntryEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -60,23 +56,23 @@ class CreateLDAPEntryTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:CreateLDAPEntryRequest dn="$dn">
+        <urn:ModifyLDAPEntryRequest dn="$dn">
             <a n="$key">$value</a>
-        </urn:CreateLDAPEntryRequest>
-        <urn:CreateLDAPEntryResponse>
+        </urn:ModifyLDAPEntryRequest>
+        <urn:ModifyLDAPEntryResponse>
             <LDAPEntry name="$name">
                 <a n="$key">$value</a>
             </LDAPEntry>
-        </urn:CreateLDAPEntryResponse>
+        </urn:ModifyLDAPEntryResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateLDAPEntryEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyLDAPEntryEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'CreateLDAPEntryRequest' => [
+                'ModifyLDAPEntryRequest' => [
                     'dn' => $dn,
                     'a' => [
                         [
@@ -86,7 +82,7 @@ EOT;
                     ],
                     '_jsns' => 'urn:zimbraAdmin',
                 ],
-                'CreateLDAPEntryResponse' => [
+                'ModifyLDAPEntryResponse' => [
                     'LDAPEntry' => [
                         'name' => $name,
                         'a' => [
@@ -101,6 +97,6 @@ EOT;
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateLDAPEntryEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyLDAPEntryEnvelope::class, 'json'));
     }
 }

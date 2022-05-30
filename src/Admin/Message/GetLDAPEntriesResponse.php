@@ -28,22 +28,22 @@ class GetLDAPEntriesResponse implements ResponseInterface
     /**
      * LDAP entries
      * 
-     * @Accessor(getter="getLDAPentries", setter="setLDAPentries")
+     * @Accessor(getter="getLDAPEntries", setter="setLDAPEntries")
      * @SerializedName("LDAPEntry")
      * @Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")
      * @XmlList(inline = true, entry = "LDAPEntry")
      */
-    private $LDAPentries = [];
+    private $LDAPEntries = [];
 
     /**
      * Constructor method for GetLDAPEntriesResponse
      *
-     * @param array $LDAPentries
+     * @param array $LDAPEntries
      * @return self
      */
-    public function __construct(array $LDAPentries = [])
+    public function __construct(array $LDAPEntries = [])
     {
-        $this->setLDAPentries($LDAPentries);
+        $this->setLDAPEntries($LDAPEntries);
     }
 
     /**
@@ -54,22 +54,22 @@ class GetLDAPEntriesResponse implements ResponseInterface
      */
     public function addLDAPentry(LDAPEntryInfo $LDAPentry): self
     {
-        $this->LDAPentries[] = $LDAPentry;
+        $this->LDAPEntries[] = $LDAPentry;
         return $this;
     }
 
     /**
      * Sets LDAPEntry informations
      *
-     * @param  array $LDAPentries
+     * @param  array $LDAPEntries
      * @return self
      */
-    public function setLDAPentries(array $LDAPentries): self
+    public function setLDAPEntries(array $LDAPEntries): self
     {
-        $this->LDAPentries = [];
-        foreach ($LDAPentries as $LDAPEntry) {
+        $this->LDAPEntries = [];
+        foreach ($LDAPEntries as $LDAPEntry) {
             if ($LDAPEntry instanceof LDAPEntryInfo) {
-                $this->LDAPentries[] = $LDAPEntry;
+                $this->LDAPEntries[] = $LDAPEntry;
             }
         }
         return $this;
@@ -80,8 +80,8 @@ class GetLDAPEntriesResponse implements ResponseInterface
      *
      * @return array
      */
-    public function getLDAPentries(): array
+    public function getLDAPEntries(): array
     {
-        return $this->LDAPentries;
+        return $this->LDAPEntries;
     }
 }
