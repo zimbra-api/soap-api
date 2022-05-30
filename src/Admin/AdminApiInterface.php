@@ -547,6 +547,15 @@ interface AdminApiInterface extends ApiInterface
     ): ResponseInterface;
 
     /**
+     * Create an LDAP entry
+     * 
+     * @param string $dn
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function createLDAPEntry(string $dn, array $attrs = []): ResponseInterface;
+
+    /**
      * Create a Server
      * 
      * @param string $name
@@ -687,6 +696,14 @@ interface AdminApiInterface extends ApiInterface
      * @return ResponseInterface
      */
     function deleteGalSyncAccount(AccountSelector $account): ResponseInterface;
+
+    /**
+     * Delete a LDAP entry
+     * 
+     * @param  string $dn
+     * @return ResponseInterface
+     */
+    function deleteLDAPEntry(string $dn): ResponseInterface;
 
     /**
      * Delete a mailbox
@@ -1282,6 +1299,26 @@ interface AdminApiInterface extends ApiInterface
     function getIndexStats(MailboxByAccountIdSelector $mbox): ResponseInterface;
 
     /**
+     * Fetches ldap entry (or entries) by a search-base ({ldap-search-base}) and a search query ({query}).
+     * 
+     * @param  string $ldapSearchBase
+     * @param  string $sortBy
+     * @param  bool $sortAscending
+     * @param  int $limit
+     * @param  int $offset
+     * @param  string $query
+     * @return ResponseInterface
+     */
+    function getLDAPEntries(
+        string $ldapSearchBase,
+        ?string $sortBy = NULL,
+        ?bool $sortAscending = NULL,
+        ?int $limit = NULL,
+        ?int $offset = NULL,
+        ?string $query = NULL
+    ): ResponseInterface;
+
+    /**
      * Get License information
      * 
      * @return ResponseInterface
@@ -1688,6 +1725,15 @@ interface AdminApiInterface extends ApiInterface
     ): ResponseInterface;
 
     /**
+     * Modify a LDAP Entry
+     * 
+     * @param string $dn
+     * @param array  $attrs
+     * @return ResponseInterface
+     */
+    function modifyLDAPEntry(string $dn, array $attrs = []): ResponseInterface;
+
+    /**
      * Modify Filter rules
      * 
      * @param  AdminFilterType $type
@@ -1933,6 +1979,15 @@ interface AdminApiInterface extends ApiInterface
      * @return ResponseInterface
      */
     function renameDistributionList(string $id, string $newName): ResponseInterface;
+
+    /**
+     * Rename LDAP Entry
+     * 
+     * @param string $dn
+     * @param string $newDn
+     * @return ResponseInterface
+     */
+    function renameLDAPEntry(string $dn, string $newDn): ResponseInterface;
 
     /**
      * Rename Unified Communication Service

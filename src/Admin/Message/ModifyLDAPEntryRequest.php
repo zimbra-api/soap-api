@@ -16,7 +16,7 @@ use Zimbra\Soap\Request;
 
 /**
  * ModifyLDAPEntryRequest class
- * Modify an LDAP Entry
+ * Modify a LDAP Entry
  *
  * @package    Zimbra
  * @subpackage Admin

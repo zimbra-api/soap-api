@@ -15,7 +15,7 @@ use Zimbra\Soap\Request;
 
 /**
  * DeleteLDAPEntryRequest class
- * Delete an LDAP entry
+ * Delete a LDAP entry
  * 
  * @package    Zimbra
  * @subpackage Admin
