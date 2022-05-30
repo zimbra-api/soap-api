@@ -11,7 +11,7 @@
 namespace Zimbra\Soap\Header;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Enum\RequestFormat;
+use Zimbra\Common\Enum\RequestFormat;
 
 /**
  * FormatInfo struct class
@@ -27,7 +27,7 @@ class FormatInfo
      * Desired response format. Valid values "xml" (default) and "js"
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RequestFormat")
+     * @Type("Zimbra\Common\Enum\RequestFormat")
      * @XmlAttribute
      */
     private ?RequestFormat $format = NULL;
