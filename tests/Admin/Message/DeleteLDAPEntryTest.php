@@ -15,7 +15,7 @@ class DeleteLDAPEntryTest extends ZimbraTestCase
 {
     public function testDeleteLDAPEntry()
     {
-        $dn = $this->faker->name;
+        $dn = $this->faker->word;
         $request = new DeleteLDAPEntryRequest($dn);
         $this->assertSame($dn, $request->getDn());
         $request = new DeleteLDAPEntryRequest('');
