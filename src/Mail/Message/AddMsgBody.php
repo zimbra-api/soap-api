@@ -30,7 +30,7 @@ class AddMsgBody extends Body
      * @Type("Zimbra\Mail\Message\AddMsgRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AddMsgBody extends Body
      * @Type("Zimbra\Mail\Message\AddMsgResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for AddMsgBody

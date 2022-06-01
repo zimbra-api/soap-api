@@ -30,7 +30,7 @@ class CompleteTaskInstanceBody extends Body
      * @Type("Zimbra\Mail\Message\CompleteTaskInstanceRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CompleteTaskInstanceBody extends Body
      * @Type("Zimbra\Mail\Message\CompleteTaskInstanceResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for CompleteTaskInstanceBody

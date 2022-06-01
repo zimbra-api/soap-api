@@ -30,7 +30,7 @@ class CreateAppointmentExceptionBody extends Body
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CreateAppointmentExceptionBody extends Body
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for CreateAppointmentExceptionBody

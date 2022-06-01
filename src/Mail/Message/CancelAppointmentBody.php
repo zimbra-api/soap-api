@@ -30,7 +30,7 @@ class CancelAppointmentBody extends Body
      * @Type("Zimbra\Mail\Message\CancelAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CancelAppointmentBody extends Body
      * @Type("Zimbra\Mail\Message\CancelAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for CancelAppointmentBody

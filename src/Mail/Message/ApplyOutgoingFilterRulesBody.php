@@ -30,7 +30,7 @@ class ApplyOutgoingFilterRulesBody extends Body
      * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ApplyOutgoingFilterRulesBody extends Body
      * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for ApplyOutgoingFilterRulesBody

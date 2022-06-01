@@ -30,7 +30,7 @@ class BrowseBody extends Body
      * @Type("Zimbra\Mail\Message\BrowseRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class BrowseBody extends Body
      * @Type("Zimbra\Mail\Message\BrowseResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for BrowseBody
