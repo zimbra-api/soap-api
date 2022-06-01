@@ -50,7 +50,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterVariables")
      * @XmlElement
      */
-    private $filterVariables;
+    private ?FilterVariables $filterVariables = NULL;
 
     /**
      * Filter tests
@@ -59,7 +59,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterTests")
      * @XmlElement
      */
-    private $tests;
+    private FilterTests $tests;
 
     /**
      * Filter actions
@@ -69,7 +69,7 @@ class FilterRule
      ^ @SkipWhenEmpty
      * @XmlKeyValuePairs
      */
-    private $actions;
+    private $actions = [];
 
     /**
      * Nested Rule
@@ -78,7 +78,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\NestedRule")
      * @XmlElement
      */
-    private $child;
+    private ?NestedRule $child = NULL;
 
     /**
      * Constructor method for FilterRule

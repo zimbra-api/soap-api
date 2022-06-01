@@ -39,7 +39,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\CreateItemNotification>")
      * @XmlList(inline = true, entry = "created")
      */
-    private $created;
+    private $created = [];
 
     /**
      * list of deleted items
@@ -48,7 +48,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")
      * @XmlList(inline = true, entry = "deleted")
      */
-    private $deleted;
+    private $deleted = [];
 
     /**
      * list of modified messages
@@ -57,7 +57,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")
      * @XmlList(inline = true, entry = "modMsgs")
      */
-    private $modifiedMsgs;
+    private $modifiedMsgs = [];
 
     /**
      * list of modified tags
@@ -66,7 +66,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")
      * @XmlList(inline = true, entry = "modTags")
      */
-    private $modifiedTags;
+    private $modifiedTags = [];
 
     /**
      * list of renamed folders
@@ -75,7 +75,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")
      * @XmlList(inline = true, entry = "modFolders")
      */
-    private $modifiedFolders;
+    private $modifiedFolders = [];
 
     /**
      * Constructor method for PendingFolderModifications

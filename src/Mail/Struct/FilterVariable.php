@@ -51,7 +51,7 @@ class FilterVariable
     public function __construct(string $name, string $value)
     {
         $this->setName($name)
-            ->setValue($value);
+             ->setValue($value);
     }
 
     /**

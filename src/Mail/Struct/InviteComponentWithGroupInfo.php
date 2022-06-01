@@ -58,7 +58,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\GeoInfo")
 	 * @XmlElement
 	 */
-	private $geo;
+	private ?GeoInfo $geo = NULL;
 
 	/**
 	 * Attendees
@@ -121,7 +121,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\CalOrganizer")
 	 * @XmlElement
 	 */
-	private $organizer;
+	private ?CalOrganizer $organizer = NULL;
 
 	/**
 	 * Recurrence information
@@ -130,7 +130,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\RecurrenceInfo")
 	 * @XmlElement
 	 */
-	private $recurrence;
+	private ?RecurrenceInfo $recurrence = NULL;
 
 	/**
 	 * Recurrence id, if this is an exception
@@ -139,7 +139,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\ExceptionRecurIdInfo")
 	 * @XmlElement
 	 */
-	private $exceptionId;
+	private ?ExceptionRecurIdInfo $exceptionId = NULL;
 
 	/**
 	 * Start date-time (required)
@@ -148,7 +148,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
 	 * @XmlElement
 	 */
-	private $dtStart;
+	private ?DtTimeInfo $dtStart = NULL;
 
 	/**
 	 * End date-time
@@ -157,7 +157,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
 	 * @XmlElement
 	 */
-	private $dtEnd;
+	private ?DtTimeInfo $dtEnd = NULL;
 
 	/**
 	 * Duration
@@ -166,7 +166,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
 	 * @Type("App\Libraries\Zimbra\Mail\Type\DurationInfo")
 	 * @XmlElement
 	 */
-	private $duration;
+	private ?DurationInfo $duration = NULL;
 
 	/**
 	 * Constructor method

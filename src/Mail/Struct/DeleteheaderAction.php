@@ -48,7 +48,7 @@ class DeleteheaderAction extends FilterAction
      * @Type("Zimbra\Mail\Struct\EditheaderTest")
      * @XmlElement
      */
-    private $test;
+    private ?EditheaderTest $test = NULL;
 
     /**
      * Constructor method for DeleteheaderAction

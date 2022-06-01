@@ -10,7 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\ViewType;
 
 /**
  * NewFolderSpec class
@@ -24,24 +25,6 @@ use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttri
  */
 class NewMountpointSpec
 {
-    /**
-     * @Exclude
-     */
-    private static $viewType = [
-        'search folder',
-        'tag',
-        'conversation',
-        'message',
-        'contact',
-        'document',
-        'appointment',
-        'virtual conversation',
-        'remote folder',
-        'wiki',
-        'task',
-        'chat',
-    ];
-
     /**
      * Mountpoint name
      * @Accessor(getter="getName", setter="setName")
@@ -59,7 +42,7 @@ class NewMountpointSpec
      * @Type("string")
      * @XmlAttribute
      */
-    private $defaultView;
+    private ?ViewType $defaultView = NULL;
 
     /**
      * Flags
@@ -181,7 +164,7 @@ class NewMountpointSpec
     public function __construct(
         string $name,
         string $folderId,
-        ?string $defaultView = NULL,
+        ?ViewType $defaultView = NULL,
         ?string $flags = NULL,
         ?int $color = NULL,
         ?string $rgb = NULL,
@@ -196,7 +179,7 @@ class NewMountpointSpec
     {
         $this->setName($name)
              ->setFolderId($folderId);
-        if (NULL !== $defaultView) {
+        if ($defaultView instanceof ViewType) {
             $this->setDefaultView($defaultView);
         }
         if (NULL !== $flags) {
@@ -288,14 +271,12 @@ class NewMountpointSpec
     /**
      * Sets defaultView
      *
-     * @param  string $defaultView
+     * @param  ViewType $defaultView
      * @return self
      */
-    public function setDefaultView(string $defaultView): self
+    public function setDefaultView(ViewType $defaultView): self
     {
-        if (in_array($defaultView, self::$viewType)) {
-            $this->defaultView = $defaultView;
-        }
+        $this->defaultView = $defaultView;
         return $this;
     }
 

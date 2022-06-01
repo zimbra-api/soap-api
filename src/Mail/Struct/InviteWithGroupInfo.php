@@ -49,7 +49,7 @@ class InviteWithGroupInfo
 	 * @Type("array<App\Libraries\Zimbra\Mail\Type\InviteComponentWithGroupInfo>")
 	 * @XmlList(inline = false, entry = "comp")
 	 */
-	private $inviteComponents;
+	private $inviteComponents = [];
 
 	/**
 	 * Replies

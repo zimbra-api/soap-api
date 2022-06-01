@@ -29,7 +29,7 @@ class PolicyHolder
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $policy;
+    private ?Policy $policy = NULL;
 
     /**
      * Constructor method for PolicyHolder

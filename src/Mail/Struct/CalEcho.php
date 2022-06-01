@@ -30,7 +30,7 @@ class CalEcho
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
      * @XmlElement
      */
-    private $invite;
+    private ?InviteAsMP $invite = NULL;
 
     /**
      * Constructor method

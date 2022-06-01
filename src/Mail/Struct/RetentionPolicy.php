@@ -30,7 +30,7 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlList(inline = false, entry = "policy")
      */
-    private $keep;
+    private $keep = [];
 
     /**
      * "Purge" retention policies
@@ -39,7 +39,7 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlList(inline = false, entry = "policy")
      */
-    private $purge;
+    private $purge = [];
 
     /**
      * Constructor method for RetentionPolicy

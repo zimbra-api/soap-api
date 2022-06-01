@@ -38,7 +38,7 @@ class AccountWithModifications
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline = true, entry = "mods")
      */
-    private $mods;
+    private $mods = [];
 
     /**
      * ID of the last change
@@ -62,11 +62,9 @@ class AccountWithModifications
         ?int $lastChangeId = NULL
     )
     {
+        $this->setPendingFolderModifications($mods);
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if (!empty($mods)) {
-            $this->setPendingFolderModifications($mods);
         }
         if (NULL !== $lastChangeId) {
             $this->setLastChangeId($lastChangeId);

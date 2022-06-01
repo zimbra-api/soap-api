@@ -122,7 +122,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement
      */
-    private $mimePart;
+    private ?MimePartInfo $mimePart = NULL;
 
     /**
      * Attachments information
@@ -131,7 +131,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Invite information
@@ -140,7 +140,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?InvitationInfo $invite = NULL;
 
     /**
      * Email address information

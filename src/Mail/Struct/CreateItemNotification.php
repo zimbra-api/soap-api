@@ -30,7 +30,7 @@ class CreateItemNotification
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
      * @XmlElement
      */
-    private $msgInfo;
+    private ImapMessageInfo $msgInfo;
 
     /**
      * Constructor method for CreateItemNotification

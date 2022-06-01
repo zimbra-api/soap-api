@@ -30,7 +30,7 @@ class ModifyItemNotification extends ModifyNotification
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
      * @XmlElement
      */
-    private $msgInfo;
+    private ImapMessageInfo $msgInfo;
 
     /**
      * Constructor method for ModifyItemNotification

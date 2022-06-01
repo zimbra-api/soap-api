@@ -93,10 +93,7 @@ class Mountpoint extends Folder
      * @param  string $uuid
      * @return self
      */
-    public function __construct(
-        string $id,
-        string $uuid
-    )
+    public function __construct(string $id, string $uuid)
     {
     	parent::__construct($id, $uuid);
     }

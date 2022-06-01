@@ -58,7 +58,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\RawInvite")
      * @XmlElement
      */
-    private $content;
+    private ?RawInvite $content = NULL;
 
     /**
      * Invite component
@@ -67,7 +67,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement
      */
-    private $inviteComponent;
+    private ?InviteComponent $inviteComponent = NULL;
 
     /**
      * Timezones
@@ -94,7 +94,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Constructor method

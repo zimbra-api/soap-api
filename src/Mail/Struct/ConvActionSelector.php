@@ -74,7 +74,19 @@ class ConvActionSelector extends ActionSelector
     )
     {
         parent::__construct(
-            $operation, $ids, $constraint, $tag, $folder, $rgb, $color, $name, $flags, $tags, $tagNames, $nonExistentIds, $newlyCreatedIds
+            $operation,
+            $ids,
+            $constraint,
+            $tag,
+            $folder,
+            $rgb,
+            $color,
+            $name,
+            $flags,
+            $tags,
+            $tagNames,
+            $nonExistentIds,
+            $newlyCreatedIds
         );
         if (NULL !== $acctRelativePath) {
             $this->setAcctRelativePath($acctRelativePath);

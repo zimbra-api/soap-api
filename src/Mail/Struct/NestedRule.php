@@ -32,7 +32,7 @@ class NestedRule
      * @Type("Zimbra\Mail\Struct\FilterVariables")
      * @XmlElement
      */
-    private $filterVariables;
+    private ?FilterVariables $filterVariables = NULL;
 
     /**
      * Filter tests
@@ -41,17 +41,17 @@ class NestedRule
      * @Type("Zimbra\Mail\Struct\FilterTests")
      * @XmlElement
      */
-    private $tests;
+    private FilterTests $tests;
 
     /**
      * Filter actions
      * @Accessor(getter="getFilterActions", setter="setFilterActions")
      * @Type("array<string, Zimbra\Mail\Struct\FilterAction>")
      * @SerializedName("filterActions")
-     ^ @SkipWhenEmpty
+     * @SkipWhenEmpty
      * @XmlKeyValuePairs
      */
-    private $actions;
+    private $actions = [];
 
     /**
      * NestedRule child
@@ -60,7 +60,7 @@ class NestedRule
      * @Type("Zimbra\Mail\Struct\NestedRule")
      * @XmlElement
      */
-    private $child;
+    private ?NestedRule $child = NULL;
 
     /**
      * Constructor method for NestedRule
@@ -76,7 +76,7 @@ class NestedRule
     )
     {
         $this->setFilterTests($tests)
-            ->setFilterActions($actions);
+             ->setFilterActions($actions);
         if ($filterVariables instanceof FilterVariables) {
             $this->setFilterVariables($filterVariables);
         }

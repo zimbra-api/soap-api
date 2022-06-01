@@ -87,7 +87,7 @@ class FolderActionSelector extends ActionSelector
      * @Type("Zimbra\Mail\Struct\ActionGrantSelector")
      * @XmlElement
      */
-    private $grant;
+    private ?ActionGrantSelector $grant = NULL;
 
     /**
      * List of grants used with op=grant and op=!grant
@@ -106,7 +106,7 @@ class FolderActionSelector extends ActionSelector
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement
      */
-    private $retentionPolicy;
+    private ?RetentionPolicy $retentionPolicy = NULL;
 
     /**
      * Number of days for which web client would sync folder data for offline use

@@ -66,7 +66,7 @@ class MimePartInfo
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Constructor method

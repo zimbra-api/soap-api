@@ -226,15 +226,6 @@ class MsgWithGroupInfo extends MessageCommon
     private ?UrlAndValue $content = NULL;
 
     /**
-     * Constructor method for Msg
-     *
-     * @return self
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Gets id
      *
      * @return string

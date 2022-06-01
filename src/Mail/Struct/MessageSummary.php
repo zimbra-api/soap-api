@@ -75,7 +75,7 @@ class MessageSummary extends MessageCommon
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?InviteInfo $invite = NULL;
 
     /**
      * Constructor method for MessageSummary

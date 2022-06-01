@@ -31,7 +31,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private ?InstanceRecurIdInfo $exceptionId = NULL;
 
     /**
      * DTSTART time in milliseconds since the Epoch
@@ -58,7 +58,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $duration;
+    private ?DurationInfo $duration = NULL;
 
     /**
      * RRULE/RDATE/EXDATE information
@@ -67,7 +67,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $recurrence;
+    private ?RecurrenceInfo $recurrence = NULL;
 
     /**
      * Constructor method for ExpandedRecurrenceComponent
