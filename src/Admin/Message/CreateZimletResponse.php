@@ -32,7 +32,7 @@ class CreateZimletResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
      * @XmlElement
      */
-    private $zimlet;
+    private ZimletInfo $zimlet;
 
     /**
      * Constructor method for CreateZimletResponse

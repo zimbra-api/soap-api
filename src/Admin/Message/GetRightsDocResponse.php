@@ -34,7 +34,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")
      * @XmlList(inline = true, entry = "package")
      */
-    private $pkgs;
+    private $pkgs = [];
 
     /**
      * Unused Admin rights
@@ -44,7 +44,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "notUsed")
      */
-    private $notUsed;
+    private $notUsed = [];
 
     /**
      * Domain admin rights
@@ -54,7 +54,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for GetRightsDocResponse

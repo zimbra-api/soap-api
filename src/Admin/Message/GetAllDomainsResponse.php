@@ -33,7 +33,7 @@ class GetAllDomainsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domainList;
+    private $domainList = [];
 
     /**
      * Constructor method for GetAllDomainsResponse

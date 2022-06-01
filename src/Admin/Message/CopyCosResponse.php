@@ -32,7 +32,7 @@ class CopyCosResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement
      */
-    private $cos;
+    private ?CosInfo $cos = NULL;
 
     /**
      * Constructor method for CopyCosResponse

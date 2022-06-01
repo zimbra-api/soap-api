@@ -32,7 +32,7 @@ class RunUnitTestsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
      * @XmlElement
      */
-    private $results;
+    private TestResultInfo $results;
 
     /**
      * Number of executed tests

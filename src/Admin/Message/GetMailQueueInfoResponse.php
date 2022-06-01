@@ -32,7 +32,7 @@ class GetMailQueueInfoResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ServerQueues")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for GetMailQueueInfoResponse

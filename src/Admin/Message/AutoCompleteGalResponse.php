@@ -59,7 +59,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
      * Constructor method for AutoCompleteGalResponse

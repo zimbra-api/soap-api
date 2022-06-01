@@ -32,7 +32,7 @@ class SetPasswordEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\SetPasswordBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $body;
+    private ?BodyInterface $body = NULL;
 
     /**
      * Constructor method for SetPasswordEnvelope

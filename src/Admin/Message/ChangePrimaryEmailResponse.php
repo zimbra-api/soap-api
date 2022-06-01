@@ -32,7 +32,7 @@ class ChangePrimaryEmailResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Constructor method for ChangePrimaryEmailResponse

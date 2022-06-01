@@ -51,7 +51,7 @@ class SearchCalendarResourcesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline = true, entry = "calresource")
      */
-    private $calResources;
+    private $calResources = [];
 
     /**
      * Constructor method for SearchCalendarResourcesResponse

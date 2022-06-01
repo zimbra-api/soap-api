@@ -33,7 +33,7 @@ class GetAllVolumesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeInfo>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Constructor method for GetAllVolumesResponse

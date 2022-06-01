@@ -32,7 +32,7 @@ class CreateDomainResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement
      */
-    private $domain;
+    private DomainInfo $domain;
 
     /**
      * Constructor method for CreateDomainResponse

@@ -33,7 +33,7 @@ class ClearCookieRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
      * @XmlList(inline = true, entry = "cookie")
      */
-    private $cookies;
+    private $cookies = [];
 
     /**
      * Constructor method for ClearCookieRequest

@@ -32,7 +32,7 @@ class ModifyAccountResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement
      */
-    private $account;
+    private ?AccountInfo $account = NULL;
 
     /**
      * Constructor method for ModifyAccountResponse

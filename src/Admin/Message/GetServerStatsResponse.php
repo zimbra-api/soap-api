@@ -33,7 +33,7 @@ class GetServerStatsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for GetServerStatsResponse

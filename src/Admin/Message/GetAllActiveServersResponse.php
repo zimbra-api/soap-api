@@ -33,7 +33,7 @@ class GetAllActiveServersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
      * @XmlList(inline = true, entry = "server")
      */
-    private $serverList;
+    private $serverList = [];
 
     /**
      * Constructor method for GetAllActiveServersResponse

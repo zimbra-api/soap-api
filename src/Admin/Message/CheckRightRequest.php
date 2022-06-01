@@ -40,7 +40,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee - valid values for type are "usr" and "email"
@@ -49,7 +49,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Checked Right
@@ -58,7 +58,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement
      */
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor method for CheckRightRequest

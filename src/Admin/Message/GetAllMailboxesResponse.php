@@ -33,7 +33,7 @@ class GetAllMailboxesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\MailboxInfo>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mboxes;
+    private $mboxes = [];
 
     /**
      * 1 (true) if more mailboxes left to return

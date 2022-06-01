@@ -34,7 +34,7 @@ class GetCurrentVolumesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Constructor method for GetCurrentVolumesResponse

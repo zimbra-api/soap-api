@@ -33,7 +33,7 @@ class GetDataSourcesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DataSourceInfo>")
      * @XmlList(inline = true, entry = "dataSource")
      */
-    private $dataSources;
+    private $dataSources = [];
 
     /**
      * Constructor method for GetDataSourcesResponse

@@ -33,7 +33,7 @@ class GetAllCosResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $cosList;
+    private $cosList = [];
 
     /**
      * Constructor method for GetAllCosResponse

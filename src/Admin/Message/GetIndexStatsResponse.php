@@ -32,7 +32,7 @@ class GetIndexStatsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\IndexStats")
      * @XmlElement
      */
-    private $stats;
+    private IndexStats $stats;
 
     /**
      * Constructor method for GetIndexStatsResponse

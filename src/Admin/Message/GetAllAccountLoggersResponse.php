@@ -33,7 +33,7 @@ class GetAllAccountLoggersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountLoggerInfo>")
      * @XmlList(inline = true, entry = "accountLogger")
      */
-    private $loggers;
+    private $loggers = [];
 
     /**
      * Constructor method for GetAllAccountLoggersResponse

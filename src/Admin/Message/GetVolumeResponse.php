@@ -32,7 +32,7 @@ class GetVolumeResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement
      */
-    private $volume;
+    private VolumeInfo $volume;
 
     /**
      * Constructor method for GetVolumeResponse

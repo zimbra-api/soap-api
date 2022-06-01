@@ -41,7 +41,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $soapSessions;
+    private ?InfoForSessionType $soapSessions = NULL;
 
     /**
      * Information about IMAP sessions
@@ -50,7 +50,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $imapSessions;
+    private ?InfoForSessionType $imapSessions = NULL;
 
     /**
      * Information about ADMIN sessions
@@ -59,7 +59,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $adminSessions;
+    private ?InfoForSessionType $adminSessions = NULL;
 
     /**
      * Information about WIKI sessions
@@ -68,7 +68,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $wikiSessions;
+    private ?InfoForSessionType $wikiSessions = NULL;
 
     /**
      * Information about SYNCLISTENER sessions
@@ -77,7 +77,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $synclistenerSessions;
+    private ?InfoForSessionType $synclistenerSessions = NULL;
 
     /**
      * Information about WaitSet sessions
@@ -86,7 +86,7 @@ class DumpSessionsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement
      */
-    private $waitsetSessions;
+    private ?InfoForSessionType $waitsetSessions = NULL;
 
     /**
      * Constructor method for DumpSessionsResponse

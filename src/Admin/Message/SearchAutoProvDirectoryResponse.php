@@ -51,7 +51,7 @@ class SearchAutoProvDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Constructor method for SearchAutoProvDirectoryResponse

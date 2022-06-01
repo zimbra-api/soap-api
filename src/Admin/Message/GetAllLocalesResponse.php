@@ -33,7 +33,7 @@ class GetAllLocalesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\LocaleInfo>")
      * @XmlList(inline = true, entry = "locale")
      */
-    private $locales;
+    private $locales = [];
 
     /**
      * Constructor method for GetAllLocalesResponse

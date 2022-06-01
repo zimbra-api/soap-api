@@ -33,7 +33,7 @@ class GetGrantsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\GrantInfo>")
      * @XmlList(inline = true, entry = "grant")
      */
-    private $grants;
+    private $grants = [];
 
     /**
      * Constructor method for GetGrantsResponse

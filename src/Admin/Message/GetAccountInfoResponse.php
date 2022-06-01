@@ -42,7 +42,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrList;
+    private $attrList = [];
 
     /**
      * Class of Service (COS) information for account
@@ -61,7 +61,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "soapURL")
      */
-    private $soapURLList;
+    private $soapURLList = [];
 
     /**
      * URL for the Admin SOAP service
@@ -102,8 +102,8 @@ class GetAccountInfoResponse implements ResponseInterface
     )
     {
         $this->setName($name)
-            ->setAttrList($attrList)
-            ->setSoapURLList($soapURLList);
+             ->setAttrList($attrList)
+             ->setSoapURLList($soapURLList);
         if ($cos instanceof CosInfo) {
             $this->setCos($cos);
         }

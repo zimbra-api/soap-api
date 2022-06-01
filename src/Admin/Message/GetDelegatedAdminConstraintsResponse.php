@@ -33,7 +33,7 @@ class GetDelegatedAdminConstraintsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsResponse

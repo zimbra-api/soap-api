@@ -34,7 +34,7 @@ class CheckDirectoryRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\CheckDirSelector>")
      * @XmlList(inline = true, entry = "directory")
      */
-    private $paths;
+    private $paths = [];
 
     /**
      * Constructor method for CheckDirectoryRequest

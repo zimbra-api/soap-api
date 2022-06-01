@@ -32,7 +32,7 @@ class GetCosResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement
      */
-    private $cos;
+    private CosInfo $cos;
 
     /**
      * Constructor method for GetCosResponse

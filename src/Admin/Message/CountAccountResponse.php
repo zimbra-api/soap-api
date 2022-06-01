@@ -33,7 +33,7 @@ class CountAccountResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $cos;
+    private $cos = [];
 
     /**
      * Constructor method for CountAccountResponse

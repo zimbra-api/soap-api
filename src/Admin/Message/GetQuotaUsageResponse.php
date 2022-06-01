@@ -50,7 +50,7 @@ class GetQuotaUsageResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accountQuotas;
+    private $accountQuotas = [];
 
     /**
      * Constructor method for GetQuotaUsageResponse

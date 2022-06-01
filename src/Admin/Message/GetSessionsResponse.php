@@ -50,7 +50,7 @@ class GetSessionsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for GetSessionsResponse

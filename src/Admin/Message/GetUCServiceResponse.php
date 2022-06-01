@@ -32,7 +32,7 @@ class GetUCServiceResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
      * @XmlElement
      */
-    private $ucService;
+    private UCServiceInfo $ucService;
 
     /**
      * Constructor method for GetUCServiceResponse

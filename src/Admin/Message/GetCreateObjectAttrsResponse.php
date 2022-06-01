@@ -32,7 +32,7 @@ class GetCreateObjectAttrsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
      * @XmlElement
      */
-    private $setAttrs;
+    private EffectiveAttrsInfo $setAttrs;
 
     /**
      * Constructor method for GetCreateObjectAttrsResponse

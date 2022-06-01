@@ -34,7 +34,7 @@ class CheckDomainMXRecordRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement()
      */
-    private $domain;
+    private ?DomainSelector $domain = NULL;
 
     /**
      * Constructor method for CheckDomainMXRecordRequest
@@ -42,7 +42,7 @@ class CheckDomainMXRecordRequest extends Request
      * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(DomainSelector $domain = NULL)
+    public function __construct(?DomainSelector $domain = NULL)
     {
         if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);

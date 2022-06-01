@@ -62,7 +62,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline = true, entry = "calresource")
      */
-    private $calResources;
+    private $calResources = [];
 
     /**
      * Information on distribution lists
@@ -72,7 +72,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dls;
+    private $dls = [];
 
     /**
      * Information on aliases
@@ -82,7 +82,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
      * @XmlList(inline = true, entry = "alias")
      */
-    private $aliases;
+    private $aliases = [];
 
     /**
      * Information on accounts
@@ -92,7 +92,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Information on domains
@@ -102,7 +102,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domains;
+    private $domains = [];
 
     /**
      * Information on Classes of Service (COS)
@@ -112,7 +112,7 @@ class SearchDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $coses;
+    private $coses = [];
 
     /**
      * Constructor method for SearchDirectoryResponse

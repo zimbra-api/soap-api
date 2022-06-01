@@ -33,7 +33,7 @@ class GetAllAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for GetAllAccountsResponse

@@ -33,7 +33,7 @@ class CheckBlobConsistencyResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\MailboxBlobConsistency>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mailboxes;
+    private $mailboxes = [];
 
     /**
      * Constructor method for CheckBlobConsistencyResponse

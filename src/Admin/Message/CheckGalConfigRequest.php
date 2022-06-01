@@ -36,7 +36,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
      * @XmlElement
      */
-    private $query;
+    private ?LimitedQuery $query = NULL;
 
     /**
      * GAL action
@@ -56,7 +56,9 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = [])
+    public function __construct(
+        ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
+    )
     {
         if ($query instanceof LimitedQuery) {
             $this->setQuery($query);

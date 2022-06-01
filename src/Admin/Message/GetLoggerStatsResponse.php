@@ -33,7 +33,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\HostStats>")
      * @XmlList(inline = true, entry = "hostname")
      */
-    private $hostNames;
+    private $hostNames = [];
 
     /**
      * Note.  For instance "Logger is not enabled"

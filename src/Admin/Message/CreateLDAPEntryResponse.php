@@ -32,7 +32,7 @@ class CreateLDAPEntryResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement
      */
-    private $LDAPEntry;
+    private LDAPEntryInfo $LDAPEntry;
 
     /**
      * Constructor method for CreateLDAPEntryResponse

@@ -33,7 +33,7 @@ class GetDistributionListMembershipResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DistributionListMembershipInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dls;
+    private $dls = [];
 
     /**
      * Constructor method for GetDistributionListMembershipResponse

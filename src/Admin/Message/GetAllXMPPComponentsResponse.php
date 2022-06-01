@@ -33,7 +33,7 @@ class GetAllXMPPComponentsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\XMPPComponentInfo>")
      * @XmlList(inline = true, entry = "xmppcomponent")
      */
-    private $components;
+    private $components = [];
 
     /**
      * Constructor method for GetAllXMPPComponentsResponse

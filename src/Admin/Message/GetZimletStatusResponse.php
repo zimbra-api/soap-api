@@ -33,7 +33,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
      * @XmlElement
      */
-    private $zimlets;
+    private ZimletStatusParent $zimlets;
 
     /**
      * Class Of Service (COS) Information
@@ -43,7 +43,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $coses;
+    private $coses = [];
 
     /**
      * Constructor method for GetZimletStatusResponse

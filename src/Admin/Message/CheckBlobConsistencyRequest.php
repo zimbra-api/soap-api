@@ -56,7 +56,7 @@ class CheckBlobConsistencyRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Mailboxes
@@ -66,7 +66,7 @@ class CheckBlobConsistencyRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mailboxes;
+    private $mailboxes = [];
 
     /**
      * Constructor method for CheckBlobConsistencyRequest
@@ -77,16 +77,18 @@ class CheckBlobConsistencyRequest extends Request
      * @param  array $mailboxes
      * @return self
      */
-    public function __construct(?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = [])
+    public function __construct(
+        ?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = []
+    )
     {
+        $this->setVolumes($volumes)
+             ->setMailboxes($mailboxes);
         if (NULL !== $checkSize) {
             $this->setCheckSize($checkSize);
         }
         if (NULL !== $reportUsedBlobs){
             $this->setReportUsedBlobs($reportUsedBlobs);
         }
-        $this->setVolumes($volumes)
-             ->setMailboxes($mailboxes);
     }
 
     /**

@@ -32,7 +32,7 @@ class ModifyLDAPEntryResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement
      */
-    private $LDAPEntry;
+    private ?LDAPEntryInfo $LDAPEntry = NULL;
 
     /**
      * Constructor method for ModifyLDAPEntryResponse

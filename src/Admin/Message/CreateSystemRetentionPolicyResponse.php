@@ -32,7 +32,7 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $policy;
+    private Policy $policy;
 
     /**
      * Constructor method for CreateSystemRetentionPolicyResponse

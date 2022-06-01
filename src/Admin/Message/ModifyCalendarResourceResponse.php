@@ -32,7 +32,7 @@ class ModifyCalendarResourceResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
      * @XmlElement
      */
-    private $calResource;
+    private ?CalendarResourceInfo $calResource = NULL;
 
     /**
      * Constructor method for ModifyCalendarResourceResponse

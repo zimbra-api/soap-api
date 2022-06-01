@@ -32,7 +32,7 @@ class CreateGalSyncAccountResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement
      */
-    private $account;
+    private AccountInfo $account;
 
     /**
      * Constructor method for CreateGalSyncAccountResponse

@@ -32,7 +32,7 @@ class RenameCalendarResourceResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
      * @XmlElement
      */
-    private $calResource;
+    private CalendarResourceInfo $calResource;
 
     /**
      * Constructor method for RenameCalendarResourceResponse

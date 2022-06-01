@@ -24,7 +24,6 @@ use Zimbra\Soap\ResponseInterface;
  */
 class CheckDomainMXRecordResponse implements ResponseInterface
 {
-
     /**
      * MX Record entries
      * @Accessor(getter="getEntries", setter="setEntries")
@@ -32,7 +31,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Code - Ok or Failed

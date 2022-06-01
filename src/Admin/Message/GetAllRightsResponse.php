@@ -33,7 +33,7 @@ class GetAllRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\RightInfo>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for GetAllRightsResponse

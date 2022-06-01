@@ -32,7 +32,7 @@ class RenameDistributionListEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\RenameDistributionListBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $body;
+    private ?BodyInterface $body = NULL;
 
     /**
      * Constructor method for RenameDistributionListEnvelope

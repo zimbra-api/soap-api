@@ -32,7 +32,7 @@ class ModifyServerResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ServerInfo")
      * @XmlElement
      */
-    private $server;
+    private ?ServerInfo $server = NULL;
 
     /**
      * Constructor method for ModifyServerResponse

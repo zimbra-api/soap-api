@@ -33,7 +33,7 @@ class ContactBackupResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
      * @XmlList(inline = false, entry = "server")
      */
-    private $servers;
+    private $servers = [];
 
     /**
      * Constructor method for ContactBackupResponse

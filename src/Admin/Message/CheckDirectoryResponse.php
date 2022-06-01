@@ -33,7 +33,7 @@ class CheckDirectoryResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DirPathInfo>")
      * @XmlList(inline = true, entry = "directory")
      */
-    private $paths;
+    private $paths = [];
 
     /**
      * Constructor method for CheckDirectoryResponse

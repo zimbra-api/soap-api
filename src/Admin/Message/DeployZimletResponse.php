@@ -32,7 +32,7 @@ class DeployZimletResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")
      * @XmlList(inline = true, entry = "progress")
      */
-    private $progresses;
+    private $progresses = [];
 
     /**
      * Constructor method for DeployZimletResponse

@@ -32,7 +32,7 @@ class RecalculateMailboxCountsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxQuotaInfo")
      * @XmlElement
      */
-    private $mailbox;
+    private Mailbox $mailbox;
 
     /**
      * Constructor method for RecalculateMailboxCountsResponse

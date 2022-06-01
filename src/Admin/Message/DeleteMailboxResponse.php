@@ -32,7 +32,7 @@ class DeleteMailboxResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement
      */
-    private $mbox;
+    private MailboxId $mbox;
 
     /**
      * Constructor method for DeleteMailboxResponse

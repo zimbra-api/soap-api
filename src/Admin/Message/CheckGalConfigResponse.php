@@ -25,7 +25,6 @@ use Zimbra\Soap\ResponseInterface;
  */
 class CheckGalConfigResponse implements ResponseInterface
 {
-
     /**
      * Code
      * @Accessor(getter="getCode", setter="setCode")
@@ -51,7 +50,7 @@ class CheckGalConfigResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $galContacts;
+    private $galContacts = [];
 
     /**
      * Constructor method for CheckGalConfigResponse

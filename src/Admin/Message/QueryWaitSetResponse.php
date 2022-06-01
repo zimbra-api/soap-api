@@ -33,7 +33,7 @@ class QueryWaitSetResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
      * @XmlList(inline = true, entry = "waitSet")
      */
-    private $waitsets;
+    private $waitsets = [];
 
     /**
      * Constructor method for QueryWaitSetResponse

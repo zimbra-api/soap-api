@@ -32,7 +32,7 @@ class CreateAlwaysOnClusterResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
      * @XmlElement
      */
-    private $cluster;
+    private ?AlwaysOnClusterInfo $cluster = NULL;
 
     /**
      * Constructor method for CreateAlwaysOnClusterResponse

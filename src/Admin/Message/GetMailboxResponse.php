@@ -32,7 +32,7 @@ class GetMailboxResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement
      */
-    private $mbox;
+    private Mailbox $mbox;
 
     /**
      * Constructor method for GetMailboxResponse

@@ -32,7 +32,7 @@ class GetDomainInfoResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement
      */
-    private $domain;
+    private ?DomainInfo $domain = NULL;
 
     /**
      * Constructor method for GetDomainInfoResponse
@@ -40,7 +40,7 @@ class GetDomainInfoResponse implements ResponseInterface
      * @param DomainInfo $domain
      * @return self
      */
-    public function __construct(DomainInfo $domain = NULL)
+    public function __construct(?DomainInfo $domain = NULL)
     {
         if ($domain instanceof DomainInfo) {
             $this->setDomain($domain);

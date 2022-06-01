@@ -33,7 +33,7 @@ class PurgeMessagesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\MailboxWithMailboxId>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mailboxes;
+    private $mailboxes = [];
 
     /**
      * Constructor method for PurgeMessagesResponse

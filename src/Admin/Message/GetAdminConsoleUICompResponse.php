@@ -32,7 +32,7 @@ class GetAdminConsoleUICompResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\InheritedFlaggedValue>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $values;
+    private $values = [];
 
     /**
      * Constructor method for GetAdminConsoleUICompResponse

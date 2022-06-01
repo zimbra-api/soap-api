@@ -33,7 +33,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dls;
+    private $dls = [];
 
     /**
      * Constructor method for GetAllDistributionListsResponse

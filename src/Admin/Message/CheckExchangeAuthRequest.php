@@ -27,14 +27,14 @@ use Zimbra\Soap\Request;
 class CheckExchangeAuthRequest extends Request
 {
     /**
-     * Exchange Auth details
+     * Exchange auth details
      * 
      * @Accessor(getter="getAuth", setter="setAuth")
      * @SerializedName("auth")
      * @Type("Zimbra\Admin\Struct\ExchangeAuthSpec")
      * @XmlElement
      */
-    private $auth;
+    private ?ExchangeAuthSpec $auth = NULL;
 
     /**
      * Constructor method for CheckExchangeAuthRequest

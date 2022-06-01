@@ -33,7 +33,7 @@ class GetServerNIfsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
      * @XmlList(inline = true, entry = "ni")
      */
-    private $networkInterfaces;
+    private $networkInterfaces = [];
 
     /**
      * Constructor method for GetServerNIfsResponse

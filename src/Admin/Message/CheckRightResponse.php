@@ -42,7 +42,7 @@ class CheckRightResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\RightViaInfo")
      * @XmlElement
      */
-    private $via;
+    private ?RightViaInfo $via = NULL;
 
     /**
      * Constructor method for CheckRightResponse

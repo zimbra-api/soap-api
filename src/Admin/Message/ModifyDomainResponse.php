@@ -32,7 +32,7 @@ class ModifyDomainResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement
      */
-    private $domain;
+    private ?DomainInfo $domain = NULL;
 
     /**
      * Constructor method for ModifyDomainResponse

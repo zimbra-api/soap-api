@@ -32,7 +32,7 @@ class CreateVolumeResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement
      */
-    private $volume;
+    private ?VolumeInfo $volume = NULL;
 
     /**
      * Constructor method for CreateVolumeResponse

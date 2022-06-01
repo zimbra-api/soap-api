@@ -32,7 +32,7 @@ class GetAccountMembershipResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DLInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dlList;
+    private $dlList = [];
 
     /**
      * Constructor method for GetAccountMembershipResponse

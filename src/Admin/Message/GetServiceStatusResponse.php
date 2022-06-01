@@ -34,7 +34,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
      * @XmlElement
      */
-    private $timezone;
+    private TimeZoneInfo $timezone;
 
     /**
      * Service status information
@@ -44,7 +44,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
      * @XmlList(inline = true, entry = "status")
      */
-    private $serviceStatuses;
+    private $serviceStatuses = [];
 
     /**
      * Constructor method for GetServiceStatusResponse

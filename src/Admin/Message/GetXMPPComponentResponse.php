@@ -32,7 +32,7 @@ class GetXMPPComponentResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
      * @XmlElement
      */
-    private $component;
+    private XMPPComponentInfo $component;
 
     /**
      * Constructor method for GetXMPPComponentResponse

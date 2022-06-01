@@ -32,7 +32,7 @@ class GetRightResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\RightInfo")
      * @XmlElement
      */
-    private $right;
+    private ?RightInfo $right = NULL;
 
     /**
      * Constructor method for GetRightResponse

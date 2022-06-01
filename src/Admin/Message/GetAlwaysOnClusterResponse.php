@@ -32,7 +32,7 @@ class GetAlwaysOnClusterResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
      * @XmlElement
      */
-    private $cluster;
+    private ?AlwaysOnClusterInfo $cluster = NULL;
 
     /**
      * Constructor method for GetAlwaysOnClusterResponse
@@ -40,7 +40,7 @@ class GetAlwaysOnClusterResponse implements ResponseInterface
      * @param AlwaysOnClusterInfo $cluster
      * @return self
      */
-    public function __construct(AlwaysOnClusterInfo $cluster = NULL)
+    public function __construct(?AlwaysOnClusterInfo $cluster = NULL)
     {
         if ($cluster instanceof AlwaysOnClusterInfo) {
             $this->setAlwaysOnCluster($cluster);
