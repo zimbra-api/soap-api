@@ -43,7 +43,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private DtTimeInfo $exceptionId;
 
     /**
      * Timezone information
@@ -52,7 +52,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement
      */
-    private $timezone;
+    private ?CalTZInfo $timezone = NULL;
 
     /**
      * Constructor method for CompleteTaskInstanceRequest

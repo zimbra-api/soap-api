@@ -38,7 +38,7 @@ class BounceMsgRequest extends Request
      * @Type("Zimbra\Mail\Struct\BounceMsgSpec")
      * @XmlElement
      */
-    private $msg;
+    private BounceMsgSpec $msg;
 
     /**
      * Constructor method for BounceMsgRequest

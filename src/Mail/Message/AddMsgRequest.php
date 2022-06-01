@@ -43,7 +43,7 @@ class AddMsgRequest extends Request
      * @Type("Zimbra\Mail\Struct\AddMsgSpec")
      * @XmlElement
      */
-    private $msg;
+    private AddMsgSpec $msg;
 
     /**
      * Constructor method for AddMsgRequest

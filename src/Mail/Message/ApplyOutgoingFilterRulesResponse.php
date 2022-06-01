@@ -32,7 +32,7 @@ class ApplyOutgoingFilterRulesResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\IdsAttr")
      * @XmlElement
      */
-    private $msgIds;
+    private ?IdsAttr $msgIds = NULL;
 
     /**
      * Constructor method for ApplyOutgoingFilterRulesResponse

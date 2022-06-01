@@ -33,7 +33,7 @@ class AddCommentRequest extends Request
      * @Type("Zimbra\Mail\Struct\AddedComment")
      * @XmlElement
      */
-    private $comment;
+    private AddedComment $comment;
 
     /**
      * Constructor method for AddCommentRequest

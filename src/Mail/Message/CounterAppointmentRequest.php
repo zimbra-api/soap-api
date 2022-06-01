@@ -75,7 +75,7 @@ class CounterAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement
      */
-    private $msg;
+    private ?Msg $msg = NULL;
 
     /**
      * Constructor method for CounterAppointmentRequest

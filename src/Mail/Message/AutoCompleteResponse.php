@@ -43,7 +43,7 @@ class AutoCompleteResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")
      * @XmlList(inline = true, entry = "match")
      */
-    private $matches;
+    private $matches = [];
 
     /**
      * Constructor method for AutoCompleteResponse

@@ -32,7 +32,7 @@ class ConvActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement
      */
-    private $action;
+    private ActionResult $action;
 
     /**
      * Constructor method for ConvActionResponse

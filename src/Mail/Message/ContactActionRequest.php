@@ -33,7 +33,7 @@ class ContactActionRequest extends Request
      * @Type("Zimbra\Mail\Struct\ContactActionSelector")
      * @XmlElement
      */
-    private $action;
+    private ContactActionSelector $action;
 
     /**
      * Constructor method for ContactActionRequest

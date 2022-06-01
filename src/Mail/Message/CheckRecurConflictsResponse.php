@@ -33,7 +33,7 @@ class CheckRecurConflictsResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
      * @XmlList(inline = true, entry = "inst")
      */
-    private $instances;
+    private $instances = [];
 
     /**
      * Constructor method for CheckRecurConflictsResponse

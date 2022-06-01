@@ -32,7 +32,7 @@ class ContactActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement
      */
-    private $action;
+    private FolderActionResult $action;
 
     /**
      * Constructor method for ContactActionResponse

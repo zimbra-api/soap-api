@@ -71,7 +71,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement
      */
-    private $instance;
+    private ?InstanceRecurIdInfo $instance = NULL;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
@@ -80,7 +80,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement
      */
-    private $timezone;
+    private ?CalTZInfo $timezone = NULL;
 
     /**
      * Message
@@ -89,7 +89,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement
      */
-    private $msg;
+    private ?Msg $msg = NULL;
 
     /**
      * Constructor method for CancelAppointmentRequest

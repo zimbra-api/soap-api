@@ -34,7 +34,7 @@ class CheckPermissionRequest extends Request
      * @Type("Zimbra\Mail\Struct\TargetSpec")
      * @XmlElement
      */
-    private $target;
+    private ?TargetSpec $target = NULL;
 
     /**
      * Rights to check
@@ -44,7 +44,7 @@ class CheckPermissionRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckPermissionRequest

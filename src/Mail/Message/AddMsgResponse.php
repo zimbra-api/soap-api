@@ -32,7 +32,7 @@ class AddMsgResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement
      */
-    private $message;
+    private ?MessageSummary $message = NULL;
 
     /**
      * Details of added chat message
@@ -41,7 +41,7 @@ class AddMsgResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement
      */
-    private $chatMessage;
+    private ?MessageSummary $chatMessage = NULL;
 
     /**
      * Constructor method for AddMsgResponse
@@ -64,13 +64,12 @@ class AddMsgResponse implements ResponseInterface
      */
     public function setMessage(MessageSummary $message): self
     {
+        $this->message = $this->chatMessage = NULL;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
-            $this->message = NULL;
         }
         else {
             $this->message = $message;
-            $this->chatMessage = NULL;
         }
         return $this;
     }

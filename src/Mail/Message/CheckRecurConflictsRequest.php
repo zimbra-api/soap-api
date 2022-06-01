@@ -79,7 +79,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline = true, entry = "tz")
      */
-    private $timezones;
+    private $timezones = [];
 
     /**
      * Cancel expanded recurrences
@@ -89,7 +89,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
      * @XmlList(inline = true, entry = "cancel")
      */
-    private $cancelComponents;
+    private $cancelComponents = [];
 
     /**
      * Invite expanded recurrences
@@ -99,7 +99,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
      * @XmlList(inline = true, entry = "comp")
      */
-    private $inviteComponents;
+    private $inviteComponents = [];
 
     /**
      * Except expanded recurrences
@@ -109,7 +109,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
      * @XmlList(inline = true, entry = "except")
      */
-    private $exceptComponents;
+    private $exceptComponents = [];
 
     /**
      * Freebusy user specifications
@@ -119,7 +119,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
      * @XmlList(inline = true, entry = "usr")
      */
-    private $freebusyUsers;
+    private $freebusyUsers = [];
 
     /**
      * Constructor method for CheckRecurConflictsRequest

@@ -62,7 +62,7 @@ class CreateContactRequest extends Request
      * @Type("Zimbra\Mail\Struct\ContactSpec")
      * @XmlElement
      */
-    private $contact;
+    private ContactSpec $contact;
 
     /**
      * Constructor method for CreateContactRequest

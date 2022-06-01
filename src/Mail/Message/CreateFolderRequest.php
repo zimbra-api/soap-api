@@ -33,7 +33,7 @@ class CreateFolderRequest extends Request
      * @Type("Zimbra\Mail\Struct\NewFolderSpec")
      * @XmlElement
      */
-    private $folder;
+    private NewFolderSpec $folder;
 
     /**
      * Constructor method for CreateFolderRequest

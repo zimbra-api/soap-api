@@ -33,7 +33,7 @@ class ConvActionRequest extends Request
      * @Type("Zimbra\Mail\Struct\ConvActionSelector")
      * @XmlElement
      */
-    private $action;
+    private ConvActionSelector $action;
 
     /**
      * Constructor method for ConvActionRequest

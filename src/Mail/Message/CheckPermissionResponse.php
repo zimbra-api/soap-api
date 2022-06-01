@@ -42,7 +42,7 @@ class CheckPermissionResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\RightPermission>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckPermissionResponse
