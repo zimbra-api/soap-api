@@ -38,7 +38,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\HostName")
      * @XmlElement
      */
-    private $hostName;
+    private ?HostName $hostName = NULL;
 
     /**
      * Stats
@@ -47,7 +47,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\StatsSpec")
      * @XmlElement
      */
-    private $stats;
+    private ?StatsSpec $stats = NULL;
 
     /**
      * Start time
@@ -56,7 +56,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement
      */
-    private $startTime;
+    private ?TimeAttr $startTime = NULL;
 
     /**
      * End time
@@ -65,7 +65,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement
      */
-    private $endTime;
+    private ?TimeAttr $endTime = NULL;
 
     /**
      * Constructor method for GetLoggerStatsRequest

@@ -33,7 +33,7 @@ class GetConfigRequest extends Request
      * @Type("Zimbra\Admin\Struct\Attr")
      * @XmlElement
      */
-    private $attr;
+    private ?Attr $attr = NULL;
 
     /**
      * Constructor method for GetConfigRequest
@@ -41,7 +41,7 @@ class GetConfigRequest extends Request
      * @param  Attr $attr
      * @return self
      */
-    public function __construct(Attr $attr = NULL)
+    public function __construct(?Attr $attr = NULL)
     {
         if ($attr instanceof Attr) {
             $this->setAttr($attr);

@@ -34,7 +34,7 @@ class GetAllAccountsRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ?Server $server = NULL;
 
     /**
      * Domain
@@ -43,7 +43,7 @@ class GetAllAccountsRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * Constructor method for GetAllAccountsRequest

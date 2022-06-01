@@ -33,7 +33,7 @@ class ConfigureZimletRequest extends Request
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
      * @XmlElement
      */
-    private $content;
+    private AttachmentIdAttrib $content;
 
     /**
      * Constructor method for ConfigureZimletRequest

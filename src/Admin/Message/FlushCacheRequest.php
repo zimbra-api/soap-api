@@ -43,7 +43,7 @@ class FlushCacheRequest extends Request
      * @Type("Zimbra\Admin\Struct\CacheSelector")
      * @XmlElement
      */
-    private $cache;
+    private ?CacheSelector $cache = NULL;
 
     /**
      * Constructor method for FlushCacheRequest

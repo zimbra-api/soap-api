@@ -34,7 +34,7 @@ class MailQueueActionRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerWithQueueAction")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for MailQueueActionRequest

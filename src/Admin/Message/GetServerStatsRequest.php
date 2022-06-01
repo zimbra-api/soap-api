@@ -36,7 +36,7 @@ class GetServerStatsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for GetServerStatsRequest

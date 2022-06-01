@@ -34,7 +34,7 @@ class CompactIndexRequest extends Request
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement
      */
-    private $mbox;
+    private Mbox $mbox;
 
     /**
      * Action to perform

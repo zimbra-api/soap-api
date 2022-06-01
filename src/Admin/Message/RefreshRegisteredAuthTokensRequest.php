@@ -33,7 +33,7 @@ class RefreshRegisteredAuthTokensRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "token")
      */
-    private $tokens;
+    private $tokens = [];
 
     /**
      * Constructor method for RefreshRegisteredAuthTokensRequest

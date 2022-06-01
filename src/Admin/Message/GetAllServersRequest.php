@@ -61,7 +61,9 @@ class GetAllServersRequest extends Request
      * @param  bool $applyConfig
      * @return self
      */
-    public function __construct(?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL)
+    public function __construct(
+        ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
+    )
     {
         if (NULL !== $service) {
             $this->setService($service);

@@ -33,7 +33,7 @@ class CreateVolumeRequest extends Request
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement
      */
-    private $volume;
+    private VolumeInfo $volume;
 
     /**
      * Constructor method for CreateVolumeRequest

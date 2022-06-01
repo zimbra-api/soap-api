@@ -34,7 +34,7 @@ class ModifySystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * New policy
@@ -43,7 +43,7 @@ class ModifySystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $policy;
+    private Policy $policy;
 
     /**
      * Constructor method for ModifySystemRetentionPolicyRequest

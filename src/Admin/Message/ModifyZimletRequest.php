@@ -33,7 +33,7 @@ class ModifyZimletRequest extends Request
      * @Type("Zimbra\Admin\Struct\ZimletAclStatusPri")
      * @XmlElement
      */
-    private $zimlet;
+    private ZimletAclStatusPri $zimlet;
 
     /**
      * Constructor method for ModifyZimletRequest

@@ -47,7 +47,7 @@ class PushFreeBusyRequest extends Request
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for PushFreeBusyRequest

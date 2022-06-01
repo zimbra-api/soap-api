@@ -33,7 +33,7 @@ class GetAllDistributionListsRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * Constructor method for GetAllDistributionListsRequest

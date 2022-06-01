@@ -33,7 +33,7 @@ class DeleteXMPPComponentRequest extends Request
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement
      */
-    private $component;
+    private ?Component $component = NULL;
 
     /**
      * Constructor method for DeleteXMPPComponentRequest

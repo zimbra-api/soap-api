@@ -45,7 +45,7 @@ class GetServerNIfsRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for GetServerNIfsRequest

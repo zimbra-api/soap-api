@@ -33,7 +33,7 @@ class GetRightsDocRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
      * @XmlList(inline = true, entry = "package")
      */
-    private $pkgs;
+    private $pkgs = [];
 
     /**
      * Constructor method for GetRightsDocRequest

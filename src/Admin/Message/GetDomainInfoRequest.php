@@ -46,7 +46,7 @@ class GetDomainInfoRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?DomainSelector $domain = NULL;
 
     /**
      * Constructor method for GetDomainInfoRequest

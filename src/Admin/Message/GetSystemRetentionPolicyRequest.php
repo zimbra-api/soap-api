@@ -34,7 +34,7 @@ class GetSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * Constructor method for GetSystemRetentionPolicyRequest

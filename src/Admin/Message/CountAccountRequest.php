@@ -34,7 +34,7 @@ class CountAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private Domain $domain;
 
     /**
      * Constructor method for CountAccountRequest

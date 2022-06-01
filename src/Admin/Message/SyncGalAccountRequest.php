@@ -36,7 +36,7 @@ class SyncGalAccountRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for SyncGalAccountRequest

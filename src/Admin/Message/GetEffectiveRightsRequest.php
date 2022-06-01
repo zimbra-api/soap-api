@@ -32,8 +32,8 @@ use Zimbra\Soap\Request;
  */
 class GetEffectiveRightsRequest extends Request
 {
-    public const EXPAND_GET_ATTRS = 'getAttrs';
-    public const EXPAND_SET_ATTRS = 'setAttrs';
+    const EXPAND_GET_ATTRS = 'getAttrs';
+    const EXPAND_SET_ATTRS = 'setAttrs';
 
     /**
      * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable Valid values are: 
@@ -54,7 +54,7 @@ class GetEffectiveRightsRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private Target $target;
 
     /**
      * Grantee
@@ -64,7 +64,7 @@ class GetEffectiveRightsRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private ?Grantee $grantee = NULL;
 
     /**
      * Constructor method for GetEffectiveRightsRequest

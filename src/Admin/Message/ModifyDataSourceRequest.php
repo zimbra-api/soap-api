@@ -46,7 +46,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement
      */
-    private $dataSource;
+    private DataSourceInfo $dataSource;
 
     /**
      * Constructor method for ModifyDataSourceRequest

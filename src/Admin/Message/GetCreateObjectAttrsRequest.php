@@ -37,7 +37,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement
      */
-    private $target;
+    private Target $target;
 
     /**
      * Domain
@@ -50,7 +50,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * COS
@@ -61,7 +61,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * Constructor method for GetCreateObjectAttrsRequest

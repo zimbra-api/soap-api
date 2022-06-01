@@ -46,7 +46,7 @@ class CreateDataSourceRequest extends Request
      * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
      * @XmlElement()
      */
-    private $dataSource;
+    private DataSourceSpecifier $dataSource;
 
     /**
      * Constructor method for CreateDataSourceRequest

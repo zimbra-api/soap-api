@@ -33,7 +33,7 @@ class AutoProvAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * The principal
@@ -42,7 +42,7 @@ class AutoProvAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
      * @XmlElement
      */
-    private $principal;
+    private PrincipalSelector $principal;
 
     /**
      * Password

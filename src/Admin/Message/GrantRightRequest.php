@@ -34,7 +34,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee selector
@@ -43,7 +43,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Checked Right
@@ -52,7 +52,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement
      */
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor method for GrantRightRequest

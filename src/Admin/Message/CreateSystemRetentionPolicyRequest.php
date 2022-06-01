@@ -35,7 +35,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
@@ -43,7 +43,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
-    private $keep;
+    private ?PolicyHolder $keep = NULL;
 
     /**
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
@@ -51,7 +51,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
-    private $purge;
+    private ?PolicyHolder $purge = NULL;
 
     /**
      * Constructor method for CreateSystemRetentionPolicyRequest
@@ -61,7 +61,9 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @param  PolicyHolder $purge
      * @return self
      */
-    public function __construct(?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL)
+    public function __construct(
+        ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
+    )
     {
         if ($cos instanceof CosSelector) {
             $this->setCos($cos);

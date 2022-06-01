@@ -53,7 +53,7 @@ class ExportAndDeleteItemsRequest extends Request
      * @Type("Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec")
      * @XmlElement
      */
-    private $mailbox;
+    private Mailbox $mailbox;
 
     /**
      * Constructor method for ExportAndDeleteItemsRequest
@@ -63,7 +63,9 @@ class ExportAndDeleteItemsRequest extends Request
      * @param  string $exportFilenamePrefix
      * @return self
      */
-    public function __construct(Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL)
+    public function __construct(
+        Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL
+    )
     {
         $this->setMailbox($mailbox);
         if (NULL !== $exportDir) {

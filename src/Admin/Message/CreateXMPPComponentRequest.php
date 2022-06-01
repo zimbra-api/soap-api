@@ -33,7 +33,7 @@ class CreateXMPPComponentRequest extends Request
      * @Type("Zimbra\Admin\Struct\XMPPComponentSpec")
      * @XmlElement
      */
-    private $component;
+    private XMPPComponentSpec $component;
 
     /**
      * Constructor method for CreateXMPPComponentRequest

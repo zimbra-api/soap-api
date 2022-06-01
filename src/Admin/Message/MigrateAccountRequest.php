@@ -33,7 +33,7 @@ class MigrateAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\IdAndAction")
      * @XmlElement
      */
-    private $migrate;
+    private IdAndAction $migrate;
 
     /**
      * Constructor method for MigrateAccountRequest

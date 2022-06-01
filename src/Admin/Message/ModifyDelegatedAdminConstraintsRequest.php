@@ -63,7 +63,7 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for ModifyDelegatedAdminConstraintsRequest

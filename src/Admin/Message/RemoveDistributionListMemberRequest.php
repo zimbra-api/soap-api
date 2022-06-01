@@ -43,7 +43,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Specify Accounts insteaf of members if you want to remove all addresses that belong to an account from the list
@@ -53,7 +53,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for RemoveDistributionListMemberRequest

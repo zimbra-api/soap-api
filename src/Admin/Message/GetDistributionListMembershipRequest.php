@@ -51,7 +51,7 @@ class GetDistributionListMembershipRequest extends Request
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private ?DistributionList $dl = NULL;
 
     /**
      * Constructor method for GetDistributionListMembershipRequest

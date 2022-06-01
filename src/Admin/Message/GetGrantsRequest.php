@@ -37,7 +37,7 @@ class GetGrantsRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private ?Target $target = NULL;
 
     /**
      * Grantee
@@ -46,7 +46,7 @@ class GetGrantsRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private ?GranteeSelector $grantee = NULL;
 
     /**
      * Constructor method for GetGrantsRequest

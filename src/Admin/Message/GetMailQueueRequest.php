@@ -46,7 +46,7 @@ class GetMailQueueRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerMailQueueQuery")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for GetMailQueueRequest

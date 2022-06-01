@@ -33,7 +33,7 @@ class GetMailboxRequest extends Request
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement
      */
-    private $mbox;
+    private ?Mailbox $mbox = NULL;
 
     /**
      * Constructor method for GetMailboxRequest

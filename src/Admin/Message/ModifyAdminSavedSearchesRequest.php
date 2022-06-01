@@ -37,7 +37,7 @@ class ModifyAdminSavedSearchesRequest extends Request
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "search")
      */
-    private $searches;
+    private $searches = [];
 
     /**
      * Constructor method for ModifyAdminSavedSearchesRequest

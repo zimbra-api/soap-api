@@ -26,8 +26,8 @@ use Zimbra\Soap\Request;
  */
 class GetAllEffectiveRightsRequest extends Request
 {
-    public const EXPAND_GET_ATTRS = 'getAttrs';
-    public const EXPAND_SET_ATTRS = 'setAttrs';
+    const EXPAND_GET_ATTRS = 'getAttrs';
+    const EXPAND_SET_ATTRS = 'setAttrs';
 
     /**
      * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
@@ -44,7 +44,7 @@ class GetAllEffectiveRightsRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private ?Grantee $grantee = NULL;
 
     /**
      * Constructor method for GetAllEffectiveRightsRequest

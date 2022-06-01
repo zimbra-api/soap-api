@@ -75,7 +75,9 @@ class FixCalendarTZRequest extends Request
      * @param  TzFixup $tzFixup
      * @return self
      */
-    public function __construct(?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL)
+    public function __construct(
+        ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
+    )
     {
         $this->setAccounts($accounts);
         if (NULL !== $sync) {

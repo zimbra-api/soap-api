@@ -58,7 +58,9 @@ class GetAccountRequest extends Request implements AttributeSelector
      * @param  string $attrs
      * @return self
      */
-    public function __construct(AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL)
+    public function __construct(
+        AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL
+    )
     {
         $this->setAccount($account);
         if (NULL !== $applyCos) {
