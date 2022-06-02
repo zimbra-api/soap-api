@@ -4,18 +4,16 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\ReplyType;
-
-use Zimbra\Mail\Struct\CalItemRequestBase;
-
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
+use Zimbra\Mail\Struct\CalItemRequestBase;
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Mail\Struct\Header;
 use Zimbra\Mail\Struct\InstanceRecurIdInfo;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\Msg;
-
+use Zimbra\Soap\EnvelopeInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -164,7 +162,7 @@ EOT;
 
 class CalItemRequest extends CalItemRequestBase
 {
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
     }
 }
