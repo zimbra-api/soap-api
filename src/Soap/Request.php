@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Request class in Zimbra API PHP, not to be instantiated.
@@ -28,23 +28,25 @@ abstract class Request implements RequestInterface
      * @var EnvelopeInterface
      * @Exclude
      */
-    protected $envelope;
+    private ?EnvelopeInterface $soapEnvelope = NULL;
 
     /**
      * Get soap envelope.
      *
      * @return EnvelopeInterface
      */
-    public function getEnvelope(): EnvelopeInterface
+    public function getEnvelope(): ?EnvelopeInterface
     {
-        $this->envelopeInit();
-        return $this->envelope;
+        if (NULL == $this->soapEnvelope) {
+            $this->soapEnvelope = $this->envelopeInit();
+        }
+        return $this->soapEnvelope;
     }
 
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    abstract protected function envelopeInit(): void;
+    abstract protected function envelopeInit(): EnvelopeInterface;
 }

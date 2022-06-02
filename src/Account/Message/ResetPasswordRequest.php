@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ResetPasswordRequest class
@@ -70,14 +70,12 @@ class ResetPasswordRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ResetPasswordEnvelope)) {
-            $this->envelope = new ResetPasswordEnvelope(
-                new ResetPasswordBody($this)
-            );
-        }
+        return new ResetPasswordEnvelope(
+            new ResetPasswordBody($this)
+        );
     }
 }

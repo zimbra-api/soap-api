@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SyncGalRequest class
@@ -218,14 +218,12 @@ class SyncGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SyncGalEnvelope)) {
-            $this->envelope = new SyncGalEnvelope(
-                new SyncGalBody($this)
-            );
-        }
+        return new SyncGalEnvelope(
+            new SyncGalBody($this)
+        );
     }
 }

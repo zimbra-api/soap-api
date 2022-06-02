@@ -8,22 +8,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Soap;
+namespace Zimbra\Common;
 
 /**
- * RequestInterface is a interface which define soap request struct
+ * Initializable interface
  *
  * @package   Zimbra
- * @category  Soap
+ * @category  Common
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface RequestInterface
+interface Initializable
 {
-    /**
-     * Get soap envelope.
-     *
-     * @return EnvelopeInterface
-     */
-    function getEnvelope(): ?EnvelopeInterface;
+    public function init(bool $forceReinit = FALSE): self;
+    public function reinit(): self;
+    public function isInitialized(): bool;
+    protected function internalInit(bool $forceReinit = FALSE): self;
 }

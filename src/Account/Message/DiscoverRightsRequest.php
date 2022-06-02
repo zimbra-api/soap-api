@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DiscoverRightsRequest class
@@ -98,14 +98,12 @@ class DiscoverRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DiscoverRightsEnvelope)) {
-            $this->envelope = new DiscoverRightsEnvelope(
-                new DiscoverRightsBody($this)
-            );
-        }
+        return new DiscoverRightsEnvelope(
+            new DiscoverRightsBody($this)
+        );
     }
 }

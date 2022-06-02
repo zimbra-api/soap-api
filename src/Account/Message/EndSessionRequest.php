@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * EndSessionRequest class
@@ -185,14 +185,12 @@ class EndSessionRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof EndSessionEnvelope)) {
-            $this->envelope = new EndSessionEnvelope(
-                new EndSessionBody($this)
-            );
-        }
+        return new EndSessionEnvelope(
+            new EndSessionBody($this)
+        );
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetSignaturesRequest class
@@ -27,14 +27,12 @@ class GetSignaturesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetSignaturesEnvelope)) {
-            $this->envelope = new GetSignaturesEnvelope(
-                new GetSignaturesBody($this)
-            );
-        }
+        return new GetSignaturesEnvelope(
+            new GetSignaturesBody($this)
+        );
     }
 }

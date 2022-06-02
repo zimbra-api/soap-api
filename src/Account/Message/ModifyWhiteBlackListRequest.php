@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Common\Struct\OpValue;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyWhiteBlackListRequest class
@@ -140,14 +140,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyWhiteBlackListEnvelope)) {
-            $this->envelope = new ModifyWhiteBlackListEnvelope(
-                new ModifyWhiteBlackListBody($this)
-            );
-        }
+        return new ModifyWhiteBlackListEnvelope(
+            new ModifyWhiteBlackListBody($this)
+        );
     }
 }

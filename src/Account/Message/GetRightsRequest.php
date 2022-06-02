@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\Right;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetRightsRequest class
@@ -90,14 +90,12 @@ class GetRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetRightsEnvelope)) {
-            $this->envelope = new GetRightsEnvelope(
-                new GetRightsBody($this)
-            );
-        }
+        return new GetRightsEnvelope(
+            new GetRightsBody($this)
+        );
     }
 }

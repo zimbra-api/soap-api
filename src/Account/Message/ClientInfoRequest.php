@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ClientInfoRequest class
@@ -70,14 +70,12 @@ class ClientInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ClientInfoEnvelope)) {
-            $this->envelope = new ClientInfoEnvelope(
-                new ClientInfoBody($this)
-            );
-        }
+        return new ClientInfoEnvelope(
+            new ClientInfoBody($this)
+        );
     }
 }

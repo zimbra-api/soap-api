@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetIdentitiesRequest class
@@ -27,14 +27,12 @@ class GetIdentitiesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetIdentitiesEnvelope)) {
-            $this->envelope = new GetIdentitiesEnvelope(
-                new GetIdentitiesBody($this)
-            );
-        }
+        return new GetIdentitiesEnvelope(
+            new GetIdentitiesBody($this)
+        );
     }
 }

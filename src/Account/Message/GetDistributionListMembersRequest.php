@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetDistributionListMembersRequest class
@@ -144,14 +144,12 @@ class GetDistributionListMembersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetDistributionListMembersEnvelope)) {
-            $this->envelope = new GetDistributionListMembersEnvelope(
-                new GetDistributionListMembersBody($this)
-            );
-        }
+        return new GetDistributionListMembersEnvelope(
+            new GetDistributionListMembersBody($this)
+        );
     }
 }

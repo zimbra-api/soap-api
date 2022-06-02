@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAvailableSkinsRequest class
@@ -30,14 +30,12 @@ class GetAvailableSkinsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAvailableSkinsEnvelope)) {
-            $this->envelope = new GetAvailableSkinsEnvelope(
-                new GetAvailableSkinsBody($this)
-            );
-        }
+        return new GetAvailableSkinsEnvelope(
+            new GetAvailableSkinsBody($this)
+        );
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetVersionInfoRequest class
@@ -27,14 +27,12 @@ class GetVersionInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetVersionInfoEnvelope)) {
-            $this->envelope = new GetVersionInfoEnvelope(
-                new GetVersionInfoBody($this)
-            );
-        }
+        return new GetVersionInfoEnvelope(
+            new GetVersionInfoBody($this)
+        );
     }
 }

@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
 use Zimbra\Common\Struct\DistributionListSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SubscribeDistributionListRequest class
@@ -107,14 +107,12 @@ class SubscribeDistributionListRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SubscribeDistributionListEnvelope)) {
-            $this->envelope = new SubscribeDistributionListEnvelope(
-                new SubscribeDistributionListBody($this)
-            );
-        }
+        return new SubscribeDistributionListEnvelope(
+            new SubscribeDistributionListBody($this)
+        );
     }
 }

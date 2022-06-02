@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAvailableCsvFormatsRequest class
@@ -27,14 +27,12 @@ class GetAvailableCsvFormatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAvailableCsvFormatsEnvelope)) {
-            $this->envelope = new GetAvailableCsvFormatsEnvelope(
-                new GetAvailableCsvFormatsBody($this)
-            );
-        }
+        return new GetAvailableCsvFormatsEnvelope(
+            new GetAvailableCsvFormatsBody($this)
+        );
     }
 }

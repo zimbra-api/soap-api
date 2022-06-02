@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Common\Struct\GranteeChooser;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetShareInfoRequest class
@@ -188,14 +188,12 @@ class GetShareInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetShareInfoEnvelope)) {
-            $this->envelope = new GetShareInfoEnvelope(
-                new GetShareInfoBody($this)
-            );
-        }
+        return new GetShareInfoEnvelope(
+            new GetShareInfoBody($this)
+        );
     }
 }

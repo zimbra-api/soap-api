@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetOAuthConsumersRequest class
@@ -26,14 +26,12 @@ class GetOAuthConsumersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetOAuthConsumersEnvelope)) {
-            $this->envelope = new GetOAuthConsumersEnvelope(
-                new GetOAuthConsumersBody($this)
-            );
-        }
+        return new GetOAuthConsumersEnvelope(
+            new GetOAuthConsumersBody($this)
+        );
     }
 }

@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\{Attrs, AttrsImplTrait};
 use Zimbra\Common\Struct\DistributionListSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetDistributionListRequest class
@@ -151,14 +151,12 @@ class GetDistributionListRequest extends Request implements Attrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetDistributionListEnvelope)) {
-            $this->envelope = new GetDistributionListEnvelope(
-                new GetDistributionListBody($this)
-            );
-        }
+        return new GetDistributionListEnvelope(
+            new GetDistributionListBody($this)
+        );
     }
 }

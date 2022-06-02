@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ChangePasswordRequest class
@@ -213,14 +213,12 @@ class ChangePasswordRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ChangePasswordEnvelope)) {
-            $this->envelope = new ChangePasswordEnvelope(
-                new ChangePasswordBody($this)
-            );
-        }
+        return new ChangePasswordEnvelope(
+            new ChangePasswordBody($this)
+        );
     }
 }

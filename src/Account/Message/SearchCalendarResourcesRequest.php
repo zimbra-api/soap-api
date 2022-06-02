@@ -15,7 +15,7 @@ use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Struct\AttributeSelector;
 use Zimbra\Common\Struct\AttributeSelectorTrait;
 use Zimbra\Common\Struct\CursorInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchCalendarResourcesRequest class
@@ -379,14 +379,12 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchCalendarResourcesEnvelope)) {
-            $this->envelope = new SearchCalendarResourcesEnvelope(
-                new SearchCalendarResourcesBody($this)
-            );
-        }
+        return new SearchCalendarResourcesEnvelope(
+            new SearchCalendarResourcesBody($this)
+        );
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RevokeRightsRequest class
@@ -88,14 +88,12 @@ class RevokeRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RevokeRightsEnvelope)) {
-            $this->envelope = new RevokeRightsEnvelope(
-                new RevokeRightsBody($this)
-            );
-        }
+        return new RevokeRightsEnvelope(
+            new RevokeRightsBody($this)
+        );
     }
 }

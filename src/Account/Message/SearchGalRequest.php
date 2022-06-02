@@ -12,10 +12,9 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
-use Zimbra\Common\Enum\GalSearchType;
-use Zimbra\Common\Enum\MemberOfSelector;
+use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
 use Zimbra\Common\Struct\CursorInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchGalRequest class
@@ -589,14 +588,12 @@ class SearchGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchGalEnvelope)) {
-            $this->envelope = new SearchGalEnvelope(
-                new SearchGalBody($this)
-            );
-        }
+        return new SearchGalEnvelope(
+            new SearchGalBody($this)
+        );
     }
 }

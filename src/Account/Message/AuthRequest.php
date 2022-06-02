@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AuthRequest class
@@ -727,14 +727,12 @@ class AuthRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AuthEnvelope)) {
-            $this->envelope = new AuthEnvelope(
-                new AuthBody($this)
-            );
-        }
+        return new AuthEnvelope(
+            new AuthBody($this)
+        );
     }
 }

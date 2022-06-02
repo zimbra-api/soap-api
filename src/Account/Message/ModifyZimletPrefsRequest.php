@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyZimletPrefsRequest class
@@ -88,14 +88,12 @@ class ModifyZimletPrefsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyZimletPrefsEnvelope)) {
-            $this->envelope = new ModifyZimletPrefsEnvelope(
-                new ModifyZimletPrefsBody($this)
-            );
-        }
+        return new ModifyZimletPrefsEnvelope(
+            new ModifyZimletPrefsBody($this)
+        );
     }
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RevokeOAuthConsumerRequest class
@@ -68,14 +68,12 @@ class RevokeOAuthConsumerRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RevokeOAuthConsumerEnvelope)) {
-            $this->envelope = new RevokeOAuthConsumerEnvelope(
-                new RevokeOAuthConsumerBody($this)
-            );
-        }
+        return new RevokeOAuthConsumerEnvelope(
+            new RevokeOAuthConsumerBody($this)
+        );
     }
 }

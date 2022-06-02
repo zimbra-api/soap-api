@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\Pref;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetPrefsRequest class
@@ -90,14 +90,12 @@ class GetPrefsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetPrefsEnvelope)) {
-            $this->envelope = new GetPrefsEnvelope(
-                new GetPrefsBody($this)
-            );
-        }
+        return new GetPrefsEnvelope(
+            new GetPrefsBody($this)
+        );
     }
 }

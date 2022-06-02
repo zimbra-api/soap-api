@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Account\Struct\AccountKeyValuePairsTrait;
 use Zimbra\Common\Struct\KeyValuePairs;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateDistributionListRequest class
@@ -115,14 +115,12 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateDistributionListEnvelope)) {
-            $this->envelope = new CreateDistributionListEnvelope(
-                new CreateDistributionListBody($this)
-            );
-        }
+        return new CreateDistributionListEnvelope(
+            new CreateDistributionListBody($this)
+        );
     }
 }
