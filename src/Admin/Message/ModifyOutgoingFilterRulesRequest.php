@@ -10,6 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
+use Zimbra\Soap\EnvelopeInterface;
+
 /**
  * ModifyOutgoingFilterRulesRequest request class
  * Modify Filter rules
@@ -25,14 +27,12 @@ class ModifyOutgoingFilterRulesRequest extends ModifyFilterRulesRequest
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyOutgoingFilterRulesEnvelope)) {
-            $this->envelope = new ModifyOutgoingFilterRulesEnvelope(
-                new ModifyOutgoingFilterRulesBody($this)
-            );
-        }
+        return new ModifyOutgoingFilterRulesEnvelope(
+            new ModifyOutgoingFilterRulesBody($this)
+        );
     }
 }

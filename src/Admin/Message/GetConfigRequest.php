@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetConfigRequest class
@@ -73,14 +73,12 @@ class GetConfigRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetConfigEnvelope)) {
-            $this->envelope = new GetConfigEnvelope(
-                new GetConfigBody($this)
-            );
-        }
+        return new GetConfigEnvelope(
+            new GetConfigBody($this)
+        );
     }
 }

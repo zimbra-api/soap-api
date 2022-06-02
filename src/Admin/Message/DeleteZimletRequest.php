@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteZimletRequest class
@@ -71,14 +71,12 @@ class DeleteZimletRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteZimletEnvelope)) {
-            $this->envelope = new DeleteZimletEnvelope(
-                new DeleteZimletBody($this)
-            );
-        }
+        return new DeleteZimletEnvelope(
+            new DeleteZimletBody($this)
+        );
     }
 }

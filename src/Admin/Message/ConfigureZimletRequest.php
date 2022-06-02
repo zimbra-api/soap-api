@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ConfigureZimletRequest request class
@@ -71,14 +71,12 @@ class ConfigureZimletRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ConfigureZimletEnvelope)) {
-            $this->envelope = new ConfigureZimletEnvelope(
-                new ConfigureZimletBody($this)
-            );
-        }
+        return new ConfigureZimletEnvelope(
+            new ConfigureZimletBody($this)
+        );
     }
 }

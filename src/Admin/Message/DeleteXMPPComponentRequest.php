@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSelector as Component;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteXMPPComponentRequest class
@@ -73,14 +73,12 @@ class DeleteXMPPComponentRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteXMPPComponentEnvelope)) {
-            $this->envelope = new DeleteXMPPComponentEnvelope(
-                new DeleteXMPPComponentBody($this)
-            );
-        }
+        return new DeleteXMPPComponentEnvelope(
+            new DeleteXMPPComponentBody($this)
+        );
     }
 }

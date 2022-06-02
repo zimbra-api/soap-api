@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RefreshRegisteredAuthTokensRequest request class
@@ -89,14 +89,12 @@ class RefreshRegisteredAuthTokensRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RefreshRegisteredAuthTokensEnvelope)) {
-            $this->envelope = new RefreshRegisteredAuthTokensEnvelope(
-                new RefreshRegisteredAuthTokensBody($this)
-            );
-        }
+        return new RefreshRegisteredAuthTokensEnvelope(
+            new RefreshRegisteredAuthTokensBody($this)
+        );
     }
 }

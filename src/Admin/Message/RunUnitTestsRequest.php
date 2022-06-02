@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RunUnitTestsRequest request class
@@ -91,14 +91,12 @@ class RunUnitTestsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RunUnitTestsEnvelope)) {
-            $this->envelope = new RunUnitTestsEnvelope(
-                new RunUnitTestsBody($this)
-            );
-        }
+        return new RunUnitTestsEnvelope(
+            new RunUnitTestsBody($this)
+        );
     }
 }

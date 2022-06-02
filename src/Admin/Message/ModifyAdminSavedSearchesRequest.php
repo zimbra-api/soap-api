@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
 use Zimbra\Common\Struct\NamedValue;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyAdminSavedSearches request class
@@ -92,14 +92,12 @@ class ModifyAdminSavedSearchesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyAdminSavedSearchesEnvelope)) {
-            $this->envelope = new ModifyAdminSavedSearchesEnvelope(
-                new ModifyAdminSavedSearchesBody($this)
-            );
-        }
+        return new ModifyAdminSavedSearchesEnvelope(
+            new ModifyAdminSavedSearchesBody($this)
+        );
     }
 }

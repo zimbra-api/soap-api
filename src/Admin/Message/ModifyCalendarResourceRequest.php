@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyCalendarResourceRequest class
@@ -78,14 +78,12 @@ class ModifyCalendarResourceRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyCalendarResourceEnvelope)) {
-            $this->envelope = new ModifyCalendarResourceEnvelope(
-                new ModifyCalendarResourceBody($this)
-            );
-        }
+        return new ModifyCalendarResourceEnvelope(
+            new ModifyCalendarResourceBody($this)
+        );
     }
 }

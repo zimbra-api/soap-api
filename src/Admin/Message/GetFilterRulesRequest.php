@@ -16,7 +16,7 @@ use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetFilterRulesRequest request class
@@ -221,14 +221,12 @@ class GetFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetFilterRulesEnvelope)) {
-            $this->envelope = new GetFilterRulesEnvelope(
-                new GetFilterRulesBody($this)
-            );
-        }
+        return new GetFilterRulesEnvelope(
+            new GetFilterRulesBody($this)
+        );
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * FixCalendarEndTimeRequest class
@@ -127,14 +127,12 @@ class FixCalendarEndTimeRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof FixCalendarEndTimeEnvelope)) {
-            $this->envelope = new FixCalendarEndTimeEnvelope(
-                new FixCalendarEndTimeBody($this)
-            );
-        }
+        return new FixCalendarEndTimeEnvelope(
+            new FixCalendarEndTimeBody($this)
+        );
     }
 }

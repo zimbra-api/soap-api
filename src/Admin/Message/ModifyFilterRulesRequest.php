@@ -17,7 +17,7 @@ use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyFilterRulesRequest request class
@@ -274,14 +274,12 @@ class ModifyFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyFilterRulesEnvelope)) {
-            $this->envelope = new ModifyFilterRulesEnvelope(
-                new ModifyFilterRulesBody($this)
-            );
-        }
+        return new ModifyFilterRulesEnvelope(
+            new ModifyFilterRulesBody($this)
+        );
     }
 }

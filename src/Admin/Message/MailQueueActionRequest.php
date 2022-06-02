@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\ServerWithQueueAction as Server;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * MailQueueActionRequest request class
@@ -72,14 +72,12 @@ class MailQueueActionRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof MailQueueActionEnvelope)) {
-            $this->envelope = new MailQueueActionEnvelope(
-                new MailQueueActionBody($this)
-            );
-        }
+        return new MailQueueActionEnvelope(
+            new MailQueueActionBody($this)
+        );
     }
 }

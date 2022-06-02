@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\Stat;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetServerStats request class
@@ -91,14 +91,12 @@ class GetServerStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetServerStatsEnvelope)) {
-            $this->envelope = new GetServerStatsEnvelope(
-                new GetServerStatsBody($this)
-            );
-        }
+        return new GetServerStatsEnvelope(
+            new GetServerStatsBody($this)
+        );
     }
 }

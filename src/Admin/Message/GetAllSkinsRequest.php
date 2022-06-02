@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllSkinsRequest class
@@ -27,14 +27,12 @@ class GetAllSkinsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllSkinsEnvelope)) {
-            $this->envelope = new GetAllSkinsEnvelope(
-                new GetAllSkinsBody($this)
-            );
-        }
+        return new GetAllSkinsEnvelope(
+            new GetAllSkinsBody($this)
+        );
     }
 }

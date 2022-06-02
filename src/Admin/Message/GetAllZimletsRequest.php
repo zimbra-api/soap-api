@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\ZimletExcludeType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllZimletsRequest class
@@ -76,14 +76,12 @@ class GetAllZimletsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllZimletsEnvelope)) {
-            $this->envelope = new GetAllZimletsEnvelope(
-                new GetAllZimletsBody($this)
-            );
-        }
+        return new GetAllZimletsEnvelope(
+            new GetAllZimletsBody($this)
+        );
     }
 }

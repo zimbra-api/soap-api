@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifySystemRetentionPolicyRequest class
@@ -107,14 +107,12 @@ class ModifySystemRetentionPolicyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifySystemRetentionPolicyEnvelope)) {
-            $this->envelope = new ModifySystemRetentionPolicyEnvelope(
-                new ModifySystemRetentionPolicyBody($this)
-            );
-        }
+        return new ModifySystemRetentionPolicyEnvelope(
+            new ModifySystemRetentionPolicyBody($this)
+        );
     }
 }

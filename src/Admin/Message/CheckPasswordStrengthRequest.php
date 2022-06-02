@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckPasswordStrengthRequest request class
@@ -103,14 +103,12 @@ class CheckPasswordStrengthRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckPasswordStrengthEnvelope)) {
-            $this->envelope = new CheckPasswordStrengthEnvelope(
-                new CheckPasswordStrengthBody($this)
-            );
-        }
+        return new CheckPasswordStrengthEnvelope(
+            new CheckPasswordStrengthBody($this)
+        );
     }
 }

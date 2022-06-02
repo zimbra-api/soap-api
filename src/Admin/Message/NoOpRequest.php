@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * NoOpRequest class
@@ -27,14 +27,12 @@ class NoOpRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof NoOpEnvelope)) {
-            $this->envelope = new NoOpEnvelope(
-                new NoOpBody($this)
-            );
-        }
+        return new NoOpEnvelope(
+            new NoOpBody($this)
+        );
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\SyncGalAccountSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SyncGalAccount request class
@@ -91,14 +91,12 @@ class SyncGalAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SyncGalAccountEnvelope)) {
-            $this->envelope = new SyncGalAccountEnvelope(
-                new SyncGalAccountBody($this)
-            );
-        }
+        return new SyncGalAccountEnvelope(
+            new SyncGalAccountBody($this)
+        );
     }
 }

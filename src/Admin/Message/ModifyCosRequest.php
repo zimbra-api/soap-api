@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyCosRequest class
@@ -76,14 +76,12 @@ class ModifyCosRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyCosEnvelope)) {
-            $this->envelope = new ModifyCosEnvelope(
-                new ModifyCosBody($this)
-            );
-        }
+        return new ModifyCosEnvelope(
+            new ModifyCosBody($this)
+        );
     }
 }

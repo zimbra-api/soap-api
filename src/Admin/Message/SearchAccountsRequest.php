@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchAccountsRequest class
@@ -362,14 +362,12 @@ class SearchAccountsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchAccountsEnvelope)) {
-            $this->envelope = new SearchAccountsEnvelope(
-                new SearchAccountsBody($this)
-            );
-        }
+        return new SearchAccountsEnvelope(
+            new SearchAccountsBody($this)
+        );
     }
 }

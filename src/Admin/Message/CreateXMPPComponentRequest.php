@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateXMPPComponentRequest class
@@ -71,14 +71,12 @@ class CreateXMPPComponentRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateXMPPComponentEnvelope)) {
-            $this->envelope = new CreateXMPPComponentEnvelope(
-                new CreateXMPPComponentBody($this)
-            );
-        }
+        return new CreateXMPPComponentEnvelope(
+            new CreateXMPPComponentBody($this)
+        );
     }
 }

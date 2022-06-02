@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllUCServicesRequest class
@@ -27,14 +27,12 @@ class GetAllUCServicesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllUCServicesEnvelope)) {
-            $this->envelope = new GetAllUCServicesEnvelope(
-                new GetAllUCServicesBody($this)
-            );
-        }
+        return new GetAllUCServicesEnvelope(
+            new GetAllUCServicesBody($this)
+        );
     }
 }

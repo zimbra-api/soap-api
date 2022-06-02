@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCurrentVolumesRequest class
@@ -27,14 +27,12 @@ class GetCurrentVolumesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetCurrentVolumesEnvelope)) {
-            $this->envelope = new GetCurrentVolumesEnvelope(
-                new GetCurrentVolumesBody($this)
-            );
-        }
+        return new GetCurrentVolumesEnvelope(
+            new GetCurrentVolumesBody($this)
+        );
     }
 }

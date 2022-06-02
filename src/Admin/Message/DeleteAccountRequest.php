@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteAccountRequest class
@@ -73,14 +73,12 @@ class DeleteAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteAccountEnvelope)) {
-            $this->envelope = new DeleteAccountEnvelope(
-                new DeleteAccountBody($this)
-            );
-        }
+        return new DeleteAccountEnvelope(
+            new DeleteAccountBody($this)
+        );
     }
 }

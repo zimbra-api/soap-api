@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllDomainsRequest class
@@ -72,14 +72,12 @@ class GetAllDomainsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllDomainsEnvelope)) {
-            $this->envelope = new GetAllDomainsEnvelope(
-                new GetAllDomainsBody($this)
-            );
-        }
+        return new GetAllDomainsEnvelope(
+            new GetAllDomainsBody($this)
+        );
     }
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAttributeInfoRequest class
@@ -114,14 +114,12 @@ class GetAttributeInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAttributeInfoEnvelope)) {
-            $this->envelope = new GetAttributeInfoEnvelope(
-                new GetAttributeInfoBody($this)
-            );
-        }
+        return new GetAttributeInfoEnvelope(
+            new GetAttributeInfoBody($this)
+        );
     }
 }

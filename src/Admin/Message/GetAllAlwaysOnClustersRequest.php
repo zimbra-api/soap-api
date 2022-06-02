@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllAlwaysOnClustersRequest class
@@ -27,14 +27,12 @@ class GetAllAlwaysOnClustersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllAlwaysOnClustersEnvelope)) {
-            $this->envelope = new GetAllAlwaysOnClustersEnvelope(
-                new GetAllAlwaysOnClustersBody($this)
-            );
-        }
+        return new GetAllAlwaysOnClustersEnvelope(
+            new GetAllAlwaysOnClustersBody($this)
+        );
     }
 }

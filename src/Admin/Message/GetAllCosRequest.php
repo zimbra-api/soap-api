@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllCosRequest class
@@ -27,14 +27,12 @@ class GetAllCosRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllCosEnvelope)) {
-            $this->envelope = new GetAllCosEnvelope(
-                new GetAllCosBody($this)
-            );
-        }
+        return new GetAllCosEnvelope(
+            new GetAllCosBody($this)
+        );
     }
 }

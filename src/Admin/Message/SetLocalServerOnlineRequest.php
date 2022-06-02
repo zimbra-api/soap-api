@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SetLocalServerOnlineRequest class
@@ -27,14 +27,12 @@ class SetLocalServerOnlineRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SetLocalServerOnlineEnvelope)) {
-            $this->envelope = new SetLocalServerOnlineEnvelope(
-                new SetLocalServerOnlineBody($this)
-            );
-        }
+        return new SetLocalServerOnlineEnvelope(
+            new SetLocalServerOnlineBody($this)
+        );
     }
 }

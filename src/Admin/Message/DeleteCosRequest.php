@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteCosRequest class
@@ -70,14 +70,12 @@ class DeleteCosRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteCosEnvelope)) {
-            $this->envelope = new DeleteCosEnvelope(
-                new DeleteCosBody($this)
-            );
-        }
+        return new DeleteCosEnvelope(
+            new DeleteCosBody($this)
+        );
     }
 }

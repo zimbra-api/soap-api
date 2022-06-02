@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetVolumeRequest class
@@ -70,14 +70,12 @@ class GetVolumeRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetVolumeEnvelope)) {
-            $this->envelope = new GetVolumeEnvelope(
-                new GetVolumeBody($this)
-            );
-        }
+        return new GetVolumeEnvelope(
+            new GetVolumeBody($this)
+        );
     }
 }

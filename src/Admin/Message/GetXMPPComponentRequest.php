@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSelector;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetXMPPComponentRequest class
@@ -79,14 +79,12 @@ class GetXMPPComponentRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetXMPPComponentEnvelope)) {
-            $this->envelope = new GetXMPPComponentEnvelope(
-                new GetXMPPComponentBody($this)
-            );
-        }
+        return new GetXMPPComponentEnvelope(
+            new GetXMPPComponentBody($this)
+        );
     }
 }

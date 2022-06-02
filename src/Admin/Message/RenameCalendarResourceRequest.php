@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RenameCalendarResourceRequest class
@@ -103,14 +103,12 @@ class RenameCalendarResourceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RenameCalendarResourceEnvelope)) {
-            $this->envelope = new RenameCalendarResourceEnvelope(
-                new RenameCalendarResourceBody($this)
-            );
-        }
+        return new RenameCalendarResourceEnvelope(
+            new RenameCalendarResourceBody($this)
+        );
     }
 }

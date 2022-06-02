@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetDomainRequest class
@@ -120,14 +120,12 @@ class GetDomainRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetDomainEnvelope)) {
-            $this->envelope = new GetDomainEnvelope(
-                new GetDomainBody($this)
-            );
-        }
+        return new GetDomainEnvelope(
+            new GetDomainBody($this)
+        );
     }
 }

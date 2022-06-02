@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\ServerMailQueueQuery as Server;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetMailQueueRequest request class
@@ -84,14 +84,12 @@ class GetMailQueueRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetMailQueueEnvelope)) {
-            $this->envelope = new GetMailQueueEnvelope(
-                new GetMailQueueBody($this)
-            );
-        }
+        return new GetMailQueueEnvelope(
+            new GetMailQueueBody($this)
+        );
     }
 }

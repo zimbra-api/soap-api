@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec as Mailbox;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ExportAndDeleteItemsRequest class
@@ -145,14 +145,12 @@ class ExportAndDeleteItemsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ExportAndDeleteItemsEnvelope)) {
-            $this->envelope = new ExportAndDeleteItemsEnvelope(
-                new ExportAndDeleteItemsBody($this)
-            );
-        }
+        return new ExportAndDeleteItemsEnvelope(
+            new ExportAndDeleteItemsBody($this)
+        );
     }
 }

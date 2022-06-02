@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAggregateQuotaUsageOnServerRequest class
@@ -27,14 +27,12 @@ class GetAggregateQuotaUsageOnServerRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAggregateQuotaUsageOnServerEnvelope)) {
-            $this->envelope = new GetAggregateQuotaUsageOnServerEnvelope(
-                new GetAggregateQuotaUsageOnServerBody($this)
-            );
-        }
+        return new GetAggregateQuotaUsageOnServerEnvelope(
+            new GetAggregateQuotaUsageOnServerBody($this)
+        );
     }
 }

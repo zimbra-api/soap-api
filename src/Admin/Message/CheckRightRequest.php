@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{
     AdminAttrs, AdminAttrsImplTrait, CheckedRight, EffectiveRightsTargetSelector, GranteeSelector
 };
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckRight request class
@@ -151,14 +151,12 @@ class CheckRightRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckRightEnvelope)) {
-            $this->envelope = new CheckRightEnvelope(
-                new CheckRightBody($this)
-            );
-        }
+        return new CheckRightEnvelope(
+            new CheckRightBody($this)
+        );
     }
 }

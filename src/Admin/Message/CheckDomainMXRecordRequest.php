@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckDomainMXRecordRequest request class
@@ -74,14 +74,12 @@ class CheckDomainMXRecordRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckDomainMXRecordEnvelope)) {
-            $this->envelope = new CheckDomainMXRecordEnvelope(
-                new CheckDomainMXRecordBody($this)
-            );
-        }
+        return new CheckDomainMXRecordEnvelope(
+            new CheckDomainMXRecordBody($this)
+        );
     }
 }

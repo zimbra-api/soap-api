@@ -10,6 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
+use Zimbra\Soap\EnvelopeInterface;
+
 /**
  * GetAllCalendarResourcesRequest class
  * Get all calendar resources that match the selection criteria
@@ -25,14 +27,12 @@ class GetAllCalendarResourcesRequest extends GetAllAccountsRequest
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllCalendarResourcesEnvelope)) {
-            $this->envelope = new GetAllCalendarResourcesEnvelope(
-                new GetAllCalendarResourcesBody($this)
-            );
-        }
+        return new GetAllCalendarResourcesEnvelope(
+            new GetAllCalendarResourcesBody($this)
+        );
     }
 }

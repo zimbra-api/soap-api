@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetIndexStatsRequest request class
@@ -70,14 +70,12 @@ class GetIndexStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetIndexStatsEnvelope)) {
-            $this->envelope = new GetIndexStatsEnvelope(
-                new GetIndexStatsBody($this)
-            );
-        }
+        return new GetIndexStatsEnvelope(
+            new GetIndexStatsBody($this)
+        );
     }
 }

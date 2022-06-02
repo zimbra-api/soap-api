@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Common\Enum\ContactBackupOp  as Operation;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ContactBackupRequest request class
@@ -122,14 +122,12 @@ class ContactBackupRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ContactBackupEnvelope)) {
-            $this->envelope = new ContactBackupEnvelope(
-                new ContactBackupBody($this)
-            );
-        }
+        return new ContactBackupEnvelope(
+            new ContactBackupBody($this)
+        );
     }
 }

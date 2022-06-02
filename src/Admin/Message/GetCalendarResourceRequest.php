@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\CalendarResourceSelector;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCalendarResourceRequest class
@@ -119,14 +119,12 @@ class GetCalendarResourceRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetCalendarResourceEnvelope)) {
-            $this->envelope = new GetCalendarResourceEnvelope(
-                new GetCalendarResourceBody($this)
-            );
-        }
+        return new GetCalendarResourceEnvelope(
+            new GetCalendarResourceBody($this)
+        );
     }
 }

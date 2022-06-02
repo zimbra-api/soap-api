@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\TargetWithType as Target;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCreateObjectAttrsRequest request class
@@ -151,14 +151,12 @@ class GetCreateObjectAttrsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetCreateObjectAttrsEnvelope)) {
-            $this->envelope = new GetCreateObjectAttrsEnvelope(
-                new GetCreateObjectAttrsBody($this)
-            );
-        }
+        return new GetCreateObjectAttrsEnvelope(
+            new GetCreateObjectAttrsBody($this)
+        );
     }
 }

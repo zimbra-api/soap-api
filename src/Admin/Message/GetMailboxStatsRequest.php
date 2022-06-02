@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetMailboxStatsRequest request class
@@ -27,14 +27,12 @@ class GetMailboxStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetMailboxStatsEnvelope)) {
-            $this->envelope = new GetMailboxStatsEnvelope(
-                new GetMailboxStatsBody($this)
-            );
-        }
+        return new GetMailboxStatsEnvelope(
+            new GetMailboxStatsBody($this)
+        );
     }
 }

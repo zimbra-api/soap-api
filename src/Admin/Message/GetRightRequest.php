@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetRightRequest class
@@ -107,14 +107,12 @@ class GetRightRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetRightEnvelope)) {
-            $this->envelope = new GetRightEnvelope(
-                new GetRightBody($this)
-            );
-        }
+        return new GetRightEnvelope(
+            new GetRightBody($this)
+        );
     }
 }

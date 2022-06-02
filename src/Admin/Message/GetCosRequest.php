@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCosRequest class
@@ -78,14 +78,12 @@ class GetCosRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetCosEnvelope)) {
-            $this->envelope = new GetCosEnvelope(
-                new GetCosBody($this)
-            );
-        }
+        return new GetCosEnvelope(
+            new GetCosBody($this)
+        );
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * PurgeMessagesRequest class
@@ -74,14 +74,12 @@ class PurgeMessagesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof PurgeMessagesEnvelope)) {
-            $this->envelope = new PurgeMessagesEnvelope(
-                new PurgeMessagesBody($this)
-            );
-        }
+        return new PurgeMessagesEnvelope(
+            new PurgeMessagesBody($this)
+        );
     }
 }

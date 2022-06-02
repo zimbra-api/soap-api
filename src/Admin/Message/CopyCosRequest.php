@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CopyCosRequest request class
@@ -108,14 +108,12 @@ class CopyCosRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CopyCosEnvelope)) {
-            $this->envelope = new CopyCosEnvelope(
-                new CopyCosBody($this)
-            );
-        }
+        return new CopyCosEnvelope(
+            new CopyCosBody($this)
+        );
     }
 }

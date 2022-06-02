@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAdminExtensionZimletsRequest class
@@ -27,14 +27,12 @@ class GetAdminExtensionZimletsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAdminExtensionZimletsEnvelope)) {
-            $this->envelope = new GetAdminExtensionZimletsEnvelope(
-                new GetAdminExtensionZimletsBody($this)
-            );
-        }
+        return new GetAdminExtensionZimletsEnvelope(
+            new GetAdminExtensionZimletsBody($this)
+        );
     }
 }

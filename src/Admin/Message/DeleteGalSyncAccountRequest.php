@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteGalSyncAccountRequest class
@@ -72,14 +72,12 @@ class DeleteGalSyncAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteGalSyncAccountEnvelope)) {
-            $this->envelope = new DeleteGalSyncAccountEnvelope(
-                new DeleteGalSyncAccountBody($this)
-            );
-        }
+        return new DeleteGalSyncAccountEnvelope(
+            new DeleteGalSyncAccountBody($this)
+        );
     }
 }

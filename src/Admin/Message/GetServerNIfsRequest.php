@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\IpType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetServerNIfsRequest request class
@@ -109,14 +109,12 @@ class GetServerNIfsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetServerNIfsEnvelope)) {
-            $this->envelope = new GetServerNIfsEnvelope(
-                new GetServerNIfsBody($this)
-            );
-        }
+        return new GetServerNIfsEnvelope(
+            new GetServerNIfsBody($this)
+        );
     }
 }

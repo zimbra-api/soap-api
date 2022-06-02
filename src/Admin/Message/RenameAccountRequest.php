@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RenameAccountRequest class
@@ -103,14 +103,12 @@ class RenameAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RenameAccountEnvelope)) {
-            $this->envelope = new RenameAccountEnvelope(
-                new RenameAccountBody($this)
-            );
-        }
+        return new RenameAccountEnvelope(
+            new RenameAccountBody($this)
+        );
     }
 }

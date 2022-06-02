@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Enum\GalMode;
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateGalSyncAccountRequest class
@@ -288,14 +288,12 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateGalSyncAccountEnvelope)) {
-            $this->envelope = new CreateGalSyncAccountEnvelope(
-                new CreateGalSyncAccountBody($this)
-            );
-        }
+        return new CreateGalSyncAccountEnvelope(
+            new CreateGalSyncAccountBody($this)
+        );
     }
 }

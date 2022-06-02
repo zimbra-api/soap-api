@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\Names;
 use Zimbra\Common\Struct\Id;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * PushFreeBusyRequest class
@@ -128,14 +128,12 @@ class PushFreeBusyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof PushFreeBusyEnvelope)) {
-            $this->envelope = new PushFreeBusyEnvelope(
-                new PushFreeBusyBody($this)
-            );
-        }
+        return new PushFreeBusyEnvelope(
+            new PushFreeBusyBody($this)
+        );
     }
 }

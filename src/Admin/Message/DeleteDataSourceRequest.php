@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Struct\Id;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteDataSourceRequest class
@@ -112,14 +112,12 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteDataSourceEnvelope)) {
-            $this->envelope = new DeleteDataSourceEnvelope(
-                new DeleteDataSourceBody($this)
-            );
-        }
+        return new DeleteDataSourceEnvelope(
+            new DeleteDataSourceBody($this)
+        );
     }
 }

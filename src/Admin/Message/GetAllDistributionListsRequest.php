@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllDistributionListsRequest request class
@@ -73,14 +73,12 @@ class GetAllDistributionListsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllDistributionListsEnvelope)) {
-            $this->envelope = new GetAllDistributionListsEnvelope(
-                new GetAllDistributionListsBody($this)
-            );
-        }
+        return new GetAllDistributionListsEnvelope(
+            new GetAllDistributionListsBody($this)
+        );
     }
 }

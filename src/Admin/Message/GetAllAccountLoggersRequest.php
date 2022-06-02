@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllAccountLoggersRequest class
@@ -27,14 +27,12 @@ class GetAllAccountLoggersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllAccountLoggersEnvelope)) {
-            $this->envelope = new GetAllAccountLoggersEnvelope(
-                new GetAllAccountLoggersBody($this)
-            );
-        }
+        return new GetAllAccountLoggersEnvelope(
+            new GetAllAccountLoggersBody($this)
+        );
     }
 }

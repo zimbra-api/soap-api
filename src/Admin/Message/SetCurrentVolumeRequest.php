@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\VolumeType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SetCurrentVolumeRequest class
@@ -104,14 +104,12 @@ class SetCurrentVolumeRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SetCurrentVolumeEnvelope)) {
-            $this->envelope = new SetCurrentVolumeEnvelope(
-                new SetCurrentVolumeBody($this)
-            );
-        }
+        return new SetCurrentVolumeEnvelope(
+            new SetCurrentVolumeBody($this)
+        );
     }
 }

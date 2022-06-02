@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllEffectiveRightsRequest request class
@@ -130,14 +130,12 @@ class GetAllEffectiveRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllEffectiveRightsEnvelope)) {
-            $this->envelope = new GetAllEffectiveRightsEnvelope(
-                new GetAllEffectiveRightsBody($this)
-            );
-        }
+        return new GetAllEffectiveRightsEnvelope(
+            new GetAllEffectiveRightsBody($this)
+        );
     }
 }

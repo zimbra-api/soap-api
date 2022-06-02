@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Struct\{Id, WaitSetAddSpec};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AdminWaitSet request class
@@ -417,14 +417,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AdminWaitSetEnvelope)) {
-            $this->envelope = new AdminWaitSetEnvelope(
-                new AdminWaitSetBody($this)
-            );
-        }
+        return new AdminWaitSetEnvelope(
+            new AdminWaitSetBody($this)
+        );
     }
 }

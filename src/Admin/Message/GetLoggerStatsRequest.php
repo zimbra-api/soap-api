@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{HostName, StatsSpec, TimeAttr};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetLoggerStatsRequest request class
@@ -185,14 +185,12 @@ class GetLoggerStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetLoggerStatsEnvelope)) {
-            $this->envelope = new GetLoggerStatsEnvelope(
-                new GetLoggerStatsBody($this)
-            );
-        }
+        return new GetLoggerStatsEnvelope(
+            new GetLoggerStatsBody($this)
+        );
     }
 }

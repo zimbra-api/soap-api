@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetLicenseInfoRequest request class
@@ -27,14 +27,12 @@ class GetLicenseInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetLicenseInfoEnvelope)) {
-            $this->envelope = new GetLicenseInfoEnvelope(
-                new GetLicenseInfoBody($this)
-            );
-        }
+        return new GetLicenseInfoEnvelope(
+            new GetLicenseInfoBody($this)
+        );
     }
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetLDAPEntriesRequest class
@@ -252,14 +252,12 @@ class GetLDAPEntriesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetLDAPEntriesEnvelope)) {
-            $this->envelope = new GetLDAPEntriesEnvelope(
-                new GetLDAPEntriesBody($this)
-            );
-        }
+        return new GetLDAPEntriesEnvelope(
+            new GetLDAPEntriesBody($this)
+        );
     }
 }

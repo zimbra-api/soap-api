@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\TzFixup;
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * FixCalendarTZRequest class
@@ -199,14 +199,12 @@ class FixCalendarTZRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof FixCalendarTZEnvelope)) {
-            $this->envelope = new FixCalendarTZEnvelope(
-                new FixCalendarTZBody($this)
-            );
-        }
+        return new FixCalendarTZEnvelope(
+            new FixCalendarTZBody($this)
+        );
     }
 }

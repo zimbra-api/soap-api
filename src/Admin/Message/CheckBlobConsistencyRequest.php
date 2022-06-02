@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata
@@ -216,14 +216,12 @@ class CheckBlobConsistencyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckBlobConsistencyEnvelope)) {
-            $this->envelope = new CheckBlobConsistencyEnvelope(
-                new CheckBlobConsistencyBody($this)
-            );
-        }
+        return new CheckBlobConsistencyEnvelope(
+            new CheckBlobConsistencyBody($this)
+        );
     }
 }

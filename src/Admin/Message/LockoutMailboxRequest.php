@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\LockoutOperation;
 use Zimbra\Common\Struct\AccountNameSelector as Account;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * LockoutMailboxRequest request class
@@ -107,14 +107,12 @@ class LockoutMailboxRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof LockoutMailboxEnvelope)) {
-            $this->envelope = new LockoutMailboxEnvelope(
-                new LockoutMailboxBody($this)
-            );
-        }
+        return new LockoutMailboxEnvelope(
+            new LockoutMailboxBody($this)
+        );
     }
 }

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ClearCookie request class
@@ -88,14 +88,12 @@ class ClearCookieRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ClearCookieEnvelope)) {
-            $this->envelope = new ClearCookieEnvelope(
-                new ClearCookieBody($this)
-            );
-        }
+        return new ClearCookieEnvelope(
+            new ClearCookieBody($this)
+        );
     }
 }
