@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\NewFolderSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateFolderRequest class
@@ -71,14 +71,12 @@ class CreateFolderRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateFolderEnvelope)) {
-            $this->envelope = new CreateFolderEnvelope(
-                new CreateFolderBody($this)
-            );
-        }
+        return new CreateFolderEnvelope(
+            new CreateFolderBody($this)
+        );
     }
 }

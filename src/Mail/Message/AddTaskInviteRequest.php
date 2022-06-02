@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddTaskInviteRequest class
@@ -47,14 +47,12 @@ class AddTaskInviteRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddTaskInviteEnvelope)) {
-            $this->envelope = new AddTaskInviteEnvelope(
-                new AddTaskInviteBody($this)
-            );
-        }
+        return new AddTaskInviteEnvelope(
+            new AddTaskInviteBody($this)
+        );
     }
 }

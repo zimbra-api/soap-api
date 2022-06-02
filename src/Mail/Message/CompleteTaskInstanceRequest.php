@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\DtTimeInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CompleteTaskInstanceRequest class
@@ -144,14 +144,12 @@ class CompleteTaskInstanceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CompleteTaskInstanceEnvelope)) {
-            $this->envelope = new CompleteTaskInstanceEnvelope(
-                new CompleteTaskInstanceBody($this)
-            );
-        }
+        return new CompleteTaskInstanceEnvelope(
+            new CompleteTaskInstanceBody($this)
+        );
     }
 }

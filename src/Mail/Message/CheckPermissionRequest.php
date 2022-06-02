@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Mail\Struct\TargetSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckPermissionRequest class
@@ -126,14 +126,12 @@ class CheckPermissionRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckPermissionEnvelope)) {
-            $this->envelope = new CheckPermissionEnvelope(
-                new CheckPermissionBody($this)
-            );
-        }
+        return new CheckPermissionEnvelope(
+            new CheckPermissionBody($this)
+        );
     }
 }

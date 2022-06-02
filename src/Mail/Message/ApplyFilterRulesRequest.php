@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Mail\Struct\IdsAttr;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ApplyFilterRulesRequest class
@@ -168,14 +168,12 @@ class ApplyFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ApplyFilterRulesEnvelope)) {
-            $this->envelope = new ApplyFilterRulesEnvelope(
-                new ApplyFilterRulesBody($this)
-            );
-        }
+        return new ApplyFilterRulesEnvelope(
+            new ApplyFilterRulesBody($this)
+        );
     }
 }

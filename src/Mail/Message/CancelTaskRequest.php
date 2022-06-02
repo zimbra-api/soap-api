@@ -10,6 +10,8 @@
 
 namespace Zimbra\Mail\Message;
 
+use Zimbra\Soap\EnvelopeInterface;
+
 /**
  * CancelTaskRequest class
  * Cancel Task request
@@ -25,14 +27,12 @@ class CancelTaskRequest extends CancelAppointmentRequest
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CancelTaskEnvelope)) {
-            $this->envelope = new CancelTaskEnvelope(
-                new CancelTaskBody($this)
-            );
-        }
+        return new CancelTaskEnvelope(
+            new CancelTaskBody($this)
+        );
     }
 }

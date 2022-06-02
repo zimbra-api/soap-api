@@ -19,7 +19,7 @@ use Zimbra\Mail\Struct\{
     ExpandedRecurrenceInvite,
     FreeBusyUserSpec
 };
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckRecurConflictsRequest class
@@ -457,14 +457,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckRecurConflictsEnvelope)) {
-            $this->envelope = new CheckRecurConflictsEnvelope(
-                new CheckRecurConflictsBody($this)
-            );
-        }
+        return new CheckRecurConflictsEnvelope(
+            new CheckRecurConflictsBody($this)
+        );
     }
 }

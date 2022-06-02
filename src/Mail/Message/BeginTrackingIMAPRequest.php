@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * BeginTrackingIMAPRequest class
@@ -26,14 +26,12 @@ class BeginTrackingIMAPRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof BeginTrackingIMAPEnvelope)) {
-            $this->envelope = new BeginTrackingIMAPEnvelope(
-                new BeginTrackingIMAPBody($this)
-            );
-        }
+        return new BeginTrackingIMAPEnvelope(
+            new BeginTrackingIMAPBody($this)
+        );
     }
 }

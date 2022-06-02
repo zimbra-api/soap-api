@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AnnounceOrganizerChangeRequest class
@@ -70,14 +70,12 @@ class AnnounceOrganizerChangeRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AnnounceOrganizerChangeEnvelope)) {
-            $this->envelope = new AnnounceOrganizerChangeEnvelope(
-                new AnnounceOrganizerChangeBody($this)
-            );
-        }
+        return new AnnounceOrganizerChangeEnvelope(
+            new AnnounceOrganizerChangeBody($this)
+        );
     }
 }

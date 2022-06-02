@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\AddMsgSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddMsgRequest class
@@ -107,14 +107,12 @@ class AddMsgRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddMsgEnvelope)) {
-            $this->envelope = new AddMsgEnvelope(
-                new AddMsgBody($this)
-            );
-        }
+        return new AddMsgEnvelope(
+            new AddMsgBody($this)
+        );
     }
 }

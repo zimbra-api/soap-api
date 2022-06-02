@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\ContactActionSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ContactActionRequest class
@@ -71,14 +71,12 @@ class ContactActionRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ContactActionEnvelope)) {
-            $this->envelope = new ContactActionEnvelope(
-                new ContactActionBody($this)
-            );
-        }
+        return new ContactActionEnvelope(
+            new ContactActionBody($this)
+        );
     }
 }

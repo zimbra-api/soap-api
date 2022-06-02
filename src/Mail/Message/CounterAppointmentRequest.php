@@ -11,10 +11,8 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Mail\Struct\InstanceRecurIdInfo;
-use Zimbra\Mail\Struct\Msg;
-use Zimbra\Soap\Request;
+use Zimbra\Mail\Struct\{CalTZInfo, InstanceRecurIdInfo, Msg};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CounterAppointmentRequest class
@@ -225,14 +223,12 @@ class CounterAppointmentRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CounterAppointmentEnvelope)) {
-            $this->envelope = new CounterAppointmentEnvelope(
-                new CounterAppointmentBody($this)
-            );
-        }
+        return new CounterAppointmentEnvelope(
+            new CounterAppointmentBody($this)
+        );
     }
 }

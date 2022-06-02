@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\BounceMsgSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * BounceMsgRequest class
@@ -76,14 +76,12 @@ class BounceMsgRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof BounceMsgEnvelope)) {
-            $this->envelope = new BounceMsgEnvelope(
-                new BounceMsgBody($this)
-            );
-        }
+        return new BounceMsgEnvelope(
+            new BounceMsgBody($this)
+        );
     }
 }

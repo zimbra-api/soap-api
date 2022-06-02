@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\GalSearchType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoCompleteRequest class
@@ -221,14 +221,12 @@ class AutoCompleteRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AutoCompleteEnvelope)) {
-            $this->envelope = new AutoCompleteEnvelope(
-                new AutoCompleteBody($this)
-            );
-        }
+        return new AutoCompleteEnvelope(
+            new AutoCompleteBody($this)
+        );
     }
 }

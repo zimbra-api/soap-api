@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckSpellingRequest class
@@ -151,14 +151,12 @@ class CheckSpellingRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckSpellingEnvelope)) {
-            $this->envelope = new CheckSpellingEnvelope(
-                new CheckSpellingBody($this)
-            );
-        }
+        return new CheckSpellingEnvelope(
+            new CheckSpellingBody($this)
+        );
     }
 }

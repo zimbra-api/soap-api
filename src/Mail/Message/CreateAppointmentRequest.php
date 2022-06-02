@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use Zimbra\Mail\Struct\CalItemRequestBase;
+use Zimbra\Soap\EnvelopeInterface;
 
 /**
  * CreateAppointmentRequest class
@@ -28,14 +29,12 @@ class CreateAppointmentRequest extends CalItemRequestBase
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateAppointmentEnvelope)) {
-            $this->envelope = new CreateAppointmentEnvelope(
-                new CreateAppointmentBody($this)
-            );
-        }
+        return new CreateAppointmentEnvelope(
+            new CreateAppointmentBody($this)
+        );
     }
 }

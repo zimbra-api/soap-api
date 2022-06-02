@@ -21,7 +21,7 @@ use Zimbra\Mail\Struct\MailGalDataSource;
 use Zimbra\Mail\Struct\MailCalDataSource;
 use Zimbra\Mail\Struct\MailUnknownDataSource;
 use Zimbra\Mail\Struct\MailDataSource;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateDataSourceRequest class
@@ -174,14 +174,12 @@ class CreateDataSourceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateDataSourceEnvelope)) {
-            $this->envelope = new CreateDataSourceEnvelope(
-                new CreateDataSourceBody($this)
-            );
-        }
+        return new CreateDataSourceEnvelope(
+            new CreateDataSourceBody($this)
+        );
     }
 }
