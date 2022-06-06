@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\ViewType;
 
 /**
@@ -39,7 +39,7 @@ class NewMountpointSpec
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
-     * @Type("string")
+     * @Type("Zimbra\Common\Enum\ViewType")
      * @XmlAttribute
      */
     private ?ViewType $defaultView = NULL;
@@ -261,9 +261,9 @@ class NewMountpointSpec
     /**
      * Gets defaultView
      *
-     * @return string
+     * @return ViewType
      */
-    public function getDefaultView(): ?string
+    public function getDefaultView(): ?ViewType
     {
         return $this->defaultView;
     }

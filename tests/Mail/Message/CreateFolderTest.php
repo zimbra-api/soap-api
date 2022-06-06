@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Common\Enum\{
     ActionGrantRight, GranteeType, GrantGranteeType, ItemType, RemoteFolderAccess, SearchSortBy, ViewType, Type
 };
