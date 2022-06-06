@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\ViewType;
 
 /**
- * NewFolderSpec class
+ * NewMountpointSpec class
  * Input for creating a new mountpoint
  *
  * @package    Zimbra
