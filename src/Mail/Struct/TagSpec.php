@@ -11,10 +11,11 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Text;
 
 /**
- * NewNoteSpec class
- * Input for creating a new note
+ * TagSpec class
+ * Input for creating a new tag
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -22,25 +23,25 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class NewNoteSpec
+class TagSpec
 {
     /**
-     * Parent Folder ID
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
+     * Tag name
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
      */
-    private $folder;
+    private $name;
 
     /**
-     * Content
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
+     * RGB color in format #rrggbb where r,g and b are hex digits
+     * @Accessor(getter="getRgb", setter="setRgb")
+     * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
      */
-    private $content;
+    private $rgb;
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
@@ -52,60 +53,26 @@ class NewNoteSpec
     private $color;
 
     /**
-     * Bounds - x,y[width,height] where x,y,width and height are all integers
-     * @Accessor(getter="getBounds", setter="setBounds")
-     * @SerializedName("pos")
-     * @Type("string")
-     * @XmlAttribute
-     */
-    private $bounds;
-
-    /**
-     * Constructor method for NewNoteSpec
+     * Constructor method for TagSpec
      *
-     * @param  string $folder
-     * @param  string $content
+     * @param  string $name
+     * @param  string $rgb
      * @param  int $color
-     * @param  string $bounds
      * @return self
      */
     public function __construct(
-        string $folder,
-        string $content,
-        ?int $color = NULL,
-        ?string $bounds = NULL
+        string $name,
+        ?string $rgb = NULL,
+        ?int $color = NULL
     )
     {
-        $this->setFolder($folder)
-             ->setContent($content);
+        $this->setName($name);
+        if (NULL !== $rgb) {
+            $this->setRgb($rgb);
+        }
         if (NULL !== $color) {
             $this->setColor($color);
         }
-        if (NULL !== $bounds) {
-            $this->setBounds($bounds);
-        }
-    }
-
-    /**
-     * Gets parentFolderId
-     *
-     * @return string
-     */
-    public function getFolder(): string
-    {
-        return $this->parentFolderId;
-    }
-
-    /**
-     * Sets parentFolderId
-     *
-     * @param  string $parentFolderId
-     * @return self
-     */
-    public function setFolder(string $parentFolderId): self
-    {
-        $this->parentFolderId = $parentFolderId;
-        return $this;
     }
 
     /**
@@ -135,7 +102,7 @@ class NewNoteSpec
      *
      * @return string
      */
-    public function getContent(): ?string
+    public function getName(): ?string
     {
         return $this->content;
     }
@@ -146,31 +113,33 @@ class NewNoteSpec
      * @param  string $content
      * @return self
      */
-    public function setContent(string $content): self
+    public function setName(string $content): self
     {
         $this->content = $content;
         return $this;
     }
 
     /**
-     * Gets bounds
+     * Gets rgb
      *
      * @return string
      */
-    public function getBounds(): ?string
+    public function getRgb(): ?string
     {
-        return $this->bounds;
+        return $this->rgb;
     }
 
     /**
-     * Sets bounds
+     * Sets rgb
      *
-     * @param  string $bounds
+     * @param  string $rgb
      * @return self
      */
-    public function setBounds(string $bounds): self
+    public function setRgb(string $rgb): self
     {
-        $this->bounds = $bounds;
+        if (Text::isRgb($rgb)) {
+            $this->rgb = $rgb;
+        }
         return $this;
     }
 }
