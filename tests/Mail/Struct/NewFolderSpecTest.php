@@ -4,8 +4,7 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\NewFolderSpec;
 use Zimbra\Mail\Struct\ActionGrantSelector;
-use Zimbra\Common\Enum\{ActionGrantRight, GranteeType};
-use Zimbra\Common\Enum\ViewType;
+use Zimbra\Common\Enum\{ActionGrantRight, GranteeType, ViewType};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

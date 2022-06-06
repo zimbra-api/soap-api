@@ -336,11 +336,130 @@ class Folder
      */
     public function __construct(
         string $id,
-        string $uuid
+        string $uuid,
+        ?string $name = NULL,
+        ?string $absoluteFolderPath = NULL,
+        ?string $parentId = NULL,
+        ?string $folderUuid = NULL,
+        ?string $flags = NULL,
+        ?int $color = NULL,
+        ?string $rgb = NULL,
+        ?int $unreadCount = NULL,
+        ?int $imapUnreadCount = NULL,
+        ?ViewType $view = NULL,
+        ?int $revision = NULL,
+        ?int $modifiedSequence = NULL,
+        ?int $changeDate = NULL,
+        ?int $itemCount = NULL,
+        ?int $imapItemCount = NULL,
+        ?int $totalSize = NULL,
+        ?int $imapModifiedSequence = NULL,
+        ?int $imapUidNext = NULL,
+        ?string $url = NULL,
+        ?bool $activeSyncDisabled = NULL,
+        ?int $webOfflineSyncDays = NULL,
+        ?string $perm = NULL,
+        ?bool $recursive = NULL,
+        ?string $restUrl = NULL,
+        ?bool $deletable = NULL,
+        array $metadatas = [],
+        ?Acl $acl = NULL,
+        array $subFolders = [],
+        array $mountpoints = [],
+        array $searchFolders = [],
+        ?RetentionPolicy $retentionPolicy = NULL
     )
     {
         $this->setId($id)
-             ->setUuid($uuid);
+             ->setUuid($uuid)
+             ->setMetadatas($metadatas)
+             ->setSubfolders($subFolders)
+             ->setMountpoints($mountpoints)
+             ->setSearchFolders($searchFolders);
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $absoluteFolderPath) {
+            $this->setAbsoluteFolderPath($absoluteFolderPath);
+        }
+        if (NULL !== $parentId) {
+            $this->setParentId($parentId);
+        }
+        if (NULL !== $folderUuid) {
+            $this->setFolderUuid($folderUuid);
+        }
+        if (NULL !== $flags) {
+            $this->setFlags($flags);
+        }
+        if (NULL !== $color) {
+            $this->setColor($color);
+        }
+        if (NULL !== $rgb) {
+            $this->setRgb($rgb);
+        }
+        if (NULL !== $unreadCount) {
+            $this->setUnreadCount($unreadCount);
+        }
+        if (NULL !== $imapUnreadCount) {
+            $this->setImapUnreadCount($imapUnreadCount);
+        }
+        if ($view instanceof ViewType) {
+            $this->setView($view);
+        }
+        if (NULL !== $revision) {
+            $this->setRevision($revision);
+        }
+        if (NULL !== $modifiedSequence) {
+            $this->setModifiedSequence($modifiedSequence);
+        }
+        if (NULL !== $changeDate) {
+            $this->setChangeDate($changeDate);
+        }
+        if (NULL !== $itemCount) {
+            $this->setItemCount($itemCount);
+        }
+        if (NULL !== $imapItemCount) {
+            $this->setImapItemCount($imapItemCount);
+        }
+        if (NULL !== $totalSize) {
+            $this->setTotalSize($totalSize);
+        }
+        if (NULL !== $imapModifiedSequence) {
+            $this->setImapModifiedSequence($imapModifiedSequence);
+        }
+        if (NULL !== $imapUidNext) {
+            $this->setImapUidNext($imapUidNext);
+        }
+        if (NULL !== $url) {
+            $this->setUrl($url);
+        }
+        if (NULL !== $activeSyncDisabled) {
+            $this->setActiveSyncDisabled($activeSyncDisabled);
+        }
+        if (NULL !== $webOfflineSyncDays) {
+            $this->setWebOfflineSyncDays($webOfflineSyncDays);
+        }
+        if (NULL !== $perm) {
+            $this->setPerm($perm);
+        }
+        if (NULL !== $recursive) {
+            $this->setRecursive($recursive);
+        }
+        if (NULL !== $restUrl) {
+            $this->setRestUrl($restUrl);
+        }
+        if (NULL !== $deletable) {
+            $this->setDeletable($deletable);
+        }
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if ($acl instanceof Acl) {
+            $this->setAcl($acl);
+        }
+        if ($retentionPolicy instanceof RetentionPolicy) {
+            $this->setRetentionPolicy($retentionPolicy);
+        }
     }
 
     /**

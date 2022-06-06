@@ -22,7 +22,28 @@ class MountpointTest extends ZimbraTestCase
         $remoteFolderName = $this->faker->word;
 
         $link = new Mountpoint(
-            $id, $uuid
+            $id,
+            $uuid,
+            $ownerEmail,
+            $ownerAccountId,
+            $remoteFolderId,
+            $remoteUuid,
+            $remoteFolderName,
+            FALSE,
+            FALSE
+        );
+        $this->assertTrue($link instanceof Folder);
+        $this->assertSame($ownerEmail, $link->getOwnerEmail());
+        $this->assertSame($ownerAccountId, $link->getOwnerAccountId());
+        $this->assertSame($remoteFolderId, $link->getRemoteFolderId());
+        $this->assertSame($remoteUuid, $link->getRemoteUuid());
+        $this->assertSame($remoteFolderName, $link->getRemoteFolderName());
+        $this->assertFalse($link->getReminderEnabled());
+        $this->assertFalse($link->getBroken());
+
+        $link = new Mountpoint(
+            $id,
+            $uuid,
         );
         $link->setOwnerEmail($ownerEmail)
             ->setOwnerAccountId($ownerAccountId)
@@ -32,7 +53,6 @@ class MountpointTest extends ZimbraTestCase
             ->setReminderEnabled(TRUE)
             ->setBroken(TRUE);
 
-        $this->assertTrue($link instanceof Folder);
         $this->assertSame($ownerEmail, $link->getOwnerEmail());
         $this->assertSame($ownerAccountId, $link->getOwnerAccountId());
         $this->assertSame($remoteFolderId, $link->getRemoteFolderId());

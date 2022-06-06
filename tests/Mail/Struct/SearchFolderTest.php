@@ -22,13 +22,25 @@ class SearchFolderTest extends ZimbraTestCase
         $types = implode(',', [ItemType::MESSAGE(), ItemType::CONVERSATION()]);
 
         $search = new SearchFolder(
-            $id, $uuid
+            $id,
+            $uuid,
+            $query,
+            $sortBy,
+            $types
+        );
+        $this->assertTrue($search instanceof Folder);
+        $this->assertSame($query, $search->getQuery());
+        $this->assertSame($sortBy, $search->getSortBy());
+        $this->assertSame($types, $search->getTypes());
+
+        $search = new SearchFolder(
+            $id,
+            $uuid
         );
         $search->setQuery($query)
             ->setSortBy($sortBy)
             ->setTypes($types);
 
-        $this->assertTrue($search instanceof Folder);
         $this->assertSame($query, $search->getQuery());
         $this->assertSame($sortBy, $search->getSortBy());
         $this->assertSame($types, $search->getTypes());

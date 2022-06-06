@@ -93,9 +93,40 @@ class Mountpoint extends Folder
      * @param  string $uuid
      * @return self
      */
-    public function __construct(string $id, string $uuid)
+    public function __construct(
+        string $id,
+        string $uuid,
+        ?string $ownerEmail = NULL,
+        ?string $ownerAccountId = NULL,
+        ?int $remoteFolderId = NULL,
+        ?string $remoteUuid = NULL,
+        ?string $remoteFolderName = NULL,
+        ?bool $reminderEnabled = NULL,
+        ?bool $broken = NULL
+    )
     {
     	parent::__construct($id, $uuid);
+        if (NULL !== $ownerEmail) {
+            $this->setOwnerEmail($ownerEmail);
+        }
+        if (NULL !== $ownerAccountId) {
+            $this->setOwnerAccountId($ownerAccountId);
+        }
+        if (NULL !== $remoteFolderId) {
+            $this->setRemoteFolderId($remoteFolderId);
+        }
+        if (NULL !== $remoteUuid) {
+            $this->setRemoteUuid($remoteUuid);
+        }
+        if (NULL !== $remoteFolderName) {
+            $this->setRemoteFolderName($remoteFolderName);
+        }
+        if (NULL !== $reminderEnabled) {
+            $this->setReminderEnabled($reminderEnabled);
+        }
+        if (NULL !== $broken) {
+            $this->setBroken($broken);
+        }
     }
 
     /**

@@ -2,6 +2,12 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
+use Zimbra\Common\Enum\RemoteFolderAccess;
+use Zimbra\Common\Enum\Type;
+use Zimbra\Common\Enum\ViewType;
+use Zimbra\Common\Struct\KeyValuePair;
+
 use Zimbra\Mail\Struct\Acl;
 use Zimbra\Mail\Struct\Folder;
 use Zimbra\Mail\Struct\Grant;
@@ -11,12 +17,6 @@ use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
 use Zimbra\Mail\Struct\SearchFolder;
 
-use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
-use Zimbra\Common\Enum\RemoteFolderAccess;
-use Zimbra\Common\Enum\Type;
-use Zimbra\Common\Enum\ViewType;
-
-use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -81,10 +81,73 @@ class FolderTest extends ZimbraTestCase
         $searchFolder = new SearchFolder($id, $uuid);
 
         $folder = new Folder(
-            $id, $uuid
+            $id,
+            $uuid,
+            $name,
+            $absoluteFolderPath,
+            $parentId,
+            $folderUuid,
+            $flags,
+            $color,
+            $rgb,
+            $unreadCount,
+            $imapUnreadCount,
+            $view,
+            $revision,
+            $modifiedSequence,
+            $changeDate,
+            $itemCount,
+            $imapItemCount,
+            $totalSize,
+            $imapModifiedSequence,
+            $imapUidNext,
+            $url,
+            FALSE,
+            $webOfflineSyncDays,
+            $perm,
+            FALSE,
+            $restUrl,
+            FALSE,
+            [$metadata],
+            $acl,
+            [$subFolder],
+            [$mountpoint],
+            [$searchFolder],
+            $retentionPolicy
         );
         $this->assertSame($id, $folder->getId());
         $this->assertSame($uuid, $folder->getUuid());
+        $this->assertSame($name, $folder->getName());
+        $this->assertSame($absoluteFolderPath, $folder->getAbsoluteFolderPath());
+        $this->assertSame($parentId, $folder->getParentId());
+        $this->assertSame($folderUuid, $folder->getFolderUuid());
+        $this->assertSame($flags, $folder->getFlags());
+        $this->assertSame($color, $folder->getColor());
+        $this->assertSame($rgb, $folder->getRgb());
+        $this->assertSame($unreadCount, $folder->getUnreadCount());
+        $this->assertSame($imapUnreadCount, $folder->getImapUnreadCount());
+        $this->assertSame($view, $folder->getView());
+        $this->assertSame($revision, $folder->getRevision());
+        $this->assertSame($modifiedSequence, $folder->getModifiedSequence());
+        $this->assertSame($changeDate, $folder->getChangeDate());
+        $this->assertSame($itemCount, $folder->getItemCount());
+        $this->assertSame($imapItemCount, $folder->getImapItemCount());
+        $this->assertSame($totalSize, $folder->getTotalSize());
+        $this->assertSame($imapModifiedSequence, $folder->getImapModifiedSequence());
+        $this->assertSame($imapUidNext, $folder->getImapUidNext());
+        $this->assertSame($url, $folder->getUrl());
+        $this->assertFalse($folder->isActiveSyncDisabled());
+        $this->assertSame($webOfflineSyncDays, $folder->getWebOfflineSyncDays());
+        $this->assertSame($perm, $folder->getPerm());
+        $this->assertFalse($folder->getRecursive());
+        $this->assertSame($restUrl, $folder->getRestUrl());
+        $this->assertFalse($folder->isDeletable());
+        $this->assertSame([$metadata], $folder->getMetadatas());
+        $this->assertSame($acl, $folder->getAcl());
+        $this->assertSame([$subFolder], $folder->getSubfolders());
+        $this->assertSame([$mountpoint], $folder->getMountpoints());
+        $this->assertSame([$searchFolder], $folder->getSearchFolders());
+        $this->assertSame($retentionPolicy, $folder->getRetentionPolicy());
 
         $folder = new Folder('', '');
         $folder->setId($id)
