@@ -295,14 +295,7 @@ class SyncGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        if (!empty($contacts)) {
-            $this->contacts = [];
-            foreach ($contacts as $contact) {
-                if ($contact instanceof ContactInfo) {
-                    $this->contacts[] = $contact;
-                }
-            }
-        }
+        $this->contacts = array_filter($contacts, static fn($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 
@@ -331,19 +324,12 @@ class SyncGalResponse implements ResponseInterface
     /**
      * Sets deleted
      *
-     * @param  array $deleted 
+     * @param  array $contacts 
      * @return self
      */
-    public function setDeleted(array $deleted): self
+    public function setDeleted(array $contacts): self
     {
-        if (!empty($deleted)) {
-            $this->deleted = [];
-            foreach ($deleted as $contact) {
-                if ($contact instanceof Id) {
-                    $this->deleted[] = $contact;
-                }
-            }
-        }
+        $this->deleted = array_filter($contacts, static fn($contact) => $contact instanceof Id);
         return $this;
     }
 }

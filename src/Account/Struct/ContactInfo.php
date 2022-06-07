@@ -782,14 +782,7 @@ class ContactInfo
      */
     public function setMetadatas(array $metadatas): self
     {
-        if (!empty($metadatas)) {
-            $this->metadatas = [];
-            foreach ($metadatas as $metadata) {
-                if ($metadata instanceof AccountCustomMetadata) {
-                    $this->metadatas[] = $metadata;
-                }
-            }
-        }
+        $this->metadatas = array_filter($metadatas, static fn($metadata) => $metadata instanceof AccountCustomMetadata);
         return $this;
     }
 
@@ -823,14 +816,7 @@ class ContactInfo
      */
     public function setAttrs(array $attrs): self
     {
-        if (!empty($attrs)) {
-            $this->attrs = [];
-            foreach ($attrs as $attr) {
-                if ($attr instanceof ContactAttr) {
-                    $this->attrs[] = $attr;
-                }
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof ContactAttr);
         return $this;
     }
 
@@ -862,16 +848,9 @@ class ContactInfo
      * @param  array $attrs
      * @return self
      */
-    public function setContactGroupMembers(array $contactGroupMembers): self
+    public function setContactGroupMembers(array $members): self
     {
-        if (!empty($contactGroupMembers)) {
-            $this->contactGroupMembers = [];
-            foreach ($contactGroupMembers as $contactGroupMember) {
-                if ($contactGroupMember instanceof ContactGroupMember) {
-                    $this->contactGroupMembers[] = $contactGroupMember;
-                }
-            }
-        }
+        $this->contactGroupMembers = array_filter($members, static fn($member) => $member instanceof ContactGroupMember);
         return $this;
     }
 

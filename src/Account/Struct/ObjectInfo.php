@@ -131,12 +131,7 @@ abstract class ObjectInfo
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrList = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof KeyValuePair) {
-                $this->attrList[] = $attr;
-            }
-        }
+        $this->attrList = array_filter($attrs, static fn($attr) => $attr instanceof KeyValuePair);
         return $this;
     }
 

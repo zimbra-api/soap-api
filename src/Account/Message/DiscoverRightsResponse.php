@@ -60,17 +60,12 @@ class DiscoverRightsResponse implements ResponseInterface
     /**
      * Set discoveredRights
      *
-     * @param  array $discoveredRights
+     * @param  array $rights
      * @return self
      */
-    public function setDiscoveredRights(array $discoveredRights): self
+    public function setDiscoveredRights(array $rights): self
     {
-        $this->discoveredRights = [];
-        foreach ($discoveredRights as $discoveredRight) {
-            if ($discoveredRight instanceof DiscoverRightsInfo) {
-                $this->discoveredRights[] = $discoveredRight;
-            }
-        }
+        $this->discoveredRights = array_filter($rights, static fn($right) => $right instanceof DiscoverRightsInfo);
         return $this;
     }
 

@@ -65,12 +65,7 @@ class CheckRightsResponse implements ResponseInterface
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = [];
-        foreach ($targets as $target) {
-            if ($target instanceof CheckRightsTargetInfo) {
-                $this->targets[] = $target;
-            }
-        }
+        $this->targets = array_filter($targets, static fn($target) => $target instanceof CheckRightsTargetInfo);
         return $this;
     }
 

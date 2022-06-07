@@ -111,7 +111,9 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
         return $document;
     }
 
-    public function createRoot(?ClassMetadata $metadata = NULL, ?string $rootName = NULL, ?string $rootNamespace = NULL, ?string $rootPrefix = NULL): \DOMElement
+    public function createRoot(
+        ?ClassMetadata $metadata = NULL, ?string $rootName = NULL, ?string $rootNamespace = NULL, ?string $rootPrefix = NULL
+    ): \DOMElement
     {
         if (NULL !== $metadata && !empty($metadata->xmlRootName)) {
             $rootPrefix = $metadata->xmlRootPrefix;
@@ -136,6 +138,7 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
 
         return $rootNode;
     }
+
     /**
      * {@inheritdoc}
      */
@@ -147,6 +150,7 @@ final class XmlSerializationVisitor extends AbstractVisitor implements Serializa
 
         return $node;
     }
+
     /**
      * {@inheritdoc}
      */

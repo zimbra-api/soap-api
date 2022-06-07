@@ -66,12 +66,7 @@ class GetAvailableSkinsResponse implements ResponseInterface
      */
     public function setSkins(array $skins): self
     {
-        $this->skins = [];
-        foreach ($skins as $skin) {
-            if ($skin instanceof NamedElement) {
-                $this->skins[] = $skin;
-            }
-        }
+        $this->skins = array_filter($skins, static fn($skin) => $skin instanceof NamedElement);
         return $this;
     }
 

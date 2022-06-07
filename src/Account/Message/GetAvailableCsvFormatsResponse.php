@@ -61,17 +61,12 @@ class GetAvailableCsvFormatsResponse implements ResponseInterface
     /**
      * Sets csvFormats
      *
-     * @param  array $csvFormats
+     * @param  array $formats
      * @return self
      */
-    public function setCsvFormats(array $csvFormats): self
+    public function setCsvFormats(array $formats): self
     {
-        $this->csvFormats = [];
-        foreach ($csvFormats as $csvFormat) {
-            if ($csvFormat instanceof NamedElement) {
-                $this->csvFormats[] = $csvFormat;
-            }
-        }
+        $this->csvFormats = array_filter($formats, static fn($format) => $format instanceof NamedElement);
         return $this;
     }
 

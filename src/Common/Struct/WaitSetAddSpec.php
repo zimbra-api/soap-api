@@ -162,7 +162,7 @@ class WaitSetAddSpec
      * @param string $interests Comma-separated list
      * @return self
      */
-    public function setInterests(string $interests): self
+    public function setInterests($interests): self
     {
         $types = [];
         if (is_array($interests)) {
@@ -194,16 +194,16 @@ class WaitSetAddSpec
         return $this->interests;
     }
 
-    public function addFolderInterest(string $folderId): self
+    public function addFolderInterest($folderId): self
     {
         $folderId = (int) $folderId;
         if (!in_array($folderId, $this->folderInterests)) {
-            $this->folderInterests = $folderId;
+            $this->folderInterests[] = $folderId;
         }
         return $this;
     }
 
-    public function setFolderInterests(array $folderInterests): self
+    public function setFolderInterests($folderInterests): self
     {
         $this->folderInterests = [];
         if (is_array($folderInterests)) {

@@ -184,7 +184,7 @@ class DistributionListAction extends AccountKeyValuePairs
     public function addMember($member): self
     {
         $member = trim($member);
-        if (!empty($member)) {
+        if (!empty($member) && !in_array($member, $this->members)) {
             $this->members[] = $member;
         }
         return $this;
@@ -235,12 +235,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setOwners(array $owners): self
     {
-        $this->owners = [];
-        foreach ($owners as $owner) {
-            if ($owner instanceof Grantee) {
-                $this->owners[] = $owner;
-            }
-        }
+        $this->owners = array_filter($owners, static fn($owner) => $owner instanceof Grantee);
         return $this;
     }
 
@@ -274,12 +269,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof Right) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn($right) => $right instanceof Right);
         return $this;
     }
 

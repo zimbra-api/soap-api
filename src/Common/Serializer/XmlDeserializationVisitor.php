@@ -11,7 +11,9 @@
 namespace Zimbra\Common\Serializer;
 
 use JMS\Serializer\{AbstractVisitor, NullAwareVisitorInterface};
-use JMS\Serializer\Exception\{InvalidArgumentException, LogicException, NotAcceptableException, RuntimeException, XmlErrorException};
+use JMS\Serializer\Exception\{
+    InvalidArgumentException, LogicException, NotAcceptableException, RuntimeException, XmlErrorException
+};
 use JMS\Serializer\Metadata\{ClassMetadata, PropertyMetadata};
 use JMS\Serializer\Visitor\DeserializationVisitorInterface;
 use MyCLabs\Enum\Enum;

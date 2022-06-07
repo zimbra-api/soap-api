@@ -872,7 +872,7 @@ class AccountDataSource implements DataSource
     public function addAttribute(string $attribute): self
     {
         $attribute = trim($attribute);
-        if (!in_array($attribute, $this->attributes)) {
+        if (!empty($attribute) && !in_array($attribute, $this->attributes)) {
             $this->attributes[] = $attribute;
         }
         return $this;

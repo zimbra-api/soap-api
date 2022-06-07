@@ -74,17 +74,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Set whiteListEntries
      *
-     * @param  array $whiteListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setWhiteListEntries(array $whiteListEntries): self
+    public function setWhiteListEntries(array $entries): self
     {
-        $this->whiteListEntries = [];
-        foreach ($whiteListEntries as $whiteListEntry) {
-            if ($whiteListEntry instanceof OpValue) {
-                $this->whiteListEntries[] = $whiteListEntry;
-            }
-        }
+        $this->whiteListEntries = array_filter($entries, static fn($entry) => $entry instanceof OpValue);
         return $this;
     }
 
@@ -113,17 +108,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Set blackListEntries
      *
-     * @param  array $blackListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setBlackListEntries(array $blackListEntries): self
+    public function setBlackListEntries(array $entries): self
     {
-        $this->blackListEntries = [];
-        foreach ($blackListEntries as $blackListEntry) {
-            if ($blackListEntry instanceof OpValue) {
-                $this->blackListEntries[] = $blackListEntry;
-            }
-        }
+        $this->blackListEntries = array_filter($entries, static fn($entry) => $entry instanceof OpValue);
         return $this;
     }
 

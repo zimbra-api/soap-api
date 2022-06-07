@@ -66,12 +66,7 @@ class ModifyZimletPrefsRequest extends Request
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof ModifyZimletPrefsSpec) {
-                $this->zimlets[] = $zimlet;
-            }
-        }
+        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec);
         return $this;
     }
 

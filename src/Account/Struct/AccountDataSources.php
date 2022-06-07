@@ -27,7 +27,7 @@ class AccountDataSources
      * Data sources
      * @Exclude
      */
-    private $dataSources;
+    private $dataSources = [];
 
     /**
      * Constructor method for AccountDataSources
@@ -52,13 +52,7 @@ class AccountDataSources
      */
     public function getImapDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountImapDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($imap) => $imap instanceof AccountImapDataSource);
     }
 
     /**
@@ -73,13 +67,7 @@ class AccountDataSources
      */
     public function getPop3DataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountPop3DataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($pop3) => $pop3 instanceof AccountPop3DataSource);
     }
 
     /**
@@ -94,13 +82,7 @@ class AccountDataSources
      */
     public function getCaldavDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountCaldavDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($caldav) => $caldav instanceof AccountCaldavDataSource);
     }
 
     /**
@@ -115,13 +97,7 @@ class AccountDataSources
      */
     public function getYabDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountYabDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($yab) => $yab instanceof AccountYabDataSource);
     }
 
     /**
@@ -136,13 +112,7 @@ class AccountDataSources
      */
     public function getRssDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountRssDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($rss) => $rss instanceof AccountRssDataSource);
     }
 
     /**
@@ -157,13 +127,7 @@ class AccountDataSources
      */
     public function getGalDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountGalDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($gal) => $gal instanceof AccountGalDataSource);
     }
 
     /**
@@ -178,13 +142,7 @@ class AccountDataSources
      */
     public function getCalDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountCalDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($cal) => $cal instanceof AccountCalDataSource);
     }
 
     /**
@@ -199,13 +157,7 @@ class AccountDataSources
      */
     public function getUnknownDataSources(): array
     {
-        $dataSources = [];
-        foreach ($this->dataSources as $dataSource) {
-            if ($dataSource instanceof AccountUnknownDataSource) {
-                $dataSources[] = $dataSource;
-            }
-        }
-        return $dataSources;
+        return array_filter($this->dataSources, static fn($unknown) => $unknown instanceof AccountUnknownDataSource);
     }
 
     /**
@@ -228,7 +180,7 @@ class AccountDataSources
      */
     public function setDataSources(array $dataSources): self
     {
-        $this->dataSources = $dataSources;
+        $this->dataSources = array_filter($dataSources, static fn($source) => $source instanceof AccountDataSource);
         return $this;
     }
 

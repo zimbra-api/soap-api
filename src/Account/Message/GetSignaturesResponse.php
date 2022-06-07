@@ -66,12 +66,7 @@ class GetSignaturesResponse implements ResponseInterface
      */
     public function setSignatures(array $signatures): self
     {
-        $this->signatures = [];
-        foreach ($signatures as $signature) {
-            if ($signature instanceof Signature) {
-                $this->signatures[] = $signature;
-            }
-        }
+        $this->signatures = array_filter($signatures, static fn($signature) => $signature instanceof Signature);
         return $this;
     }
 

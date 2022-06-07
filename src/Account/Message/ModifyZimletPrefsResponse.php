@@ -78,7 +78,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
     public function addZimlet(string $zimlet)
     {
         $zimlet = trim($zimlet);
-        if (!in_array($zimlet, $this->zimlets)) {
+        if (!empty($zimlet) && !in_array($zimlet, $this->zimlets)) {
             $this->zimlets[] = $zimlet;
         }
         return $this;

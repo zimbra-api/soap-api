@@ -199,12 +199,7 @@ class ChildAccount
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof Attr);
         return $this;
     }
 

@@ -167,7 +167,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
     public function addDlMember(string $dlMember): self
     {
         $dlMember = trim($dlMember);
-        if (!in_array($dlMember, $this->dlMembers)) {
+        if (!empty($dlMember) && !in_array($dlMember, $this->dlMembers)) {
             $this->dlMembers[] = $dlMember;
         }
         return $this;
@@ -188,17 +188,12 @@ class GetDistributionListMembersResponse implements ResponseInterface
     /**
      * Sets habGroupMembers
      *
-     * @param  array $habGroupMembers
+     * @param  array $members
      * @return self
      */
-    public function setHABGroupMembers(array $habGroupMembers): self
+    public function setHABGroupMembers(array $members): self
     {
-        $this->habGroupMembers = [];
-        foreach ($habGroupMembers as $habGroupMember) {
-            if ($habGroupMember instanceof HABGroupMember) {
-                $this->habGroupMembers[] = $habGroupMember;
-            }
-        }
+        $this->habGroupMembers = array_filter($members, static fn($member) => $member instanceof HABGroupMember);
         return $this;
     }
 

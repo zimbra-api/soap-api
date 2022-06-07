@@ -66,12 +66,7 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
      */
     public function setZimletProperties(array $properties): self
     {
-        $this->properties = [];
-        foreach ($properties as $property) {
-            if ($property instanceof AccountZimletProperty) {
-                $this->properties[] = $property;
-            }
-        }
+        $this->properties = array_filter($properties, static fn($prop) => $prop instanceof AccountZimletProperty);
         return $this;
     }
 

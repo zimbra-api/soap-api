@@ -66,12 +66,7 @@ class GetAvailableLocalesResponse implements ResponseInterface
      */
     public function setLocales(array $locales): self
     {
-        $this->locales = [];
-        foreach ($locales as $locale) {
-            if ($locale instanceof LocaleInfo) {
-                $this->locales[] = $locale;
-            }
-        }
+        $this->locales = array_filter($locales, static fn($locale) => $locale instanceof LocaleInfo);
         return $this;
     }
 

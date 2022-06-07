@@ -66,12 +66,7 @@ class GetOAuthConsumersResponse implements ResponseInterface
      */
     public function setConsumers(array $consumers): self
     {
-        $this->consumers = [];
-        foreach ($consumers as $consumer) {
-            if ($consumer instanceof OAuthConsumer) {
-                $this->consumers[] = $consumer;
-            }
-        }
+        $this->consumers = array_filter($consumers, static fn($consumer) => $consumer instanceof OAuthConsumer);
         return $this;
     }
 

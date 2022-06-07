@@ -208,12 +208,7 @@ class DiscoverRightsTarget
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = [];
-        foreach ($emails as $email) {
-            if ($email instanceof DiscoverRightsEmail) {
-                $this->emails[] = $email;
-            }
-        }
+        $this->emails = array_filter($emails, static fn($email) => $email instanceof DiscoverRightsEmail);
         return $this;
     }
 

@@ -99,12 +99,7 @@ class DiscoverRightsInfo
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = [];
-        foreach ($targets as $target) {
-            if ($target instanceof DiscoverRightsTarget) {
-                $this->targets[] = $target;
-            }
-        }
+        $this->targets = array_filter($targets, static fn($target) => $target instanceof DiscoverRightsTarget);
         return $this;
     }
 

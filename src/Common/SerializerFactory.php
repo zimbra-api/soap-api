@@ -53,7 +53,7 @@ final class SerializerFactory
                 ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory);
         }
 
-        return static::$builder->configureHandlers(function (HandlerRegistryInterface $registry) {
+        return static::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
             if (!empty(static::$serializerHandlers)) {
                 foreach (static::$serializerHandlers as $key => $handler) {
                     $registry->registerSubscribingHandler($handler);

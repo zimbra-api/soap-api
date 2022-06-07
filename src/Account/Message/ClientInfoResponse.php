@@ -53,12 +53,7 @@ class ClientInfoResponse implements ResponseInterface
      */
     public function setAttrList(array $attrList): self
     {
-        $this->attrList = [];
-        foreach ($attrList as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrList[] = $attr;
-            }
-        }
+        $this->attrList = array_filter($attrList, static fn($attr) => $attr instanceof Attr);
         return $this;
     }
 

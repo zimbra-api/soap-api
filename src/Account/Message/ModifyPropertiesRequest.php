@@ -66,12 +66,7 @@ class ModifyPropertiesRequest extends Request
      */
     public function setProps(array $props): self
     {
-        $this->props = [];
-        foreach ($props as $prop) {
-            if ($prop instanceof Prop) {
-                $this->props[] = $prop;
-            }
-        }
+        $this->props = array_filter($props, static fn($prop) => $prop instanceof Prop);
         return $this;
     }
 

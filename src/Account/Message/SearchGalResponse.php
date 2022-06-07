@@ -250,12 +250,7 @@ class SearchGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = [];
-        foreach ($contacts as $contact) {
-            if ($contact instanceof ContactInfo) {
-                $this->contacts[] = $contact;
-            }
-        }
+        $this->contacts = array_filter($contacts, static fn($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 
