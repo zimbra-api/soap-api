@@ -61,12 +61,7 @@ class TzFixup
      */
     public function setFixupRules(array $fixupRules): self
     {
-        $this->fixupRules = [];
-        foreach ($fixupRules as $fixupRule) {
-            if ($fixupRule instanceof TzFixupRule) {
-                $this->fixupRules[] = $fixupRule;
-            }
-        }
+        $this->fixupRules = array_filter($fixupRules, static fn($fixupRule) => $fixupRule instanceof TzFixupRule);
         return $this;
     }
 

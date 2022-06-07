@@ -63,12 +63,7 @@ class ComboRights
      */
     public function setComboRights(array $comboRights): self
     {
-        $this->comboRights = [];
-        foreach ($comboRights as $right) {
-            if ($right instanceof ComboRightInfo) {
-                $this->comboRights[] = $right;
-            }
-        }
+        $this->comboRights = array_filter($comboRights, static fn($right) => $right instanceof ComboRightInfo);
         return $this;
     }
 

@@ -157,12 +157,7 @@ class DistributionListInfo extends AdminObjectInfo
      */
     public function setOwners(array $owners)
     {
-        $this->owners = [];
-        foreach ($owners as $owner) {
-            if ($owner instanceof GranteeInfo) {
-                $this->owners[] = $owner;
-            }
-        }
+        $this->owners = array_filter($owners, static fn($owner) => $owner instanceof GranteeInfo);
         return $this;
     }
 

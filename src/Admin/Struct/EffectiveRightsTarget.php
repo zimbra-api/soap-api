@@ -140,17 +140,12 @@ class EffectiveRightsTarget
     /**
      * Sets inDomainLists
      *
-     * @param  array $inDomainLists
+     * @param  array $lists
      * @return self
      */
-    public function setInDomainLists(array $inDomainLists): self
+    public function setInDomainLists(array $lists): self
     {
-        $this->inDomainLists = [];
-        foreach ($inDomainLists as $inDomainList) {
-            if ($inDomainList instanceof InDomainInfo) {
-                $this->inDomainLists[] = $inDomainList;
-            }
-        }
+        $this->inDomainLists = array_filter($lists, static fn($item) => $item instanceof InDomainInfo);
         return $this;
     }
 
@@ -179,17 +174,12 @@ class EffectiveRightsTarget
     /**
      * Sets entriesLists
      *
-     * @param  array $entriesLists
+     * @param  array $lists
      * @return self
      */
-    public function setEntriesLists(array $entriesLists): self
+    public function setEntriesLists(array $lists): self
     {
-        $this->entriesLists = [];
-        foreach ($entriesLists as $entriesList) {
-            if ($entriesList instanceof RightsEntriesInfo) {
-                $this->entriesLists[] = $entriesList;
-            }
-        }
+        $this->entriesLists = array_filter($lists, static fn($item) => $item instanceof RightsEntriesInfo);
         return $this;
     }
 

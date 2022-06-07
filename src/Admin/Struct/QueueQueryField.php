@@ -96,12 +96,7 @@ class QueueQueryField
      */
     public function setMatches(array $matches): self
     {
-        $this->matches = [];
-        foreach ($matches as $match) {
-            if ($match instanceof ValueAttrib) {
-                $this->matches[] = $match;
-            }
-        }
+        $this->matches = array_filter($matches, static fn($match) => $match instanceof ValueAttrib);
         return $this;
     }
 

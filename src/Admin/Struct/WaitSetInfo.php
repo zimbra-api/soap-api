@@ -369,12 +369,7 @@ class WaitSetInfo
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = [];
-        foreach ($errors as $error) {
-            if ($error instanceof IdAndType) {
-                $this->errors[] = $error;
-            }
-        }
+        $this->errors = array_filter($errors, static fn($error) => $error instanceof IdAndType);
         return $this;
     }
 
@@ -403,17 +398,12 @@ class WaitSetInfo
     /**
      * Sets buffered commit information
      *
-     * @param  array $bufferedCommits
+     * @param  array $commits
      * @return self
      */
-    public function setBufferedCommits(array $bufferedCommits): self
+    public function setBufferedCommits(array $commits): self
     {
-        $this->bufferedCommits = [];
-        foreach ($bufferedCommits as $commit) {
-            if ($commit instanceof BufferedCommitInfo) {
-                $this->bufferedCommits[] = $commit;
-            }
-        }
+        $this->bufferedCommits = array_filter($commits, static fn($commit) => $commit instanceof BufferedCommitInfo);
         return $this;
     }
 
@@ -447,12 +437,7 @@ class WaitSetInfo
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SessionForWaitSet) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn($session) => $session instanceof SessionForWaitSet);
         return $this;
     }
 

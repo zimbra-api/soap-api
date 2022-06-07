@@ -71,12 +71,7 @@ class InDomainInfo
      */
     public function setDomains(array $domains): self
     {
-        $this->domains = [];
-        foreach ($domains as $domain) {
-            if ($domain instanceof NamedElement) {
-                $this->domains[] = $domain;
-            }
-        }
+        $this->domains = array_filter($domains, static fn($domain) => $domain instanceof NamedElement);
         return $this;
     }
 

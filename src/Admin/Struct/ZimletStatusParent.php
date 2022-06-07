@@ -64,12 +64,7 @@ class ZimletStatusParent
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof ZimletStatus) {
-                $this->zimlets[] = $zimlet;
-            }
-        }
+        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof ZimletStatus);
         return $this;
     }
 

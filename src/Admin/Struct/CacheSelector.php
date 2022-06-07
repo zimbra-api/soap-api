@@ -170,12 +170,7 @@ class CacheSelector
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = [];
-        foreach ($entries as $entry) {
-            if ($entry instanceof CacheEntrySelector) {
-                $this->entries[] = $entry;
-            }
-        }
+        $this->entries = array_filter($entries, static fn($entry) => $entry instanceof CacheEntrySelector);
         return $this;
     }
 

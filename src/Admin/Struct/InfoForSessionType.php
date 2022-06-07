@@ -146,12 +146,7 @@ class InfoForSessionType
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof AccountSessionInfo) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn($account) => $account instanceof AccountSessionInfo);
         return $this;
     }
 

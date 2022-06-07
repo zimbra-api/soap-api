@@ -244,17 +244,12 @@ class MailQueueDetails
     /**
      * Sets queueSummaries
      *
-     * @param array $queueSummaries
+     * @param array $summaries
      * @return self
      */
-    public function setQueueSummaries(array $queueSummaries): self
+    public function setQueueSummaries(array $summaries): self
     {
-        $this->queueSummaries = [];
-        foreach ($queueSummaries as $qs) {
-            if ($qs instanceof QueueSummary) {
-                $this->queueSummaries[] = $qs;
-            }
-        }
+        $this->queueSummaries = array_filter($summaries, static fn($qs) => $qs instanceof QueueSummary);
         return $this;
     }
 
@@ -288,12 +283,7 @@ class MailQueueDetails
      */
     public function setQueueItems(array $queueItems): self
     {
-        $this->queueItems = [];
-        foreach ($queueItems as $qi) {
-            if ($qi instanceof QueueItem) {
-                $this->queueItems[] = $qi;
-            }
-        }
+        $this->queueItems = array_filter($queueItems, static fn($qi) => $qi instanceof QueueItem);
         return $this;
     }
 

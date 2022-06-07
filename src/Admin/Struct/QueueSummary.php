@@ -96,12 +96,7 @@ class QueueSummary
      */
     public function setItems(array $items): self
     {
-        $this->items = [];
-        foreach ($items as $qsi) {
-            if ($qsi instanceof QueueSummaryItem) {
-                $this->items[] = $qsi;
-            }
-        }
+        $this->items = array_filter($items, static fn($qsi) => $qsi instanceof QueueSummaryItem);
         return $this;
     }
 

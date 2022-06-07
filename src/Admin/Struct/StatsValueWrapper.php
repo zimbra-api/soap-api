@@ -64,12 +64,7 @@ class StatsValueWrapper
      */
     public function setStats(array $stats): self
     {
-        $this->stats = [];
-        foreach ($stats as $stat) {
-            if ($stat instanceof NamedElement) {
-                $this->stats[] = $stat;
-            }
-        }
+        $this->stats = array_filter($stats, static fn($stat) => $stat instanceof NamedElement);
         return $this;
     }
 

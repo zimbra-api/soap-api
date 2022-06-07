@@ -71,12 +71,7 @@ class RightsEntriesInfo
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = [];
-        foreach ($entries as $entry) {
-            if ($entry instanceof NamedElement) {
-                $this->entries[] = $entry;
-            }
-        }
+        $this->entries = array_filter($entries, static fn($entry) => $entry instanceof NamedElement);
         return $this;
     }
 

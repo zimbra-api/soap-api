@@ -121,7 +121,7 @@ class CmdRightsInfo
      * @param  string $note
      * @return self
      */
-    public function addNote($note)
+    public function addNote(string $note)
     {
         $this->notes[] = $note;
         return $this;
@@ -145,12 +145,7 @@ class CmdRightsInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof NamedElement) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn($right) => $right instanceof NamedElement);
         return $this;
     }
 

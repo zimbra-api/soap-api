@@ -54,26 +54,19 @@ class AdminKeyValuePairs implements KeyValuePairs
     }
 
     /**
-     * Sets attr sequence
+     * Sets key value pairs
      *
-     * @param  array $attrs
+     * @param  array $pairs
      * @return self
      */
-    public function setKeyValuePairs(array $keyValuePairs): self
+    public function setKeyValuePairs(array $pairs): self
     {
-        if (!empty($keyValuePairs)) {
-            $this->keyValuePairs = [];
-            foreach ($keyValuePairs as $kvp) {
-                if ($kvp instanceof KeyValuePair) {
-                    $this->keyValuePairs[] = $kvp;
-                }
-            }
-        }
+        $this->keyValuePairs = array_filter($pairs, static fn($kvp) => $kvp instanceof KeyValuePair);
         return $this;
     }
 
     /**
-     * Gets attr sequence
+     * Gets key value pairs
      *
      * @return array
      */
@@ -107,13 +100,8 @@ class AdminKeyValuePairs implements KeyValuePairs
     public function valuesForKey($key): ?array
     {
         if (!empty($this->keyValuePairs)) {
-            $values = [];
-            foreach ($this->keyValuePairs as $kvp) {
-                if ($kvp->getKey() == $key) {
-                    $values[] = $kvp->getValue();
-                }
-            }
-            return $values;
+            $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
+            return array_map(static fn($kvp) => $kvp->getValue(), $keyValuePairs);
         }
         return NULL;
     }

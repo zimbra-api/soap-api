@@ -71,17 +71,12 @@ class TestResultInfo
     /**
      * Sets completedTests
      *
-     * @param  array $completedTests
+     * @param  array $tests
      * @return self
      */
-    public function setCompletedTests(array $completedTests): self
+    public function setCompletedTests(array $tests): self
     {
-        $this->completedTests = [];
-        foreach ($completedTests as $completed) {
-            if ($completed instanceof CompletedTestInfo) {
-                $this->completedTests[] = $completed;
-            }
-        }
+        $this->completedTests = array_filter($tests, static fn($test) => $test instanceof CompletedTestInfo);
         return $this;
     }
 
@@ -110,17 +105,12 @@ class TestResultInfo
     /**
      * Sets failedTests
      *
-     * @param  array $failedTests
+     * @param  array $tests
      * @return self
      */
-    public function setFailedTests(array $failedTests): self
+    public function setFailedTests(array $tests): self
     {
-        $this->failedTests = [];
-        foreach ($failedTests as $failure) {
-            if ($failure instanceof FailedTestInfo) {
-                $this->failedTests[] = $failure;
-            }
-        }
+        $this->failedTests = array_filter($tests, static fn($test) => $test instanceof FailedTestInfo);
         return $this;
     }
 

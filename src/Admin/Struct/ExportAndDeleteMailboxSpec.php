@@ -97,12 +97,7 @@ class ExportAndDeleteMailboxSpec
      */
     public function setItems(array $items): self
     {
-        $this->items = [];
-        foreach ($items as $item) {
-            if ($item instanceof ExportAndDeleteItemSpec) {
-                $this->items[] = $item;
-            }
-        }
+        $this->items = array_filter($items, static fn($item) => $item instanceof ExportAndDeleteItemSpec);
         return $this;
     }
 
