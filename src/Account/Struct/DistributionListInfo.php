@@ -203,10 +203,7 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setMembers(array $members)
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique(array_map(static fn ($member) => trim($member), $members));
         return $this;
     }
 

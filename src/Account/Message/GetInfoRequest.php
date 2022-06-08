@@ -124,10 +124,7 @@ class GetInfoRequest extends Request
      */
     public function setRights(string $rights): self
     {
-        $this->rights = [];
-        foreach (explode(',', $rights) as $right) {
-            $this->addRights($right);
-        }
+        $this->rights = array_unique(array_map(static fn ($right) => trim($right), explode(',', $rights)));
         return $this;
     }
 

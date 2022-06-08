@@ -168,13 +168,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      */
     public function getConditions(): array
     {
-        $conditions = $this->singleConditions;
-        foreach ($this->compoundConditions as $condition) {
-            if ($condition instanceof SearchFilterCondition) {
-                $conditions[] = $condition;
-            }
-        }
-        return $conditions;
+        return array_merge($this->singleConditions, $this->compoundConditions);
     }
 
     /**

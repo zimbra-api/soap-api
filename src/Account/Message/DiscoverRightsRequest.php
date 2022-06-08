@@ -73,15 +73,12 @@ class DiscoverRightsRequest extends Request
     /**
      * Set rights
      *
-     * @param  array $requests
+     * @param  array $rights
      * @return self
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $target) {
-            $this->addRight($target);
-        }
+        $this->rights = array_unique(array_map(static fn ($right) => trim($right), $rights));
         return $this;
     }
 

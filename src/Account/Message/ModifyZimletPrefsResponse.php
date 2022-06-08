@@ -62,10 +62,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets)
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            $this->addZimlet($zimlet);
-        }
+        $this->zimlets = array_unique(array_map(static fn ($zimlet) => trim($zimlet), $zimlets));
         return $this;
     }
 

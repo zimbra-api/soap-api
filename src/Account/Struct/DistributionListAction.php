@@ -198,10 +198,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setMembers(array $dlms): self
     {
-        $this->members = [];
-        foreach ($dlms as $dlm) {
-            $this->addMember($dlm);
-        }
+        $this->members = array_unique(array_map(static fn ($dlm) => trim($dlm), $dlms));
         return $this;
     }
 

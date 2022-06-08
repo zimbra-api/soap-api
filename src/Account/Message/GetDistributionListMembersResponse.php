@@ -146,27 +146,24 @@ class GetDistributionListMembersResponse implements ResponseInterface
     /**
      * Sets dlMembers
      *
-     * @param  array $dlMembers
+     * @param  array $members
      * @return self
      */
-    public function setDlMembers(array $dlMembers): self
+    public function setDlMembers(array $members): self
     {
-        $this->dlMembers = [];
-        foreach ($dlMembers as $dlMember) {
-            $this->addDlMember($dlMember);
-        }
+        $this->dlMembers = array_unique(array_map(static fn ($member) => trim($member), $members));
         return $this;
     }
 
     /**
      * add dlMember
      *
-     * @param  string $dlMember
+     * @param  string $member
      * @return self
      */
-    public function addDlMember(string $dlMember): self
+    public function addDlMember(string $member): self
     {
-        $dlMember = trim($dlMember);
+        $dlMember = trim($member);
         if (!empty($dlMember) && !in_array($dlMember, $this->dlMembers)) {
             $this->dlMembers[] = $dlMember;
         }
