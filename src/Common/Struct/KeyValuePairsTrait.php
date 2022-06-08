@@ -8,21 +8,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Account\Struct;
+namespace Zimbra\Common\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
-use Zimbra\Common\Struct\KeyValuePair;
 
 /**
- * AccountKeyValuePairsTrait trait
+ * KeyValuePairsTrait trait
  * 
  * @package    Zimbra
- * @subpackage Account
+ * @subpackage Common
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-trait AccountKeyValuePairsTrait
+trait KeyValuePairsTrait
 {
     /**
      * Key value pairs
@@ -62,7 +61,7 @@ trait AccountKeyValuePairsTrait
      *
      * @return array
      */
-    public function getKeyValuePairs(): ?array
+    public function getKeyValuePairs(): array
     {
         return $this->keyValuePairs;
     }
@@ -89,12 +88,9 @@ trait AccountKeyValuePairsTrait
      *
      * @return array
      */
-    public function valuesForKey($key): ?array
+    public function valuesForKey($key): array
     {
-        if (!empty($this->keyValuePairs)) {
-            $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
-            return array_map(static fn($kvp) => $kvp->getValue(), $keyValuePairs);
-        }
-        return NULL;
+        $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
+        return array_map(static fn($kvp) => $kvp->getValue(), $keyValuePairs);
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Common\Struct\KeyValuePairs;
+use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
  * MailKeyValuePairs class
@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\KeyValuePairs;
  */
 class MailKeyValuePairs implements KeyValuePairs
 {
-    use MailKeyValuePairsTrait;
+    use KeyValuePairsTrait;
 
     /**
      * Constructor method for MailKeyValuePairs

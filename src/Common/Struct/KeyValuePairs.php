@@ -23,7 +23,7 @@ interface KeyValuePairs
 {
     function setKeyValuePairs(array $keyValues);
     function addKeyValuePair(KeyValuePair $keyValue);
-    function getKeyValuePairs(): ?array;
+    function getKeyValuePairs(): array;
     function firstValueForKey(string $key): ?string;
-    function valuesForKey(string $key): ?array;
+    function valuesForKey(string $key): array;
 }
