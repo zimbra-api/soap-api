@@ -128,10 +128,7 @@ class EffectiveAttrInfo
      */
     public function setValues(array $values): self
     {
-        $this->values = [];
-        foreach ($values as $value) {
-            $this->addValue($value);
-        }
+        $this->values = array_unique(array_map(static fn ($value) => trim($value), $values));
         return $this;
     }
 

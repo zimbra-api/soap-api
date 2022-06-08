@@ -216,10 +216,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function setSoapURLList(array $soapURLList): self
     {
-        $this->soapURLList = [];
-        foreach ($soapURLList as $soapUrl) {
-            $this->addSoapURL($soapUrl);
-        }
+        $this->soapURLList = array_unique(array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList));
         return $this;
     }
 

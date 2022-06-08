@@ -108,10 +108,7 @@ class CmdRightsInfo
      */
     public function setNotes(array $notes)
     {
-        $this->notes = [];
-        foreach ($notes as $note) {
-            $this->notes[] = $note;
-        }
+        $this->notes = array_unique(array_map(static fn ($note) => trim($note), $notes));
         return $this;
     }
 
@@ -123,7 +120,7 @@ class CmdRightsInfo
      */
     public function addNote(string $note)
     {
-        $this->notes[] = $note;
+        $this->notes[] = trim($note);
         return $this;
     }
 

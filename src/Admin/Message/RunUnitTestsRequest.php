@@ -71,10 +71,7 @@ class RunUnitTestsRequest extends Request
      */
     public function setTests(array $tests): self
     {
-        $this->tests = [];
-        foreach ($tests as $test) {
-            $this->addTest($test);
-        }
+        $this->tests = array_unique(array_map(static fn ($test) => trim($test), $tests));
         return $this;
     }
 

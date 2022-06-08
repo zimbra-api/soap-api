@@ -69,10 +69,7 @@ class RefreshRegisteredAuthTokensRequest extends Request
      */
     public function setTokens(array $tokens): self
     {
-        $this->tokens = [];
-        foreach ($tokens as $token) {
-            $this->addToken($token);
-        }
+        $this->tokens = array_unique(array_map(static fn ($token) => trim($token), $tokens));
         return $this;
     }
 

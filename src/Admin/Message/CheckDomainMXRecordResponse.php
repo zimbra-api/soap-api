@@ -105,10 +105,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = [];
-        foreach ($entries as $entry) {
-            $this->addEntry($entry);
-        }
+        $this->entries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
         return $this;
     }
 

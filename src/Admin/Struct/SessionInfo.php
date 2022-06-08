@@ -239,7 +239,7 @@ class SessionInfo
         return $this;
     }
 
-    public function addExtraAttribute($name, $value): self
+    public function addExtraAttribute(string $name, string $value): self
     {
         if (!empty($name) && !empty($value)) {
             $this->extraAttributes[$name] = $value;
