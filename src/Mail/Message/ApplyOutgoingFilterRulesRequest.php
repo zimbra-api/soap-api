@@ -97,17 +97,12 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Sets filterRules
      *
-     * @param  array $filterRules
+     * @param  array $rules
      * @return self
      */
-    public function setFilterRules(array $filterRules): self
+    public function setFilterRules(array $rules): self
     {
-        $this->filterRules = [];
-        foreach ($filterRules as $filterRule) {
-            if ($filterRule instanceof NamedElement) {
-                $this->filterRules[] = $filterRule;
-            }
-        }
+        $this->filterRules = array_filter($rules, static fn($rule) => $rule instanceof NamedElement);
         return $this;
     }
 

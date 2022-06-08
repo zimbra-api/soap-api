@@ -268,12 +268,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfo) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -337,17 +332,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets cancelComponents
      *
-     * @param  array $cancelComponents
+     * @param  array $components
      * @return self
      */
-    public function setCancelComponents(array $cancelComponents): self
+    public function setCancelComponents(array $components): self
     {
-        $this->cancelComponents = [];
-        foreach ($cancelComponents as $cancelComponent) {
-            if ($cancelComponent instanceof ExpandedRecurrenceCancel) {
-                $this->cancelComponents[] = $cancelComponent;
-            }
-        }
+        $this->cancelComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceCancel);
         return $this;
     }
 
@@ -364,17 +354,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets inviteComponents
      *
-     * @param  array $inviteComponents
+     * @param  array $components
      * @return self
      */
-    public function setInviteComponents(array $inviteComponents): self
+    public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = [];
-        foreach ($inviteComponents as $inviteComponent) {
-            if ($inviteComponent instanceof ExpandedRecurrenceInvite) {
-                $this->inviteComponents[] = $inviteComponent;
-            }
-        }
+        $this->inviteComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceInvite);
         return $this;
     }
 
@@ -391,17 +376,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets exceptComponents
      *
-     * @param  array $exceptComponents
+     * @param  array $components
      * @return self
      */
-    public function setExceptComponents(array $exceptComponents): self
+    public function setExceptComponents(array $components): self
     {
-        $this->exceptComponents = [];
-        foreach ($exceptComponents as $exceptComponent) {
-            if ($exceptComponent instanceof ExpandedRecurrenceException) {
-                $this->exceptComponents[] = $exceptComponent;
-            }
-        }
+        $this->exceptComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceException);
         return $this;
     }
 
@@ -430,17 +410,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets freebusyUsers
      *
-     * @param  array $freebusyUsers
+     * @param  array $users
      * @return self
      */
-    public function setFreebusyUsers(array $freebusyUsers): self
+    public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = [];
-        foreach ($freebusyUsers as $freebusyUser) {
-            if ($freebusyUser instanceof FreeBusyUserSpec) {
-                $this->freebusyUsers[] = $freebusyUser;
-            }
-        }
+        $this->freebusyUsers = array_filter($users, static fn($user) => $user instanceof FreeBusyUserSpec);
         return $this;
     }
 

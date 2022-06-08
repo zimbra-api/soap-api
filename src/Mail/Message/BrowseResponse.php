@@ -61,17 +61,12 @@ class BrowseResponse implements ResponseInterface
     /**
      * Sets browseDatas
      *
-     * @param  array $browseDatas
+     * @param  array $datas
      * @return self
      */
-    public function setBrowseDatas(array $browseDatas): self
+    public function setBrowseDatas(array $datas): self
     {
-        $this->browseDatas = [];
-        foreach ($browseDatas as $browseData) {
-            if ($browseData instanceof BrowseData) {
-                $this->browseDatas[] = $browseData;
-            }
-        }
+        $this->browseDatas = array_filter($browseDatas, static fn($data) => $data instanceof BrowseData);
         return $this;
     }
 

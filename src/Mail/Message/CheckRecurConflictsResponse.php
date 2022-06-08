@@ -66,12 +66,7 @@ class CheckRecurConflictsResponse implements ResponseInterface
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = [];
-        foreach ($instances as $instance) {
-            if ($instance instanceof ConflictRecurrenceInstance) {
-                $this->instances[] = $instance;
-            }
-        }
+        $this->instances = array_filter($instances, static fn($instance) => $instance instanceof ConflictRecurrenceInstance);
         return $this;
     }
 

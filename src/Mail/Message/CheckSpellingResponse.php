@@ -95,17 +95,12 @@ class CheckSpellingResponse implements ResponseInterface
     /**
      * Sets misspelledWords
      *
-     * @param  array $misspelledWords
+     * @param  array $words
      * @return self
      */
-    public function setMisspelledWords(array $misspelledWords): self
+    public function setMisspelledWords(array $words): self
     {
-        $this->misspelledWords = [];
-        foreach ($misspelledWords as $misspelledWord) {
-            if ($misspelledWord instanceof Misspelling) {
-                $this->misspelledWords[] = $misspelledWord;
-            }
-        }
+        $this->misspelledWords = array_filter($words, static fn($word) => $word instanceof Misspelling);
         return $this;
     }
 
