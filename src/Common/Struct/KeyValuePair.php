@@ -48,7 +48,7 @@ class KeyValuePair
     public function __construct(string $key, ?string $value = NULL)
     {
         $this->setKey($key)
-            ->setValue($value);
+             ->setValue($value);
     }
 
     /**
