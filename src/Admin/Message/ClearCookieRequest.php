@@ -66,12 +66,7 @@ class ClearCookieRequest extends Request
      */
     public function setCookies(array $cookies): self
     {
-        $this->cookies = [];
-        foreach ($cookies as $cookie) {
-            if ($cookie instanceof CookieSpec) {
-                $this->cookies[] = $cookie;
-            }
-        }
+        $this->cookies = array_filter($cookies, static fn($cookie) => $cookie instanceof CookieSpec);
         return $this;
     }
 

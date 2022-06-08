@@ -310,17 +310,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Sets Waitsets to add.
      *
-     * @param  array $addAccounts
+     * @param  array $accounts
      * @return self
      */
-    public function setAddAccounts(array $addAccounts): self
+    public function setAddAccounts(array $accounts): self
     {
-        $this->addAccounts = [];
-        foreach ($addAccounts as $account) {
-            if ($account instanceof WaitSetAddSpec) {
-                $this->addAccounts[] = $account;
-            }
-        }
+        $this->addAccounts = array_filter($accounts, static fn($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 
@@ -349,17 +344,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Sets Waitsets to update.
      *
-     * @param  array $updateAccounts
+     * @param  array $accounts
      * @return self
      */
-    public function setUpdateAccounts(array $updateAccounts): self
+    public function setUpdateAccounts(array $accounts): self
     {
-        $this->updateAccounts = [];
-        foreach ($updateAccounts as $account) {
-            if ($account instanceof WaitSetAddSpec) {
-                $this->updateAccounts[] = $account;
-            }
-        }
+        $this->updateAccounts = array_filter($accounts, static fn($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 
@@ -391,14 +381,9 @@ class AdminWaitSetRequest extends Request
      * @param  array $removeAccounts
      * @return self
      */
-    public function setRemoveAccounts(array $removeAccounts): self
+    public function setRemoveAccounts(array $accounts): self
     {
-        $this->removeAccounts = [];
-        foreach ($removeAccounts as $account) {
-            if ($account instanceof Id) {
-                $this->removeAccounts[] = $account;
-            }
-        }
+        $this->removeAccounts = array_filter($accounts, static fn($account) => $account instanceof Id);
         return $this;
     }
 

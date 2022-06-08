@@ -70,12 +70,7 @@ class ModifyAdminSavedSearchesRequest extends Request
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = [];
-        foreach ($searches as $search) {
-            if ($search instanceof NamedValue) {
-                $this->searches[] = $search;
-            }
-        }
+        $this->searches = array_filter($searches, static fn($search) => $search instanceof NamedValue);
         return $this;
     }
 

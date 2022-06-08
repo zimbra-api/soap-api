@@ -173,12 +173,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NamedElement) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof NamedElement);
         return $this;
     }
 

@@ -67,12 +67,7 @@ class CheckDirectoryRequest extends Request
      */
     public function setPaths(array $paths): self
     {
-        $this->paths = [];
-        foreach ($paths as $path) {
-            if ($path instanceof CheckDirSelector) {
-                $this->paths[] = $path;
-            }
-        }
+        $this->paths = array_filter($paths, static fn($path) => $path instanceof CheckDirSelector);
         return $this;
     }
 

@@ -98,12 +98,7 @@ class DedupeBlobsRequest extends Request
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = [];
-        foreach ($volumes as $volume) {
-            if ($volume instanceof IntIdAttr) {
-                $this->volumes[] = $volume;
-            }
-        }
+        $this->volumes = array_filter($volumes, static fn($volume) => $volume instanceof IntIdAttr);
         return $this;
     }
 

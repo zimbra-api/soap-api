@@ -76,12 +76,7 @@ class ContactBackupRequest extends Request
      */
     public function setServers(array $servers): self
     {
-        $this->servers = [];
-        foreach ($servers as $server) {
-            if ($server instanceof ServerSelector) {
-                $this->servers[] = $server;
-            }
-        }
+        $this->servers = array_filter($servers, static fn($server) => $server instanceof ServerSelector);
         return $this;
     }
 

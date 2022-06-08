@@ -66,12 +66,7 @@ class GetRightsDocRequest extends Request
      */
     public function setPkgs(array $pkgs): self
     {
-        $this->pkgs = [];
-        foreach ($pkgs as $pkg) {
-            if ($pkg instanceof PackageSelector) {
-                $this->pkgs[] = $pkg;
-            }
-        }
+        $this->pkgs = array_filter($pkgs, static fn($pkg) => $pkg instanceof PackageSelector);
         return $this;
     }
 

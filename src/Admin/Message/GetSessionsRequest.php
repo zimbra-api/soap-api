@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\GetSessionsSortBy;
-use Zimbra\Common\Enum\SessionType;
+use Zimbra\Common\Enum\{GetSessionsSortBy, SessionType};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**

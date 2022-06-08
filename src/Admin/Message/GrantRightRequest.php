@@ -26,7 +26,6 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  */
 class GrantRightRequest extends Request
 {
-
     /**
      * Target selector
      * @Accessor(getter="getTarget", setter="setTarget")

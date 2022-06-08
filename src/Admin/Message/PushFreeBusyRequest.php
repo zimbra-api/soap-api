@@ -106,12 +106,7 @@ class PushFreeBusyRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof Id) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn($account) => $account instanceof Id);
         return $this;
     }
 

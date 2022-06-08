@@ -67,12 +67,7 @@ class GetAdminSavedSearchesRequest extends Request
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = [];
-        foreach ($searches as $search) {
-            if ($search instanceof NamedElement) {
-                $this->searches[] = $search;
-            }
-        }
+        $this->searches = array_filter($searches, static fn($search) => $search instanceof NamedElement);
         return $this;
     }
 
