@@ -109,12 +109,7 @@ class ContactActionSelector extends ActionSelector
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NewContactAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof NewContactAttr);
         return $this;
     }
 

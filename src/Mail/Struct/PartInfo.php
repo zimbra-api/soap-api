@@ -411,12 +411,7 @@ class PartInfo implements PartInfoInterface
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = [];
-        foreach ($mimeParts as $mimePart) {
-            if ($mimePart instanceof PartInfoInterface) {
-                $this->mimeParts[] = $mimePart;
-            }
-        }
+        $this->mimeParts = array_filter($mimeParts, static fn($mimePart) => $mimePart instanceof PartInfoInterface);
         return $this;
     }
 

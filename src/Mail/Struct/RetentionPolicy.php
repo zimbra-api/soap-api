@@ -72,12 +72,7 @@ class RetentionPolicy
      */
     public function setKeepPolicy(array $policies): self
     {
-        $this->keep = [];
-        foreach ($policies as $policy) {
-            if ($policy instanceof Policy) {
-                $this->keep[] = $policy;
-            }
-        }
+        $this->keep = array_filter($policies, static fn($policy) => $policy instanceof Policy);
         return $this;
     }
 
@@ -99,12 +94,7 @@ class RetentionPolicy
      */
     public function setPurgePolicy(array $policies): self
     {
-        $this->purge = [];
-        foreach ($policies as $policy) {
-            if ($policy instanceof Policy) {
-                $this->purge[] = $policy;
-            }
-        }
+        $this->purge = array_filter($policies, static fn($policy) => $policy instanceof Policy);
         return $this;
     }
 }

@@ -283,12 +283,7 @@ class CalOrganizer implements CalOrganizerInterface
      */
     public function setXParams(array $xParams): self
     {
-        $this->xParams = [];
-        foreach ($xParams as $xParam) {
-            if ($xParam instanceof XParamInterface) {
-                $this->xParams[] = $xParam;
-            }
-        }
+        $this->xParams = array_filter($xParams, static fn($xParam) => $xParam instanceof XParamInterface);
         return $this;
     }
 

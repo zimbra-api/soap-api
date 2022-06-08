@@ -146,12 +146,7 @@ class PendingFolderModifications
      */
     public function setCreated(array $created): self
     {
-        $this->created = [];
-        foreach ($created as $item) {
-            if ($item instanceof CreateItemNotification) {
-                $this->created[] = $item;
-            }
-        }
+        $this->created = array_filter($created, static fn($item) => $item instanceof CreateItemNotification);
         return $this;
     }
 
@@ -185,12 +180,7 @@ class PendingFolderModifications
      */
     public function setDeleted(array $deleted): self
     {
-        $this->deleted = [];
-        foreach ($deleted as $item) {
-            if ($item instanceof DeleteItemNotification) {
-                $this->deleted[] = $item;
-            }
-        }
+        $this->deleted = array_filter($deleted, static fn($item) => $item instanceof DeleteItemNotification);
         return $this;
     }
 
@@ -219,17 +209,12 @@ class PendingFolderModifications
     /**
      * Sets modified messages
      *
-     * @param array $modifiedMsgs
+     * @param array $msgs
      * @return self
      */
-    public function setModifiedMsgs(array $modifiedMsgs): self
+    public function setModifiedMsgs(array $msgs): self
     {
-        $this->modifiedMsgs = [];
-        foreach ($modifiedMsgs as $item) {
-            if ($item instanceof ModifyItemNotification) {
-                $this->modifiedMsgs[] = $item;
-            }
-        }
+        $this->modifiedMsgs = array_filter($msgs, static fn($msg) => $msg instanceof ModifyItemNotification);
         return $this;
     }
 
@@ -258,17 +243,12 @@ class PendingFolderModifications
     /**
      * Sets modified tags
      *
-     * @param array $modifiedTags
+     * @param array $tags
      * @return self
      */
-    public function setModifiedTags(array $modifiedTags): self
+    public function setModifiedTags(array $tags): self
     {
-        $this->modifiedTags = [];
-        foreach ($modifiedTags as $item) {
-            if ($item instanceof ModifyTagNotification) {
-                $this->modifiedTags[] = $item;
-            }
-        }
+        $this->modifiedTags = array_filter($tags, static fn($tag) => $tag instanceof ModifyTagNotification);
         return $this;
     }
 
@@ -300,14 +280,9 @@ class PendingFolderModifications
      * @param array $modifiedFolders
      * @return self
      */
-    public function setRenamedFolders(array $modifiedFolders): self
+    public function setRenamedFolders(array $folders): self
     {
-        $this->modifiedFolders = [];
-        foreach ($modifiedFolders as $item) {
-            if ($item instanceof RenameFolderNotification) {
-                $this->modifiedFolders[] = $item;
-            }
-        }
+        $this->modifiedFolders = array_filter($folders, static fn($folder) => $folder instanceof RenameFolderNotification);
         return $this;
     }
 

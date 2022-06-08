@@ -257,12 +257,7 @@ class ContactSpec implements SpecifyContact
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NewContactAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof NewContactAttr);
         return $this;
     }
 
@@ -291,17 +286,12 @@ class ContactSpec implements SpecifyContact
     /**
      * Sets contact group members
      *
-     * @param  array $attrs
+     * @param  array $members
      * @return self
      */
-    public function setContactGroupMembers(array $contactGroupMembers): self
+    public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = [];
-        foreach ($contactGroupMembers as $contactGroupMember) {
-            if ($contactGroupMember instanceof NewContactGroupMember) {
-                $this->contactGroupMembers[] = $contactGroupMember;
-            }
-        }
+        $this->contactGroupMembers = array_filter($members, static fn($member) => $member instanceof NewContactGroupMember);
         return $this;
     }
 

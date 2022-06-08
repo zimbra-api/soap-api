@@ -413,12 +413,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = [];
-        foreach ($attendees as $attendee) {
-            if ($attendee instanceof CalendarAttendeeInterface) {
-                $this->attendees[] = $attendee;
-            }
-        }
+        $this->attendees = array_filter($attendees, static fn($attendee) => $attendee instanceof CalendarAttendeeInterface);
         return $this;
     }
 
@@ -452,12 +447,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setAlarms(array $alarms): self
     {
-        $this->alarms = [];
-        foreach ($alarms as $alarm) {
-            if ($alarm instanceof AlarmInfoInterface) {
-                $this->alarms[] = $alarm;
-            }
-        }
+        $this->alarms = array_filter($alarms, static fn($alarm) => $alarm instanceof AlarmInfoInterface);
         return $this;
     }
 
@@ -491,12 +481,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = [];
-        foreach ($xProps as $xProp) {
-            if ($xProp instanceof XPropInterface) {
-                $this->xProps[] = $xProp;
-            }
-        }
+        $this->xProps = array_filter($xProps, static fn($xProp) => $xProp instanceof XPropInterface);
         return $this;
     }
 

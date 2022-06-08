@@ -522,12 +522,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      */
     public function setXNames(array $xNames): self
     {
-        $this->xNames = [];
-        foreach ($xNames as $xName) {
-            if ($xName instanceof XNameRuleInterface) {
-                $this->xNames[] = $xName;
-            }
-        }
+        $this->xNames = array_filter($xNames, static fn($xName) => $xName instanceof XNameRuleInterface);
         return $this;
     }
 

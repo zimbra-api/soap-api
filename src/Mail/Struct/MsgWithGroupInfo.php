@@ -497,12 +497,7 @@ class MsgWithGroupInfo extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = [];
-        foreach ($emails as $email) {
-            if ($email instanceof EmailInfo) {
-                $this->addEmail($email);
-            }
-        }
+        $this->emails = array_filter($emails, static fn($email) => $email instanceof EmailInfo);
         return $this;
     }
 
@@ -624,12 +619,7 @@ class MsgWithGroupInfo extends MessageCommon
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = [];
-        foreach ($headers as $header) {
-            if ($header instanceof KeyValuePair) {
-                $this->headers[] = $header;
-            }
-        }
+        $this->headers = array_filter($headers, static fn($header) => $header instanceof KeyValuePair);
         return $this;
     }
 

@@ -118,12 +118,7 @@ class InviteInfo implements InviteInfoInterface
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfoInterface) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfoInterface);
         return $this;
     }
 
@@ -174,17 +169,12 @@ class InviteInfo implements InviteInfoInterface
     /**
      * Sets calendarReplies
      *
-     * @param  array $calendarReplies
+     * @param  array $replies
      * @return self
      */
-    public function setCalendarReplies(array $calendarReplies): self
+    public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = [];
-        foreach ($calendarReplies as $calendarReply) {
-            if ($calendarReply instanceof CalendarReplyInterface) {
-                $this->calendarReplies[] = $calendarReply;
-            }
-        }
+        $this->calendarReplies = array_filter($replies, static fn($reply) => $reply instanceof CalendarReplyInterface);
         return $this;
     }
 

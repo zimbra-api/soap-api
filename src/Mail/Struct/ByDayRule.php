@@ -65,12 +65,7 @@ class ByDayRule implements ByDayRuleInterface
      */
     public function setDays(array $days): self
     {
-        $this->days = [];
-        foreach ($days as $day) {
-            if ($day instanceof WkDayInterface) {
-                $this->days[] = $day;
-            }
-        }
+        $this->days = array_filter($days, static fn($day) => $day instanceof WkDayInterface);
         return $this;
     }
 

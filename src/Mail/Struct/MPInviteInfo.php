@@ -114,12 +114,7 @@ class MPInviteInfo
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfoInterface) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfoInterface);
         return $this;
     }
 
@@ -148,17 +143,12 @@ class MPInviteInfo
     /**
      * Sets calendarReplies
      *
-     * @param  array $calendarReplies
+     * @param  array $replies
      * @return self
      */
-    public function setCalendarReplies(array $calendarReplies): self
+    public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = [];
-        foreach ($calendarReplies as $calendarReply) {
-            if ($calendarReply instanceof CalendarReplyInterface) {
-                $this->calendarReplies[] = $calendarReply;
-            }
-        }
+        $this->calendarReplies = array_filter($replies, static fn($reply) => $reply instanceof CalendarReplyInterface);
         return $this;
     }
 
@@ -187,17 +177,12 @@ class MPInviteInfo
     /**
      * Sets inviteComponents
      *
-     * @param  array $inviteComponents
+     * @param  array $components
      * @return self
      */
-    public function setInviteComponents(array $inviteComponents): self
+    public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = [];
-        foreach ($inviteComponents as $inviteComponent) {
-            if ($inviteComponent instanceof InviteComponent) {
-                $this->inviteComponents[] = $inviteComponent;
-            }
-        }
+        $this->inviteComponents = array_filter($components, static fn($component) => $component instanceof InviteComponent);
         return $this;
     }
 

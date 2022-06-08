@@ -136,13 +136,10 @@ class AttachmentsInfo
      */
     public function setAttachments(array $attachments): self
     {
-        $this->mpAttachments = $this->msgAttachments = $this->cnAttachments = $this->docAttachments = [];
-        foreach ($attachments as $attachment) {
-            if ($attachment instanceof AttachSpec) {
-                $this->addAttachment($attachment);
-            }
-        }
-        return $this;
+        return $this->setMpAttachments($attachments)
+            ->setMsgAttachments($attachments)
+            ->setContactAttachments($attachments)
+            ->setDocAttachments($attachments);
     }
 
     /**
@@ -163,12 +160,9 @@ class AttachmentsInfo
      */
     public function setMpAttachments(array $attachments): self
     {
-        $this->mpAttachments = [];
-        foreach ($attachments as $attachment) {
-            if ($attachment instanceof MimePartAttachSpec) {
-                $this->mpAttachments[] = $attachment;
-            }
-        }
+        $this->mpAttachments = array_values(
+            array_filter($attachments, static fn($attachment) => $attachment instanceof MimePartAttachSpec)
+        );
         return $this;
     }
 
@@ -190,12 +184,9 @@ class AttachmentsInfo
      */
     public function setMsgAttachments(array $attachments): self
     {
-        $this->msgAttachments = [];
-        foreach ($attachments as $attachment) {
-            if ($attachment instanceof MsgAttachSpec) {
-                $this->msgAttachments[] = $attachment;
-            }
-        }
+        $this->msgAttachments = array_values(
+            array_filter($attachments, static fn($attachment) => $attachment instanceof MsgAttachSpec)
+        );
         return $this;
     }
 
@@ -217,12 +208,9 @@ class AttachmentsInfo
      */
     public function setContactAttachments(array $attachments): self
     {
-        $this->cnAttachments = [];
-        foreach ($attachments as $attachment) {
-            if ($attachment instanceof ContactAttachSpec) {
-                $this->cnAttachments[] = $attachment;
-            }
-        }
+        $this->cnAttachments = array_values(
+            array_filter($attachments, static fn($attachment) => $attachment instanceof ContactAttachSpec)
+        );
         return $this;
     }
 
@@ -244,12 +232,9 @@ class AttachmentsInfo
      */
     public function setDocAttachments(array $attachments): self
     {
-        $this->docAttachments = [];
-        foreach ($attachments as $attachment) {
-            if ($attachment instanceof DocAttachSpec) {
-                $this->docAttachments[] = $attachment;
-            }
-        }
+        $this->docAttachments = array_values(
+            array_filter($attachments, static fn($attachment) => $attachment instanceof DocAttachSpec)
+        );
         return $this;
     }
 

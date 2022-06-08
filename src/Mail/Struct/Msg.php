@@ -371,12 +371,7 @@ class Msg
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = [];
-        foreach ($headers as $header) {
-            if ($header instanceof Header) {
-                $this->headers[] = $header;
-            }
-        }
+        $this->headers = array_filter($headers, static fn($header) => $header instanceof Header);
         return $this;
     }
 
@@ -559,17 +554,12 @@ class Msg
     /**
      * Sets emailAddresses
      *
-     * @param  array $emailAddresses
+     * @param  array $addresses
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses): self
+    public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = [];
-        foreach ($emailAddresses as $emailAddress) {
-            if ($emailAddress instanceof EmailAddrInfo) {
-                $this->emailAddresses[] = $emailAddress;
-            }
-        }
+        $this->emailAddresses = array_filter($addresses, static fn($address) => $address instanceof EmailAddrInfo);
         return $this;
     }
 
@@ -603,12 +593,7 @@ class Msg
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfo) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 

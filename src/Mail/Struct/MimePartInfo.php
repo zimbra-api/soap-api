@@ -185,12 +185,7 @@ class MimePartInfo
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = [];
-        foreach ($mimeParts as $mimePart) {
-            if ($mimePart instanceof MimePartInfo) {
-                $this->mimeParts[] = $mimePart;
-            }
-        }
+        $this->mimeParts = array_filter($mimeParts, static fn($mimePart) => $mimePart instanceof MimePartInfo);
         return $this;
     }
 

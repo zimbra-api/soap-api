@@ -63,12 +63,7 @@ class FilterVariables extends FilterAction
      */
     public function setVariables(array $variables)
     {
-        $this->variables = [];
-        foreach ($variables as $variable) {
-            if ($variable instanceof FilterVariable) {
-                $this->variables[] = $variable;
-            }
-        }
+        $this->variables = array_filter($variables, static fn($variable) => $variable instanceof FilterVariable);
         return $this;
     }
 

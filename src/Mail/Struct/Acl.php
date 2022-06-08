@@ -126,12 +126,7 @@ class Acl
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = [];
-        foreach ($grants as $grant) {
-            if ($grant instanceof Grant) {
-                $this->grants[] = $grant;
-            }
-        }
+        $this->grants = array_filter($grants, static fn($grant) => $grant instanceof Grant);
         return $this;
     }
 
