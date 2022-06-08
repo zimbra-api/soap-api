@@ -66,12 +66,7 @@ class GetAllAccountsResponse implements ResponseInterface
      */
     public function setAccountList(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof AccountInfo) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn($account) => $account instanceof AccountInfo);
         return $this;
     }
 

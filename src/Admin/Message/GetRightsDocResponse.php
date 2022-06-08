@@ -91,12 +91,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setPackages(array $pkgs): self
     {
-        $this->pkgs = [];
-        foreach ($pkgs as $pkg) {
-            if ($pkg instanceof Package) {
-                $this->pkgs[] = $pkg;
-            }
-        }
+        $this->pkgs = array_filter($pkgs, static fn($pkg) => $pkg instanceof Package);
         return $this;
     }
 
@@ -118,10 +113,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setNotUsed(array $notUsed): self
     {
-        $this->notUsed = [];
-        foreach ($notUsed as $unused) {
-            $this->notUsed[] = $unused;
-        }
+        $this->notUsed = array_unique($notUsed);
         return $this;
     }
 
@@ -155,12 +147,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof Right) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn($right) => $right instanceof Right);
         return $this;
     }
 

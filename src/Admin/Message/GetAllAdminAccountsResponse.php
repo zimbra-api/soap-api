@@ -61,17 +61,12 @@ class GetAllAdminAccountsResponse implements ResponseInterface
     /**
      * Sets account informations
      *
-     * @param  array $accountList
+     * @param  array $list
      * @return self
      */
-    public function setAccountList(array $accountList): self
+    public function setAccountList(array $list): self
     {
-        $this->accountList = [];
-        foreach ($accountList as $account) {
-            if ($account instanceof AccountInfo) {
-                $this->accountList[] = $account;
-            }
-        }
+        $this->accountList = array_filter($list, static fn($account) => $account instanceof AccountInfo);
         return $this;
     }
 

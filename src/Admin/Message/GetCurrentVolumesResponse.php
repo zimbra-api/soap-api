@@ -67,12 +67,7 @@ class GetCurrentVolumesResponse implements ResponseInterface
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = [];
-        foreach ($volumes as $volume) {
-            if ($volume instanceof CurrentVolumeInfo) {
-                $this->volumes[] = $volume;
-            }
-        }
+        $this->volumes = array_filter($volumes, static fn($volume) => $volume instanceof CurrentVolumeInfo);
         return $this;
     }
 

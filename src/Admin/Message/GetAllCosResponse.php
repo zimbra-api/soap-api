@@ -66,12 +66,7 @@ class GetAllCosResponse implements ResponseInterface
      */
     public function setCosList(array $cosList): self
     {
-        $this->cosList = [];
-        foreach ($cosList as $cos) {
-            if ($cos instanceof CosInfo) {
-                $this->cosList[] = $cos;
-            }
-        }
+        $this->cosList = array_filter($cosList, static fn($cos) => $cos instanceof CosInfo);
         return $this;
     }
 

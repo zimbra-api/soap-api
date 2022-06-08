@@ -181,17 +181,12 @@ class AdminWaitSetResponse implements ResponseInterface
     /**
      * Sets signaled accounts
      *
-     * @param array $errors
+     * @param array $accounts
      * @return self
      */
-    public function setSignalledAccounts(array $signalledAccounts): self
+    public function setSignalledAccounts(array $accounts): self
     {
-        $this->signalledAccounts = [];
-        foreach ($signalledAccounts as $account) {
-            if ($account instanceof AccountWithModifications) {
-                $this->signalledAccounts[] = $account;
-            }
-        }
+        $this->signalledAccounts = array_filter($accounts, static fn($account) => $account instanceof AccountWithModifications);
         return $this;
     }
 
@@ -225,12 +220,7 @@ class AdminWaitSetResponse implements ResponseInterface
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = [];
-        foreach ($errors as $error) {
-            if ($error instanceof IdAndType) {
-                $this->errors[] = $error;
-            }
-        }
+        $this->errors = array_filter($errors, static fn($error) => $error instanceof IdAndType);
         return $this;
     }
 

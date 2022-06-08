@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\NetworkInformation;
 use Zimbra\Soap\ResponseInterface;
 
@@ -61,17 +61,12 @@ class GetServerNIfsResponse implements ResponseInterface
     /**
      * Sets network informations
      *
-     * @param  array $networkInterfaces
+     * @param  array $interfaces
      * @return self
      */
-    public function setNetworkInterfaces(array $networkInterfaces): self
+    public function setNetworkInterfaces(array $interfaces): self
     {
-        $this->networkInterfaces = [];
-        foreach ($networkInterfaces as $ni) {
-            if ($ni instanceof NetworkInformation) {
-                $this->networkInterfaces[] = $ni;
-            }
-        }
+        $this->networkInterfaces = array_filter($interfaces, static fn($ni) => $ni instanceof NetworkInformation);
         return $this;
     }
 

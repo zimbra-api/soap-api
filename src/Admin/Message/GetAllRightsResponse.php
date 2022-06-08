@@ -66,12 +66,7 @@ class GetAllRightsResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof RightInfo) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn($right) => $right instanceof RightInfo);
         return $this;
     }
 

@@ -66,12 +66,7 @@ class GetServerStatsResponse implements ResponseInterface
      */
     public function setStats(array $stats): self
     {
-        $this->stats = [];
-        foreach ($stats as $stat) {
-            if ($stat instanceof Stat) {
-                $this->stats[] = $stat;
-            }
-        }
+        $this->stats = array_filter($stats, static fn($stat) => $stat instanceof Stat);
         return $this;
     }
 

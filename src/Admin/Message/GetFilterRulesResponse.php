@@ -251,12 +251,7 @@ class GetFilterRulesResponse implements ResponseInterface
      */
     public function setFilterRules(array $rules): self
     {
-        $this->rules = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof FilterRule) {
-                $this->rules[] = $rule;
-            }
-        }
+        $this->rules = array_filter($rules, static fn($rule) => $rule instanceof FilterRule);
         return $this;
     }
 

@@ -61,17 +61,12 @@ class GetAllActiveServersResponse implements ResponseInterface
     /**
      * Sets server informations
      *
-     * @param  array $serverList
+     * @param  array $list
      * @return self
      */
-    public function setServerList(array $serverList): self
+    public function setServerList(array $list): self
     {
-        $this->serverList = [];
-        foreach ($serverList as $server) {
-            if ($server instanceof ServerInfo) {
-                $this->serverList[] = $server;
-            }
-        }
+        $this->serverList = array_filter($list, static fn($server) => $server instanceof ServerInfo);
         return $this;
     }
 

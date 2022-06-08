@@ -129,17 +129,12 @@ class GetQuotaUsageResponse implements ResponseInterface
     /**
      * Sets account quota information
      *
-     * @param array $accountQuotas
+     * @param array $quotas
      * @return self
      */
-    public function setAccountQuotas(array $accountQuotas): self
+    public function setAccountQuotas(array $quotas): self
     {
-        $this->accountQuotas = [];
-        foreach ($accountQuotas as $quota) {
-            if ($quota instanceof AccountQuotaInfo) {
-                $this->accountQuotas[] = $quota;
-            }
-        }
+        $this->accountQuotas = array_filter($quotas, static fn($quota) => $quota instanceof AccountQuotaInfo);
         return $this;
     }
 

@@ -61,17 +61,12 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
     /**
      * Sets alwaysOnClusters
      *
-     * @param  array $clusterList
+     * @param  array $list
      * @return self
      */
-    public function setAlwaysOnClusterList(array $clusterList): self
+    public function setAlwaysOnClusterList(array $list): self
     {
-        $this->clusterList = [];
-        foreach ($clusterList as $alwaysOnCluster) {
-            if ($alwaysOnCluster instanceof AlwaysOnClusterInfo) {
-                $this->clusterList[] = $alwaysOnCluster;
-            }
-        }
+        $this->clusterList = array_filter($list, static fn($item) => $item instanceof AlwaysOnClusterInfo);
         return $this;
     }
 

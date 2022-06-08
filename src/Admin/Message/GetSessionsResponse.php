@@ -135,12 +135,7 @@ class GetSessionsResponse implements ResponseInterface
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SimpleSessionInfo) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn($session) => $session instanceof SimpleSessionInfo);
         return $this;
     }
 

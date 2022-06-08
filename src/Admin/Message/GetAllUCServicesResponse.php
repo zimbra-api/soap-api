@@ -61,17 +61,12 @@ class GetAllUCServicesResponse implements ResponseInterface
     /**
      * Sets ucServiceList
      *
-     * @param  array $ucServiceList
+     * @param  array $list
      * @return self
      */
-    public function setUCServiceList(array $ucServiceList): self
+    public function setUCServiceList(array $list): self
     {
-        $this->ucServiceList = [];
-        foreach ($ucServiceList as $ucService) {
-            if ($ucService instanceof UCServiceInfo) {
-                $this->ucServiceList[] = $ucService;
-            }
-        }
+        $this->ucServiceList = array_filter($list, static fn($item) => $item instanceof UCServiceInfo);
         return $this;
     }
 

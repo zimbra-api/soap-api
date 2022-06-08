@@ -179,17 +179,12 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Sets volumeBlobsProgress
      *
-     * @param  array $volumeBlobsProgress
+     * @param  array $progress
      * @return self
      */
-    public function setVolumeBlobsProgress(array $volumeBlobsProgress): self
+    public function setVolumeBlobsProgress(array $progress): self
     {
-        $this->volumeBlobsProgress = [];
-        foreach ($volumeBlobsProgress as $progress) {
-            if ($progress instanceof VolumeIdAndProgress) {
-                $this->volumeBlobsProgress[] = $progress;
-            }
-        }
+        $this->volumeBlobsProgress = array_filter($progress, static fn($progress) => $progress instanceof VolumeIdAndProgress);
         return $this;
     }
 
@@ -218,17 +213,12 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Sets setBlobDigestsProgress
      *
-     * @param  array $blobDigestsProgress
+     * @param  array $progress
      * @return self
      */
-    public function setBlobDigestsProgress(array $blobDigestsProgress): self
+    public function setBlobDigestsProgress(array $progress): self
     {
-        $this->blobDigestsProgress = [];
-        foreach ($blobDigestsProgress as $progress) {
-            if ($progress instanceof VolumeIdAndProgress) {
-                $this->blobDigestsProgress[] = $progress;
-            }
-        }
+        $this->blobDigestsProgress = array_filter($progress, static fn($progress) => $progress instanceof VolumeIdAndProgress);
         return $this;
     }
 

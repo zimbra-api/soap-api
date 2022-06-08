@@ -66,12 +66,7 @@ class PurgeMessagesResponse implements ResponseInterface
      */
     public function setMailboxes(array $mailboxes): self
     {
-        $this->mailboxes = [];
-        foreach ($mailboxes as $mbox) {
-            if ($mbox instanceof MailboxWithMailboxId) {
-                $this->mailboxes[] = $mbox;
-            }
-        }
+        $this->mailboxes = array_filter($mailboxes, static fn($mbox) => $mbox instanceof MailboxWithMailboxId);
         return $this;
     }
 

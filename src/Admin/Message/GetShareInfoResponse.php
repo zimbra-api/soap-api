@@ -65,12 +65,7 @@ class GetShareInfoResponse implements ResponseInterface
      */
     public function setShares(array $shares): self
     {
-        $this->shares = [];
-        foreach ($shares as $share) {
-            if ($share instanceof ShareInfo) {
-                $this->shares[] = $share;
-            }
-        }
+        $this->shares = array_filter($shares, static fn($share) => $share instanceof ShareInfo);
         return $this;
     }
 

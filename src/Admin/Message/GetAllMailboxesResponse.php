@@ -132,12 +132,7 @@ class GetAllMailboxesResponse implements ResponseInterface
      */
     public function setMboxes(array $mboxes): self
     {
-        $this->mboxes = [];
-        foreach ($mboxes as $mbox) {
-            if ($mbox instanceof MailboxInfo) {
-                $this->mboxes[] = $mbox;
-            }
-        }
+        $this->mboxes = array_filter($mboxes, static fn($mbox) => $mbox instanceof MailboxInfo);
         return $this;
     }
 

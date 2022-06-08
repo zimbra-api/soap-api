@@ -66,12 +66,7 @@ class GetAllDomainsResponse implements ResponseInterface
      */
     public function setDomainList(array $domainList): self
     {
-        $this->domainList = [];
-        foreach ($domainList as $domain) {
-            if ($domain instanceof DomainInfo) {
-                $this->domainList[] = $domain;
-            }
-        }
+        $this->domainList = array_filter($domainList, static fn($domain) => $domain instanceof DomainInfo);
         return $this;
     }
 

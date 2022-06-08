@@ -131,17 +131,12 @@ class SearchCalendarResourcesResponse implements ResponseInterface
     /**
      * Sets calResources
      *
-     * @param  array $calResources
+     * @param  array $resources
      * @return self
      */
-    public function setCalResources(array $calResources): self
+    public function setCalResources(array $resources): self
     {
-        $this->calResources = [];
-        foreach ($calResources as $calResource) {
-            if ($calResource instanceof CalendarResourceInfo) {
-                $this->calResources[] = $calResource;
-            }
-        }
+        $this->calResources = array_filter($resources, static fn($resource) => $resource instanceof CalendarResourceInfo);
         return $this;
     }
 

@@ -61,17 +61,12 @@ class CountAccountResponse implements ResponseInterface
     /**
      * Sets cos quotas
      *
-     * @param  array $cos
+     * @param  array $coses
      * @return self
      */
-    public function setCos(array $cos): self
+    public function setCos(array $coses): self
     {
-        $this->cos = [];
-        foreach ($cos as $cos) {
-            if ($cos instanceof CosCountInfo) {
-                $this->cos[] = $cos;
-            }
-        }
+        $this->cos = array_filter($coses, static fn($cos) => $cos instanceof CosCountInfo);
         return $this;
     }
 

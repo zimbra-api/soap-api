@@ -66,12 +66,7 @@ class GetAllAccountLoggersResponse implements ResponseInterface
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = [];
-        foreach ($loggers as $logger) {
-            if ($logger instanceof AccountLoggerInfo) {
-                $this->loggers[] = $logger;
-            }
-        }
+        $this->loggers = array_filter($loggers, static fn($logger) => $logger instanceof AccountLoggerInfo);
         return $this;
     }
 

@@ -79,12 +79,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      */
     public function setHostNames(array $hostNames): self
     {
-        $this->hostNames = [];
-        foreach ($hostNames as $hostname) {
-            if ($hostname instanceof HostStats) {
-                $this->hostNames[] = $hostname;
-            }
-        }
+        $this->hostNames = array_filter($hostNames, static fn($hostname) => $hostname instanceof HostStats);
         return $this;
     }
 

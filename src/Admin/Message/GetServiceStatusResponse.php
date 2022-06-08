@@ -96,17 +96,12 @@ class GetServiceStatusResponse implements ResponseInterface
     /**
      * Sets status
      *
-     * @param  array $serviceStatuses
+     * @param  array $statuses
      * @return self
      */
-    public function setServiceStatuses(array $serviceStatuses): self
+    public function setServiceStatuses(array $statuses): self
     {
-        $this->serviceStatuses = [];
-        foreach ($serviceStatuses as $status) {
-            if ($status instanceof ServiceStatus) {
-                $this->serviceStatuses[] = $status;
-            }
-        }
+        $this->serviceStatuses = array_filter($statuses, static fn($status) => $status instanceof ServiceStatus);
         return $this;
     }
 

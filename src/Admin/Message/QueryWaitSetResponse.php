@@ -66,12 +66,7 @@ class QueryWaitSetResponse implements ResponseInterface
      */
     public function setWaitsets(array $waitsets): self
     {
-        $this->waitsets = [];
-        foreach ($waitsets as $waitset) {
-            if ($waitset instanceof WaitSetInfo) {
-                $this->waitsets[] = $waitset;
-            }
-        }
+        $this->waitsets = array_filter($waitsets, static fn($waitset) => $waitset instanceof WaitSetInfo);
         return $this;
     }
 

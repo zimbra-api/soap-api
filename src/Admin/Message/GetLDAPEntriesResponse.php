@@ -66,12 +66,7 @@ class GetLDAPEntriesResponse implements ResponseInterface
      */
     public function setLDAPEntries(array $LDAPEntries): self
     {
-        $this->LDAPEntries = [];
-        foreach ($LDAPEntries as $LDAPEntry) {
-            if ($LDAPEntry instanceof LDAPEntryInfo) {
-                $this->LDAPEntries[] = $LDAPEntry;
-            }
-        }
+        $this->LDAPEntries = array_filter($LDAPEntries, static fn($LDAPEntry) => $LDAPEntry instanceof LDAPEntryInfo);
         return $this;
     }
 

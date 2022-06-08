@@ -61,17 +61,12 @@ class GetAggregateQuotaUsageOnServerResponse implements ResponseInterface
     /**
      * Sets quota informations
      *
-     * @param  array $domainQuotas
+     * @param  array $quotas
      * @return self
      */
-    public function setDomainQuotas(array $domainQuotas): self
+    public function setDomainQuotas(array $quotas): self
     {
-        $this->domainQuotas = [];
-        foreach ($domainQuotas as $quota) {
-            if ($quota instanceof DomainAggregateQuotaInfo) {
-                $this->domainQuotas[] = $quota;
-            }
-        }
+        $this->domainQuotas = array_filter($quotas, static fn($quota) => $quota instanceof DomainAggregateQuotaInfo);
         return $this;
     }
 

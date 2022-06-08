@@ -65,12 +65,7 @@ class GetAdminConsoleUICompResponse implements ResponseInterface
      */
     public function setValues(array $values): self
     {
-        $this->values = [];
-        foreach ($values as $value) {
-            if ($value instanceof InheritedFlaggedValue) {
-                $this->values[] = $value;
-            }
-        }
+        $this->values = array_filter($values, static fn($value) => $value instanceof InheritedFlaggedValue);
         return $this;
     }
 

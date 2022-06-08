@@ -64,14 +64,9 @@ class GetDataSourcesResponse implements ResponseInterface
      * @param  array $dataSources
      * @return self
      */
-    public function setDataSources(array $dataSources): self
+    public function setDataSources(array $sources): self
     {
-        $this->dataSources = [];
-        foreach ($dataSources as $dataSource) {
-            if ($dataSource instanceof DataSourceInfo) {
-                $this->dataSources[] = $dataSource;
-            }
-        }
+        $this->dataSources = array_filter($sources, static fn($source) => $source instanceof DataSourceInfo);
         return $this;
     }
 

@@ -66,12 +66,7 @@ class GetAllXMPPComponentsResponse implements ResponseInterface
      */
     public function setComponents(array $components): self
     {
-        $this->components = [];
-        foreach ($components as $component) {
-            if ($component instanceof XMPPComponentInfo) {
-                $this->components[] = $component;
-            }
-        }
+        $this->components = array_filter($components, static fn($component) => $component instanceof XMPPComponentInfo);
         return $this;
     }
 

@@ -66,12 +66,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
      */
     public function setDls(array $dls): self
     {
-        $this->dls = [];
-        foreach ($dls as $dl) {
-            if ($dl instanceof DistributionListInfo) {
-                $this->dls[] = $dl;
-            }
-        }
+        $this->dls = array_filter($dls, static fn($dl) => $dl instanceof DistributionListInfo);
         return $this;
     }
 
