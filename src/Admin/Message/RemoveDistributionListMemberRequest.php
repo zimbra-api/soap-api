@@ -115,10 +115,7 @@ class RemoveDistributionListMemberRequest extends Request
      */
     public function setMembers(array $members): self
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique($members);
         return $this;
     }
 
@@ -155,10 +152,7 @@ class RemoveDistributionListMemberRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            $this->addAccount($account);
-        }
+        $this->accounts = array_unique($accounts);
         return $this;
     }
 

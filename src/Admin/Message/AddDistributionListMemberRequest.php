@@ -102,10 +102,7 @@ class AddDistributionListMemberRequest extends Request
      */
     public function setMembers(array $members): self
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique($members);
         return $this;
     }
 

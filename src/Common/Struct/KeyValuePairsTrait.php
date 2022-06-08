@@ -73,12 +73,10 @@ trait KeyValuePairsTrait
      */
     public function firstValueForKey($key): ?string
     {
-        if (!empty($this->keyValuePairs)) {
-            foreach ($this->keyValuePairs as $kvp) {
-                if ($kvp->getKey() == $key) {
-                    return $kvp->getValue();
-                }
-            }
+        $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
+        $kvp = reset($keyValuePairs);
+        if ($kvp instanceof KeyValuePair) {
+            return $kvp->getValue();
         }
         return NULL;
     }

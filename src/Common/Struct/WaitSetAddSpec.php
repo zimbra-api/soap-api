@@ -166,21 +166,12 @@ class WaitSetAddSpec
     {
         $types = [];
         if (is_array($interests)) {
-            foreach ($interests as $type) {
-                if (InterestType::isValid($type)) {
-                    $types[] = $type;
-                }
-            }
+            $types = array_filter($interests, static fn($type) => InterestType::isValid($type));
         }
         elseif (!empty($interests)) {
-            $values = explode(',', $interests);
-            foreach ($values as $type) {
-                if (InterestType::isValid($type)) {
-                    $types[] = $type;
-                }
-            }
+            $types = array_filter(explode(',', $interests), static fn($type) => InterestType::isValid($type));
         }
-        $this->interests = !empty($types) ? implode(',', $types) : NULL;
+        $this->interests = !empty($types) ? implode(',', array_unique($types)) : NULL;
         return $this;
     }
 
@@ -207,15 +198,12 @@ class WaitSetAddSpec
     {
         $this->folderInterests = [];
         if (is_array($folderInterests)) {
-            foreach ($folderInterests as $folderId) {
-                $this->addFolderInterest($folderId);
-            }
+            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, $folderInterests);
+            $this->folderInterests = array_unique($folderInterests);
         }
         else {
-            $values = explode(',', $folderInterests);
-            foreach ($values as $folderId) {
-                $this->addFolderInterest($folderId);
-            }
+            $folderInterests = array_map(static fn ($folderId) => (int) $folderId, explode(',', $folderInterests));
+            $this->folderInterests = array_unique($folderInterests);
         }
         return $this;
     }
