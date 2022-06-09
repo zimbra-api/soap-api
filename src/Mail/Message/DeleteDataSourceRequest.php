@@ -25,8 +25,8 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteDataSourceRequest class
- * Creates a data source that imports mail items into the specified folder, for example
- * via the POP3 or IMAP protocols.  Only one data source is allowed per request.
+ * Deletes the given data sources.
+ * The name or id of each data source must be specified.
  * 
  * @package    Zimbra
  * @subpackage Mail
