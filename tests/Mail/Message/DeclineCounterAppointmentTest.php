@@ -5,10 +5,10 @@ namespace Zimbra\Tests\Mail\Message;
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\ReplyType;
 
-use Zimbra\Mail\Message\CounterAppointmentEnvelope;
-use Zimbra\Mail\Message\CounterAppointmentBody;
-use Zimbra\Mail\Message\CounterAppointmentRequest;
-use Zimbra\Mail\Message\CounterAppointmentResponse;
+use Zimbra\Mail\Message\DeclineCounterAppointmentEnvelope;
+use Zimbra\Mail\Message\DeclineCounterAppointmentBody;
+use Zimbra\Mail\Message\DeclineCounterAppointmentRequest;
+use Zimbra\Mail\Message\DeclineCounterAppointmentResponse;
 
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
@@ -21,16 +21,14 @@ use Zimbra\Mail\Struct\Msg;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for CounterAppointment.
+ * Testcase class for DeclineCounterAppointment.
  */
-class CounterAppointmentTest extends ZimbraTestCase
+class DeclineCounterAppointmentTest extends ZimbraTestCase
 {
-    public function testCounterAppointment()
+    public function testDeclineCounterAppointment()
     {
         $id = $this->faker->word;
         $componentNum = $this->faker->randomNumber;
-        $modifiedSequence = $this->faker->randomNumber;
-        $revision = $this->faker->randomNumber;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
 
@@ -62,40 +60,28 @@ class CounterAppointmentTest extends ZimbraTestCase
             $fragment
         );
 
-        $request = new CounterAppointmentRequest(
-            $id, $componentNum, $modifiedSequence, $revision, $msg
+        $request = new DeclineCounterAppointmentRequest(
+            $msg
         );
-        $this->assertSame($id, $request->getId());
-        $this->assertSame($componentNum, $request->getComponentNum());
-        $this->assertSame($modifiedSequence, $request->getModifiedSequence());
-        $this->assertSame($revision, $request->getRevision());
         $this->assertSame($msg, $request->getMsg());
-        $request = new CounterAppointmentRequest();
-        $request->setId($id)
-            ->setComponentNum($componentNum)
-            ->setModifiedSequence($modifiedSequence)
-            ->setRevision($revision)
-            ->setMsg($msg);
-        $this->assertSame($id, $request->getId());
-        $this->assertSame($componentNum, $request->getComponentNum());
-        $this->assertSame($modifiedSequence, $request->getModifiedSequence());
-        $this->assertSame($revision, $request->getRevision());
+        $request = new DeclineCounterAppointmentRequest();
+        $request->setMsg($msg);
         $this->assertSame($msg, $request->getMsg());
 
-        $response = new CounterAppointmentResponse();
+        $response = new DeclineCounterAppointmentResponse();
 
-        $body = new CounterAppointmentBody($request, $response);
+        $body = new DeclineCounterAppointmentBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-        $body = new CounterAppointmentBody();
+        $body = new DeclineCounterAppointmentBody();
         $body->setRequest($request)
             ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new CounterAppointmentEnvelope($body);
+        $envelope = new DeclineCounterAppointmentEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-        $envelope = new CounterAppointmentEnvelope();
+        $envelope = new DeclineCounterAppointmentEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -103,7 +89,7 @@ class CounterAppointmentTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
-        <urn:CounterAppointmentRequest id="$id" comp="$componentNum" ms="$modifiedSequence" rev="$revision">
+        <urn:DeclineCounterAppointmentRequest>
             <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
                 <header name="$name">$value</header>
                 <content>$content</content>
@@ -114,21 +100,17 @@ class CounterAppointmentTest extends ZimbraTestCase
                 <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <fr>$fragment</fr>
             </m>
-        </urn:CounterAppointmentRequest>
-        <urn:CounterAppointmentResponse />
+        </urn:DeclineCounterAppointmentRequest>
+        <urn:DeclineCounterAppointmentResponse />
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, CounterAppointmentEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeclineCounterAppointmentEnvelope::class, 'xml'));
 
         $json = json_encode([
             'Body' => [
-                'CounterAppointmentRequest' => [
-                    'id' => $id,
-                    'comp' => $componentNum,
-                    'ms' => $modifiedSequence,
-                    'rev' => $revision,
+                'DeclineCounterAppointmentRequest' => [
                     'm' => [
                         'aid' => $id,
                         'origid' => $origId,
@@ -180,12 +162,12 @@ EOT;
                     ],
                     '_jsns' => 'urn:zimbraMail',
                 ],
-                'CounterAppointmentResponse' => [
+                'DeclineCounterAppointmentResponse' => [
                     '_jsns' => 'urn:zimbraMail',
                 ],
             ],
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CounterAppointmentEnvelope::class, 'json'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeclineCounterAppointmentEnvelope::class, 'json'));
     }
 }
