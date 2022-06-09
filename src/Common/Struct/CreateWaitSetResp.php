@@ -21,7 +21,7 @@ namespace Zimbra\Common\Struct;
  */
 interface CreateWaitSetResp
 {
-    function void setErrors(array $errors = []);
+    function setErrors(array $errors = []): self;
     function addError(IdAndType $error): self;
     function getErrors(): array;
     function setWaitSetId(string $wsid): self;
