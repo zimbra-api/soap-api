@@ -13,7 +13,7 @@ class IdVersionTest extends ZimbraTestCase
     public function testIdVersion()
     {
         $id = $this->faker->uuid;
-        $version = mt_rand(1, 99);
+        $version = $this->faker->randomNumber;
 
         $doc = new IdVersion(
             $id, $version

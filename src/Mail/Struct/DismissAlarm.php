@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * This file is version of the Zimbra API in PHP library.
+ * This file is dismissedAt of the Zimbra API in PHP library.
  *
  * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
  *
@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
- * IdVersion struct class
+ * DismissAlarm struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,10 +21,10 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class IdVersion
+class DismissAlarm
 {
     /**
-     * ID
+     * Calendar item ID
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,47 +33,45 @@ class IdVersion
     private $id;
 
     /**
-     * Version
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
+     * Time alarm was dismissed, in millis
+     * @Accessor(getter="getDismissedAt", setter="setDismissedAt")
+     * @SerializedName("dismissedAt")
      * @Type("integer")
      * @XmlAttribute
      */
-    private $version;
+    private $dismissedAt;
 
     /**
      * Constructor method
      * @param string $id
-     * @param int $version
+     * @param int $dismissedAt
      * @return self
      */
-    public function __construct(string $id, ?int $version = NULL)
+    public function __construct(string $id, int $dismissedAt)
     {
-        $this->setId($id);
-        if (NULL !== $version) {
-            $this->setVersion($version);
-        }
+        $this->setId($id)
+             ->setDismissedAt($dismissedAt);
     }
 
     /**
-     * Gets version enum
+     * Gets dismissedAt enum
      *
      * @return int
      */
-    public function getVersion(): ?int
+    public function getDismissedAt(): int
     {
-        return $this->version;
+        return $this->dismissedAt;
     }
 
     /**
-     * Sets version enum
+     * Sets dismissedAt enum
      *
-     * @param  int $version
+     * @param  int $dismissedAt
      * @return self
      */
-    public function setVersion(int $version): self
+    public function setDismissedAt(int $dismissedAt): self
     {
-        $this->version = $version;
+        $this->dismissedAt = $dismissedAt;
         return $this;
     }
 
