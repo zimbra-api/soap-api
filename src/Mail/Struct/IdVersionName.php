@@ -52,8 +52,10 @@ class IdVersionName
 
     /**
      * Constructor method
+     * 
      * @param string $id
      * @param int $version
+     * @param string $name
      * @return self
      */
     public function __construct(string $id, int $version, string $name)
@@ -64,7 +66,7 @@ class IdVersionName
     }
 
     /**
-     * Gets version enum
+     * Gets version
      *
      * @return int
      */
@@ -74,7 +76,7 @@ class IdVersionName
     }
 
     /**
-     * Sets version enum
+     * Sets version
      *
      * @param  int $version
      * @return self
