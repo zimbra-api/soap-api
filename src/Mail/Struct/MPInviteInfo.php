@@ -114,7 +114,7 @@ class MPInviteInfo
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfoInterface);
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfoInterface);
         return $this;
     }
 
@@ -148,7 +148,7 @@ class MPInviteInfo
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn($reply) => $reply instanceof CalendarReplyInterface);
+        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReplyInterface);
         return $this;
     }
 
@@ -182,7 +182,7 @@ class MPInviteInfo
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn($component) => $component instanceof InviteComponent);
+        $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof InviteComponent);
         return $this;
     }
 

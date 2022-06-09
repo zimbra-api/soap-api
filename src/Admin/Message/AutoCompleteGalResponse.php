@@ -172,7 +172,7 @@ class AutoCompleteGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = array_filter($contacts, static fn($contact) => $contact instanceof ContactInfo);
+        $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 

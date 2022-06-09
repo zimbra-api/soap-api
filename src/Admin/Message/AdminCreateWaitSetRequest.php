@@ -140,7 +140,7 @@ class AdminCreateWaitSetRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = array_filter($accounts, static fn($account) => $account instanceof WaitSetAddSpec);
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 

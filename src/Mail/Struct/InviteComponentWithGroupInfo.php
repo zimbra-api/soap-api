@@ -401,7 +401,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = array_filter($attendees, static fn($attendee) => $attendee instanceof CalendarAttendee);
+        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendee);
         return $this;
     }
 
@@ -435,7 +435,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setAlarms(array $alarms): self
     {
-        $this->alarms = array_filter($alarms, static fn($alarm) => $alarm instanceof AlarmInfo);
+        $this->alarms = array_filter($alarms, static fn ($alarm) => $alarm instanceof AlarmInfo);
         return $this;
     }
 
@@ -469,7 +469,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = array_filter($xProps, static fn($xProp) => $xProp instanceof XProp);
+        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XProp);
         return $this;
     }
 

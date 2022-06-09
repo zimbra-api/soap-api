@@ -52,7 +52,7 @@ trait KeyValuePairsTrait
      */
     public function setKeyValuePairs(array $pairs): self
     {
-        $this->keyValuePairs = array_filter($pairs, static fn($kvp) => $kvp instanceof KeyValuePair);
+        $this->keyValuePairs = array_filter($pairs, static fn ($kvp) => $kvp instanceof KeyValuePair);
         return $this;
     }
 
@@ -73,7 +73,7 @@ trait KeyValuePairsTrait
      */
     public function firstValueForKey($key): ?string
     {
-        $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
+        $keyValuePairs = array_filter($this->keyValuePairs, static fn ($kvp) => $kvp->getKey() == $key);
         $kvp = reset($keyValuePairs);
         if ($kvp instanceof KeyValuePair) {
             return $kvp->getValue();
@@ -88,7 +88,7 @@ trait KeyValuePairsTrait
      */
     public function valuesForKey($key): array
     {
-        $keyValuePairs = array_filter($this->keyValuePairs, static fn($kvp) => $kvp->getKey() == $key);
-        return array_map(static fn($kvp) => $kvp->getValue(), $keyValuePairs);
+        $keyValuePairs = array_filter($this->keyValuePairs, static fn ($kvp) => $kvp->getKey() == $key);
+        return array_map(static fn ($kvp) => $kvp->getValue(), $keyValuePairs);
     }
 }

@@ -128,7 +128,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setRules(array $rules): self
     {
         $this->add = $this->exclude = $this->except = $this->cancel = $this->dates = $this->simple = [];
-        $rules = array_filter($rules, static fn($rule) => $rule instanceof RecurRuleBaseInterface);
+        $rules = array_filter($rules, static fn ($rule) => $rule instanceof RecurRuleBaseInterface);
         array_walk($rules, fn ($rule) => $this->addRule($rule));
         return $this;
     }
@@ -151,7 +151,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setAddRules(array $rules): self
     {
-        $this->add = array_filter($rules, static fn($rule) => $rule instanceof AddRecurrenceInfo);
+        $this->add = array_filter($rules, static fn ($rule) => $rule instanceof AddRecurrenceInfo);
         return $this;
     }
 
@@ -173,7 +173,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setExcludeRules(array $rules): self
     {
-        $this->exclude = array_filter($rules, static fn($rule) => $rule instanceof ExcludeRecurrenceInfo);
+        $this->exclude = array_filter($rules, static fn ($rule) => $rule instanceof ExcludeRecurrenceInfo);
         return $this;
     }
 
@@ -195,7 +195,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setExceptRules(array $rules): self
     {
-        $this->except = array_filter($rules, static fn($rule) => $rule instanceof ExceptionRuleInfo);
+        $this->except = array_filter($rules, static fn ($rule) => $rule instanceof ExceptionRuleInfo);
         return $this;
     }
 
@@ -217,7 +217,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setCancelRules(array $rules): self
     {
-        $this->cancel = array_filter($rules, static fn($rule) => $rule instanceof CancelRuleInfo);
+        $this->cancel = array_filter($rules, static fn ($rule) => $rule instanceof CancelRuleInfo);
         return $this;
     }
 
@@ -239,7 +239,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setDatesRules(array $rules): self
     {
-        $this->dates = array_filter($rules, static fn($rule) => $rule instanceof SingleDates);
+        $this->dates = array_filter($rules, static fn ($rule) => $rule instanceof SingleDates);
         return $this;
     }
 
@@ -261,7 +261,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setSimpleRules(array $rules): self
     {
-        $this->simple = array_filter($rules, static fn($rule) => $rule instanceof SimpleRepeatingRule);
+        $this->simple = array_filter($rules, static fn ($rule) => $rule instanceof SimpleRepeatingRule);
         return $this;
     }
 

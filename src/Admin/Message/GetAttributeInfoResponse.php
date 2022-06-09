@@ -66,7 +66,7 @@ class GetAttributeInfoResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof AttributeDescription);
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof AttributeDescription);
         return $this;
     }
 

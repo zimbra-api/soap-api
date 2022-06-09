@@ -63,7 +63,7 @@ class DeployZimletResponse implements ResponseInterface
      */
     public function setProgresses(array $progresses): self
     {
-        $this->progresses = array_filter($progresses, static fn($progress) => $progress instanceof ZimletDeploymentStatus);
+        $this->progresses = array_filter($progresses, static fn ($progress) => $progress instanceof ZimletDeploymentStatus);
         return $this;
     }
 

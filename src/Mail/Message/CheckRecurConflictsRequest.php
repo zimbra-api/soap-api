@@ -268,7 +268,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -337,7 +337,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setCancelComponents(array $components): self
     {
-        $this->cancelComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceCancel);
+        $this->cancelComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceCancel);
         return $this;
     }
 
@@ -359,7 +359,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceInvite);
+        $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceInvite);
         return $this;
     }
 
@@ -381,7 +381,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setExceptComponents(array $components): self
     {
-        $this->exceptComponents = array_filter($components, static fn($component) => $component instanceof ExpandedRecurrenceException);
+        $this->exceptComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceException);
         return $this;
     }
 
@@ -415,7 +415,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn($user) => $user instanceof FreeBusyUserSpec);
+        $this->freebusyUsers = array_filter($users, static fn ($user) => $user instanceof FreeBusyUserSpec);
         return $this;
     }
 

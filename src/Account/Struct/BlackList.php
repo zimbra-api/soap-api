@@ -62,7 +62,7 @@ class BlackList
      */
     public function setAddrs(array $addrs): self
     {
-        $this->addrs = array_filter($addrs, static fn($addr) => $addr instanceof OpValue);
+        $this->addrs = array_filter($addrs, static fn ($addr) => $addr instanceof OpValue);
         return $this;
     }
 

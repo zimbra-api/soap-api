@@ -63,7 +63,7 @@ class ComboRights
      */
     public function setComboRights(array $comboRights): self
     {
-        $this->comboRights = array_filter($comboRights, static fn($right) => $right instanceof ComboRightInfo);
+        $this->comboRights = array_filter($comboRights, static fn ($right) => $right instanceof ComboRightInfo);
         return $this;
     }
 

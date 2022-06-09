@@ -231,7 +231,7 @@ class InvitationInfo extends InviteComponent
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -265,7 +265,7 @@ class InvitationInfo extends InviteComponent
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = array_filter($mimeParts, static fn($mimePart) => $mimePart instanceof MimePartInfo);
+        $this->mimeParts = array_filter($mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo);
         return $this;
     }
 

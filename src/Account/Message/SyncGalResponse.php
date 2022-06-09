@@ -295,7 +295,7 @@ class SyncGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = array_filter($contacts, static fn($contact) => $contact instanceof ContactInfo);
+        $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 
@@ -329,7 +329,7 @@ class SyncGalResponse implements ResponseInterface
      */
     public function setDeleted(array $contacts): self
     {
-        $this->deleted = array_filter($contacts, static fn($contact) => $contact instanceof Id);
+        $this->deleted = array_filter($contacts, static fn ($contact) => $contact instanceof Id);
         return $this;
     }
 }

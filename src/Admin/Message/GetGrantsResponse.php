@@ -66,7 +66,7 @@ class GetGrantsResponse implements ResponseInterface
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = array_filter($grants, static fn($grant) => $grant instanceof GrantInfo);
+        $this->grants = array_filter($grants, static fn ($grant) => $grant instanceof GrantInfo);
         return $this;
     }
 

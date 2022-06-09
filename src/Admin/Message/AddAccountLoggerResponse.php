@@ -66,7 +66,7 @@ class AddAccountLoggerResponse implements ResponseInterface
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = array_filter($loggers, static fn($logger) => $logger instanceof Logger);
+        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof Logger);
         return $this;
     }
 

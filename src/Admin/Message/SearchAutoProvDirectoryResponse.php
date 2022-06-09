@@ -136,7 +136,7 @@ class SearchAutoProvDirectoryResponse implements ResponseInterface
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_filter($entries, static fn($entry) => $entry instanceof AutoProvDirectoryEntry);
+        $this->entries = array_filter($entries, static fn ($entry) => $entry instanceof AutoProvDirectoryEntry);
         return $this;
     }
 

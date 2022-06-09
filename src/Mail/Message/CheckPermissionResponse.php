@@ -102,7 +102,7 @@ class CheckPermissionResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn($right) => $right instanceof RightPermission);
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightPermission);
         return $this;
     }
 

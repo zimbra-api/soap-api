@@ -68,7 +68,7 @@ class GetRightsRequest extends Request
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn($ace) => $ace instanceof Right);
+        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof Right);
         return $this;
     }
 

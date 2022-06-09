@@ -79,7 +79,7 @@ class ModifyWhiteBlackListRequest extends Request
      */
     public function setWhiteListEntries(array $entries): self
     {
-        $this->whiteListEntries = array_filter($entries, static fn($entry) => $entry instanceof OpValue);
+        $this->whiteListEntries = array_filter($entries, static fn ($entry) => $entry instanceof OpValue);
         return $this;
     }
 
@@ -113,7 +113,7 @@ class ModifyWhiteBlackListRequest extends Request
      */
     public function setBlackListEntries(array $entries): self
     {
-        $this->blackListEntries = array_filter($entries, static fn($entry) => $entry instanceof OpValue);
+        $this->blackListEntries = array_filter($entries, static fn ($entry) => $entry instanceof OpValue);
         return $this;
     }
 

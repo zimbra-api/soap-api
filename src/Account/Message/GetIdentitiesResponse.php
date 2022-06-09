@@ -66,7 +66,7 @@ class GetIdentitiesResponse implements ResponseInterface
      */
     public function setIdentities(array $identities): self
     {
-        $this->identities = array_filter($identities, static fn($identity) => $identity instanceof Identity);
+        $this->identities = array_filter($identities, static fn ($identity) => $identity instanceof Identity);
         return $this;
     }
 

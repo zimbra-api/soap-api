@@ -52,7 +52,7 @@ class AccountDataSources
      */
     public function getImapDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($imap) => $imap instanceof AccountImapDataSource);
+        return array_filter($this->dataSources, static fn ($imap) => $imap instanceof AccountImapDataSource);
     }
 
     /**
@@ -67,7 +67,7 @@ class AccountDataSources
      */
     public function getPop3DataSources(): array
     {
-        return array_filter($this->dataSources, static fn($pop3) => $pop3 instanceof AccountPop3DataSource);
+        return array_filter($this->dataSources, static fn ($pop3) => $pop3 instanceof AccountPop3DataSource);
     }
 
     /**
@@ -82,7 +82,7 @@ class AccountDataSources
      */
     public function getCaldavDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($caldav) => $caldav instanceof AccountCaldavDataSource);
+        return array_filter($this->dataSources, static fn ($caldav) => $caldav instanceof AccountCaldavDataSource);
     }
 
     /**
@@ -97,7 +97,7 @@ class AccountDataSources
      */
     public function getYabDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($yab) => $yab instanceof AccountYabDataSource);
+        return array_filter($this->dataSources, static fn ($yab) => $yab instanceof AccountYabDataSource);
     }
 
     /**
@@ -112,7 +112,7 @@ class AccountDataSources
      */
     public function getRssDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($rss) => $rss instanceof AccountRssDataSource);
+        return array_filter($this->dataSources, static fn ($rss) => $rss instanceof AccountRssDataSource);
     }
 
     /**
@@ -127,7 +127,7 @@ class AccountDataSources
      */
     public function getGalDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($gal) => $gal instanceof AccountGalDataSource);
+        return array_filter($this->dataSources, static fn ($gal) => $gal instanceof AccountGalDataSource);
     }
 
     /**
@@ -142,7 +142,7 @@ class AccountDataSources
      */
     public function getCalDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($cal) => $cal instanceof AccountCalDataSource);
+        return array_filter($this->dataSources, static fn ($cal) => $cal instanceof AccountCalDataSource);
     }
 
     /**
@@ -157,7 +157,7 @@ class AccountDataSources
      */
     public function getUnknownDataSources(): array
     {
-        return array_filter($this->dataSources, static fn($unknown) => $unknown instanceof AccountUnknownDataSource);
+        return array_filter($this->dataSources, static fn ($unknown) => $unknown instanceof AccountUnknownDataSource);
     }
 
     /**
@@ -180,7 +180,7 @@ class AccountDataSources
      */
     public function setDataSources(array $dataSources): self
     {
-        $this->dataSources = array_filter($dataSources, static fn($source) => $source instanceof AccountDataSource);
+        $this->dataSources = array_filter($dataSources, static fn ($source) => $source instanceof AccountDataSource);
         return $this;
     }
 

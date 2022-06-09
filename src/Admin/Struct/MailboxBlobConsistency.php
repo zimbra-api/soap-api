@@ -146,7 +146,7 @@ class MailboxBlobConsistency
      */
     public function setMissingBlobs(array $blobs): self
     {
-        $this->missingBlobs = array_filter($blobs, static fn($blob) => $blob instanceof MissingBlobInfo);
+        $this->missingBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof MissingBlobInfo);
         return $this;
     }
 
@@ -180,7 +180,7 @@ class MailboxBlobConsistency
      */
     public function setIncorrectSizes(array $sizes): self
     {
-        $this->incorrectSizes = array_filter($sizes, static fn($size) => $size instanceof IncorrectBlobSizeInfo);
+        $this->incorrectSizes = array_filter($sizes, static fn ($size) => $size instanceof IncorrectBlobSizeInfo);
         return $this;
     }
 
@@ -214,7 +214,7 @@ class MailboxBlobConsistency
      */
     public function setUnexpectedBlobs(array $blobs): self
     {
-        $this->unexpectedBlobs = array_filter($blobs, static fn($blob) => $blob instanceof UnexpectedBlobInfo);
+        $this->unexpectedBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof UnexpectedBlobInfo);
         return $this;
     }
 
@@ -248,7 +248,7 @@ class MailboxBlobConsistency
      */
     public function setIncorrectRevisions(array $revisions): self
     {
-        $this->incorrectRevisions = array_filter($revisions, static fn($revision) => $revision instanceof IncorrectBlobRevisionInfo);
+        $this->incorrectRevisions = array_filter($revisions, static fn ($revision) => $revision instanceof IncorrectBlobRevisionInfo);
         return $this;
     }
 
@@ -282,7 +282,7 @@ class MailboxBlobConsistency
      */
     public function setUsedBlobs(array $blobs): self
     {
-        $this->usedBlobs = array_filter($blobs, static fn($blob) => $blob instanceof UsedBlobInfo);
+        $this->usedBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof UsedBlobInfo);
         return $this;
     }
 

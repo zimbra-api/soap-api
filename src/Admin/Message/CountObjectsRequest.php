@@ -164,7 +164,7 @@ class CountObjectsRequest extends Request
      */
     public function setDomains(array $domains): self
     {
-        $this->domains = array_filter($domains, static fn($domain) => $domain instanceof DomainSelector);
+        $this->domains = array_filter($domains, static fn ($domain) => $domain instanceof DomainSelector);
         return $this;
     }
 

@@ -142,7 +142,7 @@ class CmdRightsInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = array_filter($rights, static fn($right) => $right instanceof NamedElement);
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof NamedElement);
         return $this;
     }
 

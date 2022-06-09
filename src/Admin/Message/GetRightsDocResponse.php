@@ -91,7 +91,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setPackages(array $pkgs): self
     {
-        $this->pkgs = array_filter($pkgs, static fn($pkg) => $pkg instanceof Package);
+        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof Package);
         return $this;
     }
 
@@ -147,7 +147,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = array_filter($rights, static fn($right) => $right instanceof Right);
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof Right);
         return $this;
     }
 

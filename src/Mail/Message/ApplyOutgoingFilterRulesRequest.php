@@ -102,7 +102,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      */
     public function setFilterRules(array $rules): self
     {
-        $this->filterRules = array_filter($rules, static fn($rule) => $rule instanceof NamedElement);
+        $this->filterRules = array_filter($rules, static fn ($rule) => $rule instanceof NamedElement);
         return $this;
     }
 

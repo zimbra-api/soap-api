@@ -66,7 +66,7 @@ class GetAllAdminAccountsResponse implements ResponseInterface
      */
     public function setAccountList(array $list): self
     {
-        $this->accountList = array_filter($list, static fn($account) => $account instanceof AccountInfo);
+        $this->accountList = array_filter($list, static fn ($account) => $account instanceof AccountInfo);
         return $this;
     }
 

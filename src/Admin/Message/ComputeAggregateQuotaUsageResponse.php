@@ -66,7 +66,7 @@ class ComputeAggregateQuotaUsageResponse implements ResponseInterface
      */
     public function setDomainQuotas(array $quotas): self
     {
-        $this->domainQuotas = array_filter($quotas, static fn($quota) => $quota instanceof QuotaInfo);
+        $this->domainQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof QuotaInfo);
         return $this;
     }
 

@@ -190,7 +190,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      */
     public function setHABGroupMembers(array $members): self
     {
-        $this->habGroupMembers = array_filter($members, static fn($member) => $member instanceof HABGroupMember);
+        $this->habGroupMembers = array_filter($members, static fn ($member) => $member instanceof HABGroupMember);
         return $this;
     }
 

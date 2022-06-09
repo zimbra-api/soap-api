@@ -66,7 +66,7 @@ class GetAllSkinsResponse implements ResponseInterface
      */
     public function setSkins(array $skins): self
     {
-        $this->skins = array_filter($skins, static fn($skin) => $skin instanceof NamedElement);
+        $this->skins = array_filter($skins, static fn ($skin) => $skin instanceof NamedElement);
         return $this;
     }
 

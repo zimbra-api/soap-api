@@ -102,7 +102,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = array_filter($targets, static fn($target) => $target instanceof EffectiveRightsTarget);
+        $this->targets = array_filter($targets, static fn ($target) => $target instanceof EffectiveRightsTarget);
         return $this;
     }
 

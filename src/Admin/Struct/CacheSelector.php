@@ -170,7 +170,7 @@ class CacheSelector
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = array_filter($entries, static fn($entry) => $entry instanceof CacheEntrySelector);
+        $this->entries = array_filter($entries, static fn ($entry) => $entry instanceof CacheEntrySelector);
         return $this;
     }
 

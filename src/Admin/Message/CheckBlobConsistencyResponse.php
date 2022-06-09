@@ -66,7 +66,7 @@ class CheckBlobConsistencyResponse implements ResponseInterface
      */
     public function setMailboxes(array $mailboxes): self
     {
-        $this->mailboxes = array_filter($mailboxes, static fn($mailbox) => $mailbox instanceof MailboxBlobConsistency);
+        $this->mailboxes = array_filter($mailboxes, static fn ($mailbox) => $mailbox instanceof MailboxBlobConsistency);
         return $this;
     }
 

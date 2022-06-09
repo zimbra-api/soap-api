@@ -416,7 +416,7 @@ class MessageCommon implements MessageCommonInterface
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = array_filter($metadatas, static fn($metadata) => $metadata instanceof CustomMetadataInterface);
+        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface);
         return $this;
     }
 

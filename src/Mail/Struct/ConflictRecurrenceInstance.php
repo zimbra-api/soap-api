@@ -65,7 +65,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
      */
     public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = array_filter($users, static fn($user) => $user instanceof FreeBusyUserStatus);
+        $this->freebusyUsers = array_filter($users, static fn ($user) => $user instanceof FreeBusyUserStatus);
         return $this;
     }
 

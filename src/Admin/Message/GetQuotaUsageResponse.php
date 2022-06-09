@@ -134,7 +134,7 @@ class GetQuotaUsageResponse implements ResponseInterface
      */
     public function setAccountQuotas(array $quotas): self
     {
-        $this->accountQuotas = array_filter($quotas, static fn($quota) => $quota instanceof AccountQuotaInfo);
+        $this->accountQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof AccountQuotaInfo);
         return $this;
     }
 

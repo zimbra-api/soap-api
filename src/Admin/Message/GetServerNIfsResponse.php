@@ -66,7 +66,7 @@ class GetServerNIfsResponse implements ResponseInterface
      */
     public function setNetworkInterfaces(array $interfaces): self
     {
-        $this->networkInterfaces = array_filter($interfaces, static fn($ni) => $ni instanceof NetworkInformation);
+        $this->networkInterfaces = array_filter($interfaces, static fn ($ni) => $ni instanceof NetworkInformation);
         return $this;
     }
 

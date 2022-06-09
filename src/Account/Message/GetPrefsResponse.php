@@ -65,7 +65,7 @@ class GetPrefsResponse implements ResponseInterface
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = array_filter($prefs, static fn($pref) => $pref instanceof Pref);
+        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
         return $this;
     }
 

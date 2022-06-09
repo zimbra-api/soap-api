@@ -72,7 +72,7 @@ class RetentionPolicy
      */
     public function setKeepPolicy(array $policies): self
     {
-        $this->keep = array_filter($policies, static fn($policy) => $policy instanceof Policy);
+        $this->keep = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
         return $this;
     }
 
@@ -94,7 +94,7 @@ class RetentionPolicy
      */
     public function setPurgePolicy(array $policies): self
     {
-        $this->purge = array_filter($policies, static fn($policy) => $policy instanceof Policy);
+        $this->purge = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
         return $this;
     }
 }

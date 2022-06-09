@@ -118,7 +118,7 @@ class InviteInfo implements InviteInfoInterface
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfoInterface);
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfoInterface);
         return $this;
     }
 
@@ -174,7 +174,7 @@ class InviteInfo implements InviteInfoInterface
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn($reply) => $reply instanceof CalendarReplyInterface);
+        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReplyInterface);
         return $this;
     }
 

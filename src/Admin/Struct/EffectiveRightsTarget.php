@@ -145,7 +145,7 @@ class EffectiveRightsTarget
      */
     public function setInDomainLists(array $lists): self
     {
-        $this->inDomainLists = array_filter($lists, static fn($item) => $item instanceof InDomainInfo);
+        $this->inDomainLists = array_filter($lists, static fn ($item) => $item instanceof InDomainInfo);
         return $this;
     }
 
@@ -179,7 +179,7 @@ class EffectiveRightsTarget
      */
     public function setEntriesLists(array $lists): self
     {
-        $this->entriesLists = array_filter($lists, static fn($item) => $item instanceof RightsEntriesInfo);
+        $this->entriesLists = array_filter($lists, static fn ($item) => $item instanceof RightsEntriesInfo);
         return $this;
     }
 

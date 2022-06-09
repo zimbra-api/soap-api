@@ -66,7 +66,7 @@ class CheckDirectoryResponse implements ResponseInterface
      */
     public function setPaths(array $paths): self
     {
-        $this->paths = array_filter($paths, static fn($path) => $path instanceof DirPathInfo);
+        $this->paths = array_filter($paths, static fn ($path) => $path instanceof DirPathInfo);
         return $this;
     }
 

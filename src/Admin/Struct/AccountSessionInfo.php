@@ -129,7 +129,7 @@ class AccountSessionInfo
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = array_filter($sessions, static fn($session) => $session instanceof SessionInfo);
+        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionInfo);
         return $this;
     }
 

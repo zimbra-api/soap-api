@@ -64,7 +64,7 @@ class ContactBackupResponse implements ResponseInterface
      */
     public function setServers(array $servers): self
     {
-        $this->servers = array_filter($servers, static fn($server) => $server instanceof ContactBackupServer);
+        $this->servers = array_filter($servers, static fn ($server) => $server instanceof ContactBackupServer);
         return $this;
     }
 

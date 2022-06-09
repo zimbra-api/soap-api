@@ -66,7 +66,7 @@ class GetAllFreeBusyProvidersResponse implements ResponseInterface
      */
     public function setProviders(array $providers): self
     {
-        $this->providers = array_filter($providers, static fn($provider) => $provider instanceof FreeBusyProviderInfo);
+        $this->providers = array_filter($providers, static fn ($provider) => $provider instanceof FreeBusyProviderInfo);
         return $this;
     }
 

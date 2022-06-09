@@ -248,7 +248,7 @@ class InviteAsMP extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = array_filter($emails, static fn($email) => $email instanceof EmailInfo);
+        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
         return $this;
     }
 
@@ -348,7 +348,7 @@ class InviteAsMP extends MessageCommon
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = array_filter($headers, static fn($header) => $header instanceof KeyValuePair);
+        $this->headers = array_filter($headers, static fn ($header) => $header instanceof KeyValuePair);
         return $this;
     }
 
@@ -406,7 +406,7 @@ class InviteAsMP extends MessageCommon
     public function setMpContentElems(array $elements): self
     {
         $this->mpContentElems = array_values(
-            array_filter($elements, static fn($element) => $element instanceof PartInfo)
+            array_filter($elements, static fn ($element) => $element instanceof PartInfo)
         );
         return $this;
     }
@@ -430,7 +430,7 @@ class InviteAsMP extends MessageCommon
     public function setShareContentElems(array $elements): self
     {
         $this->shrContentElems = array_values(
-            array_filter($elements, static fn($element) => $element instanceof ShareNotification)
+            array_filter($elements, static fn ($element) => $element instanceof ShareNotification)
         );
         return $this;
     }
@@ -454,7 +454,7 @@ class InviteAsMP extends MessageCommon
     public function setDlSubsContentElems(array $elements): self
     {
         $this->dlSubsContentElems = array_values(
-            array_filter($elements, static fn($element) => $element instanceof DLSubscriptionNotification)
+            array_filter($elements, static fn ($element) => $element instanceof DLSubscriptionNotification)
         );
         return $this;
     }

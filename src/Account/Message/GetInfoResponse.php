@@ -797,7 +797,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = array_filter($prefs, static fn($pref) => $pref instanceof Pref);
+        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
         return $this;
     }
 
@@ -831,7 +831,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = array_filter($attrs, static fn($attr) => $attr instanceof Attr);
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 
@@ -865,7 +865,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof AccountZimletInfo);
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof AccountZimletInfo);
         return $this;
     }
 
@@ -899,7 +899,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setProps(array $props): self
     {
-        $this->props = array_filter($props, static fn($prop) => $prop instanceof Prop);
+        $this->props = array_filter($props, static fn ($prop) => $prop instanceof Prop);
         return $this;
     }
 
@@ -933,7 +933,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setIdentities(array $identities): self
     {
-        $this->identities = array_filter($identities, static fn($identity) => $identity instanceof Identity);
+        $this->identities = array_filter($identities, static fn ($identity) => $identity instanceof Identity);
         return $this;
     }
 
@@ -967,7 +967,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setSignatures(array $signatures): self
     {
-        $this->signatures = array_filter($signatures, static fn($signature) => $signature instanceof Signature);
+        $this->signatures = array_filter($signatures, static fn ($signature) => $signature instanceof Signature);
         return $this;
     }
 
@@ -1060,7 +1060,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setChildAccounts(array $accounts): self
     {
-        $this->childAccounts = array_filter($accounts, static fn($account) => $account instanceof ChildAccount);
+        $this->childAccounts = array_filter($accounts, static fn ($account) => $account instanceof ChildAccount);
         return $this;
     }
 
@@ -1094,7 +1094,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setDiscoveredRights(array $rights): self
     {
-        $this->discoveredRights = array_filter($rights, static fn($right) => $right instanceof DiscoverRightsInfo);
+        $this->discoveredRights = array_filter($rights, static fn ($right) => $right instanceof DiscoverRightsInfo);
         return $this;
     }
 

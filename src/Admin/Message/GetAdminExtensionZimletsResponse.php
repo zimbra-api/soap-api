@@ -66,7 +66,7 @@ class GetAdminExtensionZimletsResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof AdminZimletInfo);
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof AdminZimletInfo);
         return $this;
     }
 

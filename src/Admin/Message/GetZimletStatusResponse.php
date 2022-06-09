@@ -100,7 +100,7 @@ class GetZimletStatusResponse implements ResponseInterface
      */
     public function setCoses(array $coses): self
     {
-        $this->coses = array_filter($coses, static fn($cos) => $cos instanceof ZimletStatusCos);
+        $this->coses = array_filter($coses, static fn ($cos) => $cos instanceof ZimletStatusCos);
         return $this;
     }
 

@@ -65,7 +65,7 @@ class GetAccountDistributionListsResponse implements ResponseInterface
      */
     public function setDlList(array $dlList): self
     {
-        $this->dlList = array_filter($dlList, static fn($dl) => $dl instanceof DLInfo);
+        $this->dlList = array_filter($dlList, static fn ($dl) => $dl instanceof DLInfo);
         return $this;
     }
 

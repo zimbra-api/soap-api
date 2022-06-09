@@ -137,7 +137,7 @@ class CheckGalConfigResponse implements ResponseInterface
      */
     public function setGalContacts(array $contacts): self
     {
-        $this->galContacts = array_filter($contacts, static fn($contact) => $contact instanceof GalContactInfo);
+        $this->galContacts = array_filter($contacts, static fn ($contact) => $contact instanceof GalContactInfo);
         return $this;
     }
 

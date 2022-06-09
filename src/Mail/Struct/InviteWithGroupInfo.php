@@ -112,7 +112,7 @@ class InviteWithGroupInfo
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = array_filter($timezones, static fn($timezone) => $timezone instanceof CalTZInfo);
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -156,7 +156,7 @@ class InviteWithGroupInfo
      */
     public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = array_filter($components, static fn($component) => $component instanceof InviteComponentWithGroupInfo);
+        $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof InviteComponentWithGroupInfo);
         return $this;
     }
 
@@ -168,7 +168,7 @@ class InviteWithGroupInfo
      */
     public function setCalendarReplies(array $replies): self
     {
-        $this->calendarReplies = array_filter($replies, static fn($reply) => $reply instanceof CalendarReply);
+        $this->calendarReplies = array_filter($replies, static fn ($reply) => $reply instanceof CalendarReply);
         return $this;
     }
 

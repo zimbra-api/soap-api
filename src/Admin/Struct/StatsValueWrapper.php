@@ -64,7 +64,7 @@ class StatsValueWrapper
      */
     public function setStats(array $stats): self
     {
-        $this->stats = array_filter($stats, static fn($stat) => $stat instanceof NamedElement);
+        $this->stats = array_filter($stats, static fn ($stat) => $stat instanceof NamedElement);
         return $this;
     }
 

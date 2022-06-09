@@ -155,7 +155,7 @@ class CheckBlobConsistencyRequest extends Request
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = array_filter($volumes, static fn($volume) => $volume instanceof IntIdAttr);
+        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof IntIdAttr);
         return $this;
     }
 
@@ -189,7 +189,7 @@ class CheckBlobConsistencyRequest extends Request
      */
     public function setMailboxes(array $mailboxes): self
     {
-        $this->mailboxes = array_filter($mailboxes, static fn($mailbox) => $mailbox instanceof IntIdAttr);
+        $this->mailboxes = array_filter($mailboxes, static fn ($mailbox) => $mailbox instanceof IntIdAttr);
         return $this;
     }
 

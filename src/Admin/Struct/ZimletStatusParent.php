@@ -64,7 +64,7 @@ class ZimletStatusParent
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof ZimletStatus);
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ZimletStatus);
         return $this;
     }
 

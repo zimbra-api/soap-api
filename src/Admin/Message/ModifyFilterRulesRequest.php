@@ -252,7 +252,7 @@ class ModifyFilterRulesRequest extends Request
      */
     public function setFilterRules(array $filterRules): self
     {
-        $this->filterRules = array_filter($filterRules, static fn($rule) => $rule instanceof FilterRule);
+        $this->filterRules = array_filter($filterRules, static fn ($rule) => $rule instanceof FilterRule);
         return $this;
     }
 

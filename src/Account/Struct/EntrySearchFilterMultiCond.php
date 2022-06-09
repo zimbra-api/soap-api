@@ -153,10 +153,10 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     public function setConditions(array $conditions): self
     {
         $this->compoundConditions = array_values(
-            array_filter($conditions, static fn($condition) => $condition instanceof MultiCond)
+            array_filter($conditions, static fn ($condition) => $condition instanceof MultiCond)
         );
         $this->singleConditions = array_values(
-            array_filter($conditions, static fn($condition) => $condition instanceof SingleCond)
+            array_filter($conditions, static fn ($condition) => $condition instanceof SingleCond)
         );
         return $this;
     }

@@ -161,7 +161,7 @@ class AttachmentsInfo
     public function setMpAttachments(array $attachments): self
     {
         $this->mpAttachments = array_values(
-            array_filter($attachments, static fn($attachment) => $attachment instanceof MimePartAttachSpec)
+            array_filter($attachments, static fn ($attachment) => $attachment instanceof MimePartAttachSpec)
         );
         return $this;
     }
@@ -185,7 +185,7 @@ class AttachmentsInfo
     public function setMsgAttachments(array $attachments): self
     {
         $this->msgAttachments = array_values(
-            array_filter($attachments, static fn($attachment) => $attachment instanceof MsgAttachSpec)
+            array_filter($attachments, static fn ($attachment) => $attachment instanceof MsgAttachSpec)
         );
         return $this;
     }
@@ -209,7 +209,7 @@ class AttachmentsInfo
     public function setContactAttachments(array $attachments): self
     {
         $this->cnAttachments = array_values(
-            array_filter($attachments, static fn($attachment) => $attachment instanceof ContactAttachSpec)
+            array_filter($attachments, static fn ($attachment) => $attachment instanceof ContactAttachSpec)
         );
         return $this;
     }
@@ -233,7 +233,7 @@ class AttachmentsInfo
     public function setDocAttachments(array $attachments): self
     {
         $this->docAttachments = array_values(
-            array_filter($attachments, static fn($attachment) => $attachment instanceof DocAttachSpec)
+            array_filter($attachments, static fn ($attachment) => $attachment instanceof DocAttachSpec)
         );
         return $this;
     }

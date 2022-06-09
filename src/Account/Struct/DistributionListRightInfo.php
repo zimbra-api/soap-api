@@ -94,7 +94,7 @@ class DistributionListRightInfo
      */
     public function setGrantees(array $grantees)
     {
-        $this->grantees = array_filter($grantees, static fn($grantee) => $grantee instanceof DistributionListGranteeInfo);
+        $this->grantees = array_filter($grantees, static fn ($grantee) => $grantee instanceof DistributionListGranteeInfo);
         return $this;
     }
 

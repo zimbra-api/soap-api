@@ -66,7 +66,7 @@ class GetAllZimletsResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = array_filter($zimlets, static fn($zimlet) => $zimlet instanceof ZimletInfo);
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ZimletInfo);
         return $this;
     }
 
