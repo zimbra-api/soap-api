@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
 
 /**
- * IdVersionName struct class
+ * NameOrId struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,26 +21,8 @@ use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttri
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class IdVersionName
+class NameOrId
 {
-    /**
-     * ID
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     */
-    private $id;
-
-    /**
-     * Version
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("integer")
-     * @XmlAttribute
-     */
-    private $version;
-
     /**
      * The name
      * @Accessor(getter="getName", setter="setName")
@@ -51,38 +33,28 @@ class IdVersionName
     private $name;
 
     /**
+     * ID
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $id;
+
+    /**
      * Constructor method
+     * @param string $name
      * @param string $id
-     * @param int $version
      * @return self
      */
-    public function __construct(string $id, int $version, string $name)
+    public function __construct(?string $name = NULL, ?string $id = NULL)
     {
-        $this->setId($id)
-             ->setVersion($version)
-             ->setName($name);
-    }
-
-    /**
-     * Gets version enum
-     *
-     * @return int
-     */
-    public function getVersion(): int
-    {
-        return $this->version;
-    }
-
-    /**
-     * Sets version enum
-     *
-     * @param  int $version
-     * @return self
-     */
-    public function setVersion(int $version): self
-    {
-        $this->version = $version;
-        return $this;
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $id) {
+            $this->setId($id);
+        }
     }
 
     /**
@@ -90,7 +62,7 @@ class IdVersionName
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -112,7 +84,7 @@ class IdVersionName
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -127,5 +99,15 @@ class IdVersionName
     {
         $this->name = $name;
         return $this;
+    }
+
+    public static function createForName(string $name): static
+    {
+        return new static($name);
+    }
+
+    public static function createForId(string $id): static
+    {
+        return new static(NULL, $id);
     }
 }
