@@ -14,6 +14,8 @@ use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
 };
 
+use Zimbra\Common\Enum\GranteeType;
+
 /**
  * FolderActionSelector class
  * Input for folder actions
@@ -51,7 +53,7 @@ class FolderActionSelector extends ActionSelector
      * @Type("bool")
      * @XmlAttribute
      */
-    private $excludeFreebusy;
+    private $excludeFreeBusy;
 
     /**
      * Grantee Zimbra ID
@@ -66,7 +68,7 @@ class FolderActionSelector extends ActionSelector
      * Grantee type
      * @Accessor(getter="getGrantType", setter="setGrantType")
      * @SerializedName("gt")
-     * @Type("string")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
     private $grantType;
@@ -124,9 +126,9 @@ class FolderActionSelector extends ActionSelector
      * @param  string $ids
      * @param  bool $recursive
      * @param  string $url
-     * @param  bool $excludeFreebusy
+     * @param  bool $excludeFreeBusy
      * @param  string $zimbraId
-     * @param  string $grantType
+     * @param  GranteeType $grantType
      * @param  string $view
      * @param  ActionGrantSelector $grant
      * @param  array $grants
@@ -139,9 +141,9 @@ class FolderActionSelector extends ActionSelector
         ?string $ids = NULL,
         ?bool $recursive = NULL,
         ?string $url = NULL,
-        ?bool $excludeFreebusy = NULL,
+        ?bool $excludeFreeBusy = NULL,
         ?string $zimbraId = NULL,
-        ?string $grantType = NULL,
+        ?GranteeType $grantType = NULL,
         ?string $view = NULL,
         ?ActionGrantSelector $grant = NULL,
         ?array $grants = [],
@@ -157,13 +159,13 @@ class FolderActionSelector extends ActionSelector
         if (NULL !== $url) {
             $this->setUrl($url);
         }
-        if (NULL !== $excludeFreebusy) {
-            $this->setExcludeFreebusy($excludeFreebusy);
+        if (NULL !== $excludeFreeBusy) {
+            $this->setExcludeFreebusy($excludeFreeBusy);
         }
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }
-        if (NULL !== $grantType) {
+        if ($grantType instanceof GranteeType) {
             $this->setGrantType($grantType);
         }
         if (NULL !== $view) {
@@ -225,24 +227,24 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets excludeFreebusy
+     * Gets excludeFreeBusy
      *
      * @return bool
      */
     public function getExcludeFreebusy(): ?bool
     {
-        return $this->excludeFreebusy;
+        return $this->excludeFreeBusy;
     }
 
     /**
-     * Sets excludeFreebusy
+     * Sets excludeFreeBusy
      *
-     * @param  bool $excludeFreebusy
+     * @param  bool $excludeFreeBusy
      * @return self
      */
-    public function setExcludeFreebusy(bool $excludeFreebusy): self
+    public function setExcludeFreebusy(bool $excludeFreeBusy): self
     {
-        $this->excludeFreebusy = $excludeFreebusy;
+        $this->excludeFreeBusy = $excludeFreeBusy;
         return $this;
     }
 
@@ -271,9 +273,9 @@ class FolderActionSelector extends ActionSelector
     /**
      * Gets grantType
      *
-     * @return string
+     * @return GranteeType
      */
-    public function getGrantType(): ?string
+    public function getGrantType(): ?GranteeType
     {
         return $this->grantType;
     }
@@ -281,10 +283,10 @@ class FolderActionSelector extends ActionSelector
     /**
      * Sets grantType
      *
-     * @param  string $grantType
+     * @param  GranteeType $grantType
      * @return self
      */
-    public function setGrantType(string $grantType): self
+    public function setGrantType(GranteeType $grantType): self
     {
         $this->grantType = $grantType;
         return $this;

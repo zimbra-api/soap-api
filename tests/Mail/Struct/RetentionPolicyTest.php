@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use Zimbra\Common\Enum\Type;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
-use Zimbra\Common\Enum\Type;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -14,7 +14,7 @@ class RetentionPolicyTest extends ZimbraTestCase
 {
     public function testRetentionPolicy()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;
         $keep = new Policy(Type::SYSTEM(), $id, $name, $lifetime);

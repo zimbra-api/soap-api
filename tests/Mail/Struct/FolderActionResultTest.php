@@ -20,27 +20,27 @@ class FolderActionResultTest extends ZimbraTestCase
         $displayName = $this->faker->name;
         $accessKey = $this->faker->text;
 
-        $action = new FolderActionResult(
+        $result = new FolderActionResult(
             $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
         );
-        $this->assertSame($zimbraId, $action->getZimbraId());
-        $this->assertSame($displayName, $action->getDisplayName());
-        $this->assertSame($accessKey, $action->getAccessKey());
+        $this->assertSame($zimbraId, $result->getZimbraId());
+        $this->assertSame($displayName, $result->getDisplayName());
+        $this->assertSame($accessKey, $result->getAccessKey());
 
-        $action = new FolderActionResult($id, $operation, $nonExistentIds, $newlyCreatedIds);
-        $action->setZimbraId($zimbraId)
+        $result = new FolderActionResult($id, $operation, $nonExistentIds, $newlyCreatedIds);
+        $result->setZimbraId($zimbraId)
             ->setDisplayName($displayName)
             ->setAccessKey($accessKey);
-        $this->assertSame($zimbraId, $action->getZimbraId());
-        $this->assertSame($displayName, $action->getDisplayName());
-        $this->assertSame($accessKey, $action->getAccessKey());
+        $this->assertSame($zimbraId, $result->getZimbraId());
+        $this->assertSame($displayName, $result->getDisplayName());
+        $this->assertSame($accessKey, $result->getAccessKey());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, FolderActionResult::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($result, 'xml'));
+        $this->assertEquals($result, $this->serializer->deserialize($xml, FolderActionResult::class, 'xml'));
 
         $json = json_encode([
             'id' => $id,
@@ -51,7 +51,7 @@ EOT;
             'd' => $displayName,
             'key' => $accessKey,
         ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, FolderActionResult::class, 'json'));
+        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($result, 'json'));
+        $this->assertEquals($result, $this->serializer->deserialize($json, FolderActionResult::class, 'json'));
     }
 }
