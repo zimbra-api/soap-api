@@ -10,11 +10,11 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * DestroyWaitSetResponse class
+ * ExportContactsResponse class
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -22,48 +22,48 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DestroyWaitSetResponse implements ResponseInterface
+class ExportContactsResponse implements ResponseInterface
 {
     /**
-     * WaitSet ID
+     * Content of the export
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("waitSet")
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
      * @Type("string")
-     * @XmlAttribute
+     * @XmlElement(cdata=false)
      */
-    private $waitSetId;
+    private $content;
 
     /**
-     * Constructor method for DestroyWaitSetResponse
+     * Constructor method for ExportContactsResponse
      *
-     * @param  string $waitSetId
+     * @param  string $content
      * @return self
      */
-    public function __construct(string $waitSetId)
+    public function __construct(string $content)
     {
-        $this->setWaitSetId($waitSetId);
+        $this->setContent($content);
     }
 
     /**
-     * Gets waitSetId
+     * Gets content
      *
      * @return string
      */
-    public function getWaitSetId(): string
+    public function getContent(): string
     {
-        return $this->waitSetId;
+        return $this->content;
     }
 
     /**
-     * Sets waitSetId
+     * Sets content
      *
-     * @param  string $waitSetId
+     * @param  string $content
      * @return self
      */
-    public function setWaitSetId(string $waitSetId): self
+    public function setContent(string $content): self
     {
-        $this->waitSetId = $waitSetId;
+        $this->content = $content;
         return $this;
     }
 }
