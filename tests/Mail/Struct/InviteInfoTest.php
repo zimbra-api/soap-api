@@ -27,14 +27,12 @@ class InviteInfoTest extends ZimbraTestCase
         $seq = $this->faker->randomNumber;
         $date = $this->faker->unixTime;
         $attendee = $this->faker->email;
-        $recurrenceRangeType = $this->faker->numberBetween(1, 3);
-        $recurrenceId = $this->faker->date;
+        $rangeType = $this->faker->numberBetween(1, 3);
+        $recurId = $this->faker->uuid;
 
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
         $inviteComponent = new InviteComponent($method, $componentNum, TRUE);
-        $calendarReply = new CalendarReply($seq, $date, $attendee);
-        $calendarReply->setRecurrenceRangeType($recurrenceRangeType)
-            ->setRecurrenceId($recurrenceId);
+        $calendarReply = new CalendarReply($rangeType, $recurId, $seq, $date, $attendee);
 
         $inv = new InviteInfo($calItemType, [$timezone], $inviteComponent, [$calendarReply]);
         $this->assertSame($calItemType, $inv->getCalItemType());
@@ -62,7 +60,7 @@ class InviteInfoTest extends ZimbraTestCase
     <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
     <comp method="$method" compNum="$componentNum" rsvp="true" />
     <replies>
-        <reply rangeType="$recurrenceRangeType" recurId="$recurrenceId" seq="$seq" d="$date" at="$attendee" />
+        <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
     </replies>
 </result>
 EOT;
@@ -86,8 +84,8 @@ EOT;
             'replies' => [
                 'reply' => [
                     [
-                        'rangeType' => $recurrenceRangeType,
-                        'recurId' => $recurrenceId,
+                        'rangeType' => $rangeType,
+                        'recurId' => $recurId,
                         'seq' => $seq,
                         'd' => $date,
                         'at' => $attendee,

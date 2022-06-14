@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Common\Struct\TzOnsetInfo;
+use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

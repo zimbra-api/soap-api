@@ -2,7 +2,16 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
+use Zimbra\Mail\Struct\{
+    AccountWithModifications,
+    CreateItemNotification,
+    DeleteItemNotification,
+    ImapMessageInfo,
+    ModifyItemNotification,
+    ModifyTagNotification,
+    PendingFolderModifications,
+    RenameFolderNotification
+};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

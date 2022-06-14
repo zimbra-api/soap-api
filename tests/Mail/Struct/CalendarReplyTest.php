@@ -18,22 +18,24 @@ class CalendarReplyTest extends ZimbraTestCase
         $attendee = $this->faker->email;
         $sentBy = $this->faker->email;
         $partStat = ParticipationStatus::ACCEPT();
-        $recurrenceRangeType = $this->faker->numberBetween(1, 3);
-        $recurrenceId = $this->faker->date;
+        $rangeType = $this->faker->numberBetween(1, 3);
+        $recurId = $this->faker->uuid;
 
-        $reply = new CalendarReply($seq, $date, $attendee);
+        $reply = new CalendarReply(
+            $rangeType, $recurId, $seq, $date, $attendee, $sentBy, $partStat
+        );
         $this->assertSame($seq, $reply->getSeq());
         $this->assertSame($date, $reply->getDate());
         $this->assertSame($attendee, $reply->getAttendee());
+        $this->assertSame($sentBy, $reply->getSentBy());
+        $this->assertSame($partStat, $reply->getPartStat());
 
-        $reply = new CalendarReply(0, 0, '');
+        $reply = new CalendarReply($rangeType, $recurId, 0, 0, '');
         $reply->setSeq($seq)
             ->setDate($date)
             ->setAttendee($attendee)
             ->setSentBy($sentBy)
-            ->setPartStat($partStat)
-            ->setRecurrenceRangeType($recurrenceRangeType)
-            ->setRecurrenceId($recurrenceId);
+            ->setPartStat($partStat);
         $this->assertSame($seq, $reply->getSeq());
         $this->assertSame($date, $reply->getDate());
         $this->assertSame($attendee, $reply->getAttendee());
@@ -42,14 +44,14 @@ class CalendarReplyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
+<result rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($reply, 'xml'));
         $this->assertEquals($reply, $this->serializer->deserialize($xml, CalendarReply::class, 'xml'));
 
         $json = json_encode([
-            'rangeType' => $recurrenceRangeType,
-            'recurId' => $recurrenceId,
+            'rangeType' => $rangeType,
+            'recurId' => $recurId,
             'seq' => $seq,
             'd' => $date,
             'at' => $attendee,

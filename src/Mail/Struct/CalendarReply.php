@@ -78,18 +78,33 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     /**
      * Constructor method for CalendarReply
      *
+     * @param  int $recurrenceRangeType
+     * @param  int $recurrenceId
      * @param  int $seq
      * @param  int $date
      * @param  string $attendee
      * @return self
      */
     public function __construct(
-        int $seq, int $date, string $attendee
+        int $recurrenceRangeType,
+        string $recurrenceId,
+        int $seq,
+        int $date,
+        string $attendee,
+        ?string $sentBy = NULL,
+        ?ParticipationStatus $partStat = NULL
     )
     {
+        parent::__construct($recurrenceRangeType, $recurrenceId);
         $this->setSeq($seq)
              ->setDate($date)
              ->setAttendee($attendee);
+        if (NULL != $sentBy) {
+            $this->setSentBy($sentBy);
+        }
+        if ($partStat instanceof ParticipationStatus) {
+            $this->setPartStat($partStat);
+        }
     }
 
     /**
