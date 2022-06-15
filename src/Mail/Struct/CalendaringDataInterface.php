@@ -1,4 +1,4 @@
-<?php declare(strict_types=1): self;
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -21,36 +21,36 @@ namespace Zimbra\Mail\Struct;
  */
 interface CalendaringDataInterface extends CommonInstanceDataAttrsInterface
 {
-    function setDate(int $date): self;
-    function setOrganizer(CalOrganizer $organizer): self;
-    function setCategories(array $categories): self;
-    function addCategory(string $category): self;
-    function setGeo(GeoInfo $geo): self;
-    function setFragment(string $fragment): self;
+    // function setDate(int $date);
+    function setOrganizer(CalOrganizer $organizer);
+    function setCategories(array $categories);
+    function addCategory(string $category);
+    function setGeo(GeoInfo $geo);
+    function setFragment(string $fragment);
     // used in interface instead of methods related to JAXB field
-    function setCalendaringInstances(array $instances): self;
+    function setInstances(array $instances);
     // used in interface instead of methods related to JAXB field
-    function addCalendaringInstance(InstanceDataInterface $instance): self;
-    function setAlarmData(AlarmDataInfo $alarmData): self;
+    function addInstance(InstanceDataInterface $instance);
+    function setAlarmData(AlarmDataInfo $alarmData);
 
-    function getDate(): ?int;
+    // function getDate(): ?int;
     function getOrganizer(): ?CalOrganizer;
     function getCategories(): array;
     function getGeo(): ?GeoInfo;
     function getFragment(): ?string;
     // used in interface instead of methods related to JAXB field
-    function getCalendaringInstances(): array; // array<InstanceDataInterface>
+    function getInstances(): array;
     function getAlarmData(): ?AlarmDataInfo;
 
     // see CommonCalendaringData
-    function setFlags(string $flags): self;
-    function setTags(string $tags): self;
-    function setFolderId(string f$olderId): self;
-    function setSize(int $size): self;
-    function setChangeDate(int $changeDate): self;
-    function setModifiedSequence(int $modifiedSequence): self;
-    function setRevision(int $revision): self;
-    function setId(string $id): self;
+    function setFlags(string $flags);
+    function setTags(string $tags);
+    function setFolderId(string $folderId);
+    function setSize(int $size);
+    function setChangeDate(int $changeDate);
+    function setModifiedSequence(int $modifiedSequence);
+    function setRevision(int $revision);
+    function setId(string $id);
 
     function getXUid(): ?string;
     function getUid(): ?string;

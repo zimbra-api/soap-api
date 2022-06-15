@@ -18,38 +18,20 @@ class LegacyInstanceDataInfoTest extends ZimbraTestCase
     public function testLegacyInstanceDataInfo()
     {
         $startTime = $this->faker->randomNumber;
-        $method = $this->faker->word;
-        $componentNum = $this->faker->randomNumber;
         $category1 = $this->faker->unique()->word;
         $category2 = $this->faker->unique()->word;
-        $comment1 = $this->faker->unique()->word;
-        $comment2 = $this->faker->unique()->word;
-        $contact1 = $this->faker->unique()->email;
-        $contact2 = $this->faker->unique()->email;
         $latitude = (string) $this->faker->latitude;
         $longitude = (string) $this->faker->longitude;
         $fragment = $this->faker->text;
-        $description = $this->faker->text;
-        $htmlDescription = $this->faker->text;
 
         $name = $this->faker->name;
         $value = $this->faker->word;
         $address = $this->faker->email;
         $displayName = $this->faker->name;
-        $role = $this->faker->word;
         $url = $this->faker->url;
         $sentBy = $this->faker->email;
         $dir = $this->faker->word;
         $language = $this->faker->locale;
-        $dateTime = $this->faker->date;
-        $timezone = $this->faker->timezone;
-        $recurrenceRangeType = mt_rand(1, 3);
-        $utcTime = time();
-        $weeks = mt_rand(1, 100);
-        $days = mt_rand(1, 30);
-        $hours = mt_rand(0, 23);
-        $minutes = mt_rand(0, 59);
-        $seconds = mt_rand(0, 59);
 
         $geo = new GeoInfo($latitude, $longitude);
         $organizer = new CalOrganizer($address, $url, $displayName, $sentBy, $dir, $language, [new XParam($name, $value)]);
