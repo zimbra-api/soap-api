@@ -261,7 +261,7 @@ class CommonInstanceDataAttrs
     private $taskTzOffsetDue;
 
     /**
-     * Constructor partStat
+     * Constructor CommonInstanceDataAttrs
      *
      * @return self
      */

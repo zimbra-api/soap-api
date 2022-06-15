@@ -122,7 +122,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     private $id;
 
     /**
-     * Constructor partStat
+     * Constructor CommonCalendaringData
      *
      * @param  string $xUid
      * @param  string $uid

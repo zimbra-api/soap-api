@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
- * InstanceDataAttrs struct class
+ * LegacyInstanceDataAttrs struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,19 +21,19 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class InstanceDataAttrs extends CommonInstanceDataAttrs
+class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
 {
     /**
      * Duration
      * @Accessor(getter="getDuration", setter="setDuration")
-     * @SerializedName("dur")
+     * @SerializedName("d")
      * @Type("integer")
      * @XmlAttribute
      */
     private $duration;
 
     /**
-     * Constructor InstanceDataAttrs
+     * Constructor LegacyInstanceDataAttrs
      *
      * @return self
      */
