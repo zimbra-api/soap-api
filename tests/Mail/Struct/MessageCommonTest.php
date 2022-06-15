@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Mail\Struct\MessageCommon;
-use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

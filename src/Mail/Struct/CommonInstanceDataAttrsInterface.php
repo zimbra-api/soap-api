@@ -1,4 +1,4 @@
-<?php declare(strict_types=1): self;
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -23,29 +23,29 @@ use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, Participation
  */
 interface CommonInstanceDataAttrsInterface
 {
-    function setPartStat(ParticipationStatus $partStat): self;
-    function setRecurIdZ(string $recurIdZ): self;
-    function setTzOffset(int $tzOffset): self;
-    function setFreeBusyActual(FreeBusyStatus $freeBusyActual): self;
-    function setTaskPercentComplete(string $taskPercentComplete): self;
-    function setIsRecurring(bool $isRecurring): self;
-    function setPriority(string $priority): self;
-    function setFreeBusyIntended(FreeBusyStatus $freeBusyIntended): self;
-    function setTransparency(Transparency $transparency): self;
-    function setName(string $name): self;
-    function setLocation(string $location): self;
-    function setHasOtherAttendees(bool $hasOtherAttendees): self;
-    function setHasAlarm(bool $hasAlarm): self;
-    function setIsOrganizer(bool $isOrganizer): self;
-    function setInvId(string $invId): self;
-    function setComponentNum(int $componentNum): self;
-    function setStatus(InviteStatus $status): self;
-    function setCalClass(InviteClass $calClass): self;
-    function setAllDay(bool $allDay): self;
-    function setDraft(bool $draft): self;
-    function setNeverSent(bool $neverSent): self;
-    function setTaskDueDate(int $taskDueDate): self;
-    function setTaskTzOffsetDue(int $taskTzOffsetDue): self;
+    function setPartStat(ParticipationStatus $partStat);
+    function setRecurIdZ(string $recurIdZ);
+    function setTzOffset(int $tzOffset);
+    function setFreeBusyActual(FreeBusyStatus $freeBusyActual);
+    function setTaskPercentComplete(string $taskPercentComplete);
+    function setIsRecurring(bool $isRecurring);
+    function setPriority(string $priority);
+    function setFreeBusyIntended(FreeBusyStatus $freeBusyIntended);
+    function setTransparency(Transparency $transparency);
+    function setName(string $name);
+    function setLocation(string $location);
+    function setHasOtherAttendees(bool $hasOtherAttendees);
+    function setHasAlarm(bool $hasAlarm);
+    function setIsOrganizer(bool $isOrganizer);
+    function setInvId(string $invId);
+    function setComponentNum(int $componentNum);
+    function setStatus(InviteStatus $status);
+    function setCalClass(InviteClass $calClass);
+    function setAllDay(bool $allDay);
+    function setDraft(bool $draft);
+    function setNeverSent(bool $neverSent);
+    function setTaskDueDate(int $taskDueDate);
+    function setTaskTzOffsetDue(int $taskTzOffsetDue);
 
     // see CommonInstanceDataAttrs
     function getPartStat(): ?ParticipationStatus;
@@ -73,6 +73,6 @@ interface CommonInstanceDataAttrsInterface
     function getTaskTzOffsetDue(): ?int;
 
     // see InstanceDataAttrs /LegacyInstanceDataAttrs
-    function setDuration(int $duration): self;
-    function getDuration(): self;
+    function setDuration(int $duration);
+    function getDuration(): ?int;
 }

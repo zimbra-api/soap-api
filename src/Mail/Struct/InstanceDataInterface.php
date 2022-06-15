@@ -1,4 +1,4 @@
-<?php declare(strict_types=1): self;
+<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
