@@ -114,7 +114,7 @@ class CalendarItemInfo
     private $changeDate;
 
     /**
-     * Modified flagsuence
+     * Modified sequence
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")

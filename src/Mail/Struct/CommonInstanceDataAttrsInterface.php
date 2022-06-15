@@ -10,6 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+
 /**
  * CommonInstanceDataAttrsInterface interface
  *
@@ -21,15 +23,15 @@ namespace Zimbra\Mail\Struct;
  */
 interface CommonInstanceDataAttrsInterface
 {
-    function setPartStat(string $partStat): self;
+    function setPartStat(ParticipationStatus $partStat): self;
     function setRecurIdZ(string $recurIdZ): self;
     function setTzOffset(int $tzOffset): self;
-    function setFreeBusyActual(string $freeBusyActual): self;
+    function setFreeBusyActual(FreeBusyStatus $freeBusyActual): self;
     function setTaskPercentComplete(string $taskPercentComplete): self;
     function setIsRecurring(bool $isRecurring): self;
     function setPriority(string $priority): self;
-    function setFreeBusyIntended(string $freeBusyIntended): self;
-    function setTransparency(string $transparency): self;
+    function setFreeBusyIntended(FreeBusyStatus $freeBusyIntended): self;
+    function setTransparency(Transparency $transparency): self;
     function setName(string $name): self;
     function setLocation(string $location): self;
     function setHasOtherAttendees(bool $hasOtherAttendees): self;
@@ -37,8 +39,8 @@ interface CommonInstanceDataAttrsInterface
     function setIsOrganizer(bool $isOrganizer): self;
     function setInvId(string $invId): self;
     function setComponentNum(int $componentNum): self;
-    function setStatus(string $status): self;
-    function setCalClass(string $calClass): self;
+    function setStatus(InviteStatus $status): self;
+    function setCalClass(InviteClass $calClass): self;
     function setAllDay(bool $allDay): self;
     function setDraft(bool $draft): self;
     function setNeverSent(bool $neverSent): self;
@@ -46,15 +48,15 @@ interface CommonInstanceDataAttrsInterface
     function setTaskTzOffsetDue(int $taskTzOffsetDue): self;
 
     // see CommonInstanceDataAttrs
-    function getPartStat(): ?string;
+    function getPartStat(): ?ParticipationStatus;
     function getRecurIdZ(): ?string;
     function getTzOffset(): ?int;
-    function getFreeBusyActual(): ?string;
+    function getFreeBusyActual(): ?FreeBusyStatus;
     function getTaskPercentComplete(): ?string;
     function getIsRecurring(): ?bool;
     function getPriority(): ?string;
-    function getFreeBusyIntended(): ?string;
-    function getTransparency(): ?string;
+    function getFreeBusyIntended(): ?FreeBusyStatus;
+    function getTransparency(): ?Transparency;
     function getName(): ?string;
     function getLocation(): ?string;
     function getHasOtherAttendees(): ?bool;
@@ -62,12 +64,12 @@ interface CommonInstanceDataAttrsInterface
     function getIsOrganizer(): ?bool;
     function getInvId(): ?string;
     function getComponentNum(): ?int;
-    function getStatus(): ?string;
-    function getCalClass(): ?string;
+    function getStatus(): ?InviteStatus;
+    function getCalClass(): ?InviteClass;
     function getAllDay(): ?bool;
     function getDraft(): ?bool;
     function getNeverSent(): ?bool;
-    function getTaskDueDate(): self;
+    function getTaskDueDate(): ?int;
     function getTaskTzOffsetDue(): ?int;
 
     // see InstanceDataAttrs /LegacyInstanceDataAttrs

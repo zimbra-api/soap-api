@@ -12,7 +12,7 @@ class AddressBookTestTest extends ZimbraTestCase
 {
     public function testAddressBookTest()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->randomNumber;
         $header = $this->faker->word;
 
         $test = new AddressBookTest(
