@@ -2,48 +2,48 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Mail\Struct\IdVersionName;
+use Zimbra\Mail\Struct\IdEmailName;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for IdVersionName.
+ * Testcase class for IdEmailName.
  */
-class IdVersionNameTest extends ZimbraTestCase
+class IdEmailNameTest extends ZimbraTestCase
 {
-    public function testIdVersionName()
+    public function testIdEmailName()
     {
         $id = $this->faker->uuid;
+        $email = $this->faker->email;
         $name = $this->faker->name;
-        $version = $this->faker->randomNumber;
 
-        $doc = new IdVersionName(
-            $id, $version, $name
+        $doc = new IdEmailName(
+            $id, $email, $name
         );
         $this->assertSame($id, $doc->getId());
-        $this->assertSame($version, $doc->getVersion());
+        $this->assertSame($email, $doc->getEmail());
         $this->assertSame($name, $doc->getName());
 
-        $doc = new IdVersionName('', 0, '');
+        $doc = new IdEmailName();
         $doc->setId($id)
-            ->setVersion($version)
+            ->setEmail($email)
             ->setName($name);
         $this->assertSame($id, $doc->getId());
-        $this->assertSame($version, $doc->getVersion());
+        $this->assertSame($email, $doc->getEmail());
         $this->assertSame($name, $doc->getName());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" ver="$version" name="$name" />
+<result id="$id" email="$email" name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
-        $this->assertEquals($doc, $this->serializer->deserialize($xml, IdVersionName::class, 'xml'));
+        $this->assertEquals($doc, $this->serializer->deserialize($xml, IdEmailName::class, 'xml'));
 
         $json = json_encode([
             'id' => $id,
-            'ver' => $version,
+            'email' => $email,
             'name' => $name,
         ]);
         $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($doc, 'json'));
-        $this->assertEquals($doc, $this->serializer->deserialize($json, IdVersionName::class, 'json'));
+        $this->assertEquals($doc, $this->serializer->deserialize($json, IdEmailName::class, 'json'));
     }
 }

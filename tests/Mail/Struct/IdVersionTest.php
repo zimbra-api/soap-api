@@ -6,7 +6,7 @@ use Zimbra\Mail\Struct\IdVersion;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for IdVersionTest.
+ * Testcase class for IdVersion.
  */
 class IdVersionTest extends ZimbraTestCase
 {
