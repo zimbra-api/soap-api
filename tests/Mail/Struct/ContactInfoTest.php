@@ -3,10 +3,10 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Common\Enum\MemberType;
-use Zimbra\Mail\Struct\MailCustomMetadata;
-use Zimbra\Mail\Struct\ContactInfo;
-use Zimbra\Mail\Struct\ContactGroupMember;
 use Zimbra\Common\Struct\ContactAttr;
+use Zimbra\Mail\Struct\ContactGroupMember;
+use Zimbra\Mail\Struct\ContactInfo;
+use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
