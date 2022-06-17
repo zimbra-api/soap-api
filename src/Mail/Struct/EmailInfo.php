@@ -95,7 +95,9 @@ class EmailInfo implements EmailInfoInterface
         ?string $address = NULL,
         ?string $display = NULL,
         ?string $personal = NULL,
-        ?AddressType $addressType = NULL
+        ?AddressType $addressType = NULL,
+        ?bool $group = NULL,
+        ?bool $canExpandGroupMembers = NULL
     )
     {
         if (NULL !== $address) {
@@ -109,6 +111,12 @@ class EmailInfo implements EmailInfoInterface
         }
         if ($addressType instanceof AddressType) {
             $this->setAddressType($addressType);
+        }
+        if (NULL !== $group) {
+            $this->setGroup($group);
+        }
+        if (NULL !== $canExpandGroupMembers) {
+            $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
     }
 

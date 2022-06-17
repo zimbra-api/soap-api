@@ -18,11 +18,13 @@ class EmailInfoTest extends ZimbraTestCase
         $personal = $this->faker->word;
         $addressType = AddressType::TO();
 
-        $email = new EmailInfo($address, $display, $personal, $addressType);
+        $email = new EmailInfo($address, $display, $personal, $addressType, FALSE, FALSE);
         $this->assertSame($address, $email->getAddress());
         $this->assertSame($display, $email->getDisplay());
         $this->assertSame($personal, $email->getPersonal());
         $this->assertSame($addressType, $email->getAddressType());
+        $this->assertFalse($email->getGroup());
+        $this->assertFalse($email->getCanExpandGroupMembers());
 
         $email = new EmailInfo();
         $email->setAddress($address)
