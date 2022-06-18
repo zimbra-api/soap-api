@@ -28,7 +28,7 @@ class GetCustomMetadataRequest extends Request
 {
     /**
      * Item ID
-     * @Accessor(getter="getId", setter="getId")
+     * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
