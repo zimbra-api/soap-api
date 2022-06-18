@@ -43,7 +43,7 @@ class GetCustomMetadataTest extends ZimbraTestCase
         $this->assertSame($meta, $response->getMetadata());
         $response = new GetCustomMetadataResponse();
         $response->setId($id)
-            ->setMetadata($response);
+            ->setMetadata($meta);
         $this->assertSame($id, $response->getId());
         $this->assertSame($meta, $response->getMetadata());
 
