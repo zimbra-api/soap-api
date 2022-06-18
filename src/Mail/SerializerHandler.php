@@ -17,7 +17,12 @@ use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVis
 
 use Zimbra\Common\{SerializerFactory, Text};
 use Zimbra\Common\Enum\FilterCondition;
-use Zimbra\Mail\Message\{CreateDataSourceRequest, CreateDataSourceResponse, DeleteDataSourceRequest};
+use Zimbra\Mail\Message\{
+    CreateDataSourceRequest,
+    CreateDataSourceResponse,
+    DeleteDataSourceRequest,
+    GetDataSourcesResponse
+};
 use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, NestedRule};
 
 /**
@@ -68,6 +73,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => DeleteDataSourceRequest::class,
                 'method' => 'jsonDeserializeDeleteDataSourceRequest',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => GetDataSourcesResponse::class,
+                'method' => 'xmlDeserializeGetDataSourcesResponse',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => GetDataSourcesResponse::class,
+                'method' => 'jsonDeserializeGetDataSourcesResponse',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -206,6 +223,34 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
 
         return new DeleteDataSourceRequest($dataSources);
+    }
+
+    public function xmlDeserializeGetDataSourcesResponse(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    ): GetDataSourcesResponse
+    {
+        $serializer = SerializerFactory::create();
+        $types = GetDataSourcesResponse::dataSourceTypes();
+        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
+        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
+        return new GetDataSourcesResponse(array_values($dataSources));
+    }
+
+    public function jsonDeserializeGetDataSourcesResponse(
+        DeserializationVisitor $visitor, array $data, array $type, Context $context
+    ): GetDataSourcesResponse
+    {
+        $serializer = SerializerFactory::create();
+        $dataSources = [];
+        foreach (GetDataSourcesResponse::dataSourceTypes() as $key => $dsType) {
+            if (isset($data[$key]) && is_array($data[$key])) {
+                foreach ($data[$key] as $dataSource) {
+                    $dataSources[] = $serializer->deserialize(json_encode($dataSource), $dsType, 'json');
+                }
+            }
+        }
+
+        return new GetDataSourcesResponse($dataSources);
     }
 
     public function xmlDeserializeFilterTests(
