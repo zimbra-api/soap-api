@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
- * GetFolder struct class
+ * GetFolderSpec struct class
  * GetFolder input spec
  *
  * @package    Zimbra
