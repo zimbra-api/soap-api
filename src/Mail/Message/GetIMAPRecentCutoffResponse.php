@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Soap\ResponseInterface;
 
 /**
- * GetIMAPRecentResponse class
+ * GetIMAPRecentCutoffResponse class
  * Return the count of recent items in the folder
  * 
  * @package    Zimbra
@@ -23,47 +23,49 @@ use Zimbra\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetIMAPRecentResponse implements ResponseInterface
+class GetIMAPRecentCutoffResponse implements ResponseInterface
 {
     /**
-     * Number of recent items
-     * @Accessor(getter="getNum", setter="setNum")
-     * @SerializedName("n")
+     * The last recorded assigned item ID in the enclosing
+     * Mailbox the last time the folder was accessed via a read/write IMAP session.
+     * Note that this value is only updated on session closes
+     * @Accessor(getter="getCutoff", setter="setCutoff")
+     * @SerializedName("cutoff")
      * @Type("integer")
      * @XmlAttribute
      */
-    private $num;
+    private $cutoff;
 
     /**
-     * Constructor method for GetIMAPRecentResponse
+     * Constructor method for GetIMAPRecentCutoffResponse
      *
-     * @param  int $num
+     * @param  int $cutoff
      * @return self
      */
-    public function __construct(int $num)
+    public function __construct(int $cutoff)
     {
-        $this->setNum($num);
+        $this->setCutoff($cutoff);
     }
 
     /**
-     * Gets num
+     * Gets cutoff
      *
      * @return int
      */
-    public function getNum(): int
+    public function getCutoff(): int
     {
-        return $this->num;
+        return $this->cutoff;
     }
 
     /**
-     * Sets num
+     * Sets cutoff
      *
-     * @param  int $num
+     * @param  int $cutoff
      * @return self
      */
-    public function setNum(int $num): self
+    public function setCutoff(int $cutoff): self
     {
-        $this->num = $num;
+        $this->cutoff = $cutoff;
         return $this;
     }
 }
