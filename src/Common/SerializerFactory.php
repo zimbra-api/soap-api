@@ -37,27 +37,27 @@ final class SerializerFactory
 
     public static function addSerializerHandler(SubscribingHandlerInterface $handler)
     {
-        static::$serializerHandlers[] = $handler;
+        self::$serializerHandlers[] = $handler;
     }
 
     public static function create(): SerializerInterface
     {
-        if (NULL === static::$builder) {
+        if (NULL === self::$builder) {
             AnnotationRegistry::registerLoader('class_exists');
 
-            static::$builder = SerializerBuilder::create()
+            self::$builder = SerializerBuilder::create()
                 ->addDefaultHandlers()
-                ->setSerializationVisitor('json', new JsonSerializationVisitorFactory)
-                ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory)
-                ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory)
-                ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory);
+                ->setSerializationVisitor('json', new JsonSerializationVisitorFactory())
+                ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory())
+                ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory())
+                ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory());
         }
 
         return static::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
-            if (!empty(static::$serializerHandlers)) {
-                foreach (static::$serializerHandlers as $key => $handler) {
+            if (!empty(self::$serializerHandlers)) {
+                foreach (self::$serializerHandlers as $key => $handler) {
                     $registry->registerSubscribingHandler($handler);
-                    unset(static::$serializerHandlers[$key]);
+                    unset(self::$serializerHandlers[$key]);
                 }
             }
         })->build();

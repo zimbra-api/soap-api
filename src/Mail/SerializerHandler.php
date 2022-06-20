@@ -23,7 +23,7 @@ use Zimbra\Mail\Message\{
     DeleteDataSourceRequest,
     GetDataSourcesResponse
 };
-use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, NestedRule};
+use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, FreeBusyUserInfo, NestedRule};
 
 /**
  * SerializerHandler class.
@@ -97,6 +97,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => FilterTests::class,
                 'method' => 'jsonDeserializeFilterTests',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => FreeBusyUserInfo::class,
+                'method' => 'xmlDeserializeFreeBusyUserInfo',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => FreeBusyUserInfo::class,
+                'method' => 'jsonDeserializeFreeBusyUserInfo',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -295,6 +307,42 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $filterTests;
+    }
+
+    public function xmlDeserializeFreeBusyUserInfo(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    ): FreeBusyUserInfo
+    {
+        $serializer = SerializerFactory::create();
+        $types = FreeBusyUserInfo::elementTypes();
+        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
+        $elements = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
+
+        $id = '';
+        foreach ($data->attributes() as $key => $value) {
+            if ($key == 'id') {
+                $id = (string) $value;
+                break;
+            }
+        }
+
+        return new FreeBusyUserInfo($id, array_values($elements));
+    }
+
+    public function jsonDeserializeFreeBusyUserInfo(
+        DeserializationVisitor $visitor, array $data, array $type, Context $context
+    ): FreeBusyUserInfo
+    {
+        $serializer = SerializerFactory::create();
+        $elements = [];
+        foreach (FreeBusyUserInfo::elementTypes() as $key => $dsType) {
+            if (isset($data[$key]) && is_array($data[$key])) {
+                foreach ($data[$key] as $element) {
+                    $elements[] = $serializer->deserialize(json_encode($element), $dsType, 'json');
+                }
+            }
+        }
+        return new FreeBusyUserInfo($data['id'] ?? '', $elements);
     }
 
     public function xmlDeserializeNestedRule(
