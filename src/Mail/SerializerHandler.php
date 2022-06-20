@@ -21,7 +21,8 @@ use Zimbra\Mail\Message\{
     CreateDataSourceRequest,
     CreateDataSourceResponse,
     DeleteDataSourceRequest,
-    GetDataSourcesResponse
+    GetDataSourcesResponse,
+    GetImportStatusResponse
 };
 use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, FreeBusyUserInfo, NestedRule};
 
@@ -85,6 +86,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => GetDataSourcesResponse::class,
                 'method' => 'jsonDeserializeGetDataSourcesResponse',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => GetImportStatusResponse::class,
+                'method' => 'xmlDeserializeGetImportStatusResponse',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => GetImportStatusResponse::class,
+                'method' => 'jsonDeserializeGetImportStatusResponse',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -263,6 +276,34 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
 
         return new GetDataSourcesResponse($dataSources);
+    }
+
+    public function xmlDeserializeGetImportStatusResponse(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    ): GetImportStatusResponse
+    {
+        $serializer = SerializerFactory::create();
+        $types = GetImportStatusResponse::statusTypes();
+        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
+        $statuses = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
+        return new GetImportStatusResponse(array_values($statuses));
+    }
+
+    public function jsonDeserializeGetImportStatusResponse(
+        DeserializationVisitor $visitor, array $data, array $type, Context $context
+    ): GetImportStatusResponse
+    {
+        $serializer = SerializerFactory::create();
+        $statuses = [];
+        foreach (GetImportStatusResponse::statusTypes() as $key => $dsType) {
+            if (isset($data[$key]) && is_array($data[$key])) {
+                foreach ($data[$key] as $dataSource) {
+                    $statuses[] = $serializer->deserialize(json_encode($dataSource), $dsType, 'json');
+                }
+            }
+        }
+
+        return new GetImportStatusResponse($statuses);
     }
 
     public function xmlDeserializeFilterTests(
