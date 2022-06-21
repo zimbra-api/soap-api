@@ -12,14 +12,16 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
 use Zimbra\Common\Struct\Id;
-use Zimbra\Mail\Struct\ImapDataSourceId;
-use Zimbra\Mail\Struct\Pop3DataSourceId;
-use Zimbra\Mail\Struct\CaldavDataSourceId;
-use Zimbra\Mail\Struct\YabDataSourceId;
-use Zimbra\Mail\Struct\RssDataSourceId;
-use Zimbra\Mail\Struct\GalDataSourceId;
-use Zimbra\Mail\Struct\CalDataSourceId;
-use Zimbra\Mail\Struct\UnknownDataSourceId;
+use Zimbra\Mail\Struct\{
+    ImapDataSourceId,
+    Pop3DataSourceId,
+    CaldavDataSourceId,
+    YabDataSourceId,
+    RssDataSourceId,
+    GalDataSourceId,
+    CalDataSourceId,
+    UnknownDataSourceId
+};
 use Zimbra\Soap\ResponseInterface;
 
 /**

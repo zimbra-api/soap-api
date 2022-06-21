@@ -22,7 +22,8 @@ use Zimbra\Mail\Message\{
     CreateDataSourceResponse,
     DeleteDataSourceRequest,
     GetDataSourcesResponse,
-    GetImportStatusResponse
+    GetImportStatusResponse,
+    GetItemResponse
 };
 use Zimbra\Mail\Struct\{FilterRule, FilterTests, FilterVariables, FreeBusyUserInfo, NestedRule};
 
@@ -98,6 +99,18 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => 'json',
                 'type' => GetImportStatusResponse::class,
                 'method' => 'jsonDeserializeGetImportStatusResponse',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'xml',
+                'type' => GetItemResponse::class,
+                'method' => 'xmlDeserializeGetItemResponse',
+            ],
+            [
+                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
+                'format' => 'json',
+                'type' => GetItemResponse::class,
+                'method' => 'jsonDeserializeGetItemResponse',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -304,6 +317,42 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
 
         return new GetImportStatusResponse($statuses);
+    }
+
+    public function xmlDeserializeGetItemResponse(
+        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
+    ): GetItemResponse
+    {
+        $serializer = SerializerFactory::create();
+        $response = new GetItemResponse();
+
+        $types = GetItemResponse::itemTypes();
+        foreach ($data->children() as $child) {
+            $name = $child->getName();
+            if (!empty($types[$name])) {
+                $response->setItem(
+                    $serializer->deserialize($child->asXml(), $types[$name], 'xml')
+                );
+            }
+        }
+        return $response;
+
+    }
+
+    public function jsonDeserializeGetItemResponse(
+        DeserializationVisitor $visitor, $data, array $type, Context $context
+    ): GetItemResponse
+    {
+        $serializer = SerializerFactory::create();
+        $response = new GetItemResponse();
+        foreach (GetItemResponse::itemTypes() as $key => $value) {
+            if (isset($data[$key]) && is_array($data[$key])) {
+                $response->setItem(
+                    $serializer->deserialize(json_encode($data[$key]), $value, 'json')
+                );
+            }
+        }
+        return $response;
     }
 
     public function xmlDeserializeFilterTests(
