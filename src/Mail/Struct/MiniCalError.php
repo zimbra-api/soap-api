@@ -10,10 +10,10 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttribute, XmlValue};
 
 /**
- * IdEmailName struct class
+ * MiniCalError struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,10 +21,10 @@ use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, XmlAttri
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class IdEmailName
+class MiniCalError
 {
     /**
-     * ID
+     * ID for calendar folder that couldn't be accessed
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,67 +33,63 @@ class IdEmailName
     private $id;
 
     /**
-     * Email
-     * @Accessor(getter="getEmail", setter="setEmail")
-     * @SerializedName("email")
+     * ServiceException error code - service.PERM_DENIED, mail.NO_SUCH_FOLDER, account.NO_SUCH_ACCOUNT, etc.
+     * @Accessor(getter="getCode", setter="setCode")
+     * @SerializedName("code")
      * @Type("string")
      * @XmlAttribute
      */
-    private $email;
+    private $code;
 
     /**
-     * The name
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
+     * Error message from the exception (but no stack trace)
+     * @Accessor(getter="getErrorMessage", setter="setErrorMessage")
+     * @SerializedName("_content")
      * @Type("string")
-     * @XmlAttribute
+     * @XmlValue(cdata=false)
      */
-    private $name;
+    private $errorMessage;
 
     /**
      * Constructor method
      * 
      * @param string $id
-     * @param string $email
-     * @param string $name
+     * @param string $code
+     * @param string $errorMessage
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $email = NULL,
-        ?string $name = NULL
+        string $id,
+        string $code,
+        ?string $errorMessage = NULL
     )
     {
-        if (NULL !== $id) {
-            $this->setId($id);
-        }
-        if (NULL !== $email) {
-            $this->setEmail($email);
-        }
-        if (NULL !== $name) {
-            $this->setName($name);
+        $this->setId($id)
+             ->setCode($code);
+        if (NULL !== $errorMessage) {
+            $this->setErrorMessage($errorMessage);
         }
     }
 
     /**
-     * Gets email
+     * Gets code
      *
      * @return string
      */
-    public function getEmail(): ?string
+    public function getCode(): string
     {
-        return $this->email;
+        return $this->code;
     }
 
     /**
-     * Sets email
+     * Sets code
      *
-     * @param  string $email
+     * @param  string $code
      * @return self
      */
-    public function setEmail(string $email): self
+    public function setCode(string $code): self
     {
-        $this->email = $email;
+        $this->code = $code;
         return $this;
     }
 
@@ -102,7 +98,7 @@ class IdEmailName
      *
      * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -120,24 +116,24 @@ class IdEmailName
     }
 
     /**
-     * Gets the name
+     * Gets the errorMessage
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getErrorMessage(): string
     {
-        return $this->name;
+        return $this->errorMessage;
     }
 
     /**
-     * Sets the name
+     * Sets the errorMessage
      *
-     * @param  string $name
+     * @param  string $errorMessage
      * @return self
      */
-    public function setName(string $name): self
+    public function setErrorMessage(string $errorMessage): self
     {
-        $this->name = $name;
+        $this->errorMessage = $errorMessage;
         return $this;
     }
 }

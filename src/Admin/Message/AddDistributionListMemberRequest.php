@@ -95,7 +95,7 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Sets member sequence
+     * Sets members
      *
      * @param  array $members Members
      * @return self
@@ -107,7 +107,7 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Gets member sequence
+     * Gets members
      *
      * @return array
      */
