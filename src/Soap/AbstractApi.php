@@ -27,6 +27,8 @@ use Zimbra\Soap\Header\Context;
 abstract class AbstractApi implements ApiInterface
 {
     const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
+    const SERIALIZE_FORMAT  = 'xml';
+    const HTTP_USER_AGENT   = 'PHP-Zimbra-Soap-API';
 
     /**
      * Zimbra api soap client
@@ -46,21 +48,9 @@ abstract class AbstractApi implements ApiInterface
      */
     private ?Header $responseHeader = NULL;
 
-    /**
-     * Request format
-     * @var string
-     */
-    private $requestFormat;
-
-    public function __construct(string $serviceUrl, ?string $requestFormat = NULL)
+    public function __construct(string $serviceUrl)
     {
         $this->client = new ClientFactory::create($serviceUrl);
-        if (RequestFormat::isValid($requestFormat)) {
-            $this->requestFormat = $requestFormat;
-        }
-        else {
-            $this->requestFormat = RequestFormat::XML()->getValue();
-        }
     }
 
     /**
@@ -126,20 +116,6 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Sets request format
-     *
-     * @param  string $requestFormat
-     * @return self
-     */
-    public function setRequestFormat(string $requestFormat): self
-    {
-        if (RequestFormat::isValid(trim($requestFormat))) {
-            $this->requestFormat = trim($requestFormat);
-        }
-        return $this;
-    }
-
-    /**
      * Invoke the request.
      *
      * @return  EnvelopeInterface
@@ -151,30 +127,20 @@ abstract class AbstractApi implements ApiInterface
             $requestEnvelope->setHeader($this->requestHeader);
         }
         $response = $this->getClient()->sendRequest(
-            $this->getSerializer()->serialize($requestEnvelope, $this->serializeFormat()),
+            $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
             [
                 'Content-Type' => static::SOAP_CONTENT_TYPE,
-                'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? 'PHP-Zimbra-Soap-API',
+                'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
             ]
         );
         $responseEnvelope = $this->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            get_class($requestEnvelope), $this->serializeFormat()
+            get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
         if ($responseEnvelope->getHeader() instanceof Header) {
             $this->responseHeader = $responseEnvelope->getHeader();
         }
         return $responseEnvelope->getBody()->getResponse();
-    }
-
-    /**
-     * Gets serialize format
-     *
-     * @return string
-     */
-    protected function serializeFormat(): string
-    {
-        return $this->requestFormat == RequestFormat::JS()->getValue() ? 'json' : 'xml';
     }
 
     /**
