@@ -41,6 +41,16 @@ final class JsonSerializationVisitor extends AbstractVisitor implements Serializ
      */
     private $data;
 
+    private static $scalaTypes = [
+        'string',
+        'int',
+        'integer',
+        'bool',
+        'boolean',
+        'double',
+        'float',
+    ];
+
     public function __construct(
         int $options = JSON_PRESERVE_ZERO_FRACTION
     ) {
@@ -178,10 +188,10 @@ final class JsonSerializationVisitor extends AbstractVisitor implements Serializ
             }
         }
         else {
-            if ($this->_isXmlElement($metadata) && \is_scalar($v)) {
+            if ($this->isXmlElement($metadata) && \is_scalar($v)) {
                 $this->data[$metadata->serializedName] = ['_content' => $v];
             }
-            elseif ($this->_isStringArrayType($metadata) && \is_array($v)) {
+            elseif ($this->isScalaArrayType($metadata) && \is_array($v)) {
                 $data = [];
                 foreach ($v as $value) {
                     $data[] = ['_content' => $value];
@@ -248,20 +258,14 @@ final class JsonSerializationVisitor extends AbstractVisitor implements Serializ
         }
     }
 
-    private function _isStringArrayType(PropertyMetadata $metadata)
+    private function isScalaArrayType(PropertyMetadata $metadata)
     {
         $type = $metadata->type;
-        return $type['name'] === 'array' && $type['params'][0]['name'] === 'string';
+        return $type['name'] === 'array' && in_array(strtolower($type['params'][0]['name']), self::$scalaTypes);
     }
 
-    private function _isXmlElement(PropertyMetadata $metadata)
+    private function isXmlElement(PropertyMetadata $metadata)
     {
         return !$metadata->xmlAttribute && !$metadata->xmlValue && !$metadata->xmlCollection;
-    }
-
-    private function _isScalaType(PropertyMetadata $metadata)
-    {
-        $type = $metadata->type['name'];
-        return $type === 'string' || $type === 'integer' || $type === 'bool' || $type === 'float';
     }
 }

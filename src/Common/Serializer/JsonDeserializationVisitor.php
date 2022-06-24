@@ -46,6 +46,16 @@ class JsonDeserializationVisitor extends AbstractVisitor implements Deserializat
      */
     private $currentObject;
 
+    private static $scalaTypes = [
+        'string',
+        'int',
+        'integer',
+        'bool',
+        'boolean',
+        'double',
+        'float',
+    ];
+
     public function __construct(
         int $options = 0,
         int $depth = 512
@@ -192,7 +202,7 @@ class JsonDeserializationVisitor extends AbstractVisitor implements Deserializat
 
         $v = NULL;
         if ($data[$name] !== NULL) {
-            if ($this->_isScalaType($metadata) && \is_array($data[$name])) {
+            if ($this->isScalaType($metadata) && \is_array($data[$name])) {
                 foreach ($data[$name] as $key => $value) {
                     if ($key === '_content' && $value !== NULL) {
                         $v = $this->navigator->accept($value, $metadata->type);
@@ -202,7 +212,7 @@ class JsonDeserializationVisitor extends AbstractVisitor implements Deserializat
                     }
                 }
             }
-            elseif ($this->_isStringArrayType($metadata) && \is_array($data[$name])) {
+            elseif ($this->isScalaArrayType($metadata) && \is_array($data[$name])) {
                 $content = [];
                 if ($metadata->xmlCollectionInline) {
                     $arrayData = $data[$name];
@@ -304,21 +314,14 @@ class JsonDeserializationVisitor extends AbstractVisitor implements Deserializat
         }
     }
 
-    private function _isStringArrayType(PropertyMetadata $metadata)
+    private function isScalaArrayType(PropertyMetadata $metadata)
     {
         $type = $metadata->type;
-        return $type['name'] === 'array' && $type['params'][0]['name'] === 'string';
+        return $type['name'] === 'array' && in_array(strtolower($type['params'][0]['name']), self::$scalaTypes);
     }
 
-    private function _isScalaType(PropertyMetadata $metadata)
+    private function isScalaType(PropertyMetadata $metadata)
     {
-        $type = $metadata->type['name'];
-        return $type === 'string'
-            || $type === 'int'
-            || $type === 'integer'
-            || $type === 'bool'
-            || $type === 'boolean'
-            || $type === 'double'
-            || $type === 'float';
+        return in_array(strtolower($metadata->type['name']), self::$scalaTypes);
     }
 }
