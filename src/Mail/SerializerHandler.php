@@ -180,7 +180,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $request;
-
     }
 
     public function jsonDeserializeCreateDataSourceRequest(

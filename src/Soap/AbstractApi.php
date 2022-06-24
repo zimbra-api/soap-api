@@ -116,17 +116,6 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Set Zimbra api response soap header.
-     *
-     * @return self
-     */
-    public function setResponseHeader(Header $responseHeader): self
-    {
-        $this->responseHeader = $responseHeader;
-        return $this;
-    }
-
-    /**
      * Gets request format
      *
      * @return string
@@ -172,7 +161,7 @@ abstract class AbstractApi implements ApiInterface
             $response->getBody()->getContents(),
             get_class($requestEnvelope), $this->serializeFormat()
         );
-        if (!empty($responseEnvelope->getHeader())) {
+        if ($responseEnvelope->getHeader() instanceof Header) {
             $this->responseHeader = $responseEnvelope->getHeader();
         }
         return $responseEnvelope->getBody()->getResponse();
@@ -200,7 +189,7 @@ abstract class AbstractApi implements ApiInterface
 
     protected function initRequestHeader(): self
     {
-        if (!($this->requestHeader instanceof Header)) {
+        if (empty($this->requestHeader)) {
             $this->requestHeader = new Header(new Context());
         }
         return $this;
