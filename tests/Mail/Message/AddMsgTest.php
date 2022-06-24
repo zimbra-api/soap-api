@@ -55,8 +55,9 @@ class AddMsgTest extends ZimbraTestCase
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
-        $msg = new MessageSummary($id, $autoSendTime, [$email], $subject, $fragment, new InviteInfo($calItemType));
-        $chat = new ChatSummary($id, $autoSendTime, [$email], $subject, $fragment, new InviteInfo($calItemType));
+        $invite = new InviteInfo($calItemType);
+        $chat = new ChatSummary($id, $autoSendTime, [$email], $subject, $fragment, $invite);
+        $msg = new MessageSummary($id, $autoSendTime, [$email], $subject, $fragment, $invite);
 
         $response = new AddMsgResponse($msg);
         $this->assertSame($msg, $response->getMessage());

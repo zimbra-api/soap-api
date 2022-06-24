@@ -2,14 +2,15 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Mail\Struct\IdsAttr;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Mail\Message\ApplyFilterRulesEnvelope;
 use Zimbra\Mail\Message\ApplyFilterRulesBody;
 use Zimbra\Mail\Message\ApplyFilterRulesRequest;
 use Zimbra\Mail\Message\ApplyFilterRulesResponse;
 
-use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Mail\Struct\IdsAttr;
+
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -22,7 +23,10 @@ class ApplyFilterRulesTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $query = $this->faker->word;
-        $ids = $this->faker->word;
+        $ids = implode(',', [
+            $this->faker->uuid,
+            $this->faker->uuid,
+        ]);
 
         $filterRule = new NamedElement($name);
         $msgIds = new IdsAttr($ids);
