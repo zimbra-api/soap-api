@@ -34,13 +34,5 @@ class DistributionListSubscribeReqTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($subsReq, 'xml'));
         $this->assertEquals($subsReq, $this->serializer->deserialize($xml, DistributionListSubscribeReq::class, 'xml'));
-
-        $json = json_encode([
-            'op' => $op,
-            '_content' => $value,
-            'bccOwners' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($subsReq, 'json'));
-        $this->assertEquals($subsReq, $this->serializer->deserialize($json, DistributionListSubscribeReq::class, 'json'));
     }
 }

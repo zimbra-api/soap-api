@@ -69,45 +69,5 @@ EOT;
         $this->assertEquals([$cond, $singleCond, $multiConds], $multiCond->getConditions());
         $this->assertEquals([$multiConds], $multiCond->getCompoundConditions());
         $this->assertEquals([$cond, $singleCond], $multiCond->getSingleConditions());
-
-        $json = json_encode([
-            'not' => TRUE,
-            'or' => FALSE,
-            'conds' => [
-                [
-                    'not' => FALSE,
-                    'or' => TRUE,
-                    'cond' => [
-                        [
-                            'attr' => $attr,
-                            'op' => $ge,
-                            'value' => $value,
-                            'not' => FALSE,
-                        ],
-                    ],
-                ],
-            ],
-            'cond' => [
-                [
-                    'attr' => $attr,
-                    'op' => $eq,
-                    'value' => $value,
-                    'not' => TRUE,
-                ],
-                [
-                    'attr' => $attr,
-                    'op' => $ge,
-                    'value' => $value,
-                    'not' => FALSE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($conds, 'json'));
-        $multiCond = $this->serializer->deserialize($json, EntrySearchFilterMultiCond::class, 'json');
-        $this->assertTRUE($multiCond->isNot());
-        $this->assertFALSE($multiCond->isOr());
-        $this->assertEquals([$cond, $singleCond, $multiConds], $multiCond->getConditions());
-        $this->assertEquals([$multiConds], $multiCond->getCompoundConditions());
-        $this->assertEquals([$cond, $singleCond], $multiCond->getSingleConditions());
     }
 }

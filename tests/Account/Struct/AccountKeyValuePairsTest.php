@@ -41,24 +41,5 @@ class AccountKeyValuePairsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($kvp, 'xml'));
         $this->assertEquals($kvp, $this->serializer->deserialize($xml, AccountKeyValuePairs::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'n' => $key1,
-                    '_content' => $value2,
-                ],
-                [
-                    'n' => $key2,
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($kvp, 'json'));
-        $this->assertEquals($kvp, $this->serializer->deserialize($json, AccountKeyValuePairs::class, 'json'));
     }
 }

@@ -26,11 +26,5 @@ class DiscoverRightsEmailTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, DiscoverRightsEmail::class, 'xml'));
-
-        $json = json_encode([
-            'addr' => $addr,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($email, 'json'));
-        $this->assertEquals($email, $this->serializer->deserialize($json, DiscoverRightsEmail::class, 'json'));
     }
 }

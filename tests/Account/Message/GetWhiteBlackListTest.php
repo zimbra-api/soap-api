@@ -68,38 +68,5 @@ class GetWhiteBlackListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetWhiteBlackListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetWhiteBlackListRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetWhiteBlackListResponse' => [
-                    'whiteList' => [
-                        'addr' => [
-                            [
-                                '_content' => $white1,
-                            ],
-                            [
-                                '_content' => $white2,
-                            ],
-                        ],
-                    ],
-                    'blackList' => [
-                        'addr' => [
-                            [
-                                '_content' => $black1,
-                            ],
-                            [
-                                '_content' => $black2,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetWhiteBlackListEnvelope::class, 'json'));
     }
 }

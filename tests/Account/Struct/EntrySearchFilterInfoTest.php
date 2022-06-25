@@ -51,38 +51,6 @@ EOT;
         $filter = $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml');
         $this->assertEquals($conds, $filter->getConditions());
 
-        $json = json_encode([
-            'conds' => [
-                'not' => TRUE,
-                'or' => FALSE,
-                'conds' => [
-                    [
-                        'not' => FALSE,
-                        'or' => TRUE,
-                        'cond' => [
-                            [
-                                'attr' => $attr,
-                                'op' => 'ge',
-                                'value' => $value,
-                                'not' => FALSE,
-                            ],
-                        ],
-                    ],
-                ],
-                'cond' => [
-                    [
-                        'attr' => $attr,
-                        'op' => 'eq',
-                        'value' => $value,
-                        'not' => TRUE,
-                    ],
-                ],
-            ]
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
-        $filter = $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json');
-        $this->assertEquals($conds, $filter->getConditions());
-
         $filter = new EntrySearchFilterInfo($cond);
         $this->assertSame($cond, $filter->getCondition());
         $filter->setCondition($cond);
@@ -96,16 +64,5 @@ EOT;
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
         $this->assertEquals($filter, $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml'));
-
-        $json = json_encode([
-            'cond' => [
-                'attr' => $attr,
-                'op' => 'eq',
-                'value' => $value,
-                'not' => TRUE,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
-        $this->assertEquals($filter, $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json'));
     }
 }

@@ -50,21 +50,5 @@ class ResetPasswordTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ResetPasswordEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ResetPasswordRequest' => [
-                    'password' => [
-                        '_content' => $password,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ResetPasswordResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ResetPasswordEnvelope::class, 'json'));
     }
 }

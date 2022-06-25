@@ -70,24 +70,5 @@ class SubscribeDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SubscribeDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SubscribeDistributionListRequest' => [
-                    'op' => 'subscribe',
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'SubscribeDistributionListResponse' => [
-                    'status' => 'subscribed',
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SubscribeDistributionListEnvelope::class, 'json'));
     }
 }

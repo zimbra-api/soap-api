@@ -82,42 +82,5 @@ class CreateDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateDistributionListRequest' => [
-                    'name' => $name,
-                    'dynamic' => TRUE,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'CreateDistributionListResponse' => [
-                    'dl' => [
-                        'id' => $id,
-                        'ref' => $ref,
-                        'name' => $name,
-                        'd' => $displayName,
-                        'dynamic' => TRUE,
-                        'via' => $via,
-                        'isOwner' => TRUE,
-                        'isMember' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateDistributionListEnvelope::class, 'json'));
     }
 }

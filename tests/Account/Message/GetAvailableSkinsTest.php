@@ -57,23 +57,5 @@ class GetAvailableSkinsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAvailableSkinsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAvailableSkinsRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAvailableSkinsResponse' => [
-                    'skin' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAvailableSkinsEnvelope::class, 'json'));
     }
 }

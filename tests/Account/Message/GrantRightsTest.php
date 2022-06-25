@@ -73,42 +73,5 @@ class GrantRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GrantRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GrantRightsRequest' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GrantRightsResponse' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GrantRightsEnvelope::class, 'json'));
     }
 }

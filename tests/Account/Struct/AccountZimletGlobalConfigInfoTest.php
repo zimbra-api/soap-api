@@ -35,16 +35,5 @@ class AccountZimletGlobalConfigInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($global, 'xml'));
         $this->assertEquals($global, $this->serializer->deserialize($xml, AccountZimletGlobalConfigInfo::class, 'xml'));
-
-        $json = json_encode([
-            'property' => [
-                [
-                    'name' => $name,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($global, 'json'));
-        $this->assertEquals($global, $this->serializer->deserialize($json, AccountZimletGlobalConfigInfo::class, 'json'));
     }
 }

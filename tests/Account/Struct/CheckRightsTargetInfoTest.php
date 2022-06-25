@@ -54,24 +54,5 @@ class CheckRightsTargetInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, CheckRightsTargetInfo::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'by' => $by,
-            'key' => $key,
-            'allow' => TRUE,
-            'right' => [
-                [
-                    '_content' => $right1,
-                    'allow' => TRUE,
-                ],
-                [
-                    '_content' => $right2,
-                    'allow' => FALSE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
-        $this->assertEquals($target, $this->serializer->deserialize($json, CheckRightsTargetInfo::class, 'json'));
     }
 }

@@ -39,14 +39,5 @@ class EntrySearchFilterSingleCondTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cond, 'xml'));
         $this->assertEquals($cond, $this->serializer->deserialize($xml, EntrySearchFilterSingleCond::class, 'xml'));
-
-        $json = json_encode([
-            'attr' => $attr,
-            'op' => $op,
-            'value' => $value,
-            'not' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cond, 'json'));
-        $this->assertEquals($cond, $this->serializer->deserialize($json, EntrySearchFilterSingleCond::class, 'json'));
     }
 }

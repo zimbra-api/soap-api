@@ -33,12 +33,5 @@ class SignatureContentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, SignatureContent::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
-        $this->assertEquals($content, $this->serializer->deserialize($json, SignatureContent::class, 'json'));
     }
 }

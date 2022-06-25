@@ -33,15 +33,6 @@ class HABMemberTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubHABMember::class, 'xml'));
-
-        $json = json_encode([
-            'name' => [
-                '_content' => $name,
-            ],
-            'seniorityIndex' => $seniorityIndex,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stub, 'json'));
-        $this->assertEquals($stub, $this->serializer->deserialize($json, StubHABMember::class, 'json'));
     }
 }
 

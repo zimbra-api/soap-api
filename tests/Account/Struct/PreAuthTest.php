@@ -37,13 +37,5 @@ class PreAuthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
         $this->assertEquals($pre, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $computeValue,
-            'timestamp' => $timestamp,
-            'expiresTimestamp' => $expire,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pre, 'json'));
-        $this->assertEquals($pre, $this->serializer->deserialize($json, PreAuth::class, 'json'));
     }
 }

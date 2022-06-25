@@ -65,22 +65,5 @@ class EndSessionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, EndSessionEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'EndSessionRequest' => [
-                    'logoff' => TRUE,
-                    'all' => TRUE,
-                    'excludeCurrent' => TRUE,
-                    'sessionId' => $sessionId,
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'EndSessionResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, EndSessionEnvelope::class, 'json'));
     }
 }

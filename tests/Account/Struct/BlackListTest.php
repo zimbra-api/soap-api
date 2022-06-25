@@ -34,20 +34,5 @@ class BlackListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
         $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));
-
-        $json = json_encode([
-            'addr' => [
-                [
-                    'op' => '+',
-                    '_content' => $value1,
-                ],
-                [
-                    'op' => '-',
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blackList, 'json'));
-        $this->assertEquals($blackList, $this->serializer->deserialize($json, BlackList::class, 'json'));
     }
 }

@@ -39,24 +39,5 @@ class HABGroupMemberTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($groupMember, 'xml'));
         $this->assertEquals($groupMember, $this->serializer->deserialize($xml, HABGroupMember::class, 'xml'));
-
-        $json = json_encode([
-            'name' => [
-                '_content' => $name,
-            ],
-            'seniorityIndex' => $seniorityIndex,
-            'attr' => [
-                [
-                    'name' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'name' => $key2,
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($groupMember, 'json'));
-        $this->assertEquals($groupMember, $this->serializer->deserialize($json, HABGroupMember::class, 'json'));
     }
 }

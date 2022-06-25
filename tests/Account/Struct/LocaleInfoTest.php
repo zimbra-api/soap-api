@@ -35,13 +35,5 @@ class LocaleInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($locale, 'xml'));
         $this->assertEquals($locale, $this->serializer->deserialize($xml, LocaleInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'localName' => $localName,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($locale, 'json'));
-        $this->assertEquals($locale, $this->serializer->deserialize($json, LocaleInfo::class, 'json'));
     }
 }

@@ -33,20 +33,5 @@ class WhiteListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($whiteList, 'xml'));
         $this->assertEquals($whiteList, $this->serializer->deserialize($xml, WhiteList::class, 'xml'));
-
-        $json = json_encode([
-            'addr' => [
-                [
-                    'op' => '+',
-                    '_content' => $value,
-                ],
-                [
-                    'op' => '-',
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($whiteList, 'json'));
-        $this->assertEquals($whiteList, $this->serializer->deserialize($json, WhiteList::class, 'json'));
     }
 }

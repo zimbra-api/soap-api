@@ -54,43 +54,5 @@ class AccountRssDataSourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rss, 'xml'));
         $this->assertEquals($rss, $this->serializer->deserialize($xml, AccountRssDataSource::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'l' => $folderId,
-            'isEnabled' => TRUE,
-            'importOnly' => TRUE,
-            'host' => $host,
-            'port' => $port,
-            'connectionType' => $connectionType,
-            'username' => $username,
-            'password' => $password,
-            'pollingInterval' => $pollingInterval,
-            'emailAddress' => $emailAddress,
-            'useAddressForForwardReply' => TRUE,
-            'defaultSignature' => $defaultSignature,
-            'forwardReplySignature' => $forwardReplySignature,
-            'fromDisplay' => $fromDisplay,
-            'replyToAddress' => $replyToAddress,
-            'replyToDisplay' => $replyToDisplay,
-            'importClass' => $importClass,
-            'failingSince' => $failingSince,
-            'lastError' => [
-                '_content' => $lastError,
-            ],
-            'a' => [
-                [
-                    '_content' => $attribute1,
-                ],
-                [
-                    '_content' => $attribute2,
-                ],
-            ],
-            'refreshToken' => $refreshToken,
-            'refreshTokenUrl' => $refreshTokenUrl,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rss, 'json'));
-        $this->assertEquals($rss, $this->serializer->deserialize($json, AccountRssDataSource::class, 'json'));
     }
 }

@@ -65,33 +65,5 @@ class GetSignaturesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetSignaturesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetSignaturesRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetSignaturesResponse' => [
-                    'signature' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'cid' => [
-                                '_content' => $cid,
-                            ],
-                            'content' => [
-                                [
-                                    'type' => 'text/html',
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetSignaturesEnvelope::class, 'json'));
     }
 }

@@ -38,17 +38,5 @@ class AccountZimletHostConfigInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
         $this->assertEquals($host, $this->serializer->deserialize($xml, AccountZimletHostConfigInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'property' => [
-                [
-                    'name' => $name,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($host, 'json'));
-        $this->assertEquals($host, $this->serializer->deserialize($json, AccountZimletHostConfigInfo::class, 'json'));
     }
 }

@@ -31,12 +31,5 @@ class ModifyZimletPrefsSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ModifyZimletPrefsSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'presence' => 'enabled',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ModifyZimletPrefsSpec::class, 'json'));
     }
 }

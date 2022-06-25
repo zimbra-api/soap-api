@@ -48,19 +48,5 @@ class RevokeOAuthConsumerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RevokeOAuthConsumerEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RevokeOAuthConsumerRequest' => [
-                    'accessToken' => $accessToken,
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'RevokeOAuthConsumerResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RevokeOAuthConsumerEnvelope::class, 'json'));
     }
 }

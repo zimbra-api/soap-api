@@ -46,24 +46,5 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($targets, 'xml'));
         $this->assertEquals($targets, $this->serializer->deserialize($xml, DiscoverRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'right' => $right,
-            'target' => [
-                [
-                    'type' => $type,
-                    'id' => $id,
-                    'name' => $name,
-                    'd' => $displayName,
-                    'email' => [
-                        [
-                            'addr' => $addr,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($targets, 'json'));
-        $this->assertEquals($targets, $this->serializer->deserialize($json, DiscoverRightsInfo::class, 'json'));
     }
 }

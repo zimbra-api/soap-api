@@ -98,40 +98,5 @@ class ChangePasswordTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ChangePasswordEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ChangePasswordRequest' => [
-                    'account' => [
-                        'by' => $by,
-                        '_content' => $value,
-                    ],
-                    'oldPassword' => [
-                        '_content' => $oldPassword,
-                    ],
-                    'password' => [
-                        '_content' => $newPassword,
-                    ],
-                    'virtualHost' => [
-                        '_content' => $virtualHost,
-                    ],
-                    'dryRun' => [
-                        '_content' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ChangePasswordResponse' => [
-                    'authToken' => [
-                        '_content' => $authToken,
-                    ],
-                    'lifetime' => [
-                        '_content' => $lifetime,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ChangePasswordEnvelope::class, 'json'));
     }
 }

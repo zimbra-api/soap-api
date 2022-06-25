@@ -75,35 +75,5 @@ class GetRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetRightsRequest' => [
-                    'ace' => [
-                        [
-                            'right' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetRightsResponse' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetRightsEnvelope::class, 'json'));
     }
 }

@@ -51,24 +51,5 @@ class DLInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'ref' => $ref,
-            'name' => $name,
-            'd' => $displayName,
-            'dynamic' => TRUE,
-            'via' => $via,
-            'isOwner' => TRUE,
-            'isMember' => TRUE,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DLInfo::class, 'json'));
     }
 }
