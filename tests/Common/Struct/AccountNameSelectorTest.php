@@ -34,13 +34,5 @@ class AccountNameSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acc, 'xml'));
         $this->assertEquals($acc, $this->serializer->deserialize($xml, AccountNameSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => 'name',
-            'name' => $name,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acc, 'json'));
-        $this->assertEquals($acc, $this->serializer->deserialize($json, AccountNameSelector::class, 'json'));
     }
 }

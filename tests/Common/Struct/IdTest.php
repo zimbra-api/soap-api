@@ -27,11 +27,5 @@ class IdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($id, 'xml'));
         $this->assertEquals($id, $this->serializer->deserialize($xml, Id::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($id, 'json'));
-        $this->assertEquals($id, $this->serializer->deserialize($json, Id::class, 'json'));
     }
 }

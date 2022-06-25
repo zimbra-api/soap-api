@@ -30,12 +30,6 @@ class AttributeSelectorTrailTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrSel, 'xml'));
         $this->assertEquals($attrSel, $this->serializer->deserialize($xml, AttributeSelectorImp::class, 'xml'));
-
-        $json = json_encode([
-            'attrs' => $attrs,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrSel, 'json'));
-        $this->assertEquals($attrSel, $this->serializer->deserialize($json, AttributeSelectorImp::class, 'json'));
     }
 }
 

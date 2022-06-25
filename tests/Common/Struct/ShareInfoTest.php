@@ -81,23 +81,5 @@ class ShareInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($share, 'xml'));
         $this->assertEquals($share, $this->serializer->deserialize($xml, ShareInfo::class, 'xml'));
-
-        $json = json_encode([
-            'ownerId' => $ownerId,
-            'ownerEmail' => $ownerEmail,
-            'ownerName' => $ownerDisplayName,
-            'folderId' => $folderId,
-            'folderUuid' => $folderUuid,
-            'folderPath' => $folderPath,
-            'view' => $defaultView,
-            'rights' => $rights,
-            'granteeType' => $granteeType,
-            'granteeId' => $granteeId,
-            'granteeName' => $granteeName,
-            'granteeDisplayName' => $granteeDisplayName,
-            'mid' => $mountpointId,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($share, 'json'));
-        $this->assertEquals($share, $this->serializer->deserialize($json, ShareInfo::class, 'json'));
     }
 }

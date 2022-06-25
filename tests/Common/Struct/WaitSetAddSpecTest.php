@@ -45,14 +45,5 @@ class WaitSetAddSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
         $this->assertEquals($waitSet, $this->serializer->deserialize($xml, WaitSetAddSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'token' => $token,
-            'types' => 'f,m,c',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($waitSet, 'json'));
-        $this->assertEquals($waitSet, $this->serializer->deserialize($json, WaitSetAddSpec::class, 'json'));
     }
 }

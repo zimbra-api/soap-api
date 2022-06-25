@@ -41,25 +41,6 @@ class AttrsImplTraitTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, AttrsImplImp::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'n' => $key2,
-                    '_content' => $value2,
-                ],
-                [
-                    'n' => $key3,
-                    '_content' => $value3,
-                ],
-            ]
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
-        $this->assertEquals($attrs, $this->serializer->deserialize($json, AttrsImplImp::class, 'json'));
     }
 }
 

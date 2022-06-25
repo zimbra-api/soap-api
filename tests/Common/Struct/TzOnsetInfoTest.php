@@ -51,17 +51,5 @@ class TzOnsetInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzo, 'xml'));
         $this->assertEquals($tzo, $this->serializer->deserialize($xml, TzOnsetInfo::class, 'xml'));
-
-        $json = json_encode([
-            'mon' => $mon,
-            'hour' => $hour,
-            'min' => $min,
-            'sec' => $sec,
-            'mday' => $mday,
-            'week' => $week,
-            'wkday' => $wkday,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzo, 'json'));
-        $this->assertEquals($tzo, $this->serializer->deserialize($json, TzOnsetInfo::class, 'json'));
     }
 }

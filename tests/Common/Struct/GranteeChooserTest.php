@@ -35,13 +35,5 @@ class GranteeChooserTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeChooser::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'id' => $id,
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeChooser::class, 'json'));
     }
 }

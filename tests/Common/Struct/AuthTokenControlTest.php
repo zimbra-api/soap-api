@@ -23,11 +23,5 @@ class AuthTokenControlTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($control, 'xml'));
         $this->assertEquals($control, $this->serializer->deserialize($xml, AuthTokenControl::class, 'xml'));
-
-        $json = json_encode([
-            'voidOnExpired' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($control, 'json'));
-        $this->assertEquals($control, $this->serializer->deserialize($json, AuthTokenControl::class, 'json'));
     }
 }
