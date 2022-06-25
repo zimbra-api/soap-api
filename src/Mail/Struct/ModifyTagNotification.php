@@ -28,7 +28,7 @@ class ModifyTagNotification extends ModifyNotification
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $id;
 
@@ -37,7 +37,7 @@ class ModifyTagNotification extends ModifyNotification
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $name;
 

@@ -62,7 +62,7 @@ class FixCalendarTZRequest extends Request
      * @Accessor(getter="getTzFixup", setter="setTzFixup")
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TzFixup $tzFixup = NULL;
 

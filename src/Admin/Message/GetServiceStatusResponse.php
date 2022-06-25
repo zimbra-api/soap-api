@@ -32,7 +32,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("timezone")
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TimeZoneInfo $timezone;
 

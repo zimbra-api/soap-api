@@ -60,7 +60,7 @@ class CalTZInfo implements CalTZInfoInterface
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TzOnsetInfo $standardTzOnset = NULL;
 
@@ -69,7 +69,7 @@ class CalTZInfo implements CalTZInfoInterface
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TzOnsetInfo $daylightTzOnset = NULL;
 

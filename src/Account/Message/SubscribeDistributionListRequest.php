@@ -41,7 +41,7 @@ class SubscribeDistributionListRequest extends Request
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private DistributionListSelector $dl;
 

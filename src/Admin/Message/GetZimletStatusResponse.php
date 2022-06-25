@@ -31,7 +31,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ZimletStatusParent $zimlets;
 

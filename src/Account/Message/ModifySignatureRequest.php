@@ -34,7 +34,7 @@ class ModifySignatureRequest extends Request
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\Signature")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private Signature $signature;
 

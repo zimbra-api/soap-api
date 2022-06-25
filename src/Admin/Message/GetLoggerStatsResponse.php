@@ -40,7 +40,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $note;
 

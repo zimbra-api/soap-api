@@ -82,7 +82,7 @@ class AlarmDataInfo
      * @Accessor(getter="getAlarm", setter="setAlarm")
      * @SerializedName("alarm")
      * @Type("Zimbra\Mail\Struct\AlarmInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?AlarmInfo $alarm = NULL;
 

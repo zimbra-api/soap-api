@@ -68,7 +68,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?GeoInfoInterface $geo = NULL;
 
@@ -104,7 +104,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -113,7 +113,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $description;
 
@@ -122,7 +122,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $htmlDescription;
 
@@ -131,7 +131,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalOrganizerInterface $organizer = NULL;
 
@@ -140,7 +140,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RecurrenceInfoInterface $recurrence = NULL;
 
@@ -149,7 +149,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
 
@@ -158,7 +158,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getDtStart", setter="setDtStart")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfoInterface $dtStart = NULL;
 
@@ -167,7 +167,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getDtEnd", setter="setDtEnd")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfoInterface $dtEnd = NULL;
 
@@ -176,7 +176,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DurationInfoInterface $duration = NULL;
 

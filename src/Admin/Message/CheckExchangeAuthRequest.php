@@ -32,7 +32,7 @@ class CheckExchangeAuthRequest extends Request
      * @Accessor(getter="getAuth", setter="setAuth")
      * @SerializedName("auth")
      * @Type("Zimbra\Admin\Struct\ExchangeAuthSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ExchangeAuthSpec $auth = NULL;
 

@@ -31,7 +31,7 @@ class GetVersionInfoResponse implements ResponseInterface
      * @Accessor(getter="getVersionInfo", setter="setVersionInfo")
      * @SerializedName("info")
      * @Type("Zimbra\Account\Struct\VersionInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private VersionInfo $versionInfo;
 

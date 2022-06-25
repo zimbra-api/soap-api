@@ -44,7 +44,7 @@ class GetDomainInfoRequest extends Request
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?DomainSelector $domain = NULL;
 

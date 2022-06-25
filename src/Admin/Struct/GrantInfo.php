@@ -28,7 +28,7 @@ class GrantInfo
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TypeIdName")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TypeIdName $target;
 
@@ -37,7 +37,7 @@ class GrantInfo
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private GranteeInfo $grantee;
 
@@ -46,7 +46,7 @@ class GrantInfo
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private RightModifierInfo $right;
 

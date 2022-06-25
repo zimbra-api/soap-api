@@ -30,7 +30,7 @@ class GetMailboxStatsResponse implements ResponseInterface
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\MailboxStats")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private MailboxStats $stats;
 

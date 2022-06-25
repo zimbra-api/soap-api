@@ -30,7 +30,7 @@ class GetZimletResponse implements ResponseInterface
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ZimletInfo $zimlet;
 

@@ -36,7 +36,7 @@ class GetLoggerStatsRequest extends Request
      * @Accessor(getter="getHostName", setter="setHostName")
      * @SerializedName("hostname")
      * @Type("Zimbra\Admin\Struct\HostName")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?HostName $hostName = NULL;
 
@@ -45,7 +45,7 @@ class GetLoggerStatsRequest extends Request
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?StatsSpec $stats = NULL;
 
@@ -54,7 +54,7 @@ class GetLoggerStatsRequest extends Request
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("startTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TimeAttr $startTime = NULL;
 
@@ -63,7 +63,7 @@ class GetLoggerStatsRequest extends Request
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("endTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TimeAttr $endTime = NULL;
 

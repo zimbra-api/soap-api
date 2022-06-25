@@ -37,7 +37,7 @@ class EffectiveRightsInfo
      * @Accessor(getter="getSetAttrs", setter="setSetAttrs")
      * @SerializedName("setAttrs")
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private EffectiveAttrsInfo $setAttrs;
 
@@ -46,7 +46,7 @@ class EffectiveRightsInfo
      * @Accessor(getter="getGetAttrs", setter="setGetAttrs")
      * @SerializedName("getAttrs")
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private EffectiveAttrsInfo $getAttrs;
 

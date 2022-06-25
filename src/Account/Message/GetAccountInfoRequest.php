@@ -31,7 +31,7 @@ class GetAccountInfoRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private AccountSelector $account;
 

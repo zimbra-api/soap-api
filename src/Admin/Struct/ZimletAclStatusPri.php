@@ -38,7 +38,7 @@ class ZimletAclStatusPri
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Admin\Struct\ZimletAcl")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ZimletAcl $acl = NULL;
 
@@ -47,7 +47,7 @@ class ZimletAclStatusPri
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Zimbra\Admin\Struct\ValueAttrib")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ValueAttrib $status = NULL;
 
@@ -56,7 +56,7 @@ class ZimletAclStatusPri
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?IntegerValueAttrib $priority = NULL;
 

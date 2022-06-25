@@ -32,7 +32,7 @@ class CheckPermissionRequest extends Request
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Mail\Struct\TargetSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TargetSpec $target = NULL;
 

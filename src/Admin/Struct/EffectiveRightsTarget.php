@@ -38,7 +38,7 @@ class EffectiveRightsTarget
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?EffectiveRightsInfo $all = NULL;
 

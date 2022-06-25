@@ -61,7 +61,7 @@ class CountObjectsRequest extends Request
      * @Accessor(getter="getUcService", setter="setUcService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?UcServiceSelector $ucService = NULL;
 

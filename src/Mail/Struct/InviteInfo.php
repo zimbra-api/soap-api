@@ -51,7 +51,7 @@ class InviteInfo implements InviteInfoInterface
      * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InviteComponent $inviteComponent = NULL;
 

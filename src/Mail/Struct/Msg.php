@@ -111,7 +111,7 @@ class Msg
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $content;
 
@@ -120,7 +120,7 @@ class Msg
      * @Accessor(getter="getMimePart", setter="setMimePart")
      * @SerializedName("mp")
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MimePartInfo $mimePart = NULL;
 
@@ -129,7 +129,7 @@ class Msg
      * @Accessor(getter="getAttachments", setter="setAttachments")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?AttachmentsInfo $attachments = NULL;
 
@@ -138,7 +138,7 @@ class Msg
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InvitationInfo $invite = NULL;
 
@@ -165,7 +165,7 @@ class Msg
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 

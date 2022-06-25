@@ -33,7 +33,7 @@ class GetFreeBusyQueueInfoRequest extends Request
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?NamedElement $provider = NULL;
 

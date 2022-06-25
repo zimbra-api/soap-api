@@ -41,7 +41,7 @@ class AddMsgRequest extends Request
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\AddMsgSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private AddMsgSpec $msg;
 

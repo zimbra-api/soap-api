@@ -33,7 +33,7 @@ class GetItemRequest extends Request
      * @Accessor(getter="getItem", setter="setItem")
      * @SerializedName("item")
      * @Type("Zimbra\Mail\Struct\ItemSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ItemSpec $item;
 

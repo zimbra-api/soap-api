@@ -44,7 +44,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Account $account = NULL;
 
@@ -53,7 +53,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Domain $domain = NULL;
 
@@ -62,7 +62,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Cos $cos = NULL;
 
@@ -71,7 +71,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Server $server = NULL;
 

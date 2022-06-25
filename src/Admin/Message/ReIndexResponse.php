@@ -40,7 +40,7 @@ class ReIndexResponse implements ResponseInterface
      * @Accessor(getter="getProgress", setter="setProgress")
      * @SerializedName("progress")
      * @Type("Zimbra\Admin\Struct\ReindexProgressInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Progress $progress = NULL;
 

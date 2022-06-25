@@ -31,7 +31,7 @@ class AutoProvAccountRequest extends Request
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private DomainSelector $domain;
 
@@ -40,7 +40,7 @@ class AutoProvAccountRequest extends Request
      * @Accessor(getter="getPrincipal", setter="setPrincipal")
      * @SerializedName("principal")
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private PrincipalSelector $principal;
 
@@ -49,7 +49,7 @@ class AutoProvAccountRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $password;
 

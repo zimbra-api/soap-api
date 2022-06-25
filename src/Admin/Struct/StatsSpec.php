@@ -27,7 +27,7 @@ class StatsSpec
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private StatsValueWrapper $values;
 

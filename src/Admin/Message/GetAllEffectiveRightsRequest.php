@@ -42,7 +42,7 @@ class GetAllEffectiveRightsRequest extends Request
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Grantee $grantee = NULL;
 

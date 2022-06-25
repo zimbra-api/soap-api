@@ -30,7 +30,7 @@ class CreateTagResponse implements ResponseInterface
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TagInfo $tag = NULL;
 

@@ -59,7 +59,7 @@ class DeployZimletRequest extends Request
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private AttachmentIdAttrib $content;
 

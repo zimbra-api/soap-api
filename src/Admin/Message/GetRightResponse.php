@@ -30,7 +30,7 @@ class GetRightResponse implements ResponseInterface
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?RightInfo $right = NULL;
 

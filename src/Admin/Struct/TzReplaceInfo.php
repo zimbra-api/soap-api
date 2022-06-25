@@ -29,7 +29,7 @@ class TzReplaceInfo
      * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
      * @SerializedName("wellKnownTz")
      * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Id $wellKnownTz = NULL;
 
@@ -38,7 +38,7 @@ class TzReplaceInfo
      * @Accessor(getter="getCalTz", setter="setCalTz")
      * @SerializedName("tz")
      * @Type("Zimbra\Admin\Struct\CalTzInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?CalTzInfo $calTz = NULL;
 

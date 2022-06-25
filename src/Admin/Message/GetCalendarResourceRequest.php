@@ -45,7 +45,7 @@ class GetCalendarResourceRequest extends Request implements AttributeSelector
      * @Accessor(getter="getCalResource", setter="setCalResource")
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?CalendarResourceSelector $calResource = NULL;
 

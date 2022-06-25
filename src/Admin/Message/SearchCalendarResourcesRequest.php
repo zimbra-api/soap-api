@@ -89,7 +89,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?EntrySearchFilterInfo $searchFilter = NULL;
 

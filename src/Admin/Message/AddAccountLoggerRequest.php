@@ -35,7 +35,7 @@ class AddAccountLoggerRequest extends Request
      * @Accessor(getter="getLogger", setter="setLogger")
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Logger $logger;
 
@@ -44,7 +44,7 @@ class AddAccountLoggerRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Account $account = NULL;
 
@@ -53,7 +53,7 @@ class AddAccountLoggerRequest extends Request
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $id;
 

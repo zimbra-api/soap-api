@@ -82,7 +82,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Accessor(getter="getServerExtension", setter="setServerExtension")
      * @SerializedName("serverExtension")
      * @Type("Zimbra\Account\Struct\ZimletServerExtension")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletServerExtension $serverExtension = NULL;
 
@@ -90,7 +90,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
      * @SerializedName("include")
      * @Type("Zimbra\Account\Struct\AccountZimletInclude")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?AccountZimletInclude $include = NULL;
 
@@ -98,7 +98,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
      * @SerializedName("includeCSS")
      * @Type("Zimbra\Account\Struct\AccountZimletIncludeCSS")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?AccountZimletIncludeCSS $includeCSS = NULL;
 
@@ -106,7 +106,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
      * @SerializedName("zimletTarget")
      * @Type("Zimbra\Account\Struct\AccountZimletTarget")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?AccountZimletTarget $zimletTarget = NULL;
 

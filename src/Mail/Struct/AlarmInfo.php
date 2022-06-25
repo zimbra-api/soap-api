@@ -48,7 +48,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getTrigger", setter="setTrigger")
      * @SerializedName("trigger")
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?AlarmTriggerInfo $trigger = NULL;
 
@@ -57,7 +57,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getRepeat", setter="setRepeat")
      * @SerializedName("repeat")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DurationInfo $repeat = NULL;
 
@@ -69,7 +69,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $description;
 
@@ -78,7 +78,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getAttach", setter="setAttach")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalendarAttach $attach = NULL;
 
@@ -87,7 +87,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $summary;
 

@@ -38,7 +38,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $newName;
 
@@ -46,7 +46,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getSubsReq", setter="setSubsReq")
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?Subscribe $subsReq = NULL;
 
@@ -55,7 +55,6 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm")
-     * @XmlElement(cdata=false)
      */
     private $members = [];
 

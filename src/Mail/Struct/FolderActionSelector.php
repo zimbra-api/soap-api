@@ -87,7 +87,7 @@ class FolderActionSelector extends ActionSelector
      * @Accessor(getter="getGrant", setter="setGrant")
      * @SerializedName("grant")
      * @Type("Zimbra\Mail\Struct\ActionGrantSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?ActionGrantSelector $grant = NULL;
 
@@ -106,7 +106,7 @@ class FolderActionSelector extends ActionSelector
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RetentionPolicy $retentionPolicy = NULL;
 

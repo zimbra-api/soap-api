@@ -31,7 +31,7 @@ class GetConfigRequest extends Request
      * @Accessor(getter="getAttr", setter="setAttr")
      * @SerializedName("a")
      * @Type("Zimbra\Admin\Struct\Attr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Attr $attr = NULL;
 

@@ -28,7 +28,7 @@ class ConstraintInfo
      * @Accessor(getter="getMin", setter="setMin")
      * @SerializedName("min")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $min;
 
@@ -37,7 +37,7 @@ class ConstraintInfo
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("max")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $max;
 

@@ -60,7 +60,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?AccountSelector $account = NULL;
 
@@ -69,7 +69,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $password;
 
@@ -78,7 +78,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
      * @SerializedName("recoveryCode")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $recoveryCode;
 
@@ -87,7 +87,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getPreauth", setter="setPreauth")
      * @SerializedName("preauth")
      * @Type("Zimbra\Account\Struct\PreAuth")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?PreAuth $preauth = NULL;
 
@@ -96,7 +96,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("Zimbra\Account\Struct\AuthToken")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?AuthToken $authToken = NULL;
 
@@ -105,7 +105,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getJwtToken", setter="setJwtToken")
      * @SerializedName("jwtToken")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $jwtToken;
 
@@ -114,7 +114,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $virtualHost;
 
@@ -141,7 +141,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
      * @SerializedName("requestedSkin")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $requestedSkin;
 
@@ -150,7 +150,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $twoFactorCode;
 
@@ -168,7 +168,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
      * @SerializedName("trustedToken")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $trustedDeviceToken;
 
@@ -177,7 +177,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $deviceId;
 

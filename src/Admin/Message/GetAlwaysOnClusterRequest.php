@@ -34,7 +34,7 @@ class GetAlwaysOnClusterRequest extends Request implements AttributeSelector
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?AlwaysOnClusterSelector $cluster = NULL;
 

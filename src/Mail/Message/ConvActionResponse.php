@@ -30,7 +30,7 @@ class ConvActionResponse implements ResponseInterface
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionResult")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ActionResult $action;
 

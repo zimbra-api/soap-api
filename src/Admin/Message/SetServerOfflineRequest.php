@@ -34,7 +34,7 @@ class SetServerOfflineRequest extends Request implements AttributeSelector
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ServerSelector $server = NULL;
 

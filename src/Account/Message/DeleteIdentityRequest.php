@@ -32,7 +32,7 @@ class DeleteIdentityRequest extends Request
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\NameId")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private NameId $identity;
 

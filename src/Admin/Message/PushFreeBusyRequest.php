@@ -35,7 +35,7 @@ class PushFreeBusyRequest extends Request
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Names $domains = NULL;
 

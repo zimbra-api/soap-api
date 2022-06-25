@@ -34,7 +34,7 @@ class GetUCServiceRequest extends Request implements AttributeSelector
      * @Accessor(getter="getUCService", setter="setUCService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private UcServiceSelector $ucService;
 

@@ -30,7 +30,7 @@ class DeleteCosRequest extends Request
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $id;
 

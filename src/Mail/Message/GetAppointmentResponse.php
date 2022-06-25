@@ -31,7 +31,7 @@ class GetAppointmentResponse implements ResponseInterface
      * @Accessor(getter="getApptItem", setter="setApptItem")
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalendarItemInfo $appt = NULL;
 
@@ -40,7 +40,7 @@ class GetAppointmentResponse implements ResponseInterface
      * @Accessor(getter="getTaskItem", setter="setTaskItem")
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TaskItemInfo $task = NULL;
 

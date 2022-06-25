@@ -75,7 +75,7 @@ class WaitSetInfo
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @SerializedName("ready")
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?AccountsAttrib $signalledAccounts = NULL;
 

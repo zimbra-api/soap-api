@@ -38,7 +38,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $code;
 
@@ -47,7 +47,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $message;
 

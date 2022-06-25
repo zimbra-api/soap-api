@@ -30,7 +30,7 @@ class GetIndexStatsResponse implements ResponseInterface
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\IndexStats")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private IndexStats $stats;
 

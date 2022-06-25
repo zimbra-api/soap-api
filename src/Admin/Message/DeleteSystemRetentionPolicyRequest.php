@@ -32,7 +32,7 @@ class DeleteSystemRetentionPolicyRequest extends Request
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?CosSelector $cos = NULL;
 

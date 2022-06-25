@@ -65,7 +65,7 @@ class RightInfo
      * @Accessor(getter="getDesc", setter="setDesc")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $desc;
 
@@ -74,7 +74,7 @@ class RightInfo
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("Zimbra\Admin\Struct\RightsAttrs")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?RightsAttrs $attrs = NULL;
 
@@ -83,7 +83,7 @@ class RightInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\ComboRights")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ComboRights $rights = NULL;
 

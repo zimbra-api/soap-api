@@ -29,7 +29,7 @@ class ExpandedRecurrenceComponent
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InstanceRecurIdInfo $exceptionId = NULL;
 
@@ -56,7 +56,7 @@ class ExpandedRecurrenceComponent
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DurationInfo $duration = NULL;
 
@@ -65,7 +65,7 @@ class ExpandedRecurrenceComponent
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RecurrenceInfo $recurrence = NULL;
 

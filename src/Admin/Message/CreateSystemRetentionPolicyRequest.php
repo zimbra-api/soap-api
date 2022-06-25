@@ -33,7 +33,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?CosSelector $cos = NULL;
 
@@ -41,7 +41,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?PolicyHolder $keep = NULL;
 
@@ -49,7 +49,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?PolicyHolder $purge = NULL;
 

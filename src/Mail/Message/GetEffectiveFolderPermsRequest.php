@@ -31,7 +31,7 @@ class GetEffectiveFolderPermsRequest extends Request
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\FolderSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private FolderSpec $folder;
 

@@ -50,7 +50,7 @@ class GetDistributionListResponse implements ResponseInterface
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?DistributionListInfo $dl = NULL;
 

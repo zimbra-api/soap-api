@@ -44,7 +44,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private DataSourceInfo $dataSource;
 

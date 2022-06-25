@@ -28,7 +28,7 @@ class TzFixupRuleMatchDates
      * @Accessor(getter="getStandard", setter="setStandard")
      * @SerializedName("standard")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TzFixupRuleMatchDate $standard;
 
@@ -37,7 +37,7 @@ class TzFixupRuleMatchDates
      * @Accessor(getter="getDaylight", setter="setDaylight")
      * @SerializedName("daylight")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TzFixupRuleMatchDate $daylight;
 

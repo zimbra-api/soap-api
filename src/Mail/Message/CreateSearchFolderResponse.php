@@ -30,7 +30,7 @@ class CreateSearchFolderResponse implements ResponseInterface
      * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?SearchFolder $searchFolder = NULL;
 

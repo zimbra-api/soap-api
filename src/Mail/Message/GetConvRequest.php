@@ -39,7 +39,7 @@ class GetConvRequest extends Request
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ConversationSpec $conversation;
 

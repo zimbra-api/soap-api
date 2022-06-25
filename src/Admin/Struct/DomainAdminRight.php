@@ -47,7 +47,7 @@ class DomainAdminRight
      * @Accessor(getter="getDesc", setter="setDesc")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $desc;
 

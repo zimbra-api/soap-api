@@ -37,7 +37,7 @@ class StatsInfo
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValues")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?StatsValues $values = NULL;
 

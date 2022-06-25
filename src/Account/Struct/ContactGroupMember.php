@@ -46,7 +46,7 @@ class ContactGroupMember
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Account\Struct\ContactInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ContactInfo $contact = NULL;
 

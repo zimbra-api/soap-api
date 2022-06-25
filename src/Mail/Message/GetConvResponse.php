@@ -30,7 +30,7 @@ class GetConvResponse implements ResponseInterface
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ConversationInfo $conversation;
 

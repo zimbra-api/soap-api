@@ -30,7 +30,7 @@ class AddMsgResponse implements ResponseInterface
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MessageSummary $message = NULL;
 
@@ -39,7 +39,7 @@ class AddMsgResponse implements ResponseInterface
      * @Accessor(getter="getChatMessage", setter="setMessage")
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MessageSummary $chatMessage = NULL;
 

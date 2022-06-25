@@ -30,7 +30,7 @@ class DtVal implements DtValInterface
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfoInterface $startTime = NULL;
 
@@ -39,7 +39,7 @@ class DtVal implements DtValInterface
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfoInterface $endTime = NULL;
 
@@ -48,7 +48,7 @@ class DtVal implements DtValInterface
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DurationInfoInterface $duration = NULL;
 

@@ -31,7 +31,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $name;
 
@@ -49,7 +49,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private $cos;
 
@@ -68,7 +68,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminSoapURL", setter="setAdminSoapURL")
      * @SerializedName("adminSoapURL")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $adminSoapURL;
 
@@ -77,7 +77,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getPublicMailURL", setter="setPublicMailURL")
      * @SerializedName("publicMailURL")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $publicMailURL;
 

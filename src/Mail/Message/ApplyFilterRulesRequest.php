@@ -46,7 +46,7 @@ class ApplyFilterRulesRequest extends Request
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?IdsAttr $msgIds = NULL;
 
@@ -55,7 +55,7 @@ class ApplyFilterRulesRequest extends Request
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $query;
 

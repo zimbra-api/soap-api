@@ -31,7 +31,7 @@ class GetMailboxMetadataRequest extends Request
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Common\Struct\SectionAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?SectionAttr $metadata = NULL;
 

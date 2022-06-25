@@ -32,7 +32,7 @@ class GetShareInfoRequest extends Request
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Grantee $grantee = NULL;
 
@@ -41,7 +41,7 @@ class GetShareInfoRequest extends Request
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Account $owner;
 

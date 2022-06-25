@@ -31,7 +31,7 @@ class GetCommentsRequest extends Request
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\ParentId")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ParentId $comment;
 

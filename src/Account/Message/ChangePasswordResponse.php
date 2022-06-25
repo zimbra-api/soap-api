@@ -29,7 +29,7 @@ class ChangePasswordResponse implements ResponseInterface
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $authToken;
 
@@ -38,7 +38,7 @@ class ChangePasswordResponse implements ResponseInterface
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
 

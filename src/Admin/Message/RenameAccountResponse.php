@@ -30,7 +30,7 @@ class RenameAccountResponse implements ResponseInterface
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private AccountInfo $account;
 

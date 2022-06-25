@@ -30,7 +30,7 @@ class GetLDAPEntriesRequest extends Request
      * @Accessor(getter="getLdapSearchBase", setter="setLdapSearchBase")
      * @SerializedName("ldapSearchBase")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $ldapSearchBase;
 

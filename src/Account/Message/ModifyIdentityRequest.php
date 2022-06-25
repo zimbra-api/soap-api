@@ -32,7 +32,7 @@ class ModifyIdentityRequest extends Request
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private Identity $identity;
 

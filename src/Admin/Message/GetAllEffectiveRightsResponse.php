@@ -31,7 +31,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?GranteeInfo $grantee = NULL;
 

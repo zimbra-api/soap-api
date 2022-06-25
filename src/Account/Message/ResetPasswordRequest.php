@@ -30,7 +30,7 @@ class ResetPasswordRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private $password;
 

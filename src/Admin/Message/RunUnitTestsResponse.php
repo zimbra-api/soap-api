@@ -30,7 +30,7 @@ class RunUnitTestsResponse implements ResponseInterface
      * @Accessor(getter="getResults", setter="setResults")
      * @SerializedName("results")
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TestResultInfo $results;
 

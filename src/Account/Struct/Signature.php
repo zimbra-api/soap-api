@@ -43,7 +43,7 @@ class Signature
      * @Accessor(getter="getCid", setter="setCid")
      * @SerializedName("cid")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $cid;
 
