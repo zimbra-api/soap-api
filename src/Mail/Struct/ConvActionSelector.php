@@ -33,7 +33,7 @@ class ConvActionSelector extends ActionSelector
      * @Accessor(getter="getAcctRelativePath", setter="setAcctRelativePath")
      * @SerializedName("acctRelPath")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $acctRelativePath;
 

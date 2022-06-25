@@ -69,7 +69,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $password;
 
@@ -78,7 +78,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
      * @SerializedName("recoveryCode")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $recoveryCode;
 
@@ -105,7 +105,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getJwtToken", setter="setJwtToken")
      * @SerializedName("jwtToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $jwtToken;
 
@@ -114,7 +114,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $virtualHost;
 
@@ -141,7 +141,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
      * @SerializedName("requestedSkin")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $requestedSkin;
 
@@ -150,7 +150,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $twoFactorCode;
 
@@ -168,7 +168,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
      * @SerializedName("trustedToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $trustedDeviceToken;
 
@@ -177,7 +177,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $deviceId;
 

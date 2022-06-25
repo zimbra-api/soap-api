@@ -53,7 +53,7 @@ class CheckSpellingRequest extends Request
      * @Accessor(getter="getText", setter="setText")
      * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $text;
 

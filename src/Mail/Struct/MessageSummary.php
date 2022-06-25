@@ -55,7 +55,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $subject;
 
@@ -64,7 +64,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $fragment;
 

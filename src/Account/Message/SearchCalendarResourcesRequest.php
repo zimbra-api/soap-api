@@ -78,7 +78,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $locale;
 
@@ -105,7 +105,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $name;
 

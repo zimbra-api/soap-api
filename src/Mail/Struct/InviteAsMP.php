@@ -67,7 +67,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $subject;
 
@@ -76,7 +76,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
      * @SerializedName("mid")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $messageIdHeader;
 

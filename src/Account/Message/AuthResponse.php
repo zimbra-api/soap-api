@@ -30,7 +30,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $authToken;
 
@@ -39,7 +39,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $lifetime;
 
@@ -48,7 +48,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
      * @SerializedName("trustLifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $trustLifetime;
 
@@ -67,7 +67,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getRefer", setter="setRefer")
      * @SerializedName("refer")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $refer;
 
@@ -76,7 +76,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getSkin", setter="setSkin")
      * @SerializedName("skin")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $skin;
 
@@ -85,7 +85,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $csrfToken;
 
@@ -94,7 +94,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $deviceId;
 
@@ -103,7 +103,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustedToken", setter="setTrustedToken")
      * @SerializedName("trustedToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $trustedToken;
 
@@ -136,7 +136,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
      * @SerializedName("twoFactorAuthRequired")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $twoFactorAuthRequired;
 
@@ -144,7 +144,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustedDevicesEnabled", setter="setTrustedDevicesEnabled")
      * @SerializedName("trustedDevicesEnabled")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $trustedDevicesEnabled;
 

@@ -104,7 +104,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $fragment;
 
@@ -113,7 +113,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $description;
 
@@ -122,7 +122,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $htmlDescription;
 

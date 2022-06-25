@@ -51,7 +51,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $version;
 
@@ -60,7 +60,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAccountId", setter="setAccountId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $accountId;
 
@@ -69,7 +69,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getProfileImageId", setter="setProfileImageId")
      * @SerializedName("profileImageId")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $profileImageId;
 
@@ -78,7 +78,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAccountName", setter="setAccountName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $accountName;
 
@@ -87,7 +87,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getCrumb", setter="setCrumb")
      * @SerializedName("crumb")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $crumb;
 
@@ -96,7 +96,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $lifetime;
 
@@ -105,7 +105,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminDelegated", setter="setAdminDelegated")
      * @SerializedName("adminDelegated")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $adminDelegated;
 
@@ -114,7 +114,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getRestUrl", setter="setRestUrl")
      * @SerializedName("rest")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $restUrl;
 
@@ -124,7 +124,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $quotaUsed;
 
@@ -134,7 +134,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPreviousSessionTime", setter="setPreviousSessionTime")
      * @SerializedName("prevSession")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $previousSessionTime;
 
@@ -144,7 +144,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getLastWriteAccessTime", setter="setLastWriteAccessTime")
      * @SerializedName("accessed")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $lastWriteAccessTime;
 
@@ -154,7 +154,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getRecentMessageCount", setter="setRecentMessageCount")
      * @SerializedName("recent")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $recentMessageCount;
 
@@ -254,7 +254,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getSoapURL", setter="setSoapURL")
      * @SerializedName("soapURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $soapURL;
 
@@ -263,7 +263,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPublicURL", setter="setPublicURL")
      * @SerializedName("publicURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $publicURL;
 
@@ -273,7 +273,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
      * @SerializedName("changePasswordURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $changePasswordURL;
 
@@ -282,7 +282,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminURL", setter="setAdminURL")
      * @SerializedName("adminURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $adminURL;
 
@@ -292,7 +292,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getBoshURL", setter="setBoshURL")
      * @SerializedName("boshURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $boshURL;
 
@@ -301,7 +301,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getIsTrackingIMAP", setter="setIsTrackingIMAP")
      * @SerializedName("isTrackingIMAP")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $isTrackingIMAP;
 

@@ -55,7 +55,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $fragment;
 

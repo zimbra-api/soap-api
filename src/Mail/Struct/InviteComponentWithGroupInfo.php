@@ -92,7 +92,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $fragment;
 
@@ -101,7 +101,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $description;
 
@@ -110,7 +110,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $htmlDescription;
 

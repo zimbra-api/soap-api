@@ -69,7 +69,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $description;
 
@@ -87,7 +87,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $summary;
 

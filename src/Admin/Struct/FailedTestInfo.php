@@ -55,7 +55,7 @@ class FailedTestInfo
      * @Accessor(getter="getThrowable", setter="setThrowable")
      * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $throwable;
 

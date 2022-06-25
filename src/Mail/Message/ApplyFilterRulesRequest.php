@@ -55,7 +55,7 @@ class ApplyFilterRulesRequest extends Request
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $query;
 

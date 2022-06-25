@@ -148,7 +148,7 @@ class SearchGalRequest extends Request
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $locale;
 

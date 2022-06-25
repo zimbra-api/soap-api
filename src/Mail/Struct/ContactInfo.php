@@ -242,7 +242,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @Accessor(getter="getMemberOf", setter="setMemberOf")
      * @SerializedName("memberOf")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $memberOf;
 

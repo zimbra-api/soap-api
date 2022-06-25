@@ -37,7 +37,7 @@ class CheckRightsRightInfo
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $right;
 

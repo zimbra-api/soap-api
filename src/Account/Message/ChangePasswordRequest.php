@@ -40,7 +40,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getOldPassword", setter="setOldPassword")
      * @SerializedName("oldPassword")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $oldPassword;
 
@@ -49,7 +49,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $password;
 
@@ -58,7 +58,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $virtualHost;
 
@@ -67,7 +67,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="isDryRun", setter="setDryRun")
      * @SerializedName("dryRun")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $dryRun;
 

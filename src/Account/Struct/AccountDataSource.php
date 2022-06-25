@@ -215,7 +215,7 @@ class AccountDataSource implements DataSource
      * @Accessor(getter="getLastError", setter="setLastError")
      * @SerializedName("lastError")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $lastError;
 

@@ -28,7 +28,7 @@ abstract class HABMember
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $name;
 

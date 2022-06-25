@@ -38,7 +38,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $newName;
 
@@ -55,7 +55,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $members = [];
 

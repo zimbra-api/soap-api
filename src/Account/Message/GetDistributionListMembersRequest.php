@@ -48,7 +48,7 @@ class GetDistributionListMembersRequest extends Request
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false)
      */
     private $dl;
 
