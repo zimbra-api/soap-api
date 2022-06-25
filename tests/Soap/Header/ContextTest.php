@@ -2,6 +2,7 @@
 
 namespace Zimbra\Tests\Soap\Header;
 
+use JMS\Serializer\Annotation\XmlNamespace;
 use Zimbra\Common\Enum\{AccountBy, RequestFormat};
 use Zimbra\Common\Struct\AuthTokenControl;
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
@@ -41,7 +42,7 @@ class ContextTest extends ZimbraTestCase
         $format = new FormatInfo(RequestFormat::XML());
         $notify = new NotifyInfo($sequence);
 
-        $context = new Context(
+        $context = new MockContext(
             $hopCount,
             $authToken,
             $session,
@@ -78,7 +79,7 @@ class ContextTest extends ZimbraTestCase
         $this->assertSame($soapRequestId, $context->getSoapRequestId());
         $this->assertSame($csrfToken, $context->getCsrfToken());
 
-        $context = new Context();
+        $context = new MockContext();
         $context->setHopCount($hopCount)
             ->setAuthToken($authToken)
             ->setSession($session)
@@ -138,6 +139,19 @@ class ContextTest extends ZimbraTestCase
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($context, 'xml'));
-        $this->assertEquals($context, $this->serializer->deserialize($xml, Context::class, 'xml'));
+        $this->assertEquals($context, $this->serializer->deserialize($xml, MockContext::class, 'xml'));
     }
+}
+
+/**
+ * Header context class
+ *
+ * @package   Zimbra
+ * @category  Soap
+ * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @XmlNamespace(uri="urn:zimbra", prefix="zm")
+ */
+class MockContext extends Context
+{
 }

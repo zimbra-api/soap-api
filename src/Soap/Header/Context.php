@@ -10,7 +10,7 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlNamespace};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\AuthTokenControl;
 
 /**
@@ -20,7 +20,6 @@ use Zimbra\Common\Struct\AuthTokenControl;
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
 class Context
 {
