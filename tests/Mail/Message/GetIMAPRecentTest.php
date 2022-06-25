@@ -57,20 +57,5 @@ class GetIMAPRecentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetIMAPRecentEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetIMAPRecentRequest' => [
-                    'id' => $id,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetIMAPRecentResponse' => [
-                    'n' => $num,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetIMAPRecentEnvelope::class, 'json'));
     }
 }

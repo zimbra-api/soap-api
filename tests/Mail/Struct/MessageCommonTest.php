@@ -81,31 +81,5 @@ class MessageCommonTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageCommon::class, 'xml'));
-
-        $json = json_encode([
-            's' => $size,
-            'd' => $date,
-            'l' => $folder,
-            'cid' => $conversationId,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'rev' => $revision,
-            'md' => $changeDate,
-            'ms' => $modifiedSequence,
-            'meta' => [
-                [
-                    'section' => $section,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($msg, 'json'));
-        $this->assertEquals($msg, $this->serializer->deserialize($json, MessageCommon::class, 'json'));
     }
 }

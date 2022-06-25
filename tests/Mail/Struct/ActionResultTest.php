@@ -39,14 +39,5 @@ class ActionResultTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ActionResult::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'op' => $operation,
-            'nei' => $nonExistentIds,
-            'nci' => $newlyCreatedIds,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ActionResult::class, 'json'));
     }
 }

@@ -53,23 +53,5 @@ class AclTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, Acl::class, 'xml'));
-
-        $json = json_encode([
-            'internalGrantExpiry' => $internalGrantExpiry,
-            'guestGrantExpiry' => $guestGrantExpiry,
-            'grant' => [
-                [
-                    'perm' => $perm,
-                    'gt' => 'usr',
-                    'zid' => $granteeId,
-                    'expiry' => $expiry,
-                    'd' => $granteeName,
-                    'pw' => $guestPassword,
-                    'key' => $accessKey,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acl, 'json'));
-        $this->assertEquals($acl, $this->serializer->deserialize($json, Acl::class, 'json'));
     }
 }

@@ -23,11 +23,5 @@ class GalDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($gal, 'xml'));
         $this->assertEquals($gal, $this->serializer->deserialize($xml, GalDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($gal, 'json'));
-        $this->assertEquals($gal, $this->serializer->deserialize($json, GalDataSourceId::class, 'json'));
     }
 }

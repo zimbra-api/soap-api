@@ -35,13 +35,5 @@ class CalendarAttachTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attach, 'xml'));
         $this->assertEquals($attach, $this->serializer->deserialize($xml, CalendarAttach::class, 'xml'));
-
-        $json = json_encode([
-            'uri' => $uri,
-            'ct' => $contentType,
-            '_content' => $binaryB64Data,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attach, 'json'));
-        $this->assertEquals($attach, $this->serializer->deserialize($json, CalendarAttach::class, 'json'));
     }
 }

@@ -31,14 +31,5 @@ class RenameFolderNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, RenameFolderNotification::class, 'xml'));
-
-        $json = json_encode([
-            'change' => $changeBitmask,
-            'id' => $folderId,
-            'path' => $path,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $tags = $this->serializer->deserialize($json, RenameFolderNotification::class, 'json');
-        $this->assertEquals($item, $this->serializer->deserialize($json, RenameFolderNotification::class, 'json'));
     }
 }

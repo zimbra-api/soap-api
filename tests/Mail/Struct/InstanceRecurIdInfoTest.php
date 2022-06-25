@@ -35,13 +35,5 @@ class InstanceRecurIdInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
         $this->assertEquals($inst, $this->serializer->deserialize($xml, InstanceRecurIdInfo::class, 'xml'));
-
-        $json = json_encode([
-            'range' => $range,
-            'd' => $dateTime,
-            'tz' => $timezone,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($inst, 'json'));
-        $this->assertEquals($inst, $this->serializer->deserialize($json, InstanceRecurIdInfo::class, 'json'));
     }
 }

@@ -48,17 +48,5 @@ class CalendarReplyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($reply, 'xml'));
         $this->assertEquals($reply, $this->serializer->deserialize($xml, CalendarReply::class, 'xml'));
-
-        $json = json_encode([
-            'rangeType' => $rangeType,
-            'recurId' => $recurId,
-            'seq' => $seq,
-            'd' => $date,
-            'at' => $attendee,
-            'sentBy' => $sentBy,
-            'ptst' => 'AC',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($reply, 'json'));
-        $this->assertEquals($reply, $this->serializer->deserialize($json, CalendarReply::class, 'json'));
     }
 }

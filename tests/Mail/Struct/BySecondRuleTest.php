@@ -30,11 +30,5 @@ class BySecondRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, BySecondRule::class, 'xml'));
-
-        $json = json_encode([
-            'seclist' => $list,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, BySecondRule::class, 'json'));
     }
 }

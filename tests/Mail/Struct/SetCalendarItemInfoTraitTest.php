@@ -81,61 +81,6 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, SetCalendarItemInfoImp::class, 'xml'));
-
-        $json = json_encode([
-            'ptst' => 'AC',
-            'm' => [
-                'aid' => $id,
-                'origid' => $origId,
-                'rt' => 'r',
-                'idnt' => $identityId,
-                'su' => $subject,
-                'irt' => $inReplyTo,
-                'l' => $folderId,
-                'f' => $flags,
-                'header' => [
-                    [
-                        'name' => $name,
-                        '_content' => $value,
-                    ],
-                ],
-                'content' => [
-                    '_content' => $content,
-                ],
-                'mp' => [
-                    'ct' => $contentType,
-                    'content' => $content,
-                    'ci' => $contentId,
-                ],
-                'attach' => [
-                    'aid' => $id,
-                ],
-                'inv' => [
-                    'method' => $method,
-                    'compNum' => $componentNum,
-                    'rsvp' => TRUE,
-                ],
-                'e' => [
-                    [
-                        'a' => $address,
-                        't' => 't',
-                        'p' => $personal,
-                    ],
-                ],
-                'tz' => [
-                    [
-                        'id' => $id,
-                        'stdoff' => $tzStdOffset,
-                        'dayoff' => $tzDayOffset,
-                    ],
-                ],
-                'fr' => [
-                    '_content' => $fragment,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, SetCalendarItemInfoImp::class, 'json'));
     }
 }
 

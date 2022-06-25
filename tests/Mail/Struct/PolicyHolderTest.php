@@ -37,17 +37,5 @@ class PolicyHolderTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($holder, 'xml'));
         $this->assertEquals($holder, $this->serializer->deserialize($xml, PolicyHolder::class, 'xml'));
-
-        $json = json_encode([
-            'policy' => [
-                'type' => 'system',
-                'id' => $id,
-                'name' => $name,
-                'lifetime' => $lifetime,
-                '_jsns' => 'urn:zimbraMail',
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($holder, 'json'));
-        $this->assertEquals($holder, $this->serializer->deserialize($json, PolicyHolder::class, 'json'));
     }
 }

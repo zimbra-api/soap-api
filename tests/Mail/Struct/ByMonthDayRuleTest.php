@@ -31,11 +31,5 @@ class ByMonthDayRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByMonthDayRule::class, 'xml'));
-
-        $json = json_encode([
-            'modaylist' => $list,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, ByMonthDayRule::class, 'json'));
     }
 }

@@ -117,34 +117,5 @@ class CommonInstanceDataAttrsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
         $this->assertEquals($data, $this->serializer->deserialize($xml, CommonInstanceDataAttrs::class, 'xml'));
-
-        $json = json_encode([
-            'ptst' => 'AC',
-            'ridZ' => $recurIdZ,
-            'tzo' => $tzOffset,
-            'fba' => 'F',
-            'percentComplete' => $taskPercentComplete,
-            'recur' => TRUE,
-            'hasEx' => TRUE,
-            'priority' => $priority,
-            'fb' => 'B',
-            'transp' => 'T',
-            'name' => $name,
-            'loc' => $location,
-            'otherAtt' => TRUE,
-            'alarm' => TRUE,
-            'isOrg' => TRUE,
-            'invId' => $invId,
-            'compNum' => $componentNum,
-            'status' => 'CONF',
-            'class' => 'PUB',
-            'allDay' => TRUE,
-            'draft' => TRUE,
-            'neverSent' => TRUE,
-            'dueDate' => $taskDueDate,
-            'tzoDue' => $taskTzOffsetDue,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($data, 'json'));
-        $this->assertEquals($data, $this->serializer->deserialize($json, CommonInstanceDataAttrs::class, 'json'));
     }
 }

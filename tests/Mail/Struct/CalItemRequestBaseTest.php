@@ -98,65 +98,6 @@ class CalItemRequestBaseTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($request, 'xml'));
         $this->assertEquals($request, $this->serializer->deserialize($xml, CalItemRequest::class, 'xml'));
-
-        $json = json_encode([
-            'echo' => TRUE,
-            'max' => $maxSize,
-            'want' => TRUE,
-            'neuter' => TRUE,
-            'forcesend' => TRUE,
-            'm' => [
-                'aid' => $id,
-                'origid' => $origId,
-                'rt' => 'r',
-                'idnt' => $identityId,
-                'su' => $subject,
-                'irt' => $inReplyTo,
-                'l' => $folderId,
-                'f' => $flags,
-                'header' => [
-                    [
-                        'name' => $name,
-                        '_content' => $value,
-                    ],
-                ],
-                'content' => [
-                    '_content' => $content,
-                ],
-                'mp' => [
-                    'ct' => $contentType,
-                    'content' => $content,
-                    'ci' => $contentId,
-                ],
-                'attach' => [
-                    'aid' => $id,
-                ],
-                'inv' => [
-                    'method' => $method,
-                    'compNum' => $componentNum,
-                    'rsvp' => TRUE,
-                ],
-                'e' => [
-                    [
-                        'a' => $address,
-                        't' => 't',
-                        'p' => $personal,
-                    ],
-                ],
-                'tz' => [
-                    [
-                        'id' => $id,
-                        'stdoff' => $tzStdOffset,
-                        'dayoff' => $tzDayOffset,
-                    ],
-                ],
-                'fr' => [
-                    '_content' => $fragment,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($request, 'json'));
-        $this->assertEquals($request, $this->serializer->deserialize($json, CalItemRequest::class, 'json'));
     }
 }
 

@@ -33,12 +33,5 @@ class DataSourceUsageTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dsUsage, 'xml'));
         $this->assertEquals($dsUsage, $this->serializer->deserialize($xml, DataSourceUsage::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'usage' => $usage,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dsUsage, 'json'));
-        $this->assertEquals($dsUsage, $this->serializer->deserialize($json, DataSourceUsage::class, 'json'));
     }
 }

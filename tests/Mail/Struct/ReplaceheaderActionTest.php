@@ -48,34 +48,5 @@ class ReplaceheaderActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ReplaceheaderAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'last' => TRUE,
-            'offset' => $offset,
-            'test' => [
-                'matchType' => 'contains',
-                'countComparator' => TRUE,
-                'valueComparator' => TRUE,
-                'relationalComparator' => 'eq',
-                'comparator' => 'i;ascii-numeric',
-                'headerName' => [
-                    '_content' => $headerName,
-                ],
-                'headerValue' => [
-                    [
-                        '_content' => $headerValue,
-                    ]
-                ],
-            ],
-            'newName' => [
-                '_content' => $newName,
-            ],
-            'newValue' => [
-                '_content' => $newValue,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ReplaceheaderAction::class, 'json'));
     }
 }

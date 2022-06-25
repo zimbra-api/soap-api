@@ -33,12 +33,5 @@ class ICalContentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, ICalContent::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            '_content' => $ical,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
-        $this->assertEquals($content, $this->serializer->deserialize($json, ICalContent::class, 'json'));
     }
 }

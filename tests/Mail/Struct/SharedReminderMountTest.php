@@ -32,12 +32,5 @@ class SharedReminderMountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mount, 'xml'));
         $this->assertEquals($mount, $this->serializer->deserialize($xml, SharedReminderMount::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'reminder' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mount, 'json'));
-        $this->assertEquals($mount, $this->serializer->deserialize($json, SharedReminderMount::class, 'json'));
     }
 }

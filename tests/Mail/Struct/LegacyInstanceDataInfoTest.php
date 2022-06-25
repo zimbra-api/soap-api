@@ -78,41 +78,5 @@ class LegacyInstanceDataInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
         $this->assertEquals($data, $this->serializer->deserialize($xml, LegacyInstanceDataInfo::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'ex' => TRUE,
-            'or' => [
-                'a' => $address,
-                'url' => $url,
-                'd' => $displayName,
-                'sentBy' => $sentBy,
-                'dir' => $dir,
-                'lang' => $language,
-                'xparam' => [
-                    [
-                        'name' => $name,
-                        'value' => $value,
-                    ],
-                ],
-            ],
-            'category' => [
-                [
-                    '_content' => $category1,
-                ],
-                [
-                    '_content' => $category2,
-                ],
-            ],
-            'geo' => [
-                'lat' => $latitude,
-                'lon' => $longitude,
-            ],
-            'fr' => [
-                '_content' => $fragment,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($data, 'json'));
-        $this->assertEquals($data, $this->serializer->deserialize($json, LegacyInstanceDataInfo::class, 'json'));
     }
 }

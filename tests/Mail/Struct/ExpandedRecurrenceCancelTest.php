@@ -50,31 +50,5 @@ class ExpandedRecurrenceCancelTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cancel, 'xml'));
         $this->assertEquals($cancel, $this->serializer->deserialize($xml, ExpandedRecurrenceCancel::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'e' => $endTime,
-            'exceptId' => [
-                'range' => $range,
-                'd' => $dateTime,
-                'tz' => $timezone,
-            ],
-            'dur' => [
-                'w' => $weeks,
-                'd' => $days,
-                'h' => $hours,
-                'm' => $minutes,
-                's' => $seconds,
-            ],
-            'recur' => [
-                'rule' => [
-                    [
-                        'freq' => 'HOU',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cancel, 'json'));
-        $this->assertEquals($cancel, $this->serializer->deserialize($json, ExpandedRecurrenceCancel::class, 'json'));
     }
 }

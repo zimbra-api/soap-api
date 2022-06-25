@@ -37,15 +37,5 @@ class ImapMessageInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ImapMessageInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'i4uid' => $imapUid,
-            't' => $type,
-            'f' => $flags,
-            'tn' => $tags,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, ImapMessageInfo::class, 'json'));
     }
 }

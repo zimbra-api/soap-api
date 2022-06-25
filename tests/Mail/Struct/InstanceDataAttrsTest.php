@@ -29,11 +29,5 @@ class InstanceDataAttrsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
         $this->assertEquals($data, $this->serializer->deserialize($xml, InstanceDataAttrs::class, 'xml'));
-
-        $json = json_encode([
-            'dur' => $duration,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($data, 'json'));
-        $this->assertEquals($data, $this->serializer->deserialize($json, InstanceDataAttrs::class, 'json'));
     }
 }

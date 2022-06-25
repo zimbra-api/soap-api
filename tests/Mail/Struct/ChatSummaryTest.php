@@ -44,29 +44,5 @@ class ChatSummaryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($chat, 'xml'));
         $this->assertEquals($chat, $this->serializer->deserialize($xml, ChatSummary::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'autoSendTime' => $autoSendTime,
-            'e' => [
-                [
-                    'a' => $address,
-                    'd' => $display,
-                    'p' => $personal,
-                    't' => 't',
-                ],
-            ],
-            'su' => [
-                '_content' => $subject,
-            ],
-            'fr' => [
-                '_content' => $fragment,
-            ],
-            'inv' => [
-                'type' => 'task',
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($chat, 'json'));
-        $this->assertEquals($chat, $this->serializer->deserialize($json, ChatSummary::class, 'json'));
     }
 }

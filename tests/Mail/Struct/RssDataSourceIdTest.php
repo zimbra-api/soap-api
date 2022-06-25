@@ -23,11 +23,5 @@ class RssDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rss, 'xml'));
         $this->assertEquals($rss, $this->serializer->deserialize($xml, RssDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rss, 'json'));
-        $this->assertEquals($rss, $this->serializer->deserialize($json, RssDataSourceId::class, 'json'));
     }
 }

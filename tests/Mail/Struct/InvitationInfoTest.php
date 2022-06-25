@@ -69,43 +69,5 @@ class InvitationInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, InvitationInfo::class, 'xml'));
-
-        $json = json_encode([
-            'method' => $method,
-            'compNum' => $componentNum,
-            'rsvp' => TRUE,
-            'id' => $id,
-            'ct' => $contentType,
-            'ci' => $contentId,
-            'content' => [
-                'uid' => $id,
-                'summary' => $summary,
-                '_content' => $value,
-            ],
-            'comp' => [
-                'method' => $method,
-                'compNum' => $componentNum,
-                'rsvp' => TRUE,
-            ],
-            'tz' => [
-                [
-                    'id' => $id,
-                    'stdoff' => $tzStdOffset,
-                    'dayoff' => $tzDayOffset,
-                ],
-            ],
-            'mp' => [
-                [
-                    'ct' => $contentType,
-                    'content' => $value,
-                    'ci' => $contentId,
-                ],
-            ],
-            'attach' => [
-                'aid' => $id,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($inv, 'json'));
-        $this->assertEquals($inv, $this->serializer->deserialize($json, InvitationInfo::class, 'json'));
     }
 }

@@ -52,19 +52,5 @@ class GenerateUUIDTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GenerateUUIDEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GenerateUUIDRequest' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GenerateUUIDResponse' => [
-                    '_content' => $uuid,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GenerateUUIDEnvelope::class, 'json'));
     }
 }

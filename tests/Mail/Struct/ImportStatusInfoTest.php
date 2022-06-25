@@ -39,18 +39,9 @@ class ImportStatusInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($status, 'xml'));
         $this->assertEquals($status, $this->serializer->deserialize($xml, ImportStatusInfoExt::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'isRunning' => TRUE,
-            'success' => TRUE,
-            'error' => $error,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($status, 'json'));
-        $this->assertEquals($status, $this->serializer->deserialize($json, ImportStatusInfoExt::class, 'json'));
     }
 }
 
-class ImportStatusInfoExt extends ImportStatusInfo {
-
+class ImportStatusInfoExt extends ImportStatusInfo
+{
 }

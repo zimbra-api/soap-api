@@ -39,14 +39,5 @@ class VCardInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($vcard, 'xml'));
         $this->assertEquals($vcard, $this->serializer->deserialize($xml, VCardInfo::class, 'xml'));
-
-        $json = json_encode([
-            'mid' => $messageId,
-            'part' => $part,
-            'aid' => $attachId,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($vcard, 'json'));
-        $this->assertEquals($vcard, $this->serializer->deserialize($json, VCardInfo::class, 'json'));
     }
 }

@@ -53,20 +53,5 @@ class ConversationSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conv, 'xml'));
         $this->assertEquals($conv, $this->serializer->deserialize($xml, ConversationSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'fetch' => $inlineRule,
-            'html' => TRUE,
-            'max' => $maxInlinedLength,
-            'needExp' => TRUE,
-            'header' => [
-                [
-                    'n' => $name,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($conv, 'json'));
-        $this->assertEquals($conv, $this->serializer->deserialize($json, ConversationSpec::class, 'json'));
     }
 }

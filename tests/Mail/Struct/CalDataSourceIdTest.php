@@ -23,11 +23,5 @@ class CalDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
         $this->assertEquals($cal, $this->serializer->deserialize($xml, CalDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cal, 'json'));
-        $this->assertEquals($cal, $this->serializer->deserialize($json, CalDataSourceId::class, 'json'));
     }
 }

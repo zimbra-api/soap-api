@@ -30,12 +30,5 @@ class RightPermissionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightPermission::class, 'xml'));
-
-        $json = json_encode([
-            'allow' => TRUE,
-            '_content' => $rightName,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, RightPermission::class, 'json'));
     }
 }

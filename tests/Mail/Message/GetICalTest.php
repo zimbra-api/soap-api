@@ -72,25 +72,5 @@ class GetICalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetICalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetICalRequest' => [
-                    'id' => $id,
-                    's' => $startTime,
-                    'e' => $endTime,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetICalResponse' => [
-                    'ical' => [
-                        'id' => $id,
-                        '_content' => $ical,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetICalEnvelope::class, 'json'));
     }
 }

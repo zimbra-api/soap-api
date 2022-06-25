@@ -79,28 +79,5 @@ class CheckSpellingTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckSpellingEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckSpellingRequest' => [
-                    'dictionary' => $dictionary,
-                    'ignore' => $ignoreList,
-                    '_content' => $text,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CheckSpellingResponse' => [
-                    'available' => TRUE,
-                    'misspelled' => [
-                        [
-                            'word' => $word,
-                            'suggestions' => $suggestions,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckSpellingEnvelope::class, 'json'));
     }
 }

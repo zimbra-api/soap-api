@@ -98,45 +98,5 @@ class GetMiniCalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetMiniCalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetMiniCalRequest' => [
-                    's' => $startTime,
-                    'e' => $endTime,
-                    'folder' => [
-                        [
-                            'id' => $id,
-                        ],
-                    ],
-                    'tz' => [
-                        'id' => $id,
-                        'stdoff' => $tzStdOffset,
-                        'dayoff' => $tzDayOffset,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetMiniCalResponse' => [
-                    'date' => [
-                        [
-                            '_content' => $date1,
-                        ],
-                        [
-                            '_content' => $date2,
-                        ],
-                    ],
-                    'error' => [
-                        [
-                            'id' => $id,
-                            'code' => $code,
-                            '_content' => $errorMessage,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetMiniCalEnvelope::class, 'json'));
     }
 }

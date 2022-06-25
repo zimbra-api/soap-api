@@ -28,12 +28,5 @@ class FlagActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FlagAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'flagName' => $flag,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, FlagAction::class, 'json'));
     }
 }

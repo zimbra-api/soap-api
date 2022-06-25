@@ -23,11 +23,5 @@ class CaldavDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($caldav, 'xml'));
         $this->assertEquals($caldav, $this->serializer->deserialize($xml, CaldavDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($caldav, 'json'));
-        $this->assertEquals($caldav, $this->serializer->deserialize($json, CaldavDataSourceId::class, 'json'));
     }
 }

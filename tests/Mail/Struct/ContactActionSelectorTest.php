@@ -45,21 +45,5 @@ class ContactActionSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ContactActionSelector::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $ids,
-            'op' => $operation,
-            'attr' => [
-                [
-                    'n' => $name,
-                    'aid' => $attachId,
-                    'id' => $id,
-                    'part' => $part,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ContactActionSelector::class, 'json'));
     }
 }

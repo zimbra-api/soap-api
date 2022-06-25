@@ -53,21 +53,5 @@ class GetLastItemIdInMailboxTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLastItemIdInMailboxEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetLastItemIdInMailboxRequest' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetLastItemIdInMailboxResponse' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLastItemIdInMailboxEnvelope::class, 'json'));
     }
 }

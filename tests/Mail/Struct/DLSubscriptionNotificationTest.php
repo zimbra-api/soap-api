@@ -26,14 +26,5 @@ class DLSubscriptionNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dlSubs, 'xml'));
         $this->assertEquals($dlSubs, $this->serializer->deserialize($xml, DLSubscriptionNotification::class, 'xml'));
-
-        $json = json_encode([
-            'truncated' => TRUE,
-            'content' => [
-                '_content' => $content,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dlSubs, 'json'));
-        $this->assertEquals($dlSubs, $this->serializer->deserialize($json, DLSubscriptionNotification::class, 'json'));
     }
 }

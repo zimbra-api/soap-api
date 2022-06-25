@@ -28,11 +28,5 @@ class WkstRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($wkst, 'xml'));
         $this->assertEquals($wkst, $this->serializer->deserialize($xml, WkstRule::class, 'xml'));
-
-        $json = json_encode([
-            'day' => 'SU',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($wkst, 'json'));
-        $this->assertEquals($wkst, $this->serializer->deserialize($json, WkstRule::class, 'json'));
     }
 }

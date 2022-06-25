@@ -36,13 +36,5 @@ class EmailAddrInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($email, 'xml'));
         $this->assertEquals($email, $this->serializer->deserialize($xml, EmailAddrInfo::class, 'xml'));
-
-        $json = json_encode([
-            'a' => $address,
-            't' => 't',
-            'p' => $personal,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($email, 'json'));
-        $this->assertEquals($email, $this->serializer->deserialize($json, EmailAddrInfo::class, 'json'));
     }
 }

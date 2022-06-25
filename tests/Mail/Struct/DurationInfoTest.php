@@ -52,18 +52,5 @@ class DurationInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, DurationInfo::class, 'xml'));
-
-        $json = json_encode([
-            'neg' => TRUE,
-            'w' => $weeks,
-            'd' => $days,
-            'h' => $hours,
-            'm' => $minutes,
-            's' => $seconds,
-            'related' => 'START',
-            'count' => $repeatCount,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, DurationInfo::class, 'json'));
     }
 }

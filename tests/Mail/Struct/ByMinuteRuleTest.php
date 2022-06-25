@@ -30,11 +30,5 @@ class ByMinuteRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByMinuteRule::class, 'xml'));
-
-        $json = json_encode([
-            'minlist' => $list,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, ByMinuteRule::class, 'json'));
     }
 }

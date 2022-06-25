@@ -30,14 +30,5 @@ class ReplyActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ReplyAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'content' => [
-                '_content' => $content,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ReplyAction::class, 'json'));
     }
 }

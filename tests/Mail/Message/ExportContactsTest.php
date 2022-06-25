@@ -77,26 +77,5 @@ class ExportContactsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ExportContactsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ExportContactsRequest' => [
-                    'ct' => $contentType,
-                    'l' => $folderId,
-                    'csvfmt' => $csvFormat,
-                    'csvlocale' => $csvLocale,
-                    'csvsep' => $csvDelimiter,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'ExportContactsResponse' => [
-                    'content' => [
-                        '_content' => $content,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ExportContactsEnvelope::class, 'json'));
     }
 }

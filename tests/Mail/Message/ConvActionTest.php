@@ -75,31 +75,5 @@ class ConvActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ConvActionEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ConvActionRequest' => [
-                    'action' => [
-                        'id' => $id,
-                        'op' => $operation,
-                        'acctRelPath' => [
-                            '_content' => $acctRelativePath,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'ConvActionResponse' => [
-                    'action' => [
-                        'id' => $id,
-                        'op' => $operation,
-                        'nei' => $nonExistentIds,
-                        'nci' => $newlyCreatedIds,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ConvActionEnvelope::class, 'json'));
     }
 }

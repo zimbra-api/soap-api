@@ -39,14 +39,5 @@ class PolicyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($policy, 'xml'));
         $this->assertEquals($policy, $this->serializer->deserialize($xml, Policy::class, 'xml'));
-
-        $json = json_encode([
-            'type' =>'user',
-            'id' => $id,
-            'name' => $name,
-            'lifetime' => $lifetime,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($policy, 'json'));
-        $this->assertEquals($policy, $this->serializer->deserialize($json, Policy::class, 'json'));
     }
 }

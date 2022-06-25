@@ -35,18 +35,5 @@ class ModifyItemNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ModifyItemNotification::class, 'xml'));
-
-        $json = json_encode([
-            'change' => $changeBitmask,
-            'm' => [
-                'id' => $id,
-                'i4uid' => $imapUid,
-                't' => $type,
-                'f' => $flags,
-                'tn' => $tags,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, ModifyItemNotification::class, 'json'));
     }
 }

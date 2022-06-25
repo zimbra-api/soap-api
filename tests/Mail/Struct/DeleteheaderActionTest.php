@@ -47,28 +47,5 @@ class DeleteheaderActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, DeleteheaderAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'last' => TRUE,
-            'offset' => $offset,
-            'test' => [
-                'matchType' => 'contains',
-                'countComparator' => TRUE,
-                'valueComparator' => TRUE,
-                'relationalComparator' => 'eq',
-                'comparator' => 'i;ascii-numeric',
-                'headerName' => [
-                    '_content' => $headerName,
-                ],
-                'headerValue' => [
-                    [
-                        '_content' => $headerValue,
-                    ]
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, DeleteheaderAction::class, 'json'));
     }
 }

@@ -31,11 +31,5 @@ class BySetPosRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, BySetPosRule::class, 'xml'));
-
-        $json = json_encode([
-            'poslist' => $list,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, BySetPosRule::class, 'json'));
     }
 }

@@ -90,31 +90,5 @@ class CommentInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comment, 'xml'));
         $this->assertEquals($comment, $this->serializer->deserialize($xml, CommentInfo::class, 'xml'));
-
-        $json = json_encode([
-            'parentId' => $parentId,
-            'id' => $id,
-            'uuid' => $uuid,
-            'email' => $creatorEmail,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'rgb' => $rgb,
-            'color' => $color,
-            'd' => $date,
-            'meta' => [
-                [
-                    'section' => $section,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($comment, 'json'));
-        $this->assertEquals($comment, $this->serializer->deserialize($json, CommentInfo::class, 'json'));
     }
 }

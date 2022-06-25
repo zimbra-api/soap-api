@@ -38,18 +38,5 @@ class AddheaderActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, AddheaderAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'headerName' => [
-                '_content' => $headerName,
-            ],
-            'headerValue' => [
-                '_content' => $headerValue,
-            ],
-            'last' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, AddheaderAction::class, 'json'));
     }
 }

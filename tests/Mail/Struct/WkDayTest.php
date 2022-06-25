@@ -32,12 +32,5 @@ class WkDayTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($wkday, 'xml'));
         $this->assertEquals($wkday, $this->serializer->deserialize($xml, WkDay::class, 'xml'));
-
-        $json = json_encode([
-            'day' => 'SU',
-            'ordwk' => $ordWk,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($wkday, 'json'));
-        $this->assertEquals($wkday, $this->serializer->deserialize($json, WkDay::class, 'json'));
     }
 }

@@ -27,11 +27,5 @@ class NumAttrTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, NumAttr::class, 'xml'));
-
-        $json = json_encode([
-            'num' => $num,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, NumAttr::class, 'json'));
     }
 }

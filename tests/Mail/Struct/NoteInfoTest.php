@@ -106,36 +106,5 @@ class NoteInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($note, 'xml'));
         $this->assertEquals($note, $this->serializer->deserialize($xml, NoteInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'rev' => $revision,
-            'l' => $folder,
-            'd' => $date,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'pos' => $bounds,
-            'rgb' => $rgb,
-            'color' => $color,
-            'md' => $changeDate,
-            'ms' => $modifiedSequence,
-            'content' => [
-                '_content' => $content,
-            ],
-            'meta' => [
-                [
-                    'section' => $section,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($note, 'json'));
-        $this->assertEquals($note, $this->serializer->deserialize($json, NoteInfo::class, 'json'));
     }
 }

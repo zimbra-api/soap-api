@@ -85,38 +85,5 @@ class CheckPermissionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckPermissionEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckPermissionRequest' => [
-                    'target' => [
-                        'type' => 'account',
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'right' => [
-                        [
-                            '_content' => $right1,
-                        ],
-                        [
-                            '_content' => $right2,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CheckPermissionResponse' => [
-                    'allow' => TRUE,
-                    'right' => [
-                        [
-                            'allow' => TRUE,
-                            '_content' => $rightName,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckPermissionEnvelope::class, 'json'));
     }
 }

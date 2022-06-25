@@ -31,12 +31,5 @@ class IMAPItemInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, IMAPItemInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'i4uid' => $imapUid,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, IMAPItemInfo::class, 'json'));
     }
 }

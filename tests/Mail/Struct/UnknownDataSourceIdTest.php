@@ -23,11 +23,5 @@ class UnknownDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($unknown, 'xml'));
         $this->assertEquals($unknown, $this->serializer->deserialize($xml, UnknownDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($unknown, 'json'));
-        $this->assertEquals($unknown, $this->serializer->deserialize($json, UnknownDataSourceId::class, 'json'));
     }
 }

@@ -65,31 +65,5 @@ class ExpandedRecurrenceComponentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exp, 'xml'));
         $this->assertEquals($exp, $this->serializer->deserialize($xml, ExpandedRecurrenceComponent::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'e' => $endTime,
-            'exceptId' => [
-                'range' => $range,
-                'd' => $dateTime,
-                'tz' => $timezone,
-            ],
-            'dur' => [
-                'w' => $weeks,
-                'd' => $days,
-                'h' => $hours,
-                'm' => $minutes,
-                's' => $seconds,
-            ],
-            'recur' => [
-                'rule' => [
-                    [
-                        'freq' => 'HOU',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($exp, 'json'));
-        $this->assertEquals($exp, $this->serializer->deserialize($json, ExpandedRecurrenceComponent::class, 'json'));
     }
 }

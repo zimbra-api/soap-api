@@ -30,13 +30,5 @@ class MeTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, MeTest::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'negative' => TRUE,
-            'header' => $header,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, MeTest::class, 'json'));
     }
 }

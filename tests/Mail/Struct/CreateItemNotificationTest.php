@@ -34,17 +34,5 @@ class CreateItemNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($created, 'xml'));
         $this->assertEquals($created, $this->serializer->deserialize($xml, CreateItemNotification::class, 'xml'));
-
-        $json = json_encode([
-            'm' => [
-                'id' => $id,
-                'i4uid' => $imapUid,
-                't' => $type,
-                'f' => $flags,
-                'tn' => $tags,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($created, 'json'));
-        $this->assertEquals($created, $this->serializer->deserialize($json, CreateItemNotification::class, 'json'));
     }
 }

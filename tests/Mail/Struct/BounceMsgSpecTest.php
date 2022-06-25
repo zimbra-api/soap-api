@@ -41,18 +41,5 @@ class BounceMsgSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, BounceMsgSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'e' => [
-                [
-                    'a' => $address,
-                    't' => 't',
-                    'p' => $personal,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($msg, 'json'));
-        $this->assertEquals($msg, $this->serializer->deserialize($json, BounceMsgSpec::class, 'json'));
     }
 }

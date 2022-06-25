@@ -29,11 +29,5 @@ class LegacyInstanceDataAttrsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
         $this->assertEquals($data, $this->serializer->deserialize($xml, LegacyInstanceDataAttrs::class, 'xml'));
-
-        $json = json_encode([
-            'd' => $duration,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($data, 'json'));
-        $this->assertEquals($data, $this->serializer->deserialize($json, LegacyInstanceDataAttrs::class, 'json'));
     }
 }

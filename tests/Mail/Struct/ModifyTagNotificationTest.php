@@ -34,17 +34,5 @@ class ModifyTagNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ModifyTagNotification::class, 'xml'));
-
-        $json = json_encode([
-            'change' => $changeBitmask,
-            'id' => [
-                '_content' => $id,
-            ],
-            'name' => [
-                '_content' => $name,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, ModifyTagNotification::class, 'json'));
     }
 }

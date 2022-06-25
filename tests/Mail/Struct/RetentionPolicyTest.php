@@ -43,30 +43,5 @@ class RetentionPolicyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($retention, 'xml'));
         $this->assertEquals($retention, $this->serializer->deserialize($xml, RetentionPolicy::class, 'xml'));
-
-        $json = json_encode([
-            'keep' => [
-                'policy' => [
-                    [
-                        'type' => 'system',
-                        'id' => $id,
-                        'name' => $name,
-                        'lifetime' => $lifetime,
-                    ],
-                ],
-            ],
-            'purge' => [
-                'policy' => [
-                    [
-                        'type' => 'user',
-                        'id' => $id,
-                        'name' => $name,
-                        'lifetime' => $lifetime,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($retention, 'json'));
-        $this->assertEquals($retention, $this->serializer->deserialize($json, RetentionPolicy::class, 'json'));
     }
 }

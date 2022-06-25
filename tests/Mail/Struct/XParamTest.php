@@ -31,12 +31,5 @@ class XParamTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xparam, 'xml'));
         $this->assertEquals($xparam, $this->serializer->deserialize($xml, XParam::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'value' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xparam, 'json'));
-        $this->assertEquals($xparam, $this->serializer->deserialize($json, XParam::class, 'json'));
     }
 }

@@ -37,13 +37,5 @@ class IdEmailNameTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
         $this->assertEquals($doc, $this->serializer->deserialize($xml, IdEmailName::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'email' => $email,
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($doc, 'json'));
-        $this->assertEquals($doc, $this->serializer->deserialize($json, IdEmailName::class, 'json'));
     }
 }

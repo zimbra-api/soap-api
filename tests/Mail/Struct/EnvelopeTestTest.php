@@ -30,20 +30,5 @@ class EnvelopeTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EnvelopeTest::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'negative' => TRUE,
-            'header' => $header,
-            'part' => 'domain',
-            'stringComparison' => 'contains',
-            'caseSensitive' => TRUE,
-            'value' => $value,
-            'valueComparison' => 'eq',
-            'countComparison' => 'eq',
-            'valueComparisonComparator' => 'i;ascii-numeric',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, EnvelopeTest::class, 'json'));
     }
 }

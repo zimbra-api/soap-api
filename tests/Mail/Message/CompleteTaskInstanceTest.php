@@ -75,29 +75,5 @@ class CompleteTaskInstanceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CompleteTaskInstanceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CompleteTaskInstanceRequest' => [
-                    'id' => $id,
-                    'exceptId' => [
-                        'd' => $dateTime,
-                        'tz' => $tz,
-                        'u' => $utcTime,
-                    ],
-                    'tz' => [
-                        'id' => $id,
-                        'stdoff' => $tzStdOffset,
-                        'dayoff' => $tzDayOffset,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CompleteTaskInstanceResponse' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CompleteTaskInstanceEnvelope::class, 'json'));
     }
 }

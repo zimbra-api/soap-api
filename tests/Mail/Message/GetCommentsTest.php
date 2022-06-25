@@ -110,53 +110,5 @@ class GetCommentsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCommentsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetCommentsRequest' => [
-                    'comment' => [
-                        'parentId' => $parentId,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetCommentsResponse' => [
-                    'user' => [
-                        [
-                            'id' => $id,
-                            'email' => $email,
-                            'name' => $name,
-                        ],
-                    ],
-                    'comment' => [
-                        [
-                            'parentId' => $parentId,
-                            'id' => $id,
-                            'uuid' => $uuid,
-                            'email' => $creatorEmail,
-                            'f' => $flags,
-                            't' => $tags,
-                            'tn' => $tagNames,
-                            'rgb' => $rgb,
-                            'color' => $color,
-                            'd' => $date,
-                            'meta' => [
-                                [
-                                    'section' => $section,
-                                    'a' => [
-                                        [
-                                            'n' => $key,
-                                            '_content' => $value,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetCommentsEnvelope::class, 'json'));
     }
 }

@@ -36,14 +36,5 @@ class DocAttachSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, DocAttachSpec::class, 'xml'));
-
-        $json = json_encode([
-            'path' => $path,
-            'id' => $id,
-            'ver' => $version,
-            'optional' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($spec, 'json'));
-        $this->assertEquals($spec, $this->serializer->deserialize($json, DocAttachSpec::class, 'json'));
     }
 }

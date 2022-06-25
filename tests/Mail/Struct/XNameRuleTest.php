@@ -31,12 +31,5 @@ class XNameRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xname, 'xml'));
         $this->assertEquals($xname, $this->serializer->deserialize($xml, XNameRule::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'value' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xname, 'json'));
-        $this->assertEquals($xname, $this->serializer->deserialize($json, XNameRule::class, 'json'));
     }
 }

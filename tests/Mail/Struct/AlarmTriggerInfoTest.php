@@ -45,20 +45,5 @@ class AlarmTriggerInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($trigger, 'xml'));
         $this->assertEquals($trigger, $this->serializer->deserialize($xml, AlarmTriggerInfo::class, 'xml'));
-
-        $json = json_encode([
-            'abs' => [
-                'd' => $date,
-            ],
-            'rel' => [
-                'w' => $weeks,
-                'd' => $days,
-                'h' => $hours,
-                'm' => $minutes,
-                's' => $seconds,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($trigger, 'json'));
-        $this->assertEquals($trigger, $this->serializer->deserialize($json, AlarmTriggerInfo::class, 'json'));
     }
 }

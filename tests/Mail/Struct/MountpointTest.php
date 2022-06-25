@@ -67,19 +67,5 @@ class MountpointTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($link, 'xml'));
         $this->assertEquals($link, $this->serializer->deserialize($xml, Mountpoint::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'uuid' => $uuid,
-            'owner' => $ownerEmail,
-            'zid' => $ownerAccountId,
-            'rid' => $remoteFolderId,
-            'ruuid' => $remoteUuid,
-            'oname' => $remoteFolderName,
-            'reminder' => TRUE,
-            'broken' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($link, 'json'));
-        $this->assertEquals($link, $this->serializer->deserialize($json, Mountpoint::class, 'json'));
     }
 }

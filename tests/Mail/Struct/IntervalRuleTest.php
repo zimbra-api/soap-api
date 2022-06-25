@@ -27,11 +27,5 @@ class IntervalRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, IntervalRule::class, 'xml'));
-
-        $json = json_encode([
-            'ival' => $ival,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, IntervalRule::class, 'json'));
     }
 }

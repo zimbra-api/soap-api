@@ -72,30 +72,5 @@ class GetMailboxMetadataTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetMailboxMetadataEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetMailboxMetadataRequest' => [
-                    'meta' => [
-                        'section' => $section,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetMailboxMetadataResponse' => [
-                    'meta' => [
-                        'section' => $section,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetMailboxMetadataEnvelope::class, 'json'));
     }
 }

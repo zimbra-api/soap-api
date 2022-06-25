@@ -109,44 +109,5 @@ class CreateMountpointTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateMountpointEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateMountpointRequest' => [
-                    'link' => [
-                        'name' => $name,
-                        'view' => 'conversation',
-                        'f' => $flags,
-                        'rgb' => $rgb,
-                        'color' => $color,
-                        'url' => $url,
-                        'l' => $folderId,
-                        'fie' => TRUE,
-                        'reminder' => TRUE,
-                        'zid' => $ownerId,
-                        'owner' => $ownerName,
-                        'rid' => $remoteId,
-                        'path' => $path,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CreateMountpointResponse' => [
-                    'link' => [
-                        'id' => $id,
-                        'uuid' => $uuid,
-                        'owner' => $ownerEmail,
-                        'zid' => $ownerAccountId,
-                        'rid' => $remoteFolderId,
-                        'ruuid' => $remoteUuid,
-                        'oname' => $remoteFolderName,
-                        'reminder' => TRUE,
-                        'broken' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateMountpointEnvelope::class, 'json'));
     }
 }
