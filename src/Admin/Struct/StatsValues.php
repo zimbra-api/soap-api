@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * StatsValues class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="values")
  */
 class StatsValues
 {
@@ -41,7 +39,7 @@ class StatsValues
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for StatsValues
@@ -53,7 +51,7 @@ class StatsValues
     public function __construct(string $t, array $stats = [])
     {
         $this->setT($t)
-            ->setStats($stats);
+             ->setStats($stats);
     }
 
     /**
@@ -98,12 +96,7 @@ class StatsValues
      */
     public function setStats(array $stats): self
     {
-        $this->stats = [];
-        foreach ($stats as $stat) {
-            if ($stat instanceof NameAndValue) {
-                $this->stats[] = $stat;
-            }
-        }
+        $this->stats = array_filter($stats, static fn ($stat) => $stat instanceof NameAndValue);
         return $this;
     }
 

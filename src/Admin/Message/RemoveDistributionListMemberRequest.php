@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RemoveDistributionListMemberRequest request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RemoveDistributionListMemberRequest")
  */
 class RemoveDistributionListMemberRequest extends Request
 {
@@ -45,7 +43,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Specify Accounts insteaf of members if you want to remove all addresses that belong to an account from the list
@@ -55,7 +53,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for RemoveDistributionListMemberRequest
@@ -117,10 +115,7 @@ class RemoveDistributionListMemberRequest extends Request
      */
     public function setMembers(array $members): self
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique($members);
         return $this;
     }
 
@@ -157,10 +152,7 @@ class RemoveDistributionListMemberRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            $this->addAccount($account);
-        }
+        $this->accounts = array_unique($accounts);
         return $this;
     }
 
@@ -177,14 +169,12 @@ class RemoveDistributionListMemberRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RemoveDistributionListMemberEnvelope)) {
-            $this->envelope = new RemoveDistributionListMemberEnvelope(
-                new RemoveDistributionListMemberBody($this)
-            );
-        }
+        return new RemoveDistributionListMemberEnvelope(
+            new RemoveDistributionListMemberBody($this)
+        );
     }
 }

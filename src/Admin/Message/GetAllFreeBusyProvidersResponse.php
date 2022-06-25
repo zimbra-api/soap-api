@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\FreeBusyProviderInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllFreeBusyProvidersResponse")
  */
 class GetAllFreeBusyProvidersResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllFreeBusyProvidersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\FreeBusyProviderInfo>")
      * @XmlList(inline = true, entry = "provider")
      */
-    private $providers;
+    private $providers = [];
 
     /**
      * Constructor method for GetAllFreeBusyProvidersResponse
@@ -68,12 +66,7 @@ class GetAllFreeBusyProvidersResponse implements ResponseInterface
      */
     public function setProviders(array $providers): self
     {
-        $this->providers = [];
-        foreach ($providers as $provider) {
-            if ($provider instanceof FreeBusyProviderInfo) {
-                $this->providers[] = $provider;
-            }
-        }
+        $this->providers = array_filter($providers, static fn ($provider) => $provider instanceof FreeBusyProviderInfo);
         return $this;
     }
 

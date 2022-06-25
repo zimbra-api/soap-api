@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletAcl;
-use Zimbra\Enum\AclType;
+use Zimbra\Common\Enum\AclType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,16 +27,9 @@ class ZimletAclTest extends ZimbraTestCase
         $type = AclType::GRANT()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<acl cos="$cos" acl="$type" />
+<result cos="$cos" acl="$type" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, ZimletAcl::class, 'xml'));
-
-        $json = json_encode([
-            'cos' => $cos,
-            'acl' => $type,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acl, 'json'));
-        $this->assertEquals($acl, $this->serializer->deserialize($json, ZimletAcl::class, 'json'));
     }
 }

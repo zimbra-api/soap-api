@@ -27,7 +27,7 @@ class ByMonthDayRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<bymonthday modaylist="$list" />
+<result modaylist="$list" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByMonthDayRule::class, 'xml'));

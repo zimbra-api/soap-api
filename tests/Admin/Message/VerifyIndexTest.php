@@ -69,27 +69,5 @@ class VerifyIndexTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, VerifyIndexEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'VerifyIndexRequest' => [
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'VerifyIndexResponse' => [
-                    'status' => [
-                        '_content' => TRUE,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, VerifyIndexEnvelope::class, 'json'));
     }
 }

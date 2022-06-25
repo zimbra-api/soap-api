@@ -10,11 +10,11 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\TargetWithType as Target;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCreateObjectAttrsRequest request class
@@ -27,8 +27,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetCreateObjectAttrsRequest")
  */
 class GetCreateObjectAttrsRequest extends Request
 {
@@ -39,7 +37,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement
      */
-    private $target;
+    private Target $target;
 
     /**
      * Domain
@@ -52,7 +50,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * COS
@@ -63,7 +61,7 @@ class GetCreateObjectAttrsRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * Constructor method for GetCreateObjectAttrsRequest
@@ -153,14 +151,12 @@ class GetCreateObjectAttrsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetCreateObjectAttrsEnvelope)) {
-            $this->envelope = new GetCreateObjectAttrsEnvelope(
-                new GetCreateObjectAttrsBody($this)
-            );
-        }
+        return new GetCreateObjectAttrsEnvelope(
+            new GetCreateObjectAttrsBody($this)
+        );
     }
 }

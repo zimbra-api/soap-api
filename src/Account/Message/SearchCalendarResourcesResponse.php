@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\CalendarResourceInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchCalendarResourcesResponse")
  */
 class SearchCalendarResourcesResponse implements ResponseInterface
 {
@@ -73,7 +71,7 @@ class SearchCalendarResourcesResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\CalendarResourceInfo>")
      * @XmlList(inline = true, entry = "calresource")
      */
-    private $calendarResources;
+    private $calendarResources = [];
 
     /**
      * Constructor method for SearchCalendarResourcesResponse
@@ -211,17 +209,12 @@ class SearchCalendarResourcesResponse implements ResponseInterface
     /**
      * Sets calendarResources
      *
-     * @param  array $calendarResources
+     * @param  array $resources
      * @return self
      */
-    public function setCalendarResources(array $calendarResources): self
+    public function setCalendarResources(array $resources): self
     {
-        $this->calendarResources = [];
-        foreach ($calendarResources as $calendarResource) {
-            if ($calendarResource instanceof CalendarResourceInfo) {
-                $this->calendarResources[] = $calendarResource;
-            }
-        }
+        $this->calendarResources = array_filter($resources, static fn ($resource) => $resource instanceof CalendarResourceInfo);
         return $this;
     }
 

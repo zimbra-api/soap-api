@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -35,7 +35,7 @@ class PolicyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+<result type="user" id="$id" name="$name" lifetime="$lifetime" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($policy, 'xml'));
         $this->assertEquals($policy, $this->serializer->deserialize($xml, Policy::class, 'xml'));

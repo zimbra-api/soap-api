@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetServiceStatusResponse")
  */
 class GetServiceStatusResponse implements ResponseInterface
 {
@@ -36,7 +34,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
      * @XmlElement
      */
-    private $timezone;
+    private TimeZoneInfo $timezone;
 
     /**
      * Service status information
@@ -46,7 +44,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
      * @XmlList(inline = true, entry = "status")
      */
-    private $serviceStatuses;
+    private $serviceStatuses = [];
 
     /**
      * Constructor method for GetServiceStatusResponse
@@ -98,17 +96,12 @@ class GetServiceStatusResponse implements ResponseInterface
     /**
      * Sets status
      *
-     * @param  array $serviceStatuses
+     * @param  array $statuses
      * @return self
      */
-    public function setServiceStatuses(array $serviceStatuses): self
+    public function setServiceStatuses(array $statuses): self
     {
-        $this->serviceStatuses = [];
-        foreach ($serviceStatuses as $status) {
-            if ($status instanceof ServiceStatus) {
-                $this->serviceStatuses[] = $status;
-            }
-        }
+        $this->serviceStatuses = array_filter($statuses, static fn ($status) => $status instanceof ServiceStatus);
         return $this;
     }
 

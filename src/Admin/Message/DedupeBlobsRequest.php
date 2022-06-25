@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Enum\DedupAction;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\DedupAction;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DedupeBlobsRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DedupeBlobsRequest")
  */
 class DedupeBlobsRequest extends Request
 {
@@ -33,10 +31,10 @@ class DedupeBlobsRequest extends Request
      * Action to perform - one of start|status|stop
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\DedupAction")
+     * @Type("Zimbra\Common\Enum\DedupAction")
      * @XmlAttribute
      */
-    private $action;
+    private DedupAction $action;
 
     /**
      * Volumes
@@ -45,7 +43,7 @@ class DedupeBlobsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Constructor method for DedupeBlobsRequest
@@ -100,12 +98,7 @@ class DedupeBlobsRequest extends Request
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = [];
-        foreach ($volumes as $volume) {
-            if ($volume instanceof IntIdAttr) {
-                $this->volumes[] = $volume;
-            }
-        }
+        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof IntIdAttr);
         return $this;
     }
 
@@ -124,14 +117,12 @@ class DedupeBlobsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DedupeBlobsEnvelope)) {
-            $this->envelope = new DedupeBlobsEnvelope(
-                new DedupeBlobsBody($this)
-            );
-        }
+        return new DedupeBlobsEnvelope(
+            new DedupeBlobsBody($this)
+        );
     }
 }

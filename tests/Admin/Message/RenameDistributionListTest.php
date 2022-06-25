@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\RenameDistributionListRequest;
 use Zimbra\Admin\Message\RenameDistributionListResponse;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -77,37 +77,5 @@ class RenameDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RenameDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RenameDistributionListRequest' => [
-                    'id' => $id,
-                    'newName' => $name,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RenameDistributionListResponse' => [
-                    'dl' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'dynamic' => true,
-                        'dlm' => [
-                            ['_content' => $member],
-                        ],
-                        'owners' => [
-                            'owner' => [
-                                [
-                                    'id' => $id,
-                                    'name' => $name,
-                                    'type' => 'all',
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RenameDistributionListEnvelope::class, 'json'));
     }
 }

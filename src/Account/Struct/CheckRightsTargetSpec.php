@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\{TargetBy, TargetType};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\{TargetBy, TargetType};
 
 /**
  * CheckRightsTargetSpec struct class
@@ -21,26 +21,24 @@ use Zimbra\Enum\{TargetBy, TargetType};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class CheckRightsTargetSpec
 {
     /**
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $targetType;
+    private TargetType $targetType;
 
     /**
      * @Accessor(getter="getTargetBy", setter="setTargetBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\TargetBy")
+     * @Type("Zimbra\Common\Enum\TargetBy")
      * @XmlAttribute
      */
-    private $targetBy;
+    private TargetBy $targetBy;
 
     /**
      * @Accessor(getter="getTargetKey", setter="setTargetKey")
@@ -56,7 +54,7 @@ class CheckRightsTargetSpec
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckRightsTargetSpec
@@ -69,9 +67,9 @@ class CheckRightsTargetSpec
     public function __construct(TargetType $type, TargetBy $by, string $key, array $rights = [])
     {
         $this->setTargetType($type)
-            ->setTargetBy($by)
-            ->setTargetKey($key)
-            ->setRights($rights);
+             ->setTargetBy($by)
+             ->setTargetKey($key)
+             ->setRights($rights);
     }
 
     /**
@@ -163,10 +161,7 @@ class CheckRightsTargetSpec
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            $this->addRight($right);
-        }
+        $this->rights = array_unique(array_map(static fn ($right) => trim($right), $rights));
         return $this;
     }
 

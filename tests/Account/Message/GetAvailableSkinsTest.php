@@ -6,7 +6,7 @@ use Zimbra\Account\Message\GetAvailableSkinsBody;
 use Zimbra\Account\Message\GetAvailableSkinsEnvelope;
 use Zimbra\Account\Message\GetAvailableSkinsRequest;
 use Zimbra\Account\Message\GetAvailableSkinsResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -57,23 +57,5 @@ class GetAvailableSkinsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAvailableSkinsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAvailableSkinsRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAvailableSkinsResponse' => [
-                    'skin' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAvailableSkinsEnvelope::class, 'json'));
     }
 }

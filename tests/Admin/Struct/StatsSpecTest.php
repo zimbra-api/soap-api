@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\StatsSpec;
 use Zimbra\Admin\Struct\StatsValueWrapper;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -35,27 +35,13 @@ class StatsSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stats name="$name" limit="$limit">
+<result name="$name" limit="$limit">
     <values>
         <stat name="$name" />
     </values>
-</stats>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
         $this->assertEquals($stats, $this->serializer->deserialize($xml, StatsSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'limit' => $limit,
-            'values' => [
-                'stat' => [
-                    [
-                        'name' => $name,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stats, 'json'));
-        $this->assertEquals($stats, $this->serializer->deserialize($json, StatsSpec::class, 'json'));
     }
 }

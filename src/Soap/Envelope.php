@@ -28,7 +28,7 @@ abstract class Envelope implements EnvelopeInterface
      * @Type("Zimbra\Soap\Header")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $header;
+    private ?Header $header = NULL;
 
     /**
      * Constructor method for Envelope

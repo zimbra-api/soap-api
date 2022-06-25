@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\IdAndAction;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * MigrateAccountRequest request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="MigrateAccountRequest")
  */
 class MigrateAccountRequest extends Request
 {
@@ -35,7 +33,7 @@ class MigrateAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\IdAndAction")
      * @XmlElement
      */
-    private $migrate;
+    private IdAndAction $migrate;
 
     /**
      * Constructor method for MigrateAccountRequest
@@ -73,14 +71,12 @@ class MigrateAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof MigrateAccountEnvelope)) {
-            $this->envelope = new MigrateAccountEnvelope(
-                new MigrateAccountBody($this)
-            );
-        }
+        return new MigrateAccountEnvelope(
+            new MigrateAccountBody($this)
+        );
     }
 }

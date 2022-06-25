@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Enum\LockoutOperation;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountNameSelector as Account;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Enum\LockoutOperation;
+use Zimbra\Common\Struct\AccountNameSelector as Account;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * LockoutMailboxRequest request class
@@ -24,8 +24,6 @@ use Zimbra\Struct\AccountNameSelector as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="LockoutMailboxRequest")
  */
 class LockoutMailboxRequest extends Request
 {
@@ -33,19 +31,19 @@ class LockoutMailboxRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountNameSelector")
+     * @Type("Zimbra\Common\Struct\AccountNameSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * one of 'start' or 'end'
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\LockoutOperation")
+     * @Type("Zimbra\Common\Enum\LockoutOperation")
      * @XmlAttribute
      */
-    private $operation;
+    private ?LockoutOperation $operation = NULL;
 
     /**
      * Constructor method for LockoutMailboxRequest
@@ -109,14 +107,12 @@ class LockoutMailboxRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof LockoutMailboxEnvelope)) {
-            $this->envelope = new LockoutMailboxEnvelope(
-                new LockoutMailboxBody($this)
-            );
-        }
+        return new LockoutMailboxEnvelope(
+            new LockoutMailboxBody($this)
+        );
     }
 }

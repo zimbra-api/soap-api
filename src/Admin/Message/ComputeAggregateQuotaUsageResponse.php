@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo as QuotaInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ComputeAggregateQuotaUsageResponse")
  */
 class ComputeAggregateQuotaUsageResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class ComputeAggregateQuotaUsageResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domainQuotas;
+    private $domainQuotas = [];
 
     /**
      * Constructor method for ComputeAggregateQuotaUsageResponse
@@ -63,17 +61,12 @@ class ComputeAggregateQuotaUsageResponse implements ResponseInterface
     /**
      * Sets domain quotas
      *
-     * @param  array $domainQuotas
+     * @param  array $quotas
      * @return self
      */
-    public function setDomainQuotas(array $domainQuotas): self
+    public function setDomainQuotas(array $quotas): self
     {
-        $this->domainQuotas = [];
-        foreach ($domainQuotas as $domainQuota) {
-            if ($domainQuota instanceof QuotaInfo) {
-                $this->domainQuotas[] = $domainQuota;
-            }
-        }
+        $this->domainQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof QuotaInfo);
         return $this;
     }
 

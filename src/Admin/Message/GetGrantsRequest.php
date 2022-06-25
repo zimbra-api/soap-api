@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Admin\Struct\GranteeSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetGrantsRequest request class
@@ -27,8 +27,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetGrantsRequest")
  */
 class GetGrantsRequest extends Request
 {
@@ -39,7 +37,7 @@ class GetGrantsRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private ?Target $target = NULL;
 
     /**
      * Grantee
@@ -48,7 +46,7 @@ class GetGrantsRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private ?GranteeSelector $grantee = NULL;
 
     /**
      * Constructor method for GetGrantsRequest
@@ -117,14 +115,12 @@ class GetGrantsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetGrantsEnvelope)) {
-            $this->envelope = new GetGrantsEnvelope(
-                new GetGrantsBody($this)
-            );
-        }
+        return new GetGrantsEnvelope(
+            new GetGrantsBody($this)
+        );
     }
 }

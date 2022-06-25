@@ -66,40 +66,5 @@ class CreateIdentityTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateIdentityEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateIdentityRequest' => [
-                    'identity' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'CreateIdentityResponse' => [
-                    'identity' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateIdentityEnvelope::class, 'json'));
     }
 }

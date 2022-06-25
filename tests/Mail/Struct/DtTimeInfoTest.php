@@ -31,7 +31,7 @@ class DtTimeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dt d="$dateTime" tz="$timezone" u="$utcTime" />
+<result d="$dateTime" tz="$timezone" u="$utcTime" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dt, 'xml'));
         $this->assertEquals($dt, $this->serializer->deserialize($xml, DtTimeInfo::class, 'xml'));

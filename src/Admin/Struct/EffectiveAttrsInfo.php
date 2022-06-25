@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * EffectiveAttrsInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="attrs")
  */
 class EffectiveAttrsInfo
 {
@@ -42,7 +40,7 @@ class EffectiveAttrsInfo
      * @Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for EffectiveAttrsInfo
@@ -52,10 +50,10 @@ class EffectiveAttrsInfo
      */
     public function __construct(?bool $all = NULL, array $attrs = [])
     {
+        $this->setAttrs($attrs);
         if (NULL !== $all) {
             $this->setAll($all);
         }
-        $this->setAttrs($attrs);
     }
 
     /**
@@ -98,12 +96,7 @@ class EffectiveAttrsInfo
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof EffectiveAttrInfo) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof EffectiveAttrInfo);
         return $this;
     }
 

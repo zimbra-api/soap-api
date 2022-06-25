@@ -81,43 +81,13 @@ class CheckAuthConfigTest extends ZimbraTestCase
         </urn:CheckAuthConfigRequest>
         <urn:CheckAuthConfigResponse>
             <code>$code</code>
-            <message>$message</message>
             <bindDn>$bindDn</bindDn>
+            <message>$message</message>
         </urn:CheckAuthConfigResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckAuthConfigEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckAuthConfigRequest' => [
-                    'name' => $name,
-                    'password' => $password,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckAuthConfigResponse' => [
-                    'code' => [
-                        '_content' => $code,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    'bindDn' => [
-                        '_content' => $bindDn,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckAuthConfigEnvelope::class, 'json'));
     }
 }

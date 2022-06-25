@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -26,16 +26,9 @@ class XMPPComponentSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xmppcomponent by="name">$value</xmppcomponent>
+<result by="name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => 'name',
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSelector::class, 'json'));
     }
 }

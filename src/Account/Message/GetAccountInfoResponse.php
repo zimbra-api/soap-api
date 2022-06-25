@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
-use Zimbra\Struct\NamedValue;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountInfoResponse")
  */
 class GetAccountInfoResponse implements ResponseInterface
 {
@@ -43,10 +41,10 @@ class GetAccountInfoResponse implements ResponseInterface
      * displayName: display name for the account
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * URL to talk to for soap service for this account.
@@ -192,12 +190,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NamedValue) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NamedValue);
         return $this;
     }
 

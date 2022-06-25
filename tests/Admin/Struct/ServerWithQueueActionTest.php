@@ -8,8 +8,8 @@ use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\MailQueueWithAction;
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Enum\QueueActionBy;
-use Zimbra\Enum\QueueAction;
+use Zimbra\Common\Enum\QueueActionBy;
+use Zimbra\Common\Enum\QueueAction;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -42,7 +42,7 @@ class ServerWithQueueActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server name="$name">
+<result name="$name">
     <queue name="$name">
         <action op="hold" by="query">
             <query limit="$limit" offset="$offset">
@@ -52,36 +52,9 @@ class ServerWithQueueActionTest extends ZimbraTestCase
             </query>
         </action>
     </queue>
-</server>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerWithQueueAction::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'queue' => [
-                'name' => $name,
-                'action' => [
-                    'op' => 'hold',
-                    'by' => 'query',
-                    'query' => [
-                        'limit' => $limit,
-                        'offset' => $offset,
-                        'field' => [
-                            [
-                                'name' => $name,
-                                'match' => [
-                                    [
-                                        'value' => $value
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
-        $this->assertEquals($server, $this->serializer->deserialize($json, ServerWithQueueAction::class, 'json'));
     }
 }

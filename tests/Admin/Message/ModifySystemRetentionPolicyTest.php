@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\ModifySystemRetentionPolicyRequest;
 use Zimbra\Admin\Message\ModifySystemRetentionPolicyResponse;
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
-use Zimbra\Enum\CosBy;
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\CosBy;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -76,36 +76,5 @@ class ModifySystemRetentionPolicyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifySystemRetentionPolicyEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifySystemRetentionPolicyRequest' => [
-                    'cos' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'policy' => [
-                        'type' => 'system',
-                        'id' => $id,
-                        'name' => $name,
-                        'lifetime' => $lifetime,
-                        '_jsns' => 'urn:zimbraMail',
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifySystemRetentionPolicyResponse' => [
-                    'policy' => [
-                        'type' => 'system',
-                        'id' => $id,
-                        'name' => $name,
-                        'lifetime' => $lifetime,
-                        '_jsns' => 'urn:zimbraMail',
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifySystemRetentionPolicyEnvelope::class, 'json'));
     }
 }

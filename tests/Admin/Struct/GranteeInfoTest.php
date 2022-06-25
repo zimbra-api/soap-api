@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -33,17 +33,9 @@ class GranteeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee id="$id" name="$name" type="usr" />
+<result id="$id" name="$name" type="usr" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'type' => 'usr',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeInfo::class, 'json'));
     }
 }

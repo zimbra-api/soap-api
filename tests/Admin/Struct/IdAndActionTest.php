@@ -27,16 +27,9 @@ class IdAndActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ia id="$id" action="$action" />
+<result id="$id" action="$action" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ia, 'xml'));
         $this->assertEquals($ia, $this->serializer->deserialize($xml, IdAndAction::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'action' => $action,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ia, 'json'));
-        $this->assertEquals($ia, $this->serializer->deserialize($json, IdAndAction::class, 'json'));
     }
 }

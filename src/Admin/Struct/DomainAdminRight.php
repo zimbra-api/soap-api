@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\RightType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\RightType;
 
 /**
  * DomainAdminRight struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\RightType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="right")
  */
 class DomainAdminRight
 {
@@ -39,10 +37,10 @@ class DomainAdminRight
      * Right type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RightType")
+     * @Type("Zimbra\Common\Enum\RightType")
      * @XmlAttribute
      */
-    private $type;
+    private RightType $type;
 
     /**
      * Description
@@ -60,7 +58,7 @@ class DomainAdminRight
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlList(inline = false, entry = "r")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DomainAdminRight
@@ -168,12 +166,7 @@ class DomainAdminRight
      */
     public function setRights(array $rights)
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof RightWithName) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightWithName);
         return $this;
     }
 

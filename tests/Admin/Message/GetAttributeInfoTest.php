@@ -72,26 +72,5 @@ class GetAttributeInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAttributeInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAttributeInfoRequest' => [
-                    'attrs' => $attrs,
-                    'entryTypes' => $entryTypes,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAttributeInfoResponse' => [
-                    'a' => [
-                        [
-                            'n' => $name,
-                            'desc' => $description,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAttributeInfoEnvelope::class, 'json'));
     }
 }

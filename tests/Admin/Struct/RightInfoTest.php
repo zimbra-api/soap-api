@@ -7,8 +7,8 @@ use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
 use Zimbra\Admin\Struct\RightsAttrs;
 use Zimbra\Admin\Struct\RightInfo;
-use Zimbra\Enum\RightClass;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightClass;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -56,7 +56,7 @@ class RightInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+<result name="$name" type="preset" targetType="$targetType" rightClass="ALL">
     <desc>$desc</desc>
     <attrs all="true">
         <a n="$key">$value</a>
@@ -64,39 +64,9 @@ class RightInfoTest extends ZimbraTestCase
     <rights>
         <r n="$name" type="preset" targetType="$targetType" />
     </rights>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'type' => 'preset',
-            'targetType' => $targetType,
-            'rightClass' => 'ALL',
-            'desc' => [
-                '_content' => $desc,
-            ],
-            'attrs' => [
-                'all' => TRUE,
-                'a' => [
-                    [
-                        'n' => $key,
-                        '_content' => $value,
-                    ],
-                ],
-            ],
-            'rights' => [
-                'r' => [
-                    [
-                        'n' => $name,
-                        'type' => 'preset',
-                        'targetType' => $targetType,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, RightInfo::class, 'json'));
     }
 }

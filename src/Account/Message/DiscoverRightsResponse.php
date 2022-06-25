@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DiscoverRightsResponse")
  */
 class DiscoverRightsResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class DiscoverRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlList(inline = true, entry = "targets")
      */
-    private $discoveredRights;
+    private $discoveredRights = [];
 
     /**
      * Constructor method for DiscoverRightsResponse
@@ -62,17 +60,12 @@ class DiscoverRightsResponse implements ResponseInterface
     /**
      * Set discoveredRights
      *
-     * @param  array $discoveredRights
+     * @param  array $rights
      * @return self
      */
-    public function setDiscoveredRights(array $discoveredRights): self
+    public function setDiscoveredRights(array $rights): self
     {
-        $this->discoveredRights = [];
-        foreach ($discoveredRights as $discoveredRight) {
-            if ($discoveredRight instanceof DiscoverRightsInfo) {
-                $this->discoveredRights[] = $discoveredRight;
-            }
-        }
+        $this->discoveredRights = array_filter($rights, static fn ($right) => $right instanceof DiscoverRightsInfo);
         return $this;
     }
 

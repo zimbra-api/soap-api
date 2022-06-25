@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AliasInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -33,26 +33,11 @@ class AliasInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+<result name="$name" id="$id" targetName="$targetName" type="$targetType">
     <a n="$key">$value</a>
-</alias>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alias, 'xml'));
         $this->assertEquals($alias, $this->serializer->deserialize($xml, AliasInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'targetName' => $targetName,
-            'type' => $targetType->getValue(),
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($alias, 'json'));
-        $this->assertEquals($alias, $this->serializer->deserialize($json, AliasInfo::class, 'json'));
     }
 }

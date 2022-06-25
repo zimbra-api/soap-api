@@ -31,17 +31,9 @@ class TzFixupRuleMatchRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rule mon="$mon" week="$week" wkday="$wkday" />
+<result mon="$mon" week="$week" wkday="$wkday" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, TzFixupRuleMatchRule::class, 'xml'));
-
-        $json = json_encode([
-            'mon' => $mon,
-            'week' => $week,
-            'wkday' => $wkday,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, TzFixupRuleMatchRule::class, 'json'));
     }
 }

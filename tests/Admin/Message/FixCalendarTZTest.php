@@ -17,9 +17,9 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzReplaceInfo;
-use Zimbra\Struct\Id;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -151,91 +151,5 @@ class FixCalendarTZTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FixCalendarTZEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'FixCalendarTZRequest' => [
-                    'sync' => TRUE,
-                    'after' => $after,
-                    'account' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    'tzfixup' => [
-                        'fixupRule' => [
-                            [
-                                'match' => [
-                                    'any' => new \stdClass(),
-                                    'tzid' => [
-                                        'id' => $id,
-                                    ],
-                                    'nonDst' => [
-                                        'offset' => $offset,
-                                    ],
-                                    'rules' => [
-                                        'standard' => [
-                                            'mon' => $rule_mon,
-                                            'week' => $rule_week,
-                                            'wkday' => $rule_wkday,
-                                        ],
-                                        'daylight' => [
-                                            'mon' => $rule_mon,
-                                            'week' => $rule_week,
-                                            'wkday' => $rule_wkday,
-                                        ],
-                                        'stdoff' => $rule_stdoff,
-                                        'dayoff' => $rule_dayoff,
-                                    ],
-                                    'dates' => [
-                                        'standard' => [
-                                            'mon' => $date_mon,
-                                            'mday' => $date_mday,
-                                        ],
-                                        'daylight' => [
-                                            'mon' => $date_mon,
-                                            'mday' => $date_mday,
-                                        ],
-                                        'stdoff' => $date_stdoff,
-                                        'dayoff' => $date_dayoff,
-                                    ],
-                                ],
-                                'touch' => new \stdClass(),
-                                'replace' => [
-                                    'wellKnownTz' => [
-                                        'id' => $id,
-                                    ],
-                                    'tz' => [
-                                        'id' => $id,
-                                        'stdoff' => $stdoff,
-                                        'dayoff' => $dayoff,
-                                        'standard' => [
-                                            'mon' => $mon,
-                                            'hour' => $hour,
-                                            'min' => $min,
-                                            'sec' => $sec,
-                                        ],
-                                        'daylight' => [
-                                            'mon' => $mon,
-                                            'hour' => $hour,
-                                            'min' => $min,
-                                            'sec' => $sec,
-                                        ],
-                                        'stdname' => $stdname,
-                                        'dayname' => $dayname,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'FixCalendarTZResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, FixCalendarTZEnvelope::class, 'json'));
     }
 }

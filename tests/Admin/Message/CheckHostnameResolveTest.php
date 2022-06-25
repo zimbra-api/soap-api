@@ -70,25 +70,5 @@ class CheckHostnameResolveTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckHostnameResolveEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckHostnameResolveRequest' => [
-                    'hostname' => $hostname,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckHostnameResolveResponse' => [
-                    'code' => [
-                        '_content' => $code,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckHostnameResolveEnvelope::class, 'json'));
     }
 }

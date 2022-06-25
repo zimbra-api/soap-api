@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-
-use Zimbra\Enum\ContactBackupStatus;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ContactBackupStatus;
 
 /**
  * ContactBackupServer struct class
@@ -22,8 +21,6 @@ use Zimbra\Enum\ContactBackupStatus;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="server")
  */
 class ContactBackupServer
 {
@@ -38,10 +35,10 @@ class ContactBackupServer
     /**
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ContactBackupStatus")
+     * @Type("Zimbra\Common\Enum\ContactBackupStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ContactBackupStatus $status;
 
     /**
      * Constructor method for ContactBackupServer

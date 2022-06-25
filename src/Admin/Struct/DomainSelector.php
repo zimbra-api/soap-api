@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\DomainBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\DomainBy;
 
 /**
  * DomainSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\DomainBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="domain")
  */
 class DomainSelector
 {
@@ -30,10 +28,10 @@ class DomainSelector
      * Select the meaning of {acct-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\DomainBy")
+     * @Type("Zimbra\Common\Enum\DomainBy")
      * @XmlAttribute
      */
-    private $by;
+    private DomainBy $by;
 
     /**
      * The key used to identify the domain

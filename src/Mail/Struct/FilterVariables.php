@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * FilterVariables struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlLi
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="filterVariables")
  */
 class FilterVariables extends FilterAction
 {
@@ -32,7 +30,7 @@ class FilterVariables extends FilterAction
      * @Type("array<Zimbra\Mail\Struct\FilterVariable>")
      * @XmlList(inline = true, entry = "filterVariable")
      */
-    private $variables;
+    private $variables = [];
 
     /**
      * Constructor method for FilterVariables
@@ -65,12 +63,7 @@ class FilterVariables extends FilterAction
      */
     public function setVariables(array $variables)
     {
-        $this->variables = [];
-        foreach ($variables as $variable) {
-            if ($variable instanceof FilterVariable) {
-                $this->variables[] = $variable;
-            }
-        }
+        $this->variables = array_filter($variables, static fn ($variable) => $variable instanceof FilterVariable);
         return $this;
     }
 

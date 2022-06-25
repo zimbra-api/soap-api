@@ -37,7 +37,7 @@ class EffectiveAttrsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attrs all="true">
+<result all="true">
     <a n="$name">
         <constraint>
             <min>$min</min>
@@ -52,48 +52,9 @@ class EffectiveAttrsInfoTest extends ZimbraTestCase
             <v>$value2</v>
         </default>
     </a>
-</attrs>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, EffectiveAttrsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'all' => TRUE,
-            'a' => [
-                [
-                    'n' => $name,
-                    'constraint' => [
-                        'min' => [
-                            '_content' => $min,
-                        ],
-                        'max' => [
-                            '_content' => $max,
-                        ],
-                        'values' => [
-                            'v' => [
-                                [
-                                    '_content' => $value1,
-                                ],
-                                [
-                                    '_content' => $value2,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'default' => [
-                        'v' => [
-                            [
-                                '_content' => $value1,
-                            ],
-                            [
-                                '_content' => $value2,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
-        $this->assertEquals($attrs, $this->serializer->deserialize($json, EffectiveAttrsInfo::class, 'json'));
     }
 }

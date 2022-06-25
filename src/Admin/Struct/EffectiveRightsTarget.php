@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\TargetType;
 
 /**
  * EffectiveRightsTarget struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\TargetType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class EffectiveRightsTarget
 {
@@ -30,10 +28,10 @@ class EffectiveRightsTarget
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * Effective rights
@@ -42,7 +40,7 @@ class EffectiveRightsTarget
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement
      */
-    private $all;
+    private ?EffectiveRightsInfo $all = NULL;
 
     /**
      * Attributes
@@ -51,7 +49,7 @@ class EffectiveRightsTarget
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
      * @XmlList(inline = true, entry = "inDomains")
      */
-    private $inDomainLists;
+    private $inDomainLists = [];
 
     /**
      * Attributes
@@ -60,7 +58,7 @@ class EffectiveRightsTarget
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
      * @XmlList(inline = true, entry = "entries")
      */
-    private $entriesLists;
+    private $entriesLists = [];
 
     /**
      * Constructor method for EffectiveRightsTarget
@@ -142,17 +140,12 @@ class EffectiveRightsTarget
     /**
      * Sets inDomainLists
      *
-     * @param  array $inDomainLists
+     * @param  array $lists
      * @return self
      */
-    public function setInDomainLists(array $inDomainLists): self
+    public function setInDomainLists(array $lists): self
     {
-        $this->inDomainLists = [];
-        foreach ($inDomainLists as $inDomainList) {
-            if ($inDomainList instanceof InDomainInfo) {
-                $this->inDomainLists[] = $inDomainList;
-            }
-        }
+        $this->inDomainLists = array_filter($lists, static fn ($item) => $item instanceof InDomainInfo);
         return $this;
     }
 
@@ -181,17 +174,12 @@ class EffectiveRightsTarget
     /**
      * Sets entriesLists
      *
-     * @param  array $entriesLists
+     * @param  array $lists
      * @return self
      */
-    public function setEntriesLists(array $entriesLists): self
+    public function setEntriesLists(array $lists): self
     {
-        $this->entriesLists = [];
-        foreach ($entriesLists as $entriesList) {
-            if ($entriesList instanceof RightsEntriesInfo) {
-                $this->entriesLists[] = $entriesList;
-            }
-        }
+        $this->entriesLists = array_filter($lists, static fn ($item) => $item instanceof RightsEntriesInfo);
         return $this;
     }
 

@@ -54,22 +54,5 @@ class DeleteIdentityTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteIdentityEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteIdentityRequest' => [
-                    'identity' => [
-                        'name' => $name,
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'DeleteIdentityResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteIdentityEnvelope::class, 'json'));
     }
 }

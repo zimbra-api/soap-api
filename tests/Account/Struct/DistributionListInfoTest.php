@@ -5,8 +5,8 @@ namespace Zimbra\Tests\Account\Struct;
 use Zimbra\Account\Struct\DistributionListInfo;
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -58,7 +58,7 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl name="$name" id="$id" isOwner="true" isMember="true" dynamic="true">
+<result name="$name" id="$id" isOwner="true" isMember="true" dynamic="true">
     <a n="$key">$value</a>
     <dlm>$member1</dlm>
     <dlm>$member2</dlm>
@@ -70,56 +70,9 @@ class DistributionListInfoTest extends ZimbraTestCase
             <grantee type="usr" id="$id" name="$name" />
         </right>
     </rights>
-</dl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'isOwner' => TRUE,
-            'isMember' => TRUE,
-            'dynamic' => TRUE,
-            'dlm' => [
-                [
-                    '_content' => $member1,
-                ],
-                [
-                    '_content' => $member2,
-                ],
-            ],
-            'owners' => [
-                'owner' => [
-                    [
-                        'type' => 'usr',
-                        'id' => $id,
-                        'name' => $name,
-                    ],
-                ],
-            ],
-            'rights' => [
-                'right' => [
-                    [
-                        'right' => $name,
-                        'grantee' => [
-                            [
-                                'type' => 'usr',
-                                'id' => $id,
-                                'name' => $name,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListInfo::class, 'json'));
     }
 }

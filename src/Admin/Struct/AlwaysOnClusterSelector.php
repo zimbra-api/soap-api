@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\AlwaysOnClusterBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\AlwaysOnClusterBy;
 
 /**
  * AlwaysOnClusterSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\AlwaysOnClusterBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="alwaysOnCluster")
  */
 class AlwaysOnClusterSelector
 {
@@ -30,10 +28,10 @@ class AlwaysOnClusterSelector
      * Selects the meaning of alwaysOnCluster-key
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\AlwaysOnClusterBy")
+     * @Type("Zimbra\Common\Enum\AlwaysOnClusterBy")
      * @XmlAttribute
      */
-    private $by;
+    private AlwaysOnClusterBy $by;
 
     /**
      * Key for choosing alwaysOnCluster

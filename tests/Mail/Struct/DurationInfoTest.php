@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AlarmRelated;
+use Zimbra\Common\Enum\AlarmRelated;
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -48,7 +48,7 @@ class DurationInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<info neg="true" w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" related="START" count="$repeatCount" />
+<result neg="true" w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" related="START" count="$repeatCount" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, DurationInfo::class, 'xml'));

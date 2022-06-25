@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ClearCookie request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ClearCookieRequest")
  */
 class ClearCookieRequest extends Request
 {
@@ -35,7 +33,7 @@ class ClearCookieRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
      * @XmlList(inline = true, entry = "cookie")
      */
-    private $cookies;
+    private $cookies = [];
 
     /**
      * Constructor method for ClearCookieRequest
@@ -68,12 +66,7 @@ class ClearCookieRequest extends Request
      */
     public function setCookies(array $cookies): self
     {
-        $this->cookies = [];
-        foreach ($cookies as $cookie) {
-            if ($cookie instanceof CookieSpec) {
-                $this->cookies[] = $cookie;
-            }
-        }
+        $this->cookies = array_filter($cookies, static fn ($cookie) => $cookie instanceof CookieSpec);
         return $this;
     }
 
@@ -90,14 +83,12 @@ class ClearCookieRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ClearCookieEnvelope)) {
-            $this->envelope = new ClearCookieEnvelope(
-                new ClearCookieBody($this)
-            );
-        }
+        return new ClearCookieEnvelope(
+            new ClearCookieBody($this)
+        );
     }
 }

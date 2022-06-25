@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\AddressType;
-use Zimbra\Struct\EmailInfoInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Struct\EmailInfoInterface;
 
 /**
  * EmailInfo struct class
@@ -23,8 +23,6 @@ use Zimbra\Struct\EmailInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="email")
  */
 class EmailInfo implements EmailInfoInterface
 {
@@ -61,10 +59,10 @@ class EmailInfo implements EmailInfoInterface
      * (s)ender, read-receipt (n)otification, (rf) resent-from
      * @Accessor(getter="getAddressType", setter="setAddressType")
      * @SerializedName("t")
-     * @Type("Zimbra\Enum\AddressType")
+     * @Type("Zimbra\Common\Enum\AddressType")
      * @XmlAttribute
      */
-    private $addressType;
+    private ?AddressType $addressType = NULL;
 
     /**
      * Set if the email address is a group
@@ -97,7 +95,9 @@ class EmailInfo implements EmailInfoInterface
         ?string $address = NULL,
         ?string $display = NULL,
         ?string $personal = NULL,
-        ?AddressType $addressType = NULL
+        ?AddressType $addressType = NULL,
+        ?bool $group = NULL,
+        ?bool $canExpandGroupMembers = NULL
     )
     {
         if (NULL !== $address) {
@@ -111,6 +111,12 @@ class EmailInfo implements EmailInfoInterface
         }
         if ($addressType instanceof AddressType) {
             $this->setAddressType($addressType);
+        }
+        if (NULL !== $group) {
+            $this->setGroup($group);
+        }
+        if (NULL !== $canExpandGroupMembers) {
+            $this->setCanExpandGroupMembers($canExpandGroupMembers);
         }
     }
 

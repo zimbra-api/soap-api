@@ -10,18 +10,19 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
-
-use Zimbra\Struct\AlarmInfoInterface;
-use Zimbra\Struct\CalendarAttendeeInterface;
-use Zimbra\Struct\CalOrganizerInterface;
-use Zimbra\Struct\DtTimeInfoInterface;
-use Zimbra\Struct\DurationInfoInterface;
-use Zimbra\Struct\ExceptionRecurIdInfoInterface;
-use Zimbra\Struct\GeoInfoInterface;
-use Zimbra\Struct\InviteComponentInterface;
-use Zimbra\Struct\RecurrenceInfoInterface;
-use Zimbra\Struct\XPropInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Struct\{
+    AlarmInfoInterface,
+    CalendarAttendeeInterface,
+    CalOrganizerInterface,
+    DtTimeInfoInterface,
+    DurationInfoInterface,
+    ExceptionRecurIdInfoInterface,
+    GeoInfoInterface,
+    InviteComponentInterface,
+    RecurrenceInfoInterface,
+    XPropInterface
+};
 
 /**
  * InviteComponent struct class
@@ -32,8 +33,6 @@ use Zimbra\Struct\XPropInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class InviteComponent extends InviteComponentCommon implements InviteComponentInterface
 {
@@ -71,7 +70,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement
      */
-    private $geo;
+    private ?GeoInfoInterface $geo = NULL;
 
     /**
      * Attendees
@@ -134,7 +133,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement
      */
-    private $organizer;
+    private ?CalOrganizerInterface $organizer = NULL;
 
     /**
      * Recurrence information
@@ -143,7 +142,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $recurrence;
+    private ?RecurrenceInfoInterface $recurrence = NULL;
 
     /**
      * Recurrence id, if this is an exception
@@ -152,7 +151,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
 
     /**
      * Start date-time (required)
@@ -161,7 +160,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $dtStart;
+    private ?DtTimeInfoInterface $dtStart = NULL;
 
     /**
      * End date-time
@@ -170,7 +169,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $dtEnd;
+    private ?DtTimeInfoInterface $dtEnd = NULL;
 
     /**
      * Duration
@@ -179,7 +178,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $duration;
+    private ?DurationInfoInterface $duration = NULL;
 
     /**
      * Constructor method
@@ -414,12 +413,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = [];
-        foreach ($attendees as $attendee) {
-            if ($attendee instanceof CalendarAttendeeInterface) {
-                $this->attendees[] = $attendee;
-            }
-        }
+        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface);
         return $this;
     }
 
@@ -453,12 +447,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setAlarms(array $alarms): self
     {
-        $this->alarms = [];
-        foreach ($alarms as $alarm) {
-            if ($alarm instanceof AlarmInfoInterface) {
-                $this->alarms[] = $alarm;
-            }
-        }
+        $this->alarms = array_filter($alarms, static fn ($alarm) => $alarm instanceof AlarmInfoInterface);
         return $this;
     }
 
@@ -492,12 +481,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = [];
-        foreach ($xProps as $xProp) {
-            if ($xProp instanceof XPropInterface) {
-                $this->xProps[] = $xProp;
-            }
-        }
+        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XPropInterface);
         return $this;
     }
 

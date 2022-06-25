@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CopyCosRequest request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CopyCosRequest")
  */
 class CopyCosRequest extends Request
 {
@@ -44,7 +42,7 @@ class CopyCosRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * Constructor method for CopyCosRequest
@@ -110,14 +108,12 @@ class CopyCosRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CopyCosEnvelope)) {
-            $this->envelope = new CopyCosEnvelope(
-                new CopyCosBody($this)
-            );
-        }
+        return new CopyCosEnvelope(
+            new CopyCosBody($this)
+        );
     }
 }

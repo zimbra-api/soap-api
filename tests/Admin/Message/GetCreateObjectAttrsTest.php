@@ -10,8 +10,8 @@ use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\TargetWithType;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\CosBy;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\CosBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -105,66 +105,5 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCreateObjectAttrsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetCreateObjectAttrsRequest' => [
-                    'target' => [
-                        'type' => $type,
-                        '_content' => $value,
-                    ],
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'cos' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetCreateObjectAttrsResponse' => [
-                    'setAttrs' => [
-                        'all' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $name,
-                                'constraint' => [
-                                    'min' => [
-                                        '_content' => $min,
-                                    ],
-                                    'max' => [
-                                        '_content' => $max,
-                                    ],
-                                    'values' => [
-                                        'v' => [
-                                            [
-                                                '_content' => $value1,
-                                            ],
-                                            [
-                                                '_content' => $value2,
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                                'default' => [
-                                    'v' => [
-                                        [
-                                            '_content' => $value1,
-                                        ],
-                                        [
-                                            '_content' => $value2,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetCreateObjectAttrsEnvelope::class, 'json'));
     }
 }

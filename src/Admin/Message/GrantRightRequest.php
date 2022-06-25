@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector, RightModifierInfo};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GrantRight request class
@@ -23,12 +23,9 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GrantRightRequest")
  */
 class GrantRightRequest extends Request
 {
-
     /**
      * Target selector
      * @Accessor(getter="getTarget", setter="setTarget")
@@ -36,7 +33,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee selector
@@ -45,7 +42,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Checked Right
@@ -54,7 +51,7 @@ class GrantRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement
      */
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor method for GrantRightRequest
@@ -144,14 +141,12 @@ class GrantRightRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GrantRightEnvelope)) {
-            $this->envelope = new GrantRightEnvelope(
-                new GrantRightBody($this)
-            );
-        }
+        return new GrantRightEnvelope(
+            new GrantRightBody($this)
+        );
     }
 }

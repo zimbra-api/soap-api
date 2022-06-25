@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * ZimletStatusCos struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cos")
  */
 class ZimletStatusCos
 {
@@ -99,12 +97,7 @@ class ZimletStatusCos
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof ZimletStatus) {
-                $this->zimlets[] = $zimlet;
-            }
-        }
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ZimletStatus);
         return $this;
     }
 

@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\ChangePrimaryEmailRequest;
 use Zimbra\Admin\Message\ChangePrimaryEmailResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -86,36 +86,5 @@ class ChangePrimaryEmailTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ChangePrimaryEmailEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ChangePrimaryEmailRequest' => [
-                    'account' => [
-                        'by' => $by,
-                        '_content' => $name,
-                    ],
-                    'newName' => [
-                        '_content' => $newName,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ChangePrimaryEmailResponse' => [
-                    'account' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'isExternal' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ChangePrimaryEmailEnvelope::class, 'json'));
     }
 }

@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Struct\{EntrySearchFilterInterface, SearchFilterCondition};
+use Zimbra\Common\Struct\{EntrySearchFilterInterface, SearchFilterCondition};
 
 /**
  * EntrySearchFilterInfo class
@@ -23,8 +23,6 @@ use Zimbra\Struct\{EntrySearchFilterInterface, SearchFilterCondition};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="searchFilter")
  */
 class EntrySearchFilterInfo implements EntrySearchFilterInterface
 {
@@ -35,7 +33,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterSingleCond")
      * @XmlElement
      */
-    private $condition;
+    private ?SearchFilterCondition $condition = NULL;
 
     /**
      * Search filter compound condition
@@ -44,14 +42,14 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterMultiCond")
      * @XmlElement
      */
-    private $conditions;
+    private ?SearchFilterCondition $conditions = NULL;
 
     /**
      * Constructor method for EntrySearchFilterInfo
      * @param SearchFilterCondition $condition
      * @return self
      */
-    public function __construct(? SearchFilterCondition $condition = NULL)
+    public function __construct(?SearchFilterCondition $condition = NULL)
     {
         if ($condition instanceof SearchFilterCondition) {
             $this->setCondition($condition);

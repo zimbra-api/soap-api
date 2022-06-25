@@ -27,7 +27,7 @@ class IMAPItemInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<m id="$id" i4uid="$imapUid" />
+<result id="$id" i4uid="$imapUid" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, IMAPItemInfo::class, 'xml'));

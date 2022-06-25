@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\ConstraintAttr;
-use Zimbra\Enum\TargetType;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyDelegatedAdminConstraintsRequest class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyDelegatedAdminConstraintsRequest")
  */
 class ModifyDelegatedAdminConstraintsRequest extends Request
 {
@@ -35,10 +33,10 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * ID
@@ -65,7 +63,7 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for ModifyDelegatedAdminConstraintsRequest
@@ -176,12 +174,7 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof ConstraintAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ConstraintAttr);
         return $this;
     }
 
@@ -198,14 +191,12 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyDelegatedAdminConstraintsEnvelope)) {
-            $this->envelope = new ModifyDelegatedAdminConstraintsEnvelope(
-                new ModifyDelegatedAdminConstraintsBody($this)
-            );
-        }
+        return new ModifyDelegatedAdminConstraintsEnvelope(
+            new ModifyDelegatedAdminConstraintsBody($this)
+        );
     }
 }

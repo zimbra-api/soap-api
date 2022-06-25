@@ -35,18 +35,9 @@ class OAuthConsumerTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<OAuthConsumer accessToken="$accessToken" approvedOn="$approvedOn" appName="$applicationName" device="$device" />
+<result accessToken="$accessToken" approvedOn="$approvedOn" appName="$applicationName" device="$device" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($consumer, 'xml'));
         $this->assertEquals($consumer, $this->serializer->deserialize($xml, OAuthConsumer::class, 'xml'));
-
-        $json = json_encode([
-            'accessToken' => $accessToken,
-            'approvedOn' => $approvedOn,
-            'appName' => $applicationName,
-            'device' => $device,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($consumer, 'json'));
-        $this->assertEquals($consumer, $this->serializer->deserialize($json, OAuthConsumer::class, 'json'));
     }
 }

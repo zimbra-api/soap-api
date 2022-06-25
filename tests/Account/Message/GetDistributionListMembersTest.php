@@ -8,7 +8,7 @@ use Zimbra\Account\Message\GetDistributionListMembersRequest;
 use Zimbra\Account\Message\GetDistributionListMembersResponse;
 
 use Zimbra\Account\Struct\HABGroupMember;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedValue;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**
@@ -103,49 +103,5 @@ class GetDistributionListMembersTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListMembersEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDistributionListMembersRequest' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'dl' => [
-                        '_content' => $dl,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetDistributionListMembersResponse' => [
-                    'more' => TRUE,
-                    'total' => $total,
-                    'dlm' => [
-                        [
-                            '_content' => $member1,
-                        ],
-                        [
-                            '_content' => $member2,
-                        ],
-                    ],
-                    'groupMembers' => [
-                        'groupMember' => [
-                            [
-                                'name' => [
-                                    '_content' => $name,
-                                ],
-                                'seniorityIndex' => $seniorityIndex,
-                                'attr' => [
-                                    [
-                                        'name' => $key,
-                                        '_content' => $value,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDistributionListMembersEnvelope::class, 'json'));
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\Id;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\Id;
 
 /**
  * FreeBusyQueueProvider struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="provider")
  */
 class FreeBusyQueueProvider
 {
@@ -39,10 +37,10 @@ class FreeBusyQueueProvider
      * Information on accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for FreeBusyQueueProvider
@@ -54,7 +52,7 @@ class FreeBusyQueueProvider
     public function __construct(string $name, array $accounts = [])
     {
         $this->setName($name)
-            ->setAccounts($accounts);
+             ->setAccounts($accounts);
     }
 
     /**
@@ -99,12 +97,7 @@ class FreeBusyQueueProvider
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof Id) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof Id);
         return $this;
     }
 

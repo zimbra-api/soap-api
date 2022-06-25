@@ -30,17 +30,9 @@ class DomainAggregateQuotaInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<domain name="$name" id="$id" used="$quotaUsed" />
+<result name="$name" id="$id" used="$quotaUsed" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainAggregateQuotaInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'used' => $quotaUsed,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
-        $this->assertEquals($domain, $this->serializer->deserialize($json, DomainAggregateQuotaInfo::class, 'json'));
     }
 }

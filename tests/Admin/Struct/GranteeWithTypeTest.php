@@ -26,16 +26,9 @@ class GranteeWithTypeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="$type">$value</grantee>
+<result type="$type">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeWithType::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeWithType::class, 'json'));
     }
 }

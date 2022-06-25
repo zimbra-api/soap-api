@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\EmailInfo;
 use Zimbra\Mail\Struct\InviteInfo;
@@ -25,7 +25,7 @@ class MessageSummaryTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
@@ -57,12 +57,12 @@ class MessageSummaryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg id="$id" autoSendTime="$autoSendTime">
-    <e a="$address" d="$display" p="$personal" t="f" />
+<result id="$id" autoSendTime="$autoSendTime">
+    <e a="$address" d="$display" p="$personal" t="t" />
     <su>$subject</su>
     <fr>$fragment</fr>
     <inv type="task" />
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageSummary::class, 'xml'));
@@ -75,7 +75,7 @@ EOT;
                     'a' => $address,
                     'd' => $display,
                     'p' => $personal,
-                    't' => 'f',
+                    't' => 't',
                 ],
             ],
             'su' => [

@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * Attr struct class
@@ -21,8 +20,6 @@ use Zimbra\Struct\KeyValuePair;
  * @category   Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="a")
  */
 class Attr extends KeyValuePair
 {

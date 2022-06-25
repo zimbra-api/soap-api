@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector, RightModifierInfo};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RevokeRight request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RevokeRightRequest")
  */
 class RevokeRightRequest extends Request
 {
@@ -36,7 +34,7 @@ class RevokeRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee selector
@@ -45,7 +43,7 @@ class RevokeRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Right
@@ -54,7 +52,7 @@ class RevokeRightRequest extends Request
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement
      */
-    private $right;
+    private RightModifierInfo $right;
 
     /**
      * Constructor method for RevokeRightRequest
@@ -144,14 +142,12 @@ class RevokeRightRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RevokeRightEnvelope)) {
-            $this->envelope = new RevokeRightEnvelope(
-                new RevokeRightBody($this)
-            );
-        }
+        return new RevokeRightEnvelope(
+            new RevokeRightBody($this)
+        );
     }
 }

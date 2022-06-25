@@ -73,30 +73,5 @@ class RenameCalendarResourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RenameCalendarResourceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RenameCalendarResourceRequest' => [
-                    'id' => $id,
-                    'newName' => $newName,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RenameCalendarResourceResponse' => [
-                    'calresource' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RenameCalendarResourceEnvelope::class, 'json'));
     }
 }

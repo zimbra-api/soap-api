@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\XmppComponentBy as XmppBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
 
 /**
  * XMPPComponentSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\XmppComponentBy as XmppBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="xmppcomponent")
  */
 class XMPPComponentSelector
 {
@@ -30,10 +28,10 @@ class XMPPComponentSelector
      * Select the meaning of {xmpp-comp-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\XmppComponentBy")
+     * @Type("Zimbra\Common\Enum\XmppComponentBy")
      * @XmlAttribute
      */
-    private $by;
+    private XmppBy $by;
 
     /**
      * The key used to identify the XMPP component

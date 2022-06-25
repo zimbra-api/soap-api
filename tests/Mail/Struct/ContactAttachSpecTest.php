@@ -24,7 +24,7 @@ class ContactAttachSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn id="$id" optional="true" />
+<result id="$id" optional="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, ContactAttachSpec::class, 'xml'));

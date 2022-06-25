@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * TzFixup struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlLi
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="tzfixup")
  */
 class TzFixup
 {
@@ -31,7 +29,7 @@ class TzFixup
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
      * @XmlList(inline = true, entry = "fixupRule")
      */
-    private $fixupRules;
+    private $fixupRules = [];
 
     /**
      * Constructor method for TzFixup
@@ -63,12 +61,7 @@ class TzFixup
      */
     public function setFixupRules(array $fixupRules): self
     {
-        $this->fixupRules = [];
-        foreach ($fixupRules as $fixupRule) {
-            if ($fixupRule instanceof TzFixupRule) {
-                $this->fixupRules[] = $fixupRule;
-            }
-        }
+        $this->fixupRules = array_filter($fixupRules, static fn ($fixupRule) => $fixupRule instanceof TzFixupRule);
         return $this;
     }
 

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,16 +27,9 @@ class DomainSelectorTest extends ZimbraTestCase
         $by = DomainBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<domain by="$by">$value</domain>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
-        $this->assertEquals($domain, $this->serializer->deserialize($json, DomainSelector::class, 'json'));
     }
 }

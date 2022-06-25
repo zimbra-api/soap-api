@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\CheckRightsTargetInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckRightsResponse")
  */
 class CheckRightsResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class CheckRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
      * @XmlList(inline = true, entry = "target")
      */
-    private $targets;
+    private $targets = [];
 
     /**
      * Constructor method for CheckRightsResponse
@@ -67,12 +65,7 @@ class CheckRightsResponse implements ResponseInterface
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = [];
-        foreach ($targets as $target) {
-            if ($target instanceof CheckRightsTargetInfo) {
-                $this->targets[] = $target;
-            }
-        }
+        $this->targets = array_filter($targets, static fn ($target) => $target instanceof CheckRightsTargetInfo);
         return $this;
     }
 

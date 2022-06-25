@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\AclType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\AclType;
 
 /**
  * ZimletAcl struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\AclType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="acl")
  */
 class ZimletAcl
 {
@@ -39,10 +37,10 @@ class ZimletAcl
      * ACL
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
-     * @Type("Zimbra\Enum\AclType")
+     * @Type("Zimbra\Common\Enum\AclType")
      * @XmlAttribute
      */
-    private $acl;
+    private ?AclType $acl = NULL;
 
     /**
      * Constructor method for ZimletAcl

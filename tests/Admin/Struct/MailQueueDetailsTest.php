@@ -71,51 +71,14 @@ class MailQueueDetailsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
+<result name="$name" time="$scanTime" scan="true" total="$total" more="true">
     <qs type="$type">
         <qsi n="$count" t="$term" />
     </qs>
     <qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
-</queue>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueDetails::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'time' => $scanTime,
-            'scan' => TRUE,
-            'total' => $total,
-            'more' => TRUE,
-            'qs' => [
-                [
-                    'type' => $type,
-                    'qsi' => [
-                        [
-                            'n' => $count,
-                            't' => $term,
-                        ],
-                    ],
-                ],
-            ],
-            'qi' => [
-                [
-                    'id' => $id,
-                    'time' => $time,
-                    'fromdomain' => $fromdomain,
-                    'size' => $size,
-                    'from' => $from,
-                    'to' => $to,
-                    'host' => $host,
-                    'addr' => $addr,
-                    'reason' => $reason,
-                    'filter' => $filter,
-                    'todomain' => $todomain,
-                    'received' => $received,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($queue, 'json'));
-        $this->assertEquals($queue, $this->serializer->deserialize($json, MailQueueDetails::class, 'json'));
     }
 }

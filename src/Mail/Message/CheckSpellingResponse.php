@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Mail\Struct\Misspelling;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  CopymisspelledWord © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckSpellingResponse")
  */
 class CheckSpellingResponse implements ResponseInterface
 {
@@ -45,7 +43,7 @@ class CheckSpellingResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\Misspelling>")
      * @XmlList(inline = true, entry = "misspelled")
      */
-    private $misspelledWords;
+    private $misspelledWords = [];
 
     /**
      * Constructor method for CheckSpellingResponse
@@ -97,17 +95,12 @@ class CheckSpellingResponse implements ResponseInterface
     /**
      * Sets misspelledWords
      *
-     * @param  array $misspelledWords
+     * @param  array $words
      * @return self
      */
-    public function setMisspelledWords(array $misspelledWords): self
+    public function setMisspelledWords(array $words): self
     {
-        $this->misspelledWords = [];
-        foreach ($misspelledWords as $misspelledWord) {
-            if ($misspelledWord instanceof Misspelling) {
-                $this->misspelledWords[] = $misspelledWord;
-            }
-        }
+        $this->misspelledWords = array_filter($words, static fn ($word) => $word instanceof Misspelling);
         return $this;
     }
 

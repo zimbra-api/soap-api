@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\EmailInfo;
 use Zimbra\Mail\Struct\MPInviteInfo;
@@ -12,7 +12,7 @@ use Zimbra\Mail\Struct\CalEcho;
 use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -31,7 +31,7 @@ class CalEchoTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $key = $this->faker->word;
@@ -68,9 +68,9 @@ class CalEchoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<echo>
+<result>
     <m id="$id" part="$part" sd="$sentDate">
-        <e a="$address" d="$display" p="$personal" t="f" />
+        <e a="$address" d="$display" p="$personal" t="t" />
         <su>$subject</su>
         <mid>$messageIdHeader</mid>
         <inv type="task" />
@@ -85,7 +85,7 @@ class CalEchoTest extends ZimbraTestCase
             <content>$content</content>
         </dlSubs>
     </m>
-</echo>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($echo, 'xml'));
         $this->assertEquals($echo, $this->serializer->deserialize($xml, CalEcho::class, 'xml'));
@@ -100,7 +100,7 @@ EOT;
                         'a' => $address,
                         'd' => $display,
                         'p' => $personal,
-                        't' => 'f',
+                        't' => 't',
                     ],
                 ],
                 'su' => [

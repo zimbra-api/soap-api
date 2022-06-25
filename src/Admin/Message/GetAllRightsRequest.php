@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\RightClass;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\RightClass;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllRightsRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllRightsRequest")
  */
 class GetAllRightsRequest extends Request
 {
@@ -57,10 +55,10 @@ class GetAllRightsRequest extends Request
      * ALL:   return both admin rights and user rights
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
-     * @Type("Zimbra\Enum\RightClass")
+     * @Type("Zimbra\Common\Enum\RightClass")
      * @XmlAttribute
      */
-    private $rightClass;
+    private ?RightClass $rightClass = NULL;
 
     /**
      * Constructor method for GetAllRightsRequest
@@ -70,7 +68,9 @@ class GetAllRightsRequest extends Request
      * @param  RightClass $rightClass
      * @return self
      */
-    public function __construct(?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL)
+    public function __construct(
+        ?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL
+    )
     {
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
@@ -152,14 +152,12 @@ class GetAllRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllRightsEnvelope)) {
-            $this->envelope = new GetAllRightsEnvelope(
-                new GetAllRightsBody($this)
-            );
-        }
+        return new GetAllRightsEnvelope(
+            new GetAllRightsBody($this)
+        );
     }
 }

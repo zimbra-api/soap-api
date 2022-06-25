@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * AddTaskInviteResponse class
  * 
@@ -20,7 +18,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="AddTaskInviteResponse")
  */
 class AddTaskInviteResponse extends AddAppointmentInviteResponse
 {

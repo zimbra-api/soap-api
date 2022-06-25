@@ -10,7 +10,7 @@ use Zimbra\Admin\Message\GetDomainResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -81,34 +81,5 @@ class GetDomainTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDomainEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDomainRequest' => [
-                    'attrs' => $attrs,
-                    'applyConfig' => TRUE,
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetDomainResponse' => [
-                    'domain' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDomainEnvelope::class, 'json'));
     }
 }

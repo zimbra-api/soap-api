@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlValue, XmlRoot};
-use Zimbra\Enum\ZeroOrOne;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\ZeroOrOne;
 
 /**
  * ServiceStatus struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\ZeroOrOne;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="status")
  */
 class ServiceStatus
 {
@@ -57,10 +55,10 @@ class ServiceStatus
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("_content")
-     * @Type("Zimbra\Enum\ZeroOrOne")
+     * @Type("Zimbra\Common\Enum\ZeroOrOne")
      * @XmlValue(cdata = false)
      */
-    private $status;
+    private ZeroOrOne $status;
 
     /**
      * Constructor method for ServiceStatus

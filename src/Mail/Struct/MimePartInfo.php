@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * MimePartInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mp")
  */
 class MimePartInfo
 {
@@ -68,7 +66,7 @@ class MimePartInfo
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Constructor method
@@ -187,12 +185,7 @@ class MimePartInfo
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = [];
-        foreach ($mimeParts as $mimePart) {
-            if ($mimePart instanceof MimePartInfo) {
-                $this->mimeParts[] = $mimePart;
-            }
-        }
+        $this->mimeParts = array_filter($mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo);
         return $this;
     }
 

@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalTZInfo;
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -58,34 +58,12 @@ class CalTZInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+<result id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
     <standard mon="$std_mon" hour="$std_hour" min="$std_min" sec="$std_sec" />
     <daylight mon="$day_mon" hour="$day_hour" min="$day_min" sec="$day_sec" />
-</tz>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzi, 'xml'));
         $this->assertEquals($tzi, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'stdoff' => $stdoff,
-            'dayoff' => $dayoff,
-            'standard' => [
-                'mon' => $std_mon,
-                'hour' => $std_hour,
-                'min' => $std_min,
-                'sec' => $std_sec,
-            ],
-            'daylight' => [
-                'mon' => $day_mon,
-                'hour' => $day_hour,
-                'min' => $day_min,
-                'sec' => $day_sec,
-            ],
-            'stdname' => $stdname,
-            'dayname' => $dayname,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzi, 'json'));
-        $this->assertEquals($tzi, $this->serializer->deserialize($json, CalTZInfo::class, 'json'));
     }
 }

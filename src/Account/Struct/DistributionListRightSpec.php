@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\DistributionListGranteeSelector as GranteeSelector;
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Account\Struct\DistributionListGranteeSelector as GranteeSelector;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="right")
  */
 class DistributionListRightSpec
 {
@@ -42,7 +40,7 @@ class DistributionListRightSpec
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline = true, entry = "grantee")
      */
-    private $grantees;
+    private $grantees = [];
 
     /**
      * Constructor method for DistributionListRightSpec
@@ -97,12 +95,7 @@ class DistributionListRightSpec
      */
     public function setGrantees(array $grantees): self
     {
-        $this->grantees = [];
-        foreach ($grantees as $grantee) {
-            if ($grantee instanceof GranteeSelector) {
-                $this->grantees[] = $grantee;
-            }
-        }
+        $this->grantees = array_filter($grantees, static fn ($grantee) => $grantee instanceof GranteeSelector);
         return $this;
     }
 

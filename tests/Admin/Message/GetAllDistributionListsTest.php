@@ -11,8 +11,8 @@ use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -89,47 +89,5 @@ class GetAllDistributionListsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllDistributionListsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllDistributionListsRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllDistributionListsResponse' => [
-                    'dl' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'dynamic' => TRUE,
-                            'dlm' => [
-                                ['_content' => $member],
-                            ],
-                            'owners' => [
-                                'owner' => [
-                                    [
-                                        'id' => $id,
-                                        'name' => $name,
-                                        'type' => 'all',
-                                    ],
-                                ],
-                            ],
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllDistributionListsEnvelope::class, 'json'));
     }
 }

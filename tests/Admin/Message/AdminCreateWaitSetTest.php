@@ -6,9 +6,9 @@ use Zimbra\Admin\Message\AdminCreateWaitSetBody;
 use Zimbra\Admin\Message\AdminCreateWaitSetEnvelope;
 use Zimbra\Admin\Message\AdminCreateWaitSetRequest;
 use Zimbra\Admin\Message\AdminCreateWaitSetResponse;
-use Zimbra\Enum\InterestType;
-use Zimbra\Struct\IdAndType;
-use Zimbra\Struct\WaitSetAddSpec;
+use Zimbra\Common\Enum\InterestType;
+use Zimbra\Common\Struct\IdAndType;
+use Zimbra\Common\Struct\WaitSetAddSpec;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -105,39 +105,5 @@ class AdminCreateWaitSetTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AdminCreateWaitSetEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AdminCreateWaitSetRequest' => [
-                    'defTypes' => $defaultInterests,
-                    'allAccounts' => TRUE,
-                    'add' => [
-                        'a' => [
-                            [
-                                'name' => $name,
-                                'id' => $id,
-                                'token' => $token,
-                                'types' => 'f,m',
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AdminCreateWaitSetResponse' => [
-                    'waitSet' => $waitSetId,
-                    'defTypes' => $defaultInterests,
-                    'seq' => $sequence,
-                    'error' => [
-                        [
-                            'id' => $id,
-                            'type' => $type,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AdminCreateWaitSetEnvelope::class, 'json'));
     }
 }

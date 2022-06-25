@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteDataSourceRequest class
@@ -25,8 +25,6 @@ use Zimbra\Struct\Id;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DeleteDataSourceRequest")
  */
 class DeleteDataSourceRequest extends Request implements AdminAttrs
 {
@@ -45,10 +43,10 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
      * Data source ID
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $dataSource;
+    private Id $dataSource;
 
     /**
      * Constructor method for DeleteDataSourceRequest
@@ -114,14 +112,12 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteDataSourceEnvelope)) {
-            $this->envelope = new DeleteDataSourceEnvelope(
-                new DeleteDataSourceBody($this)
-            );
-        }
+        return new DeleteDataSourceEnvelope(
+            new DeleteDataSourceBody($this)
+        );
     }
 }

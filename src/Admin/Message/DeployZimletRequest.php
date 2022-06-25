@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Enum\ZimletDeployAction as DeployAction;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\ZimletDeployAction as DeployAction;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeployZimletRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DeployZimletRequest")
  */
 class DeployZimletRequest extends Request
 {
@@ -33,10 +31,10 @@ class DeployZimletRequest extends Request
      * Action - valid values : deployAll|deployLocal|status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\ZimletDeployAction")
+     * @Type("Zimbra\Common\Enum\ZimletDeployAction")
      * @XmlAttribute
      */
-    private $action;
+    private DeployAction $action;
 
     /**
      * Flag whether to flush the cache
@@ -63,7 +61,7 @@ class DeployZimletRequest extends Request
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
      * @XmlElement
      */
-    private $content;
+    private AttachmentIdAttrib $content;
 
     /**
      * Constructor method for DeployZimletRequest
@@ -179,14 +177,12 @@ class DeployZimletRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeployZimletEnvelope)) {
-            $this->envelope = new DeployZimletEnvelope(
-                new DeployZimletBody($this)
-            );
-        }
+        return new DeployZimletEnvelope(
+            new DeployZimletBody($this)
+        );
     }
 }

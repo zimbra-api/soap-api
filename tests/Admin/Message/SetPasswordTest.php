@@ -65,23 +65,5 @@ class SetPasswordTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SetPasswordEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SetPasswordRequest' => [
-                    'id' => $id,
-                    'newPassword' => $newPassword,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SetPasswordResponse' => [
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SetPasswordEnvelope::class, 'json'));
     }
 }

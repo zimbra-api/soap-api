@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\Stat;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetServerStatsResponse")
  */
 class GetServerStatsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetServerStatsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for GetServerStatsResponse
@@ -68,12 +66,7 @@ class GetServerStatsResponse implements ResponseInterface
      */
     public function setStats(array $stats): self
     {
-        $this->stats = [];
-        foreach ($stats as $stat) {
-            if ($stat instanceof Stat) {
-                $this->stats[] = $stat;
-            }
-        }
+        $this->stats = array_filter($stats, static fn ($stat) => $stat instanceof Stat);
         return $this;
     }
 

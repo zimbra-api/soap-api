@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\Signature;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifySignatureRequest class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifySignatureRequest")
  */
 class ModifySignatureRequest extends Request
 {
@@ -38,7 +36,7 @@ class ModifySignatureRequest extends Request
      * @Type("Zimbra\Account\Struct\Signature")
      * @XmlElement
      */
-    private $signature;
+    private Signature $signature;
 
     /**
      * Constructor method for ModifySignatureRequest
@@ -76,14 +74,12 @@ class ModifySignatureRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifySignatureEnvelope)) {
-            $this->envelope = new ModifySignatureEnvelope(
-                new ModifySignatureBody($this)
-            );
-        }
+        return new ModifySignatureEnvelope(
+            new ModifySignatureBody($this)
+        );
     }
 }

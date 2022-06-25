@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\TargetType;
 
 /**
  * AliasInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\TargetType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="alias")
  */
 class AliasInfo extends AdminObjectInfo
 {
@@ -39,10 +37,10 @@ class AliasInfo extends AdminObjectInfo
      * Target type
      * @Accessor(getter="getTargetTyoe", setter="setTargetTyoe")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $targetType;
+    private ?TargetType $targetType = NULL;
 
     /**
      * Constructor method for AliasInfo

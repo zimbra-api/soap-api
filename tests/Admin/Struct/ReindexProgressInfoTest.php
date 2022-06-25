@@ -31,17 +31,9 @@ class ReindexProgressInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<progress numSucceeded="$numSucceeded" numFailed="$numFailed" numRemaining="$numRemaining" />
+<result numSucceeded="$numSucceeded" numFailed="$numFailed" numRemaining="$numRemaining" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($progress, 'xml'));
         $this->assertEquals($progress, $this->serializer->deserialize($xml, ReindexProgressInfo::class, 'xml'));
-
-        $json = json_encode([
-            'numSucceeded' => $numSucceeded,
-            'numFailed' => $numFailed,
-            'numRemaining' => $numRemaining,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($progress, 'json'));
-        $this->assertEquals($progress, $this->serializer->deserialize($json, ReindexProgressInfo::class, 'json'));
     }
 }

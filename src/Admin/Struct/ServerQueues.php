@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * ServerQueues struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="server")
  */
 class ServerQueues
 {
@@ -41,7 +39,7 @@ class ServerQueues
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
      * @XmlList(inline = true, entry = "queue")
      */
-    private $queues;
+    private $queues = [];
 
     /**
      * Constructor method for ServerQueues
@@ -98,12 +96,7 @@ class ServerQueues
      */
     public function setQueues(array $queues): self
     {
-        $this->queues = [];
-        foreach ($queues as $queue) {
-            if ($queue instanceof MailQueueCount) {
-                $this->queues[] = $queue;
-            }
-        }
+        $this->queues = array_filter($queues, static fn ($queue) => $queue instanceof MailQueueCount);
         return $this;
     }
 

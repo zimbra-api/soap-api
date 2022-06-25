@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * CosInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cos")
  */
 class CosInfo implements AdminObjectInterface
 {
@@ -58,7 +56,7 @@ class CosInfo implements AdminObjectInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for CosInfo
@@ -165,12 +163,7 @@ class CosInfo implements AdminObjectInterface
      */
     public function setAttrList(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof CosInfoAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof CosInfoAttr);
         return $this;
     }
 

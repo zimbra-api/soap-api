@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckDomainMXRecordRequest request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckDomainMXRecordRequest")
  */
 class CheckDomainMXRecordRequest extends Request
 {
@@ -36,7 +34,7 @@ class CheckDomainMXRecordRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement()
      */
-    private $domain;
+    private ?DomainSelector $domain = NULL;
 
     /**
      * Constructor method for CheckDomainMXRecordRequest
@@ -44,7 +42,7 @@ class CheckDomainMXRecordRequest extends Request
      * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(DomainSelector $domain = NULL)
+    public function __construct(?DomainSelector $domain = NULL)
     {
         if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);
@@ -76,14 +74,12 @@ class CheckDomainMXRecordRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckDomainMXRecordEnvelope)) {
-            $this->envelope = new CheckDomainMXRecordEnvelope(
-                new CheckDomainMXRecordBody($this)
-            );
-        }
+        return new CheckDomainMXRecordEnvelope(
+            new CheckDomainMXRecordBody($this)
+        );
     }
 }

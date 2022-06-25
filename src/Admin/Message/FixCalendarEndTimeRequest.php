@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * FixCalendarEndTimeRequest class
@@ -25,8 +25,6 @@ use Zimbra\Struct\NamedElement;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="FixCalendarEndTimeRequest")
  */
 class FixCalendarEndTimeRequest extends Request
 {
@@ -45,10 +43,10 @@ class FixCalendarEndTimeRequest extends Request
      * Accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for FixCalendarEndTimeRequest
@@ -105,12 +103,7 @@ class FixCalendarEndTimeRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof NamedElement) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof NamedElement);
         return $this;
     }
 
@@ -129,14 +122,12 @@ class FixCalendarEndTimeRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof FixCalendarEndTimeEnvelope)) {
-            $this->envelope = new FixCalendarEndTimeEnvelope(
-                new FixCalendarEndTimeBody($this)
-            );
-        }
+        return new FixCalendarEndTimeEnvelope(
+            new FixCalendarEndTimeBody($this)
+        );
     }
 }

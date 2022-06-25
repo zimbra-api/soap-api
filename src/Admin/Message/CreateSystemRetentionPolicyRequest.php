@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\{Policy, PolicyHolder};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateSystemRetentionPolicyRequest class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateSystemRetentionPolicyRequest")
  */
 class CreateSystemRetentionPolicyRequest extends Request
 {
@@ -37,7 +35,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
@@ -45,7 +43,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
-    private $keep;
+    private ?PolicyHolder $keep = NULL;
 
     /**
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
@@ -53,7 +51,7 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\PolicyHolder")
      * @XmlElement
      */
-    private $purge;
+    private ?PolicyHolder $purge = NULL;
 
     /**
      * Constructor method for CreateSystemRetentionPolicyRequest
@@ -63,7 +61,9 @@ class CreateSystemRetentionPolicyRequest extends Request
      * @param  PolicyHolder $purge
      * @return self
      */
-    public function __construct(?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL)
+    public function __construct(
+        ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
+    )
     {
         if ($cos instanceof CosSelector) {
             $this->setCos($cos);
@@ -155,14 +155,12 @@ class CreateSystemRetentionPolicyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateSystemRetentionPolicyEnvelope)) {
-            $this->envelope = new CreateSystemRetentionPolicyEnvelope(
-                new CreateSystemRetentionPolicyBody($this)
-            );
-        }
+        return new CreateSystemRetentionPolicyEnvelope(
+            new CreateSystemRetentionPolicyBody($this)
+        );
     }
 }

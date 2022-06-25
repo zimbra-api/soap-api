@@ -10,10 +10,10 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Mail\Struct\IdsAttr;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ApplyOutgoingFilterRulesRequest class
@@ -28,8 +28,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ApplyOutgoingFilterRulesRequest")
  */
 class ApplyOutgoingFilterRulesRequest extends Request
 {
@@ -38,10 +36,10 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * 
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = false, entry = "filterRule")
      */
-    private $filterRules;
+    private $filterRules = [];
 
     /**
      * Comma-separated list of message IDs
@@ -50,7 +48,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * @Type("Zimbra\Mail\Struct\IdsAttr")
      * @XmlElement
      */
-    private $msgIds;
+    private ?IdsAttr $msgIds = NULL;
 
     /**
      * Query string
@@ -99,17 +97,12 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Sets filterRules
      *
-     * @param  array $filterRules
+     * @param  array $rules
      * @return self
      */
-    public function setFilterRules(array $filterRules): self
+    public function setFilterRules(array $rules): self
     {
-        $this->filterRules = [];
-        foreach ($filterRules as $filterRule) {
-            if ($filterRule instanceof NamedElement) {
-                $this->filterRules[] = $filterRule;
-            }
-        }
+        $this->filterRules = array_filter($rules, static fn ($rule) => $rule instanceof NamedElement);
         return $this;
     }
 
@@ -170,14 +163,12 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ApplyOutgoingFilterRulesEnvelope)) {
-            $this->envelope = new ApplyOutgoingFilterRulesEnvelope(
-                new ApplyOutgoingFilterRulesBody($this)
-            );
-        }
+        return new ApplyOutgoingFilterRulesEnvelope(
+            new ApplyOutgoingFilterRulesBody($this)
+        );
     }
 }

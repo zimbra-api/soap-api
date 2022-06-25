@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\MemberType;
+use Zimbra\Common\Enum\MemberType;
 
 use Zimbra\Mail\Message\CreateContactEnvelope;
 use Zimbra\Mail\Message\CreateContactBody;
@@ -17,7 +17,7 @@ use Zimbra\Mail\Struct\NewContactAttr;
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Mail\Struct\ContactInfo;
 use Zimbra\Mail\Struct\ContactGroupMember;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Struct\ContactAttr;
 
 use Zimbra\Tests\ZimbraTestCase;
 

@@ -31,17 +31,9 @@ class DistributionListMembershipInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl id="$id" name="$name" via="$via" />
+<result id="$id" name="$name" via="$via" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListMembershipInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'via' => $via,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListMembershipInfo::class, 'json'));
     }
 }

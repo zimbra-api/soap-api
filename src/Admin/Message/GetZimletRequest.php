@@ -10,10 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, NamedElement};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetZimletRequest class
@@ -24,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetZimletRequest")
  */
 class GetZimletRequest extends Request implements AttributeSelector
 {
@@ -35,10 +32,10 @@ class GetZimletRequest extends Request implements AttributeSelector
      * Zimlet selector
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $zimlet;
+    private NamedElement $zimlet;
 
     /**
      * Constructor method for GetZimletRequest
@@ -80,14 +77,12 @@ class GetZimletRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetZimletEnvelope)) {
-            $this->envelope = new GetZimletEnvelope(
-                new GetZimletBody($this)
-            );
-        }
+        return new GetZimletEnvelope(
+            new GetZimletBody($this)
+        );
     }
 }

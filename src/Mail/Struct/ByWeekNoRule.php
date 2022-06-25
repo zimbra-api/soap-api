@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-
-use Zimbra\Struct\ByWeekNoRuleInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Struct\ByWeekNoRuleInterface;
 
 /**
  * ByWeekNoRule class
@@ -23,8 +22,6 @@ use Zimbra\Struct\ByWeekNoRuleInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="byweekno")
  */
 class ByWeekNoRule implements ByWeekNoRuleInterface
 {

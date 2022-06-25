@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Struct\Id;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\Id;
 
 /**
  * TzReplaceInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\Id;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="replace")
  */
 class TzReplaceInfo
 {
@@ -30,10 +28,10 @@ class TzReplaceInfo
      * TzID from /opt/zimbra/conf/timezones.ics 
      * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
      * @SerializedName("wellKnownTz")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $wellKnownTz;
+    private ?Id $wellKnownTz = NULL;
 
     /**
      * Timezone
@@ -42,7 +40,7 @@ class TzReplaceInfo
      * @Type("Zimbra\Admin\Struct\CalTzInfo")
      * @XmlElement
      */
-    private $calTz;
+    private ?CalTzInfo $calTz = NULL;
 
     /**
      * Constructor method for TzReplaceInfo

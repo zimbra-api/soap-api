@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\ZimletStatusSetting;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ZimletStatusSetting;
 
 /**
  * ZimletStatus struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\ZimletStatusSetting;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="zimlet")
  */
 class ZimletStatus
 {
@@ -39,10 +37,10 @@ class ZimletStatus
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\ZimletStatusSetting")
+     * @Type("Zimbra\Common\Enum\ZimletStatusSetting")
      * @XmlAttribute
      */
-    private $status;
+    private ZimletStatusSetting $status;
 
     /**
      * Extension

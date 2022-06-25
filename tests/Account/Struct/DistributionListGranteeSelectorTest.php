@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -32,17 +32,9 @@ class DistributionListGranteeSelectorTest extends ZimbraTestCase
         $by = DLGranteeBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="$type" by="$by">$value</grantee>
+<result type="$type" by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, DistributionListGranteeSelector::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, DistributionListGranteeSelector::class, 'json'));
     }
 }

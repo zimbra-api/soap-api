@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\WhiteList;
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -26,27 +26,12 @@ class WhiteListTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<whiteList>
+<result>
     <addr op="+">$value</addr>
     <addr op="-">$value</addr>
-</whiteList>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($whiteList, 'xml'));
         $this->assertEquals($whiteList, $this->serializer->deserialize($xml, WhiteList::class, 'xml'));
-
-        $json = json_encode([
-            'addr' => [
-                [
-                    'op' => '+',
-                    '_content' => $value,
-                ],
-                [
-                    'op' => '-',
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($whiteList, 'json'));
-        $this->assertEquals($whiteList, $this->serializer->deserialize($json, WhiteList::class, 'json'));
     }
 }

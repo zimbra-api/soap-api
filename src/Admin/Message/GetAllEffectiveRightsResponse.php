@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\EffectiveRightsTarget;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Soap\ResponseInterface;
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllEffectiveRightsResponse")
  */
 class GetAllEffectiveRightsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement
      */
-    private $grantee;
+    private ?GranteeInfo $grantee = NULL;
 
     /**
      * Effective rights targets
@@ -45,7 +43,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")
      * @XmlList(inline = true, entry = "target")
      */
-    private $targets;
+    private $targets = [];
 
     /**
      * Constructor method for GetAllEffectiveRightsResponse
@@ -56,10 +54,10 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      */
     public function __construct(?GranteeInfo $grantee = NULL, array $targets = [])
     {
+        $this->setTargets($targets);
         if ($grantee instanceof GranteeInfo) {
             $this->setGrantee($grantee);
         }
-        $this->setTargets($targets);
     }
 
     /**
@@ -104,12 +102,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      */
     public function setTargets(array $targets): self
     {
-        $this->targets = [];
-        foreach ($targets as $target) {
-            if ($target instanceof EffectiveRightsTarget) {
-                $this->targets[] = $target;
-            }
-        }
+        $this->targets = array_filter($targets, static fn ($target) => $target instanceof EffectiveRightsTarget);
         return $this;
     }
 

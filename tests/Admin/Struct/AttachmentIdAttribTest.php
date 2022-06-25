@@ -23,15 +23,9 @@ class AttachmentIdAttribTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<content aid="$aid"/>
+<result aid="$aid"/>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, AttachmentIdAttrib::class, 'xml'));
-
-        $json = json_encode([
-            'aid' => $aid,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
-        $this->assertEquals($content, $this->serializer->deserialize($json, AttachmentIdAttrib::class, 'json'));
     }
 }

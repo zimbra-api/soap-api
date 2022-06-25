@@ -35,7 +35,7 @@ class VCardInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<vcard mid="$messageId" part="$part" aid="$attachId">$value</vcard>
+<result mid="$messageId" part="$part" aid="$attachId">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($vcard, 'xml'));
         $this->assertEquals($vcard, $this->serializer->deserialize($xml, VCardInfo::class, 'xml'));

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AutoCompleteMatchType as MatchType;
-use Zimbra\Enum\GalSearchType;
+use Zimbra\Common\Enum\AutoCompleteMatchType as MatchType;
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Mail\Struct\AutoCompleteMatch;
 
 use Zimbra\Mail\Message\AutoCompleteEnvelope;

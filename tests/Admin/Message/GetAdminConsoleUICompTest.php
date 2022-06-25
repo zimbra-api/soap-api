@@ -5,9 +5,9 @@ namespace Zimbra\Tests\Admin\Message;
 use Zimbra\Admin\Message\{GetAdminConsoleUICompBody, GetAdminConsoleUICompEnvelope, GetAdminConsoleUICompRequest, GetAdminConsoleUICompResponse};
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Admin\Struct\InheritedFlaggedValue;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -74,32 +74,5 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAdminConsoleUICompEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAdminConsoleUICompRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAdminConsoleUICompResponse' => [
-                    'a' => [
-                        [
-                            'inherited' => TRUE,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAdminConsoleUICompEnvelope::class, 'json'));
     }
 }

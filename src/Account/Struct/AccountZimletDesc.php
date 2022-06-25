@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Struct\ZimletDesc;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Struct\ZimletDesc;
 
 /**
  * AccountZimletDesc class
@@ -21,8 +21,6 @@ use Zimbra\Struct\ZimletDesc;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="zimlet")
  */
 class AccountZimletDesc implements ZimletDesc
 {
@@ -86,7 +84,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Type("Zimbra\Account\Struct\ZimletServerExtension")
      * @XmlElement
      */
-    private $serverExtension;
+    private ?ZimletServerExtension $serverExtension = NULL;
 
     /**
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
@@ -94,7 +92,7 @@ class AccountZimletDesc implements ZimletDesc
      * @Type("Zimbra\Account\Struct\AccountZimletInclude")
      * @XmlElement
      */
-    private $include;
+    private ?AccountZimletInclude $include = NULL;
 
     /**
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
@@ -102,15 +100,15 @@ class AccountZimletDesc implements ZimletDesc
      * @Type("Zimbra\Account\Struct\AccountZimletIncludeCSS")
      * @XmlElement
      */
-    private $includeCSS;
+    private ?AccountZimletIncludeCSS $includeCSS = NULL;
 
     /**
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
-     * @SerializedName("target")
+     * @SerializedName("zimletTarget")
      * @Type("Zimbra\Account\Struct\AccountZimletTarget")
      * @XmlElement
      */
-    // private $zimletTarget;
+    private ?AccountZimletTarget $zimletTarget = NULL;
 
     /**
      * Constructor method for AccountZimletDesc

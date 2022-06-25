@@ -8,7 +8,7 @@ use Zimbra\Admin\Struct\EffectiveAttrsInfo;
 use Zimbra\Admin\Struct\EffectiveRightsInfo;
 use Zimbra\Admin\Struct\RightsEntriesInfo;
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -47,7 +47,7 @@ class RightsEntriesInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entries>
+<result>
     <entry name="$name" />
     <rights>
         <right n="$name" />
@@ -84,98 +84,9 @@ class RightsEntriesInfoTest extends ZimbraTestCase
             </a>
         </getAttrs>
     </rights>
-</entries>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entries, 'xml'));
         $this->assertEquals($entries, $this->serializer->deserialize($xml, RightsEntriesInfo::class, 'xml'));
-
-        $json = json_encode([
-            'entry' => [
-                [
-                    'name' => $name,
-                ],
-            ],
-            'rights' => [
-                'right' => [
-                    [
-                        'n' => $name,
-                    ],
-                ],
-                'setAttrs' => [
-                    'all' => TRUE,
-                    'a' => [
-                        [
-                            'n' => $name,
-                            'constraint' => [
-                                'min' => [
-                                    '_content' => $min,
-                                ],
-                                'max' => [
-                                    '_content' => $max,
-                                ],
-                                'values' => [
-                                    'v' => [
-                                        [
-                                            '_content' => $value1,
-                                        ],
-                                        [
-                                            '_content' => $value2,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'default' => [
-                                'v' => [
-                                    [
-                                        '_content' => $value1,
-                                    ],
-                                    [
-                                        '_content' => $value2,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                'getAttrs' => [
-                    'all' => FALSE,
-                    'a' => [
-                        [
-                            'n' => $name,
-                            'constraint' => [
-                                'min' => [
-                                    '_content' => $min,
-                                ],
-                                'max' => [
-                                    '_content' => $max,
-                                ],
-                                'values' => [
-                                    'v' => [
-                                        [
-                                            '_content' => $value1,
-                                        ],
-                                        [
-                                            '_content' => $value2,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'default' => [
-                                'v' => [
-                                    [
-                                        '_content' => $value1,
-                                    ],
-                                    [
-                                        '_content' => $value2,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entries, 'json'));
-        $this->assertEquals($entries, $this->serializer->deserialize($json, RightsEntriesInfo::class, 'json'));
     }
 }

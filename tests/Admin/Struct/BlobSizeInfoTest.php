@@ -36,18 +36,9 @@ class BlobSizeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+<result path="$path" s="$size" fileSize="$fileSize" external="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blob, 'xml'));
         $this->assertEquals($blob, $this->serializer->deserialize($xml, BlobSizeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'path' => $path,
-            's' => $size,
-            'fileSize' => $fileSize,
-            'external' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blob, 'json'));
-        $this->assertEquals($blob, $this->serializer->deserialize($json, BlobSizeInfo::class, 'json'));
     }
 }

@@ -59,25 +59,5 @@ class GetAllLocalesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllLocalesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllLocalesRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAllLocalesResponse' => [
-                    'locale' => [
-                        [
-                            'id' => $id,
-                            'name' => $name,
-                            'localName' => $localName,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllLocalesEnvelope::class, 'json'));
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * ChildAccount struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="childAccount")
  */
 class ChildAccount
 {
@@ -68,7 +66,7 @@ class ChildAccount
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for ChildAccount
@@ -201,12 +199,7 @@ class ChildAccount
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 

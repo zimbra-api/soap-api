@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * MailQueueQuery struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="queue")
  */
 class MailQueueQuery
 {
@@ -32,7 +30,7 @@ class MailQueueQuery
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement
      */
-    private $query;
+    private QueueQuery $query;
 
     /**
      * Queue name
@@ -71,8 +69,8 @@ class MailQueueQuery
      */
     public function __construct(QueueQuery $query, string $name, ?bool $scan = NULL, ?int $wait = NULL)
     {
-        $this->setQuery($query);
-        $this->setQueueName($name);
+        $this->setQuery($query)
+             ->setQueueName($name);
         if (NULL !== $scan) {
             $this->setScan($scan);
         }
@@ -86,7 +84,7 @@ class MailQueueQuery
      *
      * @return QueueQuery
      */
-    public function getQuery()
+    public function getQuery(): QueueQuery
     {
         return $this->query;
     }

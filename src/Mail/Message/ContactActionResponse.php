@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\FolderActionResult;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,7 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  CopymisspelledWord © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ContactActionResponse")
  */
 class ContactActionResponse implements ResponseInterface
 {
@@ -33,7 +32,7 @@ class ContactActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement
      */
-    private $action;
+    private FolderActionResult $action;
 
     /**
      * Constructor method for ContactActionResponse

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ReplyType;
 
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
@@ -46,7 +46,7 @@ class MsgTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
         $attachments = new AttachmentsInfo($id);
         $invite = new InvitationInfo($method, $componentNum, TRUE);
-        $emailAddress = new EmailAddrInfo($address, AddressType::FROM(), $personal);
+        $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
 
         $msg = new Msg(
@@ -111,16 +111,16 @@ class MsgTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
+<result aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
     <header name="$name">$value</header>
     <content>$content</content>
     <mp ct="$contentType" content="$content" ci="$contentId" />
     <attach aid="$id" />
     <inv method="$method" compNum="$componentNum" rsvp="true" />
-    <e a="$address" t="f" p="$personal" />
+    <e a="$address" t="t" p="$personal" />
     <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
     <fr>$fragment</fr>
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, Msg::class, 'xml'));
@@ -159,7 +159,7 @@ EOT;
             'e' => [
                 [
                     'a' => $address,
-                    't' => 'f',
+                    't' => 't',
                     'p' => $personal,
                 ],
             ],

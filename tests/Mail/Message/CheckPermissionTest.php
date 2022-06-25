@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\TargetType;
 
 use Zimbra\Mail\Message\CheckPermissionEnvelope;
 use Zimbra\Mail\Message\CheckPermissionBody;

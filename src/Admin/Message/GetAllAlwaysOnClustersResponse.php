@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllAlwaysOnClustersResponse")
  */
 class GetAllAlwaysOnClustersResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")
      * @XmlList(inline = true, entry = "alwaysOnCluster")
      */
-    private $clusterList;
+    private $clusterList = [];
 
     /**
      * Constructor method for GetAllAlwaysOnClustersResponse
@@ -63,17 +61,12 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
     /**
      * Sets alwaysOnClusters
      *
-     * @param  array $clusterList
+     * @param  array $list
      * @return self
      */
-    public function setAlwaysOnClusterList(array $clusterList): self
+    public function setAlwaysOnClusterList(array $list): self
     {
-        $this->clusterList = [];
-        foreach ($clusterList as $alwaysOnCluster) {
-            if ($alwaysOnCluster instanceof AlwaysOnClusterInfo) {
-                $this->clusterList[] = $alwaysOnCluster;
-            }
-        }
+        $this->clusterList = array_filter($list, static fn ($item) => $item instanceof AlwaysOnClusterInfo);
         return $this;
     }
 

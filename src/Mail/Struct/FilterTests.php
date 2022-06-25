@@ -11,9 +11,9 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, AccessType, Inline, SerializedName, Type, XmlAttribute, XmlKeyValuePairs, XmlRoot
+    Accessor, Inline, SerializedName, Type, XmlAttribute, XmlKeyValuePairs
 };
-use Zimbra\Enum\FilterCondition;
+use Zimbra\Common\Enum\FilterCondition;
 
 /**
  * FilterTests struct class
@@ -23,8 +23,6 @@ use Zimbra\Enum\FilterCondition;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="filterTests")
  */
 class FilterTests
 {
@@ -32,10 +30,10 @@ class FilterTests
      * Condition - allof|anyof
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("condition")
-     * @Type("Zimbra\Enum\FilterCondition")
+     * @Type("Zimbra\Common\Enum\FilterCondition")
      * @XmlAttribute
      */
-    private $condition;
+    private FilterCondition $condition;
 
     /**
      * Tests
@@ -44,7 +42,7 @@ class FilterTests
      * @Inline
      * @XmlKeyValuePairs
      */
-    private $tests;
+    private $tests = [];
 
     /**
      * Constructor method for FilterTests
@@ -56,7 +54,7 @@ class FilterTests
     public function __construct(FilterCondition $condition, array $tests = [])
     {
         $this->setCondition($condition)
-            ->setTests($tests);
+             ->setTests($tests);
     }
 
     /**

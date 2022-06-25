@@ -10,10 +10,10 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\GranteeChooser;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Struct\GranteeChooser;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetShareInfoRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetShareInfoRequest")
  */
 class GetShareInfoRequest extends Request
 {
@@ -55,19 +53,19 @@ class GetShareInfoRequest extends Request
      * Filter by the specified grantee type
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
-     * @Type("Zimbra\Struct\GranteeChooser")
+     * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement
      */
-    private $grantee;
+    private ?GranteeChooser $grantee = NULL;
 
     /**
      * Specifies the owner of the share
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $owner;
+    private ?AccountSelector $owner = NULL;
 
     /**
      * Constructor method for GetShareInfoRequest
@@ -190,14 +188,12 @@ class GetShareInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetShareInfoEnvelope)) {
-            $this->envelope = new GetShareInfoEnvelope(
-                new GetShareInfoBody($this)
-            );
-        }
+        return new GetShareInfoEnvelope(
+            new GetShareInfoBody($this)
+        );
     }
 }

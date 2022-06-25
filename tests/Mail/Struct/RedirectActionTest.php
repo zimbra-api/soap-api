@@ -27,7 +27,7 @@ class RedirectActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionRedirect index="$index" a="$address" copy="true" />
+<result index="$index" a="$address" copy="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RedirectAction::class, 'xml'));

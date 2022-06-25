@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\FlushCacheRequest;
 use Zimbra\Admin\Message\FlushCacheResponse;
 use Zimbra\Admin\Struct\CacheEntrySelector;
 use Zimbra\Admin\Struct\CacheSelector;
-use Zimbra\Enum\CacheEntryBy;
-use Zimbra\Enum\CacheType;
+use Zimbra\Common\Enum\CacheEntryBy;
+use Zimbra\Common\Enum\CacheType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -64,29 +64,5 @@ class FlushCacheTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FlushCacheEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'FlushCacheRequest' => [
-                    'cache' => [
-                        'entry' => [
-                            [
-                                'by' => 'id',
-                                '_content' => $value,
-                            ],
-                        ],
-                        'type' => $types,
-                        'allServers' => TRUE,
-                        'imapServers' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'FlushCacheResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, FlushCacheEnvelope::class, 'json'));
     }
 }

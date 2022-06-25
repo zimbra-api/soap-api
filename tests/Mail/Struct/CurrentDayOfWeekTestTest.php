@@ -26,7 +26,7 @@ class CurrentDayOfWeekTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<currentDayOfWeekTest index="$index" negative="true" value="$values" />
+<result index="$index" negative="true" value="$values" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, CurrentDayOfWeekTest::class, 'xml'));

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\ZimletStatus;
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -27,16 +27,9 @@ class ModifyZimletPrefsSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name" presence="enabled" />
+<result name="$name" presence="enabled" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ModifyZimletPrefsSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'presence' => 'enabled',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ModifyZimletPrefsSpec::class, 'json'));
     }
 }

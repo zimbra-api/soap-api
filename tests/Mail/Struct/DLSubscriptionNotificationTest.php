@@ -20,9 +20,9 @@ class DLSubscriptionNotificationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dlSubs truncated="true">
+<result truncated="true">
     <content>$content</content>
-</dlSubs>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dlSubs, 'xml'));
         $this->assertEquals($dlSubs, $this->serializer->deserialize($xml, DLSubscriptionNotification::class, 'xml'));

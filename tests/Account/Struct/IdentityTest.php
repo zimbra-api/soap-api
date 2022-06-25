@@ -36,31 +36,12 @@ class IdentityTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<identity name="$name" id="$id">
+<result name="$name" id="$id">
     <a name="$name" pd="true">$value</a>
     <a name="$name" pd="false">$value</a>
-</identity>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($identity, 'xml'));
         $this->assertEquals($identity, $this->serializer->deserialize($xml, Identity::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'name' => $name,
-                    'pd' => TRUE,
-                    '_content' => $value,
-                ],
-                [
-                    'name' => $name,
-                    'pd' => FALSE,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($identity, 'json'));
-        $this->assertEquals($identity, $this->serializer->deserialize($json, Identity::class, 'json'));
     }
 }

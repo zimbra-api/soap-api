@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDelegatedAdminConstraintsResponse")
  */
 class GetDelegatedAdminConstraintsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetDelegatedAdminConstraintsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsResponse
@@ -68,12 +66,7 @@ class GetDelegatedAdminConstraintsResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof ConstraintAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ConstraintAttr);
         return $this;
     }
 

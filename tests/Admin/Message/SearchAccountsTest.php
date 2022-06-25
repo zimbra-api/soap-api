@@ -17,8 +17,8 @@ use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -166,120 +166,5 @@ class SearchAccountsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchAccountsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchAccountsRequest' => [
-                    'query' => $query,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'domain' => $domain,
-                    'applyCos' => TRUE,
-                    'attrs' => $attrs,
-                    'sortBy' => $sortBy,
-                    'types' => $types,
-                    'sortAscending' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SearchAccountsResponse' => [
-                    'more' => TRUE,
-                    'searchTotal' => $searchTotal,
-                    'calresource' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'dl' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'dynamic' => TRUE,
-                            'dlm' => [
-                                ['_content' => $member],
-                            ],
-                            'owners' => [
-                                'owner' => [
-                                    [
-                                        'id' => $id,
-                                        'name' => $name,
-                                        'type' => 'all',
-                                    ],
-                                ],
-                            ],
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'alias' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'targetName' => $targetName,
-                            'type' => $targetType->getValue(),
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'account' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'isExternal' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'domain' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'cos' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'isDefaultCos' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                    'c' => TRUE,
-                                    'pd' => FALSE,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchAccountsEnvelope::class, 'json'));
     }
 }

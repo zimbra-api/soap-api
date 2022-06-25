@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\ZimletStatusCos;
 use Zimbra\Admin\Struct\ZimletStatusParent;
 use Zimbra\Soap\ResponseInterface;
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetZimletStatusResponse")
  */
 class GetZimletStatusResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
      * @XmlElement
      */
-    private $zimlets;
+    private ZimletStatusParent $zimlets;
 
     /**
      * Class Of Service (COS) Information
@@ -45,7 +43,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $coses;
+    private $coses = [];
 
     /**
      * Constructor method for GetZimletStatusResponse
@@ -102,12 +100,7 @@ class GetZimletStatusResponse implements ResponseInterface
      */
     public function setCoses(array $coses): self
     {
-        $this->coses = [];
-        foreach ($coses as $cos) {
-            if ($cos instanceof ZimletStatusCos) {
-                $this->coses[] = $cos;
-            }
-        }
+        $this->coses = array_filter($coses, static fn ($cos) => $cos instanceof ZimletStatusCos);
         return $this;
     }
 

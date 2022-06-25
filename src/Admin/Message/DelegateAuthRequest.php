@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Struct\AccountSelector as Account;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DelegateAuthRequest request class
@@ -25,8 +25,6 @@ use Zimbra\Struct\AccountSelector as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DelegateAuthRequest")
  */
 class DelegateAuthRequest extends Request
 {
@@ -34,10 +32,10 @@ class DelegateAuthRequest extends Request
      * Details of target account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Lifetime in seconds of the newly-created authtoken. defaults to 1 hour.
@@ -111,14 +109,12 @@ class DelegateAuthRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DelegateAuthEnvelope)) {
-            $this->envelope = new DelegateAuthEnvelope(
-                new DelegateAuthBody($this)
-            );
-        }
+        return new DelegateAuthEnvelope(
+            new DelegateAuthBody($this)
+        );
     }
 }

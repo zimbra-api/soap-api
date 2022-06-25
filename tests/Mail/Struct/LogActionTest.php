@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Mail\Struct\LogAction;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -28,7 +28,7 @@ class LogActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionLog index="$index" level="info">$content</actionLog>
+<result index="$index" level="info">$content</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, LogAction::class, 'xml'));

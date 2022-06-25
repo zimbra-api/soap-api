@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\ReplyType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\ReplyType;
 
 /**
  * Msg class
@@ -22,8 +22,6 @@ use Zimbra\Enum\ReplyType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="msg")
  */
 class Msg
 {
@@ -49,10 +47,10 @@ class Msg
      * Reply type - r|w.  (r)eplied or for(w)arded.
      * @Accessor(getter="getReplyType", setter="setReplyType")
      * @SerializedName("rt")
-     * @Type("Zimbra\Enum\ReplyType")
+     * @Type("Zimbra\Common\Enum\ReplyType")
      * @XmlAttribute
      */
-    private $replyType;
+    private ?ReplyType $replyType = NULL;
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
@@ -124,7 +122,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement
      */
-    private $mimePart;
+    private ?MimePartInfo $mimePart = NULL;
 
     /**
      * Attachments information
@@ -133,7 +131,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Invite information
@@ -142,7 +140,7 @@ class Msg
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?InvitationInfo $invite = NULL;
 
     /**
      * Email address information
@@ -373,12 +371,7 @@ class Msg
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = [];
-        foreach ($headers as $header) {
-            if ($header instanceof Header) {
-                $this->headers[] = $header;
-            }
-        }
+        $this->headers = array_filter($headers, static fn ($header) => $header instanceof Header);
         return $this;
     }
 
@@ -561,17 +554,12 @@ class Msg
     /**
      * Sets emailAddresses
      *
-     * @param  array $emailAddresses
+     * @param  array $addresses
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses): self
+    public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = [];
-        foreach ($emailAddresses as $emailAddress) {
-            if ($emailAddress instanceof EmailAddrInfo) {
-                $this->emailAddresses[] = $emailAddress;
-            }
-        }
+        $this->emailAddresses = array_filter($addresses, static fn ($address) => $address instanceof EmailAddrInfo);
         return $this;
     }
 
@@ -605,12 +593,7 @@ class Msg
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfo) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 

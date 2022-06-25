@@ -57,13 +57,13 @@ use Zimbra\Mail\Struct\EditheaderTest;
 
 use Zimbra\Mail\Struct\NestedRule;
 
-use Zimbra\Enum\FilterCondition;
-use Zimbra\Enum\Importance;
-use Zimbra\Enum\DateComparison;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Enum\NumberComparison;
-use Zimbra\Enum\{MatchType, RelationalComparator};
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\FilterCondition;
+use Zimbra\Common\Enum\Importance;
+use Zimbra\Common\Enum\DateComparison;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Enum\NumberComparison;
+use Zimbra\Common\Enum\{MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -340,7 +340,7 @@ class NestedRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<nestedRule>
+<result>
     <filterVariables index="$index">
         <filterVariable name="$name" value="$value" />
     </filterVariables>
@@ -421,7 +421,7 @@ class NestedRuleTest extends ZimbraTestCase
     <nestedRule>
         <filterTests condition="allof" />
     </nestedRule>
-</nestedRule>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nestedRule, 'xml'));
         $this->assertEquals($nestedRule, $this->serializer->deserialize($xml, NestedRule::class, 'xml'));

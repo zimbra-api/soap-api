@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -34,17 +34,9 @@ class DistributionListGranteeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="usr" id="$id" name="$name" />
+<result type="usr" id="$id" name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, DistributionListGranteeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'type' => 'usr',
-            'id' => $id,
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, DistributionListGranteeInfo::class, 'json'));
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
 
 /**
  * AccountZimletGlobalConfigInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="global")
  */
 class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
 {
@@ -68,12 +66,7 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
      */
     public function setZimletProperties(array $properties): self
     {
-        $this->properties = [];
-        foreach ($properties as $property) {
-            if ($property instanceof AccountZimletProperty) {
-                $this->properties[] = $property;
-            }
-        }
+        $this->properties = array_filter($properties, static fn ($prop) => $prop instanceof AccountZimletProperty);
         return $this;
     }
 

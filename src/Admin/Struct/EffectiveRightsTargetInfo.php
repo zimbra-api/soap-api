@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\TargetType;
 
 /**
  * EffectiveRightsTargetInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\TargetType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 {
@@ -30,10 +28,10 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * ID
@@ -74,8 +72,8 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     {
         parent::__construct($setAttrs, $getAttrs, $rights);
         $this->setType($type)
-            ->setId($id)
-            ->setName($name);
+             ->setId($id)
+             ->setName($name);
     }
 
     /**

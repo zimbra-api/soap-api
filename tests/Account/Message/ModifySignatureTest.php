@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{ModifySignatureEnvelope, ModifySignatureBody, ModifySignatureRequest, ModifySignatureResponse};
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ModifySignature.
@@ -61,31 +61,5 @@ class ModifySignatureTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifySignatureEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifySignatureRequest' => [
-                    'signature' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'cid' => [
-                            '_content' => $cid,
-                        ],
-                        'content' => [
-                            [
-                                'type' => 'text/html',
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ModifySignatureResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifySignatureEnvelope::class, 'json'));
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
-use Zimbra\Enum\WeekDay;
+use Zimbra\Common\Enum\Frequency;
+use Zimbra\Common\Enum\WeekDay;
 
 use Zimbra\Mail\Struct\DateTimeStringAttr;
 use Zimbra\Mail\Struct\NumAttr;
@@ -135,7 +135,7 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rule freq="HOU">
+<result freq="HOU">
     <until d="$date" />
     <count num="$num" />
     <interval ival="$ival" />
@@ -152,7 +152,7 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
     <bysetpos poslist="$poslist" />
     <wkst day="SU" />
     <rule-x-name name="$name" value="$value" />
-</rule>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, SimpleRepeatingRule::class, 'xml'));

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\InfoSection;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\InfoSection;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetInfoRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetInfoRequest")
  */
 class GetInfoRequest extends Request
 {
@@ -126,10 +124,7 @@ class GetInfoRequest extends Request
      */
     public function setRights(string $rights): self
     {
-        $this->rights = [];
-        foreach (explode(',', $rights) as $right) {
-            $this->addRights($right);
-        }
+        $this->rights = array_unique(array_map(static fn ($right) => trim($right), explode(',', $rights)));
         return $this;
     }
 
@@ -154,14 +149,12 @@ class GetInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetInfoEnvelope)) {
-            $this->envelope = new GetInfoEnvelope(
-                new GetInfoBody($this)
-            );
-        }
+        return new GetInfoEnvelope(
+            new GetInfoBody($this)
+        );
     }
 }

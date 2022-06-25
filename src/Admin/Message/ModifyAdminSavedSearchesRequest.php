@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedValue;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\NamedValue;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyAdminSavedSearches request class
@@ -27,8 +27,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyAdminSavedSearchesRequest")
  */
 class ModifyAdminSavedSearchesRequest extends Request
 {
@@ -36,10 +34,10 @@ class ModifyAdminSavedSearchesRequest extends Request
      * Search information
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "search")
      */
-    private $searches;
+    private $searches = [];
 
     /**
      * Constructor method for ModifyAdminSavedSearchesRequest
@@ -72,12 +70,7 @@ class ModifyAdminSavedSearchesRequest extends Request
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = [];
-        foreach ($searches as $search) {
-            if ($search instanceof NamedValue) {
-                $this->searches[] = $search;
-            }
-        }
+        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedValue);
         return $this;
     }
 
@@ -94,14 +87,12 @@ class ModifyAdminSavedSearchesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyAdminSavedSearchesEnvelope)) {
-            $this->envelope = new ModifyAdminSavedSearchesEnvelope(
-                new ModifyAdminSavedSearchesBody($this)
-            );
-        }
+        return new ModifyAdminSavedSearchesEnvelope(
+            new ModifyAdminSavedSearchesBody($this)
+        );
     }
 }

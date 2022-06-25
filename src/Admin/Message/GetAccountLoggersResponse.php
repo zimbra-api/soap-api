@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\LoggerInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountLoggersResponse")
  */
 class GetAccountLoggersResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class GetAccountLoggersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline = true, entry = "logger")
      */
-    private $loggers;
+    private $loggers = [];
 
     /**
      * Constructor method for GetAccountLoggersResponse
@@ -67,12 +65,7 @@ class GetAccountLoggersResponse implements ResponseInterface
      */
     public function setLoggers(array $loggers): self
     {
-        $this->loggers = [];
-        foreach ($loggers as $logger) {
-            if ($logger instanceof LoggerInfo) {
-                $this->loggers[] = $logger;
-            }
-        }
+        $this->loggers = array_filter($loggers, static fn ($logger) => $logger instanceof LoggerInfo);
         return $this;
     }
 

@@ -10,10 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-
-use Zimbra\Struct\WkDayInterface;
-use Zimbra\Struct\ByDayRuleInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\{ByDayRuleInterface, WkDayInterface};
 
 /**
  * ByDayRule class
@@ -24,8 +22,6 @@ use Zimbra\Struct\ByDayRuleInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="byday")
  */
 class ByDayRule implements ByDayRuleInterface
 {
@@ -36,7 +32,7 @@ class ByDayRule implements ByDayRuleInterface
      * @Type("array<Zimbra\Mail\Struct\WkDay>")
      * @XmlList(inline = true, entry = "wkday")
      */
-    private $days;
+    private $days = [];
 
     /**
      * Constructor method for ByDayRule
@@ -69,12 +65,7 @@ class ByDayRule implements ByDayRuleInterface
      */
     public function setDays(array $days): self
     {
-        $this->days = [];
-        foreach ($days as $day) {
-            if ($day instanceof WkDayInterface) {
-                $this->days[] = $day;
-            }
-        }
+        $this->days = array_filter($days, static fn ($day) => $day instanceof WkDayInterface);
         return $this;
     }
 

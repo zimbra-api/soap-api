@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\GetServerNIfsResponse;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\NetworkInformation;
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\IpType;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\IpType;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -78,33 +78,5 @@ class GetServerNIfsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetServerNIfsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetServerNIfsRequest' => [
-                    'type' => 'both',
-                    'server' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetServerNIfsResponse' => [
-                    'ni' => [
-                        [
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetServerNIfsEnvelope::class, 'json'));
     }
 }

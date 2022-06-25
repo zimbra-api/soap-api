@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ChangePasswordRequest class
@@ -23,8 +23,6 @@ use Zimbra\Struct\AccountSelector;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ChangePasswordRequest")
  */
 class ChangePasswordRequest extends Request
 {
@@ -32,10 +30,10 @@ class ChangePasswordRequest extends Request
      * Details of the account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Old password
@@ -92,8 +90,8 @@ class ChangePasswordRequest extends Request
     )
     {
         $this->setAccount($account)
-            ->setOldPassword($oldPassword)
-            ->setPassword($newPassword);
+             ->setOldPassword($oldPassword)
+             ->setPassword($newPassword);
         if(NULL !== $virtualHost) {
             $this->setVirtualHost($virtualHost);
         }
@@ -215,14 +213,12 @@ class ChangePasswordRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ChangePasswordEnvelope)) {
-            $this->envelope = new ChangePasswordEnvelope(
-                new ChangePasswordBody($this)
-            );
-        }
+        return new ChangePasswordEnvelope(
+            new ChangePasswordBody($this)
+        );
     }
 }

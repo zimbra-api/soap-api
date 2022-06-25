@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 
 /**
  * RightViaInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlEl
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="via")
  */
 class RightViaInfo
 {
@@ -32,7 +30,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement
      */
-    private $target;
+    private TargetWithType $target;
 
     /**
      * Target
@@ -41,7 +39,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeWithType $grantee;
 
     /**
      * Target
@@ -50,7 +48,7 @@ class RightViaInfo
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement
      */
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor method for RightViaInfo

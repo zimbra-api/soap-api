@@ -27,7 +27,7 @@ class XNameRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rule-x-name name="$name" value="$value" />
+<result name="$name" value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xname, 'xml'));
         $this->assertEquals($xname, $this->serializer->deserialize($xml, XNameRule::class, 'xml'));

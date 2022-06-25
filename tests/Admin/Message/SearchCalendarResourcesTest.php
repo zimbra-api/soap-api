@@ -13,7 +13,7 @@ use Zimbra\Admin\SerializerHandler;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -133,67 +133,5 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchCalendarResourcesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchCalendarResourcesRequest' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'domain' => $domain,
-                    'applyCos' => TRUE,
-                    'sortBy' => $sortBy,
-                    'sortAscending' => TRUE,
-                    'attrs' => $attrs,
-                    'searchFilter' => [
-                        'conds' => [
-                            'not' => TRUE,
-                            'or' => FALSE,
-                            'conds' => [
-                                [
-                                    'not' => FALSE,
-                                    'or' => TRUE,
-                                    'cond' => [
-                                        [
-                                            'attr' => $attr,
-                                            'op' => 'ge',
-                                            'value' => $value,
-                                            'not' => FALSE,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'cond' => [
-                                [
-                                    'attr' => $attr,
-                                    'op' => 'eq',
-                                    'value' => $value,
-                                    'not' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SearchCalendarResourcesResponse' => [
-                    'more' => TRUE,
-                    'searchTotal' => $searchTotal,
-                    'calresource' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchCalendarResourcesEnvelope::class, 'json'));
     }
 }

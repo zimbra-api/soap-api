@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\TzFixup;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * FixCalendarTZRequest class
@@ -24,8 +24,6 @@ use Zimbra\Struct\NamedElement;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="FixCalendarTZRequest")
  */
 class FixCalendarTZRequest extends Request
 {
@@ -54,10 +52,10 @@ class FixCalendarTZRequest extends Request
      * Accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Fixup rules wrapper
@@ -66,7 +64,7 @@ class FixCalendarTZRequest extends Request
      * @Type("Zimbra\Admin\Struct\TzFixup")
      * @XmlElement
      */
-    private $tzFixup;
+    private ?TzFixup $tzFixup = NULL;
 
     /**
      * Constructor method for FixCalendarTZRequest
@@ -77,7 +75,9 @@ class FixCalendarTZRequest extends Request
      * @param  TzFixup $tzFixup
      * @return self
      */
-    public function __construct(?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL)
+    public function __construct(
+        ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
+    )
     {
         $this->setAccounts($accounts);
         if (NULL !== $sync) {
@@ -153,12 +153,7 @@ class FixCalendarTZRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof NamedElement) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof NamedElement);
         return $this;
     }
 
@@ -199,14 +194,12 @@ class FixCalendarTZRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof FixCalendarTZEnvelope)) {
-            $this->envelope = new FixCalendarTZEnvelope(
-                new FixCalendarTZBody($this)
-            );
-        }
+        return new FixCalendarTZEnvelope(
+            new FixCalendarTZBody($this)
+        );
     }
 }

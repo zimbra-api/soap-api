@@ -10,26 +10,29 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DiscoverRightsRequest class
  * Return all targets of the specified rights applicable to the requested account.
  * Notes:
- * 1. This call only discovers grants granted on the designated target type of the specified rights. It does not return grants granted on target types the rights can inherit from. 
- * 2. For sendAs, sendOnBehalfOf, sendAsDistList, sendOnBehalfOfDistList rights, name attribute is not returned on <target> elements.
- *    Instead, addresses in the target entry's zimbraPrefAllowAddressForDelegatedSender are returned in <e a="{email-address}"/> elements under the <target> element.
- *    If zimbraPrefAllowAddressForDelegatedSender is not set on the target entry, the entry's primary email address will be return in the only <e a="{email-address}"/> element under the <target> element.
- * 3. For all other rights, name attribute is always returned on <target> elements, no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
+ * 1. This call only discovers grants granted on the designated target type of the specified rights.
+ *    It does not return grants granted on target types the rights can inherit from. 
+ * 2. For sendAs, sendOnBehalfOf, sendAsDistList, sendOnBehalfOfDistList rights, name attribute
+ *    is not returned on <target> elements.
+ *    Instead, addresses in the target entry's zimbraPrefAllowAddressForDelegatedSender are returned
+ *    in <e a="{email-address}"/> elements under the <target> element.
+ *    If zimbraPrefAllowAddressForDelegatedSender is not set on the target entry, the entry's primary
+ *    email address will be return in the only <e a="{email-address}"/> element under the <target> element.
+ * 3. For all other rights, name attribute is always returned on <target> elements,
+ *    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DiscoverRightsRequest")
  */
 class DiscoverRightsRequest extends Request
 {
@@ -40,7 +43,7 @@ class DiscoverRightsRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DiscoverRightsRequest
@@ -70,15 +73,12 @@ class DiscoverRightsRequest extends Request
     /**
      * Set rights
      *
-     * @param  array $requests
+     * @param  array $rights
      * @return self
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $target) {
-            $this->addRight($target);
-        }
+        $this->rights = array_unique(array_map(static fn ($right) => trim($right), $rights));
         return $this;
     }
 
@@ -95,14 +95,12 @@ class DiscoverRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DiscoverRightsEnvelope)) {
-            $this->envelope = new DiscoverRightsEnvelope(
-                new DiscoverRightsBody($this)
-            );
-        }
+        return new DiscoverRightsEnvelope(
+            new DiscoverRightsBody($this)
+        );
     }
 }

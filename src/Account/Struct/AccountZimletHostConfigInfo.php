@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\{ZimletHostConfigInfo, ZimletProperty};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{ZimletHostConfigInfo, ZimletProperty};
 
 /**
  * AccountZimletHostConfigInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\{ZimletHostConfigInfo, ZimletProperty};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="host")
  */
 class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
 {
@@ -54,10 +52,10 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      */
     public function __construct(?string $name = NULL, array $properties = [])
     {
+        $this->setZimletProperties($properties);
         if (NULL !== $name) {
             $this->setName($name);
         }
-        $this->setZimletProperties($properties);
     }
 
     /**
@@ -104,12 +102,7 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      */
     public function setZimletProperties(array $properties): self
     {
-        $this->properties = [];
-        foreach ($properties as $property) {
-            if ($property instanceof AccountZimletProperty) {
-                $this->properties[] = $property;
-            }
-        }
+        $this->properties = array_filter($properties, static fn ($prop) => $prop instanceof AccountZimletProperty);
         return $this;
     }
 

@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\CountAccountRequest;
 use Zimbra\Admin\Message\CountAccountResponse;
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -71,29 +71,5 @@ class CountAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CountAccountRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CountAccountResponse' => [
-                    'cos' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            '_content' => $count,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CountAccountEnvelope::class, 'json'));
     }
 }

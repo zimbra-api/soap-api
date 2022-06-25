@@ -10,11 +10,11 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Enum\GalMode;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\GalMode;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateGalSyncAccountRequest class
@@ -25,8 +25,6 @@ use Zimbra\Struct\AccountSelector;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateGalSyncAccountRequest")
  */
 class CreateGalSyncAccountRequest extends Request implements AdminAttrs
 {
@@ -54,19 +52,19 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
      * GalMode type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalMode")
+     * @Type("Zimbra\Common\Enum\GalMode")
      * @XmlAttribute
      */
-    private $type;
+    private GalMode $type;
 
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * password
@@ -290,14 +288,12 @@ class CreateGalSyncAccountRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateGalSyncAccountEnvelope)) {
-            $this->envelope = new CreateGalSyncAccountEnvelope(
-                new CreateGalSyncAccountBody($this)
-            );
-        }
+        return new CreateGalSyncAccountEnvelope(
+            new CreateGalSyncAccountBody($this)
+        );
     }
 }

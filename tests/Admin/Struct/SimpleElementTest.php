@@ -16,13 +16,9 @@ class SimpleElementTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<any />
+<result />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($el, 'xml'));
         $this->assertEquals($el, $this->serializer->deserialize($xml, SimpleElement::class, 'xml'));
-
-        $json = '{}';
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($el, 'json'));
-        $this->assertEquals($el, $this->serializer->deserialize($json, SimpleElement::class, 'json'));
     }
 }

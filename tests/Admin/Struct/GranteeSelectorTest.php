@@ -3,8 +3,8 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\GranteeSelector;
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -42,19 +42,9 @@ class GranteeSelectorTest extends ZimbraTestCase
         $by = GranteeBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<grantee type="$type" by="$by" secret="$secret" all="true">$value</grantee>
+<result type="$type" by="$by" secret="$secret" all="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grantee, 'xml'));
         $this->assertEquals($grantee, $this->serializer->deserialize($xml, GranteeSelector::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'by' => $by,
-            '_content' => $value,
-            'secret' => $secret,
-            'all' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grantee, 'json'));
-        $this->assertEquals($grantee, $this->serializer->deserialize($json, GranteeSelector::class, 'json'));
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedValue;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAdminSavedSearchesResponse")
  */
 class GetAdminSavedSearchesResponse implements ResponseInterface
 {
@@ -32,10 +30,10 @@ class GetAdminSavedSearchesResponse implements ResponseInterface
      * 
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "search")
      */
-    private $searches;
+    private $searches = [];
 
     /**
      * Constructor method for GetAdminSavedSearchesResponse
@@ -68,12 +66,7 @@ class GetAdminSavedSearchesResponse implements ResponseInterface
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = [];
-        foreach ($searches as $search) {
-            if ($search instanceof NamedValue) {
-                $this->searches[] = $search;
-            }
-        }
+        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedValue);
         return $this;
     }
 

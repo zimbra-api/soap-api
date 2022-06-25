@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\AddedComment;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddCommentRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddCommentRequest")
  */
 class AddCommentRequest extends Request
 {
@@ -35,7 +33,7 @@ class AddCommentRequest extends Request
      * @Type("Zimbra\Mail\Struct\AddedComment")
      * @XmlElement
      */
-    private $comment;
+    private AddedComment $comment;
 
     /**
      * Constructor method for AddCommentRequest
@@ -73,14 +71,12 @@ class AddCommentRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddCommentEnvelope)) {
-            $this->envelope = new AddCommentEnvelope(
-                new AddCommentBody($this)
-            );
-        }
+        return new AddCommentEnvelope(
+            new AddCommentBody($this)
+        );
     }
 }

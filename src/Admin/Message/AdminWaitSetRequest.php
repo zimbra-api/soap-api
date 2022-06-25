@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\{Id, WaitSetAddSpec};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{Id, WaitSetAddSpec};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AdminWaitSet request class
@@ -36,8 +36,6 @@ use Zimbra\Struct\{Id, WaitSetAddSpec};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AdminWaitSetRequest")
  */
 class AdminWaitSetRequest extends Request
 {
@@ -99,28 +97,28 @@ class AdminWaitSetRequest extends Request
      * Waitsets to add
      * @Accessor(getter="getAddAccounts", setter="setAddAccounts")
      * @SerializedName("add")
-     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $addAccounts;
+    private $addAccounts = [];
 
     /**
      * Waitsets to update
      * @Accessor(getter="getUpdateAccounts", setter="setUpdateAccounts")
      * @SerializedName("update")
-     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $updateAccounts;
+    private $updateAccounts = [];
 
     /**
      * Waitsets to remove
      * @Accessor(getter="getRemoveAccounts", setter="setRemoveAccounts")
      * @SerializedName("remove")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $removeAccounts;
+    private $removeAccounts = [];
 
     /**
      * Constructor method for AdminWaitSetRequest
@@ -312,17 +310,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Sets Waitsets to add.
      *
-     * @param  array $addAccounts
+     * @param  array $accounts
      * @return self
      */
-    public function setAddAccounts(array $addAccounts): self
+    public function setAddAccounts(array $accounts): self
     {
-        $this->addAccounts = [];
-        foreach ($addAccounts as $account) {
-            if ($account instanceof WaitSetAddSpec) {
-                $this->addAccounts[] = $account;
-            }
-        }
+        $this->addAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 
@@ -351,17 +344,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Sets Waitsets to update.
      *
-     * @param  array $updateAccounts
+     * @param  array $accounts
      * @return self
      */
-    public function setUpdateAccounts(array $updateAccounts): self
+    public function setUpdateAccounts(array $accounts): self
     {
-        $this->updateAccounts = [];
-        foreach ($updateAccounts as $account) {
-            if ($account instanceof WaitSetAddSpec) {
-                $this->updateAccounts[] = $account;
-            }
-        }
+        $this->updateAccounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 
@@ -393,14 +381,9 @@ class AdminWaitSetRequest extends Request
      * @param  array $removeAccounts
      * @return self
      */
-    public function setRemoveAccounts(array $removeAccounts): self
+    public function setRemoveAccounts(array $accounts): self
     {
-        $this->removeAccounts = [];
-        foreach ($removeAccounts as $account) {
-            if ($account instanceof Id) {
-                $this->removeAccounts[] = $account;
-            }
-        }
+        $this->removeAccounts = array_filter($accounts, static fn ($account) => $account instanceof Id);
         return $this;
     }
 
@@ -419,14 +402,12 @@ class AdminWaitSetRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AdminWaitSetEnvelope)) {
-            $this->envelope = new AdminWaitSetEnvelope(
-                new AdminWaitSetBody($this)
-            );
-        }
+        return new AdminWaitSetEnvelope(
+            new AdminWaitSetBody($this)
+        );
     }
 }

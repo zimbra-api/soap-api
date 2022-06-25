@@ -10,10 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-
-use Zimbra\Enum\ParticipationStatus;
-use Zimbra\Struct\CalendarReplyInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ParticipationStatus;
+use Zimbra\Common\Struct\CalendarReplyInterface;
 
 /**
  * CalendarReply class
@@ -24,8 +23,6 @@ use Zimbra\Struct\CalendarReplyInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="reply")
  */
 class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 {
@@ -73,26 +70,41 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Enum\ParticipationStatus")
+     * @Type("Zimbra\Common\Enum\ParticipationStatus")
      * @XmlAttribute
      */
-    private $partStat;
+    private ?ParticipationStatus $partStat = NULL;
 
     /**
      * Constructor method for CalendarReply
      *
+     * @param  int $recurrenceRangeType
+     * @param  int $recurrenceId
      * @param  int $seq
      * @param  int $date
      * @param  string $attendee
      * @return self
      */
     public function __construct(
-        int $seq, int $date, string $attendee
+        int $recurrenceRangeType,
+        string $recurrenceId,
+        int $seq,
+        int $date,
+        string $attendee,
+        ?string $sentBy = NULL,
+        ?ParticipationStatus $partStat = NULL
     )
     {
+        parent::__construct($recurrenceRangeType, $recurrenceId);
         $this->setSeq($seq)
              ->setDate($date)
              ->setAttendee($attendee);
+        if (NULL != $sentBy) {
+            $this->setSentBy($sentBy);
+        }
+        if ($partStat instanceof ParticipationStatus) {
+            $this->setPartStat($partStat);
+        }
     }
 
     /**

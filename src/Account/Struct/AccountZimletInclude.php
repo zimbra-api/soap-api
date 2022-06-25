@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlValue, XmlRoot};
-use Zimbra\Struct\ZimletInclude;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
+use Zimbra\Common\Struct\ZimletInclude;
 
 /**
  * AccountZimletInclude class
@@ -21,8 +21,6 @@ use Zimbra\Struct\ZimletInclude;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="include")
  */
 class AccountZimletInclude implements ZimletInclude
 {

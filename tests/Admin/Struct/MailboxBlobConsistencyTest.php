@@ -96,7 +96,7 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
         );
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox id ="$id">
+<result id ="$id">
     <missingBlobs>
         <item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
     </missingBlobs>
@@ -118,86 +118,9 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
             <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
         </item>
     </usedBlobs>
-</mbox>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxBlobConsistency::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'missingBlobs' => [
-                'item' => [
-                    [
-                        'id' => $id,
-                        'rev' => $revision,
-                        's' => $size,
-                        'volumeId' => $volumeId,
-                        'blobPath' => $blobPath,
-                        'external' => TRUE,
-                        'version' => $version,
-                    ],
-                ]
-            ],
-            'incorrectSizes' => [
-                'item' => [
-                    [
-                        'id' => $id,
-                        'rev' => $revision,
-                        's' => $size,
-                        'volumeId' => $volumeId,
-                        'blob' => [
-                            'path' => $path,
-                            's' => $size,
-                            'fileSize' => $fileSize,
-                            'external' => TRUE,
-                        ],
-                    ],
-                ]
-            ],
-            'unexpectedBlobs' => [
-                'blob' => [
-                    [
-                        'volumeId' => $volumeId,
-                        'path' => $path,
-                        'fileSize' => $fileSize,
-                        'external' => TRUE,
-                    ],
-                ]
-            ],
-            'incorrectRevisions' => [
-                'item' => [
-                    [
-                        'id' => $id,
-                        'rev' => $revision,
-                        's' => $size,
-                        'volumeId' => $volumeId,
-                        'blob' => [
-                            'path' => $path,
-                            'fileSize' => $fileSize,
-                            'rev' => $revision,
-                            'external' => TRUE,
-                        ],
-                    ],
-                ]
-            ],
-            'usedBlobs' => [
-                'item' => [
-                    [
-                        'id' => $id,
-                        'rev' => $revision,
-                        's' => $size,
-                        'volumeId' => $volumeId,
-                        'blob' => [
-                            'path' => $path,
-                            's' => $size,
-                            'fileSize' => $fileSize,
-                            'external' => TRUE,
-                        ],
-                    ],
-                ]
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, MailboxBlobConsistency::class, 'json'));
     }
 }

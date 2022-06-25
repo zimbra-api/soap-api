@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\NamedElement;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\NamedElement;
 
 /**
  * CmdRightsInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\NamedElement;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cmd")
  */
 class CmdRightsInfo
 {
@@ -39,10 +37,10 @@ class CmdRightsInfo
      * Rights
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Notes
@@ -51,7 +49,7 @@ class CmdRightsInfo
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "note")
      */
-    private $notes;
+    private $notes = [];
 
     /**
      * Constructor method for CmdRightsInfo
@@ -110,10 +108,7 @@ class CmdRightsInfo
      */
     public function setNotes(array $notes)
     {
-        $this->notes = [];
-        foreach ($notes as $note) {
-            $this->notes[] = $note;
-        }
+        $this->notes = array_unique(array_map(static fn ($note) => trim($note), $notes));
         return $this;
     }
 
@@ -123,9 +118,9 @@ class CmdRightsInfo
      * @param  string $note
      * @return self
      */
-    public function addNote($note)
+    public function addNote(string $note)
     {
-        $this->notes[] = $note;
+        $this->notes[] = trim($note);
         return $this;
     }
 
@@ -147,12 +142,7 @@ class CmdRightsInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof NamedElement) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof NamedElement);
         return $this;
     }
 

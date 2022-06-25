@@ -8,10 +8,10 @@ use Zimbra\Admin\Message\CountObjectsRequest;
 use Zimbra\Admin\Message\CountObjectsResponse;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\CompactIndexStatus;
-use Zimbra\Enum\CountObjectsType;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\CompactIndexStatus;
+use Zimbra\Common\Enum\CountObjectsType;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -88,32 +88,5 @@ class CountObjectsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountObjectsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CountObjectsRequest' => [
-                    'type' => 'account',
-                    'domain' => [
-                        [
-                            'by' => 'name',
-                            '_content' => $value,
-                        ],
-                    ],
-                    'ucservice' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'onlyrelated' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CountObjectsResponse' => [
-                    'num' => $num,
-                    'type' => $type,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CountObjectsEnvelope::class, 'json'));
     }
 }

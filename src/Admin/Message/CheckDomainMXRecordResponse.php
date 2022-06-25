@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessorOrder, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -21,13 +21,9 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @AccessorOrder("custom", custom = {"entries", "code", "message"})
- * @XmlRoot(name="CheckDomainMXRecordResponse")
  */
 class CheckDomainMXRecordResponse implements ResponseInterface
 {
-
     /**
      * MX Record entries
      * @Accessor(getter="getEntries", setter="setEntries")
@@ -35,7 +31,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Code - Ok or Failed
@@ -109,10 +105,7 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = [];
-        foreach ($entries as $entry) {
-            $this->addEntry($entry);
-        }
+        $this->entries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
         return $this;
     }
 

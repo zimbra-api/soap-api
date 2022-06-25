@@ -23,7 +23,7 @@ class ModifyNotificationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mod change="$changeBitmask" />
+<result change="$changeBitmask" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mod, 'xml'));
         $this->assertEquals($mod, $this->serializer->deserialize($xml, ModifyNotification::class, 'xml'));

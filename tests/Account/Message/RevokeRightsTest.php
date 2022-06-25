@@ -7,8 +7,8 @@ use Zimbra\Account\Message\RevokeRightsEnvelope;
 use Zimbra\Account\Message\RevokeRightsRequest;
 use Zimbra\Account\Message\RevokeRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\AceRightType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -24,7 +24,7 @@ class RevokeRightsTest extends ZimbraTestCase
         $password = $this->faker->sha256;
 
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            GranteeType::USR(), AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
 
         $request = new RevokeRightsRequest([$ace]);
@@ -73,42 +73,5 @@ class RevokeRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RevokeRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RevokeRightsRequest' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'RevokeRightsResponse' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RevokeRightsEnvelope::class, 'json'));
     }
 }

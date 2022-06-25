@@ -71,26 +71,9 @@ class QueueItemTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
+<result id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($qi, 'xml'));
         $this->assertEquals($qi, $this->serializer->deserialize($xml, QueueItem::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'time' => $time,
-            'fromdomain' => $fromdomain,
-            'size' => $size,
-            'from' => $from,
-            'to' => $to,
-            'host' => $host,
-            'addr' => $addr,
-            'reason' => $reason,
-            'filter' => $filter,
-            'todomain' => $todomain,
-            'received' => $received,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($qi, 'json'));
-        $this->assertEquals($qi, $this->serializer->deserialize($json, QueueItem::class, 'json'));
     }
 }

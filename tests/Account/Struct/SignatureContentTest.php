@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -29,16 +29,9 @@ class SignatureContentTest extends ZimbraTestCase
         $type = ContentType::TEXT_HTML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<content type="$type">$value</content>
+<result type="$type">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($content, 'xml'));
         $this->assertEquals($content, $this->serializer->deserialize($xml, SignatureContent::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($content, 'json'));
-        $this->assertEquals($content, $this->serializer->deserialize($json, SignatureContent::class, 'json'));
     }
 }

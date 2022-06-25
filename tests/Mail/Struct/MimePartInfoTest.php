@@ -58,7 +58,7 @@ class MimePartInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mp ct="$contentType" content="$content" ci="$contentId">
+<result ct="$contentType" content="$content" ci="$contentId">
     <mp ct="$contentType" content="$content" ci="$contentId" />
     <attach aid="$attachmentId">
         <mp mid="$messageId" part="$part" optional="true" />
@@ -66,7 +66,7 @@ class MimePartInfoTest extends ZimbraTestCase
         <cn id="$id" optional="true" />
         <doc path="$path" id="$id" ver="$version" optional="true" />
     </attach>
-</mp>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mp, 'xml'));
         $this->assertEquals($mp, $this->serializer->deserialize($xml, MimePartInfo::class, 'xml'));

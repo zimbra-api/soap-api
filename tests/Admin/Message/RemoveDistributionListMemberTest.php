@@ -71,35 +71,5 @@ class RemoveDistributionListMemberTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RemoveDistributionListMemberEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RemoveDistributionListMemberRequest' => [
-                    'id' => $id,
-                    'dlm' => [
-                        [
-                            '_content' => $member1,
-                        ],
-                        [
-                            '_content' => $member2,
-                        ],
-                    ],
-                    'account' => [
-                        [
-                            '_content' => $account1,
-                        ],
-                        [
-                            '_content' => $account2,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RemoveDistributionListMemberResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RemoveDistributionListMemberEnvelope::class, 'json'));
     }
 }

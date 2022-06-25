@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * QueryWaitSetRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="QueryWaitSetRequest")
  */
 class QueryWaitSetRequest extends Request
 {
@@ -77,14 +75,12 @@ class QueryWaitSetRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof QueryWaitSetEnvelope)) {
-            $this->envelope = new QueryWaitSetEnvelope(
-                new QueryWaitSetBody($this)
-            );
-        }
+        return new QueryWaitSetEnvelope(
+            new QueryWaitSetBody($this)
+        );
     }
 }

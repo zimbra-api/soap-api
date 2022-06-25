@@ -2,7 +2,16 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
+use Zimbra\Mail\Struct\{
+    AccountWithModifications,
+    CreateItemNotification,
+    DeleteItemNotification,
+    ImapMessageInfo,
+    ModifyItemNotification,
+    ModifyTagNotification,
+    PendingFolderModifications,
+    RenameFolderNotification
+};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -49,7 +58,7 @@ class AccountWithModificationsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a id="$id" changeid="$lastChangeId">
+<result id="$id" changeid="$lastChangeId">
     <mods id="$folderId">
         <created>
             <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
@@ -64,7 +73,7 @@ class AccountWithModificationsTest extends ZimbraTestCase
         </modTags>
         <modFolders id="$folderId" path="$path" change="$changeBitmask" />
     </mods>
-</a>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountWithModifications::class, 'xml'));

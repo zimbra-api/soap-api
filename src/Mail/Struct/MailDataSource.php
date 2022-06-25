@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\ConnectionType;
-use Zimbra\Struct\DataSource;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\ConnectionType;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailDataSource struct class
@@ -22,8 +22,6 @@ use Zimbra\Struct\DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dataSource")
  */
 class MailDataSource implements DataSource
 {
@@ -97,10 +95,10 @@ class MailDataSource implements DataSource
      * If not set on data source, fallback to the id on global config.
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
-     * @Type("Zimbra\Enum\ConnectionType")
+     * @Type("Zimbra\Common\Enum\ConnectionType")
      * @XmlAttribute
      */
-    private $connectionType;
+    private ?ConnectionType $connectionType = NULL;
 
     /**
      * Login string on data-source-server, for example a user name
@@ -169,10 +167,10 @@ class MailDataSource implements DataSource
      * Which security layer to use for connecting to SMTP host associated with this data source.
      * @Accessor(getter="getSmtpConnectionType", setter="setSmtpConnectionType")
      * @SerializedName("smtpConnectionType")
-     * @Type("Zimbra\Enum\ConnectionType")
+     * @Type("Zimbra\Common\Enum\ConnectionType")
      * @XmlAttribute
      */
-    private $smtpConnectionType;
+    private ?ConnectionType $smtpConnectionType = NULL;
 
     /**
      * Whether SMTP server associated with this data source requires authentication.
@@ -309,7 +307,7 @@ class MailDataSource implements DataSource
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attributes;
+    private $attributes = [];
 
     /**
      * Constructor method for MailDataSource

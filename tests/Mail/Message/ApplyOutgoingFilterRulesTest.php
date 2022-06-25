@@ -9,7 +9,7 @@ use Zimbra\Mail\Message\ApplyOutgoingFilterRulesBody;
 use Zimbra\Mail\Message\ApplyOutgoingFilterRulesRequest;
 use Zimbra\Mail\Message\ApplyOutgoingFilterRulesResponse;
 
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

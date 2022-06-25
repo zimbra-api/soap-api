@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CmdRightsInfo;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -37,7 +37,7 @@ class CmdRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cmd name="$name">
+<result name="$name">
     <rights>
         <right name="$name" />
     </rights>
@@ -45,32 +45,9 @@ class CmdRightsInfoTest extends ZimbraTestCase
         <note>$note1</note>
         <note>$note2</note>
     </desc>
-</cmd>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cmd, 'xml'));
         $this->assertEquals($cmd, $this->serializer->deserialize($xml, CmdRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'rights' => [
-                'right' => [
-                    [
-                        'name' => $name,
-                    ],
-                ],
-            ],
-            'desc' => [
-                'note' => [
-                    [
-                        '_content' => $note1,
-                    ],
-                    [
-                        '_content' => $note2,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cmd, 'json'));
-        $this->assertEquals($cmd, $this->serializer->deserialize($json, CmdRightsInfo::class, 'json'));
     }
 }

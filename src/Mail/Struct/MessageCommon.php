@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\CustomMetadataInterface;
-use Zimbra\Struct\MessageCommonInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{CustomMetadataInterface, MessageCommonInterface};
 
 /**
  * MessageCommon struct class
@@ -22,8 +21,6 @@ use Zimbra\Struct\MessageCommonInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="msg")
  */
 class MessageCommon implements MessageCommonInterface
 {
@@ -419,12 +416,7 @@ class MessageCommon implements MessageCommonInterface
      */
     public function setMetadatas(array $metadatas): self
     {
-        $this->metadatas = [];
-        foreach ($metadatas as $metadata) {
-            if ($metadata instanceof CustomMetadataInterface) {
-                $this->metadatas[] = $metadata;
-            }
-        }
+        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof CustomMetadataInterface);
         return $this;
     }
 

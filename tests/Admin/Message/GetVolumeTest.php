@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\GetVolumeEnvelope;
 use Zimbra\Admin\Message\GetVolumeRequest;
 use Zimbra\Admin\Message\GetVolumeResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -73,32 +73,5 @@ class GetVolumeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetVolumeEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetVolumeRequest' => [
-                    'id' => $id,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetVolumeResponse' => [
-                    'volume' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetVolumeEnvelope::class, 'json'));
     }
 }

@@ -27,16 +27,9 @@ class IdStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<device id="$id" status="$status" />
+<result id="$id" status="$status" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($is, 'xml'));
         $this->assertEquals($is, $this->serializer->deserialize($xml, IdStatus::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'status' => $status,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($is, 'json'));
-        $this->assertEquals($is, $this->serializer->deserialize($json, IdStatus::class, 'json'));
     }
 }

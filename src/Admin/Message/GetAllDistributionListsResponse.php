@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllDistributionListsResponse")
  */
 class GetAllDistributionListsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dls;
+    private $dls = [];
 
     /**
      * Constructor method for GetAllDistributionListsResponse
@@ -68,12 +66,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
      */
     public function setDls(array $dls): self
     {
-        $this->dls = [];
-        foreach ($dls as $dl) {
-            if ($dl instanceof DistributionListInfo) {
-                $this->dls[] = $dl;
-            }
-        }
+        $this->dls = array_filter($dls, static fn ($dl) => $dl instanceof DistributionListInfo);
         return $this;
     }
 

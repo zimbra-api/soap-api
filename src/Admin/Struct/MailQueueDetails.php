@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * MailQueueDetails struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="queue")
  */
 class MailQueueDetails
 {
@@ -79,7 +77,7 @@ class MailQueueDetails
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline = true, entry = "qs")
      */
-    private $queueSummaries;
+    private $queueSummaries = [];
 
     /**
      * The various queue items that match the requested query.
@@ -88,7 +86,7 @@ class MailQueueDetails
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline = true, entry = "qi")
      */
-    private $queueItems;
+    private $queueItems = [];
 
     /**
      * Constructor method for MailQueueDetails
@@ -246,17 +244,12 @@ class MailQueueDetails
     /**
      * Sets queueSummaries
      *
-     * @param array $queueSummaries
+     * @param array $summaries
      * @return self
      */
-    public function setQueueSummaries(array $queueSummaries): self
+    public function setQueueSummaries(array $summaries): self
     {
-        $this->queueSummaries = [];
-        foreach ($queueSummaries as $qs) {
-            if ($qs instanceof QueueSummary) {
-                $this->queueSummaries[] = $qs;
-            }
-        }
+        $this->queueSummaries = array_filter($summaries, static fn ($qs) => $qs instanceof QueueSummary);
         return $this;
     }
 
@@ -290,12 +283,7 @@ class MailQueueDetails
      */
     public function setQueueItems(array $queueItems): self
     {
-        $this->queueItems = [];
-        foreach ($queueItems as $qi) {
-            if ($qi instanceof QueueItem) {
-                $this->queueItems[] = $qi;
-            }
-        }
+        $this->queueItems = array_filter($queueItems, static fn ($qi) => $qi instanceof QueueItem);
         return $this;
     }
 

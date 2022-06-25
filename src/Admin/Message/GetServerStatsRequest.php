@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\Stat;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetServerStats request class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetServerStatsRequest")
  */
 class GetServerStatsRequest extends Request
 {
@@ -38,7 +36,7 @@ class GetServerStatsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline = true, entry = "stat")
      */
-    private $stats;
+    private $stats = [];
 
     /**
      * Constructor method for GetServerStatsRequest
@@ -71,12 +69,7 @@ class GetServerStatsRequest extends Request
      */
     public function setStats(array $stats): self
     {
-        $this->stats = [];
-        foreach ($stats as $stat) {
-            if ($stat instanceof Stat) {
-                $this->stats[] = $stat;
-            }
-        }
+        $this->stats = array_filter($stats, static fn ($stat) => $stat instanceof Stat);
         return $this;
     }
 
@@ -93,14 +86,12 @@ class GetServerStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetServerStatsEnvelope)) {
-            $this->envelope = new GetServerStatsEnvelope(
-                new GetServerStatsBody($this)
-            );
-        }
+        return new GetServerStatsEnvelope(
+            new GetServerStatsBody($this)
+        );
     }
 }

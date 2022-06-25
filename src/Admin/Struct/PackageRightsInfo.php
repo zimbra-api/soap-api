@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * PackageRightsInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copycmd © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="package")
  */
 class PackageRightsInfo
 {
@@ -41,7 +39,7 @@ class PackageRightsInfo
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline = true, entry = "cmd")
      */
-    private $cmds;
+    private $cmds = [];
 
     /**
      * Constructor method for PackageRightsInfo
@@ -98,12 +96,7 @@ class PackageRightsInfo
      */
     public function setCmds(array $cmds)
     {
-        $this->cmds = [];
-        foreach ($cmds as $cmd) {
-            if ($cmd instanceof CmdRightsInfo) {
-                $this->cmds[] = $cmd;
-            }
-        }
+        $this->cmds = array_filter($cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo);
         return $this;
     }
 

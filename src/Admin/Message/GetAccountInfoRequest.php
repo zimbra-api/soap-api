@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAccountInfoRequest class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountInfoRequest")
  */
 class GetAccountInfoRequest extends Request
 {
@@ -35,10 +33,10 @@ class GetAccountInfoRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Constructor method for GetAccountInfoRequest
@@ -76,14 +74,12 @@ class GetAccountInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAccountInfoEnvelope)) {
-            $this->envelope = new GetAccountInfoEnvelope(
-                new GetAccountInfoBody($this)
-            );
-        }
+        return new GetAccountInfoEnvelope(
+            new GetAccountInfoBody($this)
+        );
     }
 }

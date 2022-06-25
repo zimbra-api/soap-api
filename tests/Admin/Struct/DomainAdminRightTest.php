@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DomainAdminRight;
 use Zimbra\Admin\Struct\RightWithName;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -39,31 +39,14 @@ class DomainAdminRightTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right name="$name" type="preset">
+<result name="$name" type="preset">
     <desc>$desc</desc>
     <rights>
         <r n="$name" />
     </rights>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DomainAdminRight::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'type' => 'preset',
-            'desc' => [
-                '_content' => $desc,
-            ],
-            'rights' => [
-                'r' => [
-                    [
-                        'n' => $name,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, DomainAdminRight::class, 'json'));
     }
 }

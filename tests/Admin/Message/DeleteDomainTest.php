@@ -50,19 +50,5 @@ class DeleteDomainTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteDomainEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteDomainRequest' => [
-                    'id' => $id,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteDomainResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteDomainEnvelope::class, 'json'));
     }
 }

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector as Account;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ChangePrimaryEmailRequest class
@@ -23,8 +23,6 @@ use Zimbra\Struct\AccountSelector as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ChangePrimaryEmailRequest")
  */
 class ChangePrimaryEmailRequest extends Request
 {
@@ -32,10 +30,10 @@ class ChangePrimaryEmailRequest extends Request
      * Specifies the account to be changed
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * New account name
@@ -106,14 +104,12 @@ class ChangePrimaryEmailRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ChangePrimaryEmailEnvelope)) {
-            $this->envelope = new ChangePrimaryEmailEnvelope(
-                new ChangePrimaryEmailBody($this)
-            );
-        }
+        return new ChangePrimaryEmailEnvelope(
+            new ChangePrimaryEmailBody($this)
+        );
     }
 }

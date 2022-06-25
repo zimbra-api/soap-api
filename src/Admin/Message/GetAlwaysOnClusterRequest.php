@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAlwaysOnClusterRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAlwaysOnClusterRequest")
  */
 class GetAlwaysOnClusterRequest extends Request implements AttributeSelector
 {
@@ -38,7 +36,7 @@ class GetAlwaysOnClusterRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterSelector")
      * @XmlElement
      */
-    private $cluster;
+    private ?AlwaysOnClusterSelector $cluster = NULL;
 
     /**
      * Constructor method for GetAlwaysOnClusterRequest
@@ -82,14 +80,12 @@ class GetAlwaysOnClusterRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAlwaysOnClusterEnvelope)) {
-            $this->envelope = new GetAlwaysOnClusterEnvelope(
-                new GetAlwaysOnClusterBody($this)
-            );
-        }
+        return new GetAlwaysOnClusterEnvelope(
+            new GetAlwaysOnClusterBody($this)
+        );
     }
 }

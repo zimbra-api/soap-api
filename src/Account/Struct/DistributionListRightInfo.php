@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * DistributionListRightInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copygrantee © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="info")
  */
 class DistributionListRightInfo
 {
@@ -41,7 +39,7 @@ class DistributionListRightInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline = true, entry = "grantee")
      */
-    private $grantees;
+    private $grantees = [];
 
     /**
      * Constructor method for DistributionListRightInfo
@@ -96,12 +94,7 @@ class DistributionListRightInfo
      */
     public function setGrantees(array $grantees)
     {
-        $this->grantees = [];
-        foreach ($grantees as $grantee) {
-            if ($grantee instanceof DistributionListGranteeInfo) {
-                $this->grantees[] = $grantee;
-            }
-        }
+        $this->grantees = array_filter($grantees, static fn ($grantee) => $grantee instanceof DistributionListGranteeInfo);
         return $this;
     }
 

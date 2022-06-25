@@ -54,22 +54,5 @@ class DeleteSignatureTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteSignatureEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteSignatureRequest' => [
-                    'signature' => [
-                        'name' => $name,
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'DeleteSignatureResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteSignatureEnvelope::class, 'json'));
     }
 }

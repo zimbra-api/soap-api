@@ -52,21 +52,5 @@ class DeleteUCServiceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteUCServiceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteUCServiceRequest' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteUCServiceResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteUCServiceEnvelope::class, 'json'));
     }
 }

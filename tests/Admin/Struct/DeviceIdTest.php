@@ -22,15 +22,9 @@ class DeviceIdTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<device id="$id" />
+<result id="$id" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
         $this->assertEquals($device, $this->serializer->deserialize($xml, DeviceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($device, 'json'));
-        $this->assertEquals($device, $this->serializer->deserialize($json, DeviceId::class, 'json'));
     }
 }

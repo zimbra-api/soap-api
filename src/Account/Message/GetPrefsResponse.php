@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetPrefsResponse")
  */
 class GetPrefsResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class GetPrefsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = true, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * Constructor method for GetPrefsResponse
@@ -67,12 +65,7 @@ class GetPrefsResponse implements ResponseInterface
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = [];
-        foreach ($prefs as $pref) {
-            if ($pref instanceof Pref) {
-                $this->prefs[] = $pref;
-            }
-        }
+        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
         return $this;
     }
 

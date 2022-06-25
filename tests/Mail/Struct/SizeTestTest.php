@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\SizeTest;
-use Zimbra\Enum\NumberComparison;
+use Zimbra\Common\Enum\NumberComparison;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -30,7 +30,7 @@ class SizeTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<sizeTest index="$index" negative="true" numberComparison="over" s="$size" />
+<result index="$index" negative="true" numberComparison="over" s="$size" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, SizeTest::class, 'xml'));

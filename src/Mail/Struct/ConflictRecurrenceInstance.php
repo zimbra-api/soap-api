@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * ConflictRecurrenceInstance class
@@ -21,8 +21,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlLi
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inst")
  */
 class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
 {
@@ -62,17 +60,12 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     /**
      * Sets freebusyUsers
      *
-     * @param  array $freebusyUsers
+     * @param  array $users
      * @return self
      */
-    public function setFreebusyUsers(array $freebusyUsers): self
+    public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = [];
-        foreach ($freebusyUsers as $freebusyUser) {
-            if ($freebusyUser instanceof FreeBusyUserStatus) {
-                $this->freebusyUsers[] = $freebusyUser;
-            }
-        }
+        $this->freebusyUsers = array_filter($users, static fn ($user) => $user instanceof FreeBusyUserStatus);
         return $this;
     }
 

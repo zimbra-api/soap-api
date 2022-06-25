@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\HostStats;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetLoggerStatsResponse")
  */
 class GetLoggerStatsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\HostStats>")
      * @XmlList(inline = true, entry = "hostname")
      */
-    private $hostNames;
+    private $hostNames = [];
 
     /**
      * Note.  For instance "Logger is not enabled"
@@ -81,12 +79,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      */
     public function setHostNames(array $hostNames): self
     {
-        $this->hostNames = [];
-        foreach ($hostNames as $hostname) {
-            if ($hostname instanceof HostStats) {
-                $this->hostNames[] = $hostname;
-            }
-        }
+        $this->hostNames = array_filter($hostNames, static fn ($hostname) => $hostname instanceof HostStats);
         return $this;
     }
 

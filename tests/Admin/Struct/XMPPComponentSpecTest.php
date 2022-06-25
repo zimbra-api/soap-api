@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentSpec};
-use Zimbra\Enum\{DomainBy, ServerBy};
+use Zimbra\Common\Enum\{DomainBy, ServerBy};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -37,33 +37,13 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $by = DomainBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xmppcomponent name="$name">
+<result name="$name">
     <a n="$name">$value</a>
     <domain by="$by">$value</domain>
     <server by="$by">$value</server>
-</xmppcomponent>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $name,
-                    '_content' => $value,
-                ],
-            ],
-            'name' => $name,
-            'domain' => [
-                'by' => $by,
-                '_content' => $value,
-            ],
-            'server' => [
-                'by' => $by,
-                '_content' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSpec::class, 'json'));
     }
 }

@@ -12,11 +12,11 @@ use Zimbra\Account\Struct\DistributionListInfo;
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
 
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
 
-use Zimbra\Struct\DistributionListSelector;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -107,75 +107,5 @@ class GetDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDistributionListRequest' => [
-                    'needOwners' => TRUE,
-                    'needRights' => $needRights,
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'a' => [
-                        [
-                            'name' => $name,
-                            '_content' => $value,
-                            'pd' => TRUE,
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetDistributionListResponse' => [
-                    'dl' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'isOwner' => TRUE,
-                        'isMember' => TRUE,
-                        'dynamic' => TRUE,
-                        'dlm' => [
-                            [
-                                '_content' => $member1,
-                            ],
-                            [
-                                '_content' => $member2,
-                            ],
-                        ],
-                        'owners' => [
-                            'owner' => [
-                                [
-                                    'type' => 'usr',
-                                    'id' => $id,
-                                    'name' => $name,
-                                ],
-                            ],
-                        ],
-                        'rights' => [
-                            'right' => [
-                                [
-                                    'right' => $name,
-                                    'grantee' => [
-                                        [
-                                            'type' => 'usr',
-                                            'id' => $id,
-                                            'name' => $name,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDistributionListEnvelope::class, 'json'));
     }
 }

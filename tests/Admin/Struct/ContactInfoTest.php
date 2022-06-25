@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Admin\Struct;
 use Zimbra\Admin\Struct\AdminCustomMetadata;
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Admin\Struct\ContactGroupMember;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Struct\ContactAttr;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -130,58 +130,13 @@ class ContactInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+<result sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
     <meta section="$section" />
     <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
     <m type="$type" value="$value" />
-</cn>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactInfo::class, 'xml'));
-
-        $json = json_encode([
-            'sf' => $sortField,
-            'exp' => TRUE,
-            'id' => $id,
-            'l' => $folder,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'md' => $changeDate,
-            'ms' => $modifiedSequenceId,
-            'd' => $date,
-            'rev' => $revisionId,
-            'fileAsStr' => $fileAs,
-            'email' => $email,
-            'email2' => $email2,
-            'email3' => $email3,
-            'type' => $type,
-            'dlist' => $dlist,
-            'ref' => $reference,
-            'tooManyMembers' => FALSE,
-            'meta' => [
-                [
-                    'section' => $section,
-                ]
-            ],
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                    'part' => $part,
-                    'ct' => $contentType,
-                    's' => $size,
-                    'filename' => $contentFilename,
-                ],
-            ],
-            'm' => [
-                [
-                    'type' => $type,
-                    'value' => $value,
-                ]
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($contact, 'json'));
-        $this->assertEquals($contact, $this->serializer->deserialize($json, ContactInfo::class, 'json'));
     }
 }

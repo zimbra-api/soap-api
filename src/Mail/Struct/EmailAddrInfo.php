@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\AddressType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\AddressType;
 
 /**
  * EmailAddrInfo struct class
@@ -22,8 +22,6 @@ use Zimbra\Enum\AddressType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="email")
  */
 class EmailAddrInfo
 {
@@ -41,10 +39,10 @@ class EmailAddrInfo
      * (s)ender, read-receipt (n)otification, (rf) resent-from
      * @Accessor(getter="getAddressType", setter="setAddressType")
      * @SerializedName("t")
-     * @Type("Zimbra\Enum\AddressType")
+     * @Type("Zimbra\Common\Enum\AddressType")
      * @XmlAttribute
      */
-    private $addressType;
+    private ?AddressType $addressType = NULL;
 
     /**
      * The comment/name part of an address

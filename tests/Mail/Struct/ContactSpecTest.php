@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\MemberType;
+use Zimbra\Common\Enum\MemberType;
 use Zimbra\Mail\Struct\VCardInfo;
 use Zimbra\Mail\Struct\ContactSpec;
 use Zimbra\Mail\Struct\NewContactGroupMember;
@@ -70,11 +70,11 @@ class ContactSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn id="$id" l="$folder" t="$tags" tn="$tagNames">
+<result id="$id" l="$folder" t="$tags" tn="$tagNames">
     <vcard mid="$messageId" part="$part" aid="$attachId">$value</vcard>
     <a n="$name" aid="$attachId" id="$id" part="$part">$value</a>
     <m type="C" value="$value" />
-</cn>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactSpec::class, 'xml'));

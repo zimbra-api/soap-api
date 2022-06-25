@@ -10,10 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-
-use Zimbra\Struct\XParamInterface;
-use Zimbra\Struct\XPropInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\{XParamInterface, XPropInterface};
 
 /**
  * XProp class
@@ -24,8 +22,6 @@ use Zimbra\Struct\XPropInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="xprop")
  */
 class XProp implements XPropInterface
 {
@@ -54,7 +50,7 @@ class XProp implements XPropInterface
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline = true, entry = "xparam")
      */
-    private $xParams;
+    private $xParams = [];
 
     /**
      * Constructor method for XProp
@@ -135,12 +131,7 @@ class XProp implements XPropInterface
      */
     public function setXParams(array $xParams): self
     {
-        $this->xParams = [];
-        foreach ($xParams as $xParam) {
-            if ($xParam instanceof XParamInterface) {
-                $this->xParams[] = $xParam;
-            }
-        }
+        $this->xParams = array_filter($xParams, static fn ($xParam) => $xParam instanceof XParamInterface);
         return $this;
     }
 

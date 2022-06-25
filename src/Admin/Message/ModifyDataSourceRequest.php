@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait, DataSourceInfo};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyDataSourceRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyDataSourceRequest")
  */
 class ModifyDataSourceRequest extends Request implements AdminAttrs
 {
@@ -48,7 +46,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement
      */
-    private $dataSource;
+    private DataSourceInfo $dataSource;
 
     /**
      * Constructor method for ModifyDataSourceRequest
@@ -112,14 +110,12 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyDataSourceEnvelope)) {
-            $this->envelope = new ModifyDataSourceEnvelope(
-                new ModifyDataSourceBody($this)
-            );
-        }
+        return new ModifyDataSourceEnvelope(
+            new ModifyDataSourceBody($this)
+        );
     }
 }

@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsRightInfo;
 use Zimbra\Account\Struct\CheckRightsTargetInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -47,31 +47,12 @@ class CheckRightsTargetInfoTest extends ZimbraTestCase
         $by = TargetBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type" by="$by" key="$key" allow="true">
+<result type="$type" by="$by" key="$key" allow="true">
     <right allow="true">$right1</right>
     <right allow="false">$right2</right>
-</target>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, CheckRightsTargetInfo::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'by' => $by,
-            'key' => $key,
-            'allow' => TRUE,
-            'right' => [
-                [
-                    '_content' => $right1,
-                    'allow' => TRUE,
-                ],
-                [
-                    '_content' => $right2,
-                    'allow' => FALSE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
-        $this->assertEquals($target, $this->serializer->deserialize($json, CheckRightsTargetInfo::class, 'json'));
     }
 }

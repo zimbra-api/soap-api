@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="Body")
  */
 class MailQueueFlushBody extends Body
 {
@@ -32,7 +30,7 @@ class MailQueueFlushBody extends Body
      * @Type("Zimbra\Admin\Message\MailQueueFlushRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $request;
+    private ?RequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -40,7 +38,7 @@ class MailQueueFlushBody extends Body
      * @Type("Zimbra\Admin\Message\MailQueueFlushResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private $response;
+    private ?ResponseInterface $response = NULL;
 
     /**
      * Constructor method for MailQueueFlushBody

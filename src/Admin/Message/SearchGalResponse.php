@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchGalResponse")
  */
 class SearchGalResponse implements ResponseInterface
 {
@@ -75,7 +73,7 @@ class SearchGalResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
      * Constructor method for SearchGalResponse
@@ -218,12 +216,7 @@ class SearchGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        $this->contacts = [];
-        foreach ($contacts as $contact) {
-            if ($contact instanceof ContactInfo) {
-                $this->contacts[] = $contact;
-            }
-        }
+        $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 

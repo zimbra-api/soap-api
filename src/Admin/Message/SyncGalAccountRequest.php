@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\SyncGalAccountSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SyncGalAccount request class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SyncGalAccountRequest")
  */
 class SyncGalAccountRequest extends Request
 {
@@ -38,7 +36,7 @@ class SyncGalAccountRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for SyncGalAccountRequest
@@ -71,12 +69,7 @@ class SyncGalAccountRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof SyncGalAccountSpec) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof SyncGalAccountSpec);
         return $this;
     }
 
@@ -93,14 +86,12 @@ class SyncGalAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SyncGalAccountEnvelope)) {
-            $this->envelope = new SyncGalAccountEnvelope(
-                new SyncGalAccountBody($this)
-            );
-        }
+        return new SyncGalAccountEnvelope(
+            new SyncGalAccountBody($this)
+        );
     }
 }

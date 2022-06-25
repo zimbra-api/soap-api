@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-
-use Zimbra\Enum\ContactActionOp;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Enum\ContactActionOp;
 
 /**
  * ContactActionSelector class
@@ -22,8 +21,6 @@ use Zimbra\Enum\ContactActionOp;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="action")
  */
 class ContactActionSelector extends ActionSelector
 {
@@ -112,12 +109,7 @@ class ContactActionSelector extends ActionSelector
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NewContactAttr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NewContactAttr);
         return $this;
     }
 

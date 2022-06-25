@@ -31,7 +31,7 @@ class ExceptionRecurIdInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<exceptId d="$dateTime" tz="$timezone" rangeType="$recurrenceRangeType" />
+<result d="$dateTime" tz="$timezone" rangeType="$recurrenceRangeType" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exceptId, 'xml'));
         $this->assertEquals($exceptId, $this->serializer->deserialize($xml, ExceptionRecurIdInfo::class, 'xml'));

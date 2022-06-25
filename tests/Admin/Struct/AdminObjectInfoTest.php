@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\AdminObjectInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -41,36 +40,16 @@ class AdminObjectInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key1">$value1</a>
     <a n="$key2">$value2</a>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminObjectInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'n' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'n' => $key2,
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stub, 'json'));
-        $this->assertEquals($stub, $this->serializer->deserialize($json, StubAdminObjectInfo::class, 'json'));
     }
 }
 
-/**
- * @XmlRoot(name="stub")
- */
 class StubAdminObjectInfo extends AdminObjectInfo
 {
 }

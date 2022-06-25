@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\WeekDay;
+use Zimbra\Common\Enum\WeekDay;
 use Zimbra\Mail\Struct\ByDayRule;
 use Zimbra\Mail\Struct\WkDay;
 use Zimbra\Tests\ZimbraTestCase;
@@ -29,9 +29,9 @@ class ByDayRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<byday>
+<result>
     <wkday day="SU" ordwk="$ordWk" />
-</byday>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($byday, 'xml'));
         $this->assertEquals($byday, $this->serializer->deserialize($xml, ByDayRule::class, 'xml'));

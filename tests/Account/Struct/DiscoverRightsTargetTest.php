@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -45,25 +45,11 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="$type" id="$id" name="$name" d="$displayName">
+<result type="$type" id="$id" name="$name" d="$displayName">
     <email addr="$addr" />
-</target>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, DiscoverRightsTarget::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'id' => $id,
-            'name' => $name,
-            'd' => $displayName,
-            'email' => [
-                [
-                    'addr' => $addr,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
-        $this->assertEquals($target, $this->serializer->deserialize($json, DiscoverRightsTarget::class, 'json'));
     }
 }

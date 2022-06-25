@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllUCServicesResponse")
  */
 class GetAllUCServicesResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllUCServicesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\UCServiceInfo>")
      * @XmlList(inline = true, entry = "ucservice")
      */
-    private $ucServiceList;
+    private $ucServiceList = [];
 
     /**
      * Constructor method for GetAllUCServicesResponse
@@ -63,17 +61,12 @@ class GetAllUCServicesResponse implements ResponseInterface
     /**
      * Sets ucServiceList
      *
-     * @param  array $ucServiceList
+     * @param  array $list
      * @return self
      */
-    public function setUCServiceList(array $ucServiceList): self
+    public function setUCServiceList(array $list): self
     {
-        $this->ucServiceList = [];
-        foreach ($ucServiceList as $ucService) {
-            if ($ucService instanceof UCServiceInfo) {
-                $this->ucServiceList[] = $ucService;
-            }
-        }
+        $this->ucServiceList = array_filter($list, static fn ($item) => $item instanceof UCServiceInfo);
         return $this;
     }
 

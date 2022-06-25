@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\DateTest;
-use Zimbra\Enum\DateComparison;
+use Zimbra\Common\Enum\DateComparison;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -30,7 +30,7 @@ class DateTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dateTest index="$index" negative="true" dateComparison="before" date="$date" />
+<result index="$index" negative="true" dateComparison="before" date="$date" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, DateTest::class, 'xml'));

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Mail\Struct\BrowseData;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="BrowseResponse")
  */
 class BrowseResponse implements ResponseInterface
 {
@@ -63,17 +61,12 @@ class BrowseResponse implements ResponseInterface
     /**
      * Sets browseDatas
      *
-     * @param  array $browseDatas
+     * @param  array $datas
      * @return self
      */
-    public function setBrowseDatas(array $browseDatas): self
+    public function setBrowseDatas(array $datas): self
     {
-        $this->browseDatas = [];
-        foreach ($browseDatas as $browseData) {
-            if ($browseData instanceof BrowseData) {
-                $this->browseDatas[] = $browseData;
-            }
-        }
+        $this->browseDatas = array_filter($datas, static fn ($data) => $data instanceof BrowseData);
         return $this;
     }
 

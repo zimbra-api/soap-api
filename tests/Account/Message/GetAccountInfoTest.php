@@ -3,9 +3,9 @@
 namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{GetAccountInfoEnvelope, GetAccountInfoBody, GetAccountInfoRequest, GetAccountInfoResponse};
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for GetAccountInfo.
@@ -100,49 +100,5 @@ class GetAccountInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAccountInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAccountInfoRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAccountInfoResponse' => [
-                    'name' => [
-                        '_content' => $name,
-                    ],
-                    'attr' => [
-                        [
-                            'name' => $name,
-                            '_content' => $value,
-                        ],
-                    ],
-                    'soapURL' => [
-                        '_content' => $soapURL,
-                    ],
-                    'publicURL' => [
-                        '_content' => $publicURL,
-                    ],
-                    'changePasswordURL' => [
-                        '_content' => $changePasswordURL,
-                    ],
-                    'communityURL' => [
-                        '_content' => $communityURL,
-                    ],
-                    'adminURL' => [
-                        '_content' => $adminURL,
-                    ],
-                    'boshURL' => [
-                        '_content' => $boshURL,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAccountInfoEnvelope::class, 'json'));
     }
 }

@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
 use Zimbra\Admin\Struct\GranteeSelector as Grantee;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetEffectiveRightsRequest request class
@@ -29,13 +29,11 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetEffectiveRightsRequest")
  */
 class GetEffectiveRightsRequest extends Request
 {
-    public const EXPAND_GET_ATTRS = 'getAttrs';
-    public const EXPAND_SET_ATTRS = 'setAttrs';
+    const EXPAND_GET_ATTRS = 'getAttrs';
+    const EXPAND_SET_ATTRS = 'setAttrs';
 
     /**
      * Whether to include all attribute names in the <getAttrs>/<setAttrs> elements in the response if all attributes of the target are gettable/settable Valid values are: 
@@ -56,7 +54,7 @@ class GetEffectiveRightsRequest extends Request
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private Target $target;
 
     /**
      * Grantee
@@ -66,7 +64,7 @@ class GetEffectiveRightsRequest extends Request
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private ?Grantee $grantee = NULL;
 
     /**
      * Constructor method for GetEffectiveRightsRequest
@@ -178,14 +176,12 @@ class GetEffectiveRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetEffectiveRightsEnvelope)) {
-            $this->envelope = new GetEffectiveRightsEnvelope(
-                new GetEffectiveRightsBody($this)
-            );
-        }
+        return new GetEffectiveRightsEnvelope(
+            new GetEffectiveRightsBody($this)
+        );
     }
 }

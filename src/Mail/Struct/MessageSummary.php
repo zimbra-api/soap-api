@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * MessageSummary class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="msg")
  */
 class MessageSummary extends MessageCommon
 {
@@ -77,7 +75,7 @@ class MessageSummary extends MessageCommon
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?InviteInfo $invite = NULL;
 
     /**
      * Constructor method for MessageSummary
@@ -167,12 +165,7 @@ class MessageSummary extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = [];
-        foreach ($emails as $email) {
-            if ($email instanceof EmailInfo) {
-                $this->emails[] = $email;
-            }
-        }
+        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
         return $this;
     }
 

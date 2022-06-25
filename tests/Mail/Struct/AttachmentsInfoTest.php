@@ -42,12 +42,12 @@ class AttachmentsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attach aid="$attachmentId">
+<result aid="$attachmentId">
     <mp mid="$messageId" part="$part" optional="true" />
     <m id="$id" optional="true" />
     <cn id="$id" optional="true" />
     <doc path="$path" id="$id" ver="$version" optional="true" />
-</attach>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attach, 'xml'));
         $this->assertEquals($attach, $this->serializer->deserialize($xml, AttachmentsInfo::class, 'xml'));

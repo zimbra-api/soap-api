@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetCalendarResourceBody, GetCalendarResourceEnvelope, 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Common\Enum\CalendarResourceBy as CalResBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -83,34 +83,5 @@ class GetCalendarResourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCalendarResourceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetCalendarResourceRequest' => [
-                    'applyCos' => TRUE,
-                    'attrs' => $attrs,
-                    'calresource' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetCalendarResourceResponse' => [
-                    'calresource' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetCalendarResourceEnvelope::class, 'json'));
     }
 }

@@ -3,9 +3,9 @@
 namespace Zimbra\Tests\Admin\Response;
 
 use Zimbra\Admin\Message\{AdminWaitSetBody, AdminWaitSetEnvelope, AdminWaitSetRequest, AdminWaitSetResponse};
-use Zimbra\Enum\InterestType;
+use Zimbra\Common\Enum\InterestType;
 use Zimbra\Mail\Struct\{AccountWithModifications, CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
-use Zimbra\Struct\{Id, IdAndType, WaitSetAddSpec};
+use Zimbra\Common\Struct\{Id, IdAndType, WaitSetAddSpec};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -175,118 +175,5 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AdminWaitSetEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AdminWaitSetRequest' => [
-                    'waitSet' => $waitSetId,
-                    'seq' => $lastKnownSeqNo,
-                    'block' => TRUE,
-                    'expand' => TRUE,
-                    'defTypes' => $defaultInterests,
-                    'timeout' => $timeout,
-                    'add' => [
-                        'a' => [
-                            [
-                                'name' => $name,
-                                'id' => $uid,
-                                'token' => $token,
-                                'types' => 'f,m',
-                            ],
-                        ]
-                    ],
-                    'update' => [
-                        'a' => [
-                            [
-                                'name' => $name,
-                                'id' => $uid,
-                                'token' => $token,
-                                'types' => 'f,m',
-                            ],
-                        ]
-                    ],
-                    'remove' => [
-                        'a' => [
-                            [
-                                'id' => $uid,
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AdminWaitSetResponse' => [
-                    'waitSet' => $waitSetId,
-                    'canceled' => TRUE,
-                    'seq' => $seqNo,
-                    'a' => [
-                        [
-                            'id' => $id,
-                            'mods' => [
-                                [
-                                    'id' => $folderId,
-                                    'created' => [
-                                        [
-                                            'm' => [
-                                                'id' => $id,
-                                                'i4uid' => $imapUid,
-                                                't' => $type,
-                                                'f' => $flags,
-                                                'tn' => $tags,
-                                            ],
-                                        ],
-                                    ],
-                                    'deleted' => [
-                                        [
-                                            'id' => $id,
-                                            't' => $type,
-                                        ],
-                                    ],
-                                    'modMsgs' => [
-                                        [
-                                            'change' => $changeBitmask,
-                                            'm' => [
-                                                'id' => $id,
-                                                'i4uid' => $imapUid,
-                                                't' => $type,
-                                                'f' => $flags,
-                                                'tn' => $tags,
-                                            ],
-                                        ],
-                                    ],
-                                    'modTags' => [
-                                        [
-                                            'change' => $changeBitmask,
-                                            'id' => [
-                                                '_content' => $id,
-                                            ],
-                                            'name' => [
-                                                '_content' => $name,
-                                            ],
-                                        ],
-                                    ],
-                                    'modFolders' => [
-                                        [
-                                            'change' => $changeBitmask,
-                                            'id' => $folderId,
-                                            'path' => $path,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'changeid' => $lastChangeId,
-                        ],
-                    ],
-                    'error' => [
-                        [
-                            'id' => $uid,
-                            'type' => $type,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AdminWaitSetEnvelope::class, 'json'));
     }
 }

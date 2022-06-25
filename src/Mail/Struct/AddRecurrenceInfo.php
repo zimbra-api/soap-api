@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Struct\AddRecurrenceInfoInterface;
+use Zimbra\Common\Struct\AddRecurrenceInfoInterface;
 
 /**
  * AddRecurrenceInfo struct class
@@ -21,7 +20,6 @@ use Zimbra\Struct\AddRecurrenceInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="add")
  */
 class AddRecurrenceInfo extends RecurrenceInfo implements RecurRuleBase, AddRecurrenceInfoInterface
 {

@@ -10,14 +10,14 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
+use Zimbra\Common\Enum\AdminFilterType;
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Struct\AccountSelector as Account;
-use Zimbra\Enum\AdminFilterType;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyFilterRulesRequest request class
@@ -28,8 +28,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyFilterRulesRequest")
  */
 class ModifyFilterRulesRequest extends Request
 {
@@ -37,19 +35,19 @@ class ModifyFilterRulesRequest extends Request
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\AdminFilterType")
+     * @Type("Zimbra\Common\Enum\AdminFilterType")
      * @XmlAttribute
      */
-    private $type;
+    private AdminFilterType $type;
 
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?Account $account = NULL;
 
     /**
      * Domain
@@ -58,7 +56,7 @@ class ModifyFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * COS
@@ -67,7 +65,7 @@ class ModifyFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * Server
@@ -76,7 +74,7 @@ class ModifyFilterRulesRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ?Server $server = NULL;
 
     /**
      * Filter filterRules
@@ -86,7 +84,7 @@ class ModifyFilterRulesRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
      * @XmlList(inline = false, entry = "filterRule")
      */
-    private $filterRules;
+    private $filterRules = [];
 
     /**
      * Constructor method for ModifyFilterRulesRequest
@@ -254,12 +252,7 @@ class ModifyFilterRulesRequest extends Request
      */
     public function setFilterRules(array $filterRules): self
     {
-        $this->filterRules = [];
-        foreach ($filterRules as $rule) {
-            if ($rule instanceof FilterRule) {
-                $this->filterRules[] = $rule;
-            }
-        }
+        $this->filterRules = array_filter($filterRules, static fn ($rule) => $rule instanceof FilterRule);
         return $this;
     }
 
@@ -276,14 +269,12 @@ class ModifyFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyFilterRulesEnvelope)) {
-            $this->envelope = new ModifyFilterRulesEnvelope(
-                new ModifyFilterRulesBody($this)
-            );
-        }
+        return new ModifyFilterRulesEnvelope(
+            new ModifyFilterRulesBody($this)
+        );
     }
 }

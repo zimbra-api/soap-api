@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * MailboxQuotaInfo class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mbox")
  */
 class MailboxQuotaInfo
 {
@@ -50,10 +48,7 @@ class MailboxQuotaInfo
      * @param int $quotaUsed
      * @return self
      */
-    public function __construct(
-        string $accountId,
-        int $quotaUsed
-    )
+    public function __construct(string $accountId, int $quotaUsed)
     {
         $this->setAccountId($accountId)
              ->setQuotaUsed($quotaUsed);

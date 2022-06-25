@@ -7,9 +7,9 @@ use Zimbra\Admin\Message\LockoutMailboxEnvelope;
 use Zimbra\Admin\Message\LockoutMailboxRequest;
 use Zimbra\Admin\Message\LockoutMailboxResponse;
 
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\LockoutOperation;
-use Zimbra\Struct\AccountNameSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\LockoutOperation;
+use Zimbra\Common\Struct\AccountNameSelector;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -66,24 +66,5 @@ class LockoutMailboxTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, LockoutMailboxEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'LockoutMailboxRequest' => [
-                    'op' => 'start',
-                    'account' => [
-                        'by' => 'name',
-                        'name' => $name,
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'LockoutMailboxResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, LockoutMailboxEnvelope::class, 'json'));
     }
 }

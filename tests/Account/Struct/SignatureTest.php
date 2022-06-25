@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
-use Zimbra\Enum\ContentType;
+use Zimbra\Common\Enum\ContentType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -41,33 +41,13 @@ class SignatureTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<signature name="$name" id="$id">
+<result name="$name" id="$id">
     <cid>$cid</cid>
     <content type="text/plain">$value</content>
     <content type="text/html">$value</content>
-</signature>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($sig, 'xml'));
         $this->assertEquals($sig, $this->serializer->deserialize($xml, Signature::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'cid' => [
-                '_content' => $cid,
-            ],
-            'content' => [
-                [
-                    'type' => 'text/plain',
-                    '_content' => $value,
-                ],
-                [
-                    'type' => 'text/html',
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($sig, 'json'));
-        $this->assertEquals($sig, $this->serializer->deserialize($json, Signature::class, 'json'));
     }
 }

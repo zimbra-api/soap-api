@@ -10,11 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
-use Zimbra\Enum\ParticipationStatus;
-use Zimbra\Mail\Struct\Msg;
-use Zimbra\Mail\Struct\SetCalendarItemInfoTrait;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\ParticipationStatus;
+use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddTaskInviteRequest class
@@ -25,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddTaskInviteRequest")
  */
 class AddTaskInviteRequest extends Request
 {
@@ -51,14 +47,12 @@ class AddTaskInviteRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddTaskInviteEnvelope)) {
-            $this->envelope = new AddTaskInviteEnvelope(
-                new AddTaskInviteBody($this)
-            );
-        }
+        return new AddTaskInviteEnvelope(
+            new AddTaskInviteBody($this)
+        );
     }
 }

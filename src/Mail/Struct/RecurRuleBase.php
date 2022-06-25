@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use Zimbra\Struct\RecurRuleBaseInterface;
+use Zimbra\Common\Struct\RecurRuleBaseInterface;
 
 /**
  * RecurRuleBase interface

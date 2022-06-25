@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * ExportAndDeleteMailboxSpec struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mbox")
  */
 class ExportAndDeleteMailboxSpec
 {
@@ -43,7 +41,7 @@ class ExportAndDeleteMailboxSpec
      * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
      * @XmlList(inline = true, entry = "item")
      */
-    private $items;
+    private $items = [];
 
     /**
      * Constructor method for ExportAndDeleteMailboxSpec
@@ -99,12 +97,7 @@ class ExportAndDeleteMailboxSpec
      */
     public function setItems(array $items): self
     {
-        $this->items = [];
-        foreach ($items as $item) {
-            if ($item instanceof ExportAndDeleteItemSpec) {
-                $this->items[] = $item;
-            }
-        }
+        $this->items = array_filter($items, static fn ($item) => $item instanceof ExportAndDeleteItemSpec);
         return $this;
     }
 

@@ -68,32 +68,5 @@ class GetPrefsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetPrefsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetPrefsRequest' => [
-                    'pref' => [
-                        [
-                            'name' => $name,
-                            'modified' => $modified,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetPrefsResponse' => [
-                    'pref' => [
-                        [
-                            'name' => $name,
-                            'modified' => $modified,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetPrefsEnvelope::class, 'json'));
     }
 }

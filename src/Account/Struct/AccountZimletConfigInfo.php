@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInfo};
 
 /**
  * AccountZimletConfigInfo class
@@ -21,8 +21,6 @@ use Zimbra\Struct\{ZimletConfigInfo, ZimletGlobalConfigInfo, ZimletHostConfigInf
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="zimletConfig")
  */
 class AccountZimletConfigInfo implements ZimletConfigInfo
 {
@@ -87,7 +85,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @Type("Zimbra\Account\Struct\AccountZimletGlobalConfigInfo")
      * @XmlElement
      */
-    private $global;
+    private ?ZimletGlobalConfigInfo $global = NULL;
 
     /**
      * Zimlet host configuration information
@@ -96,7 +94,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @Type("Zimbra\Account\Struct\AccountZimletHostConfigInfo")
      * @XmlElement
      */
-    private $host;
+    private ?ZimletHostConfigInfo $host = NULL;
 
     /**
      * Constructor method for AccountZimletConfigInfo

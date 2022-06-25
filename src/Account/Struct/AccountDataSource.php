@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\ConnectionType;
-use Zimbra\Struct\DataSource;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\ConnectionType;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * AccountDataSource struct class
@@ -22,8 +22,6 @@ use Zimbra\Struct\DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dataSource")
  */
 class AccountDataSource implements DataSource
 {
@@ -97,10 +95,10 @@ class AccountDataSource implements DataSource
      * If not set on data source, fallback to the id on global config.
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
-     * @Type("Zimbra\Enum\ConnectionType")
+     * @Type("Zimbra\Common\Enum\ConnectionType")
      * @XmlAttribute
      */
-    private $connectionType;
+    private ?ConnectionType $connectionType = NULL;
 
     /**
      * Login string on data-source-server, for example a user name
@@ -858,10 +856,7 @@ class AccountDataSource implements DataSource
      */
     public function setAttributes(array $attributes): self
     {
-        $this->attributes = [];
-        foreach ($attributes as $attribute) {
-            $this->addAttribute($attribute);
-        }
+        $this->attributes = array_unique(array_map(static fn ($attribute) => trim($attribute), $attributes));
         return $this;
     }
 
@@ -874,7 +869,7 @@ class AccountDataSource implements DataSource
     public function addAttribute(string $attribute): self
     {
         $attribute = trim($attribute);
-        if (!in_array($attribute, $this->attributes)) {
+        if (!empty($attribute) && !in_array($attribute, $this->attributes)) {
             $this->attributes[] = $attribute;
         }
         return $this;

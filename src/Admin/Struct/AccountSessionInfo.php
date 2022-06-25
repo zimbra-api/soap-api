@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * AccountSessionInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="info")
  */
 class AccountSessionInfo
 {
@@ -50,7 +48,7 @@ class AccountSessionInfo
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for AccountSessionInfo
@@ -131,12 +129,7 @@ class AccountSessionInfo
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SessionInfo) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionInfo);
         return $this;
     }
 

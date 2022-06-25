@@ -10,8 +10,8 @@
 
 namespace Zimbra\Soap\Header;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\RequestFormat;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\RequestFormat;
 
 /**
  * FormatInfo struct class
@@ -20,8 +20,6 @@ use Zimbra\Enum\RequestFormat;
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="format")
  */
 class FormatInfo
 {
@@ -29,10 +27,10 @@ class FormatInfo
      * Desired response format. Valid values "xml" (default) and "js"
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\RequestFormat")
+     * @Type("Zimbra\Common\Enum\RequestFormat")
      * @XmlAttribute
      */
-    private $format;
+    private ?RequestFormat $format = NULL;
 
     /**
      * Constructor method for FormatInfo

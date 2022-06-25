@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetAlwaysOnClusterBody, GetAlwaysOnClusterEnvelope, Ge
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\AlwaysOnClusterSelector;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AlwaysOnClusterBy;
+use Zimbra\Common\Enum\AlwaysOnClusterBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -82,33 +82,5 @@ class GetAlwaysOnClusterTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAlwaysOnClusterEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAlwaysOnClusterRequest' => [
-                    'attrs' => $attrs,
-                    'alwaysOnCluster' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAlwaysOnClusterResponse' => [
-                    'alwaysOnCluster' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAlwaysOnClusterEnvelope::class, 'json'));
     }
 }

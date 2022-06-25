@@ -10,21 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyZimletPrefsRequest class
- * Modify Zimlet Preferences
+ * Modify zimlet preferences
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyZimletPrefsRequest")
  */
 class ModifyZimletPrefsRequest extends Request
 {
@@ -35,7 +33,7 @@ class ModifyZimletPrefsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
      * @XmlList(inline = true, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Constructor method for ModifyZimletPrefsRequest
@@ -68,12 +66,7 @@ class ModifyZimletPrefsRequest extends Request
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof ModifyZimletPrefsSpec) {
-                $this->zimlets[] = $zimlet;
-            }
-        }
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof ModifyZimletPrefsSpec);
         return $this;
     }
 
@@ -90,14 +83,12 @@ class ModifyZimletPrefsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyZimletPrefsEnvelope)) {
-            $this->envelope = new ModifyZimletPrefsEnvelope(
-                new ModifyZimletPrefsBody($this)
-            );
-        }
+        return new ModifyZimletPrefsEnvelope(
+            new ModifyZimletPrefsBody($this)
+        );
     }
 }

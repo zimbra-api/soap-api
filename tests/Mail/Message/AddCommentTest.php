@@ -2,14 +2,15 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Mail\Struct\AddedComment;
+use Zimbra\Common\Struct\Id;
 
 use Zimbra\Mail\Message\AddCommentEnvelope;
 use Zimbra\Mail\Message\AddCommentBody;
 use Zimbra\Mail\Message\AddCommentRequest;
 use Zimbra\Mail\Message\AddCommentResponse;
 
-use Zimbra\Struct\Id;
+use Zimbra\Mail\Struct\AddedComment;
+
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

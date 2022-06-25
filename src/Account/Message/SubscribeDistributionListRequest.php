@@ -10,10 +10,10 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Enum\DistributionListSubscribeOp as SubscribeOp;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\DistributionListSelector as DLSelector;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Enum\DistributionListSubscribeOp;
+use Zimbra\Common\Struct\DistributionListSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SubscribeDistributionListRequest class
@@ -24,8 +24,6 @@ use Zimbra\Struct\DistributionListSelector as DLSelector;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SubscribeDistributionListRequest")
  */
 class SubscribeDistributionListRequest extends Request
 {
@@ -33,42 +31,41 @@ class SubscribeDistributionListRequest extends Request
      * The operation to perform.
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\DistributionListSubscribeOp")
+     * @Type("Zimbra\Common\Enum\DistributionListSubscribeOp")
      * @XmlAttribute
      */
-    private $op;
+    private DistributionListSubscribeOp $op;
 
     /**
      * Selector for the distribution list
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Constructor method for SubscribeDistributionListRequest
      *
-     * @param  DLSelector $dl
-     * @param  SubscribeOp $op
+     * @param  DistributionListSelector $dl
+     * @param  DistributionListSubscribeOp $op
      * @return self
      */
     public function __construct(
-        DLSelector $dl,
-        SubscribeOp $op
+        DistributionListSelector $dl, DistributionListSubscribeOp $op
     )
     {
         $this->setDl($dl)
-            ->setOp($op);
+             ->setOp($op);
     }
 
     /**
      * Gets the dl to authenticate against
      *
-     * @return DLSelector
+     * @return DistributionListSelector
      */
-    public function getDl(): DLSelector
+    public function getDl(): DistributionListSelector
     {
         return $this->dl;
     }
@@ -76,10 +73,10 @@ class SubscribeDistributionListRequest extends Request
     /**
      * Sets the dl to authenticate against
      *
-     * @param  DLSelector $dl
+     * @param  DistributionListSelector $dl
      * @return self
      */
-    public function setDl(DLSelector $dl): self
+    public function setDl(DistributionListSelector $dl): self
     {
         $this->dl = $dl;
         return $this;
@@ -88,9 +85,9 @@ class SubscribeDistributionListRequest extends Request
     /**
      * Gets op
      *
-     * @return SubscribeOp
+     * @return DistributionListSubscribeOp
      */
-    public function getOp(): SubscribeOp
+    public function getOp(): DistributionListSubscribeOp
     {
         return $this->op;
     }
@@ -98,10 +95,10 @@ class SubscribeDistributionListRequest extends Request
     /**
      * Sets op
      *
-     * @param  SubscribeOp $op
+     * @param  DistributionListSubscribeOp $op
      * @return self
      */
-    public function setOp(SubscribeOp $op): self
+    public function setOp(DistributionListSubscribeOp $op): self
     {
         $this->op = $op;
         return $this;
@@ -110,14 +107,12 @@ class SubscribeDistributionListRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SubscribeDistributionListEnvelope)) {
-            $this->envelope = new SubscribeDistributionListEnvelope(
-                new SubscribeDistributionListBody($this)
-            );
-        }
+        return new SubscribeDistributionListEnvelope(
+            new SubscribeDistributionListBody($this)
+        );
     }
 }

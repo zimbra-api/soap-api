@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -31,23 +31,11 @@ class ComboRightsTest extends ZimbraTestCase
         $type = RightType::PRESET()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rights>
+<result>
     <r n="$name" type="$type" targetType="$targetType" />
-</rights>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
         $this->assertEquals($rights, $this->serializer->deserialize($xml, ComboRights::class, 'xml'));
-
-        $json = json_encode([
-            'r' => [
-                [
-                    'n' => $name,
-                    'type' => $type,
-                    'targetType' => $targetType,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rights, 'json'));
-        $this->assertEquals($rights, $this->serializer->deserialize($json, ComboRights::class, 'json'));
     }
 }

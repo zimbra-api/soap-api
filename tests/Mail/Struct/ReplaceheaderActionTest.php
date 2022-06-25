@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\{ComparisonComparator, MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\ReplaceheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Tests\ZimbraTestCase;
@@ -37,14 +37,14 @@ class ReplaceheaderActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionReplaceheader index="$index" last="true" offset="$offset">
+<result index="$index" last="true" offset="$offset">
     <test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
         <headerName>$headerName</headerName>
         <headerValue>$headerValue</headerValue>
     </test>
     <newName>$newName</newName>
     <newValue>$newValue</newValue>
-</actionReplaceheader>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ReplaceheaderAction::class, 'xml'));

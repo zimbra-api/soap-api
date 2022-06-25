@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\MailboxInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllMailboxesResponse")
  */
 class GetAllMailboxesResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllMailboxesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\MailboxInfo>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mboxes;
+    private $mboxes = [];
 
     /**
      * 1 (true) if more mailboxes left to return
@@ -134,12 +132,7 @@ class GetAllMailboxesResponse implements ResponseInterface
      */
     public function setMboxes(array $mboxes): self
     {
-        $this->mboxes = [];
-        foreach ($mboxes as $mbox) {
-            if ($mbox instanceof MailboxInfo) {
-                $this->mboxes[] = $mbox;
-            }
-        }
+        $this->mboxes = array_filter($mboxes, static fn ($mbox) => $mbox instanceof MailboxInfo);
         return $this;
     }
 

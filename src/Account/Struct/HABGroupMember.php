@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedValue;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\NamedValue;
 
 /**
  * HABGroupMember struct class
@@ -21,7 +21,6 @@ use Zimbra\Struct\NamedValue;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present name Nguyen Van Nguyen.
- * @XmlRoot(name="groupMember")
  */
 class HABGroupMember extends HABMember
 {
@@ -29,7 +28,7 @@ class HABGroupMember extends HABMember
      * Member attributes. Currently only these attributes are returned: zimbraId, displayName
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
-     * @Type("array<Zimbra\Struct\NamedValue>")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline = true, entry = "attr", skipWhenEmpty = true)
      */
     private $attrs = [];
@@ -72,12 +71,7 @@ class HABGroupMember extends HABMember
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NamedValue) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NamedValue);
         return $this;
     }
 

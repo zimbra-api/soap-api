@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetXMPPComponentRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetXMPPComponentRequest")
  */
 class GetXMPPComponentRequest extends Request implements AttributeSelector
 {
@@ -39,7 +37,7 @@ class GetXMPPComponentRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement
      */
-    private $component;
+    private XMPPComponentSelector $component;
 
     /**
      * Constructor method for GetXMPPComponentRequest
@@ -81,14 +79,12 @@ class GetXMPPComponentRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetXMPPComponentEnvelope)) {
-            $this->envelope = new GetXMPPComponentEnvelope(
-                new GetXMPPComponentBody($this)
-            );
-        }
+        return new GetXMPPComponentEnvelope(
+            new GetXMPPComponentBody($this)
+        );
     }
 }

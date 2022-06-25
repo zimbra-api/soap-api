@@ -7,8 +7,8 @@ use Zimbra\Admin\Message\CompactIndexEnvelope;
 use Zimbra\Admin\Message\CompactIndexRequest;
 use Zimbra\Admin\Message\CompactIndexResponse;
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector;
-use Zimbra\Enum\CompactIndexAction;
-use Zimbra\Enum\CompactIndexStatus;
+use Zimbra\Common\Enum\CompactIndexAction;
+use Zimbra\Common\Enum\CompactIndexStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -66,23 +66,5 @@ class CompactIndexTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CompactIndexEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CompactIndexRequest' => [
-                    'action' => 'start',
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CompactIndexResponse' => [
-                    'status' => 'running',
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CompactIndexEnvelope::class, 'json'));
     }
 }

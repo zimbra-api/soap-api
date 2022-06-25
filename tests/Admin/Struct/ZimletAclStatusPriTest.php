@@ -6,8 +6,8 @@ use Zimbra\Admin\Struct\IntegerValueAttrib;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Admin\Struct\ZimletAcl;
 use Zimbra\Admin\Struct\ZimletAclStatusPri;
-use Zimbra\Enum\AclType;
-use Zimbra\Enum\ZimletStatus;
+use Zimbra\Common\Enum\AclType;
+use Zimbra\Common\Enum\ZimletStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -43,29 +43,13 @@ class ZimletAclStatusPriTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name">
+<result name="$name">
     <acl cos="$cos" acl="grant" />
     <status value="enabled" />
     <priority value="$value" />
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletAclStatusPri::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'acl' => [
-                'cos' => $cos,
-                'acl' => 'grant',
-            ],
-            'status' => [
-                'value' => 'enabled',
-            ],
-            'priority' => [
-                'value' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletAclStatusPri::class, 'json'));
     }
 }

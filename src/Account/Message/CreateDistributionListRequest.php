@@ -10,10 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Account\Struct\AccountKeyValuePairsTrait;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\KeyValuePairs;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateDistributionListRequest class
@@ -26,12 +25,10 @@ use Zimbra\Struct\KeyValuePairs;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateDistributionListRequest")
  */
 class CreateDistributionListRequest extends Request implements KeyValuePairs
 {
-    use AccountKeyValuePairsTrait;
+    use KeyValuePairsTrait;
 
     /**
      * Name for distribution list
@@ -117,14 +114,12 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateDistributionListEnvelope)) {
-            $this->envelope = new CreateDistributionListEnvelope(
-                new CreateDistributionListBody($this)
-            );
-        }
+        return new CreateDistributionListEnvelope(
+            new CreateDistributionListBody($this)
+        );
     }
 }

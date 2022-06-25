@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Tests\ZimbraTestCase;
@@ -38,30 +38,12 @@ class DistributionListRightSpecTest extends ZimbraTestCase
         $byId = DLGranteeBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right right="$name">
+<result right="$name">
     <grantee type="$typeAll" by="$byName">$value1</grantee>
     <grantee type="$typeUsr" by="$byId">$value2</grantee>
-</right>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DistributionListRightSpec::class, 'xml'));
-
-        $json = json_encode([
-            'right' => $name,
-            'grantee' => [
-                [
-                    'type' => $typeAll,
-                    'by' => $byName,
-                    '_content' => $value1,
-                ],
-                [
-                    'type' => $typeUsr,
-                    'by' => $byId,
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, DistributionListRightSpec::class, 'json'));
     }
 }

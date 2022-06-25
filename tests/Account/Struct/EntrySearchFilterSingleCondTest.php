@@ -2,7 +2,7 @@
 
 namespace Zimbra\Account\Struct\Tests;
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -35,18 +35,9 @@ class EntrySearchFilterSingleCondTest extends ZimbraTestCase
         $op = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cond attr="$attr" op="$op" value="$value" not="true" />
+<result attr="$attr" op="$op" value="$value" not="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cond, 'xml'));
         $this->assertEquals($cond, $this->serializer->deserialize($xml, EntrySearchFilterSingleCond::class, 'xml'));
-
-        $json = json_encode([
-            'attr' => $attr,
-            'op' => $op,
-            'value' => $value,
-            'not' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cond, 'json'));
-        $this->assertEquals($cond, $this->serializer->deserialize($json, EntrySearchFilterSingleCond::class, 'json'));
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Enum\StringComparison;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\StringComparison;
 
 /**
  * MimeHeaderTest struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\StringComparison;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mimeHeaderTest")
  */
 class MimeHeaderTest extends FilterTest
 {
@@ -39,10 +37,10 @@ class MimeHeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Enum\StringComparison")
+     * @Type("Zimbra\Common\Enum\StringComparison")
      * @XmlAttribute
      */
-    private $stringComparison;
+    private ?StringComparison $stringComparison = NULL;
 
     /**
      * Value

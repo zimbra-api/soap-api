@@ -27,7 +27,7 @@ class GeoInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<geo lat="$latitude" lon="$longitude" />
+<result lat="$latitude" lon="$longitude" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($geo, 'xml'));
         $this->assertEquals($geo, $this->serializer->deserialize($xml, GeoInfo::class, 'xml'));

@@ -27,18 +27,9 @@ class CosInfoAttrTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a n="$key" c="true" pd="true">$value</a>
+<result n="$key" c="true" pd="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, CosInfoAttr::class, 'xml'));
-
-        $json = json_encode([
-            'n' => $key,
-            '_content' => $value,
-            'c' => TRUE,
-            'pd' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, CosInfoAttr::class, 'json'));
     }
 }

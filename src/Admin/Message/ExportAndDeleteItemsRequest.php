@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec as Mailbox;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ExportAndDeleteItemsRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ExportAndDeleteItemsRequest")
  */
 class ExportAndDeleteItemsRequest extends Request
 {
@@ -55,7 +53,7 @@ class ExportAndDeleteItemsRequest extends Request
      * @Type("Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec")
      * @XmlElement
      */
-    private $mailbox;
+    private Mailbox $mailbox;
 
     /**
      * Constructor method for ExportAndDeleteItemsRequest
@@ -65,7 +63,9 @@ class ExportAndDeleteItemsRequest extends Request
      * @param  string $exportFilenamePrefix
      * @return self
      */
-    public function __construct(Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL)
+    public function __construct(
+        Mailbox $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL
+    )
     {
         $this->setMailbox($mailbox);
         if (NULL !== $exportDir) {
@@ -145,14 +145,12 @@ class ExportAndDeleteItemsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ExportAndDeleteItemsEnvelope)) {
-            $this->envelope = new ExportAndDeleteItemsEnvelope(
-                new ExportAndDeleteItemsBody($this)
-            );
-        }
+        return new ExportAndDeleteItemsEnvelope(
+            new ExportAndDeleteItemsBody($this)
+        );
     }
 }

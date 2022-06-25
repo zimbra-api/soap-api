@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoCompleteRequest class
@@ -27,8 +27,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AutoCompleteRequest")
  */
 class AutoCompleteRequest extends Request
 {
@@ -45,10 +43,10 @@ class AutoCompleteRequest extends Request
      * type of addresses to auto-complete on
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.
@@ -81,7 +79,7 @@ class AutoCompleteRequest extends Request
      * Constructor method for AutoCompleteRequest
      *
      * @param  string $name
-     * @param  GalSearchType $msgIds
+     * @param  GalSearchType $type
      * @param  bool $needCanExpand
      * @param  string $folderList
      * @param  bool $includeGal
@@ -223,14 +221,12 @@ class AutoCompleteRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AutoCompleteEnvelope)) {
-            $this->envelope = new AutoCompleteEnvelope(
-                new AutoCompleteBody($this)
-            );
-        }
+        return new AutoCompleteEnvelope(
+            new AutoCompleteBody($this)
+        );
     }
 }

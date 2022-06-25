@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\AuthEnvelope;
 use Zimbra\Admin\Message\AuthBody;
 use Zimbra\Admin\Message\AuthRequest;
 use Zimbra\Admin\Message\AuthResponse;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -119,44 +119,5 @@ class AuthResponseTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AuthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AuthRequest' => [
-                    'name' => $name,
-                    'password' => $password,
-                    'authToken' => [
-                        '_content' => $authToken,
-                    ],
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'virtualHost' => [
-                        '_content' => $virtualHost,
-                    ],
-                    'persistAuthTokenCookie' => TRUE,
-                    'csrfTokenSecured' => TRUE,
-                    'twoFactorCode' => [
-                        '_content' => $twoFactorCode,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AuthResponse' => [
-                    'authToken' => [
-                        '_content' => $authToken,
-                    ],
-                    'csrfToken' => [
-                        '_content' => $csrfToken,
-                    ],
-                    'lifetime' => [
-                        '_content' => $lifetime,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AuthEnvelope::class, 'json'));
     }
 }

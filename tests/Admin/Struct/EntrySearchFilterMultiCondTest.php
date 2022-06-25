@@ -5,7 +5,7 @@ namespace Zimbra\Admin\Struct\Tests;
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Admin\SerializerHandler;
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Admin\Struct\{EntrySearchFilterSingleCond, EntrySearchFilterMultiCond};
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -53,57 +53,17 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $eq = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<conds not="true" or="false">
+<result not="true" or="false">
     <conds not="false" or="true">
         <cond attr="$attr" op="$ge" value="$value" not="false" />
     </conds>
     <cond attr="$attr" op="$eq" value="$value" not="true" />
     <cond attr="$attr" op="$ge" value="$value" not="false" />
-</conds>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conds, 'xml'));
 
         $multiCond = $this->serializer->deserialize($xml, EntrySearchFilterMultiCond::class, 'xml');
-        $this->assertTRUE($multiCond->isNot());
-        $this->assertFALSE($multiCond->isOr());
-        $this->assertEquals([$cond, $singleCond, $multiConds], $multiCond->getConditions());
-        $this->assertEquals([$multiConds], $multiCond->getCompoundConditions());
-        $this->assertEquals([$cond, $singleCond], $multiCond->getSingleConditions());
-
-        $json = json_encode([
-            'not' => TRUE,
-            'or' => FALSE,
-            'conds' => [
-                [
-                    'not' => FALSE,
-                    'or' => TRUE,
-                    'cond' => [
-                        [
-                            'attr' => $attr,
-                            'op' => $ge,
-                            'value' => $value,
-                            'not' => FALSE,
-                        ],
-                    ],
-                ],
-            ],
-            'cond' => [
-                [
-                    'attr' => $attr,
-                    'op' => $eq,
-                    'value' => $value,
-                    'not' => TRUE,
-                ],
-                [
-                    'attr' => $attr,
-                    'op' => $ge,
-                    'value' => $value,
-                    'not' => FALSE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($conds, 'json'));
-        $multiCond = $this->serializer->deserialize($json, EntrySearchFilterMultiCond::class, 'json');
         $this->assertTRUE($multiCond->isNot());
         $this->assertFALSE($multiCond->isOr());
         $this->assertEquals([$cond, $singleCond, $multiConds], $multiCond->getConditions());

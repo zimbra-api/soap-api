@@ -29,22 +29,11 @@ class AdminZimletGlobalConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<global>
+<result>
     <property name="$name">$value</property>
-</global>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($global, 'xml'));
         $this->assertEquals($global, $this->serializer->deserialize($xml, AdminZimletGlobalConfigInfo::class, 'xml'));
-
-        $json = json_encode([
-            'property' => [
-                [
-                    'name' => $name,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($global, 'json'));
-        $this->assertEquals($global, $this->serializer->deserialize($json, AdminZimletGlobalConfigInfo::class, 'json'));
     }
 }

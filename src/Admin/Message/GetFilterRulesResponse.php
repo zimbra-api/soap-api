@@ -10,13 +10,13 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
+use Zimbra\Common\Enum\AdminFilterType;
+use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Struct\AccountSelector as Account;
-use Zimbra\Enum\AdminFilterType;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -27,8 +27,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetFilterRulesResponse")
  */
 class GetFilterRulesResponse implements ResponseInterface
 {
@@ -36,19 +34,19 @@ class GetFilterRulesResponse implements ResponseInterface
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\AdminFilterType")
+     * @Type("Zimbra\Common\Enum\AdminFilterType")
      * @XmlAttribute
      */
-    private $type;
+    private AdminFilterType $type;
 
     /**
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?Account $account = NULL;
 
     /**
      * Domain
@@ -57,7 +55,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private ?Domain $domain = NULL;
 
     /**
      * COS
@@ -66,7 +64,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * Server
@@ -75,7 +73,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ?Server $server = NULL;
 
     /**
      * Filter rules
@@ -85,7 +83,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
      * @XmlList(inline = false, entry = "filterRule")
      */
-    private $rules;
+    private $rules = [];
 
     /**
      * Constructor method for GetFilterRulesResponse
@@ -253,12 +251,7 @@ class GetFilterRulesResponse implements ResponseInterface
      */
     public function setFilterRules(array $rules): self
     {
-        $this->rules = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof FilterRule) {
-                $this->rules[] = $rule;
-            }
-        }
+        $this->rules = array_filter($rules, static fn ($rule) => $rule instanceof FilterRule);
         return $this;
     }
 

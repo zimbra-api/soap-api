@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountPop3DataSource;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -48,52 +48,13 @@ class AccountPop3DataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<pop3 id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true">
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true">
     <lastError>$lastError</lastError>
     <a>$attribute1</a>
     <a>$attribute2</a>
-</pop3>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pop3, 'xml'));
         $this->assertEquals($pop3, $this->serializer->deserialize($xml, AccountPop3DataSource::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'l' => $folderId,
-            'isEnabled' => TRUE,
-            'importOnly' => TRUE,
-            'host' => $host,
-            'port' => $port,
-            'connectionType' => $connectionType,
-            'username' => $username,
-            'password' => $password,
-            'pollingInterval' => $pollingInterval,
-            'emailAddress' => $emailAddress,
-            'useAddressForForwardReply' => TRUE,
-            'defaultSignature' => $defaultSignature,
-            'forwardReplySignature' => $forwardReplySignature,
-            'fromDisplay' => $fromDisplay,
-            'replyToAddress' => $replyToAddress,
-            'replyToDisplay' => $replyToDisplay,
-            'importClass' => $importClass,
-            'failingSince' => $failingSince,
-            'lastError' => [
-                '_content' => $lastError,
-            ],
-            'a' => [
-                [
-                    '_content' => $attribute1,
-                ],
-                [
-                    '_content' => $attribute2,
-                ],
-            ],
-            'refreshToken' => $refreshToken,
-            'refreshTokenUrl' => $refreshTokenUrl,
-            'leaveOnServer' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pop3, 'json'));
-        $this->assertEquals($pop3, $this->serializer->deserialize($json, AccountPop3DataSource::class, 'json'));
     }
 }

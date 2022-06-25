@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\{DomainSelector, UcServiceSelector};
-use Zimbra\Enum\CountObjectsType;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\CountObjectsType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CountObjectsRequest class
@@ -34,8 +34,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CountObjectsRequest")
  */
 class CountObjectsRequest extends Request
 {
@@ -43,10 +41,10 @@ class CountObjectsRequest extends Request
      * Object type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\CountObjectsType")
+     * @Type("Zimbra\Common\Enum\CountObjectsType")
      * @XmlAttribute
      */
-    private $type;
+    private CountObjectsType $type;
 
     /**
      * Domain
@@ -56,7 +54,7 @@ class CountObjectsRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domains;
+    private $domains = [];
 
     /**
      * UCService
@@ -65,7 +63,7 @@ class CountObjectsRequest extends Request
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement
      */
-    private $ucService;
+    private ?UcServiceSelector $ucService = NULL;
 
     /**
      * Get only related if delegated/domain admin
@@ -166,12 +164,7 @@ class CountObjectsRequest extends Request
      */
     public function setDomains(array $domains): self
     {
-        $this->domains = [];
-        foreach ($domains as $domain) {
-            if ($domain instanceof DomainSelector) {
-                $this->domains[] = $domain;
-            }
-        }
+        $this->domains = array_filter($domains, static fn ($domain) => $domain instanceof DomainSelector);
         return $this;
     }
 
@@ -210,14 +203,12 @@ class CountObjectsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CountObjectsEnvelope)) {
-            $this->envelope = new CountObjectsEnvelope(
-                new CountObjectsBody($this)
-            );
-        }
+        return new CountObjectsEnvelope(
+            new CountObjectsBody($this)
+        );
     }
 }

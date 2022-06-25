@@ -61,20 +61,5 @@ class AdminDestroyWaitSetTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AdminDestroyWaitSetEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AdminDestroyWaitSetRequest' => [
-                    'waitSet' => $waitSetId,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AdminDestroyWaitSetResponse' => [
-                    'waitSet' => $waitSetId,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AdminDestroyWaitSetEnvelope::class, 'json'));
     }
 }

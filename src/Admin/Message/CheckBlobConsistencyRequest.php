@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckBlobConsistencyRequest")
  */
 class CheckBlobConsistencyRequest extends Request
 {
@@ -58,7 +56,7 @@ class CheckBlobConsistencyRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Mailboxes
@@ -68,7 +66,7 @@ class CheckBlobConsistencyRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline = true, entry = "mbox")
      */
-    private $mailboxes;
+    private $mailboxes = [];
 
     /**
      * Constructor method for CheckBlobConsistencyRequest
@@ -79,16 +77,18 @@ class CheckBlobConsistencyRequest extends Request
      * @param  array $mailboxes
      * @return self
      */
-    public function __construct(?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = [])
+    public function __construct(
+        ?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = []
+    )
     {
+        $this->setVolumes($volumes)
+             ->setMailboxes($mailboxes);
         if (NULL !== $checkSize) {
             $this->setCheckSize($checkSize);
         }
         if (NULL !== $reportUsedBlobs){
             $this->setReportUsedBlobs($reportUsedBlobs);
         }
-        $this->setVolumes($volumes)
-             ->setMailboxes($mailboxes);
     }
 
     /**
@@ -155,12 +155,7 @@ class CheckBlobConsistencyRequest extends Request
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = [];
-        foreach ($volumes as $volume) {
-            if ($volume instanceof IntIdAttr) {
-                $this->volumes[] = $volume;
-            }
-        }
+        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof IntIdAttr);
         return $this;
     }
 
@@ -194,12 +189,7 @@ class CheckBlobConsistencyRequest extends Request
      */
     public function setMailboxes(array $mailboxes): self
     {
-        $this->mailboxes = [];
-        foreach ($mailboxes as $mailbox) {
-            if ($mailbox instanceof IntIdAttr) {
-                $this->mailboxes[] = $mailbox;
-            }
-        }
+        $this->mailboxes = array_filter($mailboxes, static fn ($mailbox) => $mailbox instanceof IntIdAttr);
         return $this;
     }
 
@@ -216,14 +206,12 @@ class CheckBlobConsistencyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckBlobConsistencyEnvelope)) {
-            $this->envelope = new CheckBlobConsistencyEnvelope(
-                new CheckBlobConsistencyBody($this)
-            );
-        }
+        return new CheckBlobConsistencyEnvelope(
+            new CheckBlobConsistencyBody($this)
+        );
     }
 }

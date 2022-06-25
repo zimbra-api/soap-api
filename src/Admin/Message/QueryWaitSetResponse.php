@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="QueryWaitSetResponse")
  */
 class QueryWaitSetResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class QueryWaitSetResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
      * @XmlList(inline = true, entry = "waitSet")
      */
-    private $waitsets;
+    private $waitsets = [];
 
     /**
      * Constructor method for QueryWaitSetResponse
@@ -68,12 +66,7 @@ class QueryWaitSetResponse implements ResponseInterface
      */
     public function setWaitsets(array $waitsets): self
     {
-        $this->waitsets = [];
-        foreach ($waitsets as $waitset) {
-            if ($waitset instanceof WaitSetInfo) {
-                $this->waitsets[] = $waitset;
-            }
-        }
+        $this->waitsets = array_filter($waitsets, static fn ($waitset) => $waitset instanceof WaitSetInfo);
         return $this;
     }
 

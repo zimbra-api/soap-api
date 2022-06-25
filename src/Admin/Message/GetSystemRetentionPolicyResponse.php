@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\RetentionPolicy;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetSystemRetentionPolicyResponse")
  */
 class GetSystemRetentionPolicyResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class GetSystemRetentionPolicyResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $retentionPolicy;
+    private RetentionPolicy $retentionPolicy;
 
     /**
      * Constructor method for GetSystemRetentionPolicyResponse

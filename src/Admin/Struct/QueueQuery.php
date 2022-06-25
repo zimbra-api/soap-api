@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * QueueQuery struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="query")
  */
 class QueueQuery
 {
@@ -33,7 +31,7 @@ class QueueQuery
      * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
      * @XmlList(inline = true, entry = "field")
      */
-    private $fields;
+    private $fields = [];
 
     /**
      * Limit the number of queue items to return in the response
@@ -91,12 +89,7 @@ class QueueQuery
      */
     public function setFields(array $fields): self
     {
-        $this->fields = [];
-        foreach ($fields as $field) {
-            if ($field instanceof QueueQueryField) {
-                $this->fields[] = $field;
-            }
-        }
+        $this->fields = array_filter($fields, static fn ($field) => $field instanceof QueueQueryField);
         return $this;
     }
 

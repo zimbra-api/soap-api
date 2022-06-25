@@ -10,13 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Admin\Struct\CalendarResourceInfo;
-use Zimbra\Admin\Struct\DistributionListInfo;
-use Zimbra\Admin\Struct\AliasInfo;
-use Zimbra\Admin\Struct\AccountInfo;
-use Zimbra\Admin\Struct\DomainInfo;
-use Zimbra\Admin\Struct\CosInfo;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Admin\Struct\{
+    AccountInfo, AliasInfo, CalendarResourceInfo, CosInfo, DistributionListInfo, DomainInfo
+};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -27,8 +24,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchAccountsResponse")
  */
 class SearchAccountsResponse implements ResponseInterface
 {
@@ -58,7 +53,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline = true, entry = "calresource")
      */
-    private $calResources;
+    private $calResources = [];
 
     /**
      * Information on distribution lists
@@ -68,7 +63,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline = true, entry = "dl")
      */
-    private $dls;
+    private $dls = [];
 
     /**
      * Information on aliases
@@ -78,7 +73,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
      * @XmlList(inline = true, entry = "alias")
      */
-    private $aliases;
+    private $aliases = [];
 
     /**
      * Information on accounts
@@ -88,7 +83,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Information on domains
@@ -98,7 +93,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline = true, entry = "domain")
      */
-    private $domains;
+    private $domains = [];
 
     /**
      * Information on Classes of Service (COS)
@@ -108,7 +103,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $coses;
+    private $coses = [];
 
     /**
      * Constructor method for SearchAccountsResponse
@@ -203,17 +198,12 @@ class SearchAccountsResponse implements ResponseInterface
     /**
      * Sets calResources
      *
-     * @param  array $calResources
+     * @param  array $resources
      * @return self
      */
-    public function setCalendarResources(array $calResources): self
+    public function setCalendarResources(array $resources): self
     {
-        $this->calResources = [];
-        foreach ($calResources as $resource) {
-            if ($resource instanceof CalendarResourceInfo) {
-                $this->calResources[] = $resource;
-            }
-        }
+        $this->calResources = array_filter($resources, static fn ($resource) => $resource instanceof CalendarResourceInfo);
         return $this;
     }
 
@@ -247,12 +237,7 @@ class SearchAccountsResponse implements ResponseInterface
      */
     public function setDistributionLists(array $dls): self
     {
-        $this->dls = [];
-        foreach ($dls as $dl) {
-            if ($dl instanceof DistributionListInfo) {
-                $this->dls[] = $dl;
-            }
-        }
+        $this->dls = array_filter($dls, static fn ($dl) => $dl instanceof DistributionListInfo);
         return $this;
     }
 
@@ -286,12 +271,7 @@ class SearchAccountsResponse implements ResponseInterface
      */
     public function setAliases(array $aliases): self
     {
-        $this->aliases = [];
-        foreach ($aliases as $alias) {
-            if ($alias instanceof AliasInfo) {
-                $this->aliases[] = $alias;
-            }
-        }
+        $this->aliases = array_filter($aliases, static fn ($alias) => $alias instanceof AliasInfo);
         return $this;
     }
 
@@ -325,12 +305,7 @@ class SearchAccountsResponse implements ResponseInterface
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof AccountInfo) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof AccountInfo);
         return $this;
     }
 
@@ -364,12 +339,7 @@ class SearchAccountsResponse implements ResponseInterface
      */
     public function setDomains(array $domains): self
     {
-        $this->domains = [];
-        foreach ($domains as $domain) {
-            if ($domain instanceof DomainInfo) {
-                $this->domains[] = $domain;
-            }
-        }
+        $this->domains = array_filter($domains, static fn ($domain) => $domain instanceof DomainInfo);
         return $this;
     }
 
@@ -403,12 +373,7 @@ class SearchAccountsResponse implements ResponseInterface
      */
     public function setCOSes(array $coses): self
     {
-        $this->coses = [];
-        foreach ($coses as $cos) {
-            if ($cos instanceof CosInfo) {
-                $this->coses[] = $cos;
-            }
-        }
+        $this->coses = array_filter($coses, static fn ($cos) => $cos instanceof CosInfo);
         return $this;
     }
 

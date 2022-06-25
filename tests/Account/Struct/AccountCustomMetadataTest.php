@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\AccountCustomMetadata;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,23 +27,11 @@ class AccountCustomMetadataTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<meta section="$section">
+<result section="$section">
     <a n="$key">$value</a>
-</meta>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
         $this->assertEquals($meta, $this->serializer->deserialize($xml, AccountCustomMetadata::class, 'xml'));
-
-        $json = json_encode([
-            'section' => $section,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
-        $this->assertEquals($meta, $this->serializer->deserialize($json, AccountCustomMetadata::class, 'json'));
     }
 }

@@ -53,9 +53,9 @@ class CalOrganizerTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
     <xparam name="$name" value="$value" />
-</or>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($or, 'xml'));
         $this->assertEquals($or, $this->serializer->deserialize($xml, CalOrganizer::class, 'xml'));

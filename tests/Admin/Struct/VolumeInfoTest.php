@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -64,25 +64,9 @@ class VolumeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" />
+<result id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="false" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
         $this->assertEquals($volume, $this->serializer->deserialize($xml, VolumeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'rootpath' => $rootPath,
-            'type' => $type,
-            'compressBlobs' => TRUE,
-            'compressionThreshold' => $threshold,
-            'mgbits' => $mgbits,
-            'mbits' => $mbits,
-            'fgbits' => $fgbits,
-            'fbits' => $fbits,
-            'isCurrent' => FALSE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volume, 'json'));
-        $this->assertEquals($volume, $this->serializer->deserialize($json, VolumeInfo::class, 'json'));
     }
 }

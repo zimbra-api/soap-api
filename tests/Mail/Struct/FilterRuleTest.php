@@ -3,6 +3,14 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Common\SerializerFactory;
+use Zimbra\Common\Enum\FilterCondition;
+use Zimbra\Common\Enum\Importance;
+use Zimbra\Common\Enum\DateComparison;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Enum\NumberComparison;
+use Zimbra\Common\Enum\{MatchType, RelationalComparator};
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+
 use Zimbra\Mail\SerializerHandler;
 
 use Zimbra\Mail\Struct\FilterVariable;
@@ -58,13 +66,6 @@ use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Mail\Struct\NestedRule;
 use Zimbra\Mail\Struct\FilterRule;
 
-use Zimbra\Enum\FilterCondition;
-use Zimbra\Enum\Importance;
-use Zimbra\Enum\DateComparison;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Enum\NumberComparison;
-use Zimbra\Enum\{MatchType, RelationalComparator};
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -80,13 +81,13 @@ class FilterRuleTest extends ZimbraTestCase
 
     public function testFilterRule()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->randomNumber;
         $header = $this->faker->word;
         $name = $this->faker->word;
         $value = $this->faker->word;
         $where = $this->faker->word;
-        $time = $this->faker->word;
-        $date = time();
+        $time = $this->faker->time;
+        $date = $this->faker->unixTime;
         $flag = $this->faker->word;
         $tag = $this->faker->word;
         $method = $this->faker->word;
@@ -95,7 +96,7 @@ class FilterRuleTest extends ZimbraTestCase
         $address = $this->faker->word;
         $content = $this->faker->word;
         $subject = $this->faker->word;
-        $maxBodySize = mt_rand(1, 99);
+        $maxBodySize = $this->faker->randomNumber;
         $origHeaders = $this->faker->word;
         $from = $this->faker->word;
         $importance = $this->faker->word;
@@ -103,7 +104,7 @@ class FilterRuleTest extends ZimbraTestCase
         $message = $this->faker->word;
         $headerName = $this->faker->word;
         $headerValue = $this->faker->word;
-        $offset = mt_rand(1, 99);
+        $offset = $this->faker->randomNumber;
         $newName = $this->faker->word;
         $newValue = $this->faker->word;
 
@@ -347,7 +348,7 @@ class FilterRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<filterRule name="$name" active="true">
+<result name="$name" active="true">
     <filterVariables index="$index">
         <filterVariable name="$name" value="$value" />
     </filterVariables>
@@ -428,7 +429,7 @@ class FilterRuleTest extends ZimbraTestCase
     <nestedRule>
         <filterTests condition="allof" />
     </nestedRule>
-</filterRule>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filterRule, 'xml'));
         $this->assertEquals($filterRule, $this->serializer->deserialize($xml, FilterRule::class, 'xml'));

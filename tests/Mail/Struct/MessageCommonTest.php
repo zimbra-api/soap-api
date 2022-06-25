@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Mail\Struct\MessageCommon;
-use Zimbra\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -73,11 +73,11 @@ class MessageCommonTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg s="$size" d="$date" l="$folder" cid="$conversationId" f="$flags" t="$tags" tn="$tagNames" rev="$revision" md="$changeDate" ms="$modifiedSequence">
+<result s="$size" d="$date" l="$folder" cid="$conversationId" f="$flags" t="$tags" tn="$tagNames" rev="$revision" md="$changeDate" ms="$modifiedSequence">
     <meta section="$section">
         <a n="$key">$value</a>
     </meta>
-</msg>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageCommon::class, 'xml'));

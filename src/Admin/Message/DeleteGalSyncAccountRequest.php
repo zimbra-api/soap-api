@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteGalSyncAccountRequest class
@@ -24,8 +24,6 @@ use Zimbra\Struct\AccountSelector;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DeleteGalSyncAccountRequest")
  */
 class DeleteGalSyncAccountRequest extends Request
 {
@@ -33,10 +31,10 @@ class DeleteGalSyncAccountRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private AccountSelector $account;
 
     /**
      * Constructor method for DeleteGalSyncAccountRequest
@@ -74,14 +72,12 @@ class DeleteGalSyncAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteGalSyncAccountEnvelope)) {
-            $this->envelope = new DeleteGalSyncAccountEnvelope(
-                new DeleteGalSyncAccountBody($this)
-            );
-        }
+        return new DeleteGalSyncAccountEnvelope(
+            new DeleteGalSyncAccountBody($this)
+        );
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\MemberType;
+use Zimbra\Common\Enum\MemberType;
 use Zimbra\Mail\Struct\NewContactGroupMember;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -28,7 +28,7 @@ class NewContactGroupMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<m type="C" value="$value" />
+<result type="C" value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($member, 'xml'));
         $this->assertEquals($member, $this->serializer->deserialize($xml, NewContactGroupMember::class, 'xml'));

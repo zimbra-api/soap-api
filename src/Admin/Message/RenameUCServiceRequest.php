@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RenameUCServiceRequest class
@@ -22,8 +22,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RenameUCServiceRequest")
  */
 class RenameUCServiceRequest extends Request
 {
@@ -105,14 +103,12 @@ class RenameUCServiceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RenameUCServiceEnvelope)) {
-            $this->envelope = new RenameUCServiceEnvelope(
-                new RenameUCServiceBody($this)
-            );
-        }
+        return new RenameUCServiceEnvelope(
+            new RenameUCServiceBody($this)
+        );
     }
 }

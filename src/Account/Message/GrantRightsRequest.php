@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GrantRightsRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GrantRightsRequest")
  */
 class GrantRightsRequest extends Request
 {
@@ -35,7 +33,7 @@ class GrantRightsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline = true, entry = "ace")
      */
-    private $aces;
+    private $aces = [];
 
     /**
      * Constructor method for GrantRightsRequest
@@ -68,12 +66,7 @@ class GrantRightsRequest extends Request
      */
     public function setAces(array $aces): self
     {
-        $this->aces = [];
-        foreach ($aces as $ace) {
-            if ($ace instanceof AccountACEInfo) {
-                $this->aces[] = $ace;
-            }
-        }
+        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEInfo);
         return $this;
     }
 
@@ -90,14 +83,12 @@ class GrantRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GrantRightsEnvelope)) {
-            $this->envelope = new GrantRightsEnvelope(
-                new GrantRightsBody($this)
-            );
-        }
+        return new GrantRightsEnvelope(
+            new GrantRightsBody($this)
+        );
     }
 }

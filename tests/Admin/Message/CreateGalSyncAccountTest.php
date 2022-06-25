@@ -8,9 +8,9 @@ use Zimbra\Admin\Message\CreateGalSyncAccountRequest;
 use Zimbra\Admin\Message\CreateGalSyncAccountResponse;
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\GalMode;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\GalMode;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -113,45 +113,5 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateGalSyncAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateGalSyncAccountRequest' => [
-                    'name' => $name,
-                    'domain' => $domain,
-                    'type' => 'ldap',
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'password' => $password,
-                    'folder' => $folder,
-                    'server' => $mailHost,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateGalSyncAccountResponse' => [
-                    'account' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'isExternal' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateGalSyncAccountEnvelope::class, 'json'));
     }
 }

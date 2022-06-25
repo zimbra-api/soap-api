@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\GrantInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetGrantsResponse")
  */
 class GetGrantsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetGrantsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\GrantInfo>")
      * @XmlList(inline = true, entry = "grant")
      */
-    private $grants;
+    private $grants = [];
 
     /**
      * Constructor method for GetGrantsResponse
@@ -68,12 +66,7 @@ class GetGrantsResponse implements ResponseInterface
      */
     public function setGrants(array $grants): self
     {
-        $this->grants = [];
-        foreach ($grants as $grant) {
-            if ($grant instanceof GrantInfo) {
-                $this->grants[] = $grant;
-            }
-        }
+        $this->grants = array_filter($grants, static fn ($grant) => $grant instanceof GrantInfo);
         return $this;
     }
 

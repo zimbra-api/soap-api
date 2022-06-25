@@ -27,25 +27,11 @@ class ZimletInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
+<result name="$name" id="$id" hasKeyword="$hasKeyword">
     <a n="$key">$value</a>
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'hasKeyword' => $hasKeyword,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletInfo::class, 'json'));
     }
 }

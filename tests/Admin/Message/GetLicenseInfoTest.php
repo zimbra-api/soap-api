@@ -59,21 +59,5 @@ class GetLicenseInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLicenseInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetLicenseInfoRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetLicenseInfoResponse' => [
-                    'expiration' => [
-                        'date' => $date,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLicenseInfoEnvelope::class, 'json'));
     }
 }

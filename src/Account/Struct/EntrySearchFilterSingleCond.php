@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\ConditionOperator as Op;
-use Zimbra\Struct\SearchFilterCondition;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ConditionOperator as Op;
+use Zimbra\Common\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterSingleCond class
@@ -22,8 +22,6 @@ use Zimbra\Struct\SearchFilterCondition;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cond")
  */
 class EntrySearchFilterSingleCond implements SearchFilterCondition
 {
@@ -38,10 +36,10 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\ConditionOperator")
+     * @Type("Zimbra\Common\Enum\ConditionOperator")
      * @XmlAttribute
      */
-    private $op;
+    private Op $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -75,8 +73,8 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     )
     {
         $this->setAttr($attr)
-            ->setOp($op)
-            ->setValue($value);
+             ->setOp($op)
+             ->setValue($value);
         if (NULL !== $not) {
             $this->setNot($not);
         }

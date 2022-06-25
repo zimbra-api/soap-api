@@ -58,29 +58,5 @@ class ModifyIdentityTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyIdentityEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyIdentityRequest' => [
-                    'identity' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ModifyIdentityResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyIdentityEnvelope::class, 'json'));
     }
 }

@@ -32,26 +32,11 @@ class DLInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl name="$name" id="$id" dynamic="true" via="$via">
+<result name="$name" id="$id" dynamic="true" via="$via">
     <a n="$key">$value</a>
-</dl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));
-
-        $json = json_encode([
-            'via' => $via,
-            'name' => $name,
-            'id' => $id,
-            'dynamic' => TRUE,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DLInfo::class, 'json'));
     }
 }

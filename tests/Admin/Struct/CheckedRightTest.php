@@ -22,15 +22,9 @@ class CheckedRightTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<right>$value</right>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, CheckedRight::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, CheckedRight::class, 'json'));
     }
 }

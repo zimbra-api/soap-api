@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Mail\Struct\RightPermission;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckPermissionResponse")
  */
 class CheckPermissionResponse implements ResponseInterface
 {
@@ -44,7 +42,7 @@ class CheckPermissionResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\RightPermission>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for CheckPermissionResponse
@@ -104,12 +102,7 @@ class CheckPermissionResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof RightPermission) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightPermission);
         return $this;
     }
 

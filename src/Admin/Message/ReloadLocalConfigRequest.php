@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ReloadLocalConfigRequest class
@@ -22,21 +21,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ReloadLocalConfigRequest")
  */
 class ReloadLocalConfigRequest extends Request
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ReloadLocalConfigEnvelope)) {
-            $this->envelope = new ReloadLocalConfigEnvelope(
-                new ReloadLocalConfigBody($this)
-            );
-        }
+        return new ReloadLocalConfigEnvelope(
+            new ReloadLocalConfigBody($this)
+        );
     }
 }

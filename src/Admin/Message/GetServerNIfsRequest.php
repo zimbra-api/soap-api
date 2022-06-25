@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ServerSelector as Server;
-use Zimbra\Enum\IpType;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\IpType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetServerNIfsRequest request class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetServerNIfsRequest")
  */
 class GetServerNIfsRequest extends Request
 {
@@ -35,10 +33,10 @@ class GetServerNIfsRequest extends Request
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\IpType")
+     * @Type("Zimbra\Common\Enum\IpType")
      * @XmlAttribute
      */
-    private $type;
+    private ?IpType $type = NULL;
 
     /**
      * Server
@@ -47,7 +45,7 @@ class GetServerNIfsRequest extends Request
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for GetServerNIfsRequest
@@ -56,7 +54,7 @@ class GetServerNIfsRequest extends Request
      * @param  IpType $type
      * @return self
      */
-    public function __construct(Server $server, IpType $type = NULL)
+    public function __construct(Server $server, ?IpType $type = NULL)
     {
         $this->setServer($server);
         if ($type instanceof IpType) {
@@ -111,14 +109,12 @@ class GetServerNIfsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetServerNIfsEnvelope)) {
-            $this->envelope = new GetServerNIfsEnvelope(
-                new GetServerNIfsBody($this)
-            );
-        }
+        return new GetServerNIfsEnvelope(
+            new GetServerNIfsBody($this)
+        );
     }
 }

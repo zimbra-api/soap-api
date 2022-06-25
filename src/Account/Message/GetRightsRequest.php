@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\Right;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetRightsRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetRightsRequest")
  */
 class GetRightsRequest extends Request
 {
@@ -37,7 +35,7 @@ class GetRightsRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Right>")
      * @XmlList(inline = true, entry = "ace")
      */
-    private $aces;
+    private $aces = [];
 
     /**
      * Constructor method for GetRightsRequest
@@ -70,12 +68,7 @@ class GetRightsRequest extends Request
      */
     public function setAces(array $aces): self
     {
-        $this->aces = [];
-        foreach ($aces as $ace) {
-            if ($ace instanceof Right) {
-                $this->aces[] = $ace;
-            }
-        }
+        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof Right);
         return $this;
     }
 
@@ -92,14 +85,12 @@ class GetRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetRightsEnvelope)) {
-            $this->envelope = new GetRightsEnvelope(
-                new GetRightsBody($this)
-            );
-        }
+        return new GetRightsEnvelope(
+            new GetRightsBody($this)
+        );
     }
 }

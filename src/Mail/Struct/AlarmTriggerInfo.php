@@ -10,10 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\AlarmTriggerInfoInterface;
-use Zimbra\Struct\DateAttrInterface;
-use Zimbra\Struct\DurationInfoInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\{AlarmTriggerInfoInterface, DateAttrInterface, DurationInfoInterface};
 
 /**
  * AlarmTriggerInfo struct class
@@ -24,8 +22,6 @@ use Zimbra\Struct\DurationInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="trigger")
  */
 class AlarmTriggerInfo implements AlarmTriggerInfoInterface
 {
@@ -36,7 +32,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @Type("Zimbra\Mail\Struct\DateAttr")
      * @XmlElement
      */
-    private $absolute;
+    private ?DateAttrInterface $absolute = NULL;
 
     /**
      * Relative trigger information
@@ -45,7 +41,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $relative;
+    private ?DurationInfoInterface $relative = NULL;
 
     /**
      * Constructor method

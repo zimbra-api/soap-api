@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
+use Zimbra\Common\Enum\AddressType;
 use Zimbra\Mail\Struct\BounceMsgSpec;
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -16,7 +16,7 @@ class BounceMsgSpecTest extends ZimbraTestCase
     {
         $id = $this->faker->uuid;
         $address = $this->faker->email;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $personal = $this->faker->word;
 
         $emailAddress = new EmailAddrInfo($address, $addressType, $personal);
@@ -35,9 +35,9 @@ class BounceMsgSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<msg id="$id">
-    <e a="$address" t="f" p="$personal" />
-</msg>
+<result id="$id">
+    <e a="$address" t="t" p="$personal" />
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, BounceMsgSpec::class, 'xml'));
@@ -47,7 +47,7 @@ EOT;
             'e' => [
                 [
                     'a' => $address,
-                    't' => 'f',
+                    't' => 't',
                     'p' => $personal,
                 ],
             ],

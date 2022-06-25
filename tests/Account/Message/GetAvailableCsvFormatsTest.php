@@ -6,7 +6,7 @@ use Zimbra\Account\Message\GetAvailableCsvFormatsBody;
 use Zimbra\Account\Message\GetAvailableCsvFormatsEnvelope;
 use Zimbra\Account\Message\GetAvailableCsvFormatsRequest;
 use Zimbra\Account\Message\GetAvailableCsvFormatsResponse;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -57,23 +57,5 @@ class GetAvailableCsvFormatsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAvailableCsvFormatsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAvailableCsvFormatsRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAvailableCsvFormatsResponse' => [
-                    'csv' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAvailableCsvFormatsEnvelope::class, 'json'));
     }
 }

@@ -10,11 +10,10 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Account\Struct\Attrs;
-use Zimbra\Account\Struct\AttrsImplTrait;
-use Zimbra\Struct\DistributionListSelector;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Account\Struct\{Attrs, AttrsImplTrait};
+use Zimbra\Common\Struct\DistributionListSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetDistributionListRequest class
@@ -25,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDistributionListRequest")
  */
 class GetDistributionListRequest extends Request implements Attrs
 {
@@ -54,10 +51,10 @@ class GetDistributionListRequest extends Request implements Attrs
      * Specify the distribution list
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Constructor method for GetDistributionListRequest
@@ -154,14 +151,12 @@ class GetDistributionListRequest extends Request implements Attrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetDistributionListEnvelope)) {
-            $this->envelope = new GetDistributionListEnvelope(
-                new GetDistributionListBody($this)
-            );
-        }
+        return new GetDistributionListEnvelope(
+            new GetDistributionListBody($this)
+        );
     }
 }

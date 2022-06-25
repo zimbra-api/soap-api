@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\BlackList;
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,27 +27,12 @@ class BlackListTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<blackList>
+<result>
     <addr op="+">$value1</addr>
     <addr op="-">$value2</addr>
-</blackList>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
         $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));
-
-        $json = json_encode([
-            'addr' => [
-                [
-                    'op' => '+',
-                    '_content' => $value1,
-                ],
-                [
-                    'op' => '-',
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blackList, 'json'));
-        $this->assertEquals($blackList, $this->serializer->deserialize($json, BlackList::class, 'json'));
     }
 }

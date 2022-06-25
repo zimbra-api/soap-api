@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\AuthScheme;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\AuthScheme;
 
 /**
  * ExchangeAuthSpec struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\AuthScheme;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present scheme Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="auth")
  */
 class ExchangeAuthSpec
 {
@@ -57,10 +55,10 @@ class ExchangeAuthSpec
      * Auth scheme
      * @Accessor(getter="getScheme", setter="setScheme")
      * @SerializedName("scheme")
-     * @Type("Zimbra\Enum\AuthScheme")
+     * @Type("Zimbra\Common\Enum\AuthScheme")
      * @XmlAttribute
      */
-    private $scheme;
+    private AuthScheme $scheme;
 
     /**
      * Auth type

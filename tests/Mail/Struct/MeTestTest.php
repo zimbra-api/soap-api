@@ -26,7 +26,7 @@ class MeTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<meTest index="$index" negative="true" header="$header" />
+<result index="$index" negative="true" header="$header" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, MeTest::class, 'xml'));

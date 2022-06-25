@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\RecurrenceInfoInterface;
-use Zimbra\Struct\RecurRuleBaseInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\{RecurrenceInfoInterface, RecurRuleBaseInterface};
 
 /**
  * RecurrenceInfo struct class
@@ -23,8 +22,6 @@ use Zimbra\Struct\RecurRuleBaseInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="recur")
  */
 class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
 {
@@ -131,11 +128,8 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     public function setRules(array $rules): self
     {
         $this->add = $this->exclude = $this->except = $this->cancel = $this->dates = $this->simple = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof RecurRuleBaseInterface) {
-                $this->addRule($rule);
-            }
-        }
+        $rules = array_filter($rules, static fn ($rule) => $rule instanceof RecurRuleBaseInterface);
+        array_walk($rules, fn ($rule) => $this->addRule($rule));
         return $this;
     }
 
@@ -157,12 +151,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setAddRules(array $rules): self
     {
-        $this->add = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof AddRecurrenceInfo) {
-                $this->add[] = $rule;
-            }
-        }
+        $this->add = array_filter($rules, static fn ($rule) => $rule instanceof AddRecurrenceInfo);
         return $this;
     }
 
@@ -184,12 +173,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setExcludeRules(array $rules): self
     {
-        $this->exclude = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof ExcludeRecurrenceInfo) {
-                $this->exclude[] = $rule;
-            }
-        }
+        $this->exclude = array_filter($rules, static fn ($rule) => $rule instanceof ExcludeRecurrenceInfo);
         return $this;
     }
 
@@ -211,12 +195,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setExceptRules(array $rules): self
     {
-        $this->except = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof ExceptionRuleInfo) {
-                $this->except[] = $rule;
-            }
-        }
+        $this->except = array_filter($rules, static fn ($rule) => $rule instanceof ExceptionRuleInfo);
         return $this;
     }
 
@@ -238,12 +217,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setCancelRules(array $rules): self
     {
-        $this->cancel = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof CancelRuleInfo) {
-                $this->cancel[] = $rule;
-            }
-        }
+        $this->cancel = array_filter($rules, static fn ($rule) => $rule instanceof CancelRuleInfo);
         return $this;
     }
 
@@ -265,12 +239,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setDatesRules(array $rules): self
     {
-        $this->dates = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof SingleDates) {
-                $this->dates[] = $rule;
-            }
-        }
+        $this->dates = array_filter($rules, static fn ($rule) => $rule instanceof SingleDates);
         return $this;
     }
 
@@ -292,12 +261,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
      */
     public function setSimpleRules(array $rules): self
     {
-        $this->simple = [];
-        foreach ($rules as $rule) {
-            if ($rule instanceof SimpleRepeatingRule) {
-                $this->simple[] = $rule;
-            }
-        }
+        $this->simple = array_filter($rules, static fn ($rule) => $rule instanceof SimpleRepeatingRule);
         return $this;
     }
 

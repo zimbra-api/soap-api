@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\CacheType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * CacheSelector struct class
@@ -21,8 +20,6 @@ use Zimbra\Enum\CacheType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cache")
  */
 class CacheSelector
 {
@@ -33,7 +30,7 @@ class CacheSelector
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
      * @XmlList(inline = true, entry = "entry")
      */
-    private $entries;
+    private $entries = [];
 
     /**
      * Comma separated list of cache types.
@@ -105,15 +102,7 @@ class CacheSelector
      */
     public function setTypes(string $types): self
     {
-        $arrTypes = explode(',', $types);
-        $types = [];
-        foreach ($arrTypes as $type) {
-            $type = trim($type);
-            if (CacheType::isValid($type) && !in_array($type, $types)) {
-                $types[] = $type;
-            }
-        }
-        $this->types = implode(',', $types);
+        $this->types = $types;
         return $this;
     }
 
@@ -181,12 +170,7 @@ class CacheSelector
      */
     public function setEntries(array $entries): self
     {
-        $this->entries = [];
-        foreach ($entries as $entry) {
-            if ($entry instanceof CacheEntrySelector) {
-                $this->entries[] = $entry;
-            }
-        }
+        $this->entries = array_filter($entries, static fn ($entry) => $entry instanceof CacheEntrySelector);
         return $this;
     }
 

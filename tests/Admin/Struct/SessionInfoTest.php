@@ -49,25 +49,14 @@ class SessionInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<session zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" foo="$foo" bar="$bar" />
+<result zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" foo="$foo" bar="$bar" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
 
-        $json = json_encode([
-            'zid' => $zimbraId,
-            'name' => $name,
-            'sid' => $sessionId,
-            'cd' => $createdDate,
-            'ld' => $lastAccessedDate,
-            'foo' => $foo,
-            'bar' => $bar,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($session, 'json'));
 
         $session = new SessionInfo(
             $sessionId, $createdDate, $lastAccessedDate, $zimbraId, $name
         );
         $this->assertEquals($session, $this->serializer->deserialize($xml, SessionInfo::class, 'xml'));
-        $this->assertEquals($session, $this->serializer->deserialize($json, SessionInfo::class, 'json'));
     }
 }

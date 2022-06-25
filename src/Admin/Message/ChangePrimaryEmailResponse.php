@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Soap\ResponseInterface;
 use Zimbra\Admin\Struct\AccountInfo as Account;
 
@@ -22,8 +22,6 @@ use Zimbra\Admin\Struct\AccountInfo as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ChangePrimaryEmailResponse")
  */
 class ChangePrimaryEmailResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class ChangePrimaryEmailResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Constructor method for ChangePrimaryEmailResponse

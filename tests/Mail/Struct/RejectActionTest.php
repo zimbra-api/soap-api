@@ -24,7 +24,7 @@ class RejectActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionReject index="$index">$content</actionReject>
+<result index="$index">$content</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RejectAction::class, 'xml'));

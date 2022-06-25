@@ -46,13 +46,13 @@ class SingleDatesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dates tz="$timezone">
+<result tz="$timezone">
     <dtval>
         <s d="$dateTime" tz="$timezone" u="$utcTime" />
         <e d="$dateTime" tz="$timezone" u="$utcTime" />
         <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
     </dtval>
-</dates>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
         $this->assertEquals($dates, $this->serializer->deserialize($xml, SingleDates::class, 'xml'));

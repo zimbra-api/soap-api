@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\CosBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\CosBy;
 
 /**
  * CosSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\CosBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cos")
  */
 class CosSelector
 {
@@ -30,10 +28,10 @@ class CosSelector
      * Select the meaning of {cos-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\CosBy")
+     * @Type("Zimbra\Common\Enum\CosBy")
      * @XmlAttribute
      */
-    private $by;
+    private CosBy $by;
 
     /**
      * The key used to identify the COS

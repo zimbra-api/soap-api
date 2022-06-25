@@ -45,7 +45,7 @@ class EffectiveRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<rights>
+<result>
     <right n="$name" />
     <setAttrs all="true">
         <a n="$name">
@@ -79,91 +79,9 @@ class EffectiveRightsInfoTest extends ZimbraTestCase
             </default>
         </a>
     </getAttrs>
-</rights>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
         $this->assertEquals($rights, $this->serializer->deserialize($xml, EffectiveRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'right' => [
-                [
-                    'n' => $name,
-                ],
-            ],
-            'setAttrs' => [
-                'all' => TRUE,
-                'a' => [
-                    [
-                        'n' => $name,
-                        'constraint' => [
-                            'min' => [
-                                '_content' => $min,
-                            ],
-                            'max' => [
-                                '_content' => $max,
-                            ],
-                            'values' => [
-                                'v' => [
-                                    [
-                                        '_content' => $value1,
-                                    ],
-                                    [
-                                        '_content' => $value2,
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'default' => [
-                            'v' => [
-                                [
-                                    '_content' => $value1,
-                                ],
-                                [
-                                    '_content' => $value2,
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            'getAttrs' => [
-                'all' => FALSE,
-                'a' => [
-                    [
-                        'n' => $name,
-                        'constraint' => [
-                            'min' => [
-                                '_content' => $min,
-                            ],
-                            'max' => [
-                                '_content' => $max,
-                            ],
-                            'values' => [
-                                'v' => [
-                                    [
-                                        '_content' => $value1,
-                                    ],
-                                    [
-                                        '_content' => $value2,
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'default' => [
-                            'v' => [
-                                [
-                                    '_content' => $value1,
-                                ],
-                                [
-                                    '_content' => $value2,
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rights, 'json'));
-        $this->assertEquals($rights, $this->serializer->deserialize($json, EffectiveRightsInfo::class, 'json'));
     }
 }

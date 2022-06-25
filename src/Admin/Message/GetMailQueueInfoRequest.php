@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\NamedElement as Server;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\NamedElement as Server;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetMailQueueInfoRequest request class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetMailQueueInfoRequest")
  */
 class GetMailQueueInfoRequest extends Request
 {
@@ -33,10 +31,10 @@ class GetMailQueueInfoRequest extends Request
      * MTA Server
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $server;
+    private Server $server;
 
     /**
      * Constructor method for GetMailQueueInfoRequest
@@ -74,14 +72,12 @@ class GetMailQueueInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetMailQueueInfoEnvelope)) {
-            $this->envelope = new GetMailQueueInfoEnvelope(
-                new GetMailQueueInfoBody($this)
-            );
-        }
+        return new GetMailQueueInfoEnvelope(
+            new GetMailQueueInfoBody($this)
+        );
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\ConvActionOp;
+use Zimbra\Common\Enum\ConvActionOp;
 
 use Zimbra\Mail\Message\ConvActionEnvelope;
 use Zimbra\Mail\Message\ConvActionBody;

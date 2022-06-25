@@ -10,8 +10,6 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
 /**
  * ExpandedRecurrenceException class
  * Except expanded recurrence
@@ -21,7 +19,6 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="except")
  */
 class ExpandedRecurrenceException extends ExpandedRecurrenceComponent
 {

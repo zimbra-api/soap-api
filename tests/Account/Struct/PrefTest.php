@@ -31,17 +31,9 @@ class PrefTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<pref name="$name" modified="$modified">$value</pref>
+<result name="$name" modified="$modified">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pref, 'xml'));
         $this->assertEquals($pref, $this->serializer->deserialize($xml, Pref::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'modified' => $modified,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pref, 'json'));
-        $this->assertEquals($pref, $this->serializer->deserialize($json, Pref::class, 'json'));
     }
 }

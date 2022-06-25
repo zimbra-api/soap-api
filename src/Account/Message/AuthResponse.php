@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, Pref, Session};
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AuthResponse")
  */
 class AuthResponse implements ResponseInterface
 {
@@ -61,7 +59,7 @@ class AuthResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Session")
      * @XmlElement
      */
-    private $session;
+    private ?Session $session = NULL;
 
     /**
      * host additional SOAP requests should be directed to.
@@ -124,7 +122,7 @@ class AuthResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = false, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
@@ -132,7 +130,7 @@ class AuthResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
@@ -464,12 +462,7 @@ class AuthResponse implements ResponseInterface
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = [];
-        foreach ($prefs as $pref) {
-            if ($pref instanceof Pref) {
-                $this->prefs[] = $pref;
-            }
-        }
+        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
         return $this;
     }
 
@@ -503,12 +496,7 @@ class AuthResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 

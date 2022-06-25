@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ContactBackupServer;
-use Zimbra\Enum\ContactBackupStatus;
+use Zimbra\Common\Enum\ContactBackupStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -28,16 +28,9 @@ class ContactBackupServerTest extends ZimbraTestCase
         $status = ContactBackupStatus::STOPPED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server name="$name" status="$status"/>
+<result name="$name" status="$status"/>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ContactBackupServer::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'status' => $status,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
-        $this->assertEquals($server, $this->serializer->deserialize($json, ContactBackupServer::class, 'json'));
     }
 }

@@ -42,31 +42,13 @@ class ChildAccountTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<childAccount id="$id" name="$name" visible="true" active="true">
+<result id="$id" name="$name" visible="true" active="true">
     <attrs>
         <attr name="$name" pd="true">$value</attr>
     </attrs>
-</childAccount>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($childAccount, 'xml'));
         $this->assertEquals($childAccount, $this->serializer->deserialize($xml, ChildAccount::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'visible' => TRUE,
-            'active' => TRUE,
-            'attrs' => [
-                'attr' => [
-                    [
-                        'name' => $name,
-                        'pd' => TRUE,
-                        '_content' => $value,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($childAccount, 'json'));
-        $this->assertEquals($childAccount, $this->serializer->deserialize($json, ChildAccount::class, 'json'));
     }
 }

@@ -21,7 +21,7 @@ class CancelRuleInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cancel rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
+<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cancel, 'xml'));
         $this->assertEquals($cancel, $this->serializer->deserialize($xml, CancelRuleInfo::class, 'xml'));

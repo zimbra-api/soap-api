@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * TzFixupRuleMatchRules struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="rules")
  */
 class TzFixupRuleMatchRules
 {
@@ -32,7 +30,7 @@ class TzFixupRuleMatchRules
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
      * @XmlElement
      */
-    private $standard;
+    private TzFixupRuleMatchRule $standard;
 
     /**
      * Daylight saving match rule
@@ -41,7 +39,7 @@ class TzFixupRuleMatchRules
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
      * @XmlElement
      */
-    private $daylight;
+    private TzFixupRuleMatchRule $daylight;
 
     /**
      * Offset from UTC in standard time; local = UTC + offset

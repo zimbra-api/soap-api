@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AccountLoggerInfo;
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\LoggingLevel;
+use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -36,24 +36,11 @@ class AccountLoggerInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<accountLogger name="$name" id="$id">
+<result name="$name" id="$id">
     <logger category="$category" level="info" />
-</accountLogger>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($accountLogger, 'xml'));
         $this->assertEquals($accountLogger, $this->serializer->deserialize($xml, AccountLoggerInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'logger' => [
-                [
-                    'category' => $category,
-                    'level' => 'info',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($accountLogger, 'json'));
-        $this->assertEquals($accountLogger, $this->serializer->deserialize($json, AccountLoggerInfo::class, 'json'));
     }
 }

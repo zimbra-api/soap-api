@@ -2,11 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ParticipationStatus;
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ParticipationStatus;
+use Zimbra\Common\Enum\ReplyType;
 
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
@@ -52,7 +50,7 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
             [new Header($name, $value)], $inReplyTo, $folderId, $flags, $content,
             new MimePartInfo($contentType, $content, $contentId), new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::FROM(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)], $fragment
         );
 
@@ -68,18 +66,18 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<item ptst="AC">
+<result ptst="AC">
     <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
         <header name="$name">$value</header>
         <content>$content</content>
         <mp ct="$contentType" content="$content" ci="$contentId" />
         <attach aid="$id" />
         <inv method="$method" compNum="$componentNum" rsvp="true" />
-        <e a="$address" t="f" p="$personal" />
+        <e a="$address" t="t" p="$personal" />
         <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
         <fr>$fragment</fr>
     </m>
-</item>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, SetCalendarItemInfoImp::class, 'xml'));
@@ -120,7 +118,7 @@ EOT;
                 'e' => [
                     [
                         'a' => $address,
-                        't' => 'f',
+                        't' => 't',
                         'p' => $personal,
                     ],
                 ],
@@ -141,9 +139,6 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="item")
- */
 class SetCalendarItemInfoImp
 {
     use SetCalendarItemInfoTrait {

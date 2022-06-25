@@ -13,8 +13,8 @@ use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzReplaceInfo;
-use Zimbra\Struct\Id;
-use Zimbra\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -75,7 +75,7 @@ class TzFixupTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<tzfixup>
+<result>
     <fixupRule>
         <match>
             <any />
@@ -99,78 +99,9 @@ class TzFixupTest extends ZimbraTestCase
             </tz>
         </replace>
     </fixupRule>
-</tzfixup>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzfixup, 'xml'));
         $this->assertEquals($tzfixup, $this->serializer->deserialize($xml, TzFixup::class, 'xml'));
-
-        $json = json_encode([
-            'fixupRule' => [
-                [
-                    'match' => [
-                        'any' => new \stdClass(),
-                        'tzid' => [
-                            'id' => $id,
-                        ],
-                        'nonDst' => [
-                            'offset' => $offset,
-                        ],
-                        'rules' => [
-                            'standard' => [
-                                'mon' => $rule_mon,
-                                'week' => $rule_week,
-                                'wkday' => $rule_wkday,
-                            ],
-                            'daylight' => [
-                                'mon' => $rule_mon,
-                                'week' => $rule_week,
-                                'wkday' => $rule_wkday,
-                            ],
-                            'stdoff' => $rule_stdoff,
-                            'dayoff' => $rule_dayoff,
-                        ],
-                        'dates' => [
-                            'standard' => [
-                                'mon' => $date_mon,
-                                'mday' => $date_mday,
-                            ],
-                            'daylight' => [
-                                'mon' => $date_mon,
-                                'mday' => $date_mday,
-                            ],
-                            'stdoff' => $date_stdoff,
-                            'dayoff' => $date_dayoff,
-                        ],
-                    ],
-                    'touch' => new \stdClass(),
-                    'replace' => [
-                        'wellKnownTz' => [
-                            'id' => $id,
-                        ],
-                        'tz' => [
-                            'id' => $id,
-                            'stdoff' => $stdoff,
-                            'dayoff' => $dayoff,
-                            'standard' => [
-                                'mon' => $mon,
-                                'hour' => $hour,
-                                'min' => $min,
-                                'sec' => $sec,
-                            ],
-                            'daylight' => [
-                                'mon' => $mon,
-                                'hour' => $hour,
-                                'min' => $min,
-                                'sec' => $sec,
-                            ],
-                            'stdname' => $stdname,
-                            'dayname' => $dayname,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tzfixup, 'json'));
-        $this->assertEquals($tzfixup, $this->serializer->deserialize($json, TzFixup::class, 'json'));
     }
 }

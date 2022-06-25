@@ -8,9 +8,9 @@ use Zimbra\Admin\Message\ReIndexRequest;
 use Zimbra\Admin\Message\ReIndexResponse;
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
 use Zimbra\Admin\Struct\ReindexProgressInfo;
-use Zimbra\Enum\ReIndexAction;
-use Zimbra\Enum\ReIndexStatus;
-use Zimbra\Enum\ReindexType;
+use Zimbra\Common\Enum\ReIndexAction;
+use Zimbra\Common\Enum\ReIndexStatus;
+use Zimbra\Common\Enum\ReindexType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -80,30 +80,5 @@ class ReIndexTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ReIndexEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ReIndexRequest' => [
-                    'action' => 'start',
-                    'mbox' => [
-                        'id' => $id,
-                        'types' => $types,
-                        'ids' => $ids,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ReIndexResponse' => [
-                    'status' => 'running',
-                    'progress' => [
-                        'numSucceeded' => $numSucceeded,
-                        'numFailed' => $numFailed,
-                        'numRemaining' => $numRemaining,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ReIndexEnvelope::class, 'json'));
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
+use Zimbra\Soap\EnvelopeInterface;
 
 /**
  * CancelTaskRequest class
@@ -21,21 +21,18 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="CancelTaskRequest")
  */
 class CancelTaskRequest extends CancelAppointmentRequest
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CancelTaskEnvelope)) {
-            $this->envelope = new CancelTaskEnvelope(
-                new CancelTaskBody($this)
-            );
-        }
+        return new CancelTaskEnvelope(
+            new CancelTaskBody($this)
+        );
     }
 }

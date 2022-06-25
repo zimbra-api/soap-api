@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoCompleteGalRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AutoCompleteGalRequest")
  */
 class AutoCompleteGalRequest extends Request
 {
@@ -48,10 +46,10 @@ class AutoCompleteGalRequest extends Request
      * if omitted, defaults to "account"
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * flag whether the {exp} flag is needed in the response for group entries.
@@ -227,14 +225,12 @@ class AutoCompleteGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AutoCompleteGalEnvelope)) {
-            $this->envelope = new AutoCompleteGalEnvelope(
-                new AutoCompleteGalBody($this)
-            );
-        }
+        return new AutoCompleteGalEnvelope(
+            new AutoCompleteGalBody($this)
+        );
     }
 }

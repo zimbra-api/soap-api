@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Struct\Pop3DataSource;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Struct\Pop3DataSource;
 
 /**
  * AccountPop3DataSource struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\Pop3DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="pop3")
  */
 class AccountPop3DataSource extends AccountDataSource implements Pop3DataSource
 {

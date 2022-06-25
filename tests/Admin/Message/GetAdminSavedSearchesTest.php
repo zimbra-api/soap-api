@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\GetAdminSavedSearchesBody;
 use Zimbra\Admin\Message\GetAdminSavedSearchesEnvelope;
 use Zimbra\Admin\Message\GetAdminSavedSearchesRequest;
 use Zimbra\Admin\Message\GetAdminSavedSearchesResponse;
-use Zimbra\Struct\NamedElement;
-use Zimbra\Struct\NamedValue;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -69,29 +69,5 @@ class GetAdminSavedSearchesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAdminSavedSearchesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAdminSavedSearchesRequest' => [
-                    'search' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAdminSavedSearchesResponse' => [
-                    'search' => [
-                        [
-                            'name' => $name,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAdminSavedSearchesEnvelope::class, 'json'));
     }
 }

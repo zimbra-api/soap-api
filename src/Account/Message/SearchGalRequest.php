@@ -10,25 +10,21 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Enum\MemberOfSelector;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\CursorInfo;
+use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
+use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchGalRequest class
- * Search Global Address List (GAL) for calendar resources
- * "attrs" attribute - comma-separated list of attrs to return ("displayName", "zimbraId", "zimbraCalResType")
+ * Search Global Address List (GAL)
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchGalRequest")
  */
 class SearchGalRequest extends Request
 {
@@ -54,10 +50,10 @@ class SearchGalRequest extends Request
      * type of addresses to auto-complete on.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
@@ -83,10 +79,10 @@ class SearchGalRequest extends Request
      * Specify if the "isMember" flag is needed in the response for group entries.
      * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
      * @SerializedName("needIsMember")
-     * @Type("Zimbra\Enum\MemberOfSelector")
+     * @Type("Zimbra\Common\Enum\MemberOfSelector")
      * @XmlAttribute
      */
-    private $needIsMember;
+    private ?MemberOfSelector $needIsMember = NULL;
 
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
@@ -160,10 +156,10 @@ class SearchGalRequest extends Request
      * Cursor specification
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
-     * @Type("Zimbra\Struct\CursorInfo")
+     * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement
      */
-    private $cursor;
+    private ?CursorInfo $cursor = NULL;
 
     /**
      * Search Filter
@@ -172,7 +168,7 @@ class SearchGalRequest extends Request
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement
      */
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
      * Constructor method for SearchGalRequest
@@ -199,10 +195,10 @@ class SearchGalRequest extends Request
         ?EntrySearchFilterInfo $searchFilter = NULL,
         ?string $ref = NULL,
         ?string $name = NULL,
-        GalSearchType $type = NULL,
+        ?GalSearchType $type = NULL,
         ?bool $needCanExpand = NULL,
         ?bool $needIsOwner = NULL,
-        MemberOfSelector $needIsMember = NULL,
+        ?MemberOfSelector $needIsMember = NULL,
         ?bool $needSMIMECerts = NULL,
         ?string $galAccountId = NULL,
         ?bool $quick = NULL,
@@ -592,14 +588,12 @@ class SearchGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchGalEnvelope)) {
-            $this->envelope = new SearchGalEnvelope(
-                new SearchGalBody($this)
-            );
-        }
+        return new SearchGalEnvelope(
+            new SearchGalBody($this)
+        );
     }
 }

@@ -29,17 +29,9 @@ class AuthTokenTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<authToken verifyAccount="true" lifetime="$lifetime">$value</authToken>
+<result verifyAccount="true" lifetime="$lifetime">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($token, 'xml'));
         $this->assertEquals($token, $this->serializer->deserialize($xml, AuthToken::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-            'verifyAccount' => TRUE,
-            'lifetime' => $lifetime,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($token, 'json'));
-        $this->assertEquals($token, $this->serializer->deserialize($json, AuthToken::class, 'json'));
     }
 }

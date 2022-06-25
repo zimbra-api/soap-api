@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetUCServiceBody, GetUCServiceEnvelope, GetUCServiceRe
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -79,33 +79,5 @@ class GetUCServiceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetUCServiceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetUCServiceRequest' => [
-                    'attrs' => $attrs,
-                    'ucservice' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetUCServiceResponse' => [
-                    'ucservice' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetUCServiceEnvelope::class, 'json'));
     }
 }

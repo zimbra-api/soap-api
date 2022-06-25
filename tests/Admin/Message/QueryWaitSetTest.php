@@ -11,7 +11,7 @@ use Zimbra\Admin\Struct\BufferedCommitInfo;
 use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
-use Zimbra\Struct\IdAndType;
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -114,69 +114,5 @@ class QueryWaitSetTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, QueryWaitSetEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'QueryWaitSetRequest' => [
-                    'waitSet' => $waitSetId,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'QueryWaitSetResponse' => [
-                    'waitSet' => [
-                        [
-                            'id' => $waitSetId,
-                            'owner' => $owner,
-                            'defTypes' => $defaultInterests,
-                            'ld' => $lastAccessDate,
-                            'cbSeqNo' => $cbSeqNo,
-                            'currentSeqNo' => $currentSeqNo,
-                            'nextSeqNo' => $nextSeqNo,
-                            'errors' => [
-                                'error' => [
-                                    [
-                                        'id' => $id,
-                                        'type' => $type,
-                                    ],
-                                ],
-                            ],
-                            'ready' => [
-                                'accounts' => $accounts,
-                            ],
-                            'buffered' => [
-                                'commit' => [
-                                    [
-                                        'aid' => $aid,
-                                        'cid' => $cid,
-                                    ],
-                                ],
-                            ],
-                            'session' => [
-                                [
-                                    'account' => $account,
-                                    'types' => $interests,
-                                    'token' => $token,
-                                    'mboxSyncToken' => $mboxSyncToken,
-                                    'mboxSyncTokenDiff' => $mboxSyncTokenDiff,
-                                    'acctIdError' => $acctIdError,
-                                    'WaitSetSession' => [
-                                        'interestMask' => $interestMask,
-                                        'highestChangeId' => $highestChangeId,
-                                        'lastAccessTime' => $lastAccessTime,
-                                        'creationTime' => $creationTime,
-                                        'sessionId' => $sessionId,
-                                        'token' => $token,
-                                        'folderInterests' => $folderInterests,
-                                        'changedFolders' => $changedFolders,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, QueryWaitSetEnvelope::class, 'json'));
     }
 }

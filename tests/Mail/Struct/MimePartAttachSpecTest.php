@@ -28,7 +28,7 @@ class MimePartAttachSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mp mid="$messageId" part="$part" optional="true" />
+<result mid="$messageId" part="$part" optional="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, MimePartAttachSpec::class, 'xml'));

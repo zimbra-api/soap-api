@@ -10,18 +10,11 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Account\Struct\AccountDataSource;
-use Zimbra\Account\Struct\AccountDataSources;
-use Zimbra\Account\Struct\AccountZimletInfo;
-use Zimbra\Account\Struct\Attr;
-use Zimbra\Account\Struct\ChildAccount;
-use Zimbra\Account\Struct\Cos;
-use Zimbra\Account\Struct\DiscoverRightsInfo;
-use Zimbra\Account\Struct\Identity;
-use Zimbra\Account\Struct\Pref;
-use Zimbra\Account\Struct\Prop;
-use Zimbra\Account\Struct\Signature;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Account\Struct\{
+    AccountDataSource, AccountDataSources, AccountZimletInfo, Attr,
+    ChildAccount, Cos, DiscoverRightsInfo, Identity, Pref, Prop, Signature
+};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -32,8 +25,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetInfoResponse")
  */
 class GetInfoResponse implements ResponseInterface
 {
@@ -174,7 +165,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Cos")
      * @XmlElement
      */
-    private $cos;
+    private ?Cos $cos = NULL;
 
     /**
      * User-settable preferences
@@ -183,7 +174,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline = false, entry = "pref")
      */
-    private $prefs;
+    private $prefs = [];
 
     /**
      * Account attributes that aren't user-settable, but the front-end needs.
@@ -193,7 +184,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline = false, entry = "attr")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Zimlets
@@ -202,7 +193,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\AccountZimletInfo>")
      * @XmlList(inline = false, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Properties
@@ -211,7 +202,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline = false, entry = "prop")
      */
-    private $props;
+    private $props = [];
 
     /**
      * Identities
@@ -220,7 +211,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlList(inline = false, entry = "identity")
      */
-    private $identities;
+    private $identities = [];
 
     /**
      * Signatures
@@ -229,7 +220,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlList(inline = false, entry = "signature")
      */
-    private $signatures;
+    private $signatures = [];
 
     /**
      * Data sources
@@ -247,7 +238,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\ChildAccount>")
      * @XmlList(inline = false, entry = "childAccount")
      */
-    private $childAccounts;
+    private $childAccounts = [];
 
     /**
      * Discovered Rights - same as for DiscoverRightsResponse
@@ -256,7 +247,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlList(inline = false, entry = "targets")
      */
-    private $discoveredRights;
+    private $discoveredRights = [];
 
     /**
      * URL to talk to for soap service for this account.
@@ -806,12 +797,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setPrefs(array $prefs): self
     {
-        $this->prefs = [];
-        foreach ($prefs as $pref) {
-            if ($pref instanceof Pref) {
-                $this->prefs[] = $pref;
-            }
-        }
+        $this->prefs = array_filter($prefs, static fn ($pref) => $pref instanceof Pref);
         return $this;
     }
 
@@ -845,12 +831,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 
@@ -884,12 +865,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets): self
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            if ($zimlet instanceof AccountZimletInfo) {
-                $this->zimlets[] = $zimlet;
-            }
-        }
+        $this->zimlets = array_filter($zimlets, static fn ($zimlet) => $zimlet instanceof AccountZimletInfo);
         return $this;
     }
 
@@ -923,12 +899,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setProps(array $props): self
     {
-        $this->props = [];
-        foreach ($props as $prop) {
-            if ($prop instanceof Prop) {
-                $this->props[] = $prop;
-            }
-        }
+        $this->props = array_filter($props, static fn ($prop) => $prop instanceof Prop);
         return $this;
     }
 
@@ -962,12 +933,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setIdentities(array $identities): self
     {
-        $this->identities = [];
-        foreach ($identities as $identity) {
-            if ($identity instanceof Identity) {
-                $this->identities[] = $identity;
-            }
-        }
+        $this->identities = array_filter($identities, static fn ($identity) => $identity instanceof Identity);
         return $this;
     }
 
@@ -1001,12 +967,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function setSignatures(array $signatures): self
     {
-        $this->signatures = [];
-        foreach ($signatures as $signature) {
-            if ($signature instanceof Signature) {
-                $this->signatures[] = $signature;
-            }
-        }
+        $this->signatures = array_filter($signatures, static fn ($signature) => $signature instanceof Signature);
         return $this;
     }
 
@@ -1094,17 +1055,12 @@ class GetInfoResponse implements ResponseInterface
     /**
      * Set childAccounts
      *
-     * @param  array $childAccounts
+     * @param  array $accounts
      * @return self
      */
-    public function setChildAccounts(array $childAccounts): self
+    public function setChildAccounts(array $accounts): self
     {
-        $this->childAccounts = [];
-        foreach ($childAccounts as $childAccount) {
-            if ($childAccount instanceof ChildAccount) {
-                $this->childAccounts[] = $childAccount;
-            }
-        }
+        $this->childAccounts = array_filter($accounts, static fn ($account) => $account instanceof ChildAccount);
         return $this;
     }
 
@@ -1133,17 +1089,12 @@ class GetInfoResponse implements ResponseInterface
     /**
      * Set discoveredRights
      *
-     * @param  array $discoveredRights
+     * @param  array $rights
      * @return self
      */
-    public function setDiscoveredRights(array $discoveredRights): self
+    public function setDiscoveredRights(array $rights): self
     {
-        $this->discoveredRights = [];
-        foreach ($discoveredRights as $discoveredRight) {
-            if ($discoveredRight instanceof DiscoverRightsInfo) {
-                $this->discoveredRights[] = $discoveredRight;
-            }
-        }
+        $this->discoveredRights = array_filter($rights, static fn ($right) => $right instanceof DiscoverRightsInfo);
         return $this;
     }
 

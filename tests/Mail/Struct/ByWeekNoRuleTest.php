@@ -27,7 +27,7 @@ class ByWeekNoRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<byweekno wklist="$list" />
+<result wklist="$list" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByWeekNoRule::class, 'xml'));

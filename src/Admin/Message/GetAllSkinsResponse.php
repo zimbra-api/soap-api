@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedElement;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllSkinsResponse")
  */
 class GetAllSkinsResponse implements ResponseInterface
 {
@@ -32,10 +30,10 @@ class GetAllSkinsResponse implements ResponseInterface
      * 
      * @Accessor(getter="getSkins", setter="setSkins")
      * @SerializedName("skin")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "skin")
      */
-    private $skins;
+    private $skins = [];
 
     /**
      * Constructor method for GetAllSkinsResponse
@@ -68,12 +66,7 @@ class GetAllSkinsResponse implements ResponseInterface
      */
     public function setSkins(array $skins): self
     {
-        $this->skins = [];
-        foreach ($skins as $skin) {
-            if ($skin instanceof NamedElement) {
-                $this->skins[] = $skin;
-            }
-        }
+        $this->skins = array_filter($skins, static fn ($skin) => $skin instanceof NamedElement);
         return $this;
     }
 

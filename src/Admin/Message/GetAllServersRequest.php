@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllServersRequest class
@@ -22,8 +22,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllServersRequest")
  */
 class GetAllServersRequest extends Request
 {
@@ -63,7 +61,9 @@ class GetAllServersRequest extends Request
      * @param  bool $applyConfig
      * @return self
      */
-    public function __construct(?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL)
+    public function __construct(
+        ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
+    )
     {
         if (NULL !== $service) {
             $this->setService($service);
@@ -81,7 +81,7 @@ class GetAllServersRequest extends Request
      *
      * @return string
      */
-    public function getService(): string
+    public function getService(): ?string
     {
         return $this->service;
     }
@@ -103,7 +103,7 @@ class GetAllServersRequest extends Request
      *
      * @return bool
      */
-    public function isApplyConfig(): bool
+    public function isApplyConfig(): ?bool
     {
         return $this->applyConfig;
     }
@@ -125,7 +125,7 @@ class GetAllServersRequest extends Request
      *
      * @return string
      */
-    public function getAlwaysOnClusterId(): string
+    public function getAlwaysOnClusterId(): ?string
     {
         return $this->alwaysOnClusterId;
     }
@@ -145,14 +145,12 @@ class GetAllServersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllServersEnvelope)) {
-            $this->envelope = new GetAllServersEnvelope(
-                new GetAllServersBody($this)
-            );
-        }
+        return new GetAllServersEnvelope(
+            new GetAllServersBody($this)
+        );
     }
 }

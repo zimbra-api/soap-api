@@ -36,18 +36,9 @@ class BlobRevisionInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
+<result path="$path" fileSize="$fileSize" rev="$revision" external="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blob, 'xml'));
         $this->assertEquals($blob, $this->serializer->deserialize($xml, BlobRevisionInfo::class, 'xml'));
-
-        $json = json_encode([
-            'path' => $path,
-            'fileSize' => $fileSize,
-            'rev' => $revision,
-            'external' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blob, 'json'));
-        $this->assertEquals($blob, $this->serializer->deserialize($json, BlobRevisionInfo::class, 'json'));
     }
 }

@@ -10,11 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\HostName;
-use Zimbra\Admin\Struct\StatsSpec;
-use Zimbra\Admin\Struct\TimeAttr;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Admin\Struct\{HostName, StatsSpec, TimeAttr};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetLoggerStatsRequest request class
@@ -30,8 +28,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetLoggerStatsRequest")
  */
 class GetLoggerStatsRequest extends Request
 {
@@ -42,7 +38,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\HostName")
      * @XmlElement
      */
-    private $hostName;
+    private ?HostName $hostName = NULL;
 
     /**
      * Stats
@@ -51,7 +47,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\StatsSpec")
      * @XmlElement
      */
-    private $stats;
+    private ?StatsSpec $stats = NULL;
 
     /**
      * Start time
@@ -60,7 +56,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement
      */
-    private $startTime;
+    private ?TimeAttr $startTime = NULL;
 
     /**
      * End time
@@ -69,7 +65,7 @@ class GetLoggerStatsRequest extends Request
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement
      */
-    private $endTime;
+    private ?TimeAttr $endTime = NULL;
 
     /**
      * Constructor method for GetLoggerStatsRequest
@@ -189,14 +185,12 @@ class GetLoggerStatsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetLoggerStatsEnvelope)) {
-            $this->envelope = new GetLoggerStatsEnvelope(
-                new GetLoggerStatsBody($this)
-            );
-        }
+        return new GetLoggerStatsEnvelope(
+            new GetLoggerStatsBody($this)
+        );
     }
 }

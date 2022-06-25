@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\DomainAdminRight as Right;
 use Zimbra\Admin\Struct\PackageRightsInfo as Package;
 use Zimbra\Soap\ResponseInterface;
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetRightsDocResponse")
  */
 class GetRightsDocResponse implements ResponseInterface
 {
@@ -36,7 +34,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")
      * @XmlList(inline = true, entry = "package")
      */
-    private $pkgs;
+    private $pkgs = [];
 
     /**
      * Unused Admin rights
@@ -46,7 +44,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "notUsed")
      */
-    private $notUsed;
+    private $notUsed = [];
 
     /**
      * Domain admin rights
@@ -56,7 +54,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for GetRightsDocResponse
@@ -93,12 +91,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setPackages(array $pkgs): self
     {
-        $this->pkgs = [];
-        foreach ($pkgs as $pkg) {
-            if ($pkg instanceof Package) {
-                $this->pkgs[] = $pkg;
-            }
-        }
+        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof Package);
         return $this;
     }
 
@@ -120,10 +113,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setNotUsed(array $notUsed): self
     {
-        $this->notUsed = [];
-        foreach ($notUsed as $unused) {
-            $this->notUsed[] = $unused;
-        }
+        $this->notUsed = array_unique($notUsed);
         return $this;
     }
 
@@ -157,12 +147,7 @@ class GetRightsDocResponse implements ResponseInterface
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof Right) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof Right);
         return $this;
     }
 

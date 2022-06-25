@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\UcServiceBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\UcServiceBy;
 
 /**
  * UcServiceSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\UcServiceBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ucservice")
  */
 class UcServiceSelector
 {
@@ -30,10 +28,10 @@ class UcServiceSelector
      * Selects the meaning of {ucservice-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\UcServiceBy")
+     * @Type("Zimbra\Common\Enum\UcServiceBy")
      * @XmlAttribute
      */
-    private $by;
+    private UcServiceBy $by;
 
     /**
      * Key for choosing ucservice

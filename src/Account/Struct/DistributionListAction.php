@@ -10,11 +10,11 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\DistributionListSubscribeReq as Subscribe;
 use Zimbra\Account\Struct\DistributionListGranteeSelector as Grantee;
 use Zimbra\Account\Struct\DistributionListRightSpec as Right;
-use Zimbra\Enum\Operation;
+use Zimbra\Common\Enum\Operation;
 
 /**
  * DistributionListAction class
@@ -23,18 +23,16 @@ use Zimbra\Enum\Operation;
  * @category   Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="action")
  */
 class DistributionListAction extends AccountKeyValuePairs
 {
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\Operation")
+     * @Type("Zimbra\Common\Enum\Operation")
      * @XmlAttribute
      */
-    private $op;
+    private Operation $op;
 
     /**
      * @Accessor(getter="getNewName", setter="setNewName")
@@ -50,7 +48,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
      * @XmlElement
      */
-    private $subsReq;
+    private ?Subscribe $subsReq = NULL;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
@@ -59,7 +57,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @XmlList(inline = true, entry = "dlm")
      * @XmlElement(cdata = false)
      */
-    private $members;
+    private $members = [];
 
     /**
      * @Accessor(getter="getOwners", setter="setOwners")
@@ -67,7 +65,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline = true, entry = "owner")
      */
-    private $owners;
+    private $owners = [];
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
@@ -75,7 +73,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
      * @XmlList(inline = true, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DistributionListAction
@@ -186,7 +184,7 @@ class DistributionListAction extends AccountKeyValuePairs
     public function addMember($member): self
     {
         $member = trim($member);
-        if (!empty($member)) {
+        if (!empty($member) && !in_array($member, $this->members)) {
             $this->members[] = $member;
         }
         return $this;
@@ -200,10 +198,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setMembers(array $dlms): self
     {
-        $this->members = [];
-        foreach ($dlms as $dlm) {
-            $this->addMember($dlm);
-        }
+        $this->members = array_unique(array_map(static fn ($dlm) => trim($dlm), $dlms));
         return $this;
     }
 
@@ -237,12 +232,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setOwners(array $owners): self
     {
-        $this->owners = [];
-        foreach ($owners as $owner) {
-            if ($owner instanceof Grantee) {
-                $this->owners[] = $owner;
-            }
-        }
+        $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof Grantee);
         return $this;
     }
 
@@ -276,12 +266,7 @@ class DistributionListAction extends AccountKeyValuePairs
      */
     public function setRights(array $rights): self
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof Right) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof Right);
         return $this;
     }
 

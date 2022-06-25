@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\SimpleSessionInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetSessionsResponse")
  */
 class GetSessionsResponse implements ResponseInterface
 {
@@ -52,7 +50,7 @@ class GetSessionsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for GetSessionsResponse
@@ -137,12 +135,7 @@ class GetSessionsResponse implements ResponseInterface
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SimpleSessionInfo) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SimpleSessionInfo);
         return $this;
     }
 

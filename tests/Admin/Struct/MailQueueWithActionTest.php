@@ -7,8 +7,8 @@ use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
 use Zimbra\Admin\Struct\ValueAttrib;
-use Zimbra\Enum\QueueAction;
-use Zimbra\Enum\QueueActionBy;
+use Zimbra\Common\Enum\QueueAction;
+use Zimbra\Common\Enum\QueueActionBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -42,7 +42,7 @@ class MailQueueWithActionTest extends ZimbraTestCase
         $by = QueueActionBy::QUERY()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<queue name="$name">
+<result name="$name">
     <action op="$op" by="$by">
         <query limit="$limit" offset="$offset">
             <field name="$name">
@@ -50,33 +50,9 @@ class MailQueueWithActionTest extends ZimbraTestCase
             </field>
         </query>
     </action>
-</queue>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueWithAction::class, 'xml'));
-
-        $json = json_encode([
-            'action' => [
-                'op' => $op,
-                'by' => $by,
-                'query' => [
-                    'field' => [
-                        [
-                            'name' => $name,
-                            'match' => [
-                                [
-                                    'value' => $value
-                                ],
-                            ],
-                        ],
-                    ],
-                    'limit' => $limit,
-                    'offset' => $offset,
-                ],
-            ],
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($queue, 'json'));
-        $this->assertEquals($queue, $this->serializer->deserialize($json, MailQueueWithAction::class, 'json'));
     }
 }

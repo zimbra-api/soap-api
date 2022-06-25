@@ -15,10 +15,10 @@ use Zimbra\Admin\Struct\RightViaInfo;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\GranteeWithType;
 
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -95,37 +95,5 @@ class GrantRightTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GrantRightEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GrantRightRequest' => [
-                    'target' => [
-                        'type' => 'account',
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'grantee' => [
-                        'type' => 'usr',
-                        'by' => 'id',
-                        'secret' => $secret,
-                        'all' => TRUE,
-                        '_content' => $value,
-                    ],
-                    'right' => [
-                        '_content' => $value,
-                        'deny' => TRUE,
-                        'canDelegate' => TRUE,
-                        'disinheritSubGroups' => TRUE,
-                        'subDomain' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GrantRightResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GrantRightEnvelope::class, 'json'));
     }
 }

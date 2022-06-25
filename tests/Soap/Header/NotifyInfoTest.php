@@ -23,7 +23,7 @@ class NotifyInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<notify seq="$sequence" />
+<result seq="$sequence" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, NotifyInfo::class, 'xml'));

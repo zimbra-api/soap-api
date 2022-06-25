@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mbox;
-use Zimbra\Enum\CompactIndexAction  as Action;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\CompactIndexAction as Action;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CompactIndexRequest request class
@@ -24,12 +24,9 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CompactIndexRequest")
  */
 class CompactIndexRequest extends Request
 {
-
     /**
      * Mail box
      * @Accessor(getter="getMbox", setter="setMbox")
@@ -37,7 +34,7 @@ class CompactIndexRequest extends Request
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement
      */
-    private $mbox;
+    private Mbox $mbox;
 
     /**
      * Action to perform
@@ -45,10 +42,10 @@ class CompactIndexRequest extends Request
      * status: show compact indexing status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\CompactIndexAction")
+     * @Type("Zimbra\Common\Enum\CompactIndexAction")
      * @XmlAttribute
      */
-    private $action;
+    private ?Action $action = NULL;
 
     /**
      * Constructor method for CompactIndexRequest
@@ -112,14 +109,12 @@ class CompactIndexRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CompactIndexEnvelope)) {
-            $this->envelope = new CompactIndexEnvelope(
-                new CompactIndexBody($this)
-            );
-        }
+        return new CompactIndexEnvelope(
+            new CompactIndexBody($this)
+        );
     }
 }

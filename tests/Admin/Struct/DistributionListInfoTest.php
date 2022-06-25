@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -40,42 +40,16 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl name="$name" id="$id" dynamic="true">
+<result name="$name" id="$id" dynamic="true">
     <dlm>$member1</dlm>
     <dlm>$member2</dlm>
     <owners>
         <owner id="$id" name="$name" type="usr" />
         <owner id="$id" name="$name" type="usr" />
     </owners>
-</dl>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'dynamic' => TRUE,
-            'dlm' => [
-                ['_content' => $member1],
-                ['_content' => $member2],
-            ],
-            'owners' => [
-                'owner' => [
-                    [
-                        'id' => $id,
-                        'name' => $name,
-                        'type' => 'usr',
-                    ],
-                    [
-                        'id' => $id,
-                        'name' => $name,
-                        'type' => 'usr',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListInfo::class, 'json'));
     }
 }

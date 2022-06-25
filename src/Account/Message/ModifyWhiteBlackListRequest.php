@@ -10,21 +10,19 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\OpValue;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\OpValue;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyWhiteBlackListRequest class
- * Modify whiteListEntryerties related to zimlets
+ * Modify the anti-spam WhiteList and BlackList addresses
  * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyWhiteBlackListRequest")
  */
 class ModifyWhiteBlackListRequest extends Request
 {
@@ -32,19 +30,19 @@ class ModifyWhiteBlackListRequest extends Request
      * Modifications for WhiteList
      * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
      * @SerializedName("whiteList")
-     * @Type("array<Zimbra\Struct\OpValue>")
+     * @Type("array<Zimbra\Common\Struct\OpValue>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $whiteListEntries;
+    private $whiteListEntries = [];
 
     /**
      * Modifications for BlackList
      * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
      * @SerializedName("blackList")
-     * @Type("array<Zimbra\Struct\OpValue>")
+     * @Type("array<Zimbra\Common\Struct\OpValue>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $blackListEntries;
+    private $blackListEntries = [];
 
     /**
      * Constructor method for ModifyWhiteBlackListRequest
@@ -76,17 +74,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Set whiteListEntries
      *
-     * @param  array $whiteListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setWhiteListEntries(array $whiteListEntries): self
+    public function setWhiteListEntries(array $entries): self
     {
-        $this->whiteListEntries = [];
-        foreach ($whiteListEntries as $whiteListEntry) {
-            if ($whiteListEntry instanceof OpValue) {
-                $this->whiteListEntries[] = $whiteListEntry;
-            }
-        }
+        $this->whiteListEntries = array_filter($entries, static fn ($entry) => $entry instanceof OpValue);
         return $this;
     }
 
@@ -115,17 +108,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Set blackListEntries
      *
-     * @param  array $blackListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setBlackListEntries(array $blackListEntries): self
+    public function setBlackListEntries(array $entries): self
     {
-        $this->blackListEntries = [];
-        foreach ($blackListEntries as $blackListEntry) {
-            if ($blackListEntry instanceof OpValue) {
-                $this->blackListEntries[] = $blackListEntry;
-            }
-        }
+        $this->blackListEntries = array_filter($entries, static fn ($entry) => $entry instanceof OpValue);
         return $this;
     }
 
@@ -142,14 +130,12 @@ class ModifyWhiteBlackListRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyWhiteBlackListEnvelope)) {
-            $this->envelope = new ModifyWhiteBlackListEnvelope(
-                new ModifyWhiteBlackListBody($this)
-            );
-        }
+        return new ModifyWhiteBlackListEnvelope(
+            new ModifyWhiteBlackListBody($this)
+        );
     }
 }

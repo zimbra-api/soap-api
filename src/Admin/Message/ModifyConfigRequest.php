@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyConfigRequest class
@@ -24,7 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ModifyConfigRequest")
  */
 class ModifyConfigRequest extends Request implements AdminAttrs
 {
@@ -44,14 +42,12 @@ class ModifyConfigRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyConfigEnvelope)) {
-            $this->envelope = new ModifyConfigEnvelope(
-                new ModifyConfigBody($this)
-            );
-        }
+        return new ModifyConfigEnvelope(
+            new ModifyConfigBody($this)
+        );
     }
 }

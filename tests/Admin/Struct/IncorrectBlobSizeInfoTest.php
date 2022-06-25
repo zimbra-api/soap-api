@@ -47,26 +47,11 @@ class IncorrectBlobSizeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+<result id="$id" rev="$revision" s="$size" volumeId="$volumeId">
     <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
-</item>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, IncorrectBlobSizeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'rev' => $revision,
-            's' => $size,
-            'volumeId' => $volumeId,
-            'blob' => [
-                'path' => $path,
-                's' => $size,
-                'fileSize' => $fileSize,
-                'external' => TRUE,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, IncorrectBlobSizeInfo::class, 'json'));
     }
 }

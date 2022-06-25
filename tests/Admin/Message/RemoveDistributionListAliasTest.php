@@ -58,20 +58,5 @@ class RemoveDistributionListAliasTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RemoveDistributionListAliasEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RemoveDistributionListAliasRequest' => [
-                    'id' => $id,
-                    'alias' => $alias,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RemoveDistributionListAliasResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RemoveDistributionListAliasEnvelope::class, 'json'));
     }
 }

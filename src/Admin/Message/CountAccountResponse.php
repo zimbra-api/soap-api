@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CountAccountResponse")
  */
 class CountAccountResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class CountAccountResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $cos;
+    private $cos = [];
 
     /**
      * Constructor method for CountAccountResponse
@@ -63,17 +61,12 @@ class CountAccountResponse implements ResponseInterface
     /**
      * Sets cos quotas
      *
-     * @param  array $cos
+     * @param  array $coses
      * @return self
      */
-    public function setCos(array $cos): self
+    public function setCos(array $coses): self
     {
-        $this->cos = [];
-        foreach ($cos as $cos) {
-            if ($cos instanceof CosCountInfo) {
-                $this->cos[] = $cos;
-            }
-        }
+        $this->cos = array_filter($coses, static fn ($cos) => $cos instanceof CosCountInfo);
         return $this;
     }
 

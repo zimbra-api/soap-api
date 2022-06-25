@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Admin\Struct\EntrySearchFilterSingleCond as SingleCond;
-use Zimbra\Struct\SearchFilterCondition;
+use Zimbra\Common\Struct\SearchFilterCondition;
 
 /**
  * EntrySearchFilterMultiCond class
@@ -23,8 +23,6 @@ use Zimbra\Struct\SearchFilterCondition;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="conds")
  */
 class EntrySearchFilterMultiCond implements SearchFilterCondition
 {
@@ -154,12 +152,12 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      */
     public function setConditions(array $conditions): self
     {
-        $this->compoundConditions = $this->singleConditions = [];
-        foreach ($conditions as $condition) {
-            if ($condition instanceof SearchFilterCondition) {
-                $this->addCondition($condition);
-            }
-        }
+        $this->compoundConditions = array_values(
+            array_filter($conditions, static fn ($condition) => $condition instanceof MultiCond)
+        );
+        $this->singleConditions = array_values(
+            array_filter($conditions, static fn ($condition) => $condition instanceof SingleCond)
+        );
         return $this;
     }
 
@@ -170,13 +168,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      */
     public function getConditions(): array
     {
-        $conditions = $this->singleConditions;
-        foreach ($this->compoundConditions as $condition) {
-            if ($condition instanceof SearchFilterCondition) {
-                $conditions[] = $condition;
-            }
-        }
-        return $conditions;
+        return array_merge($this->singleConditions, $this->compoundConditions);
     }
 
     /**

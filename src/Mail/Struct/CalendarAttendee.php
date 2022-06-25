@@ -10,10 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\ParticipationStatus as PartStat;
-use Zimbra\Struct\XParamInterface;
-use Zimbra\Struct\CalendarAttendeeInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Struct\{CalendarAttendeeInterface, XParamInterface};
 
 /**
  * CalendarAttendee struct class
@@ -24,8 +23,6 @@ use Zimbra\Struct\CalendarAttendeeInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_address")
- * @XmlRoot(name="at")
  */
 class CalendarAttendee implements CalendarAttendeeInterface
 {
@@ -109,10 +106,10 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Enum\ParticipationStatus")
+     * @Type("Zimbra\Common\Enum\ParticipationStatus")
      * @XmlAttribute
      */
-    private $partStat;
+    private ?PartStat $partStat = NULL;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
@@ -165,7 +162,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @param string $attendeeEmail
      * @param string $attendeeName
      * @param string $role
-     * @param PartStat $partstat
+     * @param PartStat $partStat
      * @param bool $rsvp
      * @param array $xParams
      * @return self
@@ -174,7 +171,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
         ?string $attendeeEmail = NULL,
         ?string $attendeeName = NULL,
         ?string $role = NULL,
-        ?PartStat $partstat = NULL,
+        ?PartStat $partStat = NULL,
         ?bool $rsvp = NULL,
         array $xParams = []
     )
@@ -189,8 +186,8 @@ class CalendarAttendee implements CalendarAttendeeInterface
         if (NULL !== $role) {
             $this->setRole($role);
         }
-        if ($partstat instanceof PartStat) {
-            $this->setPartStat($partstat);
+        if ($partStat instanceof PartStat) {
+            $this->setPartStat($partStat);
         }
         if (NULL !== $rsvp) {
             $this->setRsvp($rsvp);
@@ -503,12 +500,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      */
     public function setXParams(array $xParams): self
     {
-        $this->xParams = [];
-        foreach ($xParams as $xParam) {
-            if ($xParam instanceof XParamInterface) {
-                $this->xParams[] = $xParam;
-            }
-        }
+        $this->xParams = array_filter($xParams, static fn ($xParam) => $xParam instanceof XParamInterface);
         return $this;
     }
 

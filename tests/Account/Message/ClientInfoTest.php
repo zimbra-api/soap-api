@@ -5,7 +5,7 @@ namespace Zimbra\Tests\Account\Message;
 use Zimbra\Account\Message\{ClientInfoEnvelope, ClientInfoBody, ClientInfoRequest, ClientInfoResponse};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ClientInfo.
@@ -67,28 +67,5 @@ class ClientInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ClientInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ClientInfoRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ClientInfoResponse' => [
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ClientInfoEnvelope::class, 'json'));
     }
 }

@@ -25,5 +25,5 @@ interface RequestInterface
      *
      * @return EnvelopeInterface
      */
-    function getEnvelope(): EnvelopeInterface;
+    function getEnvelope(): ?EnvelopeInterface;
 }

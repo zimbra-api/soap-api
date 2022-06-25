@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * DistributionListInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dl")
  */
 class DistributionListInfo extends AdminObjectInfo
 {
@@ -41,7 +39,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Owner information
@@ -50,7 +48,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
      * @XmlList(inline = false, entry = "owner")
      */
-    private $owners;
+    private $owners = [];
 
     /**
      * Constructor method for DistributionListInfo
@@ -119,10 +117,7 @@ class DistributionListInfo extends AdminObjectInfo
      */
     public function setMembers(array $members)
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique(array_map(static fn ($member) => trim($member), $members));
         return $this;
     }
 
@@ -159,12 +154,7 @@ class DistributionListInfo extends AdminObjectInfo
      */
     public function setOwners(array $owners)
     {
-        $this->owners = [];
-        foreach ($owners as $owner) {
-            if ($owner instanceof GranteeInfo) {
-                $this->owners[] = $owner;
-            }
-        }
+        $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof GranteeInfo);
         return $this;
     }
 

@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\CheckDomainMXRecordEnvelope;
 use Zimbra\Admin\Message\CheckDomainMXRecordRequest;
 use Zimbra\Admin\Message\CheckDomainMXRecordResponse;
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Enum\DomainBy;
+use Zimbra\Common\Enum\DomainBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -88,33 +88,5 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckDomainMXRecordEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckDomainMXRecordRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckDomainMXRecordResponse' => [
-                    'entry' => [
-                        [
-                            '_content' => $entry
-                        ],
-                    ],
-                    'code' => [
-                        '_content' => $code,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckDomainMXRecordEnvelope::class, 'json'));
     }
 }

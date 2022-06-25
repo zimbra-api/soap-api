@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ReindexMailboxInfo as Mbox;
-use Zimbra\Enum\ReIndexAction as Action;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\ReIndexAction as Action;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ReIndexRequest request class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ReIndexRequest")
  */
 class ReIndexRequest extends Request
 {
@@ -36,7 +34,7 @@ class ReIndexRequest extends Request
      * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
      * @XmlElement
      */
-    private $mbox;
+    private Mbox $mbox;
 
     /**
      * Action to perform
@@ -45,10 +43,10 @@ class ReIndexRequest extends Request
      * cancel: cancel reindexing 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\ReIndexAction")
+     * @Type("Zimbra\Common\Enum\ReIndexAction")
      * @XmlAttribute
      */
-    private $action;
+    private ?Action $action = NULL;
 
     /**
      * Constructor method for ReIndexRequest
@@ -112,14 +110,12 @@ class ReIndexRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ReIndexEnvelope)) {
-            $this->envelope = new ReIndexEnvelope(
-                new ReIndexBody($this)
-            );
-        }
+        return new ReIndexEnvelope(
+            new ReIndexBody($this)
+        );
     }
 }

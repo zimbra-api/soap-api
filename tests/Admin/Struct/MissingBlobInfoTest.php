@@ -48,21 +48,9 @@ class MissingBlobInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
+<result id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, MissingBlobInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'rev' => $revision,
-            's' => $size,
-            'volumeId' => $volumeId,
-            'blobPath' => $blobPath,
-            'external' => TRUE,
-            'version' => $version,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, MissingBlobInfo::class, 'json'));
     }
 }

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\PackageSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetRightsDoc request class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetRightsDocRequest")
  */
 class GetRightsDocRequest extends Request
 {
@@ -35,7 +33,7 @@ class GetRightsDocRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
      * @XmlList(inline = true, entry = "package")
      */
-    private $pkgs;
+    private $pkgs = [];
 
     /**
      * Constructor method for GetRightsDocRequest
@@ -68,12 +66,7 @@ class GetRightsDocRequest extends Request
      */
     public function setPkgs(array $pkgs): self
     {
-        $this->pkgs = [];
-        foreach ($pkgs as $pkg) {
-            if ($pkg instanceof PackageSelector) {
-                $this->pkgs[] = $pkg;
-            }
-        }
+        $this->pkgs = array_filter($pkgs, static fn ($pkg) => $pkg instanceof PackageSelector);
         return $this;
     }
 
@@ -90,14 +83,12 @@ class GetRightsDocRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetRightsDocEnvelope)) {
-            $this->envelope = new GetRightsDocEnvelope(
-                new GetRightsDocBody($this)
-            );
-        }
+        return new GetRightsDocEnvelope(
+            new GetRightsDocBody($this)
+        );
     }
 }

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\WaitSetAddSpec;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\WaitSetAddSpec;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AdminCreateWaitSet request class
@@ -25,8 +25,6 @@ use Zimbra\Struct\WaitSetAddSpec;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AdminCreateWaitSetRequest")
  */
 class AdminCreateWaitSetRequest extends Request
 {
@@ -52,10 +50,10 @@ class AdminCreateWaitSetRequest extends Request
      * Waitsets to add
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("add")
-     * @Type("array<Zimbra\Struct\WaitSetAddSpec>")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlList(inline = false, entry = "a")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for AdminCreateWaitSetRequest
@@ -142,12 +140,7 @@ class AdminCreateWaitSetRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof WaitSetAddSpec) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof WaitSetAddSpec);
         return $this;
     }
 
@@ -164,14 +157,12 @@ class AdminCreateWaitSetRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AdminCreateWaitSetEnvelope)) {
-            $this->envelope = new AdminCreateWaitSetEnvelope(
-                new AdminCreateWaitSetBody($this)
-            );
-        }
+        return new AdminCreateWaitSetEnvelope(
+            new AdminCreateWaitSetBody($this)
+        );
     }
 }

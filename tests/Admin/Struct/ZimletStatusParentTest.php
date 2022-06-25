@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletStatus;
 use Zimbra\Admin\Struct\ZimletStatusParent;
-use Zimbra\Enum\ZimletStatusSetting;
+use Zimbra\Common\Enum\ZimletStatusSetting;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -30,24 +30,11 @@ class ZimletStatusParentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlets>
+<result>
     <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
-</zimlets>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlets, 'xml'));
         $this->assertEquals($zimlets, $this->serializer->deserialize($xml, ZimletStatusParent::class, 'xml'));
-
-        $json = json_encode([
-            'zimlet' => [
-                [
-                    'name' => $name,
-                    'status' => 'enabled',
-                    'extension' => TRUE,
-                    'priority' => $priority,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlets, 'json'));
-        $this->assertEquals($zimlets, $this->serializer->deserialize($json, ZimletStatusParent::class, 'json'));
     }
 }

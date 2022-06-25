@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * PushFreeBusyRequest class
@@ -27,8 +27,6 @@ use Zimbra\Struct\Id;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="PushFreeBusyRequest")
  */
 class PushFreeBusyRequest extends Request
 {
@@ -39,17 +37,17 @@ class PushFreeBusyRequest extends Request
      * @Type("Zimbra\Admin\Struct\Names")
      * @XmlElement
      */
-    private $domains;
+    private ?Names $domains = NULL;
 
     /**
      * Account ID
      * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * Constructor method for PushFreeBusyRequest
@@ -108,12 +106,7 @@ class PushFreeBusyRequest extends Request
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof Id) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof Id);
         return $this;
     }
 
@@ -130,14 +123,12 @@ class PushFreeBusyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof PushFreeBusyEnvelope)) {
-            $this->envelope = new PushFreeBusyEnvelope(
-                new PushFreeBusyBody($this)
-            );
-        }
+        return new PushFreeBusyEnvelope(
+            new PushFreeBusyBody($this)
+        );
     }
 }

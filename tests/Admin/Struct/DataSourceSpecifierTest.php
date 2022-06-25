@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -32,24 +32,11 @@ class DataSourceSpecifierTest extends ZimbraTestCase
         $type = DataSourceType::POP3()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dataSource type="$type" name="$name">
+<result type="$type" name="$name">
     <a n="$key">$value</a>
-</dataSource>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceSpecifier::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'name' => $name,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ds, 'json'));
-        $this->assertEquals($ds, $this->serializer->deserialize($json, DataSourceSpecifier::class, 'json'));
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllCosResponse")
  */
 class GetAllCosResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllCosResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline = true, entry = "cos")
      */
-    private $cosList;
+    private $cosList = [];
 
     /**
      * Constructor method for GetAllCosResponse
@@ -68,12 +66,7 @@ class GetAllCosResponse implements ResponseInterface
      */
     public function setCosList(array $cosList): self
     {
-        $this->cosList = [];
-        foreach ($cosList as $cos) {
-            if ($cos instanceof CosInfo) {
-                $this->cosList[] = $cos;
-            }
-        }
+        $this->cosList = array_filter($cosList, static fn ($cos) => $cos instanceof CosInfo);
         return $this;
     }
 

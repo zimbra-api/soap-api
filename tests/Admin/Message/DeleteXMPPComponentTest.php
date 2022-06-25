@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\DeleteXMPPComponentEnvelope;
 use Zimbra\Admin\Message\DeleteXMPPComponentRequest;
 use Zimbra\Admin\Message\DeleteXMPPComponentResponse;
 use Zimbra\Admin\Struct\XMPPComponentSelector;
-use Zimbra\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -56,22 +56,5 @@ class DeleteXMPPComponentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteXMPPComponentEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteXMPPComponentRequest' => [
-                    'xmppcomponent' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteXMPPComponentResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteXMPPComponentEnvelope::class, 'json'));
     }
 }

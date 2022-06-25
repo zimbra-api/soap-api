@@ -61,32 +61,11 @@ class SessionForWaitSetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
+<result account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
     <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
-</session>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
         $this->assertEquals($session, $this->serializer->deserialize($xml, SessionForWaitSet::class, 'xml'));
-
-        $json = json_encode([
-            'account' => $account,
-            'types' => $interests,
-            'token' => $token,
-            'mboxSyncToken' => $mboxSyncToken,
-            'mboxSyncTokenDiff' => $mboxSyncTokenDiff,
-            'acctIdError' => $acctIdError,
-            'WaitSetSession' => [
-                'interestMask' => $interestMask,
-                'highestChangeId' => $highestChangeId,
-                'lastAccessTime' => $lastAccessTime,
-                'creationTime' => $creationTime,
-                'sessionId' => $sessionId,
-                'token' => $token,
-                'folderInterests' => $folderInterests,
-                'changedFolders' => $changedFolders,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($session, 'json'));
-        $this->assertEquals($session, $this->serializer->deserialize($json, SessionForWaitSet::class, 'json'));
     }
 }

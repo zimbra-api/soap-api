@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\GetDistributionListMembershipResponse;
 use Zimbra\Admin\Struct\DistributionListMembershipInfo;
 use Zimbra\Admin\Struct\DistributionListSelector;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\GranteeType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -83,31 +83,5 @@ class GetDistributionListMembershipTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListMembershipEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDistributionListMembershipRequest' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetDistributionListMembershipResponse' => [
-                    'dl' => [
-                        [
-                            'id' => $id,
-                            'name' => $name,
-                            'via' => $via,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDistributionListMembershipEnvelope::class, 'json'));
     }
 }

@@ -10,8 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllLocalesRequest class
@@ -23,21 +22,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="GetAllLocalesRequest")
  */
 class GetAllLocalesRequest extends Request
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllLocalesEnvelope)) {
-            $this->envelope = new GetAllLocalesEnvelope(
-                new GetAllLocalesBody($this)
-            );
-        }
+        return new GetAllLocalesEnvelope(
+            new GetAllLocalesBody($this)
+        );
     }
 }

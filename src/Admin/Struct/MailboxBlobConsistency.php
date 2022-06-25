@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * UnexpectedBlobInfo class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mbox")
  */
 class MailboxBlobConsistency
 {
@@ -41,7 +39,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $missingBlobs;
+    private $missingBlobs = [];
 
     /**
      * Information about items with incorrect sizes
@@ -50,7 +48,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $incorrectSizes;
+    private $incorrectSizes = [];
 
     /**
      * Information about unexpected blobs
@@ -59,7 +57,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
      * @XmlList(inline = false, entry = "blob")
      */
-    private $unexpectedBlobs;
+    private $unexpectedBlobs = [];
 
     /**
      * Information about items with incorrect revisions
@@ -68,7 +66,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $incorrectRevisions;
+    private $incorrectRevisions = [];
 
     /**
      * Information about used blobs
@@ -77,7 +75,7 @@ class MailboxBlobConsistency
      * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
      * @XmlList(inline = false, entry = "item")
      */
-    private $usedBlobs;
+    private $usedBlobs = [];
 
     /**
      * Constructor method for MailboxBlobConsistency
@@ -143,17 +141,12 @@ class MailboxBlobConsistency
     /**
      * Sets missing blobs
      *
-     * @param  array $missingBlobs
+     * @param  array $blobs
      * @return self
      */
-    public function setMissingBlobs(array $missingBlobs): self
+    public function setMissingBlobs(array $blobs): self
     {
-        $this->missingBlobs = [];
-        foreach ($missingBlobs as $missingBlob) {
-            if ($missingBlob instanceof MissingBlobInfo) {
-                $this->missingBlobs[] = $missingBlob;
-            }
-        }
+        $this->missingBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof MissingBlobInfo);
         return $this;
     }
 
@@ -182,17 +175,12 @@ class MailboxBlobConsistency
     /**
      * Sets incorrect sizes
      *
-     * @param  array $incorrectSizes
+     * @param  array $sizes
      * @return self
      */
-    public function setIncorrectSizes(array $incorrectSizes): self
+    public function setIncorrectSizes(array $sizes): self
     {
-        $this->incorrectSizes = [];
-        foreach ($incorrectSizes as $incorrectSize) {
-            if ($incorrectSize instanceof IncorrectBlobSizeInfo) {
-                $this->incorrectSizes[] = $incorrectSize;
-            }
-        }
+        $this->incorrectSizes = array_filter($sizes, static fn ($size) => $size instanceof IncorrectBlobSizeInfo);
         return $this;
     }
 
@@ -221,17 +209,12 @@ class MailboxBlobConsistency
     /**
      * Sets unexpected blobs
      *
-     * @param  array $unexpectedBlobs
+     * @param  array $blobs
      * @return self
      */
-    public function setUnexpectedBlobs(array $unexpectedBlobs): self
+    public function setUnexpectedBlobs(array $blobs): self
     {
-        $this->unexpectedBlobs = [];
-        foreach ($unexpectedBlobs as $unexpectedBlob) {
-            if ($unexpectedBlob instanceof UnexpectedBlobInfo) {
-                $this->unexpectedBlobs[] = $unexpectedBlob;
-            }
-        }
+        $this->unexpectedBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof UnexpectedBlobInfo);
         return $this;
     }
 
@@ -260,17 +243,12 @@ class MailboxBlobConsistency
     /**
      * Sets incorrect revisions
      *
-     * @param  IncorrectRevisionsWrapper $incorrectRevisions
+     * @param  IncorrectRevisionsWrapper $revisions
      * @return self
      */
-    public function setIncorrectRevisions(array $incorrectRevisions): self
+    public function setIncorrectRevisions(array $revisions): self
     {
-        $this->incorrectRevisions = [];
-        foreach ($incorrectRevisions as $incorrectRevision) {
-            if ($incorrectRevision instanceof IncorrectBlobRevisionInfo) {
-                $this->incorrectRevisions[] = $incorrectRevision;
-            }
-        }
+        $this->incorrectRevisions = array_filter($revisions, static fn ($revision) => $revision instanceof IncorrectBlobRevisionInfo);
         return $this;
     }
 
@@ -299,17 +277,12 @@ class MailboxBlobConsistency
     /**
      * Sets used blobs
      *
-     * @param  UsedBlobsWrapper $usedBlobs
+     * @param  UsedBlobsWrapper $blobs
      * @return self
      */
-    public function setUsedBlobs(array $usedBlobs): self
+    public function setUsedBlobs(array $blobs): self
     {
-        $this->usedBlobs = [];
-        foreach ($usedBlobs as $usedBlob) {
-            if ($usedBlob instanceof UsedBlobInfo) {
-                $this->usedBlobs[] = $usedBlob;
-            }
-        }
+        $this->usedBlobs = array_filter($blobs, static fn ($blob) => $blob instanceof UsedBlobInfo);
         return $this;
     }
 

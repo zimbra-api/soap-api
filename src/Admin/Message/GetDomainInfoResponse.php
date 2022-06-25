@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDomainInfoResponse")
  */
 class GetDomainInfoResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class GetDomainInfoResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement
      */
-    private $domain;
+    private ?DomainInfo $domain = NULL;
 
     /**
      * Constructor method for GetDomainInfoResponse
@@ -42,7 +40,7 @@ class GetDomainInfoResponse implements ResponseInterface
      * @param DomainInfo $domain
      * @return self
      */
-    public function __construct(DomainInfo $domain = NULL)
+    public function __construct(?DomainInfo $domain = NULL)
     {
         if ($domain instanceof DomainInfo) {
             $this->setDomain($domain);

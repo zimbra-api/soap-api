@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\GetSessionsRequest;
 use Zimbra\Admin\Message\GetSessionsResponse;
 
 use Zimbra\Admin\Struct\SimpleSessionInfo;
-use Zimbra\Enum\GetSessionsSortBy;
-use Zimbra\Enum\SessionType;
+use Zimbra\Common\Enum\GetSessionsSortBy;
+use Zimbra\Common\Enum\SessionType;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -94,34 +94,5 @@ class GetSessionsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetSessionsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetSessionsRequest' => [
-                    'type' => 'soap',
-                    'sortBy' => 'nameAsc',
-                    'offset' => $offset,
-                    'limit' => $limit,
-                    'refresh' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetSessionsResponse' => [
-                    'more' => TRUE,
-                    'total' => $total,
-                    's' => [
-                        [
-                            'zid' => $zimbraId,
-                            'name' => $name,
-                            'sid' => $sessionId,
-                            'cd' => $createdDate,
-                            'ld' => $lastAccessedDate,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetSessionsEnvelope::class, 'json'));
     }
 }

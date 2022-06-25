@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\{AceRightType, GranteeType};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GranteeType;
 
 /**
  * AccountACEInfo struct class
@@ -21,23 +21,21 @@ use Zimbra\Enum\{AceRightType, GranteeType};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ace")
  */
 class AccountACEInfo
 {
     /**
      * @Accessor(getter="getGranteeType", setter="setGranteeType")
      * @SerializedName("gt")
-     * @Type("Zimbra\Enum\GranteeType")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $granteeType;
+    private GranteeType $granteeType;
 
     /**
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
-     * @Type("Zimbra\Enum\AceRightType")
+     * @Type("string")
      * @XmlAttribute
      */
     private $right;
@@ -93,7 +91,7 @@ class AccountACEInfo
     /**
      * Constructor method for AccountACEInfo
      * @param GranteeType $granteeType
-     * @param AceRightType $right
+     * @param string $right
      * @param string $zimbraId
      * @param string $displayName
      * @param string $accessKey
@@ -104,7 +102,7 @@ class AccountACEInfo
      */
     public function __construct(
         GranteeType $granteeType,
-        AceRightType $right,
+        string $right,
         ?string $zimbraId = NULL,
         ?string $displayName = NULL,
         ?string $accessKey = NULL,
@@ -160,9 +158,9 @@ class AccountACEInfo
     /**
      * Gets the right enum
      *
-     * @return AceRightType
+     * @return string
      */
-    public function getRight(): AceRightType
+    public function getRight(): string
     {
         return $this->right;
     }
@@ -170,10 +168,10 @@ class AccountACEInfo
     /**
      * Sets the right enum
      *
-     * @param  AceRightType $right
+     * @param  string $right
      * @return self
      */
-    public function setRight(AceRightType $right): self
+    public function setRight(string $right): self
     {
         $this->right = $right;
         return $this;

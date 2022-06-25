@@ -10,10 +10,10 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\DtTimeInfo;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CompleteTaskInstanceRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CompleteTaskInstanceRequest")
  */
 class CompleteTaskInstanceRequest extends Request
 {
@@ -45,7 +43,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private DtTimeInfo $exceptionId;
 
     /**
      * Timezone information
@@ -54,7 +52,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement
      */
-    private $timezone;
+    private ?CalTZInfo $timezone = NULL;
 
     /**
      * Constructor method for CompleteTaskInstanceRequest
@@ -146,14 +144,12 @@ class CompleteTaskInstanceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CompleteTaskInstanceEnvelope)) {
-            $this->envelope = new CompleteTaskInstanceEnvelope(
-                new CompleteTaskInstanceBody($this)
-            );
-        }
+        return new CompleteTaskInstanceEnvelope(
+            new CompleteTaskInstanceBody($this)
+        );
     }
 }

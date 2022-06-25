@@ -31,7 +31,7 @@ class CalendarAttachTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
+<result uri="$uri" ct="$contentType">$binaryB64Data</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attach, 'xml'));
         $this->assertEquals($attach, $this->serializer->deserialize($xml, CalendarAttach::class, 'xml'));

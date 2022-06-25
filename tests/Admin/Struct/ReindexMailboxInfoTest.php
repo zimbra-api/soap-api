@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ReindexMailboxInfo;
-use Zimbra\Enum\ReindexType;
+use Zimbra\Common\Enum\ReindexType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -33,17 +33,9 @@ class ReindexMailboxInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox id="$id" types="$types" ids="$ids" />
+<result id="$id" types="$types" ids="$ids" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ReindexMailboxInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'types' => $types,
-            'ids' => $ids,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, ReindexMailboxInfo::class, 'json'));
     }
 }

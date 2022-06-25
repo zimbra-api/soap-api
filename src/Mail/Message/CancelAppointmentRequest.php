@@ -10,11 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Mail\Struct\InstanceRecurIdInfo;
-use Zimbra\Mail\Struct\Msg;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Mail\Struct\{CalTZInfo, InstanceRecurIdInfo, Msg};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CancelAppointmentRequest class
@@ -27,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CancelAppointmentRequest")
  */
 class CancelAppointmentRequest extends Request
 {
@@ -75,7 +71,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement
      */
-    private $instance;
+    private ?InstanceRecurIdInfo $instance = NULL;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
@@ -84,7 +80,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement
      */
-    private $timezone;
+    private ?CalTZInfo $timezone = NULL;
 
     /**
      * Message
@@ -93,7 +89,7 @@ class CancelAppointmentRequest extends Request
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement
      */
-    private $msg;
+    private ?Msg $msg = NULL;
 
     /**
      * Constructor method for CancelAppointmentRequest
@@ -297,14 +293,12 @@ class CancelAppointmentRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CancelAppointmentEnvelope)) {
-            $this->envelope = new CancelAppointmentEnvelope(
-                new CancelAppointmentBody($this)
-            );
-        }
+        return new CancelAppointmentEnvelope(
+            new CancelAppointmentBody($this)
+        );
     }
 }

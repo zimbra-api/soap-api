@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CmdRightsInfo;
 use Zimbra\Admin\Struct\PackageRightsInfo;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -34,7 +34,7 @@ class PackageRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<package name="$name">
+<result name="$name">
     <cmd name="$name">
         <rights>
             <right name="$name" />
@@ -44,37 +44,9 @@ class PackageRightsInfoTest extends ZimbraTestCase
             <note>$note2</note>
         </desc>
     </cmd>
-</package>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
         $this->assertEquals($package, $this->serializer->deserialize($xml, PackageRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'cmd' => [
-                [
-                    'name' => $name,
-                    'rights' => [
-                        'right' => [
-                            [
-                                'name' => $name,
-                            ],
-                        ],
-                    ],
-                    'desc' => [
-                        'note' => [
-                            [
-                                '_content' => $note1,
-                            ],
-                            [
-                                '_content' => $note2,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($package, 'json'));
-        $this->assertEquals($package, $this->serializer->deserialize($json, PackageRightsInfo::class, 'json'));
     }
 }

@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\CreateVolumeEnvelope;
 use Zimbra\Admin\Message\CreateVolumeRequest;
 use Zimbra\Admin\Message\CreateVolumeResponse;
 use Zimbra\Admin\Struct\VolumeInfo;
-use Zimbra\Enum\VolumeType;
+use Zimbra\Common\Enum\VolumeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -75,44 +75,5 @@ class CreateVolumeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateVolumeEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateVolumeRequest' => [
-                    'volume' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => FALSE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateVolumeResponse' => [
-                    'volume' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => FALSE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateVolumeEnvelope::class, 'json'));
     }
 }

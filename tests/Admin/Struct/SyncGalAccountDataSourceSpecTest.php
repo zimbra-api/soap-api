@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec;
-use Zimbra\Enum\DataSourceBy;
+use Zimbra\Common\Enum\DataSourceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -34,18 +34,9 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraTestCase
         $by = DataSourceBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<datasource by="$by" fullSync="true" reset="false">$value</datasource>
+<result by="$by" fullSync="true" reset="false">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, SyncGalAccountDataSourceSpec::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            'fullSync' => TRUE,
-            'reset' => FALSE,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ds, 'json'));
-        $this->assertEquals($ds, $this->serializer->deserialize($json, SyncGalAccountDataSourceSpec::class, 'json'));
     }
 }

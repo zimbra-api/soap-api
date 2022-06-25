@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\LocaleInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllLocalesResponse")
  */
 class GetAllLocalesResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllLocalesResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\LocaleInfo>")
      * @XmlList(inline = true, entry = "locale")
      */
-    private $locales;
+    private $locales = [];
 
     /**
      * Constructor method for GetAllLocalesResponse
@@ -68,12 +66,7 @@ class GetAllLocalesResponse implements ResponseInterface
      */
     public function setLocales(array $locales): self
     {
-        $this->locales = [];
-        foreach ($locales as $locale) {
-            if ($locale instanceof LocaleInfo) {
-                $this->locales[] = $locale;
-            }
-        }
+        $this->locales = array_filter($locales, static fn ($locale) => $locale instanceof LocaleInfo);
         return $this;
     }
 

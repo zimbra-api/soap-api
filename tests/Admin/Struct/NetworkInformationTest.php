@@ -20,22 +20,11 @@ class NetworkInformationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ni>
+<result>
     <a n="$key">$value</a>
-</ni>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ni, 'xml'));
         $this->assertEquals($ni, $this->serializer->deserialize($xml, NetworkInformation::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ni, 'json'));
-        $this->assertEquals($ni, $this->serializer->deserialize($json, NetworkInformation::class, 'json'));
     }
 }

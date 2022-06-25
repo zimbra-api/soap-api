@@ -15,13 +15,13 @@ use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Account\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
 
-use Zimbra\Enum\ConditionOperator as CondOp;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Enum\MemberOfSelector;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Common\Enum\MemberOfSelector;
 
-use Zimbra\Struct\ContactAttr;
-use Zimbra\Struct\CursorInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\ContactAttr;
+use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 
@@ -211,118 +211,5 @@ class SearchGalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchGalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchGalRequest' => [
-                    'ref' => $ref,
-                    'name' => $name,
-                    'type' => 'all',
-                    'needExp' => TRUE,
-                    'needIsOwner' => TRUE,
-                    'needIsMember' => 'all',
-                    'needSMIMECerts' => TRUE,
-                    'galAcctId' => $galAccountId,
-                    'quick' => TRUE,
-                    'sortBy' => $sortBy,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'locale' => [
-                        '_content' => $locale,
-                    ],
-                    'cursor' => [
-                        'id' => $id,
-                        'sortVal' => $sortVal,
-                        'endSortVal' => $endSortVal,
-                        'includeOffset' => TRUE,
-                    ],
-                    'searchFilter' => [
-                        'conds' => [
-                            'not' => TRUE,
-                            'or' => FALSE,
-                            'conds' => [
-                                [
-                                    'not' => FALSE,
-                                    'or' => TRUE,
-                                    'cond' => [
-                                        [
-                                            'attr' => $attr,
-                                            'op' => 'ge',
-                                            'value' => $value,
-                                            'not' => FALSE,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'cond' => [
-                                [
-                                    'attr' => $attr,
-                                    'op' => 'eq',
-                                    'value' => $value,
-                                    'not' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'SearchGalResponse' => [
-                    'sortBy' => $sortBy,
-                    'offset' => $offset,
-                    'more' => TRUE,
-                    'paginationSupported' => TRUE,
-                    'tokenizeKey' => TRUE,
-                    'cn' => [
-                        [
-                            'sf' => $sortField,
-                            'exp' => TRUE,
-                            'id' => $id,
-                            'l' => $folder,
-                            'f' => $flags,
-                            't' => $tags,
-                            'tn' => $tagNames,
-                            'md' => $changeDate,
-                            'ms' => $modifiedSequenceId,
-                            'd' => $date,
-                            'rev' => $revisionId,
-                            'fileAsStr' => $fileAs,
-                            'email' => $email,
-                            'email2' => $email2,
-                            'email3' => $email3,
-                            'type' => $type,
-                            'dlist' => $dlist,
-                            'ref' => $reference,
-                            'tooManyMembers' => FALSE,
-                            'meta' => [
-                                [
-                                    'section' => $section,
-                                ]
-                            ],
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                    'part' => $part,
-                                    'ct' => $contentType,
-                                    's' => $size,
-                                    'filename' => $contentFilename,
-                                ],
-                            ],
-                            'm' => [
-                                [
-                                    'type' => $type,
-                                    'value' => $value,
-                                ]
-                            ],
-                            'isOwner' => TRUE,
-                            'isMember' => FALSE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchGalEnvelope::class, 'json'));
     }
 }

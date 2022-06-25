@@ -22,15 +22,9 @@ class AdminZimletTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target>$value</target>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, AdminZimletTarget::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
-        $this->assertEquals($target, $this->serializer->deserialize($json, AdminZimletTarget::class, 'json'));
     }
 }

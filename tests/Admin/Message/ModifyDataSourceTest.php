@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\ModifyDataSourceEnvelope;
 use Zimbra\Admin\Message\ModifyDataSourceRequest;
 use Zimbra\Admin\Message\ModifyDataSourceResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -68,36 +68,5 @@ class ModifyDataSourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyDataSourceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyDataSourceRequest' => [
-                    'id' => $id,
-                    'dataSource' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'type' => 'pop3',
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifyDataSourceResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyDataSourceEnvelope::class, 'json'));
     }
 }

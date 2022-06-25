@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
-use Zimbra\Enum\ZimletDeployStatus;
+use Zimbra\Common\Enum\ZimletDeployStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -30,17 +30,9 @@ class ZimletDeploymentStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<progress server="$server" status="succeeded" error="$error" />
+<result server="$server" status="succeeded" error="$error" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($progress, 'xml'));
         $this->assertEquals($progress, $this->serializer->deserialize($xml, ZimletDeploymentStatus::class, 'xml'));
-
-        $json = json_encode([
-            'server' => $server,
-            'status' => 'succeeded',
-            'error' => $error,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($progress, 'json'));
-        $this->assertEquals($progress, $this->serializer->deserialize($json, ZimletDeploymentStatus::class, 'json'));
     }
 }

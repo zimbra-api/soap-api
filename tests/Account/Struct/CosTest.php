@@ -27,16 +27,9 @@ class CosTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cos name="$name" id="$id"/>
+<result name="$name" id="$id"/>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, Cos::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));
-        $this->assertEquals($cos, $this->serializer->deserialize($json, Cos::class, 'json'));
     }
 }

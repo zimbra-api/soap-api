@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * AccountWithModifications struct class
@@ -18,9 +18,7 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @package   Zimbra
  * @category  Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="a")
+ * @copyright Copyright © 2020-present by Nguyen Van Nguyen.
  */
 class AccountWithModifications
 {
@@ -40,7 +38,7 @@ class AccountWithModifications
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline = true, entry = "mods")
      */
-    private $mods;
+    private $mods = [];
 
     /**
      * ID of the last change
@@ -64,11 +62,9 @@ class AccountWithModifications
         ?int $lastChangeId = NULL
     )
     {
+        $this->setPendingFolderModifications($mods);
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if (!empty($mods)) {
-            $this->setPendingFolderModifications($mods);
         }
         if (NULL !== $lastChangeId) {
             $this->setLastChangeId($lastChangeId);
@@ -139,12 +135,7 @@ class AccountWithModifications
      */
     public function setPendingFolderModifications(array $mods): self
     {
-        $this->mods = [];
-        foreach ($mods as $item) {
-            if ($item instanceof PendingFolderModifications) {
-                $this->mods[] = $item;
-            }
-        }
+        $this->mods = array_filter($mods, static fn ($mod) => $mod instanceof PendingFolderModifications);
         return $this;
     }
 

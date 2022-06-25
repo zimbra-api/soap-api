@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\AddressTest;
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -50,7 +50,7 @@ class AddressTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<addressTest index="$index" negative="true" header="$header" part="domain" stringComparison="contains" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;ascii-numeric" />
+<result index="$index" negative="true" header="$header" part="domain" stringComparison="contains" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;ascii-numeric" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, AddressTest::class, 'xml'));

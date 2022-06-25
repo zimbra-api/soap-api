@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -26,16 +26,9 @@ class ServerSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server by="name">$value</server>
+<result by="name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => 'name',
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
-        $this->assertEquals($server, $this->serializer->deserialize($json, ServerSelector::class, 'json'));
     }
 }

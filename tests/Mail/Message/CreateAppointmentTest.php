@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ReplyType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ReplyType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Message\CreateAppointmentEnvelope;
 use Zimbra\Mail\Message\CreateAppointmentBody;
@@ -28,8 +28,8 @@ use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
 
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\KeyValuePair;
+use Zimbra\Common\Struct\Id;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -75,7 +75,7 @@ class CreateAppointmentTest extends ZimbraTestCase
         $messageIdHeader = $this->faker->uuid;
 
         $display = $this->faker->name;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $size = $this->faker->randomNumber;
@@ -89,7 +89,7 @@ class CreateAppointmentTest extends ZimbraTestCase
             new MimePartInfo($contentType, $content, $contentId),
             new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::FROM(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
             $fragment
         );
@@ -140,7 +140,7 @@ class CreateAppointmentTest extends ZimbraTestCase
                 <mp ct="$contentType" content="$content" ci="$contentId" />
                 <attach aid="$id" />
                 <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="f" p="$personal" />
+                <e a="$address" t="t" p="$personal" />
                 <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <fr>$fragment</fr>
             </m>
@@ -149,7 +149,7 @@ class CreateAppointmentTest extends ZimbraTestCase
             <m id="$id" />
             <echo>
                 <m id="$id" part="$part" sd="$sentDate">
-                    <e a="$address" d="$display" p="$personal" t="f" />
+                    <e a="$address" d="$display" p="$personal" t="t" />
                     <su>$subject</su>
                     <mid>$messageIdHeader</mid>
                     <inv type="task" />
@@ -214,7 +214,7 @@ EOT;
                         'e' => [
                             [
                                 'a' => $address,
-                                't' => 'f',
+                                't' => 't',
                                 'p' => $personal,
                             ],
                         ],
@@ -250,7 +250,7 @@ EOT;
                                     'a' => $address,
                                     'd' => $display,
                                     'p' => $personal,
-                                    't' => 'f',
+                                    't' => 't',
                                 ],
                             ],
                             'su' => [

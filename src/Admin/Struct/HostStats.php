@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * HostStats class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="hostname")
  */
 class HostStats
 {
@@ -41,7 +39,7 @@ class HostStats
      * @Type("Zimbra\Admin\Struct\StatsInfo")
      * @XmlElement
      */
-    private $stats;
+    private ?StatsInfo $stats = NULL;
 
     /**
      * Constructor method for HostStats

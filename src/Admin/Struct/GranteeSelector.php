@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\{GranteeType, GranteeBy};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\{GranteeType, GranteeBy};
 
 /**
  * GranteeSelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\{GranteeType, GranteeBy};
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="grantee")
  */
 class GranteeSelector
 {
@@ -30,19 +28,19 @@ class GranteeSelector
      * Grantee type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GranteeType")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GranteeType $type = NULL;
 
     /**
      * Grantee by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\GranteeBy")
+     * @Type("Zimbra\Common\Enum\GranteeBy")
      * @XmlAttribute
      */
-    private $by;
+    private ?GranteeBy $by = NULL;
 
     /**
      * The key used to secretentify the grantee
@@ -91,10 +89,10 @@ class GranteeSelector
         if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $type) {
+        if ($type instanceof GranteeType) {
             $this->setType($type);
         }
-        if (NULL !== $by) {
+        if ($by instanceof GranteeBy) {
             $this->setBy($by);
         }
         if (NULL !== $secret) {

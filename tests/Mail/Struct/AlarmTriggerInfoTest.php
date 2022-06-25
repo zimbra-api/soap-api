@@ -38,10 +38,10 @@ class AlarmTriggerInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<trigger>
+<result>
     <abs d="$date" />
     <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-</trigger>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($trigger, 'xml'));
         $this->assertEquals($trigger, $this->serializer->deserialize($xml, AlarmTriggerInfo::class, 'xml'));

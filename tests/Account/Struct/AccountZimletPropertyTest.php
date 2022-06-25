@@ -27,16 +27,9 @@ class AccountZimletPropertyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<property name="$name">$value</property>
+<result name="$name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($property, 'xml'));
         $this->assertEquals($property, $this->serializer->deserialize($xml, AccountZimletProperty::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($property, 'json'));
-        $this->assertEquals($property, $this->serializer->deserialize($json, AccountZimletProperty::class, 'json'));
     }
 }

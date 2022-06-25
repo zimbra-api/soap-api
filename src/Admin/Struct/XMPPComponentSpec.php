@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * XMPPComponentSpec struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="xmppcomponent")
  */
 class XMPPComponentSpec extends AdminAttrsImpl
 {
@@ -41,7 +39,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Server selector
@@ -50,7 +48,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement
      */
-    private $server;
+    private ServerSelector $server;
 
     /**
      * Constructor method for XmppComponentSpec

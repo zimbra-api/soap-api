@@ -10,7 +10,6 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 
 /**
@@ -22,7 +21,6 @@ use Zimbra\Mail\Struct\CreateCalendarItemResponse;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="CreateAppointmentExceptionResponse")
  */
 class CreateAppointmentExceptionResponse extends CreateCalendarItemResponse
 {

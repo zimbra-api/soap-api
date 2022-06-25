@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\Prop;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyPropertiesRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyPropertiesRequest")
  */
 class ModifyPropertiesRequest extends Request
 {
@@ -35,7 +33,7 @@ class ModifyPropertiesRequest extends Request
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline = true, entry = "prop")
      */
-    private $props;
+    private $props = [];
 
     /**
      * Constructor method for ModifyPropertiesRequest
@@ -68,12 +66,7 @@ class ModifyPropertiesRequest extends Request
      */
     public function setProps(array $props): self
     {
-        $this->props = [];
-        foreach ($props as $prop) {
-            if ($prop instanceof Prop) {
-                $this->props[] = $prop;
-            }
-        }
+        $this->props = array_filter($props, static fn ($prop) => $prop instanceof Prop);
         return $this;
     }
 
@@ -90,14 +83,12 @@ class ModifyPropertiesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyPropertiesEnvelope)) {
-            $this->envelope = new ModifyPropertiesEnvelope(
-                new ModifyPropertiesBody($this)
-            );
-        }
+        return new ModifyPropertiesEnvelope(
+            new ModifyPropertiesBody($this)
+        );
     }
 }

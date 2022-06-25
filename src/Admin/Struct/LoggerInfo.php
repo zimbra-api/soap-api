@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\LoggingLevel;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\LoggingLevel;
 
 /**
  * LoggerInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\LoggingLevel;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present level Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="logger")
  */
 class LoggerInfo
 {
@@ -37,10 +35,10 @@ class LoggerInfo
     /**
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
-     * @Type("Zimbra\Enum\LoggingLevel")
+     * @Type("Zimbra\Common\Enum\LoggingLevel")
      * @XmlAttribute
      */
-    private $level;
+    private ?LoggingLevel $level = NULL;
 
     /**
      * Constructor method for loggerInfo

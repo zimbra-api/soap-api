@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\ContactActionOp;
+use Zimbra\Common\Enum\ContactActionOp;
 use Zimbra\Mail\Struct\ContactActionSelector;
 use Zimbra\Mail\Struct\NewContactAttr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -39,9 +39,9 @@ class ContactActionSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<action id="$ids" op="$operation">
+<result id="$ids" op="$operation">
     <attr n="$name" aid="$attachId" id="$id" part="$part">$value</attr>
-</action>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ContactActionSelector::class, 'xml'));

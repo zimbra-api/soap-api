@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RevokeRightsResponse")
  */
 class RevokeRightsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class RevokeRightsResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline = true, entry = "ace")
      */
-    private $aces;
+    private $aces = [];
 
     /**
      * Constructor method for RevokeRightsResponse
@@ -68,12 +66,7 @@ class RevokeRightsResponse implements ResponseInterface
      */
     public function setAces(array $aces): self
     {
-        $this->aces = [];
-        foreach ($aces as $ace) {
-            if ($ace instanceof AccountACEInfo) {
-                $this->aces[] = $ace;
-            }
-        }
+        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEInfo);
         return $this;
     }
 

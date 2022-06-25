@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
 use Zimbra\Soap\{BodyInterface, Envelope, Header};
 
 /**
@@ -21,7 +21,6 @@ use Zimbra\Soap\{BodyInterface, Envelope, Header};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
@@ -33,7 +32,7 @@ class GetAvailableSkinsEnvelope extends Envelope
      * @Type("Zimbra\Account\Message\GetAvailableSkinsBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private $body;
+    private ?BodyInterface $body = NULL;
 
     /**
      * Constructor method for GetAvailableSkinsEnvelope

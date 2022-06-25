@@ -4,9 +4,9 @@ namespace Zimbra\Tests\Admin\Message;
 
 use Zimbra\Admin\Message\{GetAccountLoggersBody, GetAccountLoggersEnvelope, GetAccountLoggersRequest, GetAccountLoggersResponse};
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -74,31 +74,5 @@ class GetAccountLoggersTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAccountLoggersEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAccountLoggersRequest' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAccountLoggersResponse' => [
-                    'logger' => [
-                        [
-                            'category' => $category,
-                            'level' => 'info',
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAccountLoggersEnvelope::class, 'json'));
     }
 }

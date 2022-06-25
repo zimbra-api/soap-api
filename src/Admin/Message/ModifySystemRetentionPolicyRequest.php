@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifySystemRetentionPolicyRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifySystemRetentionPolicyRequest")
  */
 class ModifySystemRetentionPolicyRequest extends Request
 {
@@ -36,7 +34,7 @@ class ModifySystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement
      */
-    private $cos;
+    private ?CosSelector $cos = NULL;
 
     /**
      * New policy
@@ -45,7 +43,7 @@ class ModifySystemRetentionPolicyRequest extends Request
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $policy;
+    private Policy $policy;
 
     /**
      * Constructor method for ModifySystemRetentionPolicyRequest
@@ -109,14 +107,12 @@ class ModifySystemRetentionPolicyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifySystemRetentionPolicyEnvelope)) {
-            $this->envelope = new ModifySystemRetentionPolicyEnvelope(
-                new ModifySystemRetentionPolicyBody($this)
-            );
-        }
+        return new ModifySystemRetentionPolicyEnvelope(
+            new ModifySystemRetentionPolicyBody($this)
+        );
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Mail\Struct\CalItemRequestBase;
+use Zimbra\Soap\EnvelopeInterface;
 
 /**
  * CreateAppointmentRequest class
@@ -23,21 +23,18 @@ use Zimbra\Mail\Struct\CalItemRequestBase;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="CreateAppointmentRequest")
  */
 class CreateAppointmentRequest extends CalItemRequestBase
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateAppointmentEnvelope)) {
-            $this->envelope = new CreateAppointmentEnvelope(
-                new CreateAppointmentBody($this)
-            );
-        }
+        return new CreateAppointmentEnvelope(
+            new CreateAppointmentBody($this)
+        );
     }
 }

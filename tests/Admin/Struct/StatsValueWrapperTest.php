@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\StatsValueWrapper;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -29,25 +29,12 @@ class StatsValueWrapperTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<values>
+<result>
     <stat name="$name1" />
     <stat name="$name2" />
-</values>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($values, 'xml'));
         $this->assertEquals($values, $this->serializer->deserialize($xml, StatsValueWrapper::class, 'xml'));
-
-        $json = json_encode([
-            'stat' => [
-                [
-                    'name' => $name1,
-                ],
-                [
-                    'name' => $name2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($values, 'json'));
-        $this->assertEquals($values, $this->serializer->deserialize($json, StatsValueWrapper::class, 'json'));
     }
 }

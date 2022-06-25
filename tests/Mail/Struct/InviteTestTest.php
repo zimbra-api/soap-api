@@ -28,10 +28,10 @@ class InviteTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inviteTest index="$index" negative="true">
+<result index="$index" negative="true">
     <method>$method1</method>
     <method>$method2</method>
-</inviteTest>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, InviteTest::class, 'xml'));

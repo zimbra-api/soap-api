@@ -11,7 +11,7 @@ require_once 'vendor/autoload.php';
 
 $api = \Zimbra\Admin\AdminFactory::instance('https://localhost:7071/service/admin/soap');
 $api->auth('username', 'password');
-$account = new \Zimbra\Struct\AccountSelector(\Zimbra\Enum\AccountBy::NAME(), 'username');
+$account = new \Zimbra\Common\Struct\AccountSelector(\Zimbra\Common\Enum\AccountBy::NAME(), 'username');
 $accountInfo = $api->getAccountInfo($account);
 ```
 From `$api` object, you can access to all zimbra admin api.

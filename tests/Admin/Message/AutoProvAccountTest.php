@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Admin\Message;
 
 use Zimbra\Admin\Message\{AutoProvAccountBody, AutoProvAccountEnvelope, AutoProvAccountRequest, AutoProvAccountResponse};
 use Zimbra\Admin\Struct\{AccountInfo, Attr, DomainSelector, PrincipalSelector};
-use Zimbra\Enum\{AutoProvPrincipalBy, DomainBy};
+use Zimbra\Common\Enum\{AutoProvPrincipalBy, DomainBy};
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for AutoProvAccount.
@@ -85,40 +85,5 @@ class AutoProvAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoProvAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AutoProvAccountRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'principal' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'password' => [
-                        '_content' => $password,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AutoProvAccountResponse' => [
-                    'account' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'isExternal' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AutoProvAccountEnvelope::class, 'json'));
     }
 }

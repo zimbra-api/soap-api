@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\RangeType;
-use Zimbra\Struct\RecurIdInfoInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\RangeType;
+use Zimbra\Common\Struct\RecurIdInfoInterface;
 
 /**
  * RecurIdInfo class
@@ -23,8 +23,6 @@ use Zimbra\Struct\RecurIdInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="recurId")
  */
 class RecurIdInfo implements RecurIdInfoInterface
 {

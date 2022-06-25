@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CacheEntrySelector;
-use Zimbra\Enum\CacheEntryBy;
+use Zimbra\Common\Enum\CacheEntryBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -28,16 +28,9 @@ class CacheEntrySelectorTest extends ZimbraTestCase
         $by = CacheEntryBy::ID()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entry by="$by">$value</entry>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, CacheEntrySelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));
-        $this->assertEquals($entry, $this->serializer->deserialize($json, CacheEntrySelector::class, 'json'));
     }
 }

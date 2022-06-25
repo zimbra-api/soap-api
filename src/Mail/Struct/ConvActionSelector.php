@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-
-use Zimbra\Enum\ConvActionOp;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Enum\ConvActionOp;
 
 /**
  * ConvActionSelector class
@@ -23,8 +22,6 @@ use Zimbra\Enum\ConvActionOp;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="action")
  */
 class ConvActionSelector extends ActionSelector
 {
@@ -77,7 +74,19 @@ class ConvActionSelector extends ActionSelector
     )
     {
         parent::__construct(
-            $operation, $ids, $constraint, $tag, $folder, $rgb, $color, $name, $flags, $tags, $tagNames, $nonExistentIds, $newlyCreatedIds
+            $operation,
+            $ids,
+            $constraint,
+            $tag,
+            $folder,
+            $rgb,
+            $color,
+            $name,
+            $flags,
+            $tags,
+            $tagNames,
+            $nonExistentIds,
+            $newlyCreatedIds
         );
         if (NULL !== $acctRelativePath) {
             $this->setAcctRelativePath($acctRelativePath);

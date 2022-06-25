@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DistributionListSelector as DlSelector;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAdminConsoleUICompRequest class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAdminConsoleUICompRequest")
  */
 class GetAdminConsoleUICompRequest extends Request
 {
@@ -34,10 +32,10 @@ class GetAdminConsoleUICompRequest extends Request
      * Account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?AccountSelector $account = NULL;
 
     /**
      * Distribution List
@@ -46,7 +44,7 @@ class GetAdminConsoleUICompRequest extends Request
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private ?DlSelector $dl = NULL;
 
     /**
      * Constructor method for GetAdminConsoleUICompRequest
@@ -112,14 +110,12 @@ class GetAdminConsoleUICompRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAdminConsoleUICompEnvelope)) {
-            $this->envelope = new GetAdminConsoleUICompEnvelope(
-                new GetAdminConsoleUICompBody($this)
-            );
-        }
+        return new GetAdminConsoleUICompEnvelope(
+            new GetAdminConsoleUICompBody($this)
+        );
     }
 }

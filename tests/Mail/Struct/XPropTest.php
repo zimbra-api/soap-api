@@ -34,9 +34,9 @@ class XPropTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xprop name="$name" value="$value">
+<result name="$name" value="$value">
     <xparam name="$name" value="$value" />
-</xprop>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xprop, 'xml'));
         $this->assertEquals($xprop, $this->serializer->deserialize($xml, XProp::class, 'xml'));

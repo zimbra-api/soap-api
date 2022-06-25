@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\ContactAttr;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\ContactAttr;
 
 /**
  * ContactInfo class
@@ -21,8 +21,6 @@ use Zimbra\Struct\ContactAttr;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="cn")
  */
 class ContactInfo
 {
@@ -184,15 +182,15 @@ class ContactInfo
      * @Type("array<Zimbra\Admin\Struct\AdminCustomMetadata>")
      * @XmlList(inline = true, entry = "meta")
      */
-    private $metadatas;
+    private $metadatas = [];
 
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\ContactAttr>")
+     * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
@@ -200,7 +198,7 @@ class ContactInfo
      * @Type("array<Zimbra\Admin\Struct\ContactGroupMember>")
      * @XmlList(inline = true, entry = "m")
      */
-    private $contactGroupMembers;
+    private $contactGroupMembers = [];
 
     /**
      * Constructor method for ContactInfo
@@ -757,14 +755,7 @@ class ContactInfo
      */
     public function setMetadatas(array $metadatas): self
     {
-        if (!empty($metadatas)) {
-            $this->metadatas = [];
-            foreach ($metadatas as $metadata) {
-                if ($metadata instanceof AdminCustomMetadata) {
-                    $this->metadatas[] = $metadata;
-                }
-            }
-        }
+        $this->metadatas = array_filter($metadatas, static fn ($metadata) => $metadata instanceof AdminCustomMetadata);
         return $this;
     }
 
@@ -798,14 +789,7 @@ class ContactInfo
      */
     public function setAttrs(array $attrs): self
     {
-        if (!empty($attrs)) {
-            $this->attrs = [];
-            foreach ($attrs as $attr) {
-                if ($attr instanceof ContactAttr) {
-                    $this->attrs[] = $attr;
-                }
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof ContactAttr);
         return $this;
     }
 
@@ -837,16 +821,9 @@ class ContactInfo
      * @param  array $attrs
      * @return self
      */
-    public function setContactGroupMembers(array $contactGroupMembers): self
+    public function setContactGroupMembers(array $members): self
     {
-        if (!empty($contactGroupMembers)) {
-            $this->contactGroupMembers = [];
-            foreach ($contactGroupMembers as $contactGroupMember) {
-                if ($contactGroupMember instanceof ContactGroupMember) {
-                    $this->contactGroupMembers[] = $contactGroupMember;
-                }
-            }
-        }
+        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ContactGroupMember);
         return $this;
     }
 

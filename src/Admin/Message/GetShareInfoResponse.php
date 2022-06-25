@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\ShareInfo;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\ShareInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetShareInfoResponse")
  */
 class GetShareInfoResponse implements ResponseInterface
 {
@@ -31,10 +29,10 @@ class GetShareInfoResponse implements ResponseInterface
      * Share information
      * @Accessor(getter="getShares", setter="setShares")
      * @SerializedName("share")
-     * @Type("array<Zimbra\Struct\ShareInfo>")
+     * @Type("array<Zimbra\Common\Struct\ShareInfo>")
      * @XmlList(inline = true, entry = "share")
      */
-    private $shares;
+    private $shares = [];
 
     /**
      * Constructor method for GetShareInfoResponse
@@ -67,12 +65,7 @@ class GetShareInfoResponse implements ResponseInterface
      */
     public function setShares(array $shares): self
     {
-        $this->shares = [];
-        foreach ($shares as $share) {
-            if ($share instanceof ShareInfo) {
-                $this->shares[] = $share;
-            }
-        }
+        $this->shares = array_filter($shares, static fn ($share) => $share instanceof ShareInfo);
         return $this;
     }
 

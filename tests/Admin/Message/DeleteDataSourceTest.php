@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\DeleteDataSourceEnvelope;
 use Zimbra\Admin\Message\DeleteDataSourceRequest;
 use Zimbra\Admin\Message\DeleteDataSourceResponse;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -68,28 +68,5 @@ class DeleteDataSourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteDataSourceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteDataSourceRequest' => [
-                    'id' => $id,
-                    'dataSource' => [
-                        'id' => $id,
-                    ],
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteDataSourceResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteDataSourceEnvelope::class, 'json'));
     }
 }

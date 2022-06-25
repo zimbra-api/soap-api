@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\TargetType;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetDelegatedAdminConstraintsRequest class
@@ -27,8 +27,6 @@ use Zimbra\Struct\NamedElement;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDelegatedAdminConstraintsRequest")
  */
 class GetDelegatedAdminConstraintsRequest extends Request
 {
@@ -36,10 +34,10 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * Target Type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * ID
@@ -63,10 +61,10 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * Attrs
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrs;
+    private $attrs = [];
 
     /**
      * Constructor method for GetDelegatedAdminConstraintsRequest
@@ -175,12 +173,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      */
     public function setAttrs(array $attrs): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof NamedElement) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NamedElement);
         return $this;
     }
 
@@ -199,14 +192,12 @@ class GetDelegatedAdminConstraintsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetDelegatedAdminConstraintsEnvelope)) {
-            $this->envelope = new GetDelegatedAdminConstraintsEnvelope(
-                new GetDelegatedAdminConstraintsBody($this)
-            );
-        }
+        return new GetDelegatedAdminConstraintsEnvelope(
+            new GetDelegatedAdminConstraintsBody($this)
+        );
     }
 }

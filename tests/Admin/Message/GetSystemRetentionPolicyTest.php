@@ -9,8 +9,8 @@ use Zimbra\Admin\Message\GetSystemRetentionPolicyResponse;
 use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
-use Zimbra\Enum\CosBy;
-use Zimbra\Enum\Type;
+use Zimbra\Common\Enum\CosBy;
+use Zimbra\Common\Enum\Type;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -81,45 +81,5 @@ class GetSystemRetentionPolicyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetSystemRetentionPolicyEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetSystemRetentionPolicyRequest' => [
-                    'cos' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetSystemRetentionPolicyResponse' => [
-                    'retentionPolicy' => [
-                        'keep' => [
-                            'policy' => [
-                                [
-                                    'type' => 'system',
-                                    'id' => $id,
-                                    'name' => $name,
-                                    'lifetime' => $lifetime,
-                                ],
-                            ],
-                        ],
-                        'purge' => [
-                            'policy' => [
-                                [
-                                    'type' => 'user',
-                                    'id' => $id,
-                                    'name' => $name,
-                                    'lifetime' => $lifetime,
-                                ],
-                            ],
-                        ],
-                        '_jsns' => 'urn:zimbraMail',
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetSystemRetentionPolicyEnvelope::class, 'json'));
     }
 }

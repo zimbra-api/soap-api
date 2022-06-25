@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\ActionResult;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,7 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  CopymisspelledWord © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ConvActionResponse")
  */
 class ConvActionResponse implements ResponseInterface
 {
@@ -33,7 +32,7 @@ class ConvActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement
      */
-    private $action;
+    private ActionResult $action;
 
     /**
      * Constructor method for ConvActionResponse

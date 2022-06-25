@@ -27,16 +27,9 @@ class IndexStatsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stats maxDocs="$maxDocs" deletedDocs="$numDeletedDocs" />
+<result maxDocs="$maxDocs" deletedDocs="$numDeletedDocs" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
         $this->assertEquals($stats, $this->serializer->deserialize($xml, IndexStats::class, 'xml'));
-
-        $json = json_encode([
-            'maxDocs' => $maxDocs,
-            'deletedDocs' => $numDeletedDocs,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stats, 'json'));
-        $this->assertEquals($stats, $this->serializer->deserialize($json, IndexStats::class, 'json'));
     }
 }

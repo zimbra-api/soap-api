@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessorOrder, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,13 +22,9 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @AccessorOrder("custom", custom = {"code", "message", "cn"})
- * @XmlRoot(name="CheckGalConfigResponse")
  */
 class CheckGalConfigResponse implements ResponseInterface
 {
-
     /**
      * Code
      * @Accessor(getter="getCode", setter="setCode")
@@ -54,7 +50,7 @@ class CheckGalConfigResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $galContacts;
+    private $galContacts = [];
 
     /**
      * Constructor method for CheckGalConfigResponse
@@ -136,17 +132,12 @@ class CheckGalConfigResponse implements ResponseInterface
     /**
      * Sets GAL contacts
      *
-     * @param  array $galContacts
+     * @param  array $contacts
      * @return self
      */
-    public function setGalContacts(array $galContacts): self
+    public function setGalContacts(array $contacts): self
     {
-        $this->galContacts = [];
-        foreach ($galContacts as $contact) {
-            if ($contact instanceof GalContactInfo) {
-                $this->galContacts[] = $contact;
-            }
-        }
+        $this->galContacts = array_filter($contacts, static fn ($contact) => $contact instanceof GalContactInfo);
         return $this;
     }
 

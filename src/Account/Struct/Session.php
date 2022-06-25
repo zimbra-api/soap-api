@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
 
 /**
  * Session struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="session")
  */
 class Session
 {
@@ -59,7 +57,8 @@ class Session
      */
     public function __construct(string $id, ?string $type = NULL)
     {
-        $this->setValue($id)->setId($id);
+        $this->setValue($id)
+             ->setId($id);
         if (NULL !== $type) {
             $this->setType($type);
         }

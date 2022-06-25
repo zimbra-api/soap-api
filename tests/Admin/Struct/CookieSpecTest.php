@@ -22,15 +22,9 @@ class CookieSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cookie name="$name" />
+<result name="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cookie, 'xml'));
         $this->assertEquals($cookie, $this->serializer->deserialize($xml, CookieSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cookie, 'json'));
-        $this->assertEquals($cookie, $this->serializer->deserialize($json, CookieSpec::class, 'json'));
     }
 }

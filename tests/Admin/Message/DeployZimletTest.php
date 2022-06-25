@@ -8,8 +8,8 @@ use Zimbra\Admin\Message\DeployZimletRequest;
 use Zimbra\Admin\Message\DeployZimletResponse;
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
-use Zimbra\Enum\ZimletDeployAction;
-use Zimbra\Enum\ZimletDeployStatus;
+use Zimbra\Common\Enum\ZimletDeployAction;
+use Zimbra\Common\Enum\ZimletDeployStatus;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -80,31 +80,5 @@ class DeployZimletTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeployZimletEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeployZimletRequest' => [
-                    'action' => 'deployLocal',
-                    'flush' => TRUE,
-                    'synchronous' => TRUE,
-                    'content' => [
-                        'aid' => $aid,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeployZimletResponse' => [
-                    'progress' => [
-                        [
-                            'server' => $server,
-                            'status' => 'succeeded',
-                            'error' => $error,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeployZimletEnvelope::class, 'json'));
     }
 }

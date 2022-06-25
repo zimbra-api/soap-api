@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetFreeBusyQueueInfoRequest request class
@@ -25,8 +25,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetFreeBusyQueueInfoRequest")
  */
 class GetFreeBusyQueueInfoRequest extends Request
 {
@@ -34,10 +32,10 @@ class GetFreeBusyQueueInfoRequest extends Request
      * Provider
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $provider;
+    private ?NamedElement $provider = NULL;
 
     /**
      * Constructor method for GetFreeBusyQueueInfoRequest
@@ -77,14 +75,12 @@ class GetFreeBusyQueueInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetFreeBusyQueueInfoEnvelope)) {
-            $this->envelope = new GetFreeBusyQueueInfoEnvelope(
-                new GetFreeBusyQueueInfoBody($this)
-            );
-        }
+        return new GetFreeBusyQueueInfoEnvelope(
+            new GetFreeBusyQueueInfoBody($this)
+        );
     }
 }

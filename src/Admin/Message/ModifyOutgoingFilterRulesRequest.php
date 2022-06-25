@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
+use Zimbra\Soap\EnvelopeInterface;
 
 /**
  * ModifyOutgoingFilterRulesRequest request class
@@ -21,21 +21,18 @@ use JMS\Serializer\Annotation\XmlRoot;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ModifyOutgoingFilterRulesRequest")
  */
 class ModifyOutgoingFilterRulesRequest extends ModifyFilterRulesRequest
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyOutgoingFilterRulesEnvelope)) {
-            $this->envelope = new ModifyOutgoingFilterRulesEnvelope(
-                new ModifyOutgoingFilterRulesBody($this)
-            );
-        }
+        return new ModifyOutgoingFilterRulesEnvelope(
+            new ModifyOutgoingFilterRulesBody($this)
+        );
     }
 }

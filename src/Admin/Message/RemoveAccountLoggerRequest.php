@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Common\Struct\AccountSelector as Account;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RemoveAccountLoggerRequest request class
@@ -28,8 +28,6 @@ use Zimbra\Struct\AccountSelector as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RemoveAccountLoggerRequest")
  */
 class RemoveAccountLoggerRequest extends Request
 {
@@ -40,16 +38,16 @@ class RemoveAccountLoggerRequest extends Request
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
      * @XmlElement
      */
-    private $logger;
+    private ?Logger $logger = NULL;
 
     /**
      * Use to select account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?Account $account = NULL;
 
     /**
      * id
@@ -150,14 +148,12 @@ class RemoveAccountLoggerRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RemoveAccountLoggerEnvelope)) {
-            $this->envelope = new RemoveAccountLoggerEnvelope(
-                new RemoveAccountLoggerBody($this)
-            );
-        }
+        return new RemoveAccountLoggerEnvelope(
+            new RemoveAccountLoggerBody($this)
+        );
     }
 }

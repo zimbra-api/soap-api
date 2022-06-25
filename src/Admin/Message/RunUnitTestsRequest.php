@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RunUnitTestsRequest request class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RunUnitTestsRequest")
  */
 class RunUnitTestsRequest extends Request
 {
@@ -73,10 +71,7 @@ class RunUnitTestsRequest extends Request
      */
     public function setTests(array $tests): self
     {
-        $this->tests = [];
-        foreach ($tests as $test) {
-            $this->addTest($test);
-        }
+        $this->tests = array_unique(array_map(static fn ($test) => trim($test), $tests));
         return $this;
     }
 
@@ -93,14 +88,12 @@ class RunUnitTestsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RunUnitTestsEnvelope)) {
-            $this->envelope = new RunUnitTestsEnvelope(
-                new RunUnitTestsBody($this)
-            );
-        }
+        return new RunUnitTestsEnvelope(
+            new RunUnitTestsBody($this)
+        );
     }
 }

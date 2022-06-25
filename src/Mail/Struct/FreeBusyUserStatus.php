@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-
-use Zimbra\Enum\FreeBusyStatus;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\FreeBusyStatus;
 
 /**
  * FreeBusyUserStatus class
@@ -23,8 +22,6 @@ use Zimbra\Enum\FreeBusyStatus;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="usr")
  */
 class FreeBusyUserStatus
 {
@@ -41,10 +38,10 @@ class FreeBusyUserStatus
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
      * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
      * @SerializedName("fb")
-     * @Type("Zimbra\Enum\FreeBusyStatus")
+     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
      * @XmlAttribute
      */
-    private $freebusyStatus;
+    private FreeBusyStatus $freebusyStatus;
 
     /**
      * Constructor method for FreeBusyUserStatus

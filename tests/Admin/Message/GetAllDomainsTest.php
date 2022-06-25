@@ -67,31 +67,5 @@ class GetAllDomainsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllDomainsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllDomainsRequest' => [
-                    'applyConfig' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllDomainsResponse' => [
-                    'domain' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllDomainsEnvelope::class, 'json'));
     }
 }

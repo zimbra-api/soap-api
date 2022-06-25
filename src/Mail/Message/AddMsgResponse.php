@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Mail\Struct\ChatSummary;
-use Zimbra\Mail\Struct\MessageSummary;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Mail\Struct\{ChatSummary, MessageSummary};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -23,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddMsgResponse")
  */
 class AddMsgResponse implements ResponseInterface
 {
@@ -35,7 +32,7 @@ class AddMsgResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement
      */
-    private $message;
+    private ?MessageSummary $message = NULL;
 
     /**
      * Details of added chat message
@@ -44,7 +41,7 @@ class AddMsgResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement
      */
-    private $chatMessage;
+    private ?MessageSummary $chatMessage = NULL;
 
     /**
      * Constructor method for AddMsgResponse
@@ -67,13 +64,12 @@ class AddMsgResponse implements ResponseInterface
      */
     public function setMessage(MessageSummary $message): self
     {
+        $this->message = $this->chatMessage = NULL;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
-            $this->message = NULL;
         }
         else {
             $this->message = $message;
-            $this->chatMessage = NULL;
         }
         return $this;
     }

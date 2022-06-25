@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\InviteType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\CreateCalendarItemResponse;
 use Zimbra\Mail\Struct\EmailInfo;
@@ -14,8 +14,8 @@ use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Mail\Struct\ShareNotification;
 use Zimbra\Mail\Struct\DLSubscriptionNotification;
 
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\KeyValuePair;
+use Zimbra\Common\Struct\Id;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -41,7 +41,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
         $address = $this->faker->email;
         $display = $this->faker->name;
         $personal = $this->faker->word;
-        $addressType = AddressType::FROM();
+        $addressType = AddressType::TO();
         $calItemType = InviteType::TASK();
 
         $key = $this->faker->word;
@@ -102,11 +102,11 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<response calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
+<result calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
     <m id="$id" />
     <echo>
         <m id="$id" part="$part" sd="$sentDate">
-            <e a="$address" d="$display" p="$personal" t="f" />
+            <e a="$address" d="$display" p="$personal" t="t" />
             <su>$subject</su>
             <mid>$messageIdHeader</mid>
             <inv type="task" />
@@ -122,7 +122,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
             </dlSubs>
         </m>
     </echo>
-</response>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($response, 'xml'));
         $this->assertEquals($response, $this->serializer->deserialize($xml, CreateCalendarItemResponse::class, 'xml'));
@@ -146,7 +146,7 @@ EOT;
                             'a' => $address,
                             'd' => $display,
                             'p' => $personal,
-                            't' => 'f',
+                            't' => 't',
                         ],
                     ],
                     'su' => [

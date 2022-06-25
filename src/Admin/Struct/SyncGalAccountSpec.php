@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec as DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="account")
  */
 class SyncGalAccountSpec
 {
@@ -42,7 +40,7 @@ class SyncGalAccountSpec
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline = true, entry = "datasource")
      */
-    private $dataSources;
+    private $dataSources = [];
 
     /**
      * Constructor method for SyncGalAccountSpec
@@ -98,12 +96,7 @@ class SyncGalAccountSpec
      */
     public function setDataSources(array $dataSources): self
     {
-        $this->dataSources = [];
-        foreach ($dataSources as $dataSource) {
-            if ($dataSource instanceof DataSource) {
-                $this->dataSources[] = $dataSource;
-            }
-        }
+        $this->dataSources = array_filter($dataSources, static fn ($source) => $source instanceof DataSource);
         return $this;
     }
 

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Soap\Header;
 
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Soap\Header\AccountInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -30,7 +30,7 @@ class AccountInfoTest extends ZimbraTestCase
         $byName = AccountBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<account by="$byName" link="true">$value</account>
+<result by="$byName" link="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));

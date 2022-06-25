@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * RetentionPolicy struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="retentionPolicy")
  */
 class RetentionPolicy
 {
@@ -32,7 +30,7 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlList(inline = false, entry = "policy")
      */
-    private $keep;
+    private $keep = [];
 
     /**
      * "Purge" retention policies
@@ -41,7 +39,7 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlList(inline = false, entry = "policy")
      */
-    private $purge;
+    private $purge = [];
 
     /**
      * Constructor method for RetentionPolicy
@@ -74,12 +72,7 @@ class RetentionPolicy
      */
     public function setKeepPolicy(array $policies): self
     {
-        $this->keep = [];
-        foreach ($policies as $policy) {
-            if ($policy instanceof Policy) {
-                $this->keep[] = $policy;
-            }
-        }
+        $this->keep = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
         return $this;
     }
 
@@ -101,12 +94,7 @@ class RetentionPolicy
      */
     public function setPurgePolicy(array $policies): self
     {
-        $this->purge = [];
-        foreach ($policies as $policy) {
-            if ($policy instanceof Policy) {
-                $this->purge[] = $policy;
-            }
-        }
+        $this->purge = array_filter($policies, static fn ($policy) => $policy instanceof Policy);
         return $this;
     }
 }

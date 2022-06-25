@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\BrowseBy;
+use Zimbra\Common\Enum\BrowseBy;
 
 use Zimbra\Mail\Message\BrowseEnvelope;
 use Zimbra\Mail\Message\BrowseBody;

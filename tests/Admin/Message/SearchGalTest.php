@@ -10,8 +10,8 @@ use Zimbra\Admin\Message\SearchGalResponse;
 use Zimbra\Admin\Struct\AdminCustomMetadata;
 use Zimbra\Admin\Struct\ContactInfo;
 use Zimbra\Admin\Struct\ContactGroupMember;
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Common\Struct\ContactAttr;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -131,71 +131,5 @@ class SearchGalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchGalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchGalRequest' => [
-                    'domain' => $domain,
-                    'name' => $name,
-                    'limit' => $limit,
-                    'type' => 'account',
-                    'galAcctId' => $galAccountId,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SearchGalResponse' => [
-                    'sortBy' => $sortBy,
-                    'offset' => $offset,
-                    'more' => TRUE,
-                    'tokenizeKey' => TRUE,
-                    'cn' => [
-                        [
-                            'sf' => $sortField,
-                            'exp' => TRUE,
-                            'id' => $id,
-                            'l' => $folder,
-                            'f' => $flags,
-                            't' => $tags,
-                            'tn' => $tagNames,
-                            'md' => $changeDate,
-                            'ms' => $modifiedSequenceId,
-                            'd' => $date,
-                            'rev' => $revisionId,
-                            'fileAsStr' => $fileAs,
-                            'email' => $email,
-                            'email2' => $email2,
-                            'email3' => $email3,
-                            'type' => $type,
-                            'dlist' => $dlist,
-                            'ref' => $reference,
-                            'tooManyMembers' => TRUE,
-                            'meta' => [
-                                [
-                                    'section' => $section,
-                                ]
-                            ],
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                    'part' => $part,
-                                    'ct' => $contentType,
-                                    's' => $size,
-                                    'filename' => $contentFilename,
-                                ],
-                            ],
-                            'm' => [
-                                [
-                                    'type' => $type,
-                                    'value' => $value,
-                                ]
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchGalEnvelope::class, 'json'));
     }
 }

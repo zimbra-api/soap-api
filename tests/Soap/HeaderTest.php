@@ -2,10 +2,10 @@
 
 namespace Zimbra\Tests\Soap;
 
-use Zimbra\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Enum\{AccountBy, RequestFormat};
+use Zimbra\Common\Struct\AuthTokenControl;
 use Zimbra\Soap\Header;
 use Zimbra\Soap\Header\{AccountInfo, Context, ChangeInfo, FormatInfo, NotifyInfo, SessionInfo, UserAgentInfo};
-use Zimbra\Struct\AuthTokenControl;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -71,95 +71,28 @@ class HeaderTest extends ZimbraTestCase
         $requestFormat = RequestFormat::XML()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-    <soap:Header xmlns:zm="urn:zimbra">
+    <result xmlns:zm="urn:zimbra">
         <zm:context hops="$hopCount">
-            <authToken>$authToken</authToken>
-            <session proxy="true" id="$id" seq="$sequence">$value</session>
-            <sessionId proxy="false" id="$id" seq="$sequence">$value</sessionId>
-            <nosession>$noSession</nosession>
-            <account by="$byId" link="true">$value</account>
-            <change token="$changeId" type="$changeType"/>
-            <targetServer>$targetServer</targetServer>
-            <userAgent name="$name" version="$version"/>
-            <authTokenControl voidOnExpired="true"/>
-            <format type="$requestFormat"/>
-            <notify seq="$sequence"/>
-            <nonotify>$noNotify</nonotify>
-            <noqualify>$noQualify</noqualify>
-            <via>$via</via>
-            <soapId>$soapRequestId</soapId>
-            <csrfToken>$csrfToken</csrfToken>
+            <zm:authToken>$authToken</zm:authToken>
+            <zm:session proxy="true" id="$id" seq="$sequence">$value</zm:session>
+            <zm:sessionId proxy="false" id="$id" seq="$sequence">$value</zm:sessionId>
+            <zm:nosession>$noSession</zm:nosession>
+            <zm:account by="$byId" link="true">$value</zm:account>
+            <zm:change token="$changeId" type="$changeType"/>
+            <zm:targetServer>$targetServer</zm:targetServer>
+            <zm:userAgent name="$name" version="$version"/>
+            <zm:authTokenControl voidOnExpired="true"/>
+            <zm:format type="$requestFormat"/>
+            <zm:notify seq="$sequence"/>
+            <zm:nonotify>$noNotify</zm:nonotify>
+            <zm:noqualify>$noQualify</zm:noqualify>
+            <zm:via>$via</zm:via>
+            <zm:soapId>$soapRequestId</zm:soapId>
+            <zm:csrfToken>$csrfToken</zm:csrfToken>
        </zm:context>
-   </soap:Header>
+   </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($header, 'xml'));
         $this->assertEquals($header, $this->serializer->deserialize($xml, Header::class, 'xml'));
-
-        $json = json_encode([
-            'context' => [
-                'hops' => $hopCount,
-                'authToken' => [
-                    '_content' => $authToken,
-                ],
-                'session' => [
-                    'proxy' => TRUE,
-                    'id' => $id,
-                    'seq' => $sequence,
-                    '_content' => $value,
-                ],
-                'sessionId' => [
-                    'proxy' => FALSE,
-                    'id' => $id,
-                    'seq' => $sequence,
-                    '_content' => $value,
-                ],
-                'nosession' => [
-                    '_content' => $noSession,
-                ],
-                'account' => [
-                    'by' => $byId,
-                    'link' => TRUE,
-                    '_content' => $value,
-                ],
-                'change' => [
-                    'token' => $changeId,
-                    'type' => $changeType,
-                ],
-                'targetServer' => [
-                    '_content' => $targetServer,
-                ],
-                'userAgent' => [
-                    'name' => $name,
-                    'version' => $version,
-                ],
-                'authTokenControl' => [
-                    'voidOnExpired' => TRUE,
-                ],
-                'format' => [
-                    'type' => $requestFormat,
-                ],
-                'notify' => [
-                    'seq' => $sequence,
-                ],
-                'nonotify' => [
-                    '_content' => $noNotify,
-                ],
-                'noqualify' => [
-                    '_content' => $noQualify,
-                ],
-                'via' => [
-                    '_content' => $via,
-                ],
-                'soapId' => [
-                    '_content' => $soapRequestId,
-                ],
-                'csrfToken' => [
-                    '_content' => $csrfToken,
-                ],
-                '_jsns' => 'urn:zimbra',
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($header, 'json'));
-        $this->assertEquals($header, $this->serializer->deserialize($json, Header::class, 'json'));
     }
 }

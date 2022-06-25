@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\Identity;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyIdentityRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyIdentityRequest")
  */
 class ModifyIdentityRequest extends Request
 {
@@ -36,7 +34,7 @@ class ModifyIdentityRequest extends Request
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement
      */
-    private $identity;
+    private Identity $identity;
 
     /**
      * Constructor method for ModifyIdentityRequest
@@ -74,14 +72,12 @@ class ModifyIdentityRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ModifyIdentityEnvelope)) {
-            $this->envelope = new ModifyIdentityEnvelope(
-                new ModifyIdentityBody($this)
-            );
-        }
+        return new ModifyIdentityEnvelope(
+            new ModifyIdentityBody($this)
+        );
     }
 }

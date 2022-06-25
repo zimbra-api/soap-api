@@ -22,24 +22,11 @@ class UCServiceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ucservice name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key">$value</a>
-</ucservice>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucservice, 'xml'));
         $this->assertEquals($ucservice, $this->serializer->deserialize($xml, UCServiceInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ucservice, 'json'));
-        $this->assertEquals($ucservice, $this->serializer->deserialize($json, UCServiceInfo::class, 'json'));
     }
 }

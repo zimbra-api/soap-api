@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\ContactSpec;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateContactRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateContactRequest")
  */
 class CreateContactRequest extends Request
 {
@@ -64,7 +62,7 @@ class CreateContactRequest extends Request
      * @Type("Zimbra\Mail\Struct\ContactSpec")
      * @XmlElement
      */
-    private $contact;
+    private ContactSpec $contact;
 
     /**
      * Constructor method for CreateContactRequest
@@ -185,14 +183,12 @@ class CreateContactRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateContactEnvelope)) {
-            $this->envelope = new CreateContactEnvelope(
-                new CreateContactBody($this)
-            );
-        }
+        return new CreateContactEnvelope(
+            new CreateContactBody($this)
+        );
     }
 }

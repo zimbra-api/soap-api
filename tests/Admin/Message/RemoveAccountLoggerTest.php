@@ -7,9 +7,9 @@ use Zimbra\Admin\Message\RemoveAccountLoggerEnvelope;
 use Zimbra\Admin\Message\RemoveAccountLoggerRequest;
 use Zimbra\Admin\Message\RemoveAccountLoggerResponse;
 use Zimbra\Admin\Struct\LoggerInfo;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\LoggingLevel;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\LoggingLevel;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -73,29 +73,5 @@ class RemoveAccountLoggerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RemoveAccountLoggerEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RemoveAccountLoggerRequest' => [
-                    'logger' => [
-                        'category' => $category,
-                        'level' => 'info',
-                    ],
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RemoveAccountLoggerResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RemoveAccountLoggerEnvelope::class, 'json'));
     }
 }

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\ZimletExcludeType;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ZimletExcludeType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllZimletsRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllZimletsRequest")
  */
 class GetAllZimletsRequest extends Request
 {
@@ -35,10 +33,10 @@ class GetAllZimletsRequest extends Request
      * none [default]:   return both mail and admin zimlets
      * @Accessor(getter="getExclude", setter="setExclude")
      * @SerializedName("exclude")
-     * @Type("Zimbra\Enum\ZimletExcludeType")
+     * @Type("Zimbra\Common\Enum\ZimletExcludeType")
      * @XmlAttribute
      */
-    private $exclude;
+    private ?ZimletExcludeType $exclude = NULL;
 
     /**
      * Constructor method for GetAllZimletsRequest
@@ -78,14 +76,12 @@ class GetAllZimletsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAllZimletsEnvelope)) {
-            $this->envelope = new GetAllZimletsEnvelope(
-                new GetAllZimletsBody($this)
-            );
-        }
+        return new GetAllZimletsEnvelope(
+            new GetAllZimletsBody($this)
+        );
     }
 }

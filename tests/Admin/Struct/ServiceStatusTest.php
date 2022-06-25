@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ServiceStatus;
-use Zimbra\Enum\ZeroOrOne;
+use Zimbra\Common\Enum\ZeroOrOne;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -35,18 +35,9 @@ class ServiceStatusTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<status server="$server" service="$service" t="$time">1</status>
+<result server="$server" service="$service" t="$time">1</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($status, 'xml'));
         $this->assertEquals($status, $this->serializer->deserialize($xml, ServiceStatus::class, 'xml'));
-
-        $json = json_encode([
-            'server' => $server,
-            'service' => $service,
-            't' => $time,
-            '_content' => '1',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($status, 'json'));
-        $this->assertEquals($status, $this->serializer->deserialize($json, ServiceStatus::class, 'json'));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
+use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;
@@ -40,13 +40,13 @@ class ExpandedRecurrenceCancelTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cancel s="$startTime" e="$endTime">
+<result s="$startTime" e="$endTime">
     <exceptId range="$range" d="$dateTime" tz="$timezone" />
     <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
     <recur>
         <rule freq="HOU"/>
     </recur>
-</cancel>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cancel, 'xml'));
         $this->assertEquals($cancel, $this->serializer->deserialize($xml, ExpandedRecurrenceCancel::class, 'xml'));

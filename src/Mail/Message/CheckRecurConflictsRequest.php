@@ -10,14 +10,16 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Mail\Struct\ExpandedRecurrenceCancel;
-use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;
-use Zimbra\Mail\Struct\ExpandedRecurrenceException;
-use Zimbra\Mail\Struct\ExpandedRecurrenceInvite;
-use Zimbra\Mail\Struct\FreeBusyUserSpec;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Mail\Struct\{
+    CalTZInfo,
+    ExpandedRecurrenceCancel,
+    ExpandedRecurrenceComponent,
+    ExpandedRecurrenceException,
+    ExpandedRecurrenceInvite,
+    FreeBusyUserSpec
+};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckRecurConflictsRequest class
@@ -30,8 +32,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckRecurConflictsRequest")
  */
 class CheckRecurConflictsRequest extends Request
 {
@@ -79,7 +79,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline = true, entry = "tz")
      */
-    private $timezones;
+    private $timezones = [];
 
     /**
      * Cancel expanded recurrences
@@ -89,7 +89,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
      * @XmlList(inline = true, entry = "cancel")
      */
-    private $cancelComponents;
+    private $cancelComponents = [];
 
     /**
      * Invite expanded recurrences
@@ -99,7 +99,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
      * @XmlList(inline = true, entry = "comp")
      */
-    private $inviteComponents;
+    private $inviteComponents = [];
 
     /**
      * Except expanded recurrences
@@ -109,7 +109,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
      * @XmlList(inline = true, entry = "except")
      */
-    private $exceptComponents;
+    private $exceptComponents = [];
 
     /**
      * Freebusy user specifications
@@ -119,7 +119,7 @@ class CheckRecurConflictsRequest extends Request
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
      * @XmlList(inline = true, entry = "usr")
      */
-    private $freebusyUsers;
+    private $freebusyUsers = [];
 
     /**
      * Constructor method for CheckRecurConflictsRequest
@@ -268,12 +268,7 @@ class CheckRecurConflictsRequest extends Request
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfo) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -337,17 +332,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets cancelComponents
      *
-     * @param  array $cancelComponents
+     * @param  array $components
      * @return self
      */
-    public function setCancelComponents(array $cancelComponents): self
+    public function setCancelComponents(array $components): self
     {
-        $this->cancelComponents = [];
-        foreach ($cancelComponents as $cancelComponent) {
-            if ($cancelComponent instanceof ExpandedRecurrenceCancel) {
-                $this->cancelComponents[] = $cancelComponent;
-            }
-        }
+        $this->cancelComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceCancel);
         return $this;
     }
 
@@ -364,17 +354,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets inviteComponents
      *
-     * @param  array $inviteComponents
+     * @param  array $components
      * @return self
      */
-    public function setInviteComponents(array $inviteComponents): self
+    public function setInviteComponents(array $components): self
     {
-        $this->inviteComponents = [];
-        foreach ($inviteComponents as $inviteComponent) {
-            if ($inviteComponent instanceof ExpandedRecurrenceInvite) {
-                $this->inviteComponents[] = $inviteComponent;
-            }
-        }
+        $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceInvite);
         return $this;
     }
 
@@ -391,17 +376,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets exceptComponents
      *
-     * @param  array $exceptComponents
+     * @param  array $components
      * @return self
      */
-    public function setExceptComponents(array $exceptComponents): self
+    public function setExceptComponents(array $components): self
     {
-        $this->exceptComponents = [];
-        foreach ($exceptComponents as $exceptComponent) {
-            if ($exceptComponent instanceof ExpandedRecurrenceException) {
-                $this->exceptComponents[] = $exceptComponent;
-            }
-        }
+        $this->exceptComponents = array_filter($components, static fn ($component) => $component instanceof ExpandedRecurrenceException);
         return $this;
     }
 
@@ -430,17 +410,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Sets freebusyUsers
      *
-     * @param  array $freebusyUsers
+     * @param  array $users
      * @return self
      */
-    public function setFreebusyUsers(array $freebusyUsers): self
+    public function setFreebusyUsers(array $users): self
     {
-        $this->freebusyUsers = [];
-        foreach ($freebusyUsers as $freebusyUser) {
-            if ($freebusyUser instanceof FreeBusyUserSpec) {
-                $this->freebusyUsers[] = $freebusyUser;
-            }
-        }
+        $this->freebusyUsers = array_filter($users, static fn ($user) => $user instanceof FreeBusyUserSpec);
         return $this;
     }
 
@@ -457,14 +432,12 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckRecurConflictsEnvelope)) {
-            $this->envelope = new CheckRecurConflictsEnvelope(
-                new CheckRecurConflictsBody($this)
-            );
-        }
+        return new CheckRecurConflictsEnvelope(
+            new CheckRecurConflictsBody($this)
+        );
     }
 }

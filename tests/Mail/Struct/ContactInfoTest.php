@@ -2,11 +2,11 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\MemberType;
-use Zimbra\Mail\Struct\MailCustomMetadata;
-use Zimbra\Mail\Struct\ContactInfo;
+use Zimbra\Common\Enum\MemberType;
+use Zimbra\Common\Struct\ContactAttr;
 use Zimbra\Mail\Struct\ContactGroupMember;
-use Zimbra\Struct\ContactAttr;
+use Zimbra\Mail\Struct\ContactInfo;
+use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -139,12 +139,12 @@ class ContactInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cn sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+<result sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
     <meta section="$section" />
     <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
     <m type="C" value="$value" />
     <memberOf>$memberOf</memberOf>
-</cn>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactInfo::class, 'xml'));

@@ -27,7 +27,7 @@ class XParamTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<xparam name="$name" value="$value" />
+<result name="$name" value="$value" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xparam, 'xml'));
         $this->assertEquals($xparam, $this->serializer->deserialize($xml, XParam::class, 'xml'));

@@ -62,28 +62,5 @@ class GetAllFreeBusyProvidersTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllFreeBusyProvidersEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllFreeBusyProvidersRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllFreeBusyProvidersResponse' => [
-                    'provider' => [
-                        [
-                            'name' => $name,
-                            'propagate' => TRUE,
-                            'start' => $start,
-                            'end' => $end,
-                            'queue' => $queue,
-                            'prefix' => $prefix,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllFreeBusyProvidersEnvelope::class, 'json'));
     }
 }

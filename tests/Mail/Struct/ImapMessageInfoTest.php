@@ -33,7 +33,7 @@ class ImapMessageInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+<result id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ImapMessageInfo::class, 'xml'));

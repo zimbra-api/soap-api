@@ -56,20 +56,5 @@ class RemoveAccountAliasTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RemoveAccountAliasEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RemoveAccountAliasRequest' => [
-                    'id' => $id,
-                    'alias' => $alias,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RemoveAccountAliasResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RemoveAccountAliasEnvelope::class, 'json'));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Importance;
+use Zimbra\Common\Enum\Importance;
 use Zimbra\Mail\Struct\ImportanceTest;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -26,7 +26,7 @@ class ImportanceTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<importanceTest index="$index" negative="true" imp="high" />
+<result index="$index" negative="true" imp="high" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ImportanceTest::class, 'xml'));

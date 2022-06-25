@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\{GetAccountInfoBody, GetAccountInfoEnvelope, GetAccount
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -99,55 +99,5 @@ class GetAccountInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAccountInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAccountInfoRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAccountInfoResponse' => [
-                    'name' => [
-                        '_content' => $name,
-                    ],
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    'cos' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'isDefaultCos' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                                'c' => TRUE,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    'soapURL' => [
-                        [
-                            '_content' => $soapURL,
-                        ],
-                    ],
-                    'adminSoapURL' => [
-                        '_content' => $adminSoapURL,
-                    ],
-                    'publicMailURL' => [
-                        '_content' => $publicMailURL,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAccountInfoEnvelope::class, 'json'));
     }
 }

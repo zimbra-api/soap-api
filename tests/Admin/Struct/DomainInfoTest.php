@@ -22,24 +22,11 @@ class DomainInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<domain name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key">$value</a>
-</domain>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
         $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($domain, 'json'));
-        $this->assertEquals($domain, $this->serializer->deserialize($json, DomainInfo::class, 'json'));
     }
 }

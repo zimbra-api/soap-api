@@ -60,22 +60,5 @@ class GetMailboxStatsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetMailboxStatsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetMailboxStatsRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetMailboxStatsResponse' => [
-                    'stats' => [
-                        'numMboxes' => $numMboxes,
-                        'totalSize' => $totalSize,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetMailboxStatsEnvelope::class, 'json'));
     }
 }

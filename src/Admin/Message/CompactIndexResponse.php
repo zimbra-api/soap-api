@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\CompactIndexStatus  as Status;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\CompactIndexStatus as Status;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CompactIndexResponse")
  */
 class CompactIndexResponse implements ResponseInterface
 {
@@ -31,10 +29,10 @@ class CompactIndexResponse implements ResponseInterface
      * Status - one of started|running|idle
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\CompactIndexStatus")
+     * @Type("Zimbra\Common\Enum\CompactIndexStatus")
      * @XmlAttribute
      */
-    private $status;
+    private Status $status;
 
     /**
      * Constructor method for CompactIndexResponse

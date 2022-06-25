@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\GetDataSourcesEnvelope;
 use Zimbra\Admin\Message\GetDataSourcesRequest;
 use Zimbra\Admin\Message\GetDataSourcesResponse;
 use Zimbra\Admin\Struct\{Attr, DataSourceInfo};
-use Zimbra\Enum\DataSourceType;
+use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -71,38 +71,5 @@ class GetDataSourcesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDataSourcesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDataSourcesRequest' => [
-                    'id' => $id,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetDataSourcesResponse' => [
-                    'dataSource' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'type' => 'pop3',
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDataSourcesEnvelope::class, 'json'));
     }
 }

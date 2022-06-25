@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletInterface};
 
 /**
  * AccountZimletInfo class
@@ -21,8 +21,6 @@ use Zimbra\Struct\{ZimletConfigInfo, ZimletContextInterface, ZimletDesc, ZimletI
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="zimlet")
  */
 class AccountZimletInfo implements ZimletInterface
 {
@@ -33,7 +31,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Type("Zimbra\Account\Struct\AccountZimletContext")
      * @XmlElement
      */
-    private $zimletContext;
+    private ?ZimletContextInterface $zimletContext = NULL;
 
     /**
      * Zimlet description
@@ -42,7 +40,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Type("Zimbra\Account\Struct\AccountZimletDesc")
      * @XmlElement
      */
-    private $zimlet;
+    private ?ZimletDesc $zimlet = NULL;
 
     /**
      * Other elements
@@ -51,7 +49,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Type("Zimbra\Account\Struct\AccountZimletConfigInfo")
      * @XmlElement
      */
-    private $zimletConfig;
+    private ?ZimletConfigInfo $zimletConfig = NULL;
 
     /**
      * Constructor method for AccountZimletInfo

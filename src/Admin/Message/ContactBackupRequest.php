@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ContactBackupOp  as Operation;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Enum\ContactBackupOp  as Operation;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ContactBackupRequest request class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ContactBackupRequest")
  */
 class ContactBackupRequest extends Request
 {
@@ -36,16 +34,16 @@ class ContactBackupRequest extends Request
      * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
      * @XmlList(inline = false, entry = "server")
      */
-    private $servers;
+    private $servers = [];
 
     /**
      * op can be either start or stop
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Enum\ContactBackupOp")
+     * @Type("Zimbra\Common\Enum\ContactBackupOp")
      * @XmlAttribute
      */
-    private $op;
+    private Operation $op;
 
     /**
      * Constructor method for ContactBackupRequest
@@ -78,12 +76,7 @@ class ContactBackupRequest extends Request
      */
     public function setServers(array $servers): self
     {
-        $this->servers = [];
-        foreach ($servers as $server) {
-            if ($server instanceof ServerSelector) {
-                $this->servers[] = $server;
-            }
-        }
+        $this->servers = array_filter($servers, static fn ($server) => $server instanceof ServerSelector);
         return $this;
     }
 
@@ -124,14 +117,12 @@ class ContactBackupRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ContactBackupEnvelope)) {
-            $this->envelope = new ContactBackupEnvelope(
-                new ContactBackupBody($this)
-            );
-        }
+        return new ContactBackupEnvelope(
+            new ContactBackupBody($this)
+        );
     }
 }

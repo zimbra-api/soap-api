@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * XMPPComponentInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="xmppcomponent")
  */
 class XMPPComponentInfo extends AdminAttrsImpl
 {
@@ -67,7 +65,9 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name, string $id, ?string $domainName = NULL, ?string $serverName = NULL, array $attrs = [])
+    public function __construct(
+        string $name, string $id, ?string $domainName = NULL, ?string $serverName = NULL, array $attrs = []
+    )
     {
         parent::__construct($attrs);
         $this->setName($name)

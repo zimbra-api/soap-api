@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Struct\CustomMetadataInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\CustomMetadataInterface;
 
 /**
  * AutoProvDirectoryEntry struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\CustomMetadataInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="entry")
  */
 class AutoProvDirectoryEntry extends AdminKeyValuePairs
 {
@@ -42,7 +40,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "key")
      */
-    private $keys;
+    private $keys = [];
 
     /**
      * Constructor method for AutoProvDirectoryEntry
@@ -99,10 +97,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      */
     public function setKeys(array $keys)
     {
-        $this->keys = [];
-        foreach ($keys as $key) {
-            $this->addKey($key);
-        }
+        $this->keys = array_unique(array_map(static fn ($key) => trim($key), $keys));
         return $this;
     }
 

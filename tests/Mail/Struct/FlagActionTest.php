@@ -24,7 +24,7 @@ class FlagActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionFlag index="$index" flagName="$flag" />
+<result index="$index" flagName="$flag" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FlagAction::class, 'xml'));

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * Signature struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="signature")
  */
 class Signature
 {
@@ -57,7 +55,7 @@ class Signature
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline = true, entry = "content")
      */
-    private $contents;
+    private $contents = [];
 
     /**
      * Constructor method for signature
@@ -74,6 +72,7 @@ class Signature
         array $contents = []
 	)
     {
+        $this->setContents($contents);
         if (NULL !== $name) {
             $this->setName($name);
         }
@@ -83,7 +82,6 @@ class Signature
         if (NULL !== $cid) {
             $this->setCid($cid);
         }
-        $this->setContents($contents);
     }
 
     /**
@@ -172,12 +170,7 @@ class Signature
      */
     public function setContents(array $contents): self
     {
-        $this->contents = [];
-        foreach ($contents as $content) {
-            if ($content instanceof SignatureContent) {
-                $this->contents[] = $content;
-            }
-        }
+        $this->contents = array_filter($contents, static fn ($content) => $content instanceof SignatureContent);
         return $this;
     }
 

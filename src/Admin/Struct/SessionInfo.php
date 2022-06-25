@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlAttributeMap, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlAttributeMap};
 
 /**
  * SessionInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="session")
  */
 class SessionInfo
 {
@@ -76,7 +74,7 @@ class SessionInfo
      * @Type("array<string, string>")
      * @XmlAttributeMap
      */
-    private $extraAttributes;
+    private $extraAttributes = [];
 
     /**
      * Constructor method for SessionInfo
@@ -241,7 +239,7 @@ class SessionInfo
         return $this;
     }
 
-    public function addExtraAttribute($name, $value): self
+    public function addExtraAttribute(string $name, string $value): self
     {
         if (!empty($name) && !empty($value)) {
             $this->extraAttributes[$name] = $value;

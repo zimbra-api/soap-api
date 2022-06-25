@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Mail\Struct\CalItemRequestBase;
-use Zimbra\Mail\Struct\Msg;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Mail\Struct\{CalItemRequestBase, Msg};
+use Zimbra\Soap\EnvelopeInterface;
 
 /**
  * CreateAppointmentExceptionRequest class
@@ -23,8 +23,6 @@ use Zimbra\Mail\Struct\Msg;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateAppointmentExceptionRequest")
  */
 class CreateAppointmentExceptionRequest extends CalItemRequestBase
 {
@@ -198,14 +196,12 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CreateAppointmentExceptionEnvelope)) {
-            $this->envelope = new CreateAppointmentExceptionEnvelope(
-                new CreateAppointmentExceptionBody($this)
-            );
-        }
+        return new CreateAppointmentExceptionEnvelope(
+            new CreateAppointmentExceptionBody($this)
+        );
     }
 }

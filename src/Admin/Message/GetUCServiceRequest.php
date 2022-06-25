@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetUCServiceRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetUCServiceRequest")
  */
 class GetUCServiceRequest extends Request implements AttributeSelector
 {
@@ -38,7 +36,7 @@ class GetUCServiceRequest extends Request implements AttributeSelector
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement
      */
-    private $ucService;
+    private UcServiceSelector $ucService;
 
     /**
      * Constructor method for GetUCServiceRequest
@@ -80,14 +78,12 @@ class GetUCServiceRequest extends Request implements AttributeSelector
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetUCServiceEnvelope)) {
-            $this->envelope = new GetUCServiceEnvelope(
-                new GetUCServiceBody($this)
-            );
-        }
+        return new GetUCServiceEnvelope(
+            new GetUCServiceBody($this)
+        );
     }
 }

@@ -74,27 +74,9 @@ class MailboxInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<mbox id="$id" groupId="$groupId" accountId="$accountId" indexVolumeId="$indexVolumeId" itemIdCheckPoint="$itemIdCheckPoint" contactCount="$contactCount" sizeCheckPoint="$sizeCheckPoint" changeCheckPoint="$changeCheckPoint" trackingSync="$trackingSync" trackingImap="true" lastBackupAt="$lastBackupAt" lastSoapAccess="$lastSoapAccess" newMessages="$newMessages" />
+<result id="$id" groupId="$groupId" accountId="$accountId" indexVolumeId="$indexVolumeId" itemIdCheckPoint="$itemIdCheckPoint" contactCount="$contactCount" sizeCheckPoint="$sizeCheckPoint" changeCheckPoint="$changeCheckPoint" trackingSync="$trackingSync" trackingImap="true" lastBackupAt="$lastBackupAt" lastSoapAccess="$lastSoapAccess" newMessages="$newMessages" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'groupId' => $groupId,
-            'accountId' => $accountId,
-            'indexVolumeId' => $indexVolumeId,
-            'itemIdCheckPoint' => $itemIdCheckPoint,
-            'contactCount' => $contactCount,
-            'sizeCheckPoint' => $sizeCheckPoint,
-            'changeCheckPoint' => $changeCheckPoint,
-            'trackingSync' => $trackingSync,
-            'trackingImap' => TRUE,
-            'lastBackupAt' => $lastBackupAt,
-            'lastSoapAccess' => $lastSoapAccess,
-            'newMessages' => $newMessages,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, MailboxInfo::class, 'json'));
     }
 }

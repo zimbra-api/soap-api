@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllServersResponse")
  */
 class GetAllServersResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllServersResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
      * @XmlList(inline = true, entry = "server")
      */
-    private $serverList;
+    private $serverList = [];
 
     /**
      * Constructor method for GetAllServersResponse
@@ -68,12 +66,7 @@ class GetAllServersResponse implements ResponseInterface
      */
     public function setServerList(array $serverList): self
     {
-        $this->serverList = [];
-        foreach ($serverList as $server) {
-            if ($server instanceof ServerInfo) {
-                $this->serverList[] = $server;
-            }
-        }
+        $this->serverList = array_filter($serverList, static fn ($server) => $server instanceof ServerInfo);
         return $this;
     }
 

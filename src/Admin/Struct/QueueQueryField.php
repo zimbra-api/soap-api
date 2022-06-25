@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * QueueQueryField struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="field")
  */
 class QueueQueryField
 {
@@ -42,7 +40,7 @@ class QueueQueryField
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
      * @XmlList(inline = true, entry = "match")
      */
-    private $matches;
+    private $matches = [];
 
     /**
      * Constructor method for QueueQueryField
@@ -98,12 +96,7 @@ class QueueQueryField
      */
     public function setMatches(array $matches): self
     {
-        $this->matches = [];
-        foreach ($matches as $match) {
-            if ($match instanceof ValueAttrib) {
-                $this->matches[] = $match;
-            }
-        }
+        $this->matches = array_filter($matches, static fn ($match) => $match instanceof ValueAttrib);
         return $this;
     }
 

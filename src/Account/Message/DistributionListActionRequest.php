@@ -10,26 +10,26 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Account\Struct\DistributionListAction;
-use Zimbra\Struct\DistributionListSelector;
-use Zimbra\Soap\Request;
+use Zimbra\Common\Struct\DistributionListSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DistributionListActionRequest class
  * Perform an action on a Distribution List
  * Notes:
  *  - Authorized account must be one of the list owners 
- *  - For owners/rights, only grants on the group itself will be modified, grants on domain and globalgrant (from which the right can be inherited) will not be touched.
- *    Only admins can modify grants on domains and globalgrant, owners of groups can only modify grants on the group entry.
+ *  - For owners/rights, only grants on the group itself will be modified,
+ *    grants on domain and globalgrant (from which the right can be inherited) will not be touched.
+ *    Only admins can modify grants on domains and globalgrant, owners of groups
+ *    can only modify grants on the group entry.
  *
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DistributionListActionRequest")
  */
 class DistributionListActionRequest extends Request
 {
@@ -37,10 +37,10 @@ class DistributionListActionRequest extends Request
      * Identifies the distribution list to act upon
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
-     * @Type("Zimbra\Struct\DistributionListSelector")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListSelector $dl;
 
     /**
      * Specifies the action to perform
@@ -49,7 +49,7 @@ class DistributionListActionRequest extends Request
      * @Type("Zimbra\Account\Struct\DistributionListAction")
      * @XmlElement
      */
-    private $action;
+    private DistributionListAction $action;
 
     /**
      * Constructor method for DistributionListActionRequest
@@ -111,14 +111,12 @@ class DistributionListActionRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DistributionListActionEnvelope)) {
-            $this->envelope = new DistributionListActionEnvelope(
-                new DistributionListActionBody($this)
-            );
-        }
+        return new DistributionListActionEnvelope(
+            new DistributionListActionBody($this)
+        );
     }
 }

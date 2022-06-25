@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddDistributionListMemberRequest request class
@@ -22,8 +22,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddDistributionListMemberRequest")
  */
 class AddDistributionListMemberRequest extends Request
 {
@@ -44,7 +42,7 @@ class AddDistributionListMemberRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Constructor method for AddDistributionListMemberRequest
@@ -97,22 +95,19 @@ class AddDistributionListMemberRequest extends Request
     }
 
     /**
-     * Sets member sequence
+     * Sets members
      *
      * @param  array $members Members
      * @return self
      */
     public function setMembers(array $members): self
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique($members);
         return $this;
     }
 
     /**
-     * Gets member sequence
+     * Gets members
      *
      * @return array
      */
@@ -124,14 +119,12 @@ class AddDistributionListMemberRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddDistributionListMemberEnvelope)) {
-            $this->envelope = new AddDistributionListMemberEnvelope(
-                new AddDistributionListMemberBody($this)
-            );
-        }
+        return new AddDistributionListMemberEnvelope(
+            new AddDistributionListMemberBody($this)
+        );
     }
 }

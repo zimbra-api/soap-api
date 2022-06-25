@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\GalSearchType;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GalSearchType;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchGalRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchGalRequest")
  */
 class SearchGalRequest extends Request
 {
@@ -60,10 +58,10 @@ class SearchGalRequest extends Request
      * Type of addresses to search.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalSearchType")
+     * @Type("Zimbra\Common\Enum\GalSearchType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GalSearchType $type = NULL;
 
     /**
      * GAL account ID
@@ -220,14 +218,12 @@ class SearchGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchGalEnvelope)) {
-            $this->envelope = new SearchGalEnvelope(
-                new SearchGalBody($this)
-            );
-        }
+        return new SearchGalEnvelope(
+            new SearchGalBody($this)
+        );
     }
 }

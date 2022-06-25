@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\SetServerOfflineRequest;
 use Zimbra\Admin\Message\SetServerOfflineResponse;
 
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -64,23 +64,5 @@ class SetServerOfflineTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SetServerOfflineEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SetServerOfflineRequest' => [
-                    'attrs' => $attrs,
-                    'server' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SetServerOfflineResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SetServerOfflineEnvelope::class, 'json'));
     }
 }

@@ -10,11 +10,11 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Enum\GalMode;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AccountSelector as Account;
+use Zimbra\Common\Enum\GalMode;
+use Zimbra\Common\Struct\AccountSelector as Account;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddGalSyncDataSource request class
@@ -25,8 +25,6 @@ use Zimbra\Struct\AccountSelector as Account;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddGalSyncDataSourceRequest")
  */
 class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
 {
@@ -36,10 +34,10 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * The account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private Account $account;
 
     /**
      * Name of the data source
@@ -63,10 +61,10 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
      * GalMode type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GalMode")
+     * @Type("Zimbra\Common\Enum\GalMode")
      * @XmlAttribute
      */
-    private $type;
+    private GalMode $type;
 
     /**
      * Contact folder name
@@ -219,14 +217,12 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AddGalSyncDataSourceEnvelope)) {
-            $this->envelope = new AddGalSyncDataSourceEnvelope(
-                new AddGalSyncDataSourceBody($this)
-            );
-        }
+        return new AddGalSyncDataSourceEnvelope(
+            new AddGalSyncDataSourceBody($this)
+        );
     }
 }

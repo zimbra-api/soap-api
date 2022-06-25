@@ -22,15 +22,9 @@ class HostNameTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<hostname hn="$name" />
+<result hn="$name" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
         $this->assertEquals($host, $this->serializer->deserialize($xml, HostName::class, 'xml'));
-
-        $json = json_encode([
-            'hn' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($host, 'json'));
-        $this->assertEquals($host, $this->serializer->deserialize($json, HostName::class, 'json'));
     }
 }

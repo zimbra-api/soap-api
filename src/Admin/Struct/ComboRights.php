@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 
 /**
  * ComboRights struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlLi
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="rights")
  */
 class ComboRights
 {
@@ -32,7 +30,7 @@ class ComboRights
      * @Type("array<Zimbra\Admin\Struct\ComboRightInfo>")
      * @XmlList(inline = true, entry = "r")
      */
-    private $comboRights;
+    private $comboRights = [];
 
     /**
      * Constructor method for ComboRights
@@ -65,12 +63,7 @@ class ComboRights
      */
     public function setComboRights(array $comboRights): self
     {
-        $this->comboRights = [];
-        foreach ($comboRights as $right) {
-            if ($right instanceof ComboRightInfo) {
-                $this->comboRights[] = $right;
-            }
-        }
+        $this->comboRights = array_filter($comboRights, static fn ($right) => $right instanceof ComboRightInfo);
         return $this;
     }
 

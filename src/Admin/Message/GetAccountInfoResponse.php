@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList, XmlElement};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Soap\ResponseInterface;
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountInfoResponse")
  */
 class GetAccountInfoResponse implements ResponseInterface
 {
@@ -44,7 +42,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrList;
+    private $attrList = [];
 
     /**
      * Class of Service (COS) information for account
@@ -63,7 +61,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "soapURL")
      */
-    private $soapURLList;
+    private $soapURLList = [];
 
     /**
      * URL for the Admin SOAP service
@@ -104,8 +102,8 @@ class GetAccountInfoResponse implements ResponseInterface
     )
     {
         $this->setName($name)
-            ->setAttrList($attrList)
-            ->setSoapURLList($soapURLList);
+             ->setAttrList($attrList)
+             ->setSoapURLList($soapURLList);
         if ($cos instanceof CosInfo) {
             $this->setCos($cos);
         }
@@ -147,7 +145,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function addAttr(Attr $attr): self
     {
-        $this->attrs[] = $attr;
+        $this->attrList[] = $attr;
         return $this;
     }
 
@@ -157,14 +155,9 @@ class GetAccountInfoResponse implements ResponseInterface
      * @param array $attrs
      * @return self
      */
-    public function setAttrList(array $attrs): self
+    public function setAttrList(array $attrList): self
     {
-        $this->attrs = [];
-        foreach ($attrs as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrs[] = $attr;
-            }
-        }
+        $this->attrList = array_filter($attrList, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 
@@ -175,7 +168,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function getAttrList(): array
     {
-        return $this->attrs;
+        return $this->attrList;
     }
 
     /**
@@ -223,10 +216,7 @@ class GetAccountInfoResponse implements ResponseInterface
      */
     public function setSoapURLList(array $soapURLList): self
     {
-        $this->soapURLList = [];
-        foreach ($soapURLList as $soapUrl) {
-            $this->addSoapURL($soapUrl);
-        }
+        $this->soapURLList = array_unique(array_map(static fn ($soapUrl) => trim($soapUrl), $soapURLList));
         return $this;
     }
 

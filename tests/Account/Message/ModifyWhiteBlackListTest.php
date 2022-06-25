@@ -6,7 +6,7 @@ use Zimbra\Account\Message\ModifyWhiteBlackListBody;
 use Zimbra\Account\Message\ModifyWhiteBlackListEnvelope;
 use Zimbra\Account\Message\ModifyWhiteBlackListRequest;
 use Zimbra\Account\Message\ModifyWhiteBlackListResponse;
-use Zimbra\Struct\OpValue;
+use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -72,42 +72,5 @@ class ModifyWhiteBlackListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyWhiteBlackListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyWhiteBlackListRequest' => [
-                    'whiteList' => [
-                        'addr' => [
-                            [
-                                'op' => '+',
-                                '_content' => $white,
-                            ],
-                            [
-                                'op' => '-',
-                                '_content' => $white,
-                            ],
-                        ],
-                    ],
-                    'blackList' => [
-                        'addr' => [
-                            [
-                                'op' => '+',
-                                '_content' => $black,
-                            ],
-                            [
-                                'op' => '-',
-                                '_content' => $black,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'ModifyWhiteBlackListResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyWhiteBlackListEnvelope::class, 'json'));
     }
 }

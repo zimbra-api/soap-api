@@ -13,10 +13,10 @@ use Zimbra\Account\Message\SearchCalendarResourcesResponse;
 use Zimbra\Account\Struct\CalendarResourceInfo;
 use Zimbra\Account\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
 
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 
-use Zimbra\Struct\CursorInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 
@@ -156,80 +156,5 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchCalendarResourcesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchCalendarResourcesRequest' => [
-                    'quick' => TRUE,
-                    'sortBy' => $sortBy,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'galAcctId' => $galAccountId,
-                    'attrs' => $attrs,
-                    'locale' => [
-                        '_content' => $locale,
-                    ],
-                    'cursor' => [
-                        'id' => $id,
-                        'sortVal' => $sortVal,
-                        'endSortVal' => $endSortVal,
-                        'includeOffset' => TRUE,
-                    ],
-                    'name' => [
-                        '_content' => $name,
-                    ],
-                    'searchFilter' => [
-                        'conds' => [
-                            'not' => TRUE,
-                            'or' => FALSE,
-                            'conds' => [
-                                [
-                                    'not' => FALSE,
-                                    'or' => TRUE,
-                                    'cond' => [
-                                        [
-                                            'attr' => $attr,
-                                            'op' => 'ge',
-                                            'value' => $value,
-                                            'not' => FALSE,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                            'cond' => [
-                                [
-                                    'attr' => $attr,
-                                    'op' => 'eq',
-                                    'value' => $value,
-                                    'not' => TRUE,
-                                ],
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'SearchCalendarResourcesResponse' => [
-                    'sortBy' => $sortBy,
-                    'offset' => $offset,
-                    'more' => TRUE,
-                    'paginationSupported' => TRUE,
-                    'calresource' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchCalendarResourcesEnvelope::class, 'json'));
     }
 }

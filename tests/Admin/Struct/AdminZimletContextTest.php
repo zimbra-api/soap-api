@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AdminZimletContext;
-use Zimbra\Enum\ZimletPresence;
+use Zimbra\Common\Enum\ZimletPresence;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -34,17 +34,9 @@ class AdminZimletContextTest extends ZimbraTestCase
         $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+<result baseUrl="$baseUrl" priority="$priority" presence="$presence" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletContext, 'xml'));
         $this->assertEquals($zimletContext, $this->serializer->deserialize($xml, AdminZimletContext::class, 'xml'));
-
-        $json = json_encode([
-            'baseUrl' => $baseUrl,
-            'priority' => $priority,
-            'presence' => $presence,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimletContext, 'json'));
-        $this->assertEquals($zimletContext, $this->serializer->deserialize($json, AdminZimletContext::class, 'json'));
     }
 }

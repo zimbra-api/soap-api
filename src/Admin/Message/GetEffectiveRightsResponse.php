@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\EffectiveRightsTargetInfo as Target;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Soap\ResponseInterface;
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetEffectiveRightsResponse")
  */
 class GetEffectiveRightsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeInfo $grantee;
 
     /**
      * Information about target
@@ -44,7 +42,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
      * @XmlElement
      */
-    private $target;
+    private Target $target;
 
     /**
      * Constructor method for GetEffectiveRightsResponse
@@ -56,7 +54,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
     public function __construct(GranteeInfo $grantee, Target $target)
     {
         $this->setGrantee($grantee)
-            ->setTarget($target);
+             ->setTarget($target);
     }
 
     /**

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\ContentType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\ContentType;
 
 /**
  * SignatureContent struct class
@@ -21,18 +21,16 @@ use Zimbra\Enum\ContentType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="content")
  */
 class SignatureContent
 {
     /**
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\ContentType")
+     * @Type("Zimbra\Common\Enum\ContentType")
      * @XmlAttribute
      */
-    private $contentType;
+    private ?ContentType $type = NULL;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

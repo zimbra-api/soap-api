@@ -7,7 +7,7 @@ use Zimbra\Admin\Struct\BufferedCommitInfo;
 use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
-use Zimbra\Struct\IdAndType;
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -102,7 +102,7 @@ class WaitSetInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<waitSet id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
+<result id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
     <errors>
         <error id="$id" type="$type" />
     </errors>
@@ -113,60 +113,9 @@ class WaitSetInfoTest extends ZimbraTestCase
     <session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
         <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
     </session>
-</waitSet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
         $this->assertEquals($waitSet, $this->serializer->deserialize($xml, WaitSetInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $waitSetId,
-            'owner' => $owner,
-            'defTypes' => $defaultInterests,
-            'ld' => $lastAccessDate,
-            'cbSeqNo' => $cbSeqNo,
-            'currentSeqNo' => $currentSeqNo,
-            'nextSeqNo' => $nextSeqNo,
-            'errors' => [
-                'error' => [
-                    [
-                        'id' => $id,
-                        'type' => $type,
-                    ],
-                ],
-            ],
-            'ready' => [
-                'accounts' => $accounts,
-            ],
-            'buffered' => [
-                'commit' => [
-                    [
-                        'aid' => $aid,
-                        'cid' => $cid,
-                    ],
-                ],
-            ],
-            'session' => [
-                [
-                    'account' => $account,
-                    'types' => $interests,
-                    'token' => $token,
-                    'mboxSyncToken' => $mboxSyncToken,
-                    'mboxSyncTokenDiff' => $mboxSyncTokenDiff,
-                    'acctIdError' => $acctIdError,
-                    'WaitSetSession' => [
-                        'interestMask' => $interestMask,
-                        'highestChangeId' => $highestChangeId,
-                        'lastAccessTime' => $lastAccessTime,
-                        'creationTime' => $creationTime,
-                        'sessionId' => $sessionId,
-                        'token' => $token,
-                        'folderInterests' => $folderInterests,
-                        'changedFolders' => $changedFolders,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($waitSet, 'json'));
-        $this->assertEquals($waitSet, $this->serializer->deserialize($json, WaitSetInfo::class, 'json'));
     }
 }

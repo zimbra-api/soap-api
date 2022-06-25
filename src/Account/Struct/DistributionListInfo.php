@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * DistributionListInfo struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="dl")
  */
 class DistributionListInfo extends ObjectInfo
 {
@@ -61,7 +59,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $members;
+    private $members = [];
 
     /**
      * Group owners
@@ -70,7 +68,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline = false, entry = "owner")
      */
-    private $owners;
+    private $owners = [];
 
     /**
      * Rights
@@ -79,7 +77,7 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
      * @XmlList(inline = false, entry = "right")
      */
-    private $rights;
+    private $rights = [];
 
     /**
      * Constructor method for DistributionListInfo
@@ -205,10 +203,7 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setMembers(array $members)
     {
-        $this->members = [];
-        foreach ($members as $member) {
-            $this->addMember($member);
-        }
+        $this->members = array_unique(array_map(static fn ($member) => trim($member), $members));
         return $this;
     }
 
@@ -245,12 +240,7 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setOwners(array $owners)
     {
-        $this->owners = [];
-        foreach ($owners as $owner) {
-            if ($owner instanceof DistributionListGranteeInfo) {
-                $this->owners[] = $owner;
-            }
-        }
+        $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof DistributionListGranteeInfo);
         return $this;
     }
 
@@ -284,12 +274,7 @@ class DistributionListInfo extends ObjectInfo
      */
     public function setRights(array $rights)
     {
-        $this->rights = [];
-        foreach ($rights as $right) {
-            if ($right instanceof DistributionListRightInfo) {
-                $this->rights[] = $right;
-            }
-        }
+        $this->rights = array_filter($rights, static fn ($right) => $right instanceof DistributionListRightInfo);
         return $this;
     }
 

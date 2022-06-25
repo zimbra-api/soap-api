@@ -10,9 +10,9 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\BrowseBy;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\BrowseBy;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * BrowseRequest class
@@ -27,8 +27,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="BrowseRequest")
  */
 class BrowseRequest extends Request
 {
@@ -36,10 +34,10 @@ class BrowseRequest extends Request
      * Browse by setting - domains|attachments|objects
      * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
      * @SerializedName("browseBy")
-     * @Type("Zimbra\Enum\BrowseBy")
+     * @Type("Zimbra\Common\Enum\BrowseBy")
      * @XmlAttribute
      */
-    private $browseBy;
+    private BrowseBy $browseBy;
 
     /**
      * Regex string.  Return only those results which match the specified regular expression
@@ -151,14 +149,12 @@ class BrowseRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof BrowseEnvelope)) {
-            $this->envelope = new BrowseEnvelope(
-                new BrowseBody($this)
-            );
-        }
+        return new BrowseEnvelope(
+            new BrowseBody($this)
+        );
     }
 }

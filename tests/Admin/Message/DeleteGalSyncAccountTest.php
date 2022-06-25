@@ -6,8 +6,8 @@ use Zimbra\Admin\Message\DeleteGalSyncAccountBody;
 use Zimbra\Admin\Message\DeleteGalSyncAccountEnvelope;
 use Zimbra\Admin\Message\DeleteGalSyncAccountRequest;
 use Zimbra\Admin\Message\DeleteGalSyncAccountResponse;
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -59,22 +59,5 @@ class DeleteGalSyncAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteGalSyncAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteGalSyncAccountRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteGalSyncAccountResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteGalSyncAccountEnvelope::class, 'json'));
     }
 }

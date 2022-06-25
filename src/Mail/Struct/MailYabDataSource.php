@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Struct\DataSource;
+use Zimbra\Common\Struct\DataSource;
 
 /**
  * MailYabDataSource struct class
@@ -21,7 +20,6 @@ use Zimbra\Struct\DataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="yab")
  */
 class MailYabDataSource extends MailDataSource implements DataSource
 {

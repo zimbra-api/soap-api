@@ -6,7 +6,7 @@ use Zimbra\Common\SerializerFactory;
 use Zimbra\Account\SerializerHandler;
 
 use Zimbra\Account\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
-use Zimbra\Enum\ConditionOperator as CondOp;
+use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -37,50 +37,18 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<searchFilter>
+<result>
     <conds not="true" or="false">
         <conds not="false" or="true">
             <cond attr="$attr" op="ge" value="$value" not="false" />
         </conds>
         <cond attr="$attr" op="eq" value="$value" not="true" />
     </conds>
-</searchFilter>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
 
         $filter = $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml');
-        $this->assertEquals($conds, $filter->getConditions());
-
-        $json = json_encode([
-            'conds' => [
-                'not' => TRUE,
-                'or' => FALSE,
-                'conds' => [
-                    [
-                        'not' => FALSE,
-                        'or' => TRUE,
-                        'cond' => [
-                            [
-                                'attr' => $attr,
-                                'op' => 'ge',
-                                'value' => $value,
-                                'not' => FALSE,
-                            ],
-                        ],
-                    ],
-                ],
-                'cond' => [
-                    [
-                        'attr' => $attr,
-                        'op' => 'eq',
-                        'value' => $value,
-                        'not' => TRUE,
-                    ],
-                ],
-            ]
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
-        $filter = $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json');
         $this->assertEquals($conds, $filter->getConditions());
 
         $filter = new EntrySearchFilterInfo($cond);
@@ -90,22 +58,11 @@ EOT;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<searchFilter>
+<result>
     <cond attr="$attr" op="eq" value="$value" not="true" />
-</searchFilter>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
         $this->assertEquals($filter, $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml'));
-
-        $json = json_encode([
-            'cond' => [
-                'attr' => $attr,
-                'op' => 'eq',
-                'value' => $value,
-                'not' => TRUE,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($filter, 'json'));
-        $this->assertEquals($filter, $this->serializer->deserialize($json, EntrySearchFilterInfo::class, 'json'));
     }
 }

@@ -10,10 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\GetSessionsSortBy;
-use Zimbra\Enum\SessionType;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\{GetSessionsSortBy, SessionType};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetSessionsRequest class
@@ -24,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetSessionsRequest")
  */
 class GetSessionsRequest extends Request
 {
@@ -33,19 +30,19 @@ class GetSessionsRequest extends Request
      * Type - valid values soap|imap|admin
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\SessionType")
+     * @Type("Zimbra\Common\Enum\SessionType")
      * @XmlAttribute
      */
-    private $type;
+    private SessionType $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Enum\GetSessionsSortBy")
+     * @Type("Zimbra\Common\Enum\GetSessionsSortBy")
      * @XmlAttribute
      */
-    private $sortBy;
+    private ?GetSessionsSortBy $sortBy = NULL;
 
     /**
      * Offset - the starting offset (0, 25, etc)
@@ -221,14 +218,12 @@ class GetSessionsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetSessionsEnvelope)) {
-            $this->envelope = new GetSessionsEnvelope(
-                new GetSessionsBody($this)
-            );
-        }
+        return new GetSessionsEnvelope(
+            new GetSessionsBody($this)
+        );
     }
 }

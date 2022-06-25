@@ -71,33 +71,5 @@ class CheckDirectoryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckDirectoryEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckDirectoryRequest' => [
-                    'directory' => [
-                        [
-                            'path' => $path,
-                            'create' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckDirectoryResponse' => [
-                    'directory' => [
-                        [
-                            'path' => $path,
-                            'exists' => TRUE,
-                            'isDirectory' => TRUE,
-                            'readable' => TRUE,
-                            'writable' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckDirectoryEnvelope::class, 'json'));
     }
 }

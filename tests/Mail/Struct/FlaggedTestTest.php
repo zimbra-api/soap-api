@@ -26,7 +26,7 @@ class FlaggedTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<flaggedTest index="$index" negative="true" flagName="$flag" />
+<result index="$index" negative="true" flagName="$flag" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, FlaggedTest::class, 'xml'));

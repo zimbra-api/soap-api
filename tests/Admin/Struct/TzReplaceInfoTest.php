@@ -4,8 +4,8 @@ namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Admin\Struct\TzReplaceInfo;
-use Zimbra\Struct\TzOnsetInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\TzOnsetInfo;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -42,42 +42,15 @@ class TzReplaceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<replace>
+<result>
     <wellKnownTz id="$id" />
     <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
         <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
         <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
     </tz>
-</replace>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
         $this->assertEquals($replace, $this->serializer->deserialize($xml, TzReplaceInfo::class, 'xml'));
-
-        $json = json_encode([
-            'wellKnownTz' => [
-                'id' => $id,
-            ],
-            'tz' => [
-                'id' => $id,
-                'stdoff' => $stdoff,
-                'dayoff' => $dayoff,
-                'stdname' => $stdname,
-                'dayname' => $dayname,
-                'standard' => [
-                    'mon' => $mon,
-                    'hour' => $hour,
-                    'min' => $min,
-                    'sec' => $sec,
-                ],
-                'daylight' => [
-                    'mon' => $mon,
-                    'hour' => $hour,
-                    'min' => $min,
-                    'sec' => $sec,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($replace, 'json'));
-        $this->assertEquals($replace, $this->serializer->deserialize($json, TzReplaceInfo::class, 'json'));
     }
 }

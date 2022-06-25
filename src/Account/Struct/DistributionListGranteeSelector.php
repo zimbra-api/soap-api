@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\DistributionListGranteeBy as GranteeBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\DistributionListGranteeBy as GranteeBy;
 
 /**
  * DistributionListGranteeSelector struct class
@@ -22,26 +22,24 @@ use Zimbra\Enum\DistributionListGranteeBy as GranteeBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="grantee")
  */
 class DistributionListGranteeSelector
 {
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GranteeType")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $type;
+    private GranteeType $type;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\DistributionListGranteeBy")
+     * @Type("Zimbra\Common\Enum\DistributionListGranteeBy")
      * @XmlAttribute
      */
-    private $by;
+    private GranteeBy $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

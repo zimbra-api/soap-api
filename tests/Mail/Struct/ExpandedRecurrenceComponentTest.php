@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\Frequency;
+use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\DurationInfo;
 use Zimbra\Mail\Struct\ExpandedRecurrenceComponent;
@@ -55,13 +55,13 @@ class ExpandedRecurrenceComponentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<exp s="$startTime" e="$endTime">
+<result s="$startTime" e="$endTime">
     <exceptId range="$range" d="$dateTime" tz="$timezone" />
     <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
     <recur>
         <rule freq="HOU"/>
     </recur>
-</exp>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exp, 'xml'));
         $this->assertEquals($exp, $this->serializer->deserialize($xml, ExpandedRecurrenceComponent::class, 'xml'));

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -30,17 +30,9 @@ class DistributionListSubscribeReqTest extends ZimbraTestCase
         $op = DLSubscribeOp::SUBSCRIBE()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<subsReq op="$op" bccOwners="true">$value</subsReq>
+<result op="$op" bccOwners="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($subsReq, 'xml'));
         $this->assertEquals($subsReq, $this->serializer->deserialize($xml, DistributionListSubscribeReq::class, 'xml'));
-
-        $json = json_encode([
-            'op' => $op,
-            '_content' => $value,
-            'bccOwners' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($subsReq, 'json'));
-        $this->assertEquals($subsReq, $this->serializer->deserialize($json, DistributionListSubscribeReq::class, 'json'));
     }
 }

@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{DomainSelector, PrincipalSelector};
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoProvAccountRequest class
@@ -23,8 +23,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AutoProvAccountRequest")
  */
 class AutoProvAccountRequest extends Request
 {
@@ -35,7 +33,7 @@ class AutoProvAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * The principal
@@ -44,7 +42,7 @@ class AutoProvAccountRequest extends Request
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
      * @XmlElement
      */
-    private $principal;
+    private PrincipalSelector $principal;
 
     /**
      * Password
@@ -145,14 +143,12 @@ class AutoProvAccountRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof AutoProvAccountEnvelope)) {
-            $this->envelope = new AutoProvAccountEnvelope(
-                new AutoProvAccountBody($this)
-            );
-        }
+        return new AutoProvAccountEnvelope(
+            new AutoProvAccountBody($this)
+        );
     }
 }

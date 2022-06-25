@@ -7,8 +7,8 @@ use Zimbra\Account\Message\GrantRightsEnvelope;
 use Zimbra\Account\Message\GrantRightsRequest;
 use Zimbra\Account\Message\GrantRightsResponse;
 use Zimbra\Account\Struct\AccountACEInfo;
-use Zimbra\Enum\AceRightType;
-use Zimbra\Enum\GranteeType;
+use Zimbra\Common\Enum\AceRightType;
+use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -24,7 +24,7 @@ class GrantRightsTest extends ZimbraTestCase
         $password = $this->faker->sha256;
 
         $ace = new AccountACEInfo(
-            GranteeType::USR(), AceRightType::INVITE(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
+            GranteeType::USR(), AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
         );
 
         $request = new GrantRightsRequest([$ace]);
@@ -73,42 +73,5 @@ class GrantRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GrantRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GrantRightsRequest' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GrantRightsResponse' => [
-                    'ace' => [
-                        [
-                            'gt' => 'usr',
-                            'right' => 'invite',
-                            'zid' => $zimbraId,
-                            'd' => $displayName,
-                            'key' => $accessKey,
-                            'pw' => $password,
-                            'deny' => TRUE,
-                            'chkgt' => TRUE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GrantRightsEnvelope::class, 'json'));
     }
 }

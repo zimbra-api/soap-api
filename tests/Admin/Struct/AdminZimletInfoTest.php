@@ -12,7 +12,7 @@ use Zimbra\Admin\Struct\AdminZimletConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletProperty;
-use Zimbra\Enum\ZimletPresence;
+use Zimbra\Common\Enum\ZimletPresence;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -78,7 +78,7 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zimlet>
+<result>
     <zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
     <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
         <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
@@ -93,63 +93,9 @@ class AdminZimletInfoTest extends ZimbraTestCase
             <property name="$name">$value</property>
         </host>
     </zimletConfig>
-</zimlet>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletInfo::class, 'xml'));
-
-        $json = json_encode([
-            'zimletContext' => [
-                'baseUrl' => $baseUrl,
-                'priority' => $priority,
-                'presence' => $presence,
-            ],
-            'zimlet' => [
-                'name' => $name,
-                'version' => $version,
-                'description' => $description,
-                'extension' => $extension,
-                'target' => $target,
-                'label' => $label,
-                'serverExtension' => [
-                    'hasKeyword' => $hasKeyword,
-                    'extensionClass' => $extensionClass,
-                    'regex' => $regex,
-                ],
-                'include' => [
-                    '_content' => $value,
-                ],
-                'includeCSS' => [
-                    '_content' => $value,
-                ],
-            ],
-            'zimletConfig' => [
-                'name' => $name,
-                'version' => $version,
-                'description' => $description,
-                'extension' => $extension,
-                'target' => $target,
-                'label' => $label,
-                'global' => [
-                    'property' => [
-                        [
-                            'name' => $name,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-                'host' => [
-                    'name' => $name,
-                    'property' => [
-                        [
-                            'name' => $name,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, AdminZimletInfo::class, 'json'));
     }
 }

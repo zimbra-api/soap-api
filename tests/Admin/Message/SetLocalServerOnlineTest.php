@@ -44,18 +44,5 @@ class SetLocalServerOnlineTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SetLocalServerOnlineEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SetLocalServerOnlineRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SetLocalServerOnlineResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SetLocalServerOnlineEnvelope::class, 'json'));
     }
 }

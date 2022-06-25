@@ -95,48 +95,5 @@ class CheckGalConfigTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckGalConfigEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckGalConfigRequest' => [
-                    'query' => [
-                        'limit' => $limit,
-                        '_content' => $value,
-                    ],
-                    'action' => [
-                        '_content' => $action,
-                    ],
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckGalConfigResponse' => [
-                    'code' => [
-                        '_content' => $code,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    'cn' => [
-                        [
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                            'id' => $id,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckGalConfigEnvelope::class, 'json'));
     }
 }

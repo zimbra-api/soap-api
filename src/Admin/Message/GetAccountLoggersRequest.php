@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\AccountSelector;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\AccountSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAccountLoggersRequest class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountLoggersRequest")
  */
 class GetAccountLoggersRequest extends Request
 {
@@ -42,10 +40,10 @@ class GetAccountLoggersRequest extends Request
      * Use to select account
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
-     * @Type("Zimbra\Struct\AccountSelector")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement
      */
-    private $account;
+    private ?AccountSelector $account = NULL;
 
     /**
      * Constructor method for GetAccountLoggersRequest
@@ -111,14 +109,12 @@ class GetAccountLoggersRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAccountLoggersEnvelope)) {
-            $this->envelope = new GetAccountLoggersEnvelope(
-                new GetAccountLoggersBody($this)
-            );
-        }
+        return new GetAccountLoggersEnvelope(
+            new GetAccountLoggersBody($this)
+        );
     }
 }

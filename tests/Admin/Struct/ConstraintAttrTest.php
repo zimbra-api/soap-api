@@ -32,7 +32,7 @@ class ConstraintAttrTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<a name="$name">
+<result name="$name">
     <constraint>
         <min>$min</min>
         <max>$max</max>
@@ -40,30 +40,9 @@ class ConstraintAttrTest extends ZimbraTestCase
             <v>$value</v>
         </values>
     </constraint>
-</a>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, ConstraintAttr::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'constraint' => [
-                'min' => [
-                    '_content' => $min,
-                ],
-                'max' => [
-                    '_content' => $max,
-                ],
-                'values' => [
-                    'v' => [
-                        [
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, ConstraintAttr::class, 'json'));
     }
 }

@@ -7,7 +7,7 @@ use Zimbra\Account\Message\AutoCompleteGalBody;
 use Zimbra\Account\Message\AutoCompleteGalRequest;
 use Zimbra\Account\Message\AutoCompleteGalResponse;
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Enum\GalSearchType;
+use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for AutoCompleteGal.
@@ -98,31 +98,5 @@ class AutoCompleteGalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoCompleteGalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AutoCompleteGalRequest' => [
-                    'name' => $name,
-                    'type' => 'account',
-                    'needExp' => TRUE,
-                    'galAcctId' => $galAccountId,
-                    'limit' => $limit,
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'AutoCompleteGalResponse' => [
-                    'more' => TRUE,
-                    'tokenizeKey' => FALSE,
-                    'paginationSupported' => TRUE,
-                    'cn' => [
-                        [
-                            'email' => $email,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AutoCompleteGalEnvelope::class, 'json'));
     }
 }

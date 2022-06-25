@@ -33,11 +33,11 @@ use Zimbra\Mail\Struct\CommunityRequestsTest;
 use Zimbra\Mail\Struct\CommunityContentTest;
 use Zimbra\Mail\Struct\CommunityConnectionsTest;
 use Zimbra\Mail\Struct\FilterTests;
-use Zimbra\Enum\FilterCondition;
-use Zimbra\Enum\Importance;
-use Zimbra\Enum\DateComparison;
-use Zimbra\Enum\NumberComparison;
-use Zimbra\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use Zimbra\Common\Enum\FilterCondition;
+use Zimbra\Common\Enum\Importance;
+use Zimbra\Common\Enum\DateComparison;
+use Zimbra\Common\Enum\NumberComparison;
+use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -277,7 +277,7 @@ class FilterTestsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<filterTests condition="allof">
+<result condition="allof">
     <addressBookTest index="$index" negative="true" header="$header"/>
     <addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
     <envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
@@ -308,7 +308,7 @@ class FilterTestsTest extends ZimbraTestCase
     <communityRequestsTest index="$index" negative="true"/>
     <communityContentTest index="$index" negative="true"/>
     <communityConnectionsTest index="$index" negative="true"/>
-</filterTests>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tests, 'xml'));
         $this->assertEquals($tests, $this->serializer->deserialize($xml, FilterTests::class, 'xml'));

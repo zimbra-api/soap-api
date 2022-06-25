@@ -31,7 +31,7 @@ class BrowseDataTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<bd h="$browseDomainHeader" freq="$frequency">$data</bd>
+<result h="$browseDomainHeader" freq="$frequency">$data</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($bd, 'xml'));
         $this->assertEquals($bd, $this->serializer->deserialize($xml, BrowseData::class, 'xml'));

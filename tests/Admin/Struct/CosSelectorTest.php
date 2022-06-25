@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CosSelector;
-use Zimbra\Enum\CosBy;
+use Zimbra\Common\Enum\CosBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,16 +27,9 @@ class CosSelectorTest extends ZimbraTestCase
         $by = CosBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cos by="$by">$value</cos>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, CosSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));
-        $this->assertEquals($cos, $this->serializer->deserialize($json, CosSelector::class, 'json'));
     }
 }

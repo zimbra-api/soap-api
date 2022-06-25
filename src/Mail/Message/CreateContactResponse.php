@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\ContactInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CreateContactResponse")
  */
 class CreateContactResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class CreateContactResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement
      */
-    private $contact;
+    private ?ContactInfo $contact = NULL;
 
     /**
      * Constructor method for CreateContactResponse

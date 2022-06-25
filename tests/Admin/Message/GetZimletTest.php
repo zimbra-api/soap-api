@@ -6,7 +6,7 @@ use Zimbra\Admin\Message\{GetZimletBody, GetZimletEnvelope, GetZimletRequest, Ge
 
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -82,33 +82,5 @@ class GetZimletTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetZimletEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetZimletRequest' => [
-                    'attrs' => $attrs,
-                    'zimlet' => [
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetZimletResponse' => [
-                    'zimlet' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'hasKeyword' => $hasKeyword,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetZimletEnvelope::class, 'json'));
     }
 }

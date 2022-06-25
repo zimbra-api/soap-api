@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Struct\ImapDataSource;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Struct\ImapDataSource;
 
 /**
  * MailImapDataSource struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\ImapDataSource;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="imap")
  */
 class MailImapDataSource extends MailDataSource implements ImapDataSource
 {

@@ -28,9 +28,9 @@ class CreateItemNotificationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<created>
+<result>
     <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-</created>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($created, 'xml'));
         $this->assertEquals($created, $this->serializer->deserialize($xml, CreateItemNotification::class, 'xml'));

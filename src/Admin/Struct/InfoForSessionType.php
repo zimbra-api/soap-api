@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * InfoForSessionType struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="infoSession")
  */
 class InfoForSessionType
 {
@@ -51,7 +49,7 @@ class InfoForSessionType
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
      * @XmlList(inline = true, entry = "zid")
      */
-    private $accounts;
+    private $accounts = [];
 
     /**
      * If the request selected "listSessions" but NOT "groupByAccount" then
@@ -61,7 +59,7 @@ class InfoForSessionType
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline = true, entry = "s")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for InfoForSessionType
@@ -72,7 +70,9 @@ class InfoForSessionType
      * @param  array  $sessions
      * @return self
      */
-    public function __construct(int $activeSessions, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = [])
+    public function __construct(
+        int $activeSessions, ?int $activeAccounts = NULL, array $accounts = [], array $sessions = []
+    )
     {
         $this->setActiveSessions($activeSessions)
              ->setAccounts($accounts)
@@ -146,12 +146,7 @@ class InfoForSessionType
      */
     public function setAccounts(array $accounts): self
     {
-        $this->accounts = [];
-        foreach ($accounts as $account) {
-            if ($account instanceof AccountSessionInfo) {
-                $this->accounts[] = $account;
-            }
-        }
+        $this->accounts = array_filter($accounts, static fn ($account) => $account instanceof AccountSessionInfo);
         return $this;
     }
 
@@ -185,12 +180,7 @@ class InfoForSessionType
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SessionInfo) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionInfo);
         return $this;
     }
 

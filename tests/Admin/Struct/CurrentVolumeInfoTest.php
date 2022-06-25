@@ -27,16 +27,9 @@ class CurrentVolumeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<volume type="$type" id="$id" />
+<result type="$type" id="$id" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
         $this->assertEquals($volume, $this->serializer->deserialize($xml, CurrentVolumeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volume, 'json'));
-        $this->assertEquals($volume, $this->serializer->deserialize($json, CurrentVolumeInfo::class, 'json'));
     }
 }

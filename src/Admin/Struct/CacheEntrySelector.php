@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot, XmlValue};
-use Zimbra\Enum\CacheEntryBy;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\CacheEntryBy;
 
 /**
  * CacheEntrySelector struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\CacheEntryBy;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="entry")
  */
 class CacheEntrySelector
 {
@@ -30,10 +28,10 @@ class CacheEntrySelector
      * Select the meaning of {cache-entry-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Enum\CacheEntryBy")
+     * @Type("Zimbra\Common\Enum\CacheEntryBy")
      * @XmlAttribute
      */
-    private $by;
+    private CacheEntryBy $by;
 
     /**
      * The key used to identify the cache entry

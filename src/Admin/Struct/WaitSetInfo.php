@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Struct\IdAndType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Struct\IdAndType;
 
 /**
  * WaitSetInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Struct\IdAndType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="waitSet")
  */
 class WaitSetInfo
 {
@@ -67,10 +65,10 @@ class WaitSetInfo
      * Error information
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
-     * @Type("array<Zimbra\Struct\IdAndType>")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline = false, entry = "error")
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Comma separated list of account IDs
@@ -79,7 +77,7 @@ class WaitSetInfo
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
      * @XmlElement
      */
-    private $signalledAccounts;
+    private ?AccountsAttrib $signalledAccounts = NULL;
 
     /**
      * CB sequence number
@@ -115,7 +113,7 @@ class WaitSetInfo
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
      * @XmlList(inline = false, entry = "commit")
      */
-    private $bufferedCommits;
+    private $bufferedCommits = [];
 
     /**
      * Session information
@@ -124,7 +122,7 @@ class WaitSetInfo
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
      * @XmlList(inline = true, entry = "session")
      */
-    private $sessions;
+    private $sessions = [];
 
     /**
      * Constructor method for WaitSetInfo
@@ -371,12 +369,7 @@ class WaitSetInfo
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = [];
-        foreach ($errors as $error) {
-            if ($error instanceof IdAndType) {
-                $this->errors[] = $error;
-            }
-        }
+        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
         return $this;
     }
 
@@ -405,17 +398,12 @@ class WaitSetInfo
     /**
      * Sets buffered commit information
      *
-     * @param  array $bufferedCommits
+     * @param  array $commits
      * @return self
      */
-    public function setBufferedCommits(array $bufferedCommits): self
+    public function setBufferedCommits(array $commits): self
     {
-        $this->bufferedCommits = [];
-        foreach ($bufferedCommits as $commit) {
-            if ($commit instanceof BufferedCommitInfo) {
-                $this->bufferedCommits[] = $commit;
-            }
-        }
+        $this->bufferedCommits = array_filter($commits, static fn ($commit) => $commit instanceof BufferedCommitInfo);
         return $this;
     }
 
@@ -449,12 +437,7 @@ class WaitSetInfo
      */
     public function setSessions(array $sessions): self
     {
-        $this->sessions = [];
-        foreach ($sessions as $session) {
-            if ($session instanceof SessionForWaitSet) {
-                $this->sessions[] = $session;
-            }
-        }
+        $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionForWaitSet);
         return $this;
     }
 

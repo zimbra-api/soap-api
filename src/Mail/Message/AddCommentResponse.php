@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Struct\Id;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AddCommentResponse")
  */
 class AddCommentResponse implements ResponseInterface
 {
@@ -31,10 +29,10 @@ class AddCommentResponse implements ResponseInterface
      * Item ID for the comment
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
-     * @Type("Zimbra\Struct\Id")
+     * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement
      */
-    private $comment;
+    private Id $comment;
 
     /**
      * Constructor method for AddCommentResponse

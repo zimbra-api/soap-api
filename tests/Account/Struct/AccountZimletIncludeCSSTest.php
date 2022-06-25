@@ -22,15 +22,9 @@ class AccountZimletIncludeCSSTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<includeCSS>$value</includeCSS>
+<result>$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($includeCSS, 'xml'));
         $this->assertEquals($includeCSS, $this->serializer->deserialize($xml, AccountZimletIncludeCSS::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($includeCSS, 'json'));
-        $this->assertEquals($includeCSS, $this->serializer->deserialize($json, AccountZimletIncludeCSS::class, 'json'));
     }
 }

@@ -10,11 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchAutoProvDirectoryRequest class
@@ -27,8 +26,6 @@ use Zimbra\Struct\AttributeSelectorTrait;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchAutoProvDirectoryRequest")
  */
 class SearchAutoProvDirectoryRequest extends Request implements AttributeSelector
 {
@@ -109,7 +106,7 @@ class SearchAutoProvDirectoryRequest extends Request implements AttributeSelecto
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement
      */
-    private $domain;
+    private DomainSelector $domain;
 
     /**
      * Constructor method for SearchAutoProvDirectoryRequest
@@ -341,14 +338,12 @@ class SearchAutoProvDirectoryRequest extends Request implements AttributeSelecto
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchAutoProvDirectoryEnvelope)) {
-            $this->envelope = new SearchAutoProvDirectoryEnvelope(
-                new SearchAutoProvDirectoryBody($this)
-            );
-        }
+        return new SearchAutoProvDirectoryEnvelope(
+            new SearchAutoProvDirectoryBody($this)
+        );
     }
 }

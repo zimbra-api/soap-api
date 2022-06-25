@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\MemberOfSelector;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\MemberOfSelector;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAccountDistributionListsRequest class
@@ -26,8 +26,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAccountDistributionListsRequest")
  */
 class GetAccountDistributionListsRequest extends Request
 {
@@ -45,10 +43,10 @@ class GetAccountDistributionListsRequest extends Request
      * Possible values: all|directOnly|none
      * @Accessor(getter="getMemberOf", setter="setMemberOf")
      * @SerializedName("memberOf")
-     * @Type("Zimbra\Enum\MemberOfSelector")
+     * @Type("Zimbra\Common\Enum\MemberOfSelector")
      * @XmlAttribute
      */
-    private $memberOf;
+    private ?MemberOfSelector $memberOf = NULL;
 
     /**
      * comma-seperated attributes to return.
@@ -155,14 +153,12 @@ class GetAccountDistributionListsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAccountDistributionListsEnvelope)) {
-            $this->envelope = new GetAccountDistributionListsEnvelope(
-                new GetAccountDistributionListsBody($this)
-            );
-        }
+        return new GetAccountDistributionListsEnvelope(
+            new GetAccountDistributionListsBody($this)
+        );
     }
 }

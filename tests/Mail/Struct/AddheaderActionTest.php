@@ -31,10 +31,10 @@ class AddheaderActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<actionAddheader index="$index" last="true">
+<result index="$index" last="true">
     <headerName>$headerName</headerName>
     <headerValue>$headerValue</headerValue>
-</actionAddheader>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, AddheaderAction::class, 'xml'));

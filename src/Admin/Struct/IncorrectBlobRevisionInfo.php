@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * IncorrectBlobRevisionInfo class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="item")
  */
 class IncorrectBlobRevisionInfo
 {
@@ -68,7 +66,7 @@ class IncorrectBlobRevisionInfo
      * @Type("Zimbra\Admin\Struct\BlobRevisionInfo")
      * @XmlElement
      */
-    private $blob;
+    private BlobRevisionInfo $blob;
 
     /**
      * Constructor method for IncorrectBlobRevisionInfo

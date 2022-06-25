@@ -11,8 +11,8 @@ use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Account\Struct\Session;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for Auth.
@@ -261,133 +261,5 @@ class AuthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AuthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AuthRequest' => [
-                    'persistAuthTokenCookie' => TRUE,
-                    'csrfTokenSecured' => TRUE,
-                    'account' => [
-                        'by' => $by,
-                        '_content' => $value,
-                    ],
-                    'password' => [
-                        '_content' => $password,
-                    ],
-                    'recoveryCode' => [
-                        '_content' => $recoveryCode,
-                    ],
-                    'preauth' => [
-                        '_content' => $value,
-                        'timestamp' => $time,
-                        'expiresTimestamp' => $time,
-                    ],
-                    'authToken' => [
-                        '_content' => $value,
-                        'verifyAccount' => TRUE,
-                        'lifetime' => $lifetime,
-                    ],
-                    'jwtToken' => [
-                        '_content' => $jwtToken,
-                    ],
-                    'virtualHost' => [
-                        '_content' => $virtualHost,
-                    ],
-                    'prefs' => [
-                        'pref' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'modified' => $time,
-                            ],
-                        ],
-                    ],
-                    'attrs' => [
-                        'attr' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    'requestedSkin' => [
-                        '_content' => $requestedSkin,
-                    ],
-                    'twoFactorCode' => [
-                        '_content' => $twoFactorCode,
-                    ],
-                    'deviceTrusted' => TRUE,
-                    'trustedToken' => [
-                        '_content' => $trustedToken,
-                    ],
-                    'deviceId' => [
-                        '_content' => $deviceId,
-                    ],
-                    'generateDeviceId' => TRUE,
-                    'tokenType' => $tokenType,
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'AuthResponse' => [
-                    'authToken' => [
-                        '_content' => $token,
-                    ],
-                    'lifetime' => [
-                        '_content' => $lifetime,
-                    ],
-                    'trustLifetime' => [
-                        '_content' => $trustLifetime,
-                    ],
-                    'session' => [
-                        'type' => $type,
-                        'id' => $id,
-                        '_content' => $id,
-                    ],
-                    'refer' => [
-                        '_content' => $refer,
-                    ],
-                    'skin' => [
-                        '_content' => $skin,
-                    ],
-                    'csrfToken' => [
-                        '_content' => $csrfToken,
-                    ],
-                    'deviceId' => [
-                        '_content' => $deviceId,
-                    ],
-                    'trustedToken' => [
-                        '_content' => $trustedToken,
-                    ],
-                    'zmgProxy' => TRUE,
-                    'prefs' => [
-                        'pref' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'modified' => $time,
-                            ],
-                        ],
-                    ],
-                    'attrs' => [
-                        'attr' => [
-                            [
-                                'name' => $name,
-                                '_content' => $value,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    'twoFactorAuthRequired' => [
-                        '_content' => TRUE,
-                    ],
-                    'trustedDevicesEnabled' => [
-                        '_content' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AuthEnvelope::class, 'json'));
     }
 }

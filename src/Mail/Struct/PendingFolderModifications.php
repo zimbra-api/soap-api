@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * PendingFolderModifications struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mods")
  */
 class PendingFolderModifications
 {
@@ -41,7 +39,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\CreateItemNotification>")
      * @XmlList(inline = true, entry = "created")
      */
-    private $created;
+    private $created = [];
 
     /**
      * list of deleted items
@@ -50,7 +48,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")
      * @XmlList(inline = true, entry = "deleted")
      */
-    private $deleted;
+    private $deleted = [];
 
     /**
      * list of modified messages
@@ -59,7 +57,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")
      * @XmlList(inline = true, entry = "modMsgs")
      */
-    private $modifiedMsgs;
+    private $modifiedMsgs = [];
 
     /**
      * list of modified tags
@@ -68,7 +66,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")
      * @XmlList(inline = true, entry = "modTags")
      */
-    private $modifiedTags;
+    private $modifiedTags = [];
 
     /**
      * list of renamed folders
@@ -77,7 +75,7 @@ class PendingFolderModifications
      * @Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")
      * @XmlList(inline = true, entry = "modFolders")
      */
-    private $modifiedFolders;
+    private $modifiedFolders = [];
 
     /**
      * Constructor method for PendingFolderModifications
@@ -148,12 +146,7 @@ class PendingFolderModifications
      */
     public function setCreated(array $created): self
     {
-        $this->created = [];
-        foreach ($created as $item) {
-            if ($item instanceof CreateItemNotification) {
-                $this->created[] = $item;
-            }
-        }
+        $this->created = array_filter($created, static fn ($item) => $item instanceof CreateItemNotification);
         return $this;
     }
 
@@ -187,12 +180,7 @@ class PendingFolderModifications
      */
     public function setDeleted(array $deleted): self
     {
-        $this->deleted = [];
-        foreach ($deleted as $item) {
-            if ($item instanceof DeleteItemNotification) {
-                $this->deleted[] = $item;
-            }
-        }
+        $this->deleted = array_filter($deleted, static fn ($item) => $item instanceof DeleteItemNotification);
         return $this;
     }
 
@@ -221,17 +209,12 @@ class PendingFolderModifications
     /**
      * Sets modified messages
      *
-     * @param array $modifiedMsgs
+     * @param array $msgs
      * @return self
      */
-    public function setModifiedMsgs(array $modifiedMsgs): self
+    public function setModifiedMsgs(array $msgs): self
     {
-        $this->modifiedMsgs = [];
-        foreach ($modifiedMsgs as $item) {
-            if ($item instanceof ModifyItemNotification) {
-                $this->modifiedMsgs[] = $item;
-            }
-        }
+        $this->modifiedMsgs = array_filter($msgs, static fn ($msg) => $msg instanceof ModifyItemNotification);
         return $this;
     }
 
@@ -260,17 +243,12 @@ class PendingFolderModifications
     /**
      * Sets modified tags
      *
-     * @param array $modifiedTags
+     * @param array $tags
      * @return self
      */
-    public function setModifiedTags(array $modifiedTags): self
+    public function setModifiedTags(array $tags): self
     {
-        $this->modifiedTags = [];
-        foreach ($modifiedTags as $item) {
-            if ($item instanceof ModifyTagNotification) {
-                $this->modifiedTags[] = $item;
-            }
-        }
+        $this->modifiedTags = array_filter($tags, static fn ($tag) => $tag instanceof ModifyTagNotification);
         return $this;
     }
 
@@ -302,14 +280,9 @@ class PendingFolderModifications
      * @param array $modifiedFolders
      * @return self
      */
-    public function setRenamedFolders(array $modifiedFolders): self
+    public function setRenamedFolders(array $folders): self
     {
-        $this->modifiedFolders = [];
-        foreach ($modifiedFolders as $item) {
-            if ($item instanceof RenameFolderNotification) {
-                $this->modifiedFolders[] = $item;
-            }
-        }
+        $this->modifiedFolders = array_filter($folders, static fn ($folder) => $folder instanceof RenameFolderNotification);
         return $this;
     }
 

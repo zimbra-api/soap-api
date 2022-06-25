@@ -36,18 +36,9 @@ class UnexpectedBlobInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
+<result volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blob, 'xml'));
         $this->assertEquals($blob, $this->serializer->deserialize($xml, UnexpectedBlobInfo::class, 'xml'));
-
-        $json = json_encode([
-            'volumeId' => $volumeId,
-            'path' => $path,
-            'fileSize' => $fileSize,
-            'external' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($blob, 'json'));
-        $this->assertEquals($blob, $this->serializer->deserialize($json, UnexpectedBlobInfo::class, 'json'));
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\FreeBusyStatus;
+use Zimbra\Common\Enum\FreeBusyStatus;
 
 use Zimbra\Mail\Message\CheckRecurConflictsEnvelope;
 use Zimbra\Mail\Message\CheckRecurConflictsBody;

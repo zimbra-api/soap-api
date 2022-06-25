@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
-use Zimbra\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueComparison};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use Zimbra\Common\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueComparison};
 
 /**
  * HeaderTest struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\{ComparisonComparator, CountComparison, StringComparison, ValueC
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="headerTest")
  */
 class HeaderTest extends FilterTest
 {
@@ -39,37 +37,37 @@ class HeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Enum\StringComparison")
+     * @Type("Zimbra\Common\Enum\StringComparison")
      * @XmlAttribute
      */
-    private $stringComparison;
+    private ?StringComparison $stringComparison = NULL;
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
-     * @Type("Zimbra\Enum\ValueComparison")
+     * @Type("Zimbra\Common\Enum\ValueComparison")
      * @XmlAttribute
      */
-    private $valueComparison;
+    private ?ValueComparison $valueComparison = NULL;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
-     * @Type("Zimbra\Enum\CountComparison")
+     * @Type("Zimbra\Common\Enum\CountComparison")
      * @XmlAttribute
      */
-    private $countComparison;
+    private ?CountComparison $countComparison = NULL;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
-     * @Type("Zimbra\Enum\ComparisonComparator")
+     * @Type("Zimbra\Common\Enum\ComparisonComparator")
      * @XmlAttribute
      */
-    private $valueComparisonComparator;
+    private ?ComparisonComparator $valueComparisonComparator = NULL;
 
     /**
      * Value

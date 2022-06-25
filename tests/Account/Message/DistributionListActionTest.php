@@ -4,19 +4,19 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{DistributionListActionEnvelope, DistributionListActionBody, DistributionListActionRequest, DistributionListActionResponse};
 
-use Zimbra\Enum\DistributionListBy as DLBy;
-use Zimbra\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Enum\DistributionListSubscribeOp as DLSubscribeOp;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\Operation;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\Operation;
 
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListAction;
 
-use Zimbra\Struct\KeyValuePair;
-use Zimbra\Struct\DistributionListSelector;
+use Zimbra\Common\Struct\KeyValuePair;
+use Zimbra\Common\Struct\DistributionListSelector;
 
 use Zimbra\Tests\ZimbraTestCase;
 /**
@@ -95,63 +95,5 @@ class DistributionListActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DistributionListActionEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DistributionListActionRequest' => [
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'action' => [
-                        'op' => 'modify',
-                        'newName' => [
-                            '_content' => $name,
-                        ],
-                        'subsReq' => [
-                            'op' => 'subscribe',
-                            '_content' => $value,
-                            'bccOwners' => TRUE,
-                        ],
-                        'dlm' => [
-                            [
-                                '_content' => $member,
-                            ],
-                        ],
-                        'owner' => [
-                            [
-                                'type' => 'usr',
-                                'by' => 'name',
-                                '_content' => $value,
-                            ],
-                        ],
-                        'right' => [
-                            [
-                                'right' => $name,
-                                'grantee' => [
-                                    [
-                                        'type' => 'usr',
-                                        'by' => 'name',
-                                        '_content' => $value,
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'a' => [
-                            [
-                                'n' => $name,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'DistributionListActionResponse' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DistributionListActionEnvelope::class, 'json'));
     }
 }

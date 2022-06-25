@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\ReindexType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ReindexType;
 
 /**
  * ReindexMailboxInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\ReindexType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mbox")
  */
 class ReindexMailboxInfo
 {
@@ -111,15 +109,9 @@ class ReindexMailboxInfo
      */
     public function setTypes(string $types): self
     {
-        $arrType = [];
-        $types = explode(',', $types);
-        foreach ($types as $type) {
-            $type = trim($type);
-            if (ReindexType::isValid($type) && !in_array($type, $arrType)) {
-                $arrType[] = $type;
-            }
-        }
-        $this->types = implode(',', $arrType);
+        $types = array_map(static fn ($type) => trim($type), explode(',', $types));
+        $types = array_filter($types, static fn ($type) => ReindexType::isValid($type));
+        $this->types = implode(',', array_unique($types));
         return $this;
     }
 

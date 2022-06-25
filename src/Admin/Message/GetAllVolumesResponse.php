@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\VolumeInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAllVolumesResponse")
  */
 class GetAllVolumesResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetAllVolumesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeInfo>")
      * @XmlList(inline = true, entry = "volume")
      */
-    private $volumes;
+    private $volumes = [];
 
     /**
      * Constructor method for GetAllVolumesResponse
@@ -68,12 +66,7 @@ class GetAllVolumesResponse implements ResponseInterface
      */
     public function setVolumes(array $volumes): self
     {
-        $this->volumes = [];
-        foreach ($volumes as $volume) {
-            if ($volume instanceof VolumeInfo) {
-                $this->volumes[] = $volume;
-            }
-        }
+        $this->volumes = array_filter($volumes, static fn ($volume) => $volume instanceof VolumeInfo);
         return $this;
     }
 

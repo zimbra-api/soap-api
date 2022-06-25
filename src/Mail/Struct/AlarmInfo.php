@@ -10,14 +10,16 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-use Zimbra\Enum\AlarmAction;
-use Zimbra\Struct\AlarmInfoInterface;
-use Zimbra\Struct\AlarmTriggerInfoInterface;
-use Zimbra\Struct\CalendarAttachInterface;
-use Zimbra\Struct\CalendarAttendeeInterface;
-use Zimbra\Struct\DurationInfoInterface;
-use Zimbra\Struct\XPropInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\AlarmAction;
+use Zimbra\Common\Struct\{
+    AlarmInfoInterface,
+    AlarmTriggerInfoInterface,
+    CalendarAttachInterface,
+    CalendarAttendeeInterface,
+    DurationInfoInterface,
+    XPropInterface
+};
 
 /**
  * AlarmInfo class
@@ -28,8 +30,6 @@ use Zimbra\Struct\XPropInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="alarm")
  */
 class AlarmInfo implements AlarmInfoInterface
 {
@@ -38,10 +38,10 @@ class AlarmInfo implements AlarmInfoInterface
      * Possible values: DISPLAY|AUDIO|EMAIL|PROCEDURE|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Enum\AlarmAction")
+     * @Type("Zimbra\Common\Enum\AlarmAction")
      * @XmlAttribute
      */
-    private $action;
+    private AlarmAction $action;
 
     /**
      * Alarm trigger information
@@ -50,7 +50,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement
      */
-    private $trigger;
+    private ?AlarmTriggerInfo $trigger = NULL;
 
     /**
      * Alarm repeat information
@@ -59,7 +59,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $repeat;
+    private ?DurationInfo $repeat = NULL;
 
     /**
      * Alarm description
@@ -80,7 +80,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement
      */
-    private $attach;
+    private ?CalendarAttach $attach = NULL;
 
     /**
      * Alarm summary
@@ -305,12 +305,7 @@ class AlarmInfo implements AlarmInfoInterface
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = [];
-        foreach ($attendees as $attendee) {
-            if ($attendee instanceof CalendarAttendeeInterface) {
-                $this->attendees[] = $attendee;
-            }
-        }
+        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface);
         return $this;
     }
 
@@ -344,12 +339,7 @@ class AlarmInfo implements AlarmInfoInterface
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = [];
-        foreach ($xProps as $xProp) {
-            if ($xProp instanceof XPropInterface) {
-                $this->xProps[] = $xProp;
-            }
-        }
+        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XPropInterface);
         return $this;
     }
 

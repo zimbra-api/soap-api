@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\AutoProvDirectoryEntry;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -33,33 +33,13 @@ class AutoProvDirectoryEntryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<entry dn="$dn">
+<result dn="$dn">
     <a n="$key">$value</a>
     <key>$key1</key>
     <key>$key2</key>
-</entry>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, AutoProvDirectoryEntry::class, 'xml'));
-
-        $json = json_encode([
-            'dn' => $dn,
-            'key' => [
-                [
-                    '_content' => $key1,
-                ],
-                [
-                    '_content' => $key2,
-                ],
-            ],
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));
-        $this->assertEquals($entry, $this->serializer->deserialize($json, AutoProvDirectoryEntry::class, 'json'));
     }
 }

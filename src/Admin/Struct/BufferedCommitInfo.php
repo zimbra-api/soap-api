@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\AuthScheme;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * BufferedCommitInfo struct class
@@ -21,8 +20,6 @@ use Zimbra\Enum\AuthScheme;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present scheme Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="commit")
  */
 class BufferedCommitInfo
 {

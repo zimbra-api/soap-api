@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Soap\Request;
-use Zimbra\Struct\NamedElement;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteZimletRequest class
@@ -23,8 +23,6 @@ use Zimbra\Struct\NamedElement;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="DeleteZimletRequest")
  */
 class DeleteZimletRequest extends Request
 {
@@ -32,10 +30,10 @@ class DeleteZimletRequest extends Request
      * Zimlet name
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
-     * @Type("Zimbra\Struct\NamedElement")
+     * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement
      */
-    private $zimlet;
+    private NamedElement $zimlet;
 
     /**
      * Constructor method for DeleteZimletRequest
@@ -73,14 +71,12 @@ class DeleteZimletRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof DeleteZimletEnvelope)) {
-            $this->envelope = new DeleteZimletEnvelope(
-                new DeleteZimletBody($this)
-            );
-        }
+        return new DeleteZimletEnvelope(
+            new DeleteZimletBody($this)
+        );
     }
 }

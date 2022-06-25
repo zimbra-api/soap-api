@@ -13,9 +13,9 @@ use Zimbra\Admin\Struct\PackageRightsInfo;
 use Zimbra\Admin\Struct\PackageSelector;
 use Zimbra\Admin\Struct\RightWithName;
 
-use Zimbra\Enum\RightType;
+use Zimbra\Common\Enum\RightType;
 
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -105,70 +105,5 @@ class GetRightsDocTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetRightsDocEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetRightsDocRequest' => [
-                    'package' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetRightsDocResponse' => [
-                    'package' => [
-                        [
-                            'name' => $name,
-                            'cmd' => [
-                                [
-                                    'name' => $name,
-                                    'rights' => [
-                                        'right' => [
-                                            [
-                                                'name' => $name,
-                                            ],
-                                        ],
-                                    ],
-                                    'desc' => [
-                                        'note' => [
-                                            [
-                                                '_content' => $note,
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    'notUsed' => [
-                        [
-                            '_content' => $notUsed,
-                        ],
-                    ],
-                    'domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template' => [
-                        'right' => [
-                            [
-                                'name' => $name,
-                                'type' => 'preset',
-                                'desc' => [
-                                    '_content' => $desc,
-                                ],
-                                'rights' => [
-                                    'r' => [
-                                        [
-                                            'n' => $name,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetRightsDocEnvelope::class, 'json'));
     }
 }

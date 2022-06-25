@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\WhiteListEntry;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetWhiteBlackListResponse")
  */
 class GetWhiteBlackListResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $whiteListEntries;
+    private $whiteListEntries = [];
 
     /**
      * Black list
@@ -45,7 +43,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "addr")
      */
-    private $blackListEntries;
+    private $blackListEntries = [];
 
     /**
      * Constructor method for GetWhiteBlackListResponse
@@ -65,14 +63,14 @@ class GetWhiteBlackListResponse implements ResponseInterface
     /**
      * Add whiteListEntry
      *
-     * @param  string $whiteListEntry
+     * @param  string $entry
      * @return self
      */
-    public function addWhiteListEntry(string $whiteListEntry): self
+    public function addWhiteListEntry(string $entry): self
     {
-        $whiteListEntry = trim($whiteListEntry);
-        if (!in_array($whiteListEntry, $this->whiteListEntries)) {
-            $this->whiteListEntries[] = $whiteListEntry;
+        $entry = trim($entry);
+        if (!in_array($entry, $this->whiteListEntries)) {
+            $this->whiteListEntries[] = $entry;
         }
         return $this;
     }
@@ -80,15 +78,12 @@ class GetWhiteBlackListResponse implements ResponseInterface
     /**
      * Sets whiteListEntries
      *
-     * @param  array $whiteListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setWhiteListEntries(array $whiteListEntries): self
+    public function setWhiteListEntries(array $entries): self
     {
-        $this->whiteListEntries = [];
-        foreach ($whiteListEntries as $whiteListEntry) {
-            $this->addWhiteListEntry($whiteListEntry);
-        }
+        $this->whiteListEntries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
         return $this;
     }
 
@@ -105,14 +100,14 @@ class GetWhiteBlackListResponse implements ResponseInterface
     /**
      * Add blackListEntry
      *
-     * @param  string $blackListEntry
+     * @param  string $entry
      * @return self
      */
-    public function addBlackListEntry(string $blackListEntry): self
+    public function addBlackListEntry(string $entry): self
     {
-        $blackListEntry = trim($blackListEntry);
-        if (!in_array($blackListEntry, $this->blackListEntries)) {
-            $this->blackListEntries[] = $blackListEntry;
+        $entry = trim($entry);
+        if (!in_array($entry, $this->blackListEntries)) {
+            $this->blackListEntries[] = $entry;
         }
         return $this;
     }
@@ -120,15 +115,12 @@ class GetWhiteBlackListResponse implements ResponseInterface
     /**
      * Sets blackListEntries
      *
-     * @param  array $blackListEntries
+     * @param  array $entries
      * @return self
      */
-    public function setBlackListEntries(array $blackListEntries): self
+    public function setBlackListEntries(array $entries): self
     {
-        $this->blackListEntries = [];
-        foreach ($blackListEntries as $blackListEntry) {
-            $this->addBlackListEntry($blackListEntry);
-        }
+        $this->blackListEntries = array_unique(array_map(static fn ($entry) => trim($entry), $entries));
         return $this;
     }
 

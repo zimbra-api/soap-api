@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RenameDistributionListResponse")
  */
 class RenameDistributionListResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class RenameDistributionListResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
      * @XmlElement
      */
-    private $dl;
+    private DistributionListInfo $dl;
 
     /**
      * Constructor method for RenameDistributionListResponse

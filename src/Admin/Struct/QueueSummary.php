@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * QueueSummary struct class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="qs")
  */
 class QueueSummary
 {
@@ -41,7 +39,7 @@ class QueueSummary
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
      * @XmlList(inline = true, entry = "qsi")
      */
-    private $items;
+    private $items = [];
 
     /**
      * Constructor method for QueueSummary
@@ -98,12 +96,7 @@ class QueueSummary
      */
     public function setItems(array $items): self
     {
-        $this->items = [];
-        foreach ($items as $qsi) {
-            if ($qsi instanceof QueueSummaryItem) {
-                $this->items[] = $qsi;
-            }
-        }
+        $this->items = array_filter($items, static fn ($qsi) => $qsi instanceof QueueSummaryItem);
         return $this;
     }
 

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -21,8 +21,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ModifyZimletPrefsResponse")
  */
 class ModifyZimletPrefsResponse implements ResponseInterface
 {
@@ -33,7 +31,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "zimlet")
      */
-    private $zimlets;
+    private $zimlets = [];
 
     /**
      * Constructor method for ModifyZimletPrefsResponse
@@ -64,10 +62,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
      */
     public function setZimlets(array $zimlets)
     {
-        $this->zimlets = [];
-        foreach ($zimlets as $zimlet) {
-            $this->addZimlet($zimlet);
-        }
+        $this->zimlets = array_unique(array_map(static fn ($zimlet) => trim($zimlet), $zimlets));
         return $this;
     }
 
@@ -80,7 +75,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
     public function addZimlet(string $zimlet)
     {
         $zimlet = trim($zimlet);
-        if (!in_array($zimlet, $this->zimlets)) {
+        if (!empty($zimlet) && !in_array($zimlet, $this->zimlets)) {
             $this->zimlets[] = $zimlet;
         }
         return $this;

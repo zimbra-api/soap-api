@@ -22,24 +22,11 @@ class ServerInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<server name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key">$value</a>
-</server>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
-        $this->assertEquals($server, $this->serializer->deserialize($json, ServerInfo::class, 'json'));
     }
 }

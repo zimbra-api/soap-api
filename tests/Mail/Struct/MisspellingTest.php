@@ -27,7 +27,7 @@ class MisspellingTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<missed word="$word" suggestions="$suggestions" />
+<result word="$word" suggestions="$suggestions" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($missed, 'xml'));
         $this->assertEquals($missed, $this->serializer->deserialize($xml, Misspelling::class, 'xml'));

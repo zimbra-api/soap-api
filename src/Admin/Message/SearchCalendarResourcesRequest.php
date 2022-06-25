@@ -10,11 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\EntrySearchFilterInfo;
-use Zimbra\Soap\Request;
-use Zimbra\Struct\AttributeSelector;
-use Zimbra\Struct\AttributeSelectorTrait;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchCalendarResourcesRequest class
@@ -25,8 +24,6 @@ use Zimbra\Struct\AttributeSelectorTrait;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SearchCalendarResourcesRequest")
  */
 class SearchCalendarResourcesRequest extends Request implements AttributeSelector
 {
@@ -94,7 +91,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
      * @XmlElement
      */
-    private $searchFilter;
+    private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
      * Constructor method for SearchCalendarResourcesRequest
@@ -303,14 +300,12 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof SearchCalendarResourcesEnvelope)) {
-            $this->envelope = new SearchCalendarResourcesEnvelope(
-                new SearchCalendarResourcesBody($this)
-            );
-        }
+        return new SearchCalendarResourcesEnvelope(
+            new SearchCalendarResourcesBody($this)
+        );
     }
 }

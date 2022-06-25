@@ -5,8 +5,8 @@ namespace Zimbra\Tests\Admin\Message;
 use Zimbra\Admin\Message\{GetAccountMembershipBody, GetAccountMembershipEnvelope, GetAccountMembershipRequest, GetAccountMembershipResponse};
 use Zimbra\Admin\Struct\DLInfo;
 use Zimbra\Admin\Struct\Attr;
-use Zimbra\Enum\AccountBy;
-use Zimbra\Struct\AccountSelector;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -76,36 +76,5 @@ class GetAccountMembershipTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAccountMembershipEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAccountMembershipRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAccountMembershipResponse' => [
-                    'dl' => [
-                        [
-                            'via' => $via,
-                            'name' => $name,
-                            'id' => $id,
-                            'dynamic' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAccountMembershipEnvelope::class, 'json'));
     }
 }

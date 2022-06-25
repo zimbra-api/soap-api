@@ -11,8 +11,8 @@ use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Enum\DomainBy;
-use Zimbra\Enum\ServerBy;
+use Zimbra\Common\Enum\DomainBy;
+use Zimbra\Common\Enum\ServerBy;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -86,39 +86,5 @@ class GetAllAccountsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllAccountsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllAccountsRequest' => [
-                    'server' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllAccountsResponse' => [
-                    'account' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'isExternal' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllAccountsEnvelope::class, 'json'));
     }
 }

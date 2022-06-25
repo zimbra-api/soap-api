@@ -10,9 +10,9 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -23,8 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SyncGalResponse")
  */
 class SyncGalResponse implements ResponseInterface
 {
@@ -90,16 +88,16 @@ class SyncGalResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline = true, entry = "cn")
      */
-    private $contacts;
+    private $contacts = [];
 
     /**
      * details of deleted entries
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @SerializedName("deleted")
-     * @Type("array<Zimbra\Struct\Id>")
+     * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline = true, entry = "deleted")
      */
-    private $deleted;
+    private $deleted = [];
 
     /**
      * Constructor method for SyncGalResponse
@@ -297,14 +295,7 @@ class SyncGalResponse implements ResponseInterface
      */
     public function setContacts(array $contacts): self
     {
-        if (!empty($contacts)) {
-            $this->contacts = [];
-            foreach ($contacts as $contact) {
-                if ($contact instanceof ContactInfo) {
-                    $this->contacts[] = $contact;
-                }
-            }
-        }
+        $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
         return $this;
     }
 
@@ -333,19 +324,12 @@ class SyncGalResponse implements ResponseInterface
     /**
      * Sets deleted
      *
-     * @param  array $deleted 
+     * @param  array $contacts 
      * @return self
      */
-    public function setDeleted(array $deleted): self
+    public function setDeleted(array $contacts): self
     {
-        if (!empty($deleted)) {
-            $this->deleted = [];
-            foreach ($deleted as $contact) {
-                if ($contact instanceof Id) {
-                    $this->deleted[] = $contact;
-                }
-            }
-        }
+        $this->deleted = array_filter($contacts, static fn ($contact) => $contact instanceof Id);
         return $this;
     }
 }

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\GranteeType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\GranteeType;
 
 /**
  * GranteeInfo struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\GranteeType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="grantee")
  */
 class GranteeInfo
 {
@@ -48,10 +46,10 @@ class GranteeInfo
      * Grantee type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\GranteeType")
+     * @Type("Zimbra\Common\Enum\GranteeType")
      * @XmlAttribute
      */
-    private $type;
+    private ?GranteeType $type = NULL;
 
     /**
      * Constructor method for GranteeInfo

@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\DistributionListSubscribeStatus as SubscribeStatus;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\DistributionListSubscribeStatus as SubscribeStatus;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="SubscribeDistributionListResponse")
  */
 class SubscribeDistributionListResponse implements ResponseInterface
 {
@@ -31,10 +29,10 @@ class SubscribeDistributionListResponse implements ResponseInterface
      * Status of subscription attempt
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\DistributionListSubscribeStatus")
+     * @Type("Zimbra\Common\Enum\DistributionListSubscribeStatus")
      * @XmlAttribute
      */
-    private $status;
+    private SubscribeStatus $status;
 
     /**
      * Constructor method for SubscribeDistributionListResponse

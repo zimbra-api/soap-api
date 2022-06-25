@@ -12,7 +12,7 @@ class AddressBookTestTest extends ZimbraTestCase
 {
     public function testAddressBookTest()
     {
-        $index = mt_rand(1, 99);
+        $index = $this->faker->randomNumber;
         $header = $this->faker->word;
 
         $test = new AddressBookTest(
@@ -26,7 +26,7 @@ class AddressBookTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<addressBookTest index="$index" negative="true" header="$header" />
+<result index="$index" negative="true" header="$header" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, AddressBookTest::class, 'xml'));

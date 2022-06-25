@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
-use Zimbra\Enum\TargetType;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Enum\TargetType;
 
 /**
  * DiscoverRightsTarget struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\TargetType;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="target")
  */
 class DiscoverRightsTarget
 {
@@ -30,10 +28,10 @@ class DiscoverRightsTarget
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Enum\TargetType")
+     * @Type("Zimbra\Common\Enum\TargetType")
      * @XmlAttribute
      */
-    private $type;
+    private TargetType $type;
 
     /**
      * Target ID
@@ -69,7 +67,7 @@ class DiscoverRightsTarget
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
      * @XmlList(inline = true, entry = "email")
      */
-    private $emails;
+    private $emails = [];
 
     /**
      * Constructor method for DiscoverRightsTarget
@@ -210,12 +208,7 @@ class DiscoverRightsTarget
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = [];
-        foreach ($emails as $email) {
-            if ($email instanceof DiscoverRightsEmail) {
-                $this->emails[] = $email;
-            }
-        }
+        $this->emails = array_filter($emails, static fn ($email) => $email instanceof DiscoverRightsEmail);
         return $this;
     }
 

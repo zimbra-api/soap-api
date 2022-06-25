@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\AccountQuotaInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetQuotaUsageResponse")
  */
 class GetQuotaUsageResponse implements ResponseInterface
 {
@@ -52,7 +50,7 @@ class GetQuotaUsageResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")
      * @XmlList(inline = true, entry = "account")
      */
-    private $accountQuotas;
+    private $accountQuotas = [];
 
     /**
      * Constructor method for GetQuotaUsageResponse
@@ -131,17 +129,12 @@ class GetQuotaUsageResponse implements ResponseInterface
     /**
      * Sets account quota information
      *
-     * @param array $accountQuotas
+     * @param array $quotas
      * @return self
      */
-    public function setAccountQuotas(array $accountQuotas): self
+    public function setAccountQuotas(array $quotas): self
     {
-        $this->accountQuotas = [];
-        foreach ($accountQuotas as $quota) {
-            if ($quota instanceof AccountQuotaInfo) {
-                $this->accountQuotas[] = $quota;
-            }
-        }
+        $this->accountQuotas = array_filter($quotas, static fn ($quota) => $quota instanceof AccountQuotaInfo);
         return $this;
     }
 

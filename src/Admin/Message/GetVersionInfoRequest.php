@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetVersionInfoRequest request class
@@ -22,21 +21,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="GetVersionInfoRequest")
  */
 class GetVersionInfoRequest extends Request
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetVersionInfoEnvelope)) {
-            $this->envelope = new GetVersionInfoEnvelope(
-                new GetVersionInfoBody($this)
-            );
-        }
+        return new GetVersionInfoEnvelope(
+            new GetVersionInfoBody($this)
+        );
     }
 }

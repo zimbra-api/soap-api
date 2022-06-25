@@ -2,9 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use JMS\Serializer\Annotation\XmlRoot;
 use Zimbra\Account\Struct\ObjectInfo;
-use Zimbra\Struct\KeyValuePair;
+use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -41,36 +40,16 @@ class ObjectInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<stub name="$name" id="$id">
+<result name="$name" id="$id">
     <a n="$key1">$value1</a>
     <a n="$key2">$value2</a>
-</stub>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubObjectInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'a' => [
-                [
-                    'n' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'n' => $key2,
-                    '_content' => $value2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stub, 'json'));
-        $this->assertEquals($stub, $this->serializer->deserialize($json, StubObjectInfo::class, 'json'));
     }
 }
 
-/**
- * @XmlRoot(name="stub")
- */
 class StubObjectInfo extends ObjectInfo
 {
 }

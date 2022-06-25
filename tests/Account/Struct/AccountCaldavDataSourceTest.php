@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountCaldavDataSource;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -46,51 +46,13 @@ class AccountCaldavDataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<caldav id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
     <lastError>$lastError</lastError>
     <a>$attribute1</a>
     <a>$attribute2</a>
-</caldav>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($caldav, 'xml'));
         $this->assertEquals($caldav, $this->serializer->deserialize($xml, AccountCaldavDataSource::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'l' => $folderId,
-            'isEnabled' => TRUE,
-            'importOnly' => TRUE,
-            'host' => $host,
-            'port' => $port,
-            'connectionType' => $connectionType,
-            'username' => $username,
-            'password' => $password,
-            'pollingInterval' => $pollingInterval,
-            'emailAddress' => $emailAddress,
-            'useAddressForForwardReply' => TRUE,
-            'defaultSignature' => $defaultSignature,
-            'forwardReplySignature' => $forwardReplySignature,
-            'fromDisplay' => $fromDisplay,
-            'replyToAddress' => $replyToAddress,
-            'replyToDisplay' => $replyToDisplay,
-            'importClass' => $importClass,
-            'failingSince' => $failingSince,
-            'lastError' => [
-                '_content' => $lastError,
-            ],
-            'a' => [
-                [
-                    '_content' => $attribute1,
-                ],
-                [
-                    '_content' => $attribute2,
-                ],
-            ],
-            'refreshToken' => $refreshToken,
-            'refreshTokenUrl' => $refreshTokenUrl,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($caldav, 'json'));
-        $this->assertEquals($caldav, $this->serializer->deserialize($json, AccountCaldavDataSource::class, 'json'));
     }
 }

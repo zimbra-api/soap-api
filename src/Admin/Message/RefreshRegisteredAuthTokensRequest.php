@@ -10,8 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * RefreshRegisteredAuthTokensRequest request class
@@ -22,8 +22,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="RefreshRegisteredAuthTokensRequest")
  */
 class RefreshRegisteredAuthTokensRequest extends Request
 {
@@ -35,7 +33,7 @@ class RefreshRegisteredAuthTokensRequest extends Request
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "token")
      */
-    private $tokens;
+    private $tokens = [];
 
     /**
      * Constructor method for RefreshRegisteredAuthTokensRequest
@@ -71,10 +69,7 @@ class RefreshRegisteredAuthTokensRequest extends Request
      */
     public function setTokens(array $tokens): self
     {
-        $this->tokens = [];
-        foreach ($tokens as $token) {
-            $this->addToken($token);
-        }
+        $this->tokens = array_unique(array_map(static fn ($token) => trim($token), $tokens));
         return $this;
     }
 
@@ -91,14 +86,12 @@ class RefreshRegisteredAuthTokensRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof RefreshRegisteredAuthTokensEnvelope)) {
-            $this->envelope = new RefreshRegisteredAuthTokensEnvelope(
-                new RefreshRegisteredAuthTokensBody($this)
-            );
-        }
+        return new RefreshRegisteredAuthTokensEnvelope(
+            new RefreshRegisteredAuthTokensBody($this)
+        );
     }
 }

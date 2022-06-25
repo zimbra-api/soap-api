@@ -4,7 +4,7 @@ namespace Zimbra\Tests\Account\Message;
 
 use Zimbra\Account\Message\{CheckRightsEnvelope, CheckRightsBody, CheckRightsRequest, CheckRightsResponse};
 use Zimbra\Account\Struct\{CheckRightsRightInfo, CheckRightsTargetInfo, CheckRightsTargetSpec};
-use Zimbra\Enum\{TargetType, TargetBy};
+use Zimbra\Common\Enum\{TargetType, TargetBy};
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for CheckRights.
@@ -79,44 +79,5 @@ class CheckRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckRightsRequest' => [
-                    'target' => [
-                        [
-                            'type' => 'account',
-                            'by' => 'name',
-                            'key' => $key1,
-                            'right' => [
-                                [
-                                    '_content' => $right1,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'CheckRightsResponse' => [
-                    'target' => [
-                        [
-                            'type' => 'account',
-                            'by' => 'name',
-                            'key' => $key2,
-                            'allow' => TRUE,
-                            'right' => [
-                                [
-                                    '_content' => $right2,
-                                    'allow' => TRUE,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckRightsEnvelope::class, 'json'));
     }
 }

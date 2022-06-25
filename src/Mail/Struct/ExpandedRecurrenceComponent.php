@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * ExpandedRecurrenceComponent class
@@ -21,8 +21,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="exp")
  */
 class ExpandedRecurrenceComponent
 {
@@ -33,7 +31,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement
      */
-    private $exceptionId;
+    private ?InstanceRecurIdInfo $exceptionId = NULL;
 
     /**
      * DTSTART time in milliseconds since the Epoch
@@ -60,7 +58,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement
      */
-    private $duration;
+    private ?DurationInfo $duration = NULL;
 
     /**
      * RRULE/RDATE/EXDATE information
@@ -69,7 +67,7 @@ class ExpandedRecurrenceComponent
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement
      */
-    private $recurrence;
+    private ?RecurrenceInfo $recurrence = NULL;
 
     /**
      * Constructor method for ExpandedRecurrenceComponent

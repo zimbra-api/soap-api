@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\DistributionListSelector;
-use Zimbra\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListBy as DLBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,16 +27,9 @@ class DistributionListSelectorTest extends ZimbraTestCase
         $by = DLBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<dl by="$by">$value</dl>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListSelector::class, 'json'));
     }
 }

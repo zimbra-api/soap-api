@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Account\Struct\OAuthConsumer;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetOAuthConsumersResponse")
  */
 class GetOAuthConsumersResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetOAuthConsumersResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\OAuthConsumer>")
      * @XmlList(inline = true, entry = "OAuthConsumer")
      */
-    private $consumers;
+    private $consumers = [];
 
     /**
      * Constructor method for GetOAuthConsumersResponse
@@ -68,12 +66,7 @@ class GetOAuthConsumersResponse implements ResponseInterface
      */
     public function setConsumers(array $consumers): self
     {
-        $this->consumers = [];
-        foreach ($consumers as $consumer) {
-            if ($consumer instanceof OAuthConsumer) {
-                $this->consumers[] = $consumer;
-            }
-        }
+        $this->consumers = array_filter($consumers, static fn ($consumer) => $consumer instanceof OAuthConsumer);
         return $this;
     }
 

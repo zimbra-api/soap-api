@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\CalendarResourceSelector;
-use Zimbra\Enum\CalendarResourceBy as CalResBy;
+use Zimbra\Common\Enum\CalendarResourceBy as CalResBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -27,16 +27,9 @@ class CalendarResourceSelectorTest extends ZimbraTestCase
         $by = CalResBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<calresource by="$by">$value</calresource>
+<result by="$by">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
         $this->assertEquals($cal, $this->serializer->deserialize($xml, CalendarResourceSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cal, 'json'));
-        $this->assertEquals($cal, $this->serializer->deserialize($json, CalendarResourceSelector::class, 'json'));
     }
 }

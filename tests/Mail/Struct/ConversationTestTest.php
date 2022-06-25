@@ -26,7 +26,7 @@ class ConversationTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<conversationTest index="$index" negative="true" where="$where" />
+<result index="$index" negative="true" where="$where" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, ConversationTest::class, 'xml'));

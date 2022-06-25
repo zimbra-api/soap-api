@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\NamedElement;
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\NamedElement;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAdminSavedSearches request class
@@ -24,8 +24,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetAdminSavedSearchesRequest")
  */
 class GetAdminSavedSearchesRequest extends Request
 {
@@ -33,10 +31,10 @@ class GetAdminSavedSearchesRequest extends Request
      * Search information
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
-     * @Type("array<Zimbra\Struct\NamedElement>")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline = true, entry = "search")
      */
-    private $searches;
+    private $searches = [];
 
     /**
      * Constructor method for GetAdminSavedSearchesRequest
@@ -69,12 +67,7 @@ class GetAdminSavedSearchesRequest extends Request
      */
     public function setSearches(array $searches): self
     {
-        $this->searches = [];
-        foreach ($searches as $search) {
-            if ($search instanceof NamedElement) {
-                $this->searches[] = $search;
-            }
-        }
+        $this->searches = array_filter($searches, static fn ($search) => $search instanceof NamedElement);
         return $this;
     }
 
@@ -91,14 +84,12 @@ class GetAdminSavedSearchesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof GetAdminSavedSearchesEnvelope)) {
-            $this->envelope = new GetAdminSavedSearchesEnvelope(
-                new GetAdminSavedSearchesBody($this)
-            );
-        }
+        return new GetAdminSavedSearchesEnvelope(
+            new GetAdminSavedSearchesBody($this)
+        );
     }
 }

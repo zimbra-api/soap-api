@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\UcServiceSelector;
-use Zimbra\Enum\UcServiceBy;
+use Zimbra\Common\Enum\UcServiceBy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -26,16 +26,9 @@ class UcServiceSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<ucservice by="name">$value</ucservice>
+<result by="name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucs, 'xml'));
         $this->assertEquals($ucs, $this->serializer->deserialize($xml, UcServiceSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => 'name',
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ucs, 'json'));
-        $this->assertEquals($ucs, $this->serializer->deserialize($json, UcServiceSelector::class, 'json'));
     }
 }

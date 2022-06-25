@@ -10,8 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\DateComparison;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\DateComparison;
 
 /**
  * CurrentTimeTest struct class
@@ -21,8 +21,6 @@ use Zimbra\Enum\DateComparison;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="currentTimeTest")
  */
 class CurrentTimeTest extends FilterTest
 {
@@ -30,10 +28,10 @@ class CurrentTimeTest extends FilterTest
      * Date comparison setting - before|after
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
-     * @Type("Zimbra\Enum\DateComparison")
+     * @Type("Zimbra\Common\Enum\DateComparison")
      * @XmlAttribute
      */
-    private $dateComparison;
+    private ?DateComparison $dateComparison = NULL;
 
     /**
      * Time in HHmm format

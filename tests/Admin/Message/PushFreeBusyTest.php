@@ -7,7 +7,7 @@ use Zimbra\Admin\Message\PushFreeBusyEnvelope;
 use Zimbra\Admin\Message\PushFreeBusyRequest;
 use Zimbra\Admin\Message\PushFreeBusyResponse;
 use Zimbra\Admin\Struct\Names;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -65,26 +65,5 @@ class PushFreeBusyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, PushFreeBusyEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'PushFreeBusyRequest' => [
-                    'domain' => [
-                        'name' => $name,
-                    ],
-                    'account' => [
-                        [
-                            'id' => $id,
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'PushFreeBusyResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, PushFreeBusyEnvelope::class, 'json'));
     }
 }

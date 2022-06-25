@@ -8,7 +8,7 @@ use Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsRequest;
 use Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse;
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Admin\Struct\ConstraintInfo;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\TargetType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -83,41 +83,5 @@ class ModifyDelegatedAdminConstraintsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyDelegatedAdminConstraintsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyDelegatedAdminConstraintsRequest' => [
-                    'type' => 'server',
-                    'id' => $id,
-                    'name' => $name,
-                    'a' => [
-                        [
-                            'name' => $name,
-                            'constraint' => [
-                                'min' => [
-                                    '_content' => $min,
-                                ],
-                                'max' => [
-                                    '_content' => $max,
-                                ],
-                                'values' => [
-                                    'v' => [
-                                        [
-                                            '_content' => $value,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifyDelegatedAdminConstraintsResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyDelegatedAdminConstraintsEnvelope::class, 'json'));
     }
 }

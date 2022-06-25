@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\DataSourceInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDataSourcesResponse")
  */
 class GetDataSourcesResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class GetDataSourcesResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\DataSourceInfo>")
      * @XmlList(inline = true, entry = "dataSource")
      */
-    private $dataSources;
+    private $dataSources = [];
 
     /**
      * Constructor method for GetDataSourcesResponse
@@ -66,14 +64,9 @@ class GetDataSourcesResponse implements ResponseInterface
      * @param  array $dataSources
      * @return self
      */
-    public function setDataSources(array $dataSources): self
+    public function setDataSources(array $sources): self
     {
-        $this->dataSources = [];
-        foreach ($dataSources as $dataSource) {
-            if ($dataSource instanceof DataSourceInfo) {
-                $this->dataSources[] = $dataSource;
-            }
-        }
+        $this->dataSources = array_filter($sources, static fn ($source) => $source instanceof DataSourceInfo);
         return $this;
     }
 

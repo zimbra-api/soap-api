@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * InvitationInfo class
@@ -21,8 +21,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class InvitationInfo extends InviteComponent
 {
@@ -60,7 +58,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\RawInvite")
      * @XmlElement
      */
-    private $content;
+    private ?RawInvite $content = NULL;
 
     /**
      * Invite component
@@ -69,7 +67,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement
      */
-    private $inviteComponent;
+    private ?InviteComponent $inviteComponent = NULL;
 
     /**
      * Timezones
@@ -96,7 +94,7 @@ class InvitationInfo extends InviteComponent
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement
      */
-    private $attachments;
+    private ?AttachmentsInfo $attachments = NULL;
 
     /**
      * Constructor method
@@ -233,12 +231,7 @@ class InvitationInfo extends InviteComponent
      */
     public function setTimezones(array $timezones): self
     {
-        $this->timezones = [];
-        foreach ($timezones as $timezone) {
-            if ($timezone instanceof CalTZInfo) {
-                $this->timezones[] = $timezone;
-            }
-        }
+        $this->timezones = array_filter($timezones, static fn ($timezone) => $timezone instanceof CalTZInfo);
         return $this;
     }
 
@@ -272,12 +265,7 @@ class InvitationInfo extends InviteComponent
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = [];
-        foreach ($mimeParts as $mimePart) {
-            if ($mimePart instanceof MimePartInfo) {
-                $this->mimeParts[] = $mimePart;
-            }
-        }
+        $this->mimeParts = array_filter($mimeParts, static fn ($mimePart) => $mimePart instanceof MimePartInfo);
         return $this;
     }
 

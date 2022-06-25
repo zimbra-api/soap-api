@@ -7,7 +7,7 @@ use Zimbra\Account\Message\SyncGalBody;
 use Zimbra\Account\Message\SyncGalRequest;
 use Zimbra\Account\Message\SyncGalResponse;
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Struct\Id;
+use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for SyncGal.
@@ -104,39 +104,5 @@ class SyncGalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SyncGalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SyncGalRequest' => [
-                    'token' => $token,
-                    'galAcctId' => $galAccountId,
-                    'idOnly' => TRUE,
-                    'getCount' => TRUE,
-                    'limit' => $limit,
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'SyncGalResponse' => [
-                    'more' => TRUE,
-                    'token' => $token,
-                    'galDefinitionLastModified' => $galDefinitionLastModified,
-                    'throttled' => TRUE,
-                    'fullSyncRecommended' => TRUE,
-                    'remain' => $remain,
-                    'cn' => [
-                        [
-                            'email' => $email,
-                        ]
-                    ],
-                    'deleted' => [
-                        [
-                            'id' => $id,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SyncGalEnvelope::class, 'json'));
     }
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="ClientInfoResponse")
  */
 class ClientInfoResponse implements ResponseInterface
 {
@@ -34,7 +32,7 @@ class ClientInfoResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $attrList;
+    private $attrList = [];
 
     /**
      * Constructor method for ClientInfoResponse
@@ -55,12 +53,7 @@ class ClientInfoResponse implements ResponseInterface
      */
     public function setAttrList(array $attrList): self
     {
-        $this->attrList = [];
-        foreach ($attrList as $attr) {
-            if ($attr instanceof Attr) {
-                $this->attrList[] = $attr;
-            }
-        }
+        $this->attrList = array_filter($attrList, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 

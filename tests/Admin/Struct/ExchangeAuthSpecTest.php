@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin\Struct;
 
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
-use Zimbra\Enum\AuthScheme;
+use Zimbra\Common\Enum\AuthScheme;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -41,19 +41,9 @@ class ExchangeAuthSpecTest extends ZimbraTestCase
         $scheme = AuthScheme::FORM()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<auth url="$url" user="$user" pass="$pass" scheme="$scheme" type="$type" />
+<result url="$url" user="$user" pass="$pass" scheme="$scheme" type="$type" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($auth, 'xml'));
         $this->assertEquals($auth, $this->serializer->deserialize($xml, ExchangeAuthSpec::class, 'xml'));
-
-        $json = json_encode([
-            'url' => $url,
-            'user' => $user,
-            'pass' => $pass,
-            'scheme' => $scheme,
-            'type' => $type,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($auth, 'json'));
-        $this->assertEquals($auth, $this->serializer->deserialize($json, ExchangeAuthSpec::class, 'json'));
     }
 }

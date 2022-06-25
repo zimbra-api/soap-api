@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-
-use Zimbra\Struct\PartInfoInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Struct\PartInfoInterface;
 
 /**
  * PartInfo class
@@ -22,8 +21,6 @@ use Zimbra\Struct\PartInfoInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="mp")
  */
 class PartInfo implements PartInfoInterface
 {
@@ -414,12 +411,7 @@ class PartInfo implements PartInfoInterface
      */
     public function setMimeParts(array $mimeParts): self
     {
-        $this->mimeParts = [];
-        foreach ($mimeParts as $mimePart) {
-            if ($mimePart instanceof PartInfoInterface) {
-                $this->mimeParts[] = $mimePart;
-            }
-        }
+        $this->mimeParts = array_filter($mimeParts, static fn ($mimePart) => $mimePart instanceof PartInfoInterface);
         return $this;
     }
 

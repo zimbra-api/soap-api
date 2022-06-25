@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{
-    Accessor, AccessType, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlKeyValuePairs, XmlRoot
+    Accessor, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlKeyValuePairs
 };
 
 /**
@@ -22,8 +22,6 @@ use JMS\Serializer\Annotation\{
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="filterRule")
  */
 class FilterRule
 {
@@ -52,7 +50,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterVariables")
      * @XmlElement
      */
-    private $filterVariables;
+    private ?FilterVariables $filterVariables = NULL;
 
     /**
      * Filter tests
@@ -61,7 +59,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterTests")
      * @XmlElement
      */
-    private $tests;
+    private FilterTests $tests;
 
     /**
      * Filter actions
@@ -71,7 +69,7 @@ class FilterRule
      ^ @SkipWhenEmpty
      * @XmlKeyValuePairs
      */
-    private $actions;
+    private $actions = [];
 
     /**
      * Nested Rule
@@ -80,7 +78,7 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\NestedRule")
      * @XmlElement
      */
-    private $child;
+    private ?NestedRule $child = NULL;
 
     /**
      * Constructor method for FilterRule

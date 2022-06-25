@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement};
-
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Soap\Request;
 
 /**
@@ -22,7 +21,6 @@ use Zimbra\Soap\Request;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
  */
 abstract class CalItemRequestBase extends Request
 {
@@ -82,7 +80,7 @@ abstract class CalItemRequestBase extends Request
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement
      */
-    private $msg;
+    private ?Msg $msg = NULL;
 
     /**
      * Constructor method for CalItemRequestBase

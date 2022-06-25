@@ -10,10 +10,10 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use Zimbra\Common\Struct\IdAndType;
 use Zimbra\Mail\Struct\AccountWithModifications;
 use Zimbra\Soap\ResponseInterface;
-use Zimbra\Struct\IdAndType;
 
 /**
  * AdminWaitSetResponse class
@@ -23,8 +23,6 @@ use Zimbra\Struct\IdAndType;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AdminWaitSetResponse")
  */
 class AdminWaitSetResponse implements ResponseInterface
 {
@@ -62,16 +60,16 @@ class AdminWaitSetResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
      * @XmlList(inline = true, entry = "a")
      */
-    private $signalledAccounts;
+    private $signalledAccounts = [];
 
     /**
      * Error information
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
-     * @Type("array<Zimbra\Struct\IdAndType>")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline = true, entry = "error")
      */
-    private $errors;
+    private $errors = [];
 
     /**
      * Constructor method for AdminWaitSetResponse
@@ -84,18 +82,22 @@ class AdminWaitSetResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $waitSetId, ?bool $canceled = NULL, ?string $seqNo = NULL, array $signalledAccounts = [], array $errors = []
+        string $waitSetId,
+        ?bool $canceled = NULL,
+        ?string $seqNo = NULL,
+        array $signalledAccounts = [],
+        array $errors = []
     )
     {
-        $this->setWaitSetId($waitSetId);
+        $this->setWaitSetId($waitSetId)
+             ->setSignalledAccounts($signalledAccounts)
+             ->setErrors($errors);
         if (NULL !== $canceled) {
             $this->setCanceled($canceled);
         }
         if (NULL !== $seqNo) {
             $this->setSeqNo($seqNo);
         }
-        $this->setSignalledAccounts($signalledAccounts)
-             ->setErrors($errors);
     }
 
     /**
@@ -179,17 +181,12 @@ class AdminWaitSetResponse implements ResponseInterface
     /**
      * Sets signaled accounts
      *
-     * @param array $errors
+     * @param array $accounts
      * @return self
      */
-    public function setSignalledAccounts(array $signalledAccounts): self
+    public function setSignalledAccounts(array $accounts): self
     {
-        $this->signalledAccounts = [];
-        foreach ($signalledAccounts as $account) {
-            if ($account instanceof AccountWithModifications) {
-                $this->signalledAccounts[] = $account;
-            }
-        }
+        $this->signalledAccounts = array_filter($accounts, static fn ($account) => $account instanceof AccountWithModifications);
         return $this;
     }
 
@@ -223,12 +220,7 @@ class AdminWaitSetResponse implements ResponseInterface
      */
     public function setErrors(array $errors): self
     {
-        $this->errors = [];
-        foreach ($errors as $error) {
-            if ($error instanceof IdAndType) {
-                $this->errors[] = $error;
-            }
-        }
+        $this->errors = array_filter($errors, static fn ($error) => $error instanceof IdAndType);
         return $this;
     }
 

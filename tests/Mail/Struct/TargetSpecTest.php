@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AccountBy;
-use Zimbra\Enum\TargetType;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Enum\TargetType;
 
 use Zimbra\Mail\Struct\TargetSpec;
 use Zimbra\Tests\ZimbraTestCase;
@@ -34,7 +34,7 @@ class TargetSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<target type="account" by="name">$value</target>
+<result type="account" by="name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, TargetSpec::class, 'xml'));

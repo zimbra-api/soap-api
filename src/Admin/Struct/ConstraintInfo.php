@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * ConstraintInfo struct class
@@ -20,12 +20,9 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="constraint")
  */
 class ConstraintInfo
 {
-
     /**
      * Minimum value
      * @Accessor(getter="getMin", setter="setMin")
@@ -51,7 +48,7 @@ class ConstraintInfo
      * @Type("array<string>")
      * @XmlList(inline = false, entry = "v")
      */
-    private $values;
+    private $values = [];
 
     /**
      * Constructor method for ConstraintInfo
@@ -133,10 +130,7 @@ class ConstraintInfo
      */
     public function setValues(array $values): self
     {
-        $this->values = [];
-        foreach ($values as $value) {
-            $this->addValue($value);
-        }
+        $this->values = array_unique(array_map(static fn ($value) => trim($value), $values));
         return $this;
     }
 

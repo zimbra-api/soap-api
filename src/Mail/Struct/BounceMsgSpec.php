@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * BounceMsgSpec class
@@ -20,8 +20,6 @@ use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAt
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="msg")
  */
 class BounceMsgSpec
 {
@@ -84,17 +82,12 @@ class BounceMsgSpec
     /**
      * Sets emailAddresses
      *
-     * @param  array $emailAddresses
+     * @param  array $addresses
      * @return self
      */
-    public function setEmailAddresses(array $emailAddresses): self
+    public function setEmailAddresses(array $addresses): self
     {
-        $this->emailAddresses = [];
-        foreach ($emailAddresses as $emailAddress) {
-            if ($emailAddress instanceof EmailAddrInfo) {
-                $this->emailAddresses[] = $emailAddress;
-            }
-        }
+        $this->emailAddresses = array_filter($addresses, static fn ($address) => $address instanceof EmailAddrInfo);
         return $this;
     }
 

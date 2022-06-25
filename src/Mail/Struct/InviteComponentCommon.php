@@ -10,13 +10,9 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlRoot};
-use Zimbra\Enum\FreeBusyStatus;
-use Zimbra\Enum\InviteChange;
-use Zimbra\Enum\InviteClass;
-use Zimbra\Enum\InviteStatus;
-use Zimbra\Enum\Transparency;
-use Zimbra\Struct\InviteComponentCommonInterface;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
+use Zimbra\Common\Struct\InviteComponentCommonInterface;
 
 /**
  * InviteComponentCommon struct class
@@ -27,8 +23,6 @@ use Zimbra\Struct\InviteComponentCommonInterface;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="inv")
  */
 class InviteComponentCommon implements InviteComponentCommonInterface
 {
@@ -118,29 +112,29 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * Valid values - F|B|T|U.  i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * @Accessor(getter="getFreeBusyActual", setter="setFreeBusyActual")
      * @SerializedName("fba")
-     * @Type("Zimbra\Enum\FreeBusyStatus")
+     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
      * @XmlAttribute
      */
-    private $freeBusyActual;
+    private ?FreeBusyStatus $freeBusyActual = NULL;
 
     /**
      * FreeBusy setting F|B|T|U
      * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * @Accessor(getter="getFreeBusy", setter="setFreeBusy")
      * @SerializedName("fb")
-     * @Type("Zimbra\Enum\FreeBusyStatus")
+     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
      * @XmlAttribute
      */
-    private $freeBusy;
+    private ?FreeBusyStatus $freeBusy = NULL;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
      * @Accessor(getter="getTransparency", setter="setTransparency")
      * @SerializedName("transp")
-     * @Type("Zimbra\Enum\Transparency")
+     * @Type("Zimbra\Common\Enum\Transparency")
      * @XmlAttribute
      */
-    private $transparency;
+    private ?Transparency $transparency = NULL;
 
     /**
      * Am I the organizer?  [default 0 (false)]
@@ -220,19 +214,19 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * where waiting and Deferred are custom values not found in the iCalendar spec.
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\InviteStatus")
+     * @Type("Zimbra\Common\Enum\InviteStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ?InviteStatus $status = NULL;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
      * @Accessor(getter="getCalClass", setter="setCalClass")
      * @SerializedName("class")
-     * @Type("Zimbra\Enum\InviteClass")
+     * @Type("Zimbra\Common\Enum\InviteClass")
      * @XmlAttribute
      */
-    private $calClass;
+    private ?InviteClass $calClass = NULL;
 
     /**
      * URL

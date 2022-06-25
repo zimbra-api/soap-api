@@ -2,8 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Enum\AddressType;
-use Zimbra\Enum\ReplyType;
+use Zimbra\Common\Enum\AddressType;
+use Zimbra\Common\Enum\ReplyType;
 
 use Zimbra\Mail\Message\CounterAppointmentEnvelope;
 use Zimbra\Mail\Message\CounterAppointmentBody;
@@ -14,7 +14,6 @@ use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\EmailAddrInfo;
 use Zimbra\Mail\Struct\Header;
-use Zimbra\Mail\Struct\InstanceRecurIdInfo;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\Msg;
@@ -58,7 +57,7 @@ class CounterAppointmentTest extends ZimbraTestCase
             new MimePartInfo($contentType, $content, $contentId),
             new AttachmentsInfo($id),
             new InvitationInfo($method, $componentNum, TRUE),
-            [new EmailAddrInfo($address, AddressType::FROM(), $personal)],
+            [new EmailAddrInfo($address, AddressType::TO(), $personal)],
             [new CalTZInfo($id, $tzStdOffset, $tzDayOffset)],
             $fragment
         );
@@ -111,7 +110,7 @@ class CounterAppointmentTest extends ZimbraTestCase
                 <mp ct="$contentType" content="$content" ci="$contentId" />
                 <attach aid="$id" />
                 <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="f" p="$personal" />
+                <e a="$address" t="t" p="$personal" />
                 <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <fr>$fragment</fr>
             </m>
@@ -164,7 +163,7 @@ EOT;
                         'e' => [
                             [
                                 'a' => $address,
-                                't' => 'f',
+                                't' => 't',
                                 'p' => $personal,
                             ],
                         ],

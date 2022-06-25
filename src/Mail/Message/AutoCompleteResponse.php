@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Mail\Struct\AutoCompleteMatch;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="AutoCompleteResponse")
  */
 class AutoCompleteResponse implements ResponseInterface
 {
@@ -45,7 +43,7 @@ class AutoCompleteResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")
      * @XmlList(inline = true, entry = "match")
      */
-    private $matches;
+    private $matches = [];
 
     /**
      * Constructor method for AutoCompleteResponse
@@ -85,12 +83,7 @@ class AutoCompleteResponse implements ResponseInterface
      */
     public function setMatches(array $matches): self
     {
-        $this->matches = [];
-        foreach ($matches as $match) {
-            if ($match instanceof AutoCompleteMatch) {
-                $this->matches[] = $match;
-            }
-        }
+        $this->matches = array_filter($matches, static fn ($match) => $match instanceof AutoCompleteMatch);
         return $this;
     }
 

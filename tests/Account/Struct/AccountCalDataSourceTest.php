@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Enum\ConnectionType;
+use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountCalDataSource;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -46,51 +46,13 @@ class AccountCalDataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<cal id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
     <lastError>$lastError</lastError>
     <a>$attribute1</a>
     <a>$attribute2</a>
-</cal>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cal, 'xml'));
         $this->assertEquals($cal, $this->serializer->deserialize($xml, AccountCalDataSource::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'l' => $folderId,
-            'isEnabled' => TRUE,
-            'importOnly' => TRUE,
-            'host' => $host,
-            'port' => $port,
-            'connectionType' => $connectionType,
-            'username' => $username,
-            'password' => $password,
-            'pollingInterval' => $pollingInterval,
-            'emailAddress' => $emailAddress,
-            'useAddressForForwardReply' => TRUE,
-            'defaultSignature' => $defaultSignature,
-            'forwardReplySignature' => $forwardReplySignature,
-            'fromDisplay' => $fromDisplay,
-            'replyToAddress' => $replyToAddress,
-            'replyToDisplay' => $replyToDisplay,
-            'importClass' => $importClass,
-            'failingSince' => $failingSince,
-            'lastError' => [
-                '_content' => $lastError,
-            ],
-            'a' => [
-                [
-                    '_content' => $attribute1,
-                ],
-                [
-                    '_content' => $attribute2,
-                ],
-            ],
-            'refreshToken' => $refreshToken,
-            'refreshTokenUrl' => $refreshTokenUrl,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cal, 'json'));
-        $this->assertEquals($cal, $this->serializer->deserialize($json, AccountCalDataSource::class, 'json'));
     }
 }

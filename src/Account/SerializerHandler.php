@@ -31,7 +31,7 @@ use Zimbra\Common\Text;
  */
 final class SerializerHandler implements SubscribingHandlerInterface
 {
-    public static function getSubscribingMethods()
+    public static function getSubscribingMethods(): array
     {
         return [
             [
@@ -63,29 +63,21 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeAccountDataSources(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): AccountDataSources
     {
         $serializer = SerializerFactory::create();
         $types = AccountDataSources::dataSourceTypes();
-        $dataSources = [];
-
-        foreach ($data->children() as $child) {
-            $name = $child->getName();
-            if (!empty($types[$name])) {
-                $dataSources[] = $serializer->deserialize($child->asXml(), $types[$name], 'xml');
-            }
-        }
-
-        return new AccountDataSources($dataSources);
+        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
+        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
+        return new AccountDataSources(array_values($dataSources));
     }
 
     public function jsonDeserializeAccountDataSources(
-        DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+        DeserializationVisitor $visitor, array $data, array $type, Context $context
+    ): AccountDataSources
     {
         $serializer = SerializerFactory::create();
         $dataSources = [];
-
         foreach (AccountDataSources::dataSourceTypes() as $key => $dsType) {
             if (isset($data[$key]) && is_array($data[$key])) {
                 foreach ($data[$key] as $dataSource) {
@@ -99,27 +91,28 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function xmlDeserializeSearchFilterMultiCond(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    )
+    ): MultiCond
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
-        foreach ($data->attributes() as $key => $value) {
+        $attributes = iterator_to_array($data->attributes());
+        array_walk($attributes, static function ($value, $key) use ($conds) {
             if ($key == 'not') {
                 $conds->setNot(Text::stringToBoolean($value));
             }
             if ($key == 'or') {
                 $conds->setOr(Text::stringToBoolean($value));
             }
-        }
+        });
 
         foreach ($data->children() as $child) {
             $name = $child->getName();
-            if ($name == 'conds') {
+            if ($name === 'conds') {
                 $conds->addCondition(
                     $this->xmlDeserializeSearchFilterMultiCond($visitor, $child, $type, $context)
                 );
             }
-            if ($name == 'cond') {
+            if ($name === 'cond') {
                 $conds->addCondition(
                     $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
                 );
@@ -130,7 +123,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     public function jsonDeserializeSearchFilterMultiCond(
         DeserializationVisitor $visitor, $data, array $type, Context $context
-    )
+    ): MultiCond
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;

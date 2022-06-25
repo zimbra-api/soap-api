@@ -20,11 +20,11 @@ use Zimbra\Admin\Struct\InDomainInfo;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Admin\Struct\RightsEntriesInfo;
 
-use Zimbra\Enum\GranteeBy;
-use Zimbra\Enum\GranteeType;
-use Zimbra\Enum\TargetBy;
-use Zimbra\Enum\TargetType;
-use Zimbra\Struct\NamedElement;
+use Zimbra\Common\Enum\GranteeBy;
+use Zimbra\Common\Enum\GranteeType;
+use Zimbra\Common\Enum\TargetBy;
+use Zimbra\Common\Enum\TargetType;
+use Zimbra\Common\Struct\NamedElement;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -167,118 +167,5 @@ class GetEffectiveRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetEffectiveRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetEffectiveRightsRequest' => [
-                    'expandAllAttrs' => 'setAttrs',
-                    'target' => [
-                        'type' => 'account',
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'grantee' => [
-                        'type' => 'all',
-                        'by' => 'name',
-                        '_content' => $value,
-                        'secret' => $secret,
-                        'all' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetEffectiveRightsResponse' => [
-                    'grantee' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'type' => 'all',
-                    ],
-                    'target' => [
-                        'type' => 'account',
-                        'id' => $id,
-                        'name' => $name,
-                        'right' => [
-                            [
-                                'n' => $name,
-                            ],
-                        ],
-                        'setAttrs' => [
-                            'all' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $name,
-                                    'constraint' => [
-                                        'min' => [
-                                            '_content' => $min,
-                                        ],
-                                        'max' => [
-                                            '_content' => $max,
-                                        ],
-                                        'values' => [
-                                            'v' => [
-                                                [
-                                                    '_content' => $value1,
-                                                ],
-                                                [
-                                                    '_content' => $value2,
-                                                ],
-                                            ],
-                                        ],
-                                    ],
-                                    'default' => [
-                                        'v' => [
-                                            [
-                                                '_content' => $value1,
-                                            ],
-                                            [
-                                                '_content' => $value2,
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                        'getAttrs' => [
-                            'all' => FALSE,
-                            'a' => [
-                                [
-                                    'n' => $name,
-                                    'constraint' => [
-                                        'min' => [
-                                            '_content' => $min,
-                                        ],
-                                        'max' => [
-                                            '_content' => $max,
-                                        ],
-                                        'values' => [
-                                            'v' => [
-                                                [
-                                                    '_content' => $value1,
-                                                ],
-                                                [
-                                                    '_content' => $value2,
-                                                ],
-                                            ],
-                                        ],
-                                    ],
-                                    'default' => [
-                                        'v' => [
-                                            [
-                                                '_content' => $value1,
-                                            ],
-                                            [
-                                                '_content' => $value2,
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetEffectiveRightsEnvelope::class, 'json'));
     }
 }

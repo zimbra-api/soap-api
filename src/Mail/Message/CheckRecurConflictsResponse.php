@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Mail\Struct\ConflictRecurrenceInstance;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyinstance © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckRecurConflictsResponse")
  */
 class CheckRecurConflictsResponse implements ResponseInterface
 {
@@ -35,7 +33,7 @@ class CheckRecurConflictsResponse implements ResponseInterface
      * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
      * @XmlList(inline = true, entry = "inst")
      */
-    private $instances;
+    private $instances = [];
 
     /**
      * Constructor method for CheckRecurConflictsResponse
@@ -68,12 +66,7 @@ class CheckRecurConflictsResponse implements ResponseInterface
      */
     public function setInstances(array $instances): self
     {
-        $this->instances = [];
-        foreach ($instances as $instance) {
-            if ($instance instanceof ConflictRecurrenceInstance) {
-                $this->instances[] = $instance;
-            }
-        }
+        $this->instances = array_filter($instances, static fn ($instance) => $instance instanceof ConflictRecurrenceInstance);
         return $this;
     }
 

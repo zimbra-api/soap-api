@@ -52,21 +52,5 @@ class DeleteCosTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteCosEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteCosRequest' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteCosResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteCosEnvelope::class, 'json'));
     }
 }

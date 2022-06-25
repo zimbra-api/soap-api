@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\HABGroupMember;
 use Zimbra\Soap\ResponseInterface;
 
@@ -22,8 +22,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="GetDistributionListMembersResponse")
  */
 class GetDistributionListMembersResponse implements ResponseInterface
 {
@@ -53,7 +51,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Type("array<string>")
      * @XmlList(inline = true, entry = "dlm")
      */
-    private $dlMembers;
+    private $dlMembers = [];
 
     /**
      * HAB Group members
@@ -63,7 +61,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Type("array<Zimbra\Account\Struct\HABGroupMember>")
      * @XmlList(inline = false, entry = "groupMember")
      */
-    private $habGroupMembers;
+    private $habGroupMembers = [];
 
     /**
      * Constructor method for GetDistributionListMembersResponse
@@ -148,28 +146,25 @@ class GetDistributionListMembersResponse implements ResponseInterface
     /**
      * Sets dlMembers
      *
-     * @param  array $dlMembers
+     * @param  array $members
      * @return self
      */
-    public function setDlMembers(array $dlMembers): self
+    public function setDlMembers(array $members): self
     {
-        $this->dlMembers = [];
-        foreach ($dlMembers as $dlMember) {
-            $this->addDlMember($dlMember);
-        }
+        $this->dlMembers = array_unique(array_map(static fn ($member) => trim($member), $members));
         return $this;
     }
 
     /**
      * add dlMember
      *
-     * @param  string $dlMember
+     * @param  string $member
      * @return self
      */
-    public function addDlMember(string $dlMember): self
+    public function addDlMember(string $member): self
     {
-        $dlMember = trim($dlMember);
-        if (!in_array($dlMember, $this->dlMembers)) {
+        $dlMember = trim($member);
+        if (!empty($dlMember) && !in_array($dlMember, $this->dlMembers)) {
             $this->dlMembers[] = $dlMember;
         }
         return $this;
@@ -190,17 +185,12 @@ class GetDistributionListMembersResponse implements ResponseInterface
     /**
      * Sets habGroupMembers
      *
-     * @param  array $habGroupMembers
+     * @param  array $members
      * @return self
      */
-    public function setHABGroupMembers(array $habGroupMembers): self
+    public function setHABGroupMembers(array $members): self
     {
-        $this->habGroupMembers = [];
-        foreach ($habGroupMembers as $habGroupMember) {
-            if ($habGroupMember instanceof HABGroupMember) {
-                $this->habGroupMembers[] = $habGroupMember;
-            }
-        }
+        $this->habGroupMembers = array_filter($members, static fn ($member) => $member instanceof HABGroupMember);
         return $this;
     }
 

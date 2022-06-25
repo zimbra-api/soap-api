@@ -10,9 +10,9 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlList, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\VolumeIdAndProgress;
-use Zimbra\Enum\DedupStatus;
+use Zimbra\Common\Enum\DedupStatus;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -23,7 +23,6 @@ use Zimbra\Soap\ResponseInterface;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="DedupeBlobsResponse")
  */
 class DedupeBlobsResponse implements ResponseInterface
 {
@@ -31,10 +30,10 @@ class DedupeBlobsResponse implements ResponseInterface
      * Status - one of started|running|idle|stopped
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Enum\DedupStatus")
+     * @Type("Zimbra\Common\Enum\DedupStatus")
      * @XmlAttribute
      */
-    private $status;
+    private ?DedupStatus $status = NULL;
 
     /**
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
@@ -59,7 +58,7 @@ class DedupeBlobsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline = true, entry = "volumeBlobsProgress")
      */
-    private $volumeBlobsProgress;
+    private $volumeBlobsProgress = [];
 
     /**
      * blobDigestsProgress
@@ -68,7 +67,7 @@ class DedupeBlobsResponse implements ResponseInterface
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline = true, entry = "blobDigestsProgress")
      */
-    private $blobDigestsProgress;
+    private $blobDigestsProgress = [];
 
     /**
      * Constructor method for DedupeBlobsResponse
@@ -180,17 +179,12 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Sets volumeBlobsProgress
      *
-     * @param  array $volumeBlobsProgress
+     * @param  array $progress
      * @return self
      */
-    public function setVolumeBlobsProgress(array $volumeBlobsProgress): self
+    public function setVolumeBlobsProgress(array $progress): self
     {
-        $this->volumeBlobsProgress = [];
-        foreach ($volumeBlobsProgress as $progress) {
-            if ($progress instanceof VolumeIdAndProgress) {
-                $this->volumeBlobsProgress[] = $progress;
-            }
-        }
+        $this->volumeBlobsProgress = array_filter($progress, static fn ($progress) => $progress instanceof VolumeIdAndProgress);
         return $this;
     }
 
@@ -219,17 +213,12 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * Sets setBlobDigestsProgress
      *
-     * @param  array $blobDigestsProgress
+     * @param  array $progress
      * @return self
      */
-    public function setBlobDigestsProgress(array $blobDigestsProgress): self
+    public function setBlobDigestsProgress(array $progress): self
     {
-        $this->blobDigestsProgress = [];
-        foreach ($blobDigestsProgress as $progress) {
-            if ($progress instanceof VolumeIdAndProgress) {
-                $this->blobDigestsProgress[] = $progress;
-            }
-        }
+        $this->blobDigestsProgress = array_filter($progress, static fn ($progress) => $progress instanceof VolumeIdAndProgress);
         return $this;
     }
 

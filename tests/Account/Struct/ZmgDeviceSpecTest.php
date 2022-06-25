@@ -47,20 +47,9 @@ class ZmgDeviceSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<zmgDevice appId="$appId" registrationId="$registrationId" pushProvider="$pushProvider" osName="$osName" osVersion="$osVersion" maxPayloadSize="$maxPayloadSize" />
+<result appId="$appId" registrationId="$registrationId" pushProvider="$pushProvider" osName="$osName" osVersion="$osVersion" maxPayloadSize="$maxPayloadSize" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($device, 'xml'));
         $this->assertEquals($device, $this->serializer->deserialize($xml, ZmgDeviceSpec::class, 'xml'));
-
-        $json = json_encode([
-            'appId' => $appId,
-            'registrationId' => $registrationId,
-            'pushProvider' => $pushProvider,
-            'osName' => $osName,
-            'osVersion' => $osVersion,
-            'maxPayloadSize' => $maxPayloadSize,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($device, 'json'));
-        $this->assertEquals($device, $this->serializer->deserialize($json, ZmgDeviceSpec::class, 'json'));
     }
 }

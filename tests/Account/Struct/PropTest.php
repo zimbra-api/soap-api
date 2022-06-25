@@ -31,17 +31,9 @@ class PropTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<prop zimlet="$zimlet" name="$name">$value</prop>
+<result zimlet="$zimlet" name="$name">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($prop, 'xml'));
         $this->assertEquals($prop, $this->serializer->deserialize($xml, Prop::class, 'xml'));
-
-        $json = json_encode([
-            'zimlet' => $zimlet,
-            'name' => $name,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($prop, 'json'));
-        $this->assertEquals($prop, $this->serializer->deserialize($json, Prop::class, 'json'));
     }
 }

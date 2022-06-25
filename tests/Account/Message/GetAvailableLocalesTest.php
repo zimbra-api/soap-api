@@ -59,25 +59,5 @@ class GetAvailableLocalesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAvailableLocalesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAvailableLocalesRequest' => [
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-                'GetAvailableLocalesResponse' => [
-                    'locale' => [
-                        [
-                            'id' => $id,
-                            'name' => $name,
-                            'localName' => $localName,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAccount',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAvailableLocalesEnvelope::class, 'json'));
     }
 }

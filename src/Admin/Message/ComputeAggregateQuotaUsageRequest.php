@@ -10,8 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\XmlRoot;
-use Zimbra\Soap\Request;
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ComputeAggregateQuotaUsageRequest class
@@ -26,21 +25,18 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @XmlRoot(name="ComputeAggregateQuotaUsageRequest")
  */
 class ComputeAggregateQuotaUsageRequest extends Request
 {
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof ComputeAggregateQuotaUsageEnvelope)) {
-            $this->envelope = new ComputeAggregateQuotaUsageEnvelope(
-                new ComputeAggregateQuotaUsageBody($this)
-            );
-        }
+        return new ComputeAggregateQuotaUsageEnvelope(
+            new ComputeAggregateQuotaUsageBody($this)
+        );
     }
 }

@@ -10,9 +10,8 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlAttribute, XmlElement, XmlList, XmlRoot};
-
-use Zimbra\Struct\KeyValuePair;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Struct\KeyValuePair;
 
 /**
  * InviteAsMP class
@@ -23,8 +22,6 @@ use Zimbra\Struct\KeyValuePair;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="msg")
  */
 class InviteAsMP extends MessageCommon
 {
@@ -90,13 +87,13 @@ class InviteAsMP extends MessageCommon
      * @Type("Zimbra\Mail\Struct\MPInviteInfo")
      * @XmlElement
      */
-    private $invite;
+    private ?MPInviteInfo $invite = NULL;
 
     /**
      * Headers
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
-     * @Type("array<Zimbra\Struct\KeyValuePair>")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline = true, entry = "header")
      */
     private $headers = [];
@@ -251,12 +248,7 @@ class InviteAsMP extends MessageCommon
      */
     public function setEmails(array $emails): self
     {
-        $this->emails = [];
-        foreach ($emails as $email) {
-            if ($email instanceof EmailInfo) {
-                $this->emails[] = $email;
-            }
-        }
+        $this->emails = array_filter($emails, static fn ($email) => $email instanceof EmailInfo);
         return $this;
     }
 
@@ -356,12 +348,7 @@ class InviteAsMP extends MessageCommon
      */
     public function setHeaders(array $headers): self
     {
-        $this->headers = [];
-        foreach ($headers as $header) {
-            if ($header instanceof KeyValuePair) {
-                $this->headers[] = $header;
-            }
-        }
+        $this->headers = array_filter($headers, static fn ($header) => $header instanceof KeyValuePair);
         return $this;
     }
 
@@ -395,19 +382,9 @@ class InviteAsMP extends MessageCommon
      */
     public function setContentElems(array $contentElems): self
     {
-        $this->mpContentElems = $this->shrContentElems = $this->dlSubsContentElems = [];
-        foreach ($contentElems as $contentElem) {
-            if ($contentElem instanceof PartInfo) {
-                $this->mpContentElems[] = $contentElem;
-            }
-            if ($contentElem instanceof ShareNotification) {
-                $this->shrContentElems[] = $contentElem;
-            }
-            if ($contentElem instanceof DLSubscriptionNotification) {
-                $this->dlSubsContentElems[] = $contentElem;
-            }
-        }
-        return $this;
+        return $this->setMpContentElems($contentElems)
+            ->setShareContentElems($contentElems)
+            ->setDlSubsContentElems($contentElems);
     }
 
     /**
@@ -423,17 +400,14 @@ class InviteAsMP extends MessageCommon
     /**
      * Sets mpContentElems
      *
-     * @param  array $mpContentElems
+     * @param  array $elements
      * @return self
      */
-    public function setMpContentElems(array $mpContentElems): self
+    public function setMpContentElems(array $elements): self
     {
-        $this->mpContentElems = [];
-        foreach ($mpContentElems as $element) {
-            if ($element instanceof PartInfo) {
-                $this->mpContentElems[] = $element;
-            }
-        }
+        $this->mpContentElems = array_values(
+            array_filter($elements, static fn ($element) => $element instanceof PartInfo)
+        );
         return $this;
     }
 
@@ -450,17 +424,14 @@ class InviteAsMP extends MessageCommon
     /**
      * Sets shrContentElems
      *
-     * @param  array $shrContentElems
+     * @param  array $elements
      * @return self
      */
-    public function setShareContentElems(array $shrContentElems): self
+    public function setShareContentElems(array $elements): self
     {
-        $this->shrContentElems = [];
-        foreach ($shrContentElems as $element) {
-            if ($element instanceof ShareNotification) {
-                $this->shrContentElems[] = $element;
-            }
-        }
+        $this->shrContentElems = array_values(
+            array_filter($elements, static fn ($element) => $element instanceof ShareNotification)
+        );
         return $this;
     }
 
@@ -477,17 +448,14 @@ class InviteAsMP extends MessageCommon
     /**
      * Sets dlSubsContentElems
      *
-     * @param  array $dlSubsContentElems
+     * @param  array $elements
      * @return self
      */
-    public function setDlSubsContentElems(array $dlSubsContentElems): self
+    public function setDlSubsContentElems(array $elements): self
     {
-        $this->dlSubsContentElems = [];
-        foreach ($dlSubsContentElems as $element) {
-            if ($element instanceof DLSubscriptionNotification) {
-                $this->dlSubsContentElems[] = $element;
-            }
-        }
+        $this->dlSubsContentElems = array_values(
+            array_filter($elements, static fn ($element) => $element instanceof DLSubscriptionNotification)
+        );
         return $this;
     }
 

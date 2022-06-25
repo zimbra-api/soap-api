@@ -10,9 +10,11 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlRoot};
-use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait, CheckedRight, EffectiveRightsTargetSelector, GranteeSelector};
-use Zimbra\Soap\Request;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Admin\Struct\{
+    AdminAttrs, AdminAttrsImplTrait, CheckedRight, EffectiveRightsTargetSelector, GranteeSelector
+};
+use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckRight request class
@@ -26,8 +28,6 @@ use Zimbra\Soap\Request;
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="CheckRightRequest")
  */
 class CheckRightRequest extends Request implements AdminAttrs
 {
@@ -40,7 +40,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement
      */
-    private $target;
+    private EffectiveRightsTargetSelector $target;
 
     /**
      * Grantee - valid values for type are "usr" and "email"
@@ -49,7 +49,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement
      */
-    private $grantee;
+    private GranteeSelector $grantee;
 
     /**
      * Checked Right
@@ -58,7 +58,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement
      */
-    private $right;
+    private CheckedRight $right;
 
     /**
      * Constructor method for CheckRightRequest
@@ -151,14 +151,12 @@ class CheckRightRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return void
+     * @return EnvelopeInterface
      */
-    protected function envelopeInit(): void
+    protected function envelopeInit(): EnvelopeInterface
     {
-        if (!($this->envelope instanceof CheckRightEnvelope)) {
-            $this->envelope = new CheckRightEnvelope(
-                new CheckRightBody($this)
-            );
-        }
+        return new CheckRightEnvelope(
+            new CheckRightBody($this)
+        );
     }
 }

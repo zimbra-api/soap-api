@@ -2,9 +2,9 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Enum\AlarmAction;
-use Zimbra\Enum\Frequency;
-use Zimbra\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\AlarmAction;
+use Zimbra\Common\Enum\Frequency;
+use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 
 use Zimbra\Mail\Struct\AlarmInfo;
 use Zimbra\Mail\Struct\CalendarAttendee;
@@ -117,7 +117,7 @@ class InviteComponentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<inv method="$method" compNum="$componentNum" rsvp="true">
+<result method="$method" compNum="$componentNum" rsvp="true">
     <category>$category1</category>
     <category>$category2</category>
     <comment>$comment1</comment>
@@ -145,7 +145,7 @@ class InviteComponentTest extends ZimbraTestCase
     <s d="$dateTime" tz="$timezone" u="$utcTime" />
     <e d="$dateTime" tz="$timezone" u="$utcTime" />
     <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-</inv>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, InviteComponent::class, 'xml'));

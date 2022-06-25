@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{AccessType, XmlRoot};
-
-use Zimbra\Struct\KeyValuePairs;
+use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
  * MailKeyValuePairs class
@@ -22,12 +20,10 @@ use Zimbra\Struct\KeyValuePairs;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="kvp")
  */
 class MailKeyValuePairs implements KeyValuePairs
 {
-    use MailKeyValuePairsTrait;
+    use KeyValuePairsTrait;
 
     /**
      * Constructor method for MailKeyValuePairs

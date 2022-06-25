@@ -10,8 +10,8 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList, XmlRoot};
-use Zimbra\Struct\OpValue;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use Zimbra\Common\Struct\OpValue;
 
 /**
  * BlackList struct class
@@ -21,18 +21,16 @@ use Zimbra\Struct\OpValue;
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2022013-present0 by Nguyen Van Nguyen.
- * @AccessType("public_method")
- * @XmlRoot(name="blackList")
  */
 class BlackList
 {
     /**
      * @Accessor(getter="getAddrs", setter="setAddrs")
      * @SerializedName("addr")
-     * @Type("array<Zimbra\Struct\OpValue>")
+     * @Type("array<Zimbra\Common\Struct\OpValue>")
      * @XmlList(inline = true, entry = "addr")
      */
-    private $addrs;
+    private $addrs = [];
 
     /**
      * Constructor method for BlackList
@@ -64,12 +62,7 @@ class BlackList
      */
     public function setAddrs(array $addrs): self
     {
-        $this->addrs = [];
-        foreach ($addrs as $addr) {
-            if ($addr instanceof OpValue) {
-                $this->addrs[] = $addr;
-            }
-        }
+        $this->addrs = array_filter($addrs, static fn ($addr) => $addr instanceof OpValue);
         return $this;
     }
 

@@ -27,25 +27,11 @@ class AccountInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<account name="$name" id="$id" isExternal="true">
+<result name="$name" id="$id" isExternal="true">
     <a n="$key">$value</a>
-</account>
+</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'isExternal' => TRUE,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($account, 'json'));
-        $this->assertEquals($account, $this->serializer->deserialize($json, AccountInfo::class, 'json'));
     }
 }
