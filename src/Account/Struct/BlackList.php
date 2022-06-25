@@ -28,7 +28,7 @@ class BlackList
      * @Accessor(getter="getAddrs", setter="setAddrs")
      * @SerializedName("addr")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
-     * @XmlList(inline = true, entry = "addr")
+     * @XmlList(inline=true, entry="addr")
      */
     private $addrs = [];
 

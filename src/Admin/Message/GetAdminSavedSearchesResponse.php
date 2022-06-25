@@ -31,7 +31,7 @@ class GetAdminSavedSearchesResponse implements ResponseInterface
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline = true, entry = "search")
+     * @XmlList(inline=true, entry="search")
      */
     private $searches = [];
 

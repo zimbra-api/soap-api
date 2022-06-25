@@ -65,7 +65,7 @@ class DiscoverRightsTarget
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("email")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
-     * @XmlList(inline = true, entry = "email")
+     * @XmlList(inline=true, entry="email")
      */
     private $emails = [];
 

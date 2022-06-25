@@ -28,7 +28,7 @@ trait KeyValuePairsTrait
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a")
      */
     private $keyValuePairs = [];
 

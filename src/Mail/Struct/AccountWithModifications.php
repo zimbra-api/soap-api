@@ -36,7 +36,7 @@ class AccountWithModifications
      * @Accessor(getter="getPendingFolderModifications", setter="setPendingFolderModifications")
      * @SerializedName("mods")
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
-     * @XmlList(inline = true, entry = "mods")
+     * @XmlList(inline=true, entry="mods")
      */
     private $mods = [];
 

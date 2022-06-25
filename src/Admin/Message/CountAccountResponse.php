@@ -31,7 +31,7 @@ class CountAccountResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
-     * @XmlList(inline = true, entry = "cos")
+     * @XmlList(inline=true, entry="cos")
      */
     private $cos = [];
 

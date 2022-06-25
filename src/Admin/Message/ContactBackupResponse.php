@@ -31,7 +31,7 @@ class ContactBackupResponse implements ResponseInterface
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
-     * @XmlList(inline = false, entry = "server")
+     * @XmlList(inline=false, entry="server")
      */
     private $servers = [];
 

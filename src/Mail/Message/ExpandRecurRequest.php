@@ -55,7 +55,7 @@ class ExpandRecurRequest extends Request
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline = true, entry = "tz")
+     * @XmlList(inline=true, entry="tz")
      */
     private $timezones = [];
 
@@ -65,7 +65,7 @@ class ExpandRecurRequest extends Request
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
      * @SerializedName("comp")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
-     * @XmlList(inline = true, entry = "comp")
+     * @XmlList(inline=true, entry="comp")
      */
     private $inviteComponents = [];
 
@@ -75,7 +75,7 @@ class ExpandRecurRequest extends Request
      * @Accessor(getter="getExceptComponents", setter="setExceptComponents")
      * @SerializedName("except")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
-     * @XmlList(inline = true, entry = "except")
+     * @XmlList(inline=true, entry="except")
      */
     private $exceptComponents = [];
 
@@ -85,7 +85,7 @@ class ExpandRecurRequest extends Request
      * @Accessor(getter="getCancelComponents", setter="setCancelComponents")
      * @SerializedName("cancel")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
-     * @XmlList(inline = true, entry = "cancel")
+     * @XmlList(inline=true, entry="cancel")
      */
     private $cancelComponents = [];
 

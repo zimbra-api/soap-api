@@ -29,7 +29,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")
-     * @XmlList(inline = true, entry = "usr")
+     * @XmlList(inline=true, entry="usr")
      */
     private $freebusyUsers = [];
 

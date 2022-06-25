@@ -38,7 +38,7 @@ class CmdRightsInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline = false, entry = "right")
+     * @XmlList(inline=false, entry="right")
      */
     private $rights = [];
 
@@ -47,7 +47,7 @@ class CmdRightsInfo
      * @Accessor(getter="getNotes", setter="setNotes")
      * @SerializedName("desc")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "note")
+     * @XmlList(inline=false, entry="note")
      */
     private $notes = [];
 

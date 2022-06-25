@@ -48,7 +48,7 @@ abstract class ObjectInfo
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="a", skipWhenEmpty = true)
      */
     private $attrList = [];
 

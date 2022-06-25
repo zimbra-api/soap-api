@@ -29,7 +29,7 @@ class HABGroupMember extends HABMember
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline = true, entry = "attr", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="attr", skipWhenEmpty = true)
      */
     private $attrs = [];
 

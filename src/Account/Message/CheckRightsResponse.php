@@ -30,7 +30,7 @@ class CheckRightsResponse implements ResponseInterface
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
-     * @XmlList(inline = true, entry = "target")
+     * @XmlList(inline=true, entry="target")
      */
     private $targets = [];
 

@@ -37,7 +37,7 @@ class ServerQueues
      * @Accessor(getter="getQueues", setter="setQueues")
      * @SerializedName("queue")
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
-     * @XmlList(inline = true, entry = "queue")
+     * @XmlList(inline=true, entry="queue")
      */
     private $queues = [];
 

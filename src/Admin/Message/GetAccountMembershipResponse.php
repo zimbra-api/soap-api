@@ -30,7 +30,7 @@ class GetAccountMembershipResponse implements ResponseInterface
      * @Accessor(getter="getDlList", setter="setDlList")
      * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DLInfo>")
-     * @XmlList(inline = true, entry = "dl")
+     * @XmlList(inline=true, entry="dl")
      */
     private $dlList = [];
 

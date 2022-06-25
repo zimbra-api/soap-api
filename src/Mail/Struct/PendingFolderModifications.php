@@ -37,7 +37,7 @@ class PendingFolderModifications
      * @Accessor(getter="getCreated", setter="setCreated")
      * @SerializedName("created")
      * @Type("array<Zimbra\Mail\Struct\CreateItemNotification>")
-     * @XmlList(inline = true, entry = "created")
+     * @XmlList(inline=true, entry="created")
      */
     private $created = [];
 
@@ -46,7 +46,7 @@ class PendingFolderModifications
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @SerializedName("deleted")
      * @Type("array<Zimbra\Mail\Struct\DeleteItemNotification>")
-     * @XmlList(inline = true, entry = "deleted")
+     * @XmlList(inline=true, entry="deleted")
      */
     private $deleted = [];
 
@@ -55,7 +55,7 @@ class PendingFolderModifications
      * @Accessor(getter="getModifiedMsgs", setter="setModifiedMsgs")
      * @SerializedName("modMsgs")
      * @Type("array<Zimbra\Mail\Struct\ModifyItemNotification>")
-     * @XmlList(inline = true, entry = "modMsgs")
+     * @XmlList(inline=true, entry="modMsgs")
      */
     private $modifiedMsgs = [];
 
@@ -64,7 +64,7 @@ class PendingFolderModifications
      * @Accessor(getter="getModifiedTags", setter="setModifiedTags")
      * @SerializedName("modTags")
      * @Type("array<Zimbra\Mail\Struct\ModifyTagNotification>")
-     * @XmlList(inline = true, entry = "modTags")
+     * @XmlList(inline=true, entry="modTags")
      */
     private $modifiedTags = [];
 
@@ -73,7 +73,7 @@ class PendingFolderModifications
      * @Accessor(getter="getRenamedFolders", setter="setRenamedFolders")
      * @SerializedName("modFolders")
      * @Type("array<Zimbra\Mail\Struct\RenameFolderNotification>")
-     * @XmlList(inline = true, entry = "modFolders")
+     * @XmlList(inline=true, entry="modFolders")
      */
     private $modifiedFolders = [];
 

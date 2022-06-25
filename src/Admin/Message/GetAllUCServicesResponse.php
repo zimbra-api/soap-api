@@ -31,7 +31,7 @@ class GetAllUCServicesResponse implements ResponseInterface
      * @Accessor(getter="getUCServiceList", setter="setUCServiceList")
      * @SerializedName("ucservice")
      * @Type("array<Zimbra\Admin\Struct\UCServiceInfo>")
-     * @XmlList(inline = true, entry = "ucservice")
+     * @XmlList(inline=true, entry="ucservice")
      */
     private $ucServiceList = [];
 

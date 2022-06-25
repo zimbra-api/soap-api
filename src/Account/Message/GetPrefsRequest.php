@@ -33,7 +33,7 @@ class GetPrefsRequest extends Request
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("pref")
      * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline = true, entry = "pref")
+     * @XmlList(inline=true, entry="pref")
      */
     private $prefs = [];
 

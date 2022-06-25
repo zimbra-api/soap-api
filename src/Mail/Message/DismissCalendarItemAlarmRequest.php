@@ -32,7 +32,7 @@ class DismissCalendarItemAlarmRequest extends Request
      * @Accessor(getter="getApptAlarms", setter="setApptAlarms")
      * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\DismissAppointmentAlarm>")
-     * @XmlList(inline = true, entry = "appt")
+     * @XmlList(inline=true, entry="appt")
      */
     private $apptAlarms = [];
 
@@ -42,7 +42,7 @@ class DismissCalendarItemAlarmRequest extends Request
      * @Accessor(getter="getTaskAlarms", setter="setTaskAlarms")
      * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\DismissTaskAlarm>")
-     * @XmlList(inline = true, entry = "task")
+     * @XmlList(inline=true, entry="task")
      */
     private $taskAlarms = [];
 

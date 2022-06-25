@@ -31,7 +31,7 @@ class GetSignaturesResponse implements ResponseInterface
      * @Accessor(getter="getSignatures", setter="setSignatures")
      * @SerializedName("signature")
      * @Type("array<Zimbra\Account\Struct\Signature>")
-     * @XmlList(inline = true, entry = "signature")
+     * @XmlList(inline=true, entry="signature")
      */
     private $signatures = [];
 

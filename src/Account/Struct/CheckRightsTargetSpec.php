@@ -52,7 +52,7 @@ class CheckRightsTargetSpec
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right")
      */
     private $rights = [];
 

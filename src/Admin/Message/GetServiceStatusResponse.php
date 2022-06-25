@@ -42,7 +42,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Accessor(getter="getServiceStatuses", setter="setServiceStatuses")
      * @SerializedName("status")
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
-     * @XmlList(inline = true, entry = "status")
+     * @XmlList(inline=true, entry="status")
      */
     private $serviceStatuses = [];
 

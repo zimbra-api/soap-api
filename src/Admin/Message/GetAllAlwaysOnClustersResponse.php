@@ -31,7 +31,7 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
      * @Accessor(getter="getAlwaysOnClusterList", setter="setAlwaysOnClusterList")
      * @SerializedName("alwaysOnCluster")
      * @Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")
-     * @XmlList(inline = true, entry = "alwaysOnCluster")
+     * @XmlList(inline=true, entry="alwaysOnCluster")
      */
     private $clusterList = [];
 

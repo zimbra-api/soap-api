@@ -31,7 +31,7 @@ class GetIdentitiesResponse implements ResponseInterface
      * @Accessor(getter="getIdentities", setter="setIdentities")
      * @SerializedName("identity")
      * @Type("array<Zimbra\Account\Struct\Identity>")
-     * @XmlList(inline = true, entry = "identity")
+     * @XmlList(inline=true, entry="identity")
      */
     private $identities = [];
 

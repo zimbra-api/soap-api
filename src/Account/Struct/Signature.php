@@ -53,7 +53,7 @@ class Signature
      * @Accessor(getter="getContents", setter="setContents")
      * @SerializedName("content")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
-     * @XmlList(inline = true, entry = "content")
+     * @XmlList(inline=true, entry="content")
      */
     private $contents = [];
 

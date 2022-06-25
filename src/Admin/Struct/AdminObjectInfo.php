@@ -43,7 +43,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="a", skipWhenEmpty = true)
      */
     private $attrList = [];
 

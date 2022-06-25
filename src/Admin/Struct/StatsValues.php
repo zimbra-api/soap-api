@@ -37,7 +37,7 @@ class StatsValues
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stat")
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
-     * @XmlList(inline = true, entry = "stat")
+     * @XmlList(inline=true, entry="stat")
      */
     private $stats = [];
 

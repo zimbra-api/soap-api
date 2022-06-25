@@ -40,7 +40,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a")
      */
     private $attrList = [];
 
@@ -59,7 +59,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getSoapURLList", setter="setSoapURLList")
      * @SerializedName("soapURL")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "soapURL")
+     * @XmlList(inline=true, entry="soapURL")
      */
     private $soapURLList = [];
 

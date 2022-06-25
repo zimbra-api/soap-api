@@ -31,7 +31,7 @@ class RefreshRegisteredAuthTokensRequest extends Request
      * @Accessor(getter="getTokens", setter="setTokens")
      * @SerializedName("token")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "token")
+     * @XmlList(inline=true, entry="token")
      */
     private $tokens = [];
 

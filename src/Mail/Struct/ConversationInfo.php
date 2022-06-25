@@ -83,7 +83,7 @@ class ConversationInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta")
      */
     private $metadatas = [];
 
@@ -101,7 +101,7 @@ class ConversationInfo
      * @Accessor(getter="getChatMessages", setter="setChatMessages")
      * @SerializedName("chat")
      * @Type("array<Zimbra\Mail\Struct\ChatMessageInfo>")
-     * @XmlList(inline = true, entry = "chat")
+     * @XmlList(inline=true, entry="chat")
      */
     private $chatMessages = [];
 
@@ -110,7 +110,7 @@ class ConversationInfo
      * @Accessor(getter="getMessages", setter="setMessages")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\MessageInfo>")
-     * @XmlList(inline = true, entry = "m")
+     * @XmlList(inline=true, entry="m")
      */
     private $messages = [];
 

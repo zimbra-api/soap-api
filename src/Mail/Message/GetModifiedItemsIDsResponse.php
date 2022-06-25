@@ -31,7 +31,7 @@ class GetModifiedItemsIDsResponse implements ResponseInterface
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("array<integer>")
-     * @XmlList(inline = true, entry = "ids")
+     * @XmlList(inline=true, entry="ids")
      */
     private $ids = [];
 

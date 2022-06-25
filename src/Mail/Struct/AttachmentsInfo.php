@@ -37,7 +37,7 @@ class AttachmentsInfo
      * @Accessor(getter="getMpAttachments", setter="setMpAttachments")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")
-     * @XmlList(inline = true, entry = "mp")
+     * @XmlList(inline=true, entry="mp")
      */
     private $mpAttachments = [];
 
@@ -46,7 +46,7 @@ class AttachmentsInfo
      * @Accessor(getter="getMsgAttachments", setter="setMsgAttachments")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
-     * @XmlList(inline = true, entry = "m")
+     * @XmlList(inline=true, entry="m")
      */
     private $msgAttachments = [];
 
@@ -55,7 +55,7 @@ class AttachmentsInfo
      * @Accessor(getter="getContactAttachments", setter="setContactAttachments")
      * @SerializedName("cn")
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
-     * @XmlList(inline = true, entry = "cn")
+     * @XmlList(inline=true, entry="cn")
      */
     private $cnAttachments = [];
 
@@ -64,7 +64,7 @@ class AttachmentsInfo
      * @Accessor(getter="getDocAttachments", setter="setDocAttachments")
      * @SerializedName("doc")
      * @Type("array<Zimbra\Mail\Struct\DocAttachSpec>")
-     * @XmlList(inline = true, entry = "doc")
+     * @XmlList(inline=true, entry="doc")
      */
     private $docAttachments = [];
 

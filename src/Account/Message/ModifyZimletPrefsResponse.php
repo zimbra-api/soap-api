@@ -29,7 +29,7 @@ class ModifyZimletPrefsResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlet")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "zimlet")
+     * @XmlList(inline=true, entry="zimlet")
      */
     private $zimlets = [];
 

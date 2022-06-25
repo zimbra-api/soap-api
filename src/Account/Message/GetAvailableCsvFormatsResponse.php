@@ -31,7 +31,7 @@ class GetAvailableCsvFormatsResponse implements ResponseInterface
      * @Accessor(getter="getCsvFormats", setter="setCsvFormats")
      * @SerializedName("csv")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline = true, entry = "csv")
+     * @XmlList(inline=true, entry="csv")
      */
     private $csvFormats = [];
 

@@ -28,7 +28,7 @@ class RetentionPolicy
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
-     * @XmlList(inline = false, entry = "policy")
+     * @XmlList(inline=false, entry="policy")
      */
     private $keep = [];
 
@@ -37,7 +37,7 @@ class RetentionPolicy
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
-     * @XmlList(inline = false, entry = "policy")
+     * @XmlList(inline=false, entry="policy")
      */
     private $purge = [];
 

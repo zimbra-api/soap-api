@@ -37,7 +37,7 @@ class DistributionListRightInfo
      * @Accessor(getter="getGrantees", setter="setGrantees")
      * @SerializedName("grantee")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
-     * @XmlList(inline = true, entry = "grantee")
+     * @XmlList(inline=true, entry="grantee")
      */
     private $grantees = [];
 

@@ -74,7 +74,7 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a")
      */
     private $attrs = [];
 
@@ -84,7 +84,7 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")
-     * @XmlList(inline = true, entry = "m")
+     * @XmlList(inline=true, entry="m")
      */
     private $contactGroupMembers = [];
 

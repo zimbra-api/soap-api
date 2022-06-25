@@ -30,7 +30,7 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
      * @SerializedName("property")
      * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
-     * @XmlList(inline = true, entry = "property")
+     * @XmlList(inline=true, entry="property")
      */
     private $properties = [];
 

@@ -31,7 +31,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
      * @SerializedName("whiteList")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "addr")
+     * @XmlList(inline=false, entry="addr")
      */
     private $whiteListEntries = [];
 
@@ -41,7 +41,7 @@ class GetWhiteBlackListResponse implements ResponseInterface
      * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
      * @SerializedName("blackList")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "addr")
+     * @XmlList(inline=false, entry="addr")
      */
     private $blackListEntries = [];
 

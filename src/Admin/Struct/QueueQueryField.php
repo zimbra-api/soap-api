@@ -38,7 +38,7 @@ class QueueQueryField
      * @Accessor(getter="getMatches", setter="setMatches")
      * @SerializedName("match")
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
-     * @XmlList(inline = true, entry = "match")
+     * @XmlList(inline=true, entry="match")
      */
     private $matches = [];
 

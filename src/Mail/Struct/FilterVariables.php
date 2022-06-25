@@ -28,7 +28,7 @@ class FilterVariables extends FilterAction
      * @Accessor(getter="getVariables", setter="setVariables")
      * @SerializedName("filterVariable")
      * @Type("array<Zimbra\Mail\Struct\FilterVariable>")
-     * @XmlList(inline = true, entry = "filterVariable")
+     * @XmlList(inline=true, entry="filterVariable")
      */
     private $variables = [];
 

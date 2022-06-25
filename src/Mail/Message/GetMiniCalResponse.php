@@ -31,7 +31,7 @@ class GetMiniCalResponse implements ResponseInterface
      * @Accessor(getter="getBusyDates", setter="setBusyDates")
      * @SerializedName("date")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "date")
+     * @XmlList(inline=true, entry="date")
      */
     private $busyDates = [];
 
@@ -41,7 +41,7 @@ class GetMiniCalResponse implements ResponseInterface
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
      * @Type("array<Zimbra\Mail\Struct\MiniCalError>")
-     * @XmlList(inline = true, entry = "error")
+     * @XmlList(inline=true, entry="error")
      */
     private $errors = [];
 

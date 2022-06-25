@@ -58,7 +58,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline = true, entry = "e")
+     * @XmlList(inline=true, entry="e")
      */
     private $emails = [];
 
@@ -94,7 +94,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "header")
+     * @XmlList(inline=true, entry="header")
      */
     private $headers = [];
 
@@ -103,7 +103,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getMpContentElems", setter="setMpContentElems")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
-     * @XmlList(inline = true, entry = "mp")
+     * @XmlList(inline=true, entry="mp")
      */
     private $mpContentElems = [];
 
@@ -112,7 +112,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getShareContentElems", setter="setShareContentElems")
      * @SerializedName("shr")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
-     * @XmlList(inline = true, entry = "shr")
+     * @XmlList(inline=true, entry="shr")
      */
     private $shrContentElems = [];
 
@@ -121,7 +121,7 @@ class InviteAsMP extends MessageCommon
      * @Accessor(getter="getDlSubsContentElems", setter="setDlSubsContentElems")
      * @SerializedName("dlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
-     * @XmlList(inline = true, entry = "dlSubs")
+     * @XmlList(inline=true, entry="dlSubs")
      */
     private $dlSubsContentElems = [];
 

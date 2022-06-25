@@ -48,7 +48,7 @@ class GetQuotaUsageResponse implements ResponseInterface
      * @Accessor(getter="getAccountQuotas", setter="setAccountQuotas")
      * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account")
      */
     private $accountQuotas = [];
 

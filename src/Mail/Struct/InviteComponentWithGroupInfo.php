@@ -29,7 +29,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "category")
+     * @XmlList(inline=true, entry="category")
      */
     private $categories = [];
 
@@ -38,7 +38,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getComments", setter="setComments")
      * @SerializedName("comment")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "comment")
+     * @XmlList(inline=true, entry="comment")
      */
     private $comments = [];
 
@@ -47,7 +47,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getContacts", setter="setContacts")
      * @SerializedName("contact")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "contact")
+     * @XmlList(inline=true, entry="contact")
      */
     private $contacts = [];
 
@@ -65,7 +65,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @SerializedName("at")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\CalendarAttendee>")
-     * @XmlList(inline = true, entry = "at")
+     * @XmlList(inline=true, entry="at")
      */
     private $attendees = [];
 
@@ -74,7 +74,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getAlarms", setter="setAlarms")
      * @SerializedName("alarm")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\AlarmInfo>")
-     * @XmlList(inline = true, entry = "alarm")
+     * @XmlList(inline=true, entry="alarm")
      */
     private $alarms = [];
 
@@ -83,7 +83,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getXProps", setter="setXProps")
      * @SerializedName("xprop")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\XProp>")
-     * @XmlList(inline = true, entry = "xprop")
+     * @XmlList(inline=true, entry="xprop")
      */
     private $xProps = [];
 

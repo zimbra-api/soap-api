@@ -31,7 +31,7 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * @Accessor(getter="getUsages", setter="setUsages")
      * @SerializedName("dataSourceUsage")
      * @Type("array<Zimbra\Mail\Struct\DataSourceUsage>")
-     * @XmlList(inline = true, entry = "dataSourceUsage")
+     * @XmlList(inline=true, entry="dataSourceUsage")
      */
     private $usages = [];
 

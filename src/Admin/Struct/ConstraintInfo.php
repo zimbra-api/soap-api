@@ -46,7 +46,7 @@ class ConstraintInfo
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "v")
+     * @XmlList(inline=false, entry="v")
      */
     private $values = [];
 

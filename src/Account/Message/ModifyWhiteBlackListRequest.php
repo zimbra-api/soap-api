@@ -31,7 +31,7 @@ class ModifyWhiteBlackListRequest extends Request
      * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
      * @SerializedName("whiteList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
-     * @XmlList(inline = false, entry = "addr")
+     * @XmlList(inline=false, entry="addr")
      */
     private $whiteListEntries = [];
 
@@ -40,7 +40,7 @@ class ModifyWhiteBlackListRequest extends Request
      * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
      * @SerializedName("blackList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
-     * @XmlList(inline = false, entry = "addr")
+     * @XmlList(inline=false, entry="addr")
      */
     private $blackListEntries = [];
 

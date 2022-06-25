@@ -29,7 +29,7 @@ class QueueQuery
      * @Accessor(getter="getFields", setter="setFields")
      * @SerializedName("field")
      * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
-     * @XmlList(inline = true, entry = "field")
+     * @XmlList(inline=true, entry="field")
      */
     private $fields = [];
 

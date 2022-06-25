@@ -31,7 +31,7 @@ class GetAllRightsResponse implements ResponseInterface
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<Zimbra\Admin\Struct\RightInfo>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right")
      */
     private $rights = [];
 

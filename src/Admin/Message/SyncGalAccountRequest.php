@@ -34,7 +34,7 @@ class SyncGalAccountRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account")
      */
     private $accounts = [];
 

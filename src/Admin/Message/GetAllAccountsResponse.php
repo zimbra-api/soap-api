@@ -31,7 +31,7 @@ class GetAllAccountsResponse implements ResponseInterface
      * @Accessor(getter="getAccountList", setter="setAccountList")
      * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account")
      */
     private $accounts = [];
 

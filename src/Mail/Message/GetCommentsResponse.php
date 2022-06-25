@@ -31,7 +31,7 @@ class GetCommentsResponse implements ResponseInterface
      * @Accessor(getter="getUsers", setter="setUsers")
      * @SerializedName("user")
      * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
-     * @XmlList(inline = true, entry = "user")
+     * @XmlList(inline=true, entry="user")
      */
     private $users = [];
 
@@ -41,7 +41,7 @@ class GetCommentsResponse implements ResponseInterface
      * @Accessor(getter="getComments", setter="setComments")
      * @SerializedName("comment")
      * @Type("array<Zimbra\Mail\Struct\CommentInfo>")
-     * @XmlList(inline = true, entry = "comment")
+     * @XmlList(inline=true, entry="comment")
      */
     private $comments = [];
 

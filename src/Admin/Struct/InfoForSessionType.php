@@ -47,7 +47,7 @@ class InfoForSessionType
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("zid")
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
-     * @XmlList(inline = true, entry = "zid")
+     * @XmlList(inline=true, entry="zid")
      */
     private $accounts = [];
 
@@ -57,7 +57,7 @@ class InfoForSessionType
      * @Accessor(getter="getSessions", setter="setSessions")
      * @SerializedName("s")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
-     * @XmlList(inline = true, entry = "s")
+     * @XmlList(inline=true, entry="s")
      */
     private $sessions = [];
 

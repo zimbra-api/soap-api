@@ -32,7 +32,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Accessor(getter="getPackages", setter="setPackages")
      * @SerializedName("package")
      * @Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")
-     * @XmlList(inline = true, entry = "package")
+     * @XmlList(inline=true, entry="package")
      */
     private $pkgs = [];
 
@@ -42,7 +42,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Accessor(getter="getNotUsed", setter="setNotUsed")
      * @SerializedName("notUsed")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "notUsed")
+     * @XmlList(inline=true, entry="notUsed")
      */
     private $notUsed = [];
 
@@ -52,7 +52,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template")
      * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
-     * @XmlList(inline = false, entry = "right")
+     * @XmlList(inline=false, entry="right")
      */
     private $rights = [];
 

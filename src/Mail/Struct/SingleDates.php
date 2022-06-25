@@ -39,7 +39,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @Accessor(getter="getDtVals", setter="setDtVals")
      * @SerializedName("dtval")
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
-     * @XmlList(inline = true, entry = "dtval")
+     * @XmlList(inline=true, entry="dtval")
      */
     private $dtVals = [];
 

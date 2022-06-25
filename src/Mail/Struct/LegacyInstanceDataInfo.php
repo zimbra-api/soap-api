@@ -56,7 +56,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "category")
+     * @XmlList(inline=true, entry="category")
      */
     private $categories = [];
 

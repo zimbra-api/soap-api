@@ -97,7 +97,7 @@ class FolderActionSelector extends ActionSelector
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("acl")
      * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
-     * @XmlList(inline = false, entry = "grant")
+     * @XmlList(inline=false, entry="grant")
      */
     private $grants = [];
 

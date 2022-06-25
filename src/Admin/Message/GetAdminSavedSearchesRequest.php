@@ -32,7 +32,7 @@ class GetAdminSavedSearchesRequest extends Request
      * @Accessor(getter="getSearches", setter="setSearches")
      * @SerializedName("search")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline = true, entry = "search")
+     * @XmlList(inline=true, entry="search")
      */
     private $searches = [];
 

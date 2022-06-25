@@ -121,7 +121,7 @@ class MessageCommon implements MessageCommonInterface
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta")
      */
     private $metadatas = [];
 

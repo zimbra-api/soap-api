@@ -40,7 +40,7 @@ class AddDistributionListMemberRequest extends Request
      * @Accessor(getter="getMembers", setter="setMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "dlm")
+     * @XmlList(inline=true, entry="dlm")
      */
     private $members = [];
 
