@@ -73,31 +73,5 @@ class ModifyZimletTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyZimletEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyZimletRequest' => [
-                    'zimlet' => [
-                        'name' => $name,
-                        'acl' => [
-                            'cos' => $cos,
-                            'acl' => 'grant',
-                        ],
-                        'status' => [
-                            'value' => 'enabled',
-                        ],
-                        'priority' => [
-                            'value' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifyZimletResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyZimletEnvelope::class, 'json'));
     }
 }

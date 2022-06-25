@@ -70,23 +70,5 @@ class GetMemcachedClientConfigTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetMemcachedClientConfigEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetMemcachedClientConfigRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetMemcachedClientConfigResponse' => [
-                    'serverList' => $serverList,
-                    'hashAlgorithm' => $hashAlgorithm,
-                    'binaryProtocol' => TRUE,
-                    'defaultExpirySeconds' => $defaultExpirySeconds,
-                    'defaultTimeoutMillis' => $defaultTimeoutMillis,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetMemcachedClientConfigEnvelope::class, 'json'));
     }
 }

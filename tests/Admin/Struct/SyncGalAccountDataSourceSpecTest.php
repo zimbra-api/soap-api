@@ -38,14 +38,5 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
         $this->assertEquals($ds, $this->serializer->deserialize($xml, SyncGalAccountDataSourceSpec::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            'fullSync' => TRUE,
-            'reset' => FALSE,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ds, 'json'));
-        $this->assertEquals($ds, $this->serializer->deserialize($json, SyncGalAccountDataSourceSpec::class, 'json'));
     }
 }

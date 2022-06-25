@@ -69,29 +69,5 @@ class ExportAndDeleteItemsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ExportAndDeleteItemsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ExportAndDeleteItemsRequest' => [
-                    'exportDir' => $exportDir,
-                    'exportFilenamePrefix' => $exportFilenamePrefix,
-                    'mbox' => [
-                        'id' => $id,
-                        'item' => [
-                            [
-                                'id' => $id,
-                                'version' => $version,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ExportAndDeleteItemsResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ExportAndDeleteItemsEnvelope::class, 'json'));
     }
 }

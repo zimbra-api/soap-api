@@ -45,15 +45,5 @@ class ExchangeAuthSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($auth, 'xml'));
         $this->assertEquals($auth, $this->serializer->deserialize($xml, ExchangeAuthSpec::class, 'xml'));
-
-        $json = json_encode([
-            'url' => $url,
-            'user' => $user,
-            'pass' => $pass,
-            'scheme' => $scheme,
-            'type' => $type,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($auth, 'json'));
-        $this->assertEquals($auth, $this->serializer->deserialize($json, ExchangeAuthSpec::class, 'json'));
     }
 }

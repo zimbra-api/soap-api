@@ -103,45 +103,5 @@ class GetDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDistributionListRequest' => [
-                    'attrs' => $attrs,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'sortAscending' => TRUE,
-                    'dl' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetDistributionListResponse' => [
-                    'more' => TRUE,
-                    'total' => $total,
-                    'dl' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'dynamic' => TRUE,
-                        'dlm' => [
-                            ['_content' => $member],
-                        ],
-                        'owners' => [
-                            'owner' => [
-                                [
-                                    'id' => $id,
-                                    'name' => $name,
-                                    'type' => 'all',
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDistributionListEnvelope::class, 'json'));
     }
 }

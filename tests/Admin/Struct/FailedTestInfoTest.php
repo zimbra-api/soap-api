@@ -39,14 +39,5 @@ class FailedTestInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($failure, 'xml'));
         $this->assertEquals($failure, $this->serializer->deserialize($xml, FailedTestInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'execSeconds' => $execSeconds,
-            'class' => $className,
-            '_content' => $throwable,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($failure, 'json'));
-        $this->assertEquals($failure, $this->serializer->deserialize($json, FailedTestInfo::class, 'json'));
     }
 }

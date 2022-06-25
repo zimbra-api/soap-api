@@ -33,17 +33,5 @@ class AdminCustomMetadataTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
         $this->assertEquals($meta, $this->serializer->deserialize($xml, AdminCustomMetadata::class, 'xml'));
-
-        $json = json_encode([
-            'section' => $section,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($meta, 'json'));
-        $this->assertEquals($meta, $this->serializer->deserialize($json, AdminCustomMetadata::class, 'json'));
     }
 }

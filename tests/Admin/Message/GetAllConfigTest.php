@@ -51,24 +51,5 @@ class GetAllConfigTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllConfigEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllConfigRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllConfigResponse' => [
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllConfigEnvelope::class, 'json'));
     }
 }

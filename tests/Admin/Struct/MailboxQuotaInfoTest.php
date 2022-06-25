@@ -33,12 +33,5 @@ class MailboxQuotaInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxQuotaInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $accountId,
-            'used' => $quotaUsed,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, MailboxQuotaInfo::class, 'json'));
     }
 }

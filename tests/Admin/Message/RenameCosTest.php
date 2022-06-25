@@ -76,37 +76,5 @@ class RenameCosTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RenameCosEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RenameCosRequest' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    'newName' => [
-                        '_content' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RenameCosResponse' => [
-                    'cos' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'isDefaultCos' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                                'c' => TRUE,
-                                'pd' => TRUE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RenameCosEnvelope::class, 'json'));
     }
 }

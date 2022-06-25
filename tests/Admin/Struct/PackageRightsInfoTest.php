@@ -48,33 +48,5 @@ class PackageRightsInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
         $this->assertEquals($package, $this->serializer->deserialize($xml, PackageRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'cmd' => [
-                [
-                    'name' => $name,
-                    'rights' => [
-                        'right' => [
-                            [
-                                'name' => $name,
-                            ],
-                        ],
-                    ],
-                    'desc' => [
-                        'note' => [
-                            [
-                                '_content' => $note1,
-                            ],
-                            [
-                                '_content' => $note2,
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($package, 'json'));
-        $this->assertEquals($package, $this->serializer->deserialize($json, PackageRightsInfo::class, 'json'));
     }
 }

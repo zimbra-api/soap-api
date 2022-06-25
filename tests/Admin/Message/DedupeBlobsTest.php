@@ -93,37 +93,5 @@ class DedupeBlobsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DedupeBlobsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DedupeBlobsRequest' => [
-                    'action' => 'status',
-                    'volume' => [
-                        ['id' => $id],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DedupeBlobsResponse' => [
-                    'status' => 'stopped',
-                    'totalSize' => $totalSize,
-                    'totalCount' => $totalCount,
-                    'volumeBlobsProgress' => [
-                        [
-                            'volumeId' => $volumeId,
-                            'progress' => $progress,
-                        ],
-                    ],
-                    'blobDigestsProgress' => [
-                        [
-                            'volumeId' => $volumeId,
-                            'progress' => $progress,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DedupeBlobsEnvelope::class, 'json'));
     }
 }

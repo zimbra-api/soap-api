@@ -71,32 +71,5 @@ class ModifyVolumeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyVolumeEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyVolumeRequest' => [
-                    'id' => $id,
-                    'volume' => [
-                        'id' => $id,
-                        'name' => $name,
-                        'rootpath' => $rootPath,
-                        'type' => $type,
-                        'compressBlobs' => TRUE,
-                        'compressionThreshold' => $threshold,
-                        'mgbits' => $mgbits,
-                        'mbits' => $mbits,
-                        'fgbits' => $fgbits,
-                        'fbits' => $fbits,
-                        'isCurrent' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifyVolumeResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyVolumeEnvelope::class, 'json'));
     }
 }

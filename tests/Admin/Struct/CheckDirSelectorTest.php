@@ -29,12 +29,5 @@ class CheckDirSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
         $this->assertEquals($dir, $this->serializer->deserialize($xml, CheckDirSelector::class, 'xml'));
-
-        $json = json_encode([
-            'path' => $path,
-            'create' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dir, 'json'));
-        $this->assertEquals($dir, $this->serializer->deserialize($json, CheckDirSelector::class, 'json'));
     }
 }

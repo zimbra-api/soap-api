@@ -30,12 +30,5 @@ class AlwaysOnClusterSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($aoc, 'xml'));
         $this->assertEquals($aoc, $this->serializer->deserialize($xml, AlwaysOnClusterSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($aoc, 'json'));
-        $this->assertEquals($aoc, $this->serializer->deserialize($json, AlwaysOnClusterSelector::class, 'json'));
     }
 }

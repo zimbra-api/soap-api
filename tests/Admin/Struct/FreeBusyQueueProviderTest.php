@@ -37,16 +37,5 @@ class FreeBusyQueueProviderTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($provider, 'xml'));
         $this->assertEquals($provider, $this->serializer->deserialize($xml, FreeBusyQueueProvider::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'account' => [
-                [
-                    'id' => $id,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($provider, 'json'));
-        $this->assertEquals($provider, $this->serializer->deserialize($json, FreeBusyQueueProvider::class, 'json'));
     }
 }

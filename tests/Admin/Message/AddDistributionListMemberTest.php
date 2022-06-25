@@ -63,27 +63,5 @@ class AddDistributionListMemberTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddDistributionListMemberEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AddDistributionListMemberRequest' => [
-                    'id' => $id,
-                    'dlm' => [
-                        [
-                            '_content' => $member1,
-                        ],
-                        [
-                            '_content' => $member2,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AddDistributionListMemberResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddDistributionListMemberEnvelope::class, 'json'));
     }
 }

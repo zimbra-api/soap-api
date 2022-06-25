@@ -117,48 +117,5 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchAutoProvDirectoryEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SearchAutoProvDirectoryRequest' => [
-                    'keyAttr' => $keyAttr,
-                    'query' => $query,
-                    'name' => $name,
-                    'maxResults' => $maxResults,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'refresh' => TRUE,
-                    'attrs' => $attrs,
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SearchAutoProvDirectoryResponse' => [
-                    'more' => TRUE,
-                    'searchTotal' => $searchTotal,
-                    'entry' => [
-                        [
-                            'dn' => $dn,
-                            'key' => [
-                                [
-                                    '_content' => $key,
-                                ],
-                            ],
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SearchAutoProvDirectoryEnvelope::class, 'json'));
     }
 }

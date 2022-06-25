@@ -44,26 +44,5 @@ class ConstraintInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($constraint, 'xml'));
         $this->assertEquals($constraint, $this->serializer->deserialize($xml, ConstraintInfo::class, 'xml'));
-
-        $json = json_encode([
-            'min' => [
-                '_content' => $min,
-            ],
-            'max' => [
-                '_content' => $max,
-            ],
-            'values' => [
-                'v' => [
-                    [
-                        '_content' => $value1,
-                    ],
-                    [
-                        '_content' => $value2,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($constraint, 'json'));
-        $this->assertEquals($constraint, $this->serializer->deserialize($json, ConstraintInfo::class, 'json'));
     }
 }

@@ -92,50 +92,5 @@ class GetAllRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllRightsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllRightsRequest' => [
-                    'targetType' => $targetType,
-                    'expandAllAttrs' => TRUE,
-                    'rightClass' => 'ALL',
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllRightsResponse' => [
-                    'right' => [
-                        [
-                            'name' => $name,
-                            'type' => 'preset',
-                            'targetType' => $targetType,
-                            'rightClass' => 'ALL',
-                            'desc' => [
-                                '_content' => $desc,
-                            ],
-                            'attrs' => [
-                                'all' => TRUE,
-                                'a' => [
-                                    [
-                                        'n' => $key,
-                                        '_content' => $value,
-                                    ],
-                                ],
-                            ],
-                            'rights' => [
-                                'r' => [
-                                    [
-                                        'n' => $name,
-                                        'type' => 'preset',
-                                        'targetType' => $targetType,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllRightsEnvelope::class, 'json'));
     }
 }

@@ -33,19 +33,5 @@ class AccountInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
         $this->assertEquals($account, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'isExternal' => TRUE,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($account, 'json'));
-        $this->assertEquals($account, $this->serializer->deserialize($json, AccountInfo::class, 'json'));
     }
 }

@@ -31,12 +31,5 @@ class AttributeDescriptionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, AttributeDescription::class, 'xml'));
-
-        $json = json_encode([
-            'n' => $name,
-            'desc' => $description,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, AttributeDescription::class, 'json'));
     }
 }

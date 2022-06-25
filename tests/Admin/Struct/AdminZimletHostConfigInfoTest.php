@@ -38,17 +38,5 @@ class AdminZimletHostConfigInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
         $this->assertEquals($host, $this->serializer->deserialize($xml, AdminZimletHostConfigInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'property' => [
-                [
-                    'name' => $name,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($host, 'json'));
-        $this->assertEquals($host, $this->serializer->deserialize($json, AdminZimletHostConfigInfo::class, 'json'));
     }
 }

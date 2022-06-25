@@ -114,58 +114,5 @@ class GetLoggerStatsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLoggerStatsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetLoggerStatsRequest' => [
-                    'hostname' => [
-                        'hn' => $name,
-                    ],
-                    'stats' => [
-                        'name' => $name,
-                        'limit' => $limit,
-                        'values' => [
-                            'stat' => [
-                                [
-                                    'name' => $name,
-                                ],
-                            ],
-                        ],
-                    ],
-                    'startTime' => [
-                        'time' => $time,
-                    ],
-                    'endTime' => [
-                        'time' => $time,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetLoggerStatsResponse' => [
-                    'hostname' => [
-                        [
-                            'hn' => $name,
-                            'stats' => [
-                                'name' => $name,
-                                'values' => [
-                                    't' => $t,
-                                    'stat' => [
-                                        [
-                                            'name' => $name,
-                                            'value' => $value,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    'note' => [
-                        '_content' => $note,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLoggerStatsEnvelope::class, 'json'));
     }
 }

@@ -30,12 +30,5 @@ class VolumeIdAndProgressTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volumeProgress, 'xml'));
         $this->assertEquals($volumeProgress, $this->serializer->deserialize($xml, VolumeIdAndProgress::class, 'xml'));
-
-        $json = json_encode([
-            'volumeId' => $volumeId,
-            'progress' => $progress,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volumeProgress, 'json'));
-        $this->assertEquals($volumeProgress, $this->serializer->deserialize($json, VolumeIdAndProgress::class, 'json'));
     }
 }

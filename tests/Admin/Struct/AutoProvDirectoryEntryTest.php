@@ -41,25 +41,5 @@ class AutoProvDirectoryEntryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, AutoProvDirectoryEntry::class, 'xml'));
-
-        $json = json_encode([
-            'dn' => $dn,
-            'key' => [
-                [
-                    '_content' => $key1,
-                ],
-                [
-                    '_content' => $key2,
-                ],
-            ],
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));
-        $this->assertEquals($entry, $this->serializer->deserialize($json, AutoProvDirectoryEntry::class, 'json'));
     }
 }

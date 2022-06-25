@@ -57,20 +57,5 @@ class CheckPasswordStrengthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckPasswordStrengthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckPasswordStrengthRequest' => [
-                    'id' => $id,
-                    'password' => $password,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckPasswordStrengthResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckPasswordStrengthEnvelope::class, 'json'));
     }
 }

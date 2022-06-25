@@ -37,17 +37,5 @@ class ComboRightsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
         $this->assertEquals($rights, $this->serializer->deserialize($xml, ComboRights::class, 'xml'));
-
-        $json = json_encode([
-            'r' => [
-                [
-                    'n' => $name,
-                    'type' => $type,
-                    'targetType' => $targetType,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rights, 'json'));
-        $this->assertEquals($rights, $this->serializer->deserialize($json, ComboRights::class, 'json'));
     }
 }

@@ -67,29 +67,5 @@ class GetVersionInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetVersionInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetVersionInfoRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetVersionInfoResponse' => [
-                    'info' => [
-                        'type' => $type,
-                        'version' => $version,
-                        'release' => $release,
-                        'buildDate' => $buildDate,
-                        'host' => $host,
-                        'majorversion' => $majorVersion,
-                        'minorversion' => $minorVersion,
-                        'microversion' => $microVersion,
-                        'platform' => $platform,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetVersionInfoEnvelope::class, 'json'));
     }
 }

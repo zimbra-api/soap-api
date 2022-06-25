@@ -89,49 +89,5 @@ class GetRightTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetRightEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetRightRequest' => [
-                    'expandAllAttrs' => TRUE,
-                    'right' => [
-                        '_content' => $right,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetRightResponse' => [
-                    'right' => [
-                        'name' => $name,
-                        'type' => 'preset',
-                        'targetType' => $targetType,
-                        'rightClass' => 'ALL',
-                        'desc' => [
-                            '_content' => $desc,
-                        ],
-                        'attrs' => [
-                            'all' => TRUE,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                        'rights' => [
-                            'r' => [
-                                [
-                                    'n' => $name,
-                                    'type' => 'preset',
-                                    'targetType' => $targetType,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetRightEnvelope::class, 'json'));
     }
 }

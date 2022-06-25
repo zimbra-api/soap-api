@@ -31,12 +31,5 @@ class QueueSummaryItemTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($qsi, 'xml'));
         $this->assertEquals($qsi, $this->serializer->deserialize($xml, QueueSummaryItem::class, 'xml'));
-
-        $json = json_encode([
-            'n' => $count,
-            't' => $term,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($qsi, 'json'));
-        $this->assertEquals($qsi, $this->serializer->deserialize($json, QueueSummaryItem::class, 'json'));
     }
 }

@@ -77,40 +77,5 @@ class CreateDataSourceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateDataSourceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateDataSourceRequest' => [
-                    'id' => $id,
-                    'dataSource' => [
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'type' => 'imap',
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateDataSourceResponse' => [
-                    'dataSource' => [
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'name' => $name,
-                        'id' => $id,
-                        'type' => 'imap',
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateDataSourceEnvelope::class, 'json'));
     }
 }

@@ -31,12 +31,5 @@ class LimitedQueryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
         $this->assertEquals($query, $this->serializer->deserialize($xml, LimitedQuery::class, 'xml'));
-
-        $json = json_encode([
-            'limit' => $limit,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($query, 'json'));
-        $this->assertEquals($query, $this->serializer->deserialize($json, LimitedQuery::class, 'json'));
     }
 }

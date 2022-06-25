@@ -45,25 +45,5 @@ class XMPPComponentSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
         $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $name,
-                    '_content' => $value,
-                ],
-            ],
-            'name' => $name,
-            'domain' => [
-                'by' => $by,
-                '_content' => $value,
-            ],
-            'server' => [
-                'by' => $by,
-                '_content' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xmpp, 'json'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($json, XMPPComponentSpec::class, 'json'));
     }
 }

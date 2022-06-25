@@ -69,33 +69,5 @@ class GetAllVolumesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllVolumesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllVolumesRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllVolumesResponse' => [
-                    'volume' => [
-                        [
-                            'id' => $id,
-                            'name' => $name,
-                            'rootpath' => $rootPath,
-                            'type' => $type,
-                            'compressBlobs' => TRUE,
-                            'compressionThreshold' => $threshold,
-                            'mgbits' => $mgbits,
-                            'mbits' => $mbits,
-                            'fgbits' => $fgbits,
-                            'fbits' => $fbits,
-                            'isCurrent' => FALSE,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllVolumesEnvelope::class, 'json'));
     }
 }

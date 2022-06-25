@@ -33,12 +33,5 @@ class MailboxStatsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stats, 'xml'));
         $this->assertEquals($stats, $this->serializer->deserialize($xml, MailboxStats::class, 'xml'));
-
-        $json = json_encode([
-            'numMboxes' => $numMboxes,
-            'totalSize' => $totalSize,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stats, 'json'));
-        $this->assertEquals($stats, $this->serializer->deserialize($json, MailboxStats::class, 'json'));
     }
 }

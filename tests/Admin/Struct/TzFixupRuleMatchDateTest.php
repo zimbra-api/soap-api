@@ -30,12 +30,5 @@ class TzFixupRuleMatchDateTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($date, 'xml'));
         $this->assertEquals($date, $this->serializer->deserialize($xml, TzFixupRuleMatchDate::class, 'xml'));
-
-        $json = json_encode([
-            'mon' => $mon,
-            'mday' => $mday,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($date, 'json'));
-        $this->assertEquals($date, $this->serializer->deserialize($json, TzFixupRuleMatchDate::class, 'json'));
     }
 }

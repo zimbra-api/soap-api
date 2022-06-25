@@ -57,18 +57,5 @@ class WaitSetSessionInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($WaitSetSession, 'xml'));
         $this->assertEquals($WaitSetSession, $this->serializer->deserialize($xml, WaitSetSessionInfo::class, 'xml'));
-
-        $json = json_encode([
-            'interestMask' => $interestMask,
-            'highestChangeId' => $highestChangeId,
-            'lastAccessTime' => $lastAccessTime,
-            'creationTime' => $creationTime,
-            'sessionId' => $sessionId,
-            'token' => $token,
-            'folderInterests' => $folderInterests,
-            'changedFolders' => $changedFolders,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($WaitSetSession, 'json'));
-        $this->assertEquals($WaitSetSession, $this->serializer->deserialize($json, WaitSetSessionInfo::class, 'json'));
     }
 }

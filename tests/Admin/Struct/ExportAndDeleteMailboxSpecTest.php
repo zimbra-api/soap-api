@@ -39,21 +39,5 @@ class ExportAndDeleteMailboxSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, ExportAndDeleteMailboxSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'item' => [
-                [
-                    'id' => $id,
-                    'version' => $version,
-                ],
-                [
-                    'id' => $version,
-                    'version' => $id,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, ExportAndDeleteMailboxSpec::class, 'json'));
     }
 }

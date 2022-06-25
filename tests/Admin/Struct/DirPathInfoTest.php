@@ -38,15 +38,5 @@ class DirPathInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dir, 'xml'));
         $this->assertEquals($dir, $this->serializer->deserialize($xml, DirPathInfo::class, 'xml'));
-
-        $json = json_encode([
-            'path' => $path,
-            'exists' => TRUE,
-            'isDirectory' => TRUE,
-            'readable' => TRUE,
-            'writable' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dir, 'json'));
-        $this->assertEquals($dir, $this->serializer->deserialize($json, DirPathInfo::class, 'json'));
     }
 }

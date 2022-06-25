@@ -55,21 +55,5 @@ class DeleteZimletTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteZimletEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteZimletRequest' => [
-                    'zimlet' => [
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteZimletResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteZimletEnvelope::class, 'json'));
     }
 }

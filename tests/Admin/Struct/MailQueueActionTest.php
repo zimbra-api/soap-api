@@ -54,26 +54,5 @@ class MailQueueActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, MailQueueAction::class, 'xml'));
-
-        $json = json_encode([
-            'op' => $op,
-            'by' => $by,
-            'query' => [
-                'field' => [
-                    [
-                        'name' => $name,
-                        'match' => [
-                            [
-                                'value' => $value
-                            ],
-                        ],
-                    ],
-                ],
-                'limit' => $limit,
-                'offset' => $offset,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, MailQueueAction::class, 'json'));
     }
 }

@@ -79,43 +79,5 @@ class TzFixupRuleMatchTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
         $this->assertEquals($match, $this->serializer->deserialize($xml, TzFixupRuleMatch::class, 'xml'));
-
-        $json = json_encode([
-            'any' => new \stdClass(),
-            'tzid' => [
-                'id' => $id,
-            ],
-            'nonDst' => [
-                'offset' => $offset,
-            ],
-            'rules' => [
-                'standard' => [
-                    'mon' => $rule_mon,
-                    'week' => $rule_week,
-                    'wkday' => $rule_wkday,
-                ],
-                'daylight' => [
-                    'mon' => $rule_mon,
-                    'week' => $rule_week,
-                    'wkday' => $rule_wkday,
-                ],
-                'stdoff' => $rule_stdoff,
-                'dayoff' => $rule_dayoff,
-            ],
-            'dates' => [
-                'standard' => [
-                    'mon' => $date_mon,
-                    'mday' => $date_mday,
-                ],
-                'daylight' => [
-                    'mon' => $date_mon,
-                    'mday' => $date_mday,
-                ],
-                'stdoff' => $date_stdoff,
-                'dayoff' => $date_dayoff,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($match, 'json'));
-        $this->assertEquals($match, $this->serializer->deserialize($json, TzFixupRuleMatch::class, 'json'));
     }
 }

@@ -30,12 +30,5 @@ class InheritedFlaggedValueTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($flag, 'xml'));
         $this->assertEquals($flag, $this->serializer->deserialize($xml, InheritedFlaggedValue::class, 'xml'));
-
-        $json = json_encode([
-            'inherited' => TRUE,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($flag, 'json'));
-        $this->assertEquals($flag, $this->serializer->deserialize($json, InheritedFlaggedValue::class, 'json'));
     }
 }

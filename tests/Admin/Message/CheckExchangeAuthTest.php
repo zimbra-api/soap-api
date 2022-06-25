@@ -79,31 +79,5 @@ class CheckExchangeAuthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckExchangeAuthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckExchangeAuthRequest' => [
-                    'auth' => [
-                        'url' => $url,
-                        'user' => $user,
-                        'pass' => $pass,
-                        'scheme' => 'form',
-                        'type' => $type,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckExchangeAuthResponse' => [
-                    'code' => [
-                        '_content' => $code,
-                    ],
-                    'message' => [
-                        '_content' => $message,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckExchangeAuthEnvelope::class, 'json'));
     }
 }

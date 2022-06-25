@@ -80,30 +80,5 @@ class ReIndexTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ReIndexEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ReIndexRequest' => [
-                    'action' => 'start',
-                    'mbox' => [
-                        'id' => $id,
-                        'types' => $types,
-                        'ids' => $ids,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ReIndexResponse' => [
-                    'status' => 'running',
-                    'progress' => [
-                        'numSucceeded' => $numSucceeded,
-                        'numFailed' => $numFailed,
-                        'numRemaining' => $numRemaining,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ReIndexEnvelope::class, 'json'));
     }
 }

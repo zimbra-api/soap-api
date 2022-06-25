@@ -56,20 +56,5 @@ class AddAccountAliasTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddAccountAliasEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AddAccountAliasRequest' => [
-                    'id' => $id,
-                    'alias' => $alias,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AddAccountAliasResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddAccountAliasEnvelope::class, 'json'));
     }
 }

@@ -66,23 +66,5 @@ class CompactIndexTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CompactIndexEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CompactIndexRequest' => [
-                    'action' => 'start',
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CompactIndexResponse' => [
-                    'status' => 'running',
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CompactIndexEnvelope::class, 'json'));
     }
 }

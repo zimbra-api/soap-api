@@ -40,25 +40,6 @@ class AdminAttrsImplTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
         $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminAttrsImpl::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $key1,
-                    '_content' => $value1,
-                ],
-                [
-                    'n' => $key2,
-                    '_content' => $value2,
-                ],
-                [
-                    'n' => $key3,
-                    '_content' => $value3,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stub, 'json'));
-        $this->assertEquals($stub, $this->serializer->deserialize($json, StubAdminAttrsImpl::class, 'json'));
     }
 }
 

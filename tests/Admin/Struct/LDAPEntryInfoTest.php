@@ -33,17 +33,5 @@ class LDAPEntryInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ldap, 'xml'));
         $this->assertEquals($ldap, $this->serializer->deserialize($xml, LDAPEntryInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($ldap, 'json'));
-        $this->assertEquals($ldap, $this->serializer->deserialize($json, LDAPEntryInfo::class, 'json'));
     }
 }

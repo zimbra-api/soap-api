@@ -70,30 +70,5 @@ class GetServiceStatusTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetServiceStatusEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetServiceStatusRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetServiceStatusResponse' => [
-                    'timezone' => [
-                        'id' => $id,
-                        'displayName' => $displayName,
-                    ],
-                    'status' => [
-                        [
-                            'server' => $server,
-                            'service' => $service,
-                            't' => $time,
-                            '_content' => '1',
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetServiceStatusEnvelope::class, 'json'));
     }
 }

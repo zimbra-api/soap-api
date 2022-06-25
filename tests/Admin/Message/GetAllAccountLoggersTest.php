@@ -65,30 +65,5 @@ class GetAllAccountLoggersTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllAccountLoggersEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllAccountLoggersRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllAccountLoggersResponse' => [
-                    'accountLogger' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'logger' => [
-                                [
-                                    'category' => $category,
-                                    'level' => 'info',
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllAccountLoggersEnvelope::class, 'json'));
     }
 }

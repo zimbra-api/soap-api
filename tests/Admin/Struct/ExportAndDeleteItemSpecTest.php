@@ -31,12 +31,5 @@ class ExportAndDeleteItemSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ExportAndDeleteItemSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'version' => $version,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, ExportAndDeleteItemSpec::class, 'json'));
     }
 }

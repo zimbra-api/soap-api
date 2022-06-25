@@ -44,18 +44,5 @@ class ReloadMemcachedClientConfigTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ReloadMemcachedClientConfigEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ReloadMemcachedClientConfigRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ReloadMemcachedClientConfigResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ReloadMemcachedClientConfigEnvelope::class, 'json'));
     }
 }

@@ -34,13 +34,5 @@ class ZimletDeploymentStatusTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($progress, 'xml'));
         $this->assertEquals($progress, $this->serializer->deserialize($xml, ZimletDeploymentStatus::class, 'xml'));
-
-        $json = json_encode([
-            'server' => $server,
-            'status' => 'succeeded',
-            'error' => $error,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($progress, 'json'));
-        $this->assertEquals($progress, $this->serializer->deserialize($json, ZimletDeploymentStatus::class, 'json'));
     }
 }

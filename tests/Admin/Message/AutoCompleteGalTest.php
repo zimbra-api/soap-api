@@ -91,29 +91,5 @@ class AutoCompleteGalTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoCompleteGalEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AutoCompleteGalRequest' => [
-                    'domain' => $domain,
-                    'name' => $name,
-                    'type' => 'account',
-                    'galAcctId' => $galAccountId,
-                    'limit' => $limit,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AutoCompleteGalResponse' => [
-                    'more' => TRUE,
-                    'tokenizeKey' => TRUE,
-                    'paginationSupported' => TRUE,
-                    'cn' => [
-                        new \stdClass
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AutoCompleteGalEnvelope::class, 'json'));
     }
 }

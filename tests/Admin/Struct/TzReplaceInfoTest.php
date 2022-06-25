@@ -52,32 +52,5 @@ class TzReplaceInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($replace, 'xml'));
         $this->assertEquals($replace, $this->serializer->deserialize($xml, TzReplaceInfo::class, 'xml'));
-
-        $json = json_encode([
-            'wellKnownTz' => [
-                'id' => $id,
-            ],
-            'tz' => [
-                'id' => $id,
-                'stdoff' => $stdoff,
-                'dayoff' => $dayoff,
-                'stdname' => $stdname,
-                'dayname' => $dayname,
-                'standard' => [
-                    'mon' => $mon,
-                    'hour' => $hour,
-                    'min' => $min,
-                    'sec' => $sec,
-                ],
-                'daylight' => [
-                    'mon' => $mon,
-                    'hour' => $hour,
-                    'min' => $min,
-                    'sec' => $sec,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($replace, 'json'));
-        $this->assertEquals($replace, $this->serializer->deserialize($json, TzReplaceInfo::class, 'json'));
     }
 }

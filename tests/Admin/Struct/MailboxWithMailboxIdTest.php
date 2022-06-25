@@ -35,13 +35,5 @@ class MailboxWithMailboxIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
         $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxWithMailboxId::class, 'xml'));
-
-        $json = json_encode([
-            'mbxid' => $mbxid,
-            'id' => $id,
-            's' => $size,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mbox, 'json'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($json, MailboxWithMailboxId::class, 'json'));
     }
 }

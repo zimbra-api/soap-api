@@ -74,41 +74,5 @@ class GetZimletStatusTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetZimletStatusEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetZimletStatusRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetZimletStatusResponse' => [
-                    'zimlets' => [
-                        'zimlet' => [
-                            [
-                                'name' => $name,
-                                'status' => 'enabled',
-                                'extension' => TRUE,
-                                'priority' => $priority,
-                            ],
-                        ],
-                    ],
-                    'cos' => [
-                        [
-                            'name' => $name,
-                            'zimlet' => [
-                                [
-                                    'name' => $name,
-                                    'status' => 'enabled',
-                                    'extension' => TRUE,
-                                    'priority' => $priority,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetZimletStatusEnvelope::class, 'json'));
     }
 }

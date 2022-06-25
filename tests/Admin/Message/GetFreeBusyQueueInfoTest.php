@@ -74,31 +74,5 @@ class GetFreeBusyQueueInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetFreeBusyQueueInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetFreeBusyQueueInfoRequest' => [
-                    'provider' => [
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetFreeBusyQueueInfoResponse' => [
-                    'provider' => [
-                        [
-                            'name' => $name,
-                            'account' => [
-                                [
-                                    'id' => $id,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetFreeBusyQueueInfoEnvelope::class, 'json'));
     }
 }

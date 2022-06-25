@@ -53,20 +53,5 @@ class IncorrectBlobRevisionInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, IncorrectBlobRevisionInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'rev' => $revision,
-            's' => $size,
-            'volumeId' => $volumeId,
-            'blob' => [
-                'path' => $path,
-                'fileSize' => $fileSize,
-                'rev' => $revision,
-                'external' => TRUE,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, IncorrectBlobRevisionInfo::class, 'json'));
     }
 }

@@ -101,44 +101,5 @@ class GetShareInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetShareInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetShareInfoRequest' => [
-                    'grantee' => [
-                        'type' => $type,
-                        'id' => $id,
-                        'name' => $name,
-                    ],
-                    'owner' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetShareInfoResponse' => [
-                    'share' => [
-                        [
-                            'ownerId' => $ownerId,
-                            'ownerEmail' => $ownerEmail,
-                            'ownerName' => $ownerDisplayName,
-                            'folderId' => $folderId,
-                            'folderUuid' => $folderUuid,
-                            'folderPath' => $folderPath,
-                            'view' => $defaultView,
-                            'rights' => $rights,
-                            'granteeType' => $granteeType,
-                            'granteeId' => $granteeId,
-                            'granteeName' => $granteeName,
-                            'granteeDisplayName' => $granteeDisplayName,
-                            'mid' => $mountpointId,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetShareInfoEnvelope::class, 'json'));
     }
 }

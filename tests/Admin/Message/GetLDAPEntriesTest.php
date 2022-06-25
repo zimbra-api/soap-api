@@ -94,37 +94,5 @@ class GetLDAPEntriesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetLDAPEntriesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetLDAPEntriesRequest' => [
-                    'ldapSearchBase' => [
-                        '_content' => $ldapSearchBase,
-                    ],
-                    'sortBy' => $sortBy,
-                    'sortAscending' => TRUE,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'query' => $query,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetLDAPEntriesResponse' => [
-                    'LDAPEntry' => [
-                        [
-                            'name' => $name,
-                            'a' => [
-                                [
-                                    'n' => $key,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetLDAPEntriesEnvelope::class, 'json'));
     }
 }

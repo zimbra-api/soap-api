@@ -70,25 +70,5 @@ class GetIndexStatsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetIndexStatsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetIndexStatsRequest' => [
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetIndexStatsResponse' => [
-                    'stats' => [
-                        'maxDocs' => $maxDocs,
-                        'deletedDocs' => $numDeletedDocs,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetIndexStatsEnvelope::class, 'json'));
     }
 }

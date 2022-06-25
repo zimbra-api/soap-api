@@ -86,45 +86,5 @@ class RunUnitTestsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RunUnitTestsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RunUnitTestsRequest' => [
-                    'test' => [
-                        [
-                            '_content' => $test1,
-                        ],
-                        [
-                            '_content' => $test2,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RunUnitTestsResponse' => [
-                    'numExecuted' => $numExecuted,
-                    'numFailed' => $numFailed,
-                    'results'=> [
-                        'completed' => [
-                            [
-                                'name' => $name,
-                                'execSeconds' => $execSeconds,
-                                'class' => $className,
-                            ],
-                        ],
-                        'failure' => [
-                            [
-                                'name' => $name,
-                                'execSeconds' => $execSeconds,
-                                'class' => $className,
-                                '_content' => $throwable,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RunUnitTestsEnvelope::class, 'json'));
     }
 }

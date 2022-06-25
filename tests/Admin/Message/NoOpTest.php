@@ -44,18 +44,5 @@ class NoOpTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, NoOpEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'NoOpRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'NoOpResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, NoOpEnvelope::class, 'json'));
     }
 }

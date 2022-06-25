@@ -66,25 +66,5 @@ class RecalculateMailboxCountsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RecalculateMailboxCountsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RecalculateMailboxCountsRequest' => [
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RecalculateMailboxCountsResponse' => [
-                    'mbox' => [
-                        'id' => $id,
-                        'used' => $quotaUsed,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RecalculateMailboxCountsEnvelope::class, 'json'));
     }
 }

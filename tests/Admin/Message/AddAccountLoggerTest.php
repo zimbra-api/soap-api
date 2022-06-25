@@ -85,35 +85,5 @@ class AddAccountLoggerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddAccountLoggerEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AddAccountLoggerRequest' => [
-                    'logger' => [
-                        'category' => $category,
-                        'level' => 'info',
-                    ],
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AddAccountLoggerResponse' => [
-                    'logger' => [
-                        [
-                            'category' => $category,
-                            'level' => 'info',
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddAccountLoggerEnvelope::class, 'json'));
     }
 }

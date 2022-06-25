@@ -44,18 +44,5 @@ class ResetAllLoggersTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ResetAllLoggersEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ResetAllLoggersRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ResetAllLoggersResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ResetAllLoggersEnvelope::class, 'json'));
     }
 }

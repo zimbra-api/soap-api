@@ -45,22 +45,5 @@ class QueueQueryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($query, 'xml'));
         $this->assertEquals($query, $this->serializer->deserialize($xml, QueueQuery::class, 'xml'));
-
-        $json = json_encode([
-            'limit' => $limit,
-            'offset' => $offset,
-            'field' => [
-                [
-                    'name' => $name,
-                    'match' => [
-                        [
-                            'value' => $value
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($query, 'json'));
-        $this->assertEquals($query, $this->serializer->deserialize($json, QueueQuery::class, 'json'));
     }
 }

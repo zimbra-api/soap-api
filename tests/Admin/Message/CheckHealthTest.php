@@ -49,19 +49,5 @@ class CheckHealthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CheckHealthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CheckHealthRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CheckHealthResponse' => [
-                    'healthy' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CheckHealthEnvelope::class, 'json'));
     }
 }

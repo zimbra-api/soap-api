@@ -31,12 +31,5 @@ class MailQueueCountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
         $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueCount::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'n' => $count,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($queue, 'json'));
-        $this->assertEquals($queue, $this->serializer->deserialize($json, MailQueueCount::class, 'json'));
     }
 }

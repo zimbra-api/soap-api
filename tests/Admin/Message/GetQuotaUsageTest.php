@@ -97,35 +97,5 @@ class GetQuotaUsageTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetQuotaUsageEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetQuotaUsageRequest' => [
-                    'domain' => $domain,
-                    'allServers' => TRUE,
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    'sortBy' => $sortBy,
-                    'sortAscending' => TRUE,
-                    'refresh' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetQuotaUsageResponse' => [
-                    'more' => TRUE,
-                    'searchTotal' => $searchTotal,
-                    'account' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'used' => $quotaUsed,
-                            'limit' => $quotaLimit,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetQuotaUsageEnvelope::class, 'json'));
     }
 }

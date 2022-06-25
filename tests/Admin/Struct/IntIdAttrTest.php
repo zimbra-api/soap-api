@@ -26,11 +26,5 @@ class IntIdAttrTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, IntIdAttr::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, IntIdAttr::class, 'json'));
     }
 }

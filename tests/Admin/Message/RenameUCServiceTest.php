@@ -75,34 +75,5 @@ class RenameUCServiceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RenameUCServiceEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RenameUCServiceRequest' => [
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    'newName' => [
-                        '_content' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RenameUCServiceResponse' => [
-                    'ucservice' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RenameUCServiceEnvelope::class, 'json'));
     }
 }

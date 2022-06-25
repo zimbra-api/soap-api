@@ -68,21 +68,5 @@ class VolumeInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($volume, 'xml'));
         $this->assertEquals($volume, $this->serializer->deserialize($xml, VolumeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'name' => $name,
-            'rootpath' => $rootPath,
-            'type' => $type,
-            'compressBlobs' => TRUE,
-            'compressionThreshold' => $threshold,
-            'mgbits' => $mgbits,
-            'mbits' => $mbits,
-            'fgbits' => $fgbits,
-            'fbits' => $fbits,
-            'isCurrent' => FALSE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($volume, 'json'));
-        $this->assertEquals($volume, $this->serializer->deserialize($json, VolumeInfo::class, 'json'));
     }
 }

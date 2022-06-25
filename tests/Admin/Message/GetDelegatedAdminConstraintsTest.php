@@ -93,46 +93,5 @@ class GetDelegatedAdminConstraintsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetDelegatedAdminConstraintsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetDelegatedAdminConstraintsRequest' => [
-                    'type' => 'domain',
-                    'name' => $name,
-                    'id' => $id,
-                    'a' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetDelegatedAdminConstraintsResponse' => [
-                    'a' => [
-                        [
-                            'name' => $name,
-                            'constraint' => [
-                                'min' => [
-                                    '_content' => $min,
-                                ],
-                                'max' => [
-                                    '_content' => $max,
-                                ],
-                                'values' => [
-                                    'v' => [
-                                        [
-                                            '_content' => $value,
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetDelegatedAdminConstraintsEnvelope::class, 'json'));
     }
 }

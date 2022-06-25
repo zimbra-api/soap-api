@@ -49,28 +49,5 @@ class CmdRightsInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cmd, 'xml'));
         $this->assertEquals($cmd, $this->serializer->deserialize($xml, CmdRightsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'rights' => [
-                'right' => [
-                    [
-                        'name' => $name,
-                    ],
-                ],
-            ],
-            'desc' => [
-                'note' => [
-                    [
-                        '_content' => $note1,
-                    ],
-                    [
-                        '_content' => $note2,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cmd, 'json'));
-        $this->assertEquals($cmd, $this->serializer->deserialize($json, CmdRightsInfo::class, 'json'));
     }
 }

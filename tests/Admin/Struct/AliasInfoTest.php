@@ -39,20 +39,5 @@ class AliasInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alias, 'xml'));
         $this->assertEquals($alias, $this->serializer->deserialize($xml, AliasInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'targetName' => $targetName,
-            'type' => $targetType->getValue(),
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($alias, 'json'));
-        $this->assertEquals($alias, $this->serializer->deserialize($json, AliasInfo::class, 'json'));
     }
 }

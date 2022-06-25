@@ -59,25 +59,5 @@ class GetAggregateQuotaUsageOnServerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAggregateQuotaUsageOnServerEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAggregateQuotaUsageOnServerRequest' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAggregateQuotaUsageOnServerResponse' => [
-                    'domain' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            'used' => $quotaUsed,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAggregateQuotaUsageOnServerEnvelope::class, 'json'));
     }
 }

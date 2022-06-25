@@ -32,17 +32,5 @@ class GalContactInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cn, 'xml'));
         $this->assertEquals($cn, $this->serializer->deserialize($xml, GalContactInfo::class, 'xml'));
-
-        $json = json_encode([
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cn, 'json'));
-        $this->assertEquals($cn, $this->serializer->deserialize($json, GalContactInfo::class, 'json'));
     }
 }

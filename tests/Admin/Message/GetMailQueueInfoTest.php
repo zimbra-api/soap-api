@@ -69,30 +69,5 @@ class GetMailQueueInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetMailQueueInfoEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetMailQueueInfoRequest' => [
-                    'server' => [
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetMailQueueInfoResponse' => [
-                    'server' => [
-                        'name' => $name,
-                        'queue' => [
-                            [
-                                'name' => $name,
-                                'n' => $count,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetMailQueueInfoEnvelope::class, 'json'));
     }
 }

@@ -88,32 +88,5 @@ class CountObjectsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountObjectsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CountObjectsRequest' => [
-                    'type' => 'account',
-                    'domain' => [
-                        [
-                            'by' => 'name',
-                            '_content' => $value,
-                        ],
-                    ],
-                    'ucservice' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'onlyrelated' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CountObjectsResponse' => [
-                    'num' => $num,
-                    'type' => $type,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CountObjectsEnvelope::class, 'json'));
     }
 }

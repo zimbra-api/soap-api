@@ -78,48 +78,5 @@ class ModifyDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ModifyDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ModifyDistributionListRequest' => [
-                    'id' => $id,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ModifyDistributionListResponse' => [
-                    'dl' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'dynamic' => TRUE,
-                        'dlm' => [
-                            ['_content' => $member],
-                        ],
-                        'owners' => [
-                            'owner' => [
-                                [
-                                    'id' => $id,
-                                    'name' => $name,
-                                    'type' => 'usr',
-                                ],
-                            ],
-                        ],
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ModifyDistributionListEnvelope::class, 'json'));
     }
 }

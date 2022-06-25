@@ -30,12 +30,5 @@ class BufferedCommitInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($commit, 'xml'));
         $this->assertEquals($commit, $this->serializer->deserialize($xml, BufferedCommitInfo::class, 'xml'));
-
-        $json = json_encode([
-            'aid' => $aid,
-            'cid' => $cid,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($commit, 'json'));
-        $this->assertEquals($commit, $this->serializer->deserialize($json, BufferedCommitInfo::class, 'json'));
     }
 }

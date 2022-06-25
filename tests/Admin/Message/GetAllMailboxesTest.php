@@ -90,39 +90,5 @@ class GetAllMailboxesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetAllMailboxesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetAllMailboxesRequest' => [
-                    'limit' => $limit,
-                    'offset' => $offset,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetAllMailboxesResponse' => [
-                    'more' => TRUE,
-                    'searchTotal' => $searchTotal,
-                    'mbox' => [
-                        [
-                            'id' => $id,
-                            'groupId' => $groupId,
-                            'accountId' => $accountId,
-                            'indexVolumeId' => $indexVolumeId,
-                            'itemIdCheckPoint' => $itemIdCheckPoint,
-                            'contactCount' => $contactCount,
-                            'sizeCheckPoint' => $sizeCheckPoint,
-                            'changeCheckPoint' => $changeCheckPoint,
-                            'trackingSync' => $trackingSync,
-                            'trackingImap' => TRUE,
-                            'lastBackupAt' => $lastBackupAt,
-                            'lastSoapAccess' => $lastSoapAccess,
-                            'newMessages' => $newMessages,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetAllMailboxesEnvelope::class, 'json'));
     }
 }

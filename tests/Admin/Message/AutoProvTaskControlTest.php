@@ -58,20 +58,5 @@ class AutoProvTaskControlTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AutoProvTaskControlEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AutoProvTaskControlRequest' => [
-                    'action' => $action,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'AutoProvTaskControlResponse' => [
-                    'status' => $status,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AutoProvTaskControlEnvelope::class, 'json'));
     }
 }

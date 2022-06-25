@@ -48,22 +48,5 @@ class DomainAdminRightTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, DomainAdminRight::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'type' => 'preset',
-            'desc' => [
-                '_content' => $desc,
-            ],
-            'rights' => [
-                'r' => [
-                    [
-                        'n' => $name,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, DomainAdminRight::class, 'json'));
     }
 }

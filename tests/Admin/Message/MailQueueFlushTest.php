@@ -60,21 +60,5 @@ class MailQueueFlushTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, MailQueueFlushEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'MailQueueFlushRequest' => [
-                    'server' => [
-                        'name' => $name,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'MailQueueFlushResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, MailQueueFlushEnvelope::class, 'json'));
     }
 }

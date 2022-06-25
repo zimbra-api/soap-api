@@ -35,13 +35,5 @@ class StatTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stat, 'xml'));
         $this->assertEquals($stat, $this->serializer->deserialize($xml, Stat::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'description' => $description,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($stat, 'json'));
-        $this->assertEquals($stat, $this->serializer->deserialize($json, Stat::class, 'json'));
     }
 }

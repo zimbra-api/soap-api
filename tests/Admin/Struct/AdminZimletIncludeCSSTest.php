@@ -26,11 +26,5 @@ class AdminZimletIncludeCSSTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($includeCSS, 'xml'));
         $this->assertEquals($includeCSS, $this->serializer->deserialize($xml, AdminZimletIncludeCSS::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($includeCSS, 'json'));
-        $this->assertEquals($includeCSS, $this->serializer->deserialize($json, AdminZimletIncludeCSS::class, 'json'));
     }
 }

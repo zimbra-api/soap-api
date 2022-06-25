@@ -47,21 +47,5 @@ class AccountSessionInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AccountSessionInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            's' => [
-                [
-                    'zid' => $zimbraId,
-                    'name' => $name,
-                    'sid' => $sessionId,
-                    'cd' => $createdDate,
-                    'ld' => $lastAccessedDate,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, AccountSessionInfo::class, 'json'));
     }
 }

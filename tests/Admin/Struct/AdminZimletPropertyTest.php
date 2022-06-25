@@ -31,12 +31,5 @@ class AdminZimletPropertyTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($property, 'xml'));
         $this->assertEquals($property, $this->serializer->deserialize($xml, AdminZimletProperty::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($property, 'json'));
-        $this->assertEquals($property, $this->serializer->deserialize($json, AdminZimletProperty::class, 'json'));
     }
 }

@@ -38,13 +38,5 @@ class ContactGroupMemberTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($member, 'xml'));
         $this->assertEquals($member, $this->serializer->deserialize($xml, ContactGroupMember::class, 'xml'));
-
-        $json = json_encode([
-            'type' => $type,
-            'value' => $value,
-            'cn' => new \stdClass,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($member, 'json'));
-        $this->assertEquals($member, $this->serializer->deserialize($json, ContactGroupMember::class, 'json'));
     }
 }

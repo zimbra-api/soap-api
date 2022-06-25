@@ -26,11 +26,5 @@ class OffsetTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($offset, 'xml'));
         $this->assertEquals($offset, $this->serializer->deserialize($xml, Offset::class, 'xml'));
-
-        $json = json_encode([
-            'offset' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($offset, 'json'));
-        $this->assertEquals($offset, $this->serializer->deserialize($json, Offset::class, 'json'));
     }
 }

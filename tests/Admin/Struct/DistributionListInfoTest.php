@@ -51,31 +51,5 @@ class DistributionListInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
         $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'dynamic' => TRUE,
-            'dlm' => [
-                ['_content' => $member1],
-                ['_content' => $member2],
-            ],
-            'owners' => [
-                'owner' => [
-                    [
-                        'id' => $id,
-                        'name' => $name,
-                        'type' => 'usr',
-                    ],
-                    [
-                        'id' => $id,
-                        'name' => $name,
-                        'type' => 'usr',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dl, 'json'));
-        $this->assertEquals($dl, $this->serializer->deserialize($json, DistributionListInfo::class, 'json'));
     }
 }

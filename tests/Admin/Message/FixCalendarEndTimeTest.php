@@ -60,24 +60,5 @@ class FixCalendarEndTimeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FixCalendarEndTimeEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'FixCalendarEndTimeRequest' => [
-                    'sync' => TRUE,
-                    'account' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'FixCalendarEndTimeResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, FixCalendarEndTimeEnvelope::class, 'json'));
     }
 }

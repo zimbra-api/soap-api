@@ -53,20 +53,5 @@ class DeleteDistributionListTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteDistributionListEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteDistributionListRequest' => [
-                    'id' => $id,
-                    'cascadeDelete' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteDistributionListResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteDistributionListEnvelope::class, 'json'));
     }
 }

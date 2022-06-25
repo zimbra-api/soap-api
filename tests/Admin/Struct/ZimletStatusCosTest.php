@@ -39,19 +39,5 @@ class ZimletStatusCosTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cos, 'xml'));
         $this->assertEquals($cos, $this->serializer->deserialize($xml, ZimletStatusCos::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'zimlet' => [
-                [
-                    'name' => $name,
-                    'status' => 'enabled',
-                    'extension' => TRUE,
-                    'priority' => $priority,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cos, 'json'));
-        $this->assertEquals($cos, $this->serializer->deserialize($json, ZimletStatusCos::class, 'json'));
     }
 }

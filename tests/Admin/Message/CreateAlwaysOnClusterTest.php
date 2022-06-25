@@ -73,35 +73,5 @@ class CreateAlwaysOnClusterTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateAlwaysOnClusterEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateAlwaysOnClusterRequest' => [
-                    'name' => $name,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateAlwaysOnClusterResponse' => [
-                    'alwaysOnCluster' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateAlwaysOnClusterEnvelope::class, 'json'));
     }
 }

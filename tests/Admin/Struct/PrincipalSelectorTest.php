@@ -32,12 +32,5 @@ class PrincipalSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pri, 'xml'));
         $this->assertEquals($pri, $this->serializer->deserialize($xml, PrincipalSelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($pri, 'json'));
-        $this->assertEquals($pri, $this->serializer->deserialize($json, PrincipalSelector::class, 'json'));
     }
 }

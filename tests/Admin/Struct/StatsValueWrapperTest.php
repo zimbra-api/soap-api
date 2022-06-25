@@ -36,18 +36,5 @@ class StatsValueWrapperTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($values, 'xml'));
         $this->assertEquals($values, $this->serializer->deserialize($xml, StatsValueWrapper::class, 'xml'));
-
-        $json = json_encode([
-            'stat' => [
-                [
-                    'name' => $name1,
-                ],
-                [
-                    'name' => $name2,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($values, 'json'));
-        $this->assertEquals($values, $this->serializer->deserialize($json, StatsValueWrapper::class, 'json'));
     }
 }

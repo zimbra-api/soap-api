@@ -66,26 +66,5 @@ class DeleteMailboxTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteMailboxEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteMailboxRequest' => [
-                    'mbox' => [
-                        'id' => $id,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteMailboxResponse' => [
-                    'mbox' => [
-                        'mbxid' => $mbxid,
-                        'id' => $id,
-                        's' => $size,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteMailboxEnvelope::class, 'json'));
     }
 }

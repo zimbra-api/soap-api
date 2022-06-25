@@ -90,27 +90,5 @@ class VerifyStoreManagerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, VerifyStoreManagerEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'VerifyStoreManagerRequest' => [
-                    'fileSize' => $fileSize,
-                    'num' => $num,
-                    'checkBlobs' => TRUE,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'VerifyStoreManagerResponse' => [
-                    'storeManagerClass' => $storeManagerClass,
-                    'incomingTime' => $incomingTime,
-                    'stageTime' => $stageTime,
-                    'linkTime' => $linkTime,
-                    'fetchTime' => $fetchTime,
-                    'deleteTime' => $deleteTime,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, VerifyStoreManagerEnvelope::class, 'json'));
     }
 }

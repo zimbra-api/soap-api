@@ -66,31 +66,5 @@ class SyncGalAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SyncGalAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SyncGalAccountRequest' => [
-                    'account' => [
-                        [
-                            'id' => $id,
-                            'datasource' => [
-                                [
-                                    'by' => 'name',
-                                    'fullSync' => TRUE,
-                                    'reset' => TRUE,
-                                    '_content' => $value,
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SyncGalAccountResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SyncGalAccountEnvelope::class, 'json'));
     }
 }

@@ -45,21 +45,5 @@ class RightViaInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($via, 'xml'));
         $this->assertEquals($via, $this->serializer->deserialize($xml, RightViaInfo::class, 'xml'));
-
-        $json = json_encode([
-            'target' => [
-                'type' => $type,
-                '_content' => $value,
-            ],
-            'grantee' => [
-                'type' => $type,
-                '_content' => $value,
-            ],
-            'right' => [
-                '_content' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($via, 'json'));
-        $this->assertEquals($via, $this->serializer->deserialize($json, RightViaInfo::class, 'json'));
     }
 }

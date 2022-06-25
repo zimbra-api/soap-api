@@ -60,24 +60,5 @@ class FixCalendarPriorityTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FixCalendarPriorityEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'FixCalendarPriorityRequest' => [
-                    'sync' => TRUE,
-                    'account' => [
-                        [
-                            'name' => $name,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'FixCalendarPriorityResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, FixCalendarPriorityEnvelope::class, 'json'));
     }
 }

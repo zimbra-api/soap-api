@@ -73,34 +73,5 @@ class CreateLDAPEntryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateLDAPEntryEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateLDAPEntryRequest' => [
-                    'dn' => $dn,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateLDAPEntryResponse' => [
-                    'LDAPEntry' => [
-                        'name' => $name,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateLDAPEntryEnvelope::class, 'json'));
     }
 }

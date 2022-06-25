@@ -30,17 +30,5 @@ class RightsAttrsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attrs, 'xml'));
         $this->assertEquals($attrs, $this->serializer->deserialize($xml, RightsAttrs::class, 'xml'));
-
-        $json = json_encode([
-            'all' => TRUE,
-            'a' => [
-                [
-                    'n' => $key,
-                    '_content' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attrs, 'json'));
-        $this->assertEquals($attrs, $this->serializer->deserialize($json, RightsAttrs::class, 'json'));
     }
 }

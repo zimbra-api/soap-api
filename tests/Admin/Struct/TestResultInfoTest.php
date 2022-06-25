@@ -45,25 +45,5 @@ class TestResultInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($results, 'xml'));
         $this->assertEquals($results, $this->serializer->deserialize($xml, TestResultInfo::class, 'xml'));
-
-        $json = json_encode([
-            'completed' => [
-                [
-                    'name' => $name,
-                    'execSeconds' => $execSeconds,
-                    'class' => $className,
-                ],
-            ],
-            'failure' => [
-                [
-                    'name' => $name,
-                    'execSeconds' => $execSeconds,
-                    'class' => $className,
-                    '_content' => $throwable,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($results, 'json'));
-        $this->assertEquals($results, $this->serializer->deserialize($json, TestResultInfo::class, 'json'));
     }
 }

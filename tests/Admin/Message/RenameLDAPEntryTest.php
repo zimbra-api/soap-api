@@ -72,29 +72,5 @@ class RenameLDAPEntryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, RenameLDAPEntryEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'RenameLDAPEntryRequest' => [
-                    'dn' => $dn,
-                    'new_dn' => $newDn,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'RenameLDAPEntryResponse' => [
-                    'LDAPEntry' => [
-                        'name' => $name,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, RenameLDAPEntryEnvelope::class, 'json'));
     }
 }

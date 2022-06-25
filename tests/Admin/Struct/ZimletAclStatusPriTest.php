@@ -51,21 +51,5 @@ class ZimletAclStatusPriTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
         $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletAclStatusPri::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'acl' => [
-                'cos' => $cos,
-                'acl' => 'grant',
-            ],
-            'status' => [
-                'value' => 'enabled',
-            ],
-            'priority' => [
-                'value' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimlet, 'json'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($json, ZimletAclStatusPri::class, 'json'));
     }
 }

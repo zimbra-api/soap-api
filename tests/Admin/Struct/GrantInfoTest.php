@@ -54,27 +54,5 @@ class GrantInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grant, 'xml'));
         $this->assertEquals($grant, $this->serializer->deserialize($xml, GrantInfo::class, 'xml'));
-
-        $json = json_encode([
-            'target' => [
-                'type' => $type,
-                'id' => $id,
-                'name' => $name,
-            ],
-            'grantee' => [
-                'id' => $id,
-                'name' => $name,
-                'type' => 'usr',
-            ],
-            'right' => [
-                'deny' => TRUE,
-                'canDelegate' => TRUE,
-                'disinheritSubGroups' => TRUE,
-                'subDomain' => TRUE,
-                '_content' => $value,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grant, 'json'));
-        $this->assertEquals($grant, $this->serializer->deserialize($json, GrantInfo::class, 'json'));
     }
 }

@@ -57,21 +57,5 @@ class ConfigureZimletTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ConfigureZimletEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ConfigureZimletRequest' => [
-                    'content' => [
-                        'aid' => $aid,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ConfigureZimletResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ConfigureZimletEnvelope::class, 'json'));
     }
 }

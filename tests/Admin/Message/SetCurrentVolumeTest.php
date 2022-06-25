@@ -57,20 +57,5 @@ class SetCurrentVolumeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, SetCurrentVolumeEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'SetCurrentVolumeRequest' => [
-                    'id' => $id,
-                    'type' => $type,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'SetCurrentVolumeResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, SetCurrentVolumeEnvelope::class, 'json'));
     }
 }

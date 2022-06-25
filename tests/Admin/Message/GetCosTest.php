@@ -82,36 +82,5 @@ class GetCosTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCosEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetCosRequest' => [
-                    'attrs' => $attrs,
-                    'cos' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetCosResponse' => [
-                    'cos' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'isDefaultCos' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                                'c' => TRUE,
-                                'pd' => FALSE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetCosEnvelope::class, 'json'));
     }
 }

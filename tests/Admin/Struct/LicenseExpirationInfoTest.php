@@ -26,11 +26,5 @@ class LicenseExpirationInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($expiration, 'xml'));
         $this->assertEquals($expiration, $this->serializer->deserialize($xml, LicenseExpirationInfo::class, 'xml'));
-
-        $json = json_encode([
-            'date' => $date,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($expiration, 'json'));
-        $this->assertEquals($expiration, $this->serializer->deserialize($json, LicenseExpirationInfo::class, 'json'));
     }
 }

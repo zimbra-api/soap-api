@@ -101,51 +101,5 @@ class GetGrantsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetGrantsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetGrantsRequest' => [
-                    'target' => [
-                        'type' => 'account',
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'grantee' => [
-                        'type' => 'usr',
-                        'by' => 'name',
-                        '_content' => $value,
-                        'secret' => $secret,
-                        'all' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'GetGrantsResponse' => [
-                    'grant' => [
-                        [
-                            'target' => [
-                                'type' => $type,
-                                'id' => $id,
-                                'name' => $name,
-                            ],
-                            'grantee' => [
-                                'id' => $id,
-                                'name' => $name,
-                                'type' => 'usr',
-                            ],
-                            'right' => [
-                                'deny' => TRUE,
-                                'canDelegate' => TRUE,
-                                'disinheritSubGroups' => TRUE,
-                                'subDomain' => TRUE,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetGrantsEnvelope::class, 'json'));
     }
 }

@@ -77,38 +77,5 @@ class CopyCosTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CopyCosEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CopyCosRequest' => [
-                    'name' => [
-                        '_content' => $newName,
-                    ],
-                    'cos' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CopyCosResponse' => [
-                    'cos' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'isDefaultCos' => TRUE,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                                'c' => TRUE,
-                                'pd' => FALSE,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CopyCosEnvelope::class, 'json'));
     }
 }

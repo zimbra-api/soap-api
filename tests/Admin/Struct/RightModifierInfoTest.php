@@ -38,15 +38,5 @@ class RightModifierInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
         $this->assertEquals($right, $this->serializer->deserialize($xml, RightModifierInfo::class, 'xml'));
-
-        $json = json_encode([
-            '_content' => $value,
-            'deny' => TRUE,
-            'canDelegate' => FALSE,
-            'disinheritSubGroups' => FALSE,
-            'subDomain' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($right, 'json'));
-        $this->assertEquals($right, $this->serializer->deserialize($json, RightModifierInfo::class, 'json'));
     }
 }

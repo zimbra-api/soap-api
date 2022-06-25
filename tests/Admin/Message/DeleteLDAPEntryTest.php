@@ -50,19 +50,5 @@ class DeleteLDAPEntryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DeleteLDAPEntryEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DeleteLDAPEntryRequest' => [
-                    'dn' => $dn,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DeleteLDAPEntryResponse' => [
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DeleteLDAPEntryEnvelope::class, 'json'));
     }
 }

@@ -79,35 +79,5 @@ class ContactBackupTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ContactBackupEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ContactBackupRequest' => [
-                    'servers' => [
-                        'server' => [
-                            [
-                                'by' => 'name',
-                                '_content' => $value,
-                            ],
-                        ]
-                    ],
-                    'op' => 'start',
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'ContactBackupResponse' => [
-                    'servers' => [
-                        'server' => [
-                            [
-                                'name' => $name,
-                                'status' => 'stopped',
-                            ],
-                        ]
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ContactBackupEnvelope::class, 'json'));
     }
 }

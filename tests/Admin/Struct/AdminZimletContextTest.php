@@ -38,13 +38,5 @@ class AdminZimletContextTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletContext, 'xml'));
         $this->assertEquals($zimletContext, $this->serializer->deserialize($xml, AdminZimletContext::class, 'xml'));
-
-        $json = json_encode([
-            'baseUrl' => $baseUrl,
-            'priority' => $priority,
-            'presence' => $presence,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($zimletContext, 'json'));
-        $this->assertEquals($zimletContext, $this->serializer->deserialize($json, AdminZimletContext::class, 'json'));
     }
 }

@@ -32,12 +32,5 @@ class CacheEntrySelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entry, 'xml'));
         $this->assertEquals($entry, $this->serializer->deserialize($xml, CacheEntrySelector::class, 'xml'));
-
-        $json = json_encode([
-            'by' => $by,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($entry, 'json'));
-        $this->assertEquals($entry, $this->serializer->deserialize($json, CacheEntrySelector::class, 'json'));
     }
 }

@@ -31,12 +31,5 @@ class ZimletAclTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
         $this->assertEquals($acl, $this->serializer->deserialize($xml, ZimletAcl::class, 'xml'));
-
-        $json = json_encode([
-            'cos' => $cos,
-            'acl' => $type,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($acl, 'json'));
-        $this->assertEquals($acl, $this->serializer->deserialize($json, ZimletAcl::class, 'json'));
     }
 }

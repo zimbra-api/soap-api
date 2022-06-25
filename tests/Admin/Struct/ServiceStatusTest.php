@@ -39,14 +39,5 @@ class ServiceStatusTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($status, 'xml'));
         $this->assertEquals($status, $this->serializer->deserialize($xml, ServiceStatus::class, 'xml'));
-
-        $json = json_encode([
-            'server' => $server,
-            'service' => $service,
-            't' => $time,
-            '_content' => '1',
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($status, 'json'));
-        $this->assertEquals($status, $this->serializer->deserialize($json, ServiceStatus::class, 'json'));
     }
 }

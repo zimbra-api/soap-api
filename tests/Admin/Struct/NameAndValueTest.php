@@ -30,12 +30,5 @@ class NameAndValueTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($nameValue, 'xml'));
         $this->assertEquals($nameValue, $this->serializer->deserialize($xml, NameAndValue::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'value' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($nameValue, 'json'));
-        $this->assertEquals($nameValue, $this->serializer->deserialize($json, NameAndValue::class, 'json'));
     }
 }

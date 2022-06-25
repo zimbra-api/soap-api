@@ -73,29 +73,5 @@ class DelegateAuthTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, DelegateAuthEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'DelegateAuthRequest' => [
-                    'account' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    'duration' => $duration,
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'DelegateAuthResponse' => [
-                    'authToken' => [
-                        '_content' => $authToken,
-                    ],
-                    'lifetime' => [
-                        '_content' => $lifetime,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, DelegateAuthEnvelope::class, 'json'));
     }
 }

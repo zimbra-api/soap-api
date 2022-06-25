@@ -53,20 +53,5 @@ class UsedBlobInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, UsedBlobInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'rev' => $revision,
-            's' => $size,
-            'volumeId' => $volumeId,
-            'blob' => [
-                'path' => $path,
-                's' => $size,
-                'fileSize' => $fileSize,
-                'external' => TRUE,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, UsedBlobInfo::class, 'json'));
     }
 }

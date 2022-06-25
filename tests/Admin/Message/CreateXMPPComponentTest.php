@@ -81,47 +81,5 @@ class CreateXMPPComponentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateXMPPComponentEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateXMPPComponentRequest' => [
-                    'xmppcomponent' => [
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                        'name' => $name,
-                        'domain' => [
-                            'by' => 'name',
-                            '_content' => $value,
-                        ],
-                        'server' => [
-                            'by' => 'name',
-                            '_content' => $value,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CreateXMPPComponentResponse' => [
-                    'xmppcomponent' => [
-                        'name' => $name,
-                        'id' => $id,
-                        'x-domainName' => $domainName,
-                        'x-serverName' => $serverName,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateXMPPComponentEnvelope::class, 'json'));
     }
 }

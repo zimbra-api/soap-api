@@ -54,39 +54,5 @@ class EffectiveAttrInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attr, 'xml'));
         $this->assertEquals($attr, $this->serializer->deserialize($xml, EffectiveAttrInfo::class, 'xml'));
-
-        $json = json_encode([
-            'n' => $name,
-            'constraint' => [
-                'min' => [
-                    '_content' => $min,
-                ],
-                'max' => [
-                    '_content' => $max,
-                ],
-                'values' => [
-                    'v' => [
-                        [
-                            '_content' => $value1,
-                        ],
-                        [
-                            '_content' => $value2,
-                        ],
-                    ],
-                ],
-            ],
-            'default' => [
-                'v' => [
-                    [
-                        '_content' => $value1,
-                    ],
-                    [
-                        '_content' => $value2,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attr, 'json'));
-        $this->assertEquals($attr, $this->serializer->deserialize($json, EffectiveAttrInfo::class, 'json'));
     }
 }

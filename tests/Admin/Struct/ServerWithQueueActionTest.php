@@ -56,32 +56,5 @@ class ServerWithQueueActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
         $this->assertEquals($server, $this->serializer->deserialize($xml, ServerWithQueueAction::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'queue' => [
-                'name' => $name,
-                'action' => [
-                    'op' => 'hold',
-                    'by' => 'query',
-                    'query' => [
-                        'limit' => $limit,
-                        'offset' => $offset,
-                        'field' => [
-                            [
-                                'name' => $name,
-                                'match' => [
-                                    [
-                                        'value' => $value
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($server, 'json'));
-        $this->assertEquals($server, $this->serializer->deserialize($json, ServerWithQueueAction::class, 'json'));
     }
 }

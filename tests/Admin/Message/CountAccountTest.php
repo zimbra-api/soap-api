@@ -71,29 +71,5 @@ class CountAccountTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CountAccountEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CountAccountRequest' => [
-                    'domain' => [
-                        'by' => 'name',
-                        '_content' => $value,
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-                'CountAccountResponse' => [
-                    'cos' => [
-                        [
-                            'name' => $name,
-                            'id' => $id,
-                            '_content' => $count,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraAdmin',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CountAccountEnvelope::class, 'json'));
     }
 }
