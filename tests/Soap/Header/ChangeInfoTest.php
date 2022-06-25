@@ -31,12 +31,5 @@ class ChangeInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, ChangeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'token' => $changeId,
-            'type' => $changeType,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, ChangeInfo::class, 'json'));
     }
 }

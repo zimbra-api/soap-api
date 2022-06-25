@@ -31,12 +31,5 @@ class UserAgentInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, UserAgentInfo::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'version' => $version,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, UserAgentInfo::class, 'json'));
     }
 }

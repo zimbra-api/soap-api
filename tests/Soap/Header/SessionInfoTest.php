@@ -38,14 +38,5 @@ class SessionInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, SessionInfo::class, 'xml'));
-
-        $json = json_encode([
-            'proxy' => TRUE,
-            'id' => $id,
-            'seq' => $sequence,
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, SessionInfo::class, 'json'));
     }
 }
