@@ -62,16 +62,16 @@ class ModifyDistributionListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyDistributionListRequest id="$id">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyDistributionListRequest>
         <urn:ModifyDistributionListResponse>
-            <dl name="$name" id="$id" dynamic="true">
-                <a n="$key">$value</a>
-                <dlm>$member</dlm>
-                <owners>
-                    <owner id="$id" name="$name" type="usr" />
-                </owners>
-            </dl>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="usr" />
+                </urn:owners>
+            </urn:dl>
         </urn:ModifyDistributionListResponse>
     </soap:Body>
 </soap:Envelope>

@@ -59,9 +59,9 @@ class ExportAndDeleteItemsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ExportAndDeleteItemsRequest exportDir="$exportDir" exportFilenamePrefix="$exportFilenamePrefix">
-            <mbox id="$id">
-                <item id="$id" version="$version" />
-            </mbox>
+            <urn:mbox id="$id">
+                <urn:item id="$id" version="$version" />
+            </urn:mbox>
         </urn:ExportAndDeleteItemsRequest>
         <urn:ExportAndDeleteItemsResponse />
     </soap:Body>

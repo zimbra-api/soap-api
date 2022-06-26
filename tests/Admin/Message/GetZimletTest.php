@@ -70,12 +70,12 @@ class GetZimletTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetZimletRequest attrs="$attrs">
-            <zimlet name="$name" />
+            <urn:zimlet name="$name" />
         </urn:GetZimletRequest>
         <urn:GetZimletResponse>
-            <zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
-                <a n="$key">$value</a>
-            </zimlet>
+            <urn:zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
+                <urn:a n="$key">$value</urn:a>
+            </urn:zimlet>
         </urn:GetZimletResponse>
     </soap:Body>
 </soap:Envelope>

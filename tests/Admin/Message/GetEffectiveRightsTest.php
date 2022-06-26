@@ -121,46 +121,46 @@ class GetEffectiveRightsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetEffectiveRightsRequest expandAllAttrs="setAttrs">
-            <target type="account" by="name">$value</target>
-            <grantee type="all" by="name" secret="$secret" all="true">$value</grantee>
+            <urn:target type="account" by="name">$value</urn:target>
+            <urn:grantee type="all" by="name" secret="$secret" all="true">$value</urn:grantee>
         </urn:GetEffectiveRightsRequest>
         <urn:GetEffectiveRightsResponse>
-            <grantee id="$id" name="$name" type="all" />
-            <target type="account" id="$id" name="$name">
-            <right n="$name" />
-                <setAttrs all="true">
-                    <a n="$name">
-                        <constraint>
-                            <min>$min</min>
-                            <max>$max</max>
-                            <values>
-                                <v>$value1</v>
-                                <v>$value2</v>
-                            </values>
-                        </constraint>
-                        <default>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </default>
-                    </a>
-                </setAttrs>
-                <getAttrs all="false">
-                    <a n="$name">
-                        <constraint>
-                            <min>$min</min>
-                            <max>$max</max>
-                            <values>
-                                <v>$value1</v>
-                                <v>$value2</v>
-                            </values>
-                        </constraint>
-                        <default>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </default>
-                    </a>
-                </getAttrs>
-            </target>
+            <urn:grantee id="$id" name="$name" type="all" />
+            <urn:target type="account" id="$id" name="$name">
+            <urn:right n="$name" />
+                <urn:setAttrs all="true">
+                    <urn:a n="$name">
+                        <urn:constraint>
+                            <urn:min>$min</urn:min>
+                            <urn:max>$max</urn:max>
+                            <urn:values>
+                                <urn:v>$value1</urn:v>
+                                <urn:v>$value2</urn:v>
+                            </urn:values>
+                        </urn:constraint>
+                        <urn:default>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:default>
+                    </urn:a>
+                </urn:setAttrs>
+                <urn:getAttrs all="false">
+                    <urn:a n="$name">
+                        <urn:constraint>
+                            <urn:min>$min</urn:min>
+                            <urn:max>$max</urn:max>
+                            <urn:values>
+                                <urn:v>$value1</urn:v>
+                                <urn:v>$value2</urn:v>
+                            </urn:values>
+                        </urn:constraint>
+                        <urn:default>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:default>
+                    </urn:a>
+                </urn:getAttrs>
+            </urn:target>
         </urn:GetEffectiveRightsResponse>
     </soap:Body>
 </soap:Envelope>

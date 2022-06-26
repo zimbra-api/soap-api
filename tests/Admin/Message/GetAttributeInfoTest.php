@@ -65,7 +65,7 @@ class GetAttributeInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAttributeInfoRequest attrs="$attrs" entryTypes="$entryTypes" />
         <urn:GetAttributeInfoResponse>
-            <a n="$name" desc="$description" />
+            <urn:a n="$name" desc="$description" />
         </urn:GetAttributeInfoResponse>
     </soap:Body>
 </soap:Envelope>

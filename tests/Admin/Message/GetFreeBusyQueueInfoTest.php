@@ -62,12 +62,12 @@ class GetFreeBusyQueueInfoTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetFreeBusyQueueInfoRequest>
-            <provider name="$name" />
+            <urn:provider name="$name" />
         </urn:GetFreeBusyQueueInfoRequest>
         <urn:GetFreeBusyQueueInfoResponse>
-            <provider name="$name">
-                <account id="$id" />
-            </provider>
+            <urn:provider name="$name">
+                <urn:account id="$id" />
+            </urn:provider>
         </urn:GetFreeBusyQueueInfoResponse>
     </soap:Body>
 </soap:Envelope>

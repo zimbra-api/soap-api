@@ -79,16 +79,16 @@ class CheckGalConfigTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckGalConfigRequest>
-            <query limit="$limit">$value</query>
-            <action>$action</action>
-            <a n="$key">$value</a>
+            <urn:query limit="$limit">$value</urn:query>
+            <urn:action>$action</urn:action>
+            <urn:a n="$key">$value</urn:a>
         </urn:CheckGalConfigRequest>
         <urn:CheckGalConfigResponse>
-            <code>$code</code>
-            <message>$message</message>
-            <cn id="$id">
-                <a n="$key">$value</a>
-            </cn>
+            <urn:code>$code</urn:code>
+            <urn:message>$message</urn:message>
+            <urn:cn id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:cn>
         </urn:CheckGalConfigResponse>
     </soap:Body>
 </soap:Envelope>

@@ -68,9 +68,9 @@ class GetAllServersTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllServersRequest service="$service" alwaysOnClusterId="$alwaysOnClusterId" applyConfig="true" />
         <urn:GetAllServersResponse>
-            <server name="$name" id="$id">
-                <a n="$key">$value</a>
-            </server>
+            <urn:server name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:server>
         </urn:GetAllServersResponse>
     </soap:Body>
 </soap:Envelope>

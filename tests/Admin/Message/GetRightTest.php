@@ -71,18 +71,18 @@ class GetRightTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetRightRequest expandAllAttrs="true">
-            <right>$right</right>
+            <urn:right>$right</urn:right>
         </urn:GetRightRequest>
         <urn:GetRightResponse>
-            <right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
-                <desc>$desc</desc>
-                <attrs all="true">
-                    <a n="$key">$value</a>
-                </attrs>
-                <rights>
-                    <r n="$name" type="preset" targetType="$targetType" />
-                </rights>
-            </right>
+            <urn:right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+                <urn:desc>$desc</urn:desc>
+                <urn:attrs all="true">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:attrs>
+                <urn:rights>
+                    <urn:r n="$name" type="preset" targetType="$targetType" />
+                </urn:rights>
+            </urn:right>
         </urn:GetRightResponse>
     </soap:Body>
 </soap:Envelope>

@@ -60,7 +60,7 @@ class DeleteSystemRetentionPolicyTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
         <urn:DeleteSystemRetentionPolicyRequest>
-            <cos by="name">$value</cos>
+            <urn:cos by="name">$value</urn:cos>
             <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
         </urn:DeleteSystemRetentionPolicyRequest>
         <urn:DeleteSystemRetentionPolicyResponse />

@@ -52,7 +52,7 @@ class GetLicenseInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetLicenseInfoRequest />
         <urn:GetLicenseInfoResponse>
-            <expiration date="$date" />
+            <urn:expiration date="$date" />
         </urn:GetLicenseInfoResponse>
     </soap:Body>
 </soap:Envelope>

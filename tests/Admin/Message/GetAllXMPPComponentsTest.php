@@ -57,9 +57,9 @@ class GetAllXMPPComponentsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllXMPPComponentsRequest />
         <urn:GetAllXMPPComponentsResponse>
-            <xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
-                <a n="$key">$value</a>
-            </xmppcomponent>
+            <urn:xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
+                <urn:a n="$key">$value</urn:a>
+            </urn:xmppcomponent>
         </urn:GetAllXMPPComponentsResponse>
     </soap:Body>
 </soap:Envelope>

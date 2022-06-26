@@ -62,8 +62,8 @@ class GetServiceStatusTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetServiceStatusRequest />
         <urn:GetServiceStatusResponse>
-            <timezone id="$id" displayName="$displayName" />
-            <status server="$server" service="$service" t="$time">1</status>
+            <urn:timezone id="$id" displayName="$displayName" />
+            <urn:status server="$server" service="$service" t="$time">1</urn:status>
         </urn:GetServiceStatusResponse>
     </soap:Body>
 </soap:Envelope>

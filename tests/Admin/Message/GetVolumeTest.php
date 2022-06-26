@@ -66,7 +66,7 @@ class GetVolumeTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetVolumeRequest id="$id" />
         <urn:GetVolumeResponse>
-            <volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="true" />
+            <urn:volume id="$id" name="$name" rootpath="$rootPath" type="$type" compressBlobs="true" compressionThreshold="$threshold" mgbits="$mgbits" mbits="$mbits" fgbits="$fgbits" fbits="$fbits" isCurrent="true" />
         </urn:GetVolumeResponse>
     </soap:Body>
 </soap:Envelope>

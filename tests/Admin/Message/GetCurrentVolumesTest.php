@@ -52,7 +52,7 @@ class GetCurrentVolumesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetCurrentVolumesRequest />
         <urn:GetCurrentVolumesResponse>
-            <volume type="$type" id="$id" />
+            <urn:volume type="$type" id="$id" />
         </urn:GetCurrentVolumesResponse>
     </soap:Body>
 </soap:Envelope>

@@ -64,12 +64,12 @@ class GetAccountMembershipTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAccountMembershipRequest>
-            <account by="name">$value</account>
+            <urn:account by="name">$value</urn:account>
         </urn:GetAccountMembershipRequest>
         <urn:GetAccountMembershipResponse>
-            <dl name="$name" id="$id" dynamic="true" via="$via">
-                <a n="$key">$value</a>
-            </dl>
+            <urn:dl name="$name" id="$id" dynamic="true" via="$via">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dl>
         </urn:GetAccountMembershipResponse>
     </soap:Body>
 </soap:Envelope>

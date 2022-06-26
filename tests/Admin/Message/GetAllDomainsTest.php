@@ -58,9 +58,9 @@ class GetAllDomainsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllDomainsRequest applyConfig="true" />
         <urn:GetAllDomainsResponse>
-            <domain name="$name" id="$id">
-                <a n="$key">$value</a>
-            </domain>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
         </urn:GetAllDomainsResponse>
     </soap:Body>
 </soap:Envelope>

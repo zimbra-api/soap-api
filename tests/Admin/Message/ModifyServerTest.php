@@ -57,12 +57,12 @@ class ModifyServerTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyServerRequest id="$id">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyServerRequest>
         <urn:ModifyServerResponse>
-            <server name="$name" id="$id">
-                <a n="$key">$value</a>
-            </server>
+            <urn:server name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:server>
         </urn:ModifyServerResponse>
     </soap:Body>
 </soap:Envelope>

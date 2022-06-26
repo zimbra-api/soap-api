@@ -22,7 +22,7 @@ class CountObjectsTest extends ZimbraTestCase
     public function testCountObjects()
     {
         $value = $this->faker->word;
-        $num = mt_rand(1, 100);
+        $num = $this->faker->randomNumber;
         $type = $this->faker->word;
 
         $domain = new DomainSelector(DomainBy::NAME(), $value);
@@ -79,8 +79,8 @@ class CountObjectsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CountObjectsRequest type="account" onlyrelated="true">
-            <domain by="name">$value</domain>
-            <ucservice by="name">$value</ucservice>
+            <urn:domain by="name">$value</urn:domain>
+            <urn:ucservice by="name">$value</urn:ucservice>
         </urn:CountObjectsRequest>
         <urn:CountObjectsResponse num="$num" type="$type" />
     </soap:Body>

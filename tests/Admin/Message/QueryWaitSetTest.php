@@ -96,18 +96,18 @@ class QueryWaitSetTest extends ZimbraTestCase
     <soap:Body>
         <urn:QueryWaitSetRequest waitSet="$waitSetId"/>
         <urn:QueryWaitSetResponse>
-            <waitSet id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
-                <errors>
-                    <error id="$id" type="$type" />
-                </errors>
-                <ready accounts="$accounts" />
-                <buffered>
-                    <commit aid="$aid" cid="$cid" />
-                </buffered>
-                <session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
+            <urn:waitSet id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
+                <urn:errors>
+                    <urn:error id="$id" type="$type" />
+                </urn:errors>
+                <urn:ready accounts="$accounts" />
+                <urn:buffered>
+                    <urn:commit aid="$aid" cid="$cid" />
+                </urn:buffered>
+                <urn:session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
                     <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
-                </session>
-            </waitSet>
+                </urn:session>
+            </urn:waitSet>
         </urn:QueryWaitSetResponse>
     </soap:Body>
 </soap:Envelope>

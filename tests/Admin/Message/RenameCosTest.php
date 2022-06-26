@@ -63,13 +63,13 @@ class RenameCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:RenameCosRequest>
-            <id>$id</id>
-            <newName>$name</newName>
+            <urn:id>$id</urn:id>
+            <urn:newName>$name</urn:newName>
         </urn:RenameCosRequest>
         <urn:RenameCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="true">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
         </urn:RenameCosResponse>
     </soap:Body>
 </soap:Envelope>

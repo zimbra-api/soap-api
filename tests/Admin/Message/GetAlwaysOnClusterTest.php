@@ -70,12 +70,12 @@ class GetAlwaysOnClusterTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAlwaysOnClusterRequest attrs="$attrs">
-            <alwaysOnCluster by="name">$value</alwaysOnCluster>
+            <urn:alwaysOnCluster by="name">$value</urn:alwaysOnCluster>
         </urn:GetAlwaysOnClusterRequest>
         <urn:GetAlwaysOnClusterResponse>
-            <alwaysOnCluster name="$name" id="$id">
-                <a n="$key">$value</a>
-            </alwaysOnCluster>
+            <urn:alwaysOnCluster name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alwaysOnCluster>
         </urn:GetAlwaysOnClusterResponse>
     </soap:Body>
 </soap:Envelope>

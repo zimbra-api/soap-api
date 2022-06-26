@@ -65,12 +65,12 @@ class CreateAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateAccountRequest name="$name" password="$password">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateAccountRequest>
         <urn:CreateAccountResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:CreateAccountResponse>
     </soap:Body>
 </soap:Envelope>

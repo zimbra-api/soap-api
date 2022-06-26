@@ -64,9 +64,9 @@ class RenameAccountTest extends ZimbraTestCase
     <soap:Body>
         <urn:RenameAccountRequest id="$id" newName="$newName" />
         <urn:RenameAccountResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:RenameAccountResponse>
     </soap:Body>
 </soap:Envelope>

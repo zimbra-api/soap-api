@@ -68,17 +68,17 @@ class MailQueueActionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:MailQueueActionRequest>
-            <server name="$name">
-                <queue name="$name">
-                    <action op="hold" by="query">
-                        <query limit="$limit" offset="$offset">
-                            <field name="$name">
-                                <match value="$value" />
-                            </field>
-                        </query>
-                    </action>
-                </queue>
-            </server>
+            <urn:server name="$name">
+                <urn:queue name="$name">
+                    <urn:action op="hold" by="query">
+                        <urn:query limit="$limit" offset="$offset">
+                            <urn:field name="$name">
+                                <urn:match value="$value" />
+                            </urn:field>
+                        </urn:query>
+                    </urn:action>
+                </urn:queue>
+            </urn:server>
         </urn:MailQueueActionRequest>
         <urn:MailQueueActionResponse />
     </soap:Body>

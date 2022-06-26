@@ -60,10 +60,10 @@ class GetServerStatsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetServerStatsRequest>
-            <stat name="$name" description="$description">$value</stat>
+            <urn:stat name="$name" description="$description">$value</urn:stat>
         </urn:GetServerStatsRequest>
         <urn:GetServerStatsResponse>
-            <stat name="$name" description="$description">$value</stat>
+            <urn:stat name="$name" description="$description">$value</urn:stat>
         </urn:GetServerStatsResponse>
     </soap:Body>
 </soap:Envelope>

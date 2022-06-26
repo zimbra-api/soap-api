@@ -101,24 +101,24 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAdminExtensionZimletsRequest />
         <urn:GetAdminExtensionZimletsResponse>
-            <zimlets>
-                <zimlet>
-                    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
-                    <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-                        <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-                        <include>$value</include>
-                        <includeCSS>$value</includeCSS>
-                    </zimlet>
-                    <zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-                        <global>
-                            <property name="$name">$value</property>
-                        </global>
-                        <host name="$name">
-                            <property name="$name">$value</property>
-                        </host>
-                    </zimletConfig>
-                </zimlet>
-            </zimlets>
+            <urn:zimlets>
+                <urn:zimlet>
+                    <urn:zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
+                    <urn:zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+                        <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+                        <urn:include>$value</urn:include>
+                        <urn:includeCSS>$value</urn:includeCSS>
+                    </urn:zimlet>
+                    <urn:zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+                        <urn:global>
+                            <urn:property name="$name">$value</urn:property>
+                        </urn:global>
+                        <urn:host name="$name">
+                            <urn:property name="$name">$value</urn:property>
+                        </urn:host>
+                    </urn:zimletConfig>
+                </urn:zimlet>
+            </urn:zimlets>
         </urn:GetAdminExtensionZimletsResponse>
     </soap:Body>
 </soap:Envelope>

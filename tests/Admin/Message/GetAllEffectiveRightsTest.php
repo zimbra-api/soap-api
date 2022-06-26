@@ -110,123 +110,123 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAllEffectiveRightsRequest expandAllAttrs="setAttrs">
-            <grantee type="all" by="name" secret="$secret" all="true">$value</grantee>
+            <urn:grantee type="all" by="name" secret="$secret" all="true">$value</urn:grantee>
         </urn:GetAllEffectiveRightsRequest>
         <urn:GetAllEffectiveRightsResponse>
-            <grantee id="$id" name="$name" type="all" />
-            <target type="account">
-                <all>
-                    <right n="$name" />
-                    <setAttrs all="true">
-                        <a n="$name">
-                            <constraint>
-                                <min>$min</min>
-                                <max>$max</max>
-                                <values>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </values>
-                            </constraint>
-                            <default>
-                                <v>$value1</v>
-                                <v>$value2</v>
-                            </default>
-                        </a>
-                    </setAttrs>
-                    <getAttrs all="false">
-                        <a n="$name">
-                            <constraint>
-                                <min>$min</min>
-                                <max>$max</max>
-                                <values>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </values>
-                            </constraint>
-                            <default>
-                                <v>$value1</v>
-                                <v>$value2</v>
-                            </default>
-                        </a>
-                    </getAttrs>
-                </all>
-                <inDomains>
-                    <domain name="$name" />
-                    <rights>
-                        <right n="$name" />
-                        <setAttrs all="true">
-                            <a n="$name">
-                                <constraint>
-                                    <min>$min</min>
-                                    <max>$max</max>
-                                    <values>
-                                        <v>$value1</v>
-                                        <v>$value2</v>
-                                    </values>
-                                </constraint>
-                                <default>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </default>
-                            </a>
-                        </setAttrs>
-                        <getAttrs all="false">
-                            <a n="$name">
-                                <constraint>
-                                    <min>$min</min>
-                                    <max>$max</max>
-                                    <values>
-                                        <v>$value1</v>
-                                        <v>$value2</v>
-                                    </values>
-                                </constraint>
-                                <default>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </default>
-                            </a>
-                        </getAttrs>
-                    </rights>
-                </inDomains>
-                <entries>
-                    <entry name="$name" />
-                    <rights>
-                        <right n="$name" />
-                        <setAttrs all="true">
-                            <a n="$name">
-                                <constraint>
-                                    <min>$min</min>
-                                    <max>$max</max>
-                                    <values>
-                                        <v>$value1</v>
-                                        <v>$value2</v>
-                                    </values>
-                                </constraint>
-                                <default>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </default>
-                            </a>
-                        </setAttrs>
-                        <getAttrs all="false">
-                            <a n="$name">
-                                <constraint>
-                                    <min>$min</min>
-                                    <max>$max</max>
-                                    <values>
-                                        <v>$value1</v>
-                                        <v>$value2</v>
-                                    </values>
-                                </constraint>
-                                <default>
-                                    <v>$value1</v>
-                                    <v>$value2</v>
-                                </default>
-                            </a>
-                        </getAttrs>
-                    </rights>
-                </entries>
-            </target>
+            <urn:grantee id="$id" name="$name" type="all" />
+            <urn:target type="account">
+                <urn:all>
+                    <urn:right n="$name" />
+                    <urn:setAttrs all="true">
+                        <urn:a n="$name">
+                            <urn:constraint>
+                                <urn:min>$min</urn:min>
+                                <urn:max>$max</urn:max>
+                                <urn:values>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2</urn:v>
+                                </urn:values>
+                            </urn:constraint>
+                            <urn:default>
+                                <urn:v>$value1</urn:v>
+                                <urn:v>$value2</urn:v>
+                            </urn:default>
+                        </urn:a>
+                    </urn:setAttrs>
+                    <urn:getAttrs all="false">
+                        <urn:a n="$name">
+                            <urn:constraint>
+                                <urn:min>$min</urn:min>
+                                <urn:max>$max</urn:max>
+                                <urn:values>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2</urn:v>
+                                </urn:values>
+                            </urn:constraint>
+                            <urn:default>
+                                <urn:v>$value1</urn:v>
+                                <urn:v>$value2</urn:v>
+                            </urn:default>
+                        </urn:a>
+                    </urn:getAttrs>
+                </urn:all>
+                <urn:inDomains>
+                    <urn:domain name="$name" />
+                    <urn:rights>
+                        <urn:right n="$name" />
+                        <urn:setAttrs all="true">
+                            <urn:a n="$name">
+                                <urn:constraint>
+                                    <urn:min>$min</urn:min>
+                                    <urn:max>$max</urn:max>
+                                    <urn:values>
+                                        <urn:v>$value1</urn:v>
+                                        <urn:v>$value2</urn:v>
+                                    </urn:values>
+                                </urn:constraint>
+                                <urn:default>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2<urn:v>
+                                </urn:default>
+                            </urn:a>
+                        </urn:setAttrs>
+                        <urn:getAttrs all="false">
+                            <urn:a n="$name">
+                                <urn:constraint>
+                                    <urn:min>$min</urn:min>
+                                    <urn:max>$max</urn:max>
+                                    <urn:values>
+                                        <urn:v>$value1</urn:v>
+                                        <urn:v>$value2</urn:v>
+                                    </urn:values>
+                                </urn:constraint>
+                                <urn:default>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2</urn:v>
+                                </urn:default>
+                            </urn:a>
+                        </urn:getAttrs>
+                    </urn:rights>
+                </urn:inDomains>
+                <urn:entries>
+                    <urn:entry name="$name" />
+                    <urn:rights>
+                        <urn:right n="$name" />
+                        <urn:setAttrs all="true">
+                            <urn:a n="$name">
+                                <urn:constraint>
+                                    <urn:min>$min</urn:min>
+                                    <urn:max>$max</urn:max>
+                                    <urn:values>
+                                        <urn:v>$value1</urn:v>
+                                        <urn:v>$value2</urn:v>
+                                    </urn:values>
+                                </urn:constraint>
+                                <urn:default>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2</urn:v>
+                                </urn:default>
+                            </urn:a>
+                        </urn:setAttrs>
+                        <urn:getAttrs all="false">
+                            <urn:a n="$name">
+                                <urn:constraint>
+                                    <urn:min>$min</urn:min>
+                                    <urn:max>$max</urn:max>
+                                    <urn:values>
+                                        <urn:v>$value1</urn:v>
+                                        <urn:v>$value2</urn:v>
+                                    </urn:values>
+                                </urn:constraint>
+                                <urn:default>
+                                    <urn:v>$value1</urn:v>
+                                    <urn:v>$value2</urn:v>
+                                </durn:efault>
+                            </urn:a>
+                        </urn:getAttrs>
+                    </urn:rights>
+                </urn:entries>
+            </urn:target>
         </urn:GetAllEffectiveRightsResponse>
     </soap:Body>
 </soap:Envelope>

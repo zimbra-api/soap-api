@@ -54,9 +54,9 @@ class GetAllActiveServersTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllActiveServersRequest />
         <urn:GetAllActiveServersResponse>
-            <server name="$name" id="$id">
-                <a n="$key">$value</a>
-            </server>
+            <urn:server name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:server>
         </urn:GetAllActiveServersResponse>
     </soap:Body>
 </soap:Envelope>

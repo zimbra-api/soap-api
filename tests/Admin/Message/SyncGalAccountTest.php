@@ -56,9 +56,9 @@ class SyncGalAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:SyncGalAccountRequest>
-            <account id="$id">
-                <datasource by="name" fullSync="true" reset="true">$value</datasource>
-            </account>
+            <urn:account id="$id">
+                <urn:datasource by="name" fullSync="true" reset="true">$value</urn:datasource>
+            </urn:account>
         </urn:SyncGalAccountRequest>
         <urn:SyncGalAccountResponse />
     </soap:Body>

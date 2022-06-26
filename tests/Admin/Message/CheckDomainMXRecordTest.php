@@ -17,7 +17,7 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
 {
     public function testCheckDomainMXRecord()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->freeEmailDomain;
         $entry = $this->faker->word;
         $entry1 = $this->faker->text;
         $entry2 = $this->faker->text;
@@ -76,12 +76,12 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckDomainMXRecordRequest>
-            <domain by="name">$name</domain>
+            <urn:domain by="name">$name</urn:domain>
         </urn:CheckDomainMXRecordRequest>
         <urn:CheckDomainMXRecordResponse>
-            <entry>$entry</entry>
-            <code>$code</code>
-            <message>$message</message>
+            <urn:entry>$entry</urn:entry>
+            <urn:code>$code</urn:code>
+            <urn:message>$message</urn:message>
         </urn:CheckDomainMXRecordResponse>
     </soap:Body>
 </soap:Envelope>

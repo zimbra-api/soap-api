@@ -49,7 +49,7 @@ class ConfigureZimletTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ConfigureZimletRequest>
-            <content aid="$aid" />
+            <urn:content aid="$aid" />
         </urn:ConfigureZimletRequest>
         <urn:ConfigureZimletResponse />
     </soap:Body>

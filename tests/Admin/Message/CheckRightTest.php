@@ -101,17 +101,17 @@ class CheckRightTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckRightRequest>
-            <target type="account" by="name">$value</target>
-            <grantee type="usr" by="id" secret="$secret" all="true">$value</grantee>
-            <right>$value</right>
-            <a n="$key">$value</a>
+            <urn:target type="account" by="name">$value</urn:target>
+            <urn:grantee type="usr" by="id" secret="$secret" all="true">$value</urn:grantee>
+            <urn:right>$value</urn:right>
+            <urn:a n="$key">$value</urn:a>
         </urn:CheckRightRequest>
         <urn:CheckRightResponse allow="true">
-            <via>
-                <target type="$type">$value</target>
-                <grantee type="$type">$value</grantee>
-                <right>$value</right>
-            </via>
+            <urn:via>
+                <urn:target type="$type">$value</urn:target>
+                <urn:grantee type="$type">$value</urn:grantee>
+                <urn:right>$value</urn:right>
+            </urn:via>
         </urn:CheckRightResponse>
     </soap:Body>
 </soap:Envelope>

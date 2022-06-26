@@ -52,7 +52,7 @@ class GetAggregateQuotaUsageOnServerTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAggregateQuotaUsageOnServerRequest />
         <urn:GetAggregateQuotaUsageOnServerResponse>
-            <domain name="$name" id="$id" used="$quotaUsed" />
+            <urn:domain name="$name" id="$id" used="$quotaUsed" />
         </urn:GetAggregateQuotaUsageOnServerResponse>
     </soap:Body>
 </soap:Envelope>

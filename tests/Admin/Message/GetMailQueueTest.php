@@ -98,25 +98,25 @@ class GetMailQueueTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetMailQueueRequest>
-            <server name="$name">
-                <queue name="$name" scan="true" wait="$wait">
-                    <query limit="$limit" offset="$offset">
-                        <field name="$name">
-                            <match value="$value" />
-                        </field>
-                    </query>
-                </queue>
-            </server>
+            <urn:server name="$name">
+                <urn:queue name="$name" scan="true" wait="$wait">
+                    <urn:query limit="$limit" offset="$offset">
+                        <urn:field name="$name">
+                            <urn:match value="$value" />
+                        </urn:field>
+                    </urn:query>
+                </urn:queue>
+            </urn:server>
         </urn:GetMailQueueRequest>
         <urn:GetMailQueueResponse>
-            <server name="$name">
-                <queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
-                    <qs type="$type">
-                        <qsi n="$count" t="$term" />
-                    </qs>
-                    <qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
-                </queue>
-            </server>
+            <urn:server name="$name">
+                <urn:queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
+                    <urn:qs type="$type">
+                        <urn:qsi n="$count" t="$term" />
+                    </urn:qs>
+                    <urn:qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
+                </urn:queue>
+            </urn:server>
         </urn:GetMailQueueResponse>
     </soap:Body>
 </soap:Envelope>

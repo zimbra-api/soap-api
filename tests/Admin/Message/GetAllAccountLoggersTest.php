@@ -57,7 +57,7 @@ class GetAllAccountLoggersTest extends ZimbraTestCase
         <urn:GetAllAccountLoggersRequest />
         <urn:GetAllAccountLoggersResponse>
             <accountLogger name="$name" id="$id">
-                <logger category="$category" level="info" />
+                <urn:logger category="$category" level="info" />
             </accountLogger>
         </urn:GetAllAccountLoggersResponse>
     </soap:Body>

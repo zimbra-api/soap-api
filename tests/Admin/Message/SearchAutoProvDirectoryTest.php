@@ -104,13 +104,13 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:SearchAutoProvDirectoryRequest keyAttr="$keyAttr" query="$query" name="$name" maxResults="$maxResults" limit="$limit" offset="$offset" refresh="true" attrs="$attrs">
-            <domain by="name">$value</domain>
+            <urn:domain by="name">$value</urn:domain>
         </urn:SearchAutoProvDirectoryRequest>
         <urn:SearchAutoProvDirectoryResponse more="true" searchTotal="$searchTotal">
-            <entry dn="$dn">
-                <a n="$key">$value</a>
-                <key>$key</key>
-            </entry>
+            <urn:entry dn="$dn">
+                <urn:a n="$key">$value</urn:a>
+                <urn:key>$key</urn:key>
+            </urn:entry>
         </urn:SearchAutoProvDirectoryResponse>
     </soap:Body>
 </soap:Envelope>

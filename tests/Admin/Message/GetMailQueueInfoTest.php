@@ -57,12 +57,12 @@ class GetMailQueueInfoTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetMailQueueInfoRequest>
-            <server name="$name" />
+            <urn:server name="$name" />
         </urn:GetMailQueueInfoRequest>
         <urn:GetMailQueueInfoResponse>
-            <server name="$name">
-                <queue name="$name" n="$count" />
-            </server>
+            <urn:server name="$name">
+                <urn:queue name="$name" n="$count" />
+            </urn:server>
         </urn:GetMailQueueInfoResponse>
     </soap:Body>
 </soap:Envelope>

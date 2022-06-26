@@ -64,13 +64,13 @@ class CopyCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CopyCosRequest>
-            <name>$newName</name>
-            <cos by="name">$value</cos>
+            <urn:name>$newName</urn:name>
+            <urn:cos by="name">$value</urn:cos>
         </urn:CopyCosRequest>
         <urn:CopyCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="false">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
         </urn:CopyCosResponse>
     </soap:Body>
 </soap:Envelope>

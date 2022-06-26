@@ -58,11 +58,11 @@ class VerifyIndexTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:VerifyIndexRequest>
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:VerifyIndexRequest>
         <urn:VerifyIndexResponse>
-            <status>true</status>
-            <message>$message</message>
+            <urn:status>true</urn:status>
+            <urn:message>$message</urn:message>
         </urn:VerifyIndexResponse>
     </soap:Body>
 </soap:Envelope>

@@ -53,7 +53,7 @@ class GetMailboxStatsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetMailboxStatsRequest />
         <urn:GetMailboxStatsResponse>
-            <stats numMboxes="$numMboxes" totalSize="$totalSize" />
+            <urn:stats numMboxes="$numMboxes" totalSize="$totalSize" />
         </urn:GetMailboxStatsResponse>
     </soap:Body>
 </soap:Envelope>

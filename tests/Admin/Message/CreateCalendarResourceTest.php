@@ -65,12 +65,12 @@ class CreateCalendarResourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateCalendarResourceRequest name="$name" password="$password">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateCalendarResourceRequest>
         <urn:CreateCalendarResourceResponse>
-            <calresource name="$name" id="$id">
-                <a n="$key">$value</a>
-            </calresource>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
         </urn:CreateCalendarResourceResponse>
     </soap:Body>
 </soap:Envelope>

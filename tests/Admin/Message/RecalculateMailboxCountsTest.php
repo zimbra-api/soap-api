@@ -56,10 +56,10 @@ class RecalculateMailboxCountsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:RecalculateMailboxCountsRequest>
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:RecalculateMailboxCountsRequest>
         <urn:RecalculateMailboxCountsResponse>
-            <mbox id="$id" used="$quotaUsed" />
+            <urn:mbox id="$id" used="$quotaUsed" />
         </urn:RecalculateMailboxCountsResponse>
     </soap:Body>
 </soap:Envelope>

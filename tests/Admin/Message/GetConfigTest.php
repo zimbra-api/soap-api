@@ -48,10 +48,10 @@ class GetConfigTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetConfigRequest>
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:GetConfigRequest>
         <urn:GetConfigResponse>
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:GetConfigResponse>
     </soap:Body>
 </soap:Envelope>

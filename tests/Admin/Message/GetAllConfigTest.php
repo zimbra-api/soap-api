@@ -44,7 +44,7 @@ class GetAllConfigTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllConfigRequest />
         <urn:GetAllConfigResponse>
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:GetAllConfigResponse>
     </soap:Body>
 </soap:Envelope>

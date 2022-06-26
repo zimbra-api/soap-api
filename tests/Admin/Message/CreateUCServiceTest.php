@@ -59,13 +59,13 @@ class CreateUCServiceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateUCServiceRequest>
-            <name>$name</name>
-            <a n="$key">$value</a>
+            <urn:name>$name</urn:name>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateUCServiceRequest>
         <urn:CreateUCServiceResponse>
-            <ucservice name="$name" id="$id">
-                <a n="$key">$value</a>
-            </ucservice>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
         </urn:CreateUCServiceResponse>
     </soap:Body>
 </soap:Envelope>

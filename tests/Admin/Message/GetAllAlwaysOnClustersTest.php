@@ -56,9 +56,9 @@ class GetAllAlwaysOnClustersTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllAlwaysOnClustersRequest />
         <urn:GetAllAlwaysOnClustersResponse>
-            <alwaysOnCluster name="$name" id="$id">
-                <a n="$key">$value</a>
-            </alwaysOnCluster>
+            <urn:alwaysOnCluster name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alwaysOnCluster>
         </urn:GetAllAlwaysOnClustersResponse>
     </soap:Body>
 </soap:Envelope>

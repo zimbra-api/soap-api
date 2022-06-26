@@ -90,24 +90,24 @@ class GetLoggerStatsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetLoggerStatsRequest>
-            <hostname hn="$name" />
-            <stats name="$name" limit="$limit">
-                <values>
-                    <stat name="$name" />
-                </values>
-            </stats>
-            <startTime time="$time" />
-            <endTime time="$time" />
+            <urn:hostname hn="$name" />
+            <urn:stats name="$name" limit="$limit">
+                <urn:values>
+                    <urn:stat name="$name" />
+                </urn:values>
+            </urn:stats>
+            <urn:startTime time="$time" />
+            <urn:endTime time="$time" />
         </urn:GetLoggerStatsRequest>
         <urn:GetLoggerStatsResponse>
-            <hostname hn="$name">
-                <stats name="$name">
-                    <values t="$t">
-                        <stat name="$name" value="$value" />
-                    </values>
-                </stats>
-            </hostname>
-            <note>$note</note>
+            <urn:hostname hn="$name">
+                <urn:stats name="$name">
+                    <urn:values t="$t">
+                        <urn:stat name="$name" value="$value" />
+                    </urn:values>
+                </urn:stats>
+            </urn:hostname>
+            <urn:note>$note</urn:note>
         </urn:GetLoggerStatsResponse>
     </soap:Body>
 </soap:Envelope>

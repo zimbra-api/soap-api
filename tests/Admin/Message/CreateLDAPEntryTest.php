@@ -61,12 +61,12 @@ class CreateLDAPEntryTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateLDAPEntryRequest dn="$dn">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateLDAPEntryRequest>
         <urn:CreateLDAPEntryResponse>
-            <LDAPEntry name="$name">
-                <a n="$key">$value</a>
-            </LDAPEntry>
+            <urn:LDAPEntry name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:LDAPEntry>
         </urn:CreateLDAPEntryResponse>
     </soap:Body>
 </soap:Envelope>

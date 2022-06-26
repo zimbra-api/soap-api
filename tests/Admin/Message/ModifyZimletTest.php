@@ -61,11 +61,11 @@ class ModifyZimletTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyZimletRequest>
-            <zimlet name="$name">
-                <acl cos="$cos" acl="grant" />
-                <status value="enabled" />
-                <priority value="$value" />
-            </zimlet>
+            <urn:zimlet name="$name">
+                <urn:acl cos="$cos" acl="grant" />
+                <urn:status value="enabled" />
+                <urn:priority value="$value" />
+            </urn:zimlet>
         </urn:ModifyZimletRequest>
         <urn:ModifyZimletResponse />
     </soap:Body>

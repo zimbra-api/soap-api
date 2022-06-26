@@ -54,8 +54,8 @@ class AddDistributionListMemberTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body xmlns:urn="urn:zimbraAdmin">
         <urn:AddDistributionListMemberRequest id="$id">
-            <dlm>$member1</dlm>
-            <dlm>$member2</dlm>
+            <urn:dlm>$member1</urn:dlm>
+            <urn:dlm>$member2</urn:dlm>
         </urn:AddDistributionListMemberRequest>
         <urn:AddDistributionListMemberResponse />
     </soap:Body>

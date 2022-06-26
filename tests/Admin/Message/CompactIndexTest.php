@@ -58,7 +58,7 @@ class CompactIndexTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CompactIndexRequest action="start">
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:CompactIndexRequest>
         <urn:CompactIndexResponse status="running" />
     </soap:Body>

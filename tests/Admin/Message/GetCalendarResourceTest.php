@@ -71,12 +71,12 @@ class GetCalendarResourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetCalendarResourceRequest applyCos="true" attrs="$attrs">
-            <calresource by="name">$value</calresource>
+            <urn:calresource by="name">$value</urn:calresource>
         </urn:GetCalendarResourceRequest>
         <urn:GetCalendarResourceResponse>
-            <calresource name="$name" id="$id">
-                <a n="$key">$value</a>
-            </calresource>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
         </urn:GetCalendarResourceResponse>
     </soap:Body>
 </soap:Envelope>

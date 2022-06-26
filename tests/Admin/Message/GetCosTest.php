@@ -70,12 +70,12 @@ class GetCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetCosRequest attrs="$attrs">
-            <cos by="name">$value</cos>
+            <urn:cos by="name">$value</urn:cos>
         </urn:GetCosRequest>
         <urn:GetCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="false">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
         </urn:GetCosResponse>
     </soap:Body>
 </soap:Envelope>

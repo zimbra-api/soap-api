@@ -69,12 +69,12 @@ class GetDomainTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetDomainRequest attrs="$attrs" applyConfig="true">
-            <domain by="name">$value</domain>
+            <urn:domain by="name">$value</urn:domain>
         </urn:GetDomainRequest>
         <urn:GetDomainResponse>
-            <domain name="$name" id="$id">
-                <a n="$key">$value</a>
-            </domain>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
         </urn:GetDomainResponse>
     </soap:Body>
 </soap:Envelope>

@@ -65,16 +65,16 @@ class CreateXMPPComponentTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateXMPPComponentRequest>
-            <xmppcomponent name="$name">
-                <a n="$key">$value</a>
-                <domain by="name">$value</domain>
-                <server by="name">$value</server>
-            </xmppcomponent>
+            <urn:xmppcomponent name="$name">
+                <urn:a n="$key">$value</urn:a>
+                <urn:domain by="name">$value</urn:domain>
+                <urn:server by="name">$value</urn:server>
+            </urn:xmppcomponent>
         </urn:CreateXMPPComponentRequest>
         <urn:CreateXMPPComponentResponse>
-            <xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
-                <a n="$key">$value</a>
-            </xmppcomponent>
+            <urn:xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
+                <urn:a n="$key">$value</urn:a>
+            </urn:xmppcomponent>
         </urn:CreateXMPPComponentResponse>
     </soap:Body>
 </soap:Envelope>

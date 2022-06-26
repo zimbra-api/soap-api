@@ -60,7 +60,7 @@ class GetVersionInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetVersionInfoRequest />
         <urn:GetVersionInfoResponse>
-            <info type="$type" version="$version" release="$release" buildDate="$buildDate" host="$host" majorversion="$majorVersion" minorversion="$minorVersion" microversion="$microVersion" platform="$platform" />
+            <urn:info type="$type" version="$version" release="$release" buildDate="$buildDate" host="$host" majorversion="$majorVersion" minorversion="$minorVersion" microversion="$microVersion" platform="$platform" />
         </urn:GetVersionInfoResponse>
     </soap:Body>
 </soap:Envelope>

@@ -125,33 +125,33 @@ class CheckBlobConsistencyTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="true">
-            <volume id="$volumeId" />
-            <mbox id="$mboxId" />
+            <urn:volume id="$volumeId" />
+            <urn:mbox id="$mboxId" />
         </urn:CheckBlobConsistencyRequest>
         <urn:CheckBlobConsistencyResponse>
-            <mbox id ="$id">
-                <missingBlobs>
-                    <item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
-                </missingBlobs>
-                <incorrectSizes>
-                    <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-                        <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
-                    </item>
-                </incorrectSizes>
-                <unexpectedBlobs>
-                    <blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
-                </unexpectedBlobs>
-                <incorrectRevisions>
-                    <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-                        <blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
-                    </item>
-                </incorrectRevisions>
-                <usedBlobs>
-                    <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-                        <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
-                    </item>
-                </usedBlobs>
-            </mbox>
+            <urn:mbox id ="$id">
+                <urn:missingBlobs>
+                    <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
+                </urn:missingBlobs>
+                <urn:incorrectSizes>
+                    <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+                        <urn:blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+                    </urn:item>
+                </urn:incorrectSizes>
+                <urn:unexpectedBlobs>
+                    <urn:blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
+                </urn:unexpectedBlobs>
+                <urn:incorrectRevisions>
+                    <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+                        <urn:blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
+                    </urn:item>
+                </urn:incorrectRevisions>
+                <urn:usedBlobs>
+                    <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+                        <urn:blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+                    </urn:item>
+                </urn:usedBlobs>
+            </urn:mbox>
         </urn:CheckBlobConsistencyResponse>
     </soap:Body>
 </soap:Envelope>

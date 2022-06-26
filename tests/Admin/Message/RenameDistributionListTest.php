@@ -65,12 +65,12 @@ class RenameDistributionListTest extends ZimbraTestCase
     <soap:Body>
         <urn:RenameDistributionListRequest id="$id" newName="$name" />
         <urn:RenameDistributionListResponse>
-            <dl name="$name" id="$id" dynamic="true">
-                <dlm>$member</dlm>
-                <owners>
-                    <owner id="$id" name="$name" type="all" />
-                </owners>
-            </dl>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
         </urn:RenameDistributionListResponse>
     </soap:Body>
 </soap:Envelope>

@@ -44,7 +44,7 @@ class DeleteCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteCosRequest>
-            <id>$id</id>
+            <urn:id>$id</urn:id>
         </urn:DeleteCosRequest>
         <urn:DeleteCosResponse />
     </soap:Body>

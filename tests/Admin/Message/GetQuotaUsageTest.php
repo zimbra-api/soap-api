@@ -90,7 +90,7 @@ class GetQuotaUsageTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetQuotaUsageRequest domain="$domain" allServers="true" limit="$limit" offset="$offset" sortBy="$sortBy" sortAscending="true" refresh="true" />
         <urn:GetQuotaUsageResponse more="true" searchTotal="$searchTotal">
-            <account name="$name" id="$id" used="$quotaUsed" limit="$quotaLimit" />
+            <urn:account name="$name" id="$id" used="$quotaUsed" limit="$quotaLimit" />
         </urn:GetQuotaUsageResponse>
     </soap:Body>
 </soap:Envelope>

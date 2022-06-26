@@ -63,14 +63,14 @@ class CreateDataSourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateDataSourceRequest id="$id">
-            <dataSource type="imap" name="$name">
-                <a n="$key">$value</a>
-            </dataSource>
+            <urn:dataSource type="imap" name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dataSource>
         </urn:CreateDataSourceRequest>
         <urn:CreateDataSourceResponse>
-            <dataSource name="$name" id="$id" type="imap">
-                <a n="$key">$value</a>
-            </dataSource>
+            <urn:dataSource name="$name" id="$id" type="imap">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dataSource>
         </urn:CreateDataSourceResponse>
     </soap:Body>
 </soap:Envelope>

@@ -78,27 +78,27 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetCreateObjectAttrsRequest>
-            <target type="$type">$value</target>
-            <domain by="name">$value</domain>
-            <cos by="name">$value</cos>
+            <urn:target type="$type">$value</urn:target>
+            <urn:domain by="name">$value</urn:domain>
+            <urn:cos by="name">$value</urn:cos>
         </urn:GetCreateObjectAttrsRequest>
         <urn:GetCreateObjectAttrsResponse>
-            <setAttrs all="true">
-                <a n="$name">
-                    <constraint>
-                        <min>$min</min>
-                        <max>$max</max>
-                        <values>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </values>
-                    </constraint>
-                    <default>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </default>
-                </a>
-            </setAttrs>
+            <urn:setAttrs all="true">
+                <urn:a n="$name">
+                    <urn:constraint>
+                        <urn:min>$min</urn:min>
+                        <urn:max>$max</urn:max>
+                        <urn:values>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:values>
+                    </urn:constraint>
+                    <urn:default>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:default>
+                </urn:a>
+            </urn:setAttrs>
         </urn:GetCreateObjectAttrsResponse>
     </soap:Body>
 </soap:Envelope>

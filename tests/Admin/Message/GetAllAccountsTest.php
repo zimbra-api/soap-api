@@ -73,13 +73,13 @@ class GetAllAccountsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAllAccountsRequest>
-            <server by="name">$value</server>
-            <domain by="name">$value</domain>
+            <urn:server by="name">$value</urn:server>
+            <urn:domain by="name">$value</urn:domain>
         </urn:GetAllAccountsRequest>
         <urn:GetAllAccountsResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:GetAllAccountsResponse>
     </soap:Body>
 </soap:Envelope>

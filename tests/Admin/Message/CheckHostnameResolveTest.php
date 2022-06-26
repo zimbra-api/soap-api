@@ -62,8 +62,8 @@ class CheckHostnameResolveTest extends ZimbraTestCase
     <soap:Body>
         <urn:CheckHostnameResolveRequest hostname="$hostname" />
         <urn:CheckHostnameResolveResponse>
-            <code>$code</code>
-            <message>$message</message>
+            <urn:code>$code</urn:code>
+            <urn:message>$message</urn:message>
         </urn:CheckHostnameResolveResponse>
     </soap:Body>
 </soap:Envelope>

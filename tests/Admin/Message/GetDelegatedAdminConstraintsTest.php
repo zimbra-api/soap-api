@@ -75,18 +75,18 @@ class GetDelegatedAdminConstraintsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetDelegatedAdminConstraintsRequest type="domain" name="$name" id="$id">
-            <a name="$name" />
+            <urn:a name="$name" />
         </urn:GetDelegatedAdminConstraintsRequest>
         <urn:GetDelegatedAdminConstraintsResponse>
-            <a name="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value</v>
-                    </values>
-                </constraint>
-            </a>
+            <urn:a name="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value</urn:v>
+                    </urn:values>
+                </urn:constraint>
+            </urn:a>
         </urn:GetDelegatedAdminConstraintsResponse>
     </soap:Body>
 </soap:Envelope>

@@ -62,13 +62,13 @@ class RenameUCServiceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:RenameUCServiceRequest>
-            <id>$id</id>
-            <newName>$name</newName>
+            <urn:id>$id</urn:id>
+            <urn:newName>$name</urn:newName>
         </urn:RenameUCServiceRequest>
         <urn:RenameUCServiceResponse>
-            <ucservice name="$name" id="$id">
-                <a n="$key">$value</a>
-            </ucservice>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
         </urn:RenameUCServiceResponse>
     </soap:Body>
 </soap:Envelope>

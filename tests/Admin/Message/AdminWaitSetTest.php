@@ -141,34 +141,34 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AdminWaitSetRequest waitSet="$waitSetId" seq="$lastKnownSeqNo" block="true" expand="true" defTypes="$defaultInterests" timeout="$timeout">
-            <add>
-                <a name="$name" id="$uid" token="$token" types="f,m" />
-            </add>
-            <update>
-                <a name="$name" id="$uid" token="$token" types="f,m" />
-            </update>
-            <remove>
+            <urn:add>
+                <urn:a name="$name" id="$uid" token="$token" types="f,m" />
+            </urn:add>
+            <urn:update>
+                <urn:a name="$name" id="$uid" token="$token" types="f,m" />
+            </urn:update>
+            <urn:remove>
                 <a id="$uid" />
-            </remove>
+            </urn:remove>
         </urn:AdminWaitSetRequest>
         <urn:AdminWaitSetResponse waitSet="$waitSetId" canceled="true" seq="$seqNo">
-            <a id="$id" changeid="$lastChangeId">
-                <mods id="$folderId">
-                    <created>
+            <urn:a id="$id" changeid="$lastChangeId">
+                <urn:mods id="$folderId">
+                    <urn:created>
                         <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-                    </created>
-                    <deleted id="$id" t="$type" />
-                    <modMsgs change="$changeBitmask">
-                        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-                    </modMsgs>
-                    <modTags change="$changeBitmask">
-                        <id>$id</id>
-                        <name>$name</name>
-                    </modTags>
-                    <modFolders id="$folderId" path="$path" change="$changeBitmask" />
-                </mods>
-            </a>
-            <error id="$uid" type="$type" />
+                    </urn:created>
+                    <urn:deleted id="$id" t="$type" />
+                    <urn:modMsgs change="$changeBitmask">
+                        <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+                    </urn:modMsgs>
+                    <urn:modTags change="$changeBitmask">
+                        <urn:id>$id</urn:id>
+                        <urn:name>$name</urn:name>
+                    </urn:modTags>
+                    <urn:modFolders id="$folderId" path="$path" change="$changeBitmask" />
+                </urn:mods>
+            </urn:a>
+            <urn:error id="$uid" type="$type" />
         </urn:AdminWaitSetResponse>
     </soap:Body>
 </soap:Envelope>

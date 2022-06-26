@@ -77,12 +77,12 @@ class CheckAuthConfigTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckAuthConfigRequest name="$name" password="$password">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CheckAuthConfigRequest>
         <urn:CheckAuthConfigResponse>
-            <code>$code</code>
-            <bindDn>$bindDn</bindDn>
-            <message>$message</message>
+            <urn:code>$code</urn:code>
+            <urn:bindDn>$bindDn</urn:bindDn>
+            <urn:message>$message</urn:message>
         </urn:CheckAuthConfigResponse>
     </soap:Body>
 </soap:Envelope>

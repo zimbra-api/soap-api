@@ -61,10 +61,10 @@ class CountAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CountAccountRequest>
-            <domain by="name">$value</domain>
+            <urn:domain by="name">$value</urn:domain>
         </urn:CountAccountRequest>
         <urn:CountAccountResponse>
-            <cos name="$name" id="$id">$count</cos>
+            <urn:cos name="$name" id="$id">$count</urn:cos>
         </urn:CountAccountResponse>
     </soap:Body>
 </soap:Envelope>

@@ -86,15 +86,15 @@ class GetGrantsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetGrantsRequest>
-            <target type="account" by="name">$value</target>
-            <grantee type="usr" by="name" secret="$secret" all="true">$value</grantee>
+            <urn:target type="account" by="name">$value</urn:target>
+            <urn:grantee type="usr" by="name" secret="$secret" all="true">$value</urn:grantee>
         </urn:GetGrantsRequest>
         <urn:GetGrantsResponse>
-            <grant>
-                <target type="$type" id="$id" name="$name" />
-                <grantee id="$id" name="$name" type="usr" />
-                <right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</right>
-            </grant>
+            <urn:grant>
+                <urn:target type="$type" id="$id" name="$name" />
+                <urn:grantee id="$id" name="$name" type="usr" />
+                <urn:right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</urn:right>
+            </urn:grant>
         </urn:GetGrantsResponse>
     </soap:Body>
 </soap:Envelope>

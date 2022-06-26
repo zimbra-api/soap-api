@@ -73,13 +73,13 @@ class ChangePrimaryEmailTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ChangePrimaryEmailRequest>
-            <account by="$by">$name</account>
-            <newName>$newName</newName>
+            <urn:account by="$by">$name</urn:account>
+            <urn:newName>$newName</urn:newName>
         </urn:ChangePrimaryEmailRequest>
         <urn:ChangePrimaryEmailResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:ChangePrimaryEmailResponse>
     </soap:Body>
 </soap:Envelope>

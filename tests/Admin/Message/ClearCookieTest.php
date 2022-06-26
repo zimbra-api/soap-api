@@ -53,7 +53,7 @@ class ClearCookieTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ClearCookieRequest>
-            <cookie name="$name" />
+            <urn:cookie name="$name" />
         </urn:ClearCookieRequest>
         <urn:ClearCookieResponse />
     </soap:Body>

@@ -63,11 +63,11 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAdminConsoleUICompRequest>
-            <account by="name">$value</account>
-            <dl by="name">$value</dl>
+            <urn:account by="name">$value</urn:account>
+            <urn:dl by="name">$value</urn:dl>
         </urn:GetAdminConsoleUICompRequest>
         <urn:GetAdminConsoleUICompResponse>
-            <a inherited="true">$value</a>
+            <urn:a inherited="true">$value</urn:a>
         </urn:GetAdminConsoleUICompResponse>
     </soap:Body>
 </soap:Envelope>

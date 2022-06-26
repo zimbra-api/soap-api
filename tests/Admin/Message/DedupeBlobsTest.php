@@ -82,11 +82,11 @@ class DedupeBlobsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DedupeBlobsRequest action="status">
-            <volume id="$id" />
+            <urn:volume id="$id" />
         </urn:DedupeBlobsRequest>
         <urn:DedupeBlobsResponse status="stopped" totalSize="$totalSize" totalCount="$totalCount">
-            <volumeBlobsProgress volumeId="$volumeId" progress="$progress" />
-            <blobDigestsProgress volumeId="$volumeId" progress="$progress" />
+            <urn:volumeBlobsProgress volumeId="$volumeId" progress="$progress" />
+            <urn:blobDigestsProgress volumeId="$volumeId" progress="$progress" />
         </urn:DedupeBlobsResponse>
     </soap:Body>
 </soap:Envelope>

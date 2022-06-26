@@ -87,7 +87,7 @@ class GetSessionsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetSessionsRequest type="soap" sortBy="nameAsc" offset="$offset" limit="$limit" refresh="true" />
         <urn:GetSessionsResponse more="true" total="$total">
-            <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
         </urn:GetSessionsResponse>
     </soap:Body>
 </soap:Envelope>

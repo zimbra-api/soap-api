@@ -60,12 +60,12 @@ class CreateZimletTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateZimletRequest name="$name">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateZimletRequest>
         <urn:CreateZimletResponse>
-            <zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
-            <a n="$key">$value</a>
-        </zimlet>
+            <urn:zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
+                <urn:a n="$key">$value</urn:a>
+            </zimlet>
         </urn:CreateZimletResponse>
     </soap:Body>
 </soap:Envelope>
