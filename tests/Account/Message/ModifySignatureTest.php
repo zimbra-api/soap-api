@@ -50,10 +50,10 @@ class ModifySignatureTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ModifySignatureRequest>
-            <signature name="$name" id="$id">
-                <cid>$cid</cid>
-                <content type="text/html">$value</content>
-            </signature>
+            <urn:signature name="$name" id="$id">
+                <urn:cid>$cid</urn:cid>
+                <urn:content type="text/html">$value</urn:content>
+            </urn:signature>
         </urn:ModifySignatureRequest>
         <urn:ModifySignatureResponse />
     </soap:Body>

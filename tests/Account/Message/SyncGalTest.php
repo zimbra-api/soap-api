@@ -96,8 +96,8 @@ class SyncGalTest extends ZimbraTestCase
     <soap:Body>
         <urn:SyncGalRequest token="$token" galAcctId="$galAccountId" idOnly="true" getCount="true" limit="$limit" />
         <urn:SyncGalResponse more="true" token="$token" galDefinitionLastModified="$galDefinitionLastModified" throttled="true" fullSyncRecommended="true" remain="$remain">
-            <cn email="$email" />
-            <deleted id="$id" />
+            <urn:cn email="$email" />
+            <urn:deleted id="$id" />
         </urn:SyncGalResponse>
     </soap:Body>
 </soap:Envelope>

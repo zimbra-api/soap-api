@@ -42,7 +42,7 @@ class ResetPasswordTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ResetPasswordRequest>
-            <password>$password</password>
+            <urn:password>$password</urn:password>
         </urn:ResetPasswordRequest>
         <urn:ResetPasswordResponse />
     </soap:Body>

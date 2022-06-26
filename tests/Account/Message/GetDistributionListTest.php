@@ -84,23 +84,23 @@ class GetDistributionListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:GetDistributionListRequest needOwners="true" needRights="$needRights">
-            <dl by="name">$value</dl>
-            <a name="$name" pd="true">$value</a>
+            <urn:dl by="name">$value</urn:dl>
+            <urn:a name="$name" pd="true">$value</urn:a>
         </urn:GetDistributionListRequest>
         <urn:GetDistributionListResponse>
-            <dl name="$name" id="$id" isOwner="true" isMember="true" dynamic="true">
-                <a n="$key">$value</a>
-                <dlm>$member1</dlm>
-                <dlm>$member2</dlm>
-                <owners>
-                    <owner type="usr" id="$id" name="$name" />
-                </owners>
-                <rights>
-                    <right right="$name">
+            <urn:dl name="$name" id="$id" isOwner="true" isMember="true" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member1</urn:dlm>
+                <urn:dlm>$member2</urn:dlm>
+                <urn:owners>
+                    <urn:owner type="usr" id="$id" name="$name" />
+                </urn:owners>
+                <urn:rights>
+                    <urn:right right="$name">
                         <grantee type="usr" id="$id" name="$name" />
-                    </right>
-                </rights>
-            </dl>
+                    </urn:right>
+                </urn:rights>
+            </urn:dl>
         </urn:GetDistributionListResponse>
     </soap:Body>
 </soap:Envelope>

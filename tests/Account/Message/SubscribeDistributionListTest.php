@@ -62,7 +62,7 @@ class SubscribeDistributionListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:SubscribeDistributionListRequest op="subscribe">
-            <dl by="name">$value</dl>
+            <urn:dl by="name">$value</urn:dl>
         </urn:SubscribeDistributionListRequest>
         <urn:SubscribeDistributionListResponse status="subscribed" />
     </soap:Body>

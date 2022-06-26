@@ -52,7 +52,7 @@ class ModifyPropertiesTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ModifyPropertiesRequest>
-            <prop zimlet="$zimlet" name="$name">$value</prop>
+            <urn:prop zimlet="$zimlet" name="$name">$value</urn:prop>
         </urn:ModifyPropertiesRequest>
         <urn:ModifyPropertiesResponse />
     </soap:Body>

@@ -65,15 +65,15 @@ class DiscoverRightsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:DiscoverRightsRequest>
-            <right>$right1</right>
-            <right>$right2</right>
+            <urn:right>$right1</urn:right>
+            <urn:right>$right2</urn:right>
         </urn:DiscoverRightsRequest>
         <urn:DiscoverRightsResponse>
-            <targets right="$right">
-                <target type="$type" id="$id" name="$name" d="$displayName">
-                    <email addr="$addr" />
-                </target>
-            </targets>
+            <urn:targets right="$right">
+                <urn:target type="$type" id="$id" name="$name" d="$displayName">
+                    <urn:email addr="$addr" />
+                </urn:target>
+            </urn:targets>
         </urn:DiscoverRightsResponse>
     </soap:Body>
 </soap:Envelope>

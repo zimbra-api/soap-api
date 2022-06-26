@@ -56,10 +56,10 @@ class ModifyZimletPrefsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ModifyZimletPrefsRequest>
-            <zimlet name="$name" presence="enabled" />
+            <urn:zimlet name="$name" presence="enabled" />
         </urn:ModifyZimletPrefsRequest>
         <urn:ModifyZimletPrefsResponse>
-            <zimlet>$name</zimlet>
+            <urn:zimlet>$name</urn:zimlet>
         </urn:ModifyZimletPrefsResponse>
     </soap:Body>
 </soap:Envelope>

@@ -53,9 +53,9 @@ class GetIdentitiesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetIdentitiesRequest />
         <urn:GetIdentitiesResponse>
-            <identity name="$name" id="$id">
-                <a name="$name" pd="true">$value</a>
-            </identity>
+            <urn:identity name="$name" id="$id">
+                <urn:a name="$name" pd="true">$value</urn:a>
+            </urn:identity>
         </urn:GetIdentitiesResponse>
     </soap:Body>
 </soap:Envelope>

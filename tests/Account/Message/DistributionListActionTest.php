@@ -77,17 +77,17 @@ class DistributionListActionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:DistributionListActionRequest>
-            <dl by="name">$value</dl>
-            <action op="modify">
-                <a n="$name">$value</a>
-                <newName>$name</newName>
-                <subsReq op="subscribe" bccOwners="true">$value</subsReq>
-                <dlm>$member</dlm>
-                <owner type="usr" by="name">$value</owner>
-                <right right="$name">
-                    <grantee type="usr" by="name">$value</grantee>
-                </right>
-            </action>
+            <urn:dl by="name">$value</urn:dl>
+            <urn:action op="modify">
+                <urn:a n="$name">$value</urn:a>
+                <urn:newName>$name</urn:newName>
+                <urn:subsReq op="subscribe" bccOwners="true">$value</urn:subsReq>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owner type="usr" by="name">$value</urn:owner>
+                <urn:right right="$name">
+                    <grantee type="usr" by="name">$value</urn:grantee>
+                </urn:right>
+            </urn:action>
         </urn:DistributionListActionRequest>
         <urn:DistributionListActionResponse />
     </soap:Body>

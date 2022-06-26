@@ -219,42 +219,42 @@ class AuthTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:AuthRequest persistAuthTokenCookie="true" csrfTokenSecured="true" deviceTrusted="true" generateDeviceId="true" tokenType="$tokenType">
-            <account by="$by">$value</account>
-            <password>$password</password>
-            <recoveryCode>$recoveryCode</recoveryCode>
-            <preauth timestamp="$time" expiresTimestamp="$time">$value</preauth>
-            <authToken verifyAccount="true" lifetime="$lifetime">$value</authToken>
-            <jwtToken>$jwtToken</jwtToken>
-            <virtualHost>$virtualHost</virtualHost>
-            <prefs>
-                <pref name="$name" modified="$time">$value</pref>
-            </prefs>
-            <attrs>
-                <attr name="$name" pd="true">$value</attr>
-            </attrs>
-            <requestedSkin>$requestedSkin</requestedSkin>
-            <twoFactorCode>$twoFactorCode</twoFactorCode>
-            <trustedToken>$trustedToken</trustedToken>
-            <deviceId>$deviceId</deviceId>
+            <urn:account by="$by">$value</urn:account>
+            <urn:password>$password</urn:password>
+            <urn:recoveryCode>$recoveryCode</urn:recoveryCode>
+            <urn:preauth timestamp="$time" expiresTimestamp="$time">$value</urn:preauth>
+            <urn:authToken verifyAccount="true" lifetime="$lifetime">$value</urn:authToken>
+            <urn:jwtToken>$jwtToken</urn:jwtToken>
+            <urn:virtualHost>$virtualHost</urn:virtualHost>
+            <urn:prefs>
+                <urn:pref name="$name" modified="$time">$value</urn:pref>
+            </urn:prefs>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+            <urn:requestedSkin>$requestedSkin</urn:requestedSkin>
+            <urn:twoFactorCode>$twoFactorCode</urn:twoFactorCode>
+            <urn:trustedToken>$trustedToken</urn:trustedToken>
+            <urn:deviceId>$deviceId</urn:deviceId>
         </urn:AuthRequest>
         <urn:AuthResponse zmgProxy="true">
-            <authToken>$token</authToken>
-            <lifetime>$lifetime</lifetime>
-            <trustLifetime>$trustLifetime</trustLifetime>
-            <session type="$type" id="$id">$id</session>
-            <refer>$refer</refer>
-            <skin>$skin</skin>
-            <csrfToken>$csrfToken</csrfToken>
-            <deviceId>$deviceId</deviceId>
-            <trustedToken>$trustedToken</trustedToken>
-            <prefs>
-                <pref name="$name" modified="$time">$value</pref>
-            </prefs>
-            <attrs>
-                <attr name="$name" pd="true">$value</attr>
-            </attrs>
-            <twoFactorAuthRequired>true</twoFactorAuthRequired>
-            <trustedDevicesEnabled>true</trustedDevicesEnabled>
+            <urn:authToken>$token</urn:authToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
+            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:refer>$refer</urn:refer>
+            <urn:skin>$skin</urn:skin>
+            <urn:csrfToken>$csrfToken</urn:csrfToken>
+            <urn:deviceId>$deviceId</urn:deviceId>
+            <urn:trustedToken>$trustedToken</urn:trustedToken>
+            <urn:prefs>
+                <pref name="$name" modified="$time">$value</urn:pref>
+            </urn:prefs>
+            <urn:attrs>
+                <attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
+            <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>

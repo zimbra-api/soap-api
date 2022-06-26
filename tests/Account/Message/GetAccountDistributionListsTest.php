@@ -76,9 +76,9 @@ class GetAccountDistributionListsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAccountDistributionListsRequest ownerOf="true" memberOf="directOnly" attrs="$attrs" />
         <urn:GetAccountDistributionListsResponse>
-            <dl name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true">
-                <a n="$key">$value</a>
-            </dl>
+            <urn:dl name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dl>
         </urn:GetAccountDistributionListsResponse>
     </soap:Body>
 </soap:Envelope>

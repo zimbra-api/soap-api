@@ -54,14 +54,14 @@ class GetWhiteBlackListTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetWhiteBlackListRequest />
         <urn:GetWhiteBlackListResponse>
-            <whiteList>
-                <addr>$white1</addr>
-                <addr>$white2</addr>
-            </whiteList>
-            <blackList>
-                <addr>$black1</addr>
-                <addr>$black2</addr>
-            </blackList>
+            <urn:whiteList>
+                <urn:addr>$white1</urn:addr>
+                <urn:addr>$white2</urn:addr>
+            </urn:whiteList>
+            <urn:blackList>
+                <urn:addr>$black1</urn:addr>
+                <urn:addr>$black2</urn:addr>
+            </urn:blackList>
         </urn:GetWhiteBlackListResponse>
     </soap:Body>
 </soap:Envelope>

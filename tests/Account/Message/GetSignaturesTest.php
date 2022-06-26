@@ -55,10 +55,10 @@ class GetSignaturesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetSignaturesRequest />
         <urn:GetSignaturesResponse>
-            <signature name="$name" id="$id">
-                <cid>$cid</cid>
-                <content type="text/html">$value</content>
-            </signature>
+            <urn:signature name="$name" id="$id">
+                <urn:cid>$cid</urn:cid>
+                <urn:content type="text/html">$value</urn:content>
+            </urn:signature>
         </urn:GetSignaturesResponse>
     </soap:Body>
 </soap:Envelope>

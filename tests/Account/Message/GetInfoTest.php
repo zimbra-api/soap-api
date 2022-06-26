@@ -344,119 +344,119 @@ class GetInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetInfoRequest sections="$sections" rights="$rights" />
         <urn:GetInfoResponse attSizeLimit="$attachmentSizeLimit" docSizeLimit="$documentSizeLimit">
-            <version>$version</version>
-            <id>$accountId</id>
-            <profileImageId>$profileImageId</profileImageId>
-            <name>$accountName</name>
-            <crumb>$crumb</crumb>
-            <lifetime>$lifetime</lifetime>
-            <adminDelegated>true</adminDelegated>
-            <rest>$restUrl</rest>
-            <used>$quotaUsed</used>
-            <prevSession>$previousSessionTime</prevSession>
-            <accessed>$lastWriteAccessTime</accessed>
-            <recent>$recentMessageCount</recent>
-            <cos id="$id" name="$name" />
-            <prefs>
-                <pref name="$name" modified="$modified">$value</pref>
-            </prefs>
-            <attrs>
-                <attr name="$name" pd="true">$value</attr>
-            </attrs>
-            <zimlets>
-                <zimlet>
-                    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
-                    <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-                        <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-                        <include>$value</include>
-                        <includeCSS>$value</includeCSS>
-                    </zimlet>
-                    <zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-                        <global>
-                            <property name="$name">$value</property>
-                        </global>
-                        <host name="$name">
-                            <property name="$name">$value</property>
-                        </host>
-                    </zimletConfig>
-                </zimlet>
-            </zimlets>
-            <props>
-                <prop zimlet="$zimletName" name="$name">$value</prop>
-            </props>
-            <identities>
-                <identity name="$name" id="$id">
-                    <a name="$name" pd="true">$value</a>
-                </identity>
-            </identities>
-            <signatures>
-                <signature name="$name" id="$id">
-                    <cid>$cid</cid>
-                    <content type="text/html">$value</content>
-                </signature>
-            </signatures>
-            <dataSources>
-                <imap id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </imap>
-                <pop3 id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </pop3>
-                <caldav id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </caldav>
-                <yab id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </yab>
-                <rss id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </rss>
-                <gal id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </gal>
-                <cal id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </cal>
-                <unknown id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-                    <lastError>$lastError</lastError>
-                    <a>$attribute1</a>
-                    <a>$attribute2</a>
-                </unknown>
-            </dataSources>
-            <childAccounts>
-                <childAccount id="$id" name="$name" visible="true" active="true">
-                    <attrs>
-                        <attr name="$name" pd="true">$value</attr>
-                    </attrs>
-                </childAccount>
-            </childAccounts>
-            <rights>
-                <targets right="$right">
-                    <target type="$type" id="$id" name="$name" d="$displayName">
-                        <email addr="$addr" />
-                    </target>
-                </targets>
-            </rights>
-            <soapURL>$soapURL</soapURL>
-            <publicURL>$publicURL</publicURL>
-            <changePasswordURL>$changePasswordURL</changePasswordURL>
-            <adminURL>$adminURL</adminURL>
-            <boshURL>$boshURL</boshURL>
-            <isTrackingIMAP>true</isTrackingIMAP>
+            <urn:version>$version</urn:version>
+            <urn:id>$accountId</urn:id>
+            <urn:profileImageId>$profileImageId</urn:profileImageId>
+            <urn:name>$accountName</urn:name>
+            <urn:crumb>$crumb</urn:crumb>
+            <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:adminDelegated>true</urn:adminDelegated>
+            <urn:rest>$restUrl</urn:rest>
+            <urn:used>$quotaUsed</urn:used>
+            <urn:prevSession>$previousSessionTime</urn:prevSession>
+            <urn:accessed>$lastWriteAccessTime</urn:accessed>
+            <urn:recent>$recentMessageCount</urn:recent>
+            <urn:cos id="$id" name="$name" />
+            <urn:prefs>
+                <urn:pref name="$name" modified="$modified">$value</urn:pref>
+            </urn:prefs>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+            <urn:zimlets>
+                <urn:zimlet>
+                    <urn:zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
+                    <urn:zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+                        <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+                        <urn:include>$value</urn:include>
+                        <urn:includeCSS>$value</urn:includeCSS>
+                    </urn:zimlet>
+                    <urn:zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+                        <urn:global>
+                            <urn:property name="$name">$value</urn:property>
+                        </urn:global>
+                        <urn:host name="$name">
+                            <urn:property name="$name">$value</urn:property>
+                        </urn:host>
+                    </urn:zimletConfig>
+                </urn:zimlet>
+            </urn:zimlets>
+            <urn:props>
+                <urn:prop zimlet="$zimletName" name="$name">$value</urn:prop>
+            </urn:props>
+            <urn:identities>
+                <urn:identity name="$name" id="$id">
+                    <urn:a name="$name" pd="true">$value</urn:a>
+                </urn:identity>
+            </urn:identities>
+            <urn:signatures>
+                <urn:signature name="$name" id="$id">
+                    <urn:cid>$cid</urn:cid>
+                    <urn:content type="text/html">$value</urn:content>
+                </urn:signature>
+            </urn:signatures>
+            <urn:dataSources>
+                <urn:imap id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:imap>
+                <urn:pop3 id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" leaveOnServer="true">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:pop3>
+                <urn:caldav id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:caldav>
+                <urn:yab id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:yab>
+                <urn:rss id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:rss>
+                <urn:gal id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:gal>
+                <urn:cal id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:cal>
+                <urn:unknown id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
+                    <urn:lastError>$lastError</urn:lastError>
+                    <urn:a>$attribute1</urn:a>
+                    <urn:a>$attribute2</urn:a>
+                </urn:unknown>
+            </urn:dataSources>
+            <urn:childAccounts>
+                <urn:childAccount id="$id" name="$name" visible="true" active="true">
+                    <urn:attrs>
+                        <urn:attr name="$name" pd="true">$value</urn:attr>
+                    </urn:attrs>
+                </urn:childAccount>
+            </urn:childAccounts>
+            <urn:rights>
+                <urn:targets right="$right">
+                    <urn:target type="$type" id="$id" name="$name" d="$displayName">
+                        <urn:email addr="$addr" />
+                    </urn:target>
+                </urn:targets>
+            </urn:rights>
+            <urn:soapURL>$soapURL</urn:soapURL>
+            <urn:publicURL>$publicURL</urn:publicURL>
+            <urn:changePasswordURL>$changePasswordURL</urn:changePasswordURL>
+            <urn:adminURL>$adminURL</urn:adminURL>
+            <urn:boshURL>$boshURL</urn:boshURL>
+            <urn:isTrackingIMAP>true</urn:isTrackingIMAP>
         </urn:GetInfoResponse>
     </soap:Body>
 </soap:Envelope>

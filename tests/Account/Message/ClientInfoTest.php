@@ -57,10 +57,10 @@ class ClientInfoTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ClientInfoRequest>
-            <domain by="name">$value</domain>
+            <urn:domain by="name">$value</urn:domain>
         </urn:ClientInfoRequest>
         <urn:ClientInfoResponse>
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:ClientInfoResponse>
     </soap:Body>
 </soap:Envelope>

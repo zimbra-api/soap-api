@@ -65,14 +65,14 @@ class CheckRightsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:CheckRightsRequest>
-            <target type="account" by="name" key="$key1">
-                <right>$right1</right>
-            </target>
+            <urn:target type="account" by="name" key="$key1">
+                <urn:right>$right1</urn:right>
+            </urn:target>
         </urn:CheckRightsRequest>
         <urn:CheckRightsResponse>
-            <target type="account" by="name" key="$key2" allow="true">
-                <right allow="true">$right2</right>
-            </target>
+            <urn:target type="account" by="name" key="$key2" allow="true">
+                <urn:right allow="true">$right2</urn:right>
+            </urn:target>
         </urn:CheckRightsResponse>
     </soap:Body>
 </soap:Envelope>
