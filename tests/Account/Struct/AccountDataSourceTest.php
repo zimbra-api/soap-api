@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountDataSource;
 use Zimbra\Tests\ZimbraTestCase;
@@ -41,7 +43,7 @@ class AccountDataSourceTest extends ZimbraTestCase
             $attribute2,
         ];
 
-        $dataSource = new AccountDataSource(
+        $dataSource = new MockAccountDataSource(
             $id, $name, $folderId, FALSE, FALSE, $host, $port, $connectionType, $username, $password,
             $pollingInterval, $emailAddress, FALSE, $defaultSignature, $forwardReplySignature,
             $fromDisplay, $replyToAddress, $replyToDisplay, $importClass, $failingSince, $lastError,
@@ -72,7 +74,7 @@ class AccountDataSourceTest extends ZimbraTestCase
         $this->assertSame($refreshToken, $dataSource->getRefreshToken());
         $this->assertSame($refreshTokenUrl, $dataSource->getRefreshTokenUrl());
 
-        $dataSource = new AccountDataSource();
+        $dataSource = new MockAccountDataSource();
         $dataSource->setId($id)
             ->setName($name)
             ->setFolderId($folderId)
@@ -129,14 +131,21 @@ class AccountDataSourceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="cleartext" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-    <lastError>$lastError</lastError>
-    <a>$attribute1</a>
-    <a>$attribute2</a>
-    <a>$attribute</a>
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="cleartext" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" xmlns:urn="urn:zimbraAccount">
+    <urn:lastError>$lastError</urn:lastError>
+    <urn:a>$attribute1</urn:a>
+    <urn:a>$attribute2</urn:a>
+    <urn:a>$attribute</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dataSource, 'xml'));
-        $this->assertEquals($dataSource, $this->serializer->deserialize($xml, AccountDataSource::class, 'xml'));
+        $this->assertEquals($dataSource, $this->serializer->deserialize($xml, MockAccountDataSource::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountDataSource extends AccountDataSource
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\AccountKeyValuePairs;
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
@@ -22,7 +24,7 @@ class AccountKeyValuePairsTest extends ZimbraTestCase
         $kvp2 = new KeyValuePair($key1, $value2);
         $kvp3 = new KeyValuePair($key2, $value2);
 
-        $kvp = new AccountKeyValuePairs([$kvp1]);
+        $kvp = new MockAccountKeyValuePairs([$kvp1]);
         $this->assertSame([$kvp1], $kvp->getKeyValuePairs());
 
         $kvp->setKeyValuePairs([$kvp1, $kvp2])
@@ -33,13 +35,20 @@ class AccountKeyValuePairsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <a n="$key1">$value1</a>
-    <a n="$key1">$value2</a>
-    <a n="$key2">$value2</a>
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:a n="$key1">$value1</urn:a>
+    <urn:a n="$key1">$value2</urn:a>
+    <urn:a n="$key2">$value2</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($kvp, 'xml'));
-        $this->assertEquals($kvp, $this->serializer->deserialize($xml, AccountKeyValuePairs::class, 'xml'));
+        $this->assertEquals($kvp, $this->serializer->deserialize($xml, MockAccountKeyValuePairs::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountKeyValuePairs extends AccountKeyValuePairs
+{
 }

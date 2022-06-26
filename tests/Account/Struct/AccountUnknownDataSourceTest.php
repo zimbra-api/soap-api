@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\ConnectionType;
 use Zimbra\Account\Struct\AccountUnknownDataSource;
 use Zimbra\Tests\ZimbraTestCase;
@@ -40,19 +42,26 @@ class AccountUnknownDataSourceTest extends ZimbraTestCase
             $attribute2,
         ];
 
-        $unknown = new AccountUnknownDataSource(
+        $unknown = new MockAccountUnknownDataSource(
             $id, $name, $folderId, TRUE, TRUE, $host, $port, $connectionType, $username, $password, $pollingInterval, $emailAddress, TRUE, $defaultSignature, $forwardReplySignature, $fromDisplay, $replyToAddress, $replyToDisplay, $importClass, $failingSince, $lastError, $attributes, $refreshToken, $refreshTokenUrl
         );
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-    <lastError>$lastError</lastError>
-    <a>$attribute1</a>
-    <a>$attribute2</a>
+<result id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl" xmlns:urn="urn:zimbraAccount">
+    <urn:lastError>$lastError</urn:lastError>
+    <urn:a>$attribute1</urn:a>
+    <urn:a>$attribute2</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($unknown, 'xml'));
-        $this->assertEquals($unknown, $this->serializer->deserialize($xml, AccountUnknownDataSource::class, 'xml'));
+        $this->assertEquals($unknown, $this->serializer->deserialize($xml, MockAccountUnknownDataSource::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountUnknownDataSource extends AccountUnknownDataSource
+{
 }
