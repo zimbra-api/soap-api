@@ -30,7 +30,7 @@ class ClientInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */
     private $attrList = [];
 

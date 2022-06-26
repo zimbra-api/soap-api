@@ -49,7 +49,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Accessor(getter="getDlMembers", setter="setDlMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
      */
     private $dlMembers = [];
 
@@ -59,7 +59,7 @@ class GetDistributionListMembersResponse implements ResponseInterface
      * @Accessor(getter="getHABGroupMembers", setter="setHABGroupMembers")
      * @SerializedName("groupMembers")
      * @Type("array<Zimbra\Account\Struct\HABGroupMember>")
-     * @XmlList(inline=false, entry="groupMember")
+     * @XmlList(inline=false, entry="groupMember", namespace="urn:zimbraAccount")
      */
     private $habGroupMembers = [];
 

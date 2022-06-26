@@ -30,7 +30,7 @@ class DiscoverRightsResponse implements ResponseInterface
      * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
      * @SerializedName("targets")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
-     * @XmlList(inline=true, entry="targets")
+     * @XmlList(inline=true, entry="targets", namespace="urn:zimbraAccount")
      */
     private $discoveredRights = [];
 

@@ -123,7 +123,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline=false, entry="pref")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      */
     private $prefs = [];
 
@@ -132,7 +132,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline=false, entry="attr")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 

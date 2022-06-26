@@ -172,7 +172,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline=false, entry="pref")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      */
     private $prefs = [];
 
@@ -182,7 +182,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline=false, entry="attr")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -191,7 +191,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("array<Zimbra\Account\Struct\AccountZimletInfo>")
-     * @XmlList(inline=false, entry="zimlet")
+     * @XmlList(inline=false, entry="zimlet", namespace="urn:zimbraAccount")
      */
     private $zimlets = [];
 
@@ -200,7 +200,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getProps", setter="setProps")
      * @SerializedName("props")
      * @Type("array<Zimbra\Account\Struct\Prop>")
-     * @XmlList(inline=false, entry="prop")
+     * @XmlList(inline=false, entry="prop", namespace="urn:zimbraAccount")
      */
     private $props = [];
 
@@ -209,7 +209,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getIdentities", setter="setIdentities")
      * @SerializedName("identities")
      * @Type("array<Zimbra\Account\Struct\Identity>")
-     * @XmlList(inline=false, entry="identity")
+     * @XmlList(inline=false, entry="identity", namespace="urn:zimbraAccount")
      */
     private $identities = [];
 
@@ -218,7 +218,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getSignatures", setter="setSignatures")
      * @SerializedName("signatures")
      * @Type("array<Zimbra\Account\Struct\Signature>")
-     * @XmlList(inline=false, entry="signature")
+     * @XmlList(inline=false, entry="signature", namespace="urn:zimbraAccount")
      */
     private $signatures = [];
 
@@ -236,7 +236,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getChildAccounts", setter="setChildAccounts")
      * @SerializedName("childAccounts")
      * @Type("array<Zimbra\Account\Struct\ChildAccount>")
-     * @XmlList(inline=false, entry="childAccount")
+     * @XmlList(inline=false, entry="childAccount", namespace="urn:zimbraAccount")
      */
     private $childAccounts = [];
 
@@ -245,7 +245,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
-     * @XmlList(inline=false, entry="targets")
+     * @XmlList(inline=false, entry="targets", namespace="urn:zimbraAccount")
      */
     private $discoveredRights = [];
 

@@ -57,7 +57,7 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getMembers", setter="setMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
      */
     private $members = [];
 
@@ -66,7 +66,7 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
-     * @XmlList(inline=false, entry="owner")
+     * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAccount")
      */
     private $owners = [];
 
@@ -75,7 +75,7 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
-     * @XmlList(inline=false, entry="right")
+     * @XmlList(inline=false, entry="right", namespace="urn:zimbraAccount")
      */
     private $rights = [];
 

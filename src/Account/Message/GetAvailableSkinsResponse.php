@@ -31,7 +31,7 @@ class GetAvailableSkinsResponse implements ResponseInterface
      * @Accessor(getter="getSkins", setter="setSkins")
      * @SerializedName("skin")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="skin")
+     * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAccount")
      */
     private $skins = [];
 

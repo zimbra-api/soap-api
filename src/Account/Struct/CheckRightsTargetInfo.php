@@ -60,7 +60,7 @@ class CheckRightsTargetInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")
-     * @XmlList(inline=true, entry="right")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */
     private $rights = [];
 

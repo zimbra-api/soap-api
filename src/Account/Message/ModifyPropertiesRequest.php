@@ -31,7 +31,7 @@ class ModifyPropertiesRequest extends Request
      * @Accessor(getter="getProps", setter="setProps")
      * @SerializedName("prop")
      * @Type("array<Zimbra\Account\Struct\Prop>")
-     * @XmlList(inline=true, entry="prop")
+     * @XmlList(inline=true, entry="prop", namespace="urn:zimbraAccount")
      */
     private $props = [];
 

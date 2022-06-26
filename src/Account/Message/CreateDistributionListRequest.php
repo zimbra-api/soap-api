@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -47,6 +47,16 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
      * @XmlAttribute
      */
     private $dynamic;
+
+    /**
+     * Key value pairs
+     * 
+     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
+     * @SerializedName("a")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
+     */
+    protected $keyValuePairs = [];
 
     /**
      * Constructor method for CreateDistributionListRequest

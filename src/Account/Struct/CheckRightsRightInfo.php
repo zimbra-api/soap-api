@@ -24,7 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class CheckRightsRightInfo
 {
     /**
-     * flags whether the authed user has the right on the target
+     * Flags whether the authed user has the right on the target
+     * 
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
@@ -33,9 +34,9 @@ class CheckRightsRightInfo
     private $allow;
 
     /**
-     * name of right
+     * Name of right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

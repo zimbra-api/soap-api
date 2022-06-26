@@ -26,8 +26,8 @@ class AccountZimletInclude implements ZimletInclude
 {
     /**
      * Included script
+     * 
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

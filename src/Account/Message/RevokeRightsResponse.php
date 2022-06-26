@@ -31,7 +31,7 @@ class RevokeRightsResponse implements ResponseInterface
      * @Accessor(getter="getAces", setter="setAces")
      * @SerializedName("ace")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
-     * @XmlList(inline=true, entry="ace")
+     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
      */
     private $aces = [];
 

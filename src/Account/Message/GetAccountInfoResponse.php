@@ -42,7 +42,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline=true, entry="attr")
+     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 

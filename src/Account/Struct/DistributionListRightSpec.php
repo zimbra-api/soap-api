@@ -38,7 +38,7 @@ class DistributionListRightSpec
      * @Accessor(getter="getGrantees", setter="setGrantees")
      * @SerializedName("grantee")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
-     * @XmlList(inline=true, entry="grantee")
+     * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
      */
     private $grantees = [];
 
