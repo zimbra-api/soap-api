@@ -31,7 +31,7 @@ class GetAllDomainsResponse implements ResponseInterface
      * @Accessor(getter="getDomainList", setter="setDomainList")
      * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
-     * @XmlList(inline=true, entry="domain")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */
     private $domainList = [];
 

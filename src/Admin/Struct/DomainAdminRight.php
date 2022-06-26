@@ -56,7 +56,7 @@ class DomainAdminRight
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
-     * @XmlList(inline=false, entry="r")
+     * @XmlList(inline=false, entry="r", namespace="urn:zimbraAdmin")
      */
     private $rights = [];
 

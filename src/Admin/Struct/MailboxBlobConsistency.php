@@ -37,7 +37,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getMissingBlobs", setter="setMissingBlobs")
      * @SerializedName("missingBlobs")
      * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
-     * @XmlList(inline=false, entry="item")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $missingBlobs = [];
 
@@ -46,7 +46,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getIncorrectSizes", setter="setIncorrectSizes")
      * @SerializedName("incorrectSizes")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
-     * @XmlList(inline=false, entry="item")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $incorrectSizes = [];
 
@@ -55,7 +55,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getUnexpectedBlobs", setter="setUnexpectedBlobs")
      * @SerializedName("unexpectedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
-     * @XmlList(inline=false, entry="blob")
+     * @XmlList(inline=false, entry="blob", namespace="urn:zimbraAdmin")
      */
     private $unexpectedBlobs = [];
 
@@ -64,7 +64,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getIncorrectRevisions", setter="setIncorrectRevisions")
      * @SerializedName("incorrectRevisions")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
-     * @XmlList(inline=false, entry="item")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $incorrectRevisions = [];
 
@@ -73,7 +73,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getUsedBlobs", setter="setUsedBlobs")
      * @SerializedName("usedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
-     * @XmlList(inline=false, entry="item")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $usedBlobs = [];
 

@@ -31,7 +31,7 @@ class GetAllActiveServersResponse implements ResponseInterface
      * @Accessor(getter="getServerList", setter="setServerList")
      * @SerializedName("server")
      * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
-     * @XmlList(inline=true, entry="server")
+     * @XmlList(inline=true, entry="server", namespace="urn:zimbraAdmin")
      */
     private $serverList = [];
 

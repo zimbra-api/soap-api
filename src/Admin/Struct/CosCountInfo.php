@@ -46,7 +46,6 @@ class CosCountInfo
      * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
      * nor does it include any calendar resources.
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("int")
      * @XmlValue(cdata=false)
      */

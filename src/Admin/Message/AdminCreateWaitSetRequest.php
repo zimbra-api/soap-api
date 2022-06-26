@@ -51,7 +51,7 @@ class AdminCreateWaitSetRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("add")
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlList(inline=false, entry="a")
+     * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 

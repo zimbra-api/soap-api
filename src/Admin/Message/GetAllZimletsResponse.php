@@ -31,7 +31,7 @@ class GetAllZimletsResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlet")
      * @Type("array<Zimbra\Admin\Struct\ZimletInfo>")
-     * @XmlList(inline=true, entry="zimlet")
+     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      */
     private $zimlets = [];
 

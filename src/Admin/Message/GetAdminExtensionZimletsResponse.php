@@ -31,7 +31,7 @@ class GetAdminExtensionZimletsResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletInfo>")
-     * @XmlList(inline=false, entry="zimlet")
+     * @XmlList(inline=false, entry="zimlet", namespace="urn:zimbraAdmin")
      */
     private $zimlets = [];
 

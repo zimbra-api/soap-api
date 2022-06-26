@@ -36,7 +36,6 @@ class UcServiceSelector
     /**
      * Key for choosing ucservice
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

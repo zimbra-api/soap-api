@@ -31,7 +31,7 @@ class ClearCookieRequest extends Request
      * @Accessor(getter="getCookies", setter="setCookies")
      * @SerializedName("cookie")
      * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
-     * @XmlList(inline=true, entry="cookie")
+     * @XmlList(inline=true, entry="cookie", namespace="urn:zimbraAdmin")
      */
     private $cookies = [];
 

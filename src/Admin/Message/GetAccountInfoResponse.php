@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Soap\ResponseInterface;
@@ -40,7 +40,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrList = [];
 
@@ -59,7 +59,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getSoapURLList", setter="setSoapURLList")
      * @SerializedName("soapURL")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="soapURL")
+     * @XmlList(inline=true, entry="soapURL", namespace="urn:zimbraAdmin")
      */
     private $soapURLList = [];
 

@@ -30,7 +30,7 @@ class DeployZimletResponse implements ResponseInterface
      * @Accessor(getter="getProgresses", setter="setProgresses")
      * @SerializedName("progress")
      * @Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")
-     * @XmlList(inline=true, entry="progress")
+     * @XmlList(inline=true, entry="progress", namespace="urn:zimbraAdmin")
      */
     private $progresses = [];
 

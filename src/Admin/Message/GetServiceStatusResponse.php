@@ -10,9 +10,8 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList, XmlRoot};
-use Zimbra\Admin\Struct\ServiceStatus;
-use Zimbra\Admin\Struct\TimeZoneInfo;
+use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Admin\Struct\{ServiceStatus, TimeZoneInfo};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -42,7 +41,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Accessor(getter="getServiceStatuses", setter="setServiceStatuses")
      * @SerializedName("status")
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
-     * @XmlList(inline=true, entry="status")
+     * @XmlList(inline=true, entry="status", namespace="urn:zimbraAdmin")
      */
     private $serviceStatuses = [];
 

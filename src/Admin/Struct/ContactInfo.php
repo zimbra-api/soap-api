@@ -180,7 +180,7 @@ class ContactInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Admin\Struct\AdminCustomMetadata>")
-     * @XmlList(inline=true, entry="meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraAdmin")
      */
     private $metadatas = [];
 
@@ -188,7 +188,7 @@ class ContactInfo
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\ContactAttr>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrs = [];
 
@@ -196,7 +196,7 @@ class ContactInfo
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @SerializedName("m")
      * @Type("array<Zimbra\Admin\Struct\ContactGroupMember>")
-     * @XmlList(inline=true, entry="m")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraAdmin")
      */
     private $contactGroupMembers = [];
 

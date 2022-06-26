@@ -36,7 +36,6 @@ class PrincipalSelector
     /**
      * The key used to identify the principal
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

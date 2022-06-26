@@ -61,7 +61,7 @@ class ModifyDelegatedAdminConstraintsRequest extends Request
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrs = [];
 

@@ -31,7 +31,7 @@ class GetAttributeInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\AttributeDescription>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrs = [];
 

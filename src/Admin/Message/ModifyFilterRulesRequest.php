@@ -82,7 +82,7 @@ class ModifyFilterRulesRequest extends Request
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
-     * @XmlList(inline=false, entry="filterRule")
+     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraAdmin")
      */
     private $filterRules = [];
 

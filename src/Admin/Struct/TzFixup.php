@@ -27,7 +27,7 @@ class TzFixup
      * @Accessor(getter="getFixupRules", setter="setFixupRules")
      * @SerializedName("fixupRule")
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
-     * @XmlList(inline=true, entry="fixupRule")
+     * @XmlList(inline=true, entry="fixupRule", namespace="urn:zimbraAdmin")
      */
     private $fixupRules = [];
 

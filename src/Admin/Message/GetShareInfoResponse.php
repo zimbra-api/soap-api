@@ -30,7 +30,7 @@ class GetShareInfoResponse implements ResponseInterface
      * @Accessor(getter="getShares", setter="setShares")
      * @SerializedName("share")
      * @Type("array<Zimbra\Common\Struct\ShareInfo>")
-     * @XmlList(inline=true, entry="share")
+     * @XmlList(inline=true, entry="share", namespace="urn:zimbraAdmin")
      */
     private $shares = [];
 

@@ -54,7 +54,6 @@ class ServiceStatus
     /**
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("_content")
      * @Type("Zimbra\Common\Enum\ZeroOrOne")
      * @XmlValue(cdata=false)
      */

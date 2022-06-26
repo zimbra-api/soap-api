@@ -35,8 +35,8 @@ class CacheEntrySelector
 
     /**
      * The key used to identify the cache entry
+     * 
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

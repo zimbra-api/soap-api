@@ -31,7 +31,7 @@ class GetLDAPEntriesResponse implements ResponseInterface
      * @Accessor(getter="getLDAPEntries", setter="setLDAPEntries")
      * @SerializedName("LDAPEntry")
      * @Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")
-     * @XmlList(inline=true, entry="LDAPEntry")
+     * @XmlList(inline=true, entry="LDAPEntry", namespace="urn:zimbraAdmin")
      */
     private $LDAPEntries = [];
 

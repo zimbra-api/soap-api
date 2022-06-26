@@ -35,7 +35,6 @@ class TargetWithType
     /**
      * Value matching target type if this is part of a response (otherwise blank)
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

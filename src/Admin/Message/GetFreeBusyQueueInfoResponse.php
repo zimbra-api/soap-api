@@ -31,7 +31,7 @@ class GetFreeBusyQueueInfoResponse implements ResponseInterface
      * @Accessor(getter="getProviders", setter="setProviders")
      * @SerializedName("provider")
      * @Type("array<Zimbra\Admin\Struct\FreeBusyQueueProvider>")
-     * @XmlList(inline=true, entry="provider")
+     * @XmlList(inline=true, entry="provider", namespace="urn:zimbraAdmin")
      */
     private $providers = [];
 

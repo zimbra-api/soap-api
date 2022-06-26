@@ -31,7 +31,7 @@ class GetAllDistributionListsResponse implements ResponseInterface
      * @Accessor(getter="getDls", setter="setDls")
      * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
-     * @XmlList(inline=true, entry="dl")
+     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */
     private $dls = [];
 

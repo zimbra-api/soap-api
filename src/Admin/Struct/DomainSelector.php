@@ -36,7 +36,6 @@ class DomainSelector
     /**
      * The key used to identify the domain
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

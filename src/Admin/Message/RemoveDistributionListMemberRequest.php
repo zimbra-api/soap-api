@@ -41,7 +41,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Accessor(getter="getMembers", setter="setMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */
     private $members = [];
 
@@ -51,7 +51,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="account")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 

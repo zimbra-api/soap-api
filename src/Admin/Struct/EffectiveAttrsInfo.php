@@ -38,7 +38,7 @@ class EffectiveAttrsInfo
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrs = [];
 

@@ -36,7 +36,6 @@ class CosSelector
     /**
      * The key used to identify the COS
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

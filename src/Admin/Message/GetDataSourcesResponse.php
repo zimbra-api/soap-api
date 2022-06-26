@@ -31,7 +31,7 @@ class GetDataSourcesResponse implements ResponseInterface
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @SerializedName("dataSource")
      * @Type("array<Zimbra\Admin\Struct\DataSourceInfo>")
-     * @XmlList(inline=true, entry="dataSource")
+     * @XmlList(inline=true, entry="dataSource", namespace="urn:zimbraAdmin")
      */
     private $dataSources = [];
 

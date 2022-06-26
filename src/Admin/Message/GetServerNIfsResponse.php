@@ -31,7 +31,7 @@ class GetServerNIfsResponse implements ResponseInterface
      * @Accessor(getter="getNetworkInterfaces", setter="setNetworkInterfaces")
      * @SerializedName("ni")
      * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
-     * @XmlList(inline=true, entry="ni")
+     * @XmlList(inline=true, entry="ni", namespace="urn:zimbraAdmin")
      */
     private $networkInterfaces = [];
 

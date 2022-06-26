@@ -31,7 +31,7 @@ class GetAggregateQuotaUsageOnServerResponse implements ResponseInterface
      * @Accessor(getter="getDomainQuotas", setter="setDomainQuotas")
      * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")
-     * @XmlList(inline=true, entry="domain")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */
     private $domainQuotas = [];
 

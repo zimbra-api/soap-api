@@ -38,7 +38,7 @@ class SyncGalAccountSpec
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @SerializedName("datasource")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
-     * @XmlList(inline=true, entry="datasource")
+     * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
      */
     private $dataSources = [];
 

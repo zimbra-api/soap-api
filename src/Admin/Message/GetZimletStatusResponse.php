@@ -41,7 +41,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Accessor(getter="getCoses", setter="setCoses")
      * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")
-     * @XmlList(inline=true, entry="cos")
+     * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */
     private $coses = [];
 

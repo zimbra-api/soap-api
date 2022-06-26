@@ -31,7 +31,7 @@ class GetAllLocalesResponse implements ResponseInterface
      * @Accessor(getter="getLocales", setter="setLocales")
      * @SerializedName("locale")
      * @Type("array<Zimbra\Admin\Struct\LocaleInfo>")
-     * @XmlList(inline=true, entry="locale")
+     * @XmlList(inline=true, entry="locale", namespace="urn:zimbraAdmin")
      */
     private $locales = [];
 
