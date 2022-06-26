@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
