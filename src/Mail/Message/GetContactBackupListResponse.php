@@ -30,7 +30,7 @@ class GetContactBackupListResponse implements ResponseInterface
      * @Accessor(getter="getBackup", setter="setBackup")
      * @SerializedName("backups")
      * @Type("array<string>")
-     * @XmlList(inline=false, entry="backup")
+     * @XmlList(inline=false, entry="backup", namespace="urn:zimbraMail")
      */
     private $backup = [];
 

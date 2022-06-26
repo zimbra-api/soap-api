@@ -46,7 +46,6 @@ class CalendarAttach implements CalendarAttachInterface
     /**
      * Base64 encoded binary alarrm attach data
      * @Accessor(getter="getBinaryB64Data", setter="setBinaryB64Data")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

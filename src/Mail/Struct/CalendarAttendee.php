@@ -152,7 +152,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @Accessor(getter="getXParams", setter="setXParams")
      * @SerializedName("xparam")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
-     * @XmlList(inline=true, entry="xparam")
+     * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
      */
     private $xParams;
 

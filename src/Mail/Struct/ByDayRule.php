@@ -30,7 +30,7 @@ class ByDayRule implements ByDayRuleInterface
      * @Accessor(getter="getDays", setter="setDays")
      * @SerializedName("wkday")
      * @Type("array<Zimbra\Mail\Struct\WkDay>")
-     * @XmlList(inline=true, entry="wkday")
+     * @XmlList(inline=true, entry="wkday", namespace="urn:zimbraMail")
      */
     private $days = [];
 

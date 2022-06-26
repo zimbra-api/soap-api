@@ -122,7 +122,7 @@ class GetContactsRequest extends Request
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
     private $attributes = [];
 
@@ -133,7 +133,7 @@ class GetContactsRequest extends Request
      * @Accessor(getter="getMemberAttributes", setter="setMemberAttributes")
      * @SerializedName("ma")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="ma")
+     * @XmlList(inline=true, entry="ma", namespace="urn:zimbraMail")
      */
     private $memberAttributes = [];
 
@@ -143,7 +143,7 @@ class GetContactsRequest extends Request
      * @Accessor(getter="getContacts", setter="setContacts")
      * @SerializedName("cn")
      * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline=true, entry="cn")
+     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      */
     private $contacts = [];
 

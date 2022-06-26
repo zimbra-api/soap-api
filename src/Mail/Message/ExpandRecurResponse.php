@@ -31,7 +31,7 @@ class ExpandRecurResponse implements ResponseInterface
      * @Accessor(getter="getInstances", setter="setInstances")
      * @SerializedName("inst")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>")
-     * @XmlList(inline=true, entry="inst")
+     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
      */
     private $instances = [];
 

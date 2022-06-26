@@ -75,7 +75,7 @@ class Msg
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("array<Zimbra\Mail\Struct\Header>")
-     * @XmlList(inline=true, entry="header")
+     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */
     private $headers = [];
 
@@ -147,7 +147,7 @@ class Msg
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
-     * @XmlList(inline=true, entry="e")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emailAddresses = [];
 
@@ -156,7 +156,7 @@ class Msg
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz")
+     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
     private $timezones = [];
 

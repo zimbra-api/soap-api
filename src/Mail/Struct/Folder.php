@@ -278,7 +278,7 @@ class Folder
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline=true, entry="meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
     private $metadatas = [];
 
@@ -296,7 +296,7 @@ class Folder
      * @Accessor(getter="getSubfolders", setter="setSubfolders")
      * @SerializedName("folder")
      * @Type("array<Zimbra\Mail\Struct\Folder>")
-     * @XmlList(inline=true, entry="folder")
+     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
      */
     private $subFolders = [];
 
@@ -305,7 +305,7 @@ class Folder
      * @Accessor(getter="getMountpoints", setter="setMountpoints")
      * @SerializedName("link")
      * @Type("array<Zimbra\Mail\Struct\Mountpoint>")
-     * @XmlList(inline=true, entry="link")
+     * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
      */
     private $mountpoints = [];
 
@@ -314,7 +314,7 @@ class Folder
      * @Accessor(getter="getSearchFolders", setter="setSearchFolders")
      * @SerializedName("search")
      * @Type("array<Zimbra\Mail\Struct\SearchFolder>")
-     * @XmlList(inline=true, entry="search")
+     * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
      */
     private $searchFolders = [];
 

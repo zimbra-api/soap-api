@@ -31,7 +31,7 @@ class DismissCalendarItemAlarmResponse implements ResponseInterface
      * @Accessor(getter="getApptUpdatedAlarms", setter="setApptUpdatedAlarms")
      * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")
-     * @XmlList(inline=true, entry="appt")
+     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      */
     private $apptUpdatedAlarms = [];
 
@@ -41,7 +41,7 @@ class DismissCalendarItemAlarmResponse implements ResponseInterface
      * @Accessor(getter="getTaskUpdatedAlarms", setter="setTaskUpdatedAlarms")
      * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")
-     * @XmlList(inline=true, entry="task")
+     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      */
     private $taskUpdatedAlarms = [];
 

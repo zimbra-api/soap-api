@@ -31,7 +31,7 @@ class BrowseResponse implements ResponseInterface
      * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
      * @SerializedName("bd")
      * @Type("array<Zimbra\Mail\Struct\BrowseData>")
-     * @XmlList(inline=true, entry="bd")
+     * @XmlList(inline=true, entry="bd", namespace="urn:zimbraMail")
      */
     private $browseDatas = [];
 

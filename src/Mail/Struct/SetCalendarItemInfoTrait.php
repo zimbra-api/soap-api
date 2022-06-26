@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-
 use Zimbra\Common\Enum\ParticipationStatus;
 
 /**

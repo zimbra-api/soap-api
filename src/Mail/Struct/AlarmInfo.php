@@ -96,7 +96,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @SerializedName("at")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
-     * @XmlList(inline=true, entry="at")
+     * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
      */
     private $attendees = [];
 
@@ -105,7 +105,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getXProps", setter="setXProps")
      * @SerializedName("xprop")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
-     * @XmlList(inline=true, entry="xprop")
+     * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
      */
     private $xProps = [];
 

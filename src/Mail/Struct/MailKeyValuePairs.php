@@ -32,7 +32,7 @@ class MailKeyValuePairs implements KeyValuePairs
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
     protected $keyValuePairs = [];
 

@@ -74,7 +74,7 @@ class InvitationInfo extends InviteComponent
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz")
+     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
     private $timezones = [];
 
@@ -83,7 +83,7 @@ class InvitationInfo extends InviteComponent
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
-     * @XmlList(inline=true, entry="mp")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
     private $mimeParts = [];
 

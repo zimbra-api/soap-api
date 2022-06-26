@@ -65,7 +65,6 @@ class NewContactAttr
      * Date related attributes like "birthday" and "anniversary" SHOULD use "yyyy-MM-dd" format or,
      * if the year isn't specified "--MM-dd" format
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

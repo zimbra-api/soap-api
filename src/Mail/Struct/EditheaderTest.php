@@ -83,7 +83,7 @@ class EditheaderTest
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @SerializedName("headerValue")
      * @Type("array<string>")
-     * @XmlList(inline=true, entry="headerValue")
+     * @XmlList(inline=true, entry="headerValue", namespace="urn:zimbraMail")
      */
     private $headerValue = [];
 

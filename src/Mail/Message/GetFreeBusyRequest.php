@@ -90,7 +90,7 @@ class GetFreeBusyRequest extends Request
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
-     * @XmlList(inline=true, entry="usr")
+     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      */
     private $freebusyUsers = [];
 

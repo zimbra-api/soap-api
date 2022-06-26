@@ -49,7 +49,6 @@ class BrowseData
      * for objects: object type (url, etc)
      * for domains: domains (stanford.edu, etc)
      * @Accessor(getter="getData", setter="setData")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

@@ -70,7 +70,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, ResponseInterface
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline=true, entry="error")
+     * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      */
     private $errors = [];
 

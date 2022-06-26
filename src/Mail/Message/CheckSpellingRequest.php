@@ -51,7 +51,6 @@ class CheckSpellingRequest extends Request
     /**
      * Text to spell check
      * @Accessor(getter="getText", setter="setText")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

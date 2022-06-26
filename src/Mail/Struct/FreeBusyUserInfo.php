@@ -80,7 +80,7 @@ class FreeBusyUserInfo
      * @SerializedName("f")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyFREEslot>")
      * @VirtualProperty
-     * @XmlList(inline=true, entry="f")
+     * @XmlList(inline=true, entry="f", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -95,7 +95,7 @@ class FreeBusyUserInfo
      * @SerializedName("b")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYslot>")
      * @VirtualProperty
-     * @XmlList(inline=true, entry="b")
+     * @XmlList(inline=true, entry="b", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -110,7 +110,7 @@ class FreeBusyUserInfo
      * @SerializedName("t")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>")
      * @VirtualProperty
-     * @XmlList(inline=true, entry="t")
+     * @XmlList(inline=true, entry="t", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -125,7 +125,7 @@ class FreeBusyUserInfo
      * @SerializedName("u")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>")
      * @VirtualProperty
-     * @XmlList(inline=true, entry="u")
+     * @XmlList(inline=true, entry="u", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class FreeBusyUserInfo
      * @SerializedName("n")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyNODATAslot>")
      * @VirtualProperty
-     * @XmlList(inline=true, entry="n")
+     * @XmlList(inline=true, entry="n", namespace="urn:zimbraMail")
      *
      * @return array
      */

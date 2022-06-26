@@ -35,7 +35,6 @@ class ICalContent
     /**
      * ICAL
      * @Accessor(getter="getIcal", setter="setIcal")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

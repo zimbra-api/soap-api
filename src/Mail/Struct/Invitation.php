@@ -73,7 +73,7 @@ class Invitation
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz")
+     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
     private $timezones = [];
 
@@ -91,7 +91,7 @@ class Invitation
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
-     * @XmlList(inline=true, entry="mp")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
     private $partInfos = [];
 
@@ -100,7 +100,7 @@ class Invitation
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
      * @SerializedName("shr")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
-     * @XmlList(inline=true, entry="shr")
+     * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
      */
     private $shareNotifications = [];
 
@@ -109,7 +109,7 @@ class Invitation
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
      * @SerializedName("dlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
-     * @XmlList(inline=true, entry="dlSubs")
+     * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
      */
     private $dlSubs = [];
 

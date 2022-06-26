@@ -37,7 +37,7 @@ class ApplyFilterRulesRequest extends Request
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=false, entry="filterRule")
+     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      */
     private $filterRules = [];
 

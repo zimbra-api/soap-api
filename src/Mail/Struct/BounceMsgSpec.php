@@ -37,7 +37,7 @@ class BounceMsgSpec
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
-     * @XmlList(inline=true, entry="e")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emailAddresses = [];
 
