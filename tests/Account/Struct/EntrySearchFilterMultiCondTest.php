@@ -29,7 +29,7 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
 
-        $conds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$cond, $multiConds]);
+        $conds = new MockEntrySearchFilterMultiCond(FALSE, TRUE, [$cond, $multiConds]);
 
         $this->assertFALSE($conds->isNot());
         $this->assertTRUE($conds->isOr());
@@ -37,7 +37,7 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $this->assertSame([$multiConds], $conds->getCompoundConditions());
         $this->assertSame([$cond], $conds->getSingleConditions());
 
-        $conds = new EntrySearchFilterMultiCond();
+        $conds = new MockEntrySearchFilterMultiCond();
         $conds->setNot(TRUE)
               ->setOr(FALSE)
               ->setConditions([$cond, $multiConds])
@@ -53,21 +53,28 @@ class EntrySearchFilterMultiCondTest extends ZimbraTestCase
         $eq = CondOp::EQ()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result not="true" or="false">
-    <conds not="false" or="true">
-        <cond attr="$attr" op="$ge" value="$value" not="false" />
-    </conds>
-    <cond attr="$attr" op="$eq" value="$value" not="true" />
-    <cond attr="$attr" op="$ge" value="$value" not="false" />
+<result not="true" or="false" xmlns:urn="urn:zimbraAccount">
+    <urn:conds not="false" or="true">
+        <urn:cond attr="$attr" op="$ge" value="$value" not="false" />
+    </urn:conds>
+    <urn:cond attr="$attr" op="$eq" value="$value" not="true" />
+    <urn:cond attr="$attr" op="$ge" value="$value" not="false" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conds, 'xml'));
 
-        $multiCond = $this->serializer->deserialize($xml, EntrySearchFilterMultiCond::class, 'xml');
+        $multiCond = $this->serializer->deserialize($xml, MockEntrySearchFilterMultiCond::class, 'xml');
         $this->assertTRUE($multiCond->isNot());
         $this->assertFALSE($multiCond->isOr());
         $this->assertEquals([$cond, $singleCond, $multiConds], $multiCond->getConditions());
         $this->assertEquals([$multiConds], $multiCond->getCompoundConditions());
         $this->assertEquals([$cond, $singleCond], $multiCond->getSingleConditions());
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockEntrySearchFilterMultiCond extends EntrySearchFilterMultiCond
+{
 }

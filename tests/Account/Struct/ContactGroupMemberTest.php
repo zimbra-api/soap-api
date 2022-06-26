@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\ContactGroupMember;
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,12 +22,12 @@ class ContactGroupMemberTest extends ZimbraTestCase
         $contact = new ContactInfo;
         $contact->setId($id);
 
-        $member = new ContactGroupMember($type, $value, $contact);
+        $member = new MockContactGroupMember($type, $value, $contact);
         $this->assertSame($type, $member->getType());
         $this->assertSame($value, $member->getValue());
         $this->assertSame($contact, $member->getContact());
 
-        $member = new ContactGroupMember('', '');
+        $member = new MockContactGroupMember('', '');
         $member->setType($type)
             ->setValue($value)
             ->setContact($contact);
@@ -35,11 +37,18 @@ class ContactGroupMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" value="$value">
-    <cn id="$id" />
+<result type="$type" value="$value" xmlns:urn="urn:zimbraAccount">
+    <urn:cn id="$id" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($member, 'xml'));
-        $this->assertEquals($member, $this->serializer->deserialize($xml, ContactGroupMember::class, 'xml'));
+        $this->assertEquals($member, $this->serializer->deserialize($xml, MockContactGroupMember::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockContactGroupMember extends ContactGroupMember
+{
 }

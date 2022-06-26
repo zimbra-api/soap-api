@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsTarget;
 use Zimbra\Common\Enum\TargetType;
@@ -22,14 +24,14 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 
         $email = new DiscoverRightsEmail($addr);
 
-        $target = new DiscoverRightsTarget($type, $id, $name, $displayName, [$email]);
+        $target = new MockDiscoverRightsTarget($type, $id, $name, $displayName, [$email]);
         $this->assertSame($type, $target->getType());
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
         $this->assertSame($displayName, $target->getDisplayName());
         $this->assertSame([$email], $target->getEmails());
 
-        $target = new DiscoverRightsTarget(TargetType::DOMAIN());
+        $target = new MockDiscoverRightsTarget(TargetType::DOMAIN());
         $target->setType($type)
             ->setId($id)
             ->setName($name)
@@ -45,11 +47,18 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" id="$id" name="$name" d="$displayName">
-    <email addr="$addr" />
+<result type="$type" id="$id" name="$name" d="$displayName" xmlns:urn="urn:zimbraAccount">
+    <urn:email addr="$addr" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
-        $this->assertEquals($target, $this->serializer->deserialize($xml, DiscoverRightsTarget::class, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, MockDiscoverRightsTarget::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockDiscoverRightsTarget extends DiscoverRightsTarget
+{
 }

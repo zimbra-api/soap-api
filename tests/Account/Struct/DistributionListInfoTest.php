@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\DistributionListInfo;
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
@@ -30,7 +32,7 @@ class DistributionListInfoTest extends ZimbraTestCase
             $name, [$owner]
         );
 
-        $dl = new DistributionListInfo($name, $id, [], [$member1, $member2], [$owner], [$right], FALSE, FALSE, FALSE);
+        $dl = new MockDistributionListInfo($name, $id, [], [$member1, $member2], [$owner], [$right], FALSE, FALSE, FALSE);
         $this->assertSame([$member1, $member2], $dl->getMembers());
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
@@ -38,7 +40,7 @@ class DistributionListInfoTest extends ZimbraTestCase
         $this->assertFalse($dl->isMember());
         $this->assertFalse($dl->isDynamic());
 
-        $dl = new DistributionListInfo($name, $id, [new KeyValuePair($key, $value)], [], [], [], FALSE, FALSE, FALSE);
+        $dl = new MockDistributionListInfo($name, $id, [new KeyValuePair($key, $value)], [], [], [], FALSE, FALSE, FALSE);
         $dl->setMembers([$member1])
             ->addMember($member2)
             ->setOwners([$owner])
@@ -58,21 +60,28 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" isOwner="true" isMember="true" dynamic="true">
-    <a n="$key">$value</a>
-    <dlm>$member1</dlm>
-    <dlm>$member2</dlm>
-    <owners>
-        <owner type="usr" id="$id" name="$name" />
-    </owners>
-    <rights>
-        <right right="$name">
-            <grantee type="usr" id="$id" name="$name" />
-        </right>
-    </rights>
+<result name="$name" id="$id" isOwner="true" isMember="true" dynamic="true" xmlns:urn="urn:zimbraAccount">
+    <urn:a n="$key">$value</urn:a>
+    <urn:dlm>$member1</urn:dlm>
+    <urn:dlm>$member2</urn:dlm>
+    <urn:owners>
+        <urn:owner type="usr" id="$id" name="$name" />
+    </urn:owners>
+    <urn:rights>
+        <urn:right right="$name">
+            <urn:grantee type="usr" id="$id" name="$name" />
+        </urn:right>
+    </urn:rights>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
-        $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, MockDistributionListInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockDistributionListInfo extends DistributionListInfo
+{
 }

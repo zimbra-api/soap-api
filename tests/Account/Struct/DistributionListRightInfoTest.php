@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\DistributionListRightInfo;
 use Zimbra\Account\Struct\DistributionListGranteeInfo;
 use Zimbra\Common\Enum\GranteeType;
@@ -23,13 +25,13 @@ class DistributionListRightInfoTest extends ZimbraTestCase
             $type, $id, $name
         );
 
-        $info = new DistributionListRightInfo(
+        $info = new MockDistributionListRightInfo(
             $right, [$grantee]
         );
         $this->assertSame($right, $info->getRight());
         $this->assertSame([$grantee], $info->getGrantees());
 
-        $info = new DistributionListRightInfo('');
+        $info = new MockDistributionListRightInfo('');
         $info->setRight($right)
             ->setGrantees([$grantee])
             ->addGrantee($grantee);
@@ -39,11 +41,18 @@ class DistributionListRightInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result right="$right">
-    <grantee type="usr" id="$id" name="$name" />
+<result right="$right" xmlns:urn="urn:zimbraAccount">
+    <urn:grantee type="usr" id="$id" name="$name" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
-        $this->assertEquals($info, $this->serializer->deserialize($xml, DistributionListRightInfo::class, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, MockDistributionListRightInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockDistributionListRightInfo extends DistributionListRightInfo
+{
 }

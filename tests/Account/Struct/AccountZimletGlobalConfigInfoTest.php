@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\AccountZimletGlobalConfigInfo;
 use Zimbra\Account\Struct\AccountZimletProperty;
 use Zimbra\Tests\ZimbraTestCase;
@@ -18,10 +20,10 @@ class AccountZimletGlobalConfigInfoTest extends ZimbraTestCase
 
         $property = new AccountZimletProperty($name, $value);
 
-        $global = new AccountZimletGlobalConfigInfo([$property]);
+        $global = new MockAccountZimletGlobalConfigInfo([$property]);
         $this->assertSame([$property], $global->getZimletProperties());
 
-        $global = new AccountZimletGlobalConfigInfo;
+        $global = new MockAccountZimletGlobalConfigInfo;
         $global->setZimletProperties([$property])
             ->addZimletProperty($property);
         $this->assertSame([$property, $property], $global->getZimletProperties());
@@ -29,11 +31,18 @@ class AccountZimletGlobalConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <property name="$name">$value</property>
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:property name="$name">$value</urn:property>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($global, 'xml'));
-        $this->assertEquals($global, $this->serializer->deserialize($xml, AccountZimletGlobalConfigInfo::class, 'xml'));
+        $this->assertEquals($global, $this->serializer->deserialize($xml, MockAccountZimletGlobalConfigInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountZimletGlobalConfigInfo extends AccountZimletGlobalConfigInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\AccountZimletInfo;
 use Zimbra\Account\Struct\AccountZimletContext;
 use Zimbra\Account\Struct\AccountZimletDesc;
@@ -60,14 +62,14 @@ class AccountZimletInfoTest extends ZimbraTestCase
         $zimletConfig->setGlobal($global)
             ->setHost($host);
 
-        $zimlet = new AccountZimletInfo(
+        $zimlet = new MockAccountZimletInfo(
             $zimletContext, $zimletDesc, $zimletConfig
         );
         $this->assertSame($zimletContext, $zimlet->getZimletContext());
         $this->assertSame($zimletDesc, $zimlet->getZimlet());
         $this->assertSame($zimletConfig, $zimlet->getZimletConfig());
 
-        $zimlet = new AccountZimletInfo();
+        $zimlet = new MockAccountZimletInfo();
         $zimlet->setZimletContext($zimletContext)
             ->setZimlet($zimletDesc)
             ->setZimletConfig($zimletConfig);
@@ -77,24 +79,31 @@ class AccountZimletInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
-    <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-        <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-        <include>$value</include>
-        <includeCSS>$value</includeCSS>
-    </zimlet>
-    <zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-        <global>
-            <property name="$name">$value</property>
-        </global>
-        <host name="$name">
-            <property name="$name">$value</property>
-        </host>
-    </zimletConfig>
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:zimletContext baseUrl="$baseUrl" priority="$priority" presence="enabled" />
+    <urn:zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+        <urn:include>$value</urn:include>
+        <urn:includeCSS>$value</urn:includeCSS>
+    </urn:zimlet>
+    <urn:zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <urn:global>
+            <urn:property name="$name">$value</urn:property>
+        </urn:global>
+        <urn:host name="$name">
+            <urn:property name="$name">$value</urn:property>
+        </urn:host>
+    </urn:zimletConfig>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AccountZimletInfo::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, MockAccountZimletInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountZimletInfo extends AccountZimletInfo
+{
 }
