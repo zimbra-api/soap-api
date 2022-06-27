@@ -57,7 +57,9 @@ class TzFixupRuleMatchRule
      * @param int $wkday
      * @return self
      */
-    public function __construct(int $mon, int $week, int $wkday)
+    public function __construct(
+        int $mon = 0, int $week = 0, int $wkday = 0
+    )
     {
         $this->setMonth($mon)
              ->setWeek($week)

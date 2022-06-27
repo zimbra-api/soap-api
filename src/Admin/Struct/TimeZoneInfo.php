@@ -48,7 +48,7 @@ class TimeZoneInfo
      * @param  string $displayName
      * @return self
      */
-    public function __construct(string $id, string $displayName)
+    public function __construct(string $id = '', string $displayName = '')
     {
         $this->setId($id)
              ->setDisplayName($displayName);

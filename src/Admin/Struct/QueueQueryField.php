@@ -48,7 +48,7 @@ class QueueQueryField
      * @param  array $matches
      * @return self
      */
-    public function __construct(string $name, array $matches = [])
+    public function __construct(string $name = '', array $matches = [])
     {
         $this->setName($name)
              ->setMatches($matches);

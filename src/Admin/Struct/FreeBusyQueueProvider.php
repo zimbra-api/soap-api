@@ -49,7 +49,7 @@ class FreeBusyQueueProvider
      * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $name, array $accounts = [])
+    public function __construct(string $name = '', array $accounts = [])
     {
         $this->setName($name)
              ->setAccounts($accounts);

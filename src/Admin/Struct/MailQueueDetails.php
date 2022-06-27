@@ -101,11 +101,11 @@ class MailQueueDetails
      * @return self
      */
     public function __construct(
-        string $name,
-        int $time,
-        bool $stillScanning,
-        int $total,
-        bool $more,
+        string $name = '',
+        int $time = 0,
+        bool $stillScanning = FALSE,
+        int $total = 0,
+        bool $more = FALSE,
         array $queueSummaries = [],
         array $queueItems = []
     )

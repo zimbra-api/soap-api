@@ -48,7 +48,7 @@ class SyncGalAccountSpec
      * @param array $dataSources
      * @return self
      */
-    public function __construct(string $id, array $dataSources = [])
+    public function __construct(string $id = '', array $dataSources = [])
     {
         $this->setId($id)
              ->setDataSources($dataSources);

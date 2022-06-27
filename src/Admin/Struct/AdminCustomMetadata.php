@@ -34,12 +34,13 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
     private $section;
 
     /**
-     * Constructor method for AdminCustomMetadata
+     * Constructor method for AdminCustomMetadata\
+     * 
      * @param string $section
-     * @param array $keyValuePairs
+     * @param array  $keyValuePairs
      * @return self
      */
-    public function __construct($section = NULL, array $keyValuePairs = [])
+    public function __construct(?string $section = NULL, array $keyValuePairs = [])
     {
     	parent::__construct($keyValuePairs);
         if (NULL !== $section) {

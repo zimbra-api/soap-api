@@ -158,34 +158,34 @@ class MailboxInfo
      * @return self
      */
     public function __construct(
-        int $id,
-        int $groupId,
-        string $accountId,
-        int $indexVolumeId,
-        int $itemIdCheckPoint,
-        int $contactCount,
-        int $sizeCheckPoint,
-        int $changeCheckPoint,
-        int $trackingSync,
-        bool $trackingImap,
-        int $lastBackupAt,
-        int $lastSoapAccess,
-        int $newMessages
+        int $id = 0,
+        int $groupId = 0,
+        string $accountId = '',
+        int $indexVolumeId = 0,
+        int $itemIdCheckPoint = 0,
+        int $contactCount = 0,
+        int $sizeCheckPoint = 0,
+        int $changeCheckPoint = 0,
+        int $trackingSync = 0,
+        bool $trackingImap = FALSE,
+        int $lastBackupAt = 0,
+        int $lastSoapAccess = 0,
+        int $newMessages = 0
     )
     {
-        $this->id = $id;
-        $this->groupId = $groupId;
-        $this->accountId = $accountId;
-        $this->indexVolumeId = $indexVolumeId;
-        $this->itemIdCheckPoint = $itemIdCheckPoint;
-        $this->contactCount = $contactCount;
-        $this->sizeCheckPoint = $sizeCheckPoint;
-        $this->changeCheckPoint = $changeCheckPoint;
-        $this->trackingSync = $trackingSync;
-        $this->trackingImap = $trackingImap;
-        $this->lastBackupAt = $lastBackupAt;
-        $this->lastSoapAccess = $lastSoapAccess;
-        $this->newMessages = $newMessages;
+        $this->setId($id)
+             ->setGroupId($groupId)
+             ->setAccountId($accountId)
+             ->setIndexVolumeId($indexVolumeId)
+             ->setItemIdCheckPoint($itemIdCheckPoint)
+             ->setContactCount($contactCount)
+             ->setSizeCheckPoint($sizeCheckPoint)
+             ->setChangeCheckPoint($changeCheckPoint)
+             ->setTrackingSync($trackingSync)
+             ->setTrackingImap($trackingImap)
+             ->setLastBackupAt($lastBackupAt)
+             ->setLastSoapAccess($lastSoapAccess)
+             ->setNewMessages($newMessages);
     }
 
     /**

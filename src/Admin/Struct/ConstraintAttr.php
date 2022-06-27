@@ -43,14 +43,15 @@ class ConstraintAttr
 
     /**
      * Constructor method for ConstraintAttr
+     * 
      * @param  ConstraintInfo $constraint
      * @param  string $name
      * @return self
      */
-    public function __construct(ConstraintInfo $constraint, string $name)
+    public function __construct(ConstraintInfo $constraint, string $name = '')
     {
         $this->setConstraint($constraint)
-            ->setName($name);
+             ->setName($name);
     }
 
     /**

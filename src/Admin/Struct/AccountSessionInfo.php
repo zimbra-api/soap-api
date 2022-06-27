@@ -58,7 +58,9 @@ class AccountSessionInfo
      * @param  array  $sessions
      * @return self
      */
-    public function __construct($name, $id, array $sessions = [])
+    public function __construct(
+        string $name = '', string $id = '', array $sessions = []
+    )
     {
         $this->setName($name)
              ->setId($id)

@@ -49,8 +49,8 @@ class QueueSummaryItem
      * @return self
      */
     public function __construct(
-        int $count,
-        string $term
+        int $count = 0,
+        string $term = ''
     )
     {
         $this->setCount($count)

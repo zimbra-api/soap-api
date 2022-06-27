@@ -69,13 +69,13 @@ class ServiceStatus
      * @return self
      */
     public function __construct(
-        string $server, string $service, int $time, ZeroOrOne $status
+        string $server = '', string $service = '', int $time = 0, ?ZeroOrOne $status = NULL
     )
     {
         $this->setServer($server)
              ->setService($service)
              ->setTime($time)
-             ->setStatus($status);
+             ->setStatus($status ?? ZeroOrOne::ZERO());
     }
 
     /**

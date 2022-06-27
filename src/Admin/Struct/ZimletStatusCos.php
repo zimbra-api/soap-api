@@ -49,7 +49,7 @@ class ZimletStatusCos
      * @param  array $zimlets
      * @return self
      */
-    public function __construct(string $name, array $zimlets = [])
+    public function __construct(string $name = '', array $zimlets = [])
     {
         $this->setName($name)
              ->setZimlets($zimlets);

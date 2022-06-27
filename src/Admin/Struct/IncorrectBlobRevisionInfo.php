@@ -78,18 +78,20 @@ class IncorrectBlobRevisionInfo
      * @return self
      */
     public function __construct(
-        int $id,
-        int $revision,
-        int $size,
-        int $volumeId,
-        BlobRevisionInfo $blob
+        int $id = 0,
+        int $revision = 0,
+        int $size = 0,
+        int $volumeId = 0,
+        ?BlobRevisionInfo $blob = NULL
     )
     {
         $this->setId($id)
              ->setRevision($revision)
              ->setSize($size)
-             ->setVolumeId($volumeId)
-             ->setBlob($blob);
+             ->setVolumeId($volumeId);
+        if ($blob instanceof BlobRevisionInfo) {
+            $this->setBlob($blob);
+        }
     }
 
     /**
@@ -185,7 +187,7 @@ class IncorrectBlobRevisionInfo
      *
      * @return BlobRevisionInfo
      */
-    public function getBlob(): BlobRevisionInfo
+    public function getBlob(): ?BlobRevisionInfo
     {
         return $this->blob;
     }

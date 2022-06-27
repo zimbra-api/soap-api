@@ -59,12 +59,14 @@ class DataSourceInfo extends AdminAttrsImpl
      * @param array $attrs Attributes
      * @return self
      */
-    public function __construct(string $name, string $id, DataSourceType $type, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', ?DataSourceType $type = NULL, array $attrs = []
+    )
     {
         parent::__construct($attrs);
         $this->setName($name)
              ->setId($id)
-             ->setType($type);
+             ->setType($type ?? DataSourceType::IMAP());
     }
 
     /**

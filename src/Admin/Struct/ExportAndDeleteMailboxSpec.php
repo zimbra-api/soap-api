@@ -49,7 +49,7 @@ class ExportAndDeleteMailboxSpec
      * @param  array $items
      * @return self
      */
-    public function __construct(int $id, array $items = [])
+    public function __construct(int $id = 0, array $items = [])
     {
         $this->setId($id)
              ->setItems($items);

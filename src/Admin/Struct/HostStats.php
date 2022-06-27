@@ -48,7 +48,7 @@ class HostStats
      * @param  StatsInfo $stats
      * @return self
      */
-    public function __construct(string $hostName, ?StatsInfo $stats = NULL)
+    public function __construct(string $hostName = '', ?StatsInfo $stats = NULL)
     {
         $this->setHostName($hostName);
         if ($stats instanceof StatsInfo) {

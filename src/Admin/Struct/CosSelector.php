@@ -43,13 +43,14 @@ class CosSelector
 
     /**
      * Constructor method for CosSelector
+     * 
      * @param  CosBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(CosBy $by, ?string $value = NULL)
+    public function __construct(?CosBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? CosBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

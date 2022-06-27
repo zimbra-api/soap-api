@@ -48,7 +48,7 @@ class ServerQueues
      * @param  array  $queues
      * @return self
      */
-    public function __construct($serverName, array $queues = [])
+    public function __construct(string $serverName = '', array $queues = [])
     {
         $this->setServerName($serverName)
              ->setQueues($queues);

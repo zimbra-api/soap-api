@@ -47,7 +47,7 @@ class ServerMailQueueQuery
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueQuery $queue, string $name)
+    public function __construct(MailQueueQuery $queue, string $name = '')
     {
         $this->setQueue($queue)
              ->setServerName($name);

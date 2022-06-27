@@ -141,10 +141,10 @@ class WaitSetInfo
      * @return self
      */
     public function __construct(
-        string $waitSetId,
-        string $owner,
-        string $defaultInterests,
-        int $lastAccessDate,
+        string $waitSetId = '',
+        string $owner = '',
+        string $defaultInterests = '',
+        int $lastAccessDate = 0,
         array $errors = [],
         ?AccountsAttrib $signalledAccounts = NULL,
         ?string $cbSeqNo = NULL,

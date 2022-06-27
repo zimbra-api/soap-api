@@ -45,13 +45,16 @@ class CalendarResourceSelector
 
     /**
      * Constructor method for CalendarResourceSelector
+     * 
      * @param  CalendarResourceBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(CalendarResourceBy $by, ?string $value = NULL)
+    public function __construct(
+        ?CalendarResourceBy $by = NULL, ?string $value = NULL
+    )
     {
-        $this->setBy($by);
+        $this->setBy($by ?? CalendarResourceBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -67,7 +67,9 @@ class MailQueueQuery
      * @param  int $wait
      * @return self
      */
-    public function __construct(QueueQuery $query, string $name, ?bool $scan = NULL, ?int $wait = NULL)
+    public function __construct(
+        QueueQuery $query, string $name = '', ?bool $scan = NULL, ?int $wait = NULL
+    )
     {
         $this->setQuery($query)
              ->setQueueName($name);

@@ -41,11 +41,12 @@ class VolumeIdAndProgress
 
     /**
      * Constructor method for VolumeInfo
+     * 
      * @param string $volumeId
      * @param string $progress
      * @return self
      */
-    public function __construct(string $volumeId, string $progress)
+    public function __construct(string $volumeId = '', string $progress = '')
     {
         $this->setVolumeId($volumeId)
              ->setProgress($progress);

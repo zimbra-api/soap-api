@@ -62,6 +62,7 @@ class ZimletAclStatusPri
 
     /**
      * Constructor method for ZimletAclStatusPri
+     * 
      * @param  string $name
      * @param  ZimletAcl $acl
      * @param  ValueAttrib $status
@@ -69,7 +70,7 @@ class ZimletAclStatusPri
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         ?ZimletAcl $acl = NULL,
         ?ValueAttrib $status = NULL,
         ?IntegerValueAttrib $priority = NULL

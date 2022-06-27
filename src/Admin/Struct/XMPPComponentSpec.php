@@ -59,7 +59,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         DomainSelector $domain,
         ServerSelector $server,
         array $attrs = []

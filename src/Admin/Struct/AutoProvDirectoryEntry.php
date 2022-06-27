@@ -50,7 +50,9 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct($dn, array $keys = [], array $keyValuePairs = [])
+    public function __construct(
+        string $dn = '', array $keys = [], array $keyValuePairs = []
+    )
     {
     	parent::__construct($keyValuePairs);
         $this->setDn($dn)

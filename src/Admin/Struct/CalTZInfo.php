@@ -99,9 +99,9 @@ class CalTZInfo
      * @return self
      */
     public function __construct(
-        string $id,
-        int $stdoff,
-        int $dayoff,
+        string $id = '',
+        int $stdoff = 0,
+        int $dayoff = 0,
         ?TzOnsetInfo $standard = NULL,
         ?TzOnsetInfo $daylight = NULL,
         ?string $stdname = NULL,

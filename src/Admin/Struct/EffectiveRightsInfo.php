@@ -57,7 +57,9 @@ class EffectiveRightsInfo
      * @param array $rights
      * @return self
      */
-    public function __construct(EffectiveAttrsInfo $setAttrs, EffectiveAttrsInfo $getAttrs, array $rights = [])
+    public function __construct(
+        EffectiveAttrsInfo $setAttrs, EffectiveAttrsInfo $getAttrs, array $rights = []
+    )
     {
         $this->setSetAttrs($setAttrs)
              ->setGetAttrs($getAttrs)

@@ -48,7 +48,7 @@ class StatsValues
      * @param  array $stats
      * @return self
      */
-    public function __construct(string $t, array $stats = [])
+    public function __construct(string $t = '', array $stats = [])
     {
         $this->setT($t)
              ->setStats($stats);

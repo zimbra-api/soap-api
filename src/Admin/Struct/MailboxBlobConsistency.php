@@ -88,7 +88,7 @@ class MailboxBlobConsistency
      * @return self
      */
     public function __construct(
-        int $id,
+        int $id = '',
         array $missingBlobs = [],
         array $incorrectSizes = [],
         array $unexpectedBlobs = [],

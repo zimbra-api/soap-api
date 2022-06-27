@@ -43,11 +43,12 @@ class AttributeDescription
 
     /**
      * Constructor method for AttributeDescription
+     * 
      * @param  string $name
      * @param  string $description
      * @return self
      */
-    public function __construct(string $name, string $description)
+    public function __construct(string $name = '', string $description = '')
     {
         $this->setName($name)
              ->setDescription($description);

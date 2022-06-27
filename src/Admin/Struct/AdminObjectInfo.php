@@ -55,7 +55,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param  array  $attrs Attributes
      * @return self
      */
-    public function __construct($name, $id, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

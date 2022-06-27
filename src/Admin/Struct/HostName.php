@@ -36,7 +36,7 @@ class HostName
      * @param  string $hn Hostname
      * @return self
      */
-    public function __construct($hostName)
+    public function __construct($hostName = '')
     {
         $this->setHostName($hostName);
     }

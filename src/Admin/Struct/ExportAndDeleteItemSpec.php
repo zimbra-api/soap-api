@@ -43,11 +43,12 @@ class ExportAndDeleteItemSpec
 
     /**
      * Constructor method for ExportAndDeleteItemSpec
+     * 
      * @param  int $id
      * @param  int $version
      * @return self
      */
-    public function __construct(int $id, int $version)
+    public function __construct(int $id = 0, int $version = 0)
     {
         $this->setId($id)
              ->setVersion($version);

@@ -149,18 +149,18 @@ class QueueItem
      * @return self
      */
     public function __construct(
-        string $id,
-        string $time,
-        string $fromdomain,
-        string $size,
-        string $from,
-        string $to,
-        string $host,
-        string $addr,
-        string $reason,
-        string $filter,
+        string $id = '',
+        string $time = '',
+        string $fromdomain = '',
+        string $size = '',
+        string $from = '',
+        string $to = '',
+        string $host = '',
+        string $addr = '',
+        string $reason = '',
+        string $filter = '',
         string $todomain,
-        string $received
+        string $received = ''
     )
     {
         $this->setId($id)

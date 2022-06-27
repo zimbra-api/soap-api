@@ -57,7 +57,9 @@ class EffectiveAttrInfo
      * @param array $values
      * @return self
      */
-    public function __construct(string $name, ?ConstraintInfo $constraint = NULL, array $values = [])
+    public function __construct(
+        string $name = '', ?ConstraintInfo $constraint = NULL, array $values = []
+    )
     {
         $this->setName($name)
              ->setValues($values);

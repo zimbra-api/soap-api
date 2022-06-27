@@ -67,7 +67,9 @@ class CosInfo implements AdminObjectInterface
      * @param  array  $attrs Attributes
      * @return self
      */
-    public function __construct(string $name, string $id, ?bool $isDefaultCos = NULL, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', ?bool $isDefaultCos = NULL, array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

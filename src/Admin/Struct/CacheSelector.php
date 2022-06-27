@@ -66,13 +66,16 @@ class CacheSelector
 
     /**
      * Constructor method for CacheSelector
+     * 
      * @param  string $types
      * @param  bool $allServers
      * @param  bool $imapServers 
      * @param  array $entries
      * @return self
      */
-    public function __construct(string $types, ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = [])
+    public function __construct(
+        string $types = '', ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = []
+    )
     {
         $this->setTypes($types);
         if (NULL !== $allServers) {

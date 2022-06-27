@@ -53,7 +53,11 @@ class AliasInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name, string $id, string $targetName, ?TargetType $targetType = NULL, array $attrs = []
+        string $name = '',
+        string $id = '',
+        string $targetName = '',
+        ?TargetType $targetType = NULL,
+        array $attrs = []
     )
     {
         parent::__construct($name, $id, $attrs);

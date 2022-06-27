@@ -62,6 +62,7 @@ class SyncGalAccountDataSourceSpec
 
     /**
      * Constructor method for SyncGalAccountDataSourceSpec
+     * 
      * @param DataSourceBy $by
      * @param string $value
      * @param bool $fullSync
@@ -69,13 +70,13 @@ class SyncGalAccountDataSourceSpec
      * @return self
      */
     public function __construct(
-        DataSourceBy $by,
+        ?DataSourceBy $by = NULL,
         ?string $value = NULL,
         ?bool $fullSync = NULL,
         ?bool $reset = NULL
     )
     {
-        $this->setBy($by);
+        $this->setBy($by ?? DataSourceBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

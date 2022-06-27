@@ -50,13 +50,18 @@ class ComboRightInfo
 
     /**
      * Constructor method for ComboRightInfo
+     * 
      * @param  string $name
+     * @param  RightType $type
+     * @param  string $targetType
      * @return self
      */
-    public function __construct(string $name, RightType $type, ?string $targetType = NULL)
+    public function __construct(
+        string $name, ?RightType $type = NULL, ?string $targetType = NULL
+    )
     {
         $this->setName($name)
-             ->setType($type);
+             ->setType($type ?? RightType::PRESET());
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
         }

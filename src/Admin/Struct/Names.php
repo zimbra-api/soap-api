@@ -37,7 +37,7 @@ class Names
      * @param string $name
      * @return self
      */
-    public function __construct(string $name)
+    public function __construct(string $name = '')
     {
         $this->setName($name);
     }

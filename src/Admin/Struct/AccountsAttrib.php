@@ -38,7 +38,7 @@ class AccountsAttrib
      * @param string $accounts
      * @return self
      */
-    public function __construct(string $accounts)
+    public function __construct(string $accounts = '')
     {
         $this->setAccounts($accounts);
     }

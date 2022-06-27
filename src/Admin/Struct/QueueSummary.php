@@ -48,7 +48,7 @@ class QueueSummary
      * @param  array  $items
      * @return self
      */
-    public function __construct($type, array $items = [])
+    public function __construct(string $type = '', array $items = [])
     {
         $this->setType($type)
              ->setItems($items);

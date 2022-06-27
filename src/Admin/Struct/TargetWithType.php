@@ -42,11 +42,12 @@ class TargetWithType
 
     /**
      * Constructor method for TargetWithType
+     * 
      * @param  string $type Target type
      * @param  string $value Value matching
      * @return self
      */
-    public function __construct(string $type, ?string $value = NULL)
+    public function __construct(string $type = '', ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $value) {

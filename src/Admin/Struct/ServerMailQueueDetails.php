@@ -47,7 +47,7 @@ class ServerMailQueueDetails
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueDetails $queue, string $name)
+    public function __construct(MailQueueDetails $queue, string $name = '')
     {
         $this->setQueue($queue)
              ->setServerName($name);

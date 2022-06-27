@@ -43,11 +43,12 @@ class MailQueueWithAction
 
     /**
      * Constructor method for MailQueueWithAction
+     * 
      * @param  MailQueueAction $action
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueAction $action, string $name)
+    public function __construct(MailQueueAction $action, string $name = '')
     {
         $this->setAction($action)
              ->setName($name);

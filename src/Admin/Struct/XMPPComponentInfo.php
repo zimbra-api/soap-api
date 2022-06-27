@@ -66,7 +66,11 @@ class XMPPComponentInfo extends AdminAttrsImpl
      * @return self
      */
     public function __construct(
-        string $name, string $id, ?string $domainName = NULL, ?string $serverName = NULL, array $attrs = []
+        string $name = '',
+        string $id = '',
+        ?string $domainName = NULL,
+        ?string $serverName = NULL,
+        array $attrs = []
     )
     {
         parent::__construct($attrs);

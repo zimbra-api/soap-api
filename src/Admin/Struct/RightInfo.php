@@ -99,18 +99,18 @@ class RightInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        RightType $type,
-        RightClass $rightClass,
-        string $desc,
+        string $name = '',
+        ?RightType $type = NULL,
+        ?RightClass $rightClass = NULL,
+        string $desc = '',
         ?string $targetType = NULL,
         ?RightsAttrs $attrs = NULL,
         ?ComboRights $rights = NULL
     )
     {
         $this->setName($name)
-             ->setType($type)
-             ->setRightClass($rightClass)
+             ->setType($type ?? RightType::PRESET())
+             ->setRightClass($rightClass ?? RightClass::USER())
              ->setDesc($desc);
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);

@@ -48,7 +48,7 @@ class BufferedCommitInfo
      * @param string $cid
      * @return self
      */
-    public function __construct(string $aid, string $cid)
+    public function __construct(string $aid = '', string $cid = '')
     {
         $this->setAid($aid)
              ->setCid($cid);

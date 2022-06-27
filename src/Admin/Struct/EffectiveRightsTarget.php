@@ -69,13 +69,13 @@ class EffectiveRightsTarget
      * @return self
      */
     public function __construct(
-        TargetType $type,
+        ?TargetType $type = NULL,
         ?EffectiveRightsInfo $all = NULL,
         array $inDomainLists = [],
         array $entriesLists = []
     )
     {
-        $this->setType($type)
+        $this->setType($type ?? TargetType::ACCOUNT())
              ->setInDomainLists($inDomainLists)
              ->setEntriesLists($entriesLists);
         if ($all instanceof EffectiveRightsInfo) {

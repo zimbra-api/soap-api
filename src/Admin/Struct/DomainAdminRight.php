@@ -70,14 +70,14 @@ class DomainAdminRight
      * @return self
      */
     public function __construct(
-        string $name,
-        RightType $type,
-        string $desc,
+        string $name = '',
+        ?RightType $type = NULL,
+        string $desc = '',
         array $rights = []
     )
     {
         $this->setName($name)
-             ->setType($type)
+             ->setType($type ?? RightType::PRESET())
              ->setDesc($desc)
              ->setRights($rights);
     }

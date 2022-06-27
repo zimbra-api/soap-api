@@ -47,9 +47,9 @@ class XMPPComponentSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(XmppBy $by, ?string $value = NULL)
+    public function __construct(?XmppBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? XmppBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -41,7 +41,9 @@ class AccountInfo extends AdminObjectInfo
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name, string $id, ?bool $isExternal = NULL, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', ?bool $isExternal = NULL, array $attrs = []
+    )
     {
         parent::__construct($name, $id, $attrs);
         if (NULL !== $isExternal) {

@@ -58,10 +58,12 @@ class ContactGroupMember
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
+    public function __construct(
+        string $type = '', string $value = '', ?ContactInfo $contact = NULL
+    )
     {
         $this->setType($type)
-            ->setValue($value);
+             ->setValue($value);
         if ($contact instanceof ContactInfo) {
             $this->setContact($contact);
         }

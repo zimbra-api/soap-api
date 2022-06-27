@@ -70,8 +70,8 @@ class TzFixupRuleMatchRules
     public function __construct(
         TzFixupRuleMatchRule $standard,
         TzFixupRuleMatchRule $daylight,
-        int $stdoff,
-        int $dayoff
+        int $stdoff = 0,
+        int $dayoff = 0
     )
     {
         $this->setStandard($standard)

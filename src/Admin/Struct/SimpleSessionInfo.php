@@ -79,11 +79,11 @@ class SimpleSessionInfo
      * @return self
      */
     public function __construct(
-        string $zimbraId,
-        string $name,
-        string $sessionId,
-        int $createdDate,
-        int $lastAccessedDate
+        string $zimbraId = '',
+        string $name = '',
+        string $sessionId = '',
+        int $createdDate = 0,
+        int $lastAccessedDate = 0
     )
     {
         $this->setZimbraId($zimbraId)

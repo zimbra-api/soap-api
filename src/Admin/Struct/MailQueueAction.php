@@ -50,16 +50,19 @@ class MailQueueAction
 
     /**
      * Constructor method for MailQueueAction
+     * 
      * @param  QueueQuery $query Query
      * @param  QueueAction $op Operation
      * @param  QueueActionBy $by By selector
      * @return self
      */
-    public function __construct(QueueQuery $query, QueueAction $op, QueueActionBy $by)
+    public function __construct(
+        QueueQuery $query, ?QueueAction $op = NULL, ?QueueActionBy $by = NULL
+    )
     {
         $this->setQuery($query)
-             ->setOp($op)
-             ->setBy($by);
+             ->setOp($op ?? QueueAction::HOLD())
+             ->setBy($by ?? QueueActionBy::ID());
     }
 
     /**

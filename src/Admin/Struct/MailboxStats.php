@@ -49,8 +49,8 @@ class MailboxStats
      * @return self
      */
     public function __construct(
-        int $numMboxes,
-        int $totalSize
+        int $numMboxes = 0,
+        int $totalSize = 0
     )
     {
         $this->setNumMboxes($numMboxes)

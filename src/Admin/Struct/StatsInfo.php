@@ -48,7 +48,7 @@ class StatsInfo
      * @param  StatsValues $values
      * @return self
      */
-    public function __construct(string $name, ?StatsValues $values = NULL)
+    public function __construct(string $name = '', ?StatsValues $values = NULL)
     {
         $this->setName($name);
         if ($values instanceof StatsValues) {

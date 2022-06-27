@@ -56,7 +56,9 @@ class AccountLoggerInfo
      * @param  array  $loggers
      * @return self
      */
-    public function __construct(string $name, string $id, array $loggers = [])
+    public function __construct(
+        string $name = '', string $id = '', array $loggers = []
+    )
     {
         $this->setName($name)
              ->setId($id)

@@ -58,7 +58,9 @@ class CosCountInfo
      * @param  int $value
      * @return self
      */
-    public function __construct(string $name, string $id, ?int $value = NULL)
+    public function __construct(
+        string $name = '', string $id = '', ?int $value = NULL
+    )
     {
         $this->setName($name)
              ->setId($id);

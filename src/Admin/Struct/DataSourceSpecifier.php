@@ -49,10 +49,12 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @param array $attrs
      * @return self
      */
-    public function __construct(DataSourceType $type, string $name, array $attrs = [])
+    public function __construct(
+        ?DataSourceType $type = NULL, string $name = '', array $attrs = []
+    )
     {
         parent::__construct($attrs);
-        $this->setType($type)
+        $this->setType($type ?? DataSourceType::IMAP())
              ->setName($name);
     }
 

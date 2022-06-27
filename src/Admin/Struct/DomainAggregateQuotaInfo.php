@@ -57,7 +57,9 @@ class DomainAggregateQuotaInfo
      * @param int    $quotaUsed
      * @return self
      */
-    public function __construct(string $name, string $id, int $quotaUsed)
+    public function __construct(
+        string $name = '', string $id = '', int $quotaUsed = 0
+    )
     {
         $this->setName($name)
              ->setId($id)

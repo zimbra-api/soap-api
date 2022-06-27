@@ -54,7 +54,9 @@ class StatsSpec
      * @param  string $limit
      * @return self
      */
-    public function __construct(StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL)
+    public function __construct(
+        StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL
+    )
     {
         $this->setValues($values);
         if (NULL !== $name) {

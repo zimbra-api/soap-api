@@ -86,9 +86,9 @@ class SessionInfo
      * @return self
      */
     public function __construct(
-        string $sessionId,
-        int $createdDate,
-        int $lastAccessedDate,
+        string $sessionId = '',
+        int $createdDate = 0,
+        int $lastAccessedDate = 0,
         ?string $zimbraId = NULL,
         ?string $name = NULL
     )

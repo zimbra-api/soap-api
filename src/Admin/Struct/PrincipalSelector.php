@@ -47,9 +47,9 @@ class PrincipalSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(PrincipalBy $by, ?string $value = NULL)
+    public function __construct(?PrincipalBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? PrincipalBy::DN());
         if (NULL !== $value) {
             $this->setValue($value);
         }

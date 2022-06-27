@@ -68,10 +68,10 @@ class UnexpectedBlobInfo
      * @return self
      */
     public function __construct(
-        int $volumeId,
-        string $path,
-        int $fileSize,
-        bool $external
+        int $volumeId = 0,
+        string $path = '',
+        int $fileSize = 0,
+        bool $external = FALSE
     )
     {
         $this->setVolumeId($volumeId)

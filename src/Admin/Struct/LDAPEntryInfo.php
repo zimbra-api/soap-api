@@ -39,7 +39,7 @@ class LDAPEntryInfo extends AdminAttrsImpl
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name, array $attrs = [])
+    public function __construct(string $name = '', array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setName($name);

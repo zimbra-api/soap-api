@@ -57,7 +57,9 @@ class GrantInfo
      * @param  RightModifierInfo $right
      * @return self
      */
-    public function __construct(TypeIdName $target, GranteeInfo $grantee, RightModifierInfo $right)
+    public function __construct(
+        TypeIdName $target, GranteeInfo $grantee, RightModifierInfo $right
+    )
     {
         $this->setTarget($target)
              ->setGrantee($grantee)

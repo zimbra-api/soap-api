@@ -59,7 +59,7 @@ class ReindexProgressInfo
      * @return self
      */
     public function __construct(
-        int $numSucceeded, int $numFailed, int $numRemaining
+        int $numSucceeded = 0, int $numFailed = 0, int $numRemaining = 0
     )
     {
         $this->setNumSucceeded($numSucceeded)

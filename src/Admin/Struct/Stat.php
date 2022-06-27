@@ -51,12 +51,15 @@ class Stat
 
     /**
      * Constructor method for Stat
+     * 
      * @param  string $value
      * @param  string $name
      * @param  string $description
      * @return self
      */
-    public function __construct(?string $value = NULL, ?string $name = NULL, ?string $description = NULL)
+    public function __construct(
+        ?string $value = NULL, ?string $name = NULL, ?string $description = NULL
+    )
     {
         if (NULL !== $value) {
             $this->setValue($value);

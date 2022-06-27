@@ -61,8 +61,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        string $id,
+        string $name = '',
+        string $id = '',
         array $members = [],
         array $attrs = [],
         array $owners = [],

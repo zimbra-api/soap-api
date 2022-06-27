@@ -46,7 +46,7 @@ class NameAndValue
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name, ?string $value = NULL)
+    public function __construct(string $name = '', ?string $value = NULL)
     {
         $this->setName($name);
         if (NULL !== $value) {

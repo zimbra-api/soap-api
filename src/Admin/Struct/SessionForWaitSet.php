@@ -99,8 +99,8 @@ class SessionForWaitSet
      * @return self
      */
     public function __construct(
-        string $account,
-        string $interests,
+        string $account = '',
+        string $interests = '',
         ?string $token = NULL,
         ?int $mboxSyncToken = NULL,
         ?int $mboxSyncTokenDiff = NULL,

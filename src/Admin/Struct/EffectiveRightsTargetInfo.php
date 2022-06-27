@@ -62,16 +62,16 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
      * @return self
      */
     public function __construct(
-        TargetType $type,
-        string $id,
-        string $name,
+        ?TargetType $type = NULL,
+        string $id = '',
+        string $name = '',
         EffectiveAttrsInfo $setAttrs,
         EffectiveAttrsInfo $getAttrs,
         array $rights = []
     )
     {
         parent::__construct($setAttrs, $getAttrs, $rights);
-        $this->setType($type)
+        $this->setType($type ?? TargetType::ACCOUNT())
              ->setId($id)
              ->setName($name);
     }

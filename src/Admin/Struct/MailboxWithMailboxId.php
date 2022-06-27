@@ -52,12 +52,15 @@ class MailboxWithMailboxId
 
     /**
      * Constructor method for MailboxWithMailboxId
+     * 
      * @param int $mbxid
      * @param string $accountId
      * @param int $size
      * @return self
      */
-    public function __construct(int $mbxid, string $accountId, ?int $size = NULL)
+    public function __construct(
+        int $mbxid = 0, string $accountId = '', ?int $size = NULL
+    )
     {
         $this->setMbxid($mbxid)
              ->setAccountId($accountId);

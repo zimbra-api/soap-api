@@ -68,10 +68,10 @@ class BlobSizeInfo
      * @return self
      */
     public function __construct(
-        string $path,
-        int $size,
-        int $fileSize,
-        bool $external
+        string $path = '',
+        int $size = 0,
+        int $fileSize = 0,
+        bool $external = FALSE
     )
     {
         $this->setPath($path)

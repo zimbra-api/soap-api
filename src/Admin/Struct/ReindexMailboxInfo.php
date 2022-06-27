@@ -58,7 +58,9 @@ class ReindexMailboxInfo
      * @param string $ids
      * @return self
      */
-    public function __construct(string $id, ?string $types = NULL, ?string $ids = NULL)
+    public function __construct(
+        string $id = '', ?string $types = NULL, ?string $ids = NULL
+    )
     {
         $this->setId($id);
         if (NULL !== $types) {

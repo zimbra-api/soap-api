@@ -78,18 +78,20 @@ class UsedBlobInfo
      * @return self
      */
     public function __construct(
-        int $id,
-        int $revision,
-        int $size,
-        int $volumeId,
-        BlobSizeInfo $blob
+        int $id = 0,
+        int $revision = 0,
+        int $size = 0,
+        int $volumeId = 0,
+        ?BlobSizeInfo $blob = NULL
     )
     {
         $this->setId($id)
              ->setRevision($revision)
              ->setSize($size)
-             ->setVolumeId($volumeId)
-             ->setBlob($blob);
+             ->setVolumeId($volumeId);
+        if ($blob instanceof BlobSizeInfo) {
+            $this->setBlob($blob);
+        }
     }
 
     /**
@@ -185,7 +187,7 @@ class UsedBlobInfo
      *
      * @return BlobSizeInfo
      */
-    public function getBlob(): BlobSizeInfo
+    public function getBlob(): ?BlobSizeInfo
     {
         return $this->blob;
     }

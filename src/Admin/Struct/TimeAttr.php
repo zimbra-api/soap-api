@@ -34,10 +34,11 @@ class TimeAttr
 
     /**
      * Constructor method for TimeAttr
+     * 
      * @param  string $time
      * @return self
      */
-    public function __construct(string $time)
+    public function __construct(string $time = '')
     {
         $this->setTime($time);
     }
