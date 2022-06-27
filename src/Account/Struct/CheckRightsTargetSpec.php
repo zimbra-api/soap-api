@@ -64,10 +64,12 @@ class CheckRightsTargetSpec
      * @param  array $rights
      * @return self
      */
-    public function __construct(TargetType $type, TargetBy $by, string $key, array $rights = [])
+    public function __construct(
+        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', array $rights = []
+    )
     {
-        $this->setTargetType($type)
-             ->setTargetBy($by)
+        $this->setTargetType($type ?? TargetType::ACCOUNT())
+             ->setTargetBy($by ?? TargetBy::ID())
              ->setTargetKey($key)
              ->setRights($rights);
     }

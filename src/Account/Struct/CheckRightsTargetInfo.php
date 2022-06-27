@@ -66,6 +66,7 @@ class CheckRightsTargetInfo
 
     /**
      * Constructor method for CheckRightsTargetInfo
+     * 
      * @param  TargetType $type
      * @param  TargetBy $by
      * @param  string $key
@@ -74,11 +75,11 @@ class CheckRightsTargetInfo
      * @return self
      */
     public function __construct(
-        TargetType $type, TargetBy $by, string $key, bool $allow, array $rights = []
+        ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', bool $allow = FALSE, array $rights = []
     )
     {
-        $this->setTargetType($type)
-             ->setTargetBy($by)
+        $this->setTargetType($type ?? TargetType::ACCOUNT())
+             ->setTargetBy($by ?? TargetBy::ID())
              ->setTargetKey($key)
              ->setAllow($allow)
              ->setRights($rights);

@@ -52,12 +52,15 @@ class ContactGroupMember
 
     /**
      * Constructor method for ContactGroupMember
+     * 
      * @param  string $type
      * @param  string $value
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
+    public function __construct(
+        string $type = '', string $value = '', ?ContactInfo $contact = NULL
+    )
     {
         $this->setType($type)
              ->setValue($value);

@@ -48,12 +48,15 @@ class Attr
 
     /**
      * Constructor method for Attr
+     * 
      * @param  string $name
      * @param  string $value
      * @param  bool   $pd
      * @return self
      */
-    public function __construct(string $name, ?string $value = NULL, ?bool $pd = NULL)
+    public function __construct(
+        string $name = '', ?string $value = NULL, ?bool $pd = NULL
+    )
     {
         $this->setName($name);
         if (NULL !== $value) {

@@ -79,10 +79,10 @@ class ChildAccount
      * @return self
      */
     public function __construct(
-        string $id,
-        string $name,
-        bool $isVisible = NULL,
-        bool $isActive,
+        string $id = '',
+        string $name = '',
+        bool $isVisible = FALSE,
+        bool $isActive = FALSE,
         array $attrs = []
     )
     {

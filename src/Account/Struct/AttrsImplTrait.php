@@ -33,6 +33,7 @@ trait AttrsImplTrait
 
     /**
      * Constructor method for AttrsImpl
+     * 
      * @param array $attrs
      * @return self
      */

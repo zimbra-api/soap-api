@@ -48,7 +48,7 @@ abstract class HABMember
      * @param  int $seniorityIndex
      * @return self
      */
-    public function __construct(string $name, ?int $seniorityIndex = NULL)
+    public function __construct(string $name = '', ?int $seniorityIndex = NULL)
     {
         $this->setName($name);
         if (NULL !== $seniorityIndex) {

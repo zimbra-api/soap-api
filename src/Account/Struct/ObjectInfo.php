@@ -60,7 +60,9 @@ abstract class ObjectInfo
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name, string $id, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

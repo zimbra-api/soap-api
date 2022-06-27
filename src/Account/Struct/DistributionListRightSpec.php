@@ -44,11 +44,12 @@ class DistributionListRightSpec
 
     /**
      * Constructor method for DistributionListRightSpec
+     * 
      * @param string $right
-     * @param array $grantees
+     * @param array  $grantees
      * @return self
      */
-    public function __construct(string $right, array $grantees = [])
+    public function __construct(string $right = '', array $grantees = [])
     {
         $this->setRight($right)
              ->setGrantees($grantees);

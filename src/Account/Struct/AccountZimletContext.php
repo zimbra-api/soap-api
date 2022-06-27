@@ -61,13 +61,13 @@ class AccountZimletContext implements ZimletContextInterface
      * @return self
      */
     public function __construct(
-        string $baseUrl,
-        ZimletPresence $presence,
+        string $baseUrl = '',
+        ?ZimletPresence $presence = NULL,
         ?int $priority = NULL
     )
     {
         $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence);
+             ->setZimletPresence($presence ?? ZimletPresence::DISABLED());
         if (NULL !== $priority) {
             $this->setZimletPriority($priority);
         }

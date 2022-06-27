@@ -51,14 +51,17 @@ class DistributionListSubscribeReq
 
     /**
      * Constructor method for DistributionListSubscribeReq
+     * 
      * @param  SubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
-    public function __construct(SubscribeOp $op, ?string $value = NULL, ?bool $bccOwners = NULL)
+    public function __construct(
+        ?SubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
+    )
     {
-		$this->setOp($op);
+		$this->setOp($op ?? SubscribeOp::SUBSCRIBE());
         if (NULL !== $value) {
             $this->setValue($value);
         }

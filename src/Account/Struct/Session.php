@@ -54,7 +54,7 @@ class Session
      * @param  string $type
      * @return self
      */
-    public function __construct(string $id, ?string $type = NULL)
+    public function __construct(string $id = '', ?string $type = NULL)
     {
         $this->setValue($id)
              ->setId($id);

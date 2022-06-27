@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\AdminAttrsImpl;
 use Zimbra\Admin\Struct\Attr;
@@ -15,12 +17,12 @@ class AdminAttrsImplTest extends ZimbraTestCase
     {
         $stub = new StubAdminAttrsImpl();
 
-        $key1 = $this->faker->word;
-        $value1 = $this->faker->word;
-        $key2 = $this->faker->word;
-        $value2 = $this->faker->word;
-        $key3 = $this->faker->word;
-        $value3 = $this->faker->word;
+        $key1 = $this->faker->unique->word;
+        $value1 = $this->faker->unique->word;
+        $key2 = $this->faker->unique->word;
+        $value2 = $this->faker->unique->word;
+        $key3 = $this->faker->unique->word;
+        $value3 = $this->faker->unique->word;
 
         $attr1 = new Attr($key1, $value1);
         $attr2 = new Attr($key2, $value2);
@@ -32,10 +34,10 @@ class AdminAttrsImplTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <a n="$key1">$value1</a>
-    <a n="$key2">$value2</a>
-    <a n="$key3">$value3</a>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key1">$value1</urn:a>
+    <urn:a n="$key2">$value2</urn:a>
+    <urn:a n="$key3">$value3</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
@@ -43,6 +45,9 @@ EOT;
     }
 }
 
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
 class StubAdminAttrsImpl extends AdminAttrsImpl
 {
 }

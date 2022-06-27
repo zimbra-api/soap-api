@@ -93,8 +93,8 @@ class DistributionListInfo extends ObjectInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        string $id,
+        string $name = '',
+        string $id = '',
         array $attrs = [],
         array $members = [],
         array $owners = [],

@@ -86,7 +86,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @return self
      */
     public function __construct(
-        Operation $op,
+        ?Operation $op = NULL,
         ?string $newName = NULL,
         ?Subscribe $subsReq = NULL,
         array $dlms = [],
@@ -96,7 +96,7 @@ class DistributionListAction extends AccountKeyValuePairs
     )
     {
         parent::__construct($attrs);
-        $this->setOp($op);
+        $this->setOp($op ?? Operation::GRANT_RIGHTS());
         if (NULL !== $newName) {
             $this->setNewName($newName);
         }

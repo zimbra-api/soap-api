@@ -48,7 +48,7 @@ class DistributionListRightInfo
      * @param array  $grantees
      * @return self
      */
-    public function __construct(string $right, array $grantees = [])
+    public function __construct(string $right = '', array $grantees = [])
     {
         $this->setRight($right)
              ->setGrantees($grantees);

@@ -96,9 +96,9 @@ class DLInfo extends ObjectInfo
      * @return self
      */
     public function __construct(
-        string $id,
-        string $ref,
-        string $name,
+        string $id = '',
+        string $ref = '',
+        string $name = '',
         string $displayName = NULL,
         ?bool $dynamic = NULL,
         ?string $via = NULL,

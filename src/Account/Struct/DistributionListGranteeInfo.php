@@ -59,9 +59,11 @@ class DistributionListGranteeInfo
      * @param  string $name
      * @return self
      */
-    public function __construct(GranteeType $type, string $id, string $name)
+    public function __construct(
+        ?GranteeType $type = NULL, string $id = '', string $name = ''
+    )
     {
-        $this->setType($type)
+        $this->setType($type ?? GranteeType::ALL())
              ->setId($id)
              ->setName($name);
     }

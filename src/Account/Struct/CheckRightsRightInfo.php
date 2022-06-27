@@ -48,7 +48,7 @@ class CheckRightsRightInfo
      * @param  bool   $allow
      * @return self
      */
-    public function __construct(string $right, bool $allow)
+    public function __construct(string $right = '', bool $allow = FALSE)
     {
         $this->setRight($right)
              ->setAllow($allow);

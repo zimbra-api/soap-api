@@ -49,7 +49,7 @@ class DiscoverRightsInfo
      * @return self
      */
     public function __construct(
-        string $right,
+        string $right = '',
         array $targets = []
     )
     {

@@ -37,7 +37,7 @@ class DiscoverRightsEmail
      * @param string $addr
      * @return self
      */
-    public function __construct(string $addr)
+    public function __construct(string $addr = '')
     {
         $this->setAddr($addr);
     }

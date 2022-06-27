@@ -36,7 +36,7 @@ class Right
      * @param string $right
      * @return self
      */
-    public function __construct(string $right)
+    public function __construct(string $right = '')
     {
         $this->setRight($right);
     }

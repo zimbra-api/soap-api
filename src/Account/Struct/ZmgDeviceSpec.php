@@ -95,9 +95,9 @@ class ZmgDeviceSpec
      * @return self
      */
     public function __construct(
-        string $appId,
-        string $registrationId,
-        string $pushProvider,
+        string $appId = '',
+        string $registrationId = '',
+        string $pushProvider = '',
         ?string $osName = NULL,
         ?string $osVersion = NULL,
         ?int $maxPayloadSize = NULL
