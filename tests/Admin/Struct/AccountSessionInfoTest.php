@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AccountSessionInfo;
 use Zimbra\Admin\Struct\SessionInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -24,12 +26,12 @@ class AccountSessionInfoTest extends ZimbraTestCase
             $sessionId, $createdDate, $lastAccessedDate, $zimbraId, $name
         );
 
-        $info = new AccountSessionInfo($name, $id, [$session]);
+        $info = new StubAccountSessionInfo($name, $id, [$session]);
         $this->assertSame($name, $info->getName());
         $this->assertSame($id, $info->getId());
         $this->assertSame([$session], $info->getSessions());
 
-        $info = new AccountSessionInfo('', '');
+        $info = new StubAccountSessionInfo('', '');
         $info->setName($name)
             ->setId($id)
             ->setSessions([$session])
@@ -41,11 +43,18 @@ class AccountSessionInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
-        $this->assertEquals($info, $this->serializer->deserialize($xml, AccountSessionInfo::class, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, StubAccountSessionInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAccountSessionInfo extends AccountSessionInfo
+{
 }

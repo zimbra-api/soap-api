@@ -56,7 +56,7 @@ class CalTZInfo
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TzOnsetInfo $standardTzOnset = NULL;
 
@@ -65,7 +65,7 @@ class CalTZInfo
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TzOnsetInfo $daylightTzOnset = NULL;
 
@@ -99,9 +99,9 @@ class CalTZInfo
      * @return self
      */
     public function __construct(
-        string $id,
-        int $stdoff,
-        int $dayoff,
+        string $id = '',
+        int $stdoff = 0,
+        int $dayoff = 0,
         ?TzOnsetInfo $standard = NULL,
         ?TzOnsetInfo $daylight = NULL,
         ?string $stdname = NULL,

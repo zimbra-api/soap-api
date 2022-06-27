@@ -29,7 +29,7 @@ class TestResultInfo
      * @Accessor(getter="getCompletedTests", setter="setCompletedTests")
      * @SerializedName("completed")
      * @Type("array<Zimbra\Admin\Struct\CompletedTestInfo>")
-     * @XmlList(inline = true, entry = "completed")
+     * @XmlList(inline=true, entry="completed", namespace="urn:zimbraAdmin")
      */
     private $completedTests = [];
 
@@ -39,7 +39,7 @@ class TestResultInfo
      * @Accessor(getter="getFailedTests", setter="setFailedTests")
      * @SerializedName("failure")
      * @Type("array<Zimbra\Admin\Struct\FailedTestInfo>")
-     * @XmlList(inline = true, entry = "failure")
+     * @XmlList(inline=true, entry="failure", namespace="urn:zimbraAdmin")
      */
     private $failedTests = [];
 

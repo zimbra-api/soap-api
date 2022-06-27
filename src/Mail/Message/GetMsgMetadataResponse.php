@@ -31,7 +31,7 @@ class GetMsgMetadataResponse implements ResponseInterface
      * @Accessor(getter="getChatMessages", setter="setChatMessages")
      * @SerializedName("chat")
      * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
-     * @XmlList(inline = true, entry = "chat")
+     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
      */
     private $chatMessages = [];
 
@@ -41,7 +41,7 @@ class GetMsgMetadataResponse implements ResponseInterface
      * @Accessor(getter="getMsgMessages", setter="setMsgMessages")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
-     * @XmlList(inline = true, entry = "m")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */
     private $msgMessages = [];
 

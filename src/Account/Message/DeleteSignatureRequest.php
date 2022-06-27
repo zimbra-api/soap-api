@@ -32,7 +32,7 @@ class DeleteSignatureRequest extends Request
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private NameId $signature;
 

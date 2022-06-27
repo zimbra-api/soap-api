@@ -30,7 +30,7 @@ class GetMailboxMetadataResponse implements ResponseInterface
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MailCustomMetadata $metadata = NULL;
 

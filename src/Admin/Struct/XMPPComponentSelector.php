@@ -36,7 +36,6 @@ class XMPPComponentSelector
     /**
      * The key used to identify the XMPP component
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +47,9 @@ class XMPPComponentSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(XmppBy $by, ?string $value = NULL)
+    public function __construct(?XmppBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? XmppBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

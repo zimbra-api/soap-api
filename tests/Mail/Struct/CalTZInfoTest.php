@@ -66,33 +66,5 @@ class CalTZInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tz, 'xml'));
         $this->assertEquals($tz, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'stdoff' => $tzStdOffset,
-            'dayoff' => $tzDayOffset,
-            'stdname' => $standardTZName,
-            'dayname' => $daylightTZName,
-            'standard' => [
-                'mon' => $mon,
-                'hour' => $hour,
-                'min' => $min,
-                'sec' => $sec,
-                'mday' => $mday,
-                'week' => $week,
-                'wkday' => $wkday,
-            ],
-            'daylight' => [
-                'mon' => $mon,
-                'hour' => $hour,
-                'min' => $min,
-                'sec' => $sec,
-                'mday' => $mday,
-                'week' => $week,
-                'wkday' => $wkday,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tz, 'json'));
-        $this->assertEquals($tz, $this->serializer->deserialize($json, CalTZInfo::class, 'json'));
     }
 }

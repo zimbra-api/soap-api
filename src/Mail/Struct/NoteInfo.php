@@ -138,7 +138,7 @@ class NoteInfo
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $content;
 
@@ -147,7 +147,7 @@ class NoteInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
     private $metadatas = [];
 

@@ -49,7 +49,9 @@ class CalendarResourceInfo extends AccountKeyValuePairs
      * @param  array  $keyValuePairs
      * @return self
      */
-    public function __construct(string $name, string $id, array $keyValuePairs = [])
+    public function __construct(
+        string $name = '', string $id = '', array $keyValuePairs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

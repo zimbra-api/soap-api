@@ -45,7 +45,6 @@ class EffectiveRightsTargetSelector
     /**
      * The value
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -53,14 +52,17 @@ class EffectiveRightsTargetSelector
 
     /**
      * Constructor method for EffectiveRightsTargetSelector
+     * 
      * @param TargetType $type
-     * @param TargetBy $by
-     * @param string $value
+     * @param TargetBy   $by
+     * @param string     $value
      * @return self
      */
-    public function __construct(TargetType $type, ?TargetBy $by = NULL, ?string $value = NULL)
+    public function __construct(
+        ?TargetType $type = NULL, ?TargetBy $by = NULL, ?string $value = NULL
+    )
     {
-        $this->setType($type);
+        $this->setType($type ?? TargetType::ACCOUNT());
         if (NULL !== $by) {
             $this->setBy($by);
         }

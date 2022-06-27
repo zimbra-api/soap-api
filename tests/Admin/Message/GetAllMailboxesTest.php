@@ -83,7 +83,7 @@ class GetAllMailboxesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllMailboxesRequest limit="$limit" offset="$offset" />
         <urn:GetAllMailboxesResponse more="true" searchTotal="$searchTotal">
-            <mbox id="$id" groupId="$groupId" accountId="$accountId" indexVolumeId="$indexVolumeId" itemIdCheckPoint="$itemIdCheckPoint" contactCount="$contactCount" sizeCheckPoint="$sizeCheckPoint" changeCheckPoint="$changeCheckPoint" trackingSync="$trackingSync" trackingImap="true" lastBackupAt="$lastBackupAt" lastSoapAccess="$lastSoapAccess" newMessages="$newMessages" />
+            <urn:mbox id="$id" groupId="$groupId" accountId="$accountId" indexVolumeId="$indexVolumeId" itemIdCheckPoint="$itemIdCheckPoint" contactCount="$contactCount" sizeCheckPoint="$sizeCheckPoint" changeCheckPoint="$changeCheckPoint" trackingSync="$trackingSync" trackingImap="true" lastBackupAt="$lastBackupAt" lastSoapAccess="$lastSoapAccess" newMessages="$newMessages" />
         </urn:GetAllMailboxesResponse>
     </soap:Body>
 </soap:Envelope>

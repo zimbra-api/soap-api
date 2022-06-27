@@ -35,13 +35,5 @@ class DtTimeInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dt, 'xml'));
         $this->assertEquals($dt, $this->serializer->deserialize($xml, DtTimeInfo::class, 'xml'));
-
-        $json = json_encode([
-            'd' => $dateTime,
-            'tz' => $timezone,
-            'u' => $utcTime,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dt, 'json'));
-        $this->assertEquals($dt, $this->serializer->deserialize($json, DtTimeInfo::class, 'json'));
     }
 }

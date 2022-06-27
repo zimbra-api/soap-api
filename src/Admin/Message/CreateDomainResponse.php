@@ -30,7 +30,7 @@ class CreateDomainResponse implements ResponseInterface
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private DomainInfo $domain;
 

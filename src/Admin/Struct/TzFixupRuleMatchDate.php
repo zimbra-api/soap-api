@@ -47,7 +47,7 @@ class TzFixupRuleMatchDate
      * @param int $mday
      * @return self
      */
-    public function __construct(int $mon, int $mday)
+    public function __construct(int $mon = 0, int $mday = 0)
     {
         $this->setMonth($mon)
              ->setMonthDay($mday);

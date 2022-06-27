@@ -111,7 +111,7 @@ class PartInfo implements PartInfoInterface
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $content;
 
@@ -120,7 +120,7 @@ class PartInfo implements PartInfoInterface
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
-     * @XmlList(inline = true, entry = "mp")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
     private $mimeParts = [];
 

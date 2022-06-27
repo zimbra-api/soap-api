@@ -32,7 +32,7 @@ class GetCurrentVolumesResponse implements ResponseInterface
      * @Accessor(getter="getVolumes", setter="setVolumes")
      * @SerializedName("volume")
      * @Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")
-     * @XmlList(inline = true, entry = "volume")
+     * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
      */
     private $volumes = [];
 

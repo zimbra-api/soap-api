@@ -85,25 +85,5 @@ class AutoCompleteMatchTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
         $this->assertEquals($match, $this->serializer->deserialize($xml, AutoCompleteMatch::class, 'xml'));
-
-        $json = json_encode([
-            'email' => $email,
-            'type' => 'gal',
-            'ranking' => $ranking,
-            'isGroup' => TRUE,
-            'exp' => TRUE,
-            'id' => $id,
-            'l' => $folder,
-            'display' => $displayName,
-            'first' => $firstName,
-            'middle' => $middleName,
-            'last' => $lastName,
-            'full' => $fullName,
-            'nick' => $nickname,
-            'company' => $company,
-            'fileas' => $fileAs,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($match, 'json'));
-        $this->assertEquals($match, $this->serializer->deserialize($json, AutoCompleteMatch::class, 'json'));
     }
 }

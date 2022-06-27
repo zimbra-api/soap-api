@@ -58,7 +58,9 @@ class TypeIdName
      * @param  string $name
      * @return self
      */
-    public function __construct(string $type, string $id, string $name)
+    public function __construct(
+        string $type = '', string $id = '', string $name = ''
+    )
     {
         $this->setType($type)
              ->setId($id)

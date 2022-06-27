@@ -31,7 +31,7 @@ class CreateNoteRequest extends Request
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NewNoteSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private NewNoteSpec $note;
 

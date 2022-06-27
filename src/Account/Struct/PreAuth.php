@@ -27,7 +27,6 @@ class PreAuth
     /**
      * Computed preauth value
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -60,7 +59,9 @@ class PreAuth
      * @param  int    $expiresTimestamp
      * @return self
      */
-    public function __construct(int $timestamp, ?string $value = NULL, ?int $expiresTimestamp = NULL)
+    public function __construct(
+        int $timestamp = 0, ?string $value = NULL, ?int $expiresTimestamp = NULL
+    )
     {
         $this->setTimestamp($timestamp);
         if (NULL !== $value) {

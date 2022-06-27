@@ -73,12 +73,12 @@ class AddAccountLoggerTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AddAccountLoggerRequest>
-            <logger category="$category" level="info" />
-            <account by="name">$value</account>
-            <id>$id</id>
+            <urn:logger category="$category" level="info" />
+            <urn:account by="name">$value</urn:account>
+            <urn:id>$id</urn:id>
         </urn:AddAccountLoggerRequest>
         <urn:AddAccountLoggerResponse>
-            <logger category="$category" level="info" />
+            <urn:logger category="$category" level="info" />
         </urn:AddAccountLoggerResponse>
     </soap:Body>
 </soap:Envelope>

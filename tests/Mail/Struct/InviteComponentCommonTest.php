@@ -111,39 +111,5 @@ class InviteComponentCommonTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, InviteComponentCommon::class, 'xml'));
-
-        $json = json_encode([
-            'method' => $method,
-            'compNum' => $componentNum,
-            'rsvp' => TRUE,
-            'priority' => $priority,
-            'name' => $name,
-            'loc' => $location,
-            'percentComplete' => $percentComplete,
-            'completed' => $completed,
-            'noBlob' => TRUE,
-            'fba' => 'F',
-            'fb' => 'B',
-            'transp' => 'O',
-            'isOrg' => TRUE,
-            'x_uid' => $xUid,
-            'uid' => $uid,
-            'seq' => $sequence,
-            'd' => $dateTime,
-            'calItemId' => $calItemId,
-            'apptId' => $deprecatedApptId,
-            'ciFolder' => $calItemFolder,
-            'status' => 'CONF',
-            'class' => 'PUB',
-            'url' => $url,
-            'ex' => TRUE,
-            'ridZ' => $recurIdZ,
-            'allDay' => TRUE,
-            'draft' => TRUE,
-            'neverSent' => TRUE,
-            'changes' => $changes,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($inv, 'json'));
-        $this->assertEquals($inv, $this->serializer->deserialize($json, InviteComponentCommon::class, 'json'));
     }
 }

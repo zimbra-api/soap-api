@@ -104,15 +104,15 @@ class AuthResponseTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AuthRequest name="$name" password="$password" persistAuthTokenCookie="true" csrfTokenSecured="true">
-            <authToken>$authToken</authToken>
-            <account by="name">$value</account>
-            <virtualHost>$virtualHost</virtualHost>
-            <twoFactorCode>$twoFactorCode</twoFactorCode>
+            <urn:authToken>$authToken</urn:authToken>
+            <urn:account by="name">$value</urn:account>
+            <urn:virtualHost>$virtualHost</urn:virtualHost>
+            <urn:twoFactorCode>$twoFactorCode</urn:twoFactorCode>
         </urn:AuthRequest>
         <urn:AuthResponse>
-            <authToken>$authToken</authToken>
-            <csrfToken>$csrfToken</csrfToken>
-            <lifetime>$lifetime</lifetime>
+            <urn:authToken>$authToken</urn:authToken>
+            <urn:csrfToken>$csrfToken</urn:csrfToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
         </urn:AuthResponse>
     </soap:Body>
 </soap:Envelope>

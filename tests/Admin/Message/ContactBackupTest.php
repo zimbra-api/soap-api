@@ -65,14 +65,14 @@ class ContactBackupTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ContactBackupRequest op="start">
-            <servers>
-                <server by="name">$value</server>
-            </servers>
+            <urn:servers>
+                <urn:server by="name">$value</urn:server>
+            </urn:servers>
         </urn:ContactBackupRequest>
         <urn:ContactBackupResponse>
-            <servers>
-                <server name="$name" status="stopped" />
-            </servers>
+            <urn:servers>
+                <urn:server name="$name" status="stopped" />
+            </urn:servers>
         </urn:ContactBackupResponse>
     </soap:Body>
 </soap:Envelope>

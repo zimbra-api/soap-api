@@ -77,15 +77,15 @@ class GetAllRightsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllRightsRequest targetType="$targetType" expandAllAttrs="true" rightClass="ALL" />
         <urn:GetAllRightsResponse>
-            <right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
-                <desc>$desc</desc>
-                <attrs all="true">
-                    <a n="$key">$value</a>
-                </attrs>
-                <rights>
-                    <r n="$name" type="preset" targetType="$targetType" />
-                </rights>
-            </right>
+            <urn:right name="$name" type="preset" targetType="$targetType" rightClass="ALL">
+                <urn:desc>$desc</urn:desc>
+                <urn:attrs all="true">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:attrs>
+                <urn:rights>
+                    <urn:r n="$name" type="preset" targetType="$targetType" />
+                </urn:rights>
+            </urn:right>
         </urn:GetAllRightsResponse>
     </soap:Body>
 </soap:Envelope>

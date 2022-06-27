@@ -46,7 +46,7 @@ class DeleteSignatureTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:DeleteSignatureRequest>
-            <signature name="$name" id="$id"/>
+            <urn:signature name="$name" id="$id" />
         </urn:DeleteSignatureRequest>
         <urn:DeleteSignatureResponse />
     </soap:Body>

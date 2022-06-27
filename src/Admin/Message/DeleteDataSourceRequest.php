@@ -44,7 +44,7 @@ class DeleteDataSourceRequest extends Request implements AdminAttrs
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Id $dataSource;
 

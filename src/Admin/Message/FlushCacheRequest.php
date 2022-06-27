@@ -41,7 +41,7 @@ class FlushCacheRequest extends Request
      * @Accessor(getter="getCache", setter="setCache")
      * @SerializedName("cache")
      * @Type("Zimbra\Admin\Struct\CacheSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?CacheSelector $cache = NULL;
 

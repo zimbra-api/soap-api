@@ -44,7 +44,7 @@ class CreateDataSourceRequest extends Request
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
-     * @XmlElement()
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private DataSourceSpecifier $dataSource;
 

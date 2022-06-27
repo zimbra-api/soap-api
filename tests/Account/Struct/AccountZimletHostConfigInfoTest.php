@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\AccountZimletHostConfigInfo;
 use Zimbra\Account\Struct\AccountZimletProperty;
 use Zimbra\Tests\ZimbraTestCase;
@@ -22,7 +24,7 @@ class AccountZimletHostConfigInfoTest extends ZimbraTestCase
         $this->assertSame($name, $host->getName());
         $this->assertSame([$property], $host->getZimletProperties());
 
-        $host = new AccountZimletHostConfigInfo;
+        $host = new MockAccountZimletHostConfigInfo;
         $host->setName($name)
             ->setZimletProperties([$property])
             ->addZimletProperty($property);
@@ -32,11 +34,18 @@ class AccountZimletHostConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <property name="$name">$value</property>
+<result name="$name" xmlns:urn="urn:zimbraAccount">
+    <urn:property name="$name">$value</urn:property>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($host, 'xml'));
-        $this->assertEquals($host, $this->serializer->deserialize($xml, AccountZimletHostConfigInfo::class, 'xml'));
+        $this->assertEquals($host, $this->serializer->deserialize($xml, MockAccountZimletHostConfigInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountZimletHostConfigInfo extends AccountZimletHostConfigInfo
+{
 }

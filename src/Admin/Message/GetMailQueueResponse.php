@@ -30,7 +30,7 @@ class GetMailQueueResponse implements ResponseInterface
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Server $server;
 

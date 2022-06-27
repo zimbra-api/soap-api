@@ -73,16 +73,16 @@ class GetAllDistributionListsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAllDistributionListsRequest>
-            <domain by="name">$value</domain>
+            <urn:domain by="name">$value</urn:domain>
         </urn:GetAllDistributionListsRequest>
         <urn:GetAllDistributionListsResponse>
-            <dl name="$name" id="$id" dynamic="true">
-                <a n="$key">$value</a>
-                <dlm>$member</dlm>
-                <owners>
-                    <owner id="$id" name="$name" type="all" />
-                </owners>
-            </dl>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
         </urn:GetAllDistributionListsResponse>
     </soap:Body>
 </soap:Envelope>

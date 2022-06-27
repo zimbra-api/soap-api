@@ -97,39 +97,5 @@ class CreateWaitSetTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateWaitSetEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateWaitSetRequest' => [
-                    'defTypes' => $interests,
-                    'allAccounts' => TRUE,
-                    'add' => [
-                        'a' => [
-                            [
-                                'name' => $name,
-                                'id' => $id,
-                                'token' => $token,
-                                'types' => $interests,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CreateWaitSetResponse' => [
-                    'waitSet' => $id,
-                    'defTypes' => $interests,
-                    'seq' => $sequence,
-                    'error' => [
-                        [
-                            'id' => $id,
-                            'type' => $type,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateWaitSetEnvelope::class, 'json'));
     }
 }

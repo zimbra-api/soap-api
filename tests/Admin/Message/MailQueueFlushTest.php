@@ -52,7 +52,7 @@ class MailQueueFlushTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:MailQueueFlushRequest>
-            <server name="$name" />
+            <urn:server name="$name" />
         </urn:MailQueueFlushRequest>
         <urn:MailQueueFlushResponse />
     </soap:Body>

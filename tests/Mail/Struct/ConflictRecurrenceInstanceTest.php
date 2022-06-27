@@ -44,21 +44,5 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
         $this->assertEquals($inst, $this->serializer->deserialize($xml, ConflictRecurrenceInstance::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'dur' => $duration,
-            'allDay' => TRUE,
-            'tzo' => $tzOffset,
-            'ridZ' => $recurIdZ,
-            'usr' => [
-                [
-                    'name' => $name,
-                    'fb' => 'F',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($inst, 'json'));
-        $this->assertEquals($inst, $this->serializer->deserialize($json, ConflictRecurrenceInstance::class, 'json'));
     }
 }

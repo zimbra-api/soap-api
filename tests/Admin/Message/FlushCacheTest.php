@@ -54,9 +54,9 @@ class FlushCacheTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:FlushCacheRequest>
-            <cache type="$types" allServers="true" imapServers="true">
-                <entry by="id">$value</entry>
-            </cache>
+            <urn:cache type="$types" allServers="true" imapServers="true">
+                <urn:entry by="id">$value</urn:entry>
+            </urn:cache>
         </urn:FlushCacheRequest>
         <urn:FlushCacheResponse />
     </soap:Body>

@@ -32,7 +32,7 @@ class GetAccountLoggersRequest extends Request
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $id;
 
@@ -41,7 +41,7 @@ class GetAccountLoggersRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?AccountSelector $account = NULL;
 

@@ -43,7 +43,7 @@ class Signature
      * @Accessor(getter="getCid", setter="setCid")
      * @SerializedName("cid")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $cid;
 
@@ -53,7 +53,7 @@ class Signature
      * @Accessor(getter="getContents", setter="setContents")
      * @SerializedName("content")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
-     * @XmlList(inline = true, entry = "content")
+     * @XmlList(inline=true, entry="content", namespace="urn:zimbraAccount")
      */
     private $contents = [];
 

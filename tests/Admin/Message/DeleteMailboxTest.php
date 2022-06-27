@@ -56,10 +56,10 @@ class DeleteMailboxTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteMailboxRequest>
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:DeleteMailboxRequest>
         <urn:DeleteMailboxResponse>
-            <mbox mbxid="$mbxid" id="$id" s="$size" />
+            <urn:mbox mbxid="$mbxid" id="$id" s="$size" />
         </urn:DeleteMailboxResponse>
     </soap:Body>
 </soap:Envelope>

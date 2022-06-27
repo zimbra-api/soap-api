@@ -91,10 +91,10 @@ class TzOnsetInfo
      * @return self
      */
     public function __construct(
-        int $mon,
-        int $hour,
-        int $min,
-        int $sec,
+        int $mon = 0,
+        int $hour = 0,
+        int $min = 0,
+        int $sec = 0,
         ?int $mday = NULL,
         ?int $week = NULL,
         ?int $wkday = NULL

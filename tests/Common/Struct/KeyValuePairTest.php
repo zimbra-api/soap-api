@@ -19,7 +19,7 @@ class KeyValuePairTest extends ZimbraTestCase
         $this->assertSame($key, $kpv->getKey());
         $this->assertSame($value, $kpv->getValue());
 
-        $kpv = new KeyValuePair('', '');
+        $kpv = new KeyValuePair();
         $kpv->setKey($key)
             ->setValue($value);
         $this->assertSame($key, $kpv->getKey());

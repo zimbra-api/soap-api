@@ -39,7 +39,9 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct(?string $section = NULL, array $keyValuePairs = [])
+    public function __construct(
+        ?string $section = NULL, array $keyValuePairs = []
+    )
     {
     	parent::__construct($keyValuePairs);
         if (NULL !== $section) {

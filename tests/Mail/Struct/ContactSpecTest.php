@@ -78,35 +78,5 @@ class ContactSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
         $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'l' => $folder,
-            't' => $tags,
-            'tn' => $tagNames,
-            'vcard' => [
-                'mid' => $messageId,
-                'part' => $part,
-                'aid' => $attachId,
-                '_content' => $value,
-            ],
-            'a' => [
-                [
-                    'n' => $name,
-                    'aid' => $attachId,
-                    'id' => $id,
-                    'part' => $part,
-                    '_content' => $value,
-                ],
-            ],
-            'm' => [
-                [
-                    'type' => 'C',
-                    'value' => $value,
-                ]
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($contact, 'json'));
-        $this->assertEquals($contact, $this->serializer->deserialize($json, ContactSpec::class, 'json'));
     }
 }

@@ -85,35 +85,5 @@ class CreateSearchFolderTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateSearchFolderEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateSearchFolderRequest' => [
-                    'search' => [
-                        'name' => $name,
-                        'query' => $query,
-                        'types' => $searchTypes,
-                        'sortBy' => 'dateDesc',
-                        'f' => $flags,
-                        'rgb' => $rgb,
-                        'color' => $color,
-                        'l' => $parentFolderId,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CreateSearchFolderResponse' => [
-                    'search' => [
-                        'id' => $id,
-                        'uuid' => $uuid,
-                        'query' => $query,
-                        'sortBy' => 'dateDesc',
-                        'types' => $searchTypes,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateSearchFolderEnvelope::class, 'json'));
     }
 }

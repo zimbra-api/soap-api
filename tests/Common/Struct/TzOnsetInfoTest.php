@@ -29,7 +29,7 @@ class TzOnsetInfoTest extends ZimbraTestCase
         $this->assertSame($week, $tzo->getWeek());
         $this->assertSame($wkday, $tzo->getDayOfWeek());
 
-        $tzo = new TzOnsetInfo(0, 0, 0, 0);
+        $tzo = new TzOnsetInfo();
         $tzo->setMonth($mon)
             ->setHour($hour)
             ->setMinute($min)

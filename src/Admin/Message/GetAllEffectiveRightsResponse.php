@@ -31,7 +31,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?GranteeInfo $grantee = NULL;
 
@@ -41,7 +41,7 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
      * @Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")
-     * @XmlList(inline = true, entry = "target")
+     * @XmlList(inline=true, entry="target", namespace="urn:zimbraAdmin")
      */
     private $targets = [];
 

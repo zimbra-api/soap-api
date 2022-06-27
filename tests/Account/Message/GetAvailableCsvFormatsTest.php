@@ -50,7 +50,7 @@ class GetAvailableCsvFormatsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAvailableCsvFormatsRequest />
         <urn:GetAvailableCsvFormatsResponse>
-            <csv name="$name" />
+            <urn:csv name="$name" />
         </urn:GetAvailableCsvFormatsResponse>
     </soap:Body>
 </soap:Envelope>

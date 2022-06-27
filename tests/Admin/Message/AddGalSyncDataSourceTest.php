@@ -88,13 +88,13 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AddGalSyncDataSourceRequest name="$name" domain="$domain" type="$type" folder="$folder">
-            <account by="$by">$value</account>
-            <a n="$key">$value</a>
+            <urn:account by="$by">$value</urn:account>
+            <urn:a n="$key">$value</urn:a>
         </urn:AddGalSyncDataSourceRequest>
         <urn:AddGalSyncDataSourceResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:AddGalSyncDataSourceResponse>
     </soap:Body>
 </soap:Envelope>

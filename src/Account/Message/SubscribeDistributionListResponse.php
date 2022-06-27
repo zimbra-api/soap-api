@@ -37,13 +37,12 @@ class SubscribeDistributionListResponse implements ResponseInterface
     /**
      * Constructor method for SubscribeDistributionListResponse
      *
-     * @param  DistributionListSubscribeStatus $status
-     * @param  int $lifetime
+     * @param  SubscribeStatus $status
      * @return self
      */
-    public function __construct(SubscribeStatus $status)
+    public function __construct(?SubscribeStatus $status = NULL)
     {
-        $this->setStatus($status);
+        $this->setStatus($status ?? SubscribeStatus::SUBSCRIBED());
     }
 
     /**

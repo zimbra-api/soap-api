@@ -38,7 +38,7 @@ class GalContactInfo extends AdminAttrsImpl
      * @param  array $attrs
      * @return self
      */
-    public function __construct(string $id, array $attrs = [])
+    public function __construct(string $id = '', array $attrs = [])
     {
         parent::__construct($attrs);
         $this->setId($id);

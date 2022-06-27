@@ -42,7 +42,7 @@ class ForwardAppointmentRequest extends Request
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfo $exceptionId = NULL;
 
@@ -52,7 +52,7 @@ class ForwardAppointmentRequest extends Request
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalTZInfo $timezone = NULL;
 
@@ -62,7 +62,7 @@ class ForwardAppointmentRequest extends Request
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Msg $msg = NULL;
 

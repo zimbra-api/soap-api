@@ -35,16 +35,5 @@ class ByDayRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($byday, 'xml'));
         $this->assertEquals($byday, $this->serializer->deserialize($xml, ByDayRule::class, 'xml'));
-
-        $json = json_encode([
-            'wkday' => [
-                [
-                    'day' => 'SU',
-                    'ordwk' => $ordWk,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($byday, 'json'));
-        $this->assertEquals($byday, $this->serializer->deserialize($json, ByDayRule::class, 'json'));
     }
 }

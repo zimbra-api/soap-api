@@ -56,20 +56,5 @@ class AddMsgSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, AddMsgSpec::class, 'xml'));
-
-        $json = json_encode([
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'l' => $folder,
-            'noICal' => TRUE,
-            'd' => $dateReceived,
-            'aid' => $attachmentId,
-            'content' => [
-                '_content' => $content,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($msg, 'json'));
-        $this->assertEquals($msg, $this->serializer->deserialize($json, AddMsgSpec::class, 'json'));
     }
 }

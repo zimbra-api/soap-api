@@ -31,7 +31,7 @@ class ConvActionRequest extends Request
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ConvActionSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ConvActionSelector $action;
 

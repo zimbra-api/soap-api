@@ -60,10 +60,10 @@ class GetIndexStatsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetIndexStatsRequest>
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:GetIndexStatsRequest>
         <urn:GetIndexStatsResponse>
-            <stats maxDocs="$maxDocs" deletedDocs="$numDeletedDocs" />
+            <urn:stats maxDocs="$maxDocs" deletedDocs="$numDeletedDocs" />
         </urn:GetIndexStatsResponse>
     </soap:Body>
 </soap:Envelope>

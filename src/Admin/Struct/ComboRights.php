@@ -28,7 +28,7 @@ class ComboRights
      * @Accessor(getter="getComboRights", setter="setComboRights")
      * @SerializedName("r")
      * @Type("array<Zimbra\Admin\Struct\ComboRightInfo>")
-     * @XmlList(inline = true, entry = "r")
+     * @XmlList(inline=true, entry="r", namespace="urn:zimbraAdmin")
      */
     private $comboRights = [];
 

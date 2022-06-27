@@ -30,7 +30,7 @@ class GetAccountDistributionListsResponse implements ResponseInterface
      * @Accessor(getter="getDlList", setter="setDlList")
      * @SerializedName("dl")
      * @Type("array<Zimbra\Account\Struct\DLInfo>")
-     * @XmlList(inline = true, entry = "dl")
+     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAccount")
      */
     private $dlList = [];
 

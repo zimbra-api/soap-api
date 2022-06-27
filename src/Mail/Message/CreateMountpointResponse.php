@@ -30,7 +30,7 @@ class CreateMountpointResponse implements ResponseInterface
      * @Accessor(getter="getMount", setter="setMount")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private Mountpoint $mount;
 

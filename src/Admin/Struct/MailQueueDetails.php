@@ -75,7 +75,7 @@ class MailQueueDetails
      * @Accessor(getter="getQueueSummaries", setter="setQueueSummaries")
      * @SerializedName("qs")
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
-     * @XmlList(inline = true, entry = "qs")
+     * @XmlList(inline=true, entry="qs", namespace="urn:zimbraAdmin")
      */
     private $queueSummaries = [];
 
@@ -84,7 +84,7 @@ class MailQueueDetails
      * @Accessor(getter="getQueueItems", setter="setQueueItems")
      * @SerializedName("qi")
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
-     * @XmlList(inline = true, entry = "qi")
+     * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
      */
     private $queueItems = [];
 
@@ -101,11 +101,11 @@ class MailQueueDetails
      * @return self
      */
     public function __construct(
-        string $name,
-        int $time,
-        bool $stillScanning,
-        int $total,
-        bool $more,
+        string $name = '',
+        int $time = 0,
+        bool $stillScanning = FALSE,
+        int $total = 0,
+        bool $more = FALSE,
         array $queueSummaries = [],
         array $queueItems = []
     )

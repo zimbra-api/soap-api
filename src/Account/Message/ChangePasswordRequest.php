@@ -31,7 +31,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private AccountSelector $account;
 
@@ -40,7 +40,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getOldPassword", setter="setOldPassword")
      * @SerializedName("oldPassword")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $oldPassword;
 
@@ -49,7 +49,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $password;
 
@@ -58,7 +58,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $virtualHost;
 
@@ -67,7 +67,7 @@ class ChangePasswordRequest extends Request
      * @Accessor(getter="isDryRun", setter="setDryRun")
      * @SerializedName("dryRun")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $dryRun;
 
@@ -83,8 +83,8 @@ class ChangePasswordRequest extends Request
      */
     public function __construct(
         AccountSelector $account,
-        string $oldPassword,
-        string $newPassword,
+        string $oldPassword = '',
+        string $newPassword = '',
         ?string $virtualHost = NULL,
         ?bool $dryRun = NULL
     )

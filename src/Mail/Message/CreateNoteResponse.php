@@ -30,7 +30,7 @@ class CreateNoteResponse implements ResponseInterface
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NoteInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?NoteInfo $note = NULL;
 

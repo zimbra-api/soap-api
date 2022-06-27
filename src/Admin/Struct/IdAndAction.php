@@ -47,7 +47,7 @@ class IdAndAction
      * @param string $action
      * @return self
      */
-    public function __construct(string $id, string $action)
+    public function __construct(string $id = '', string $action = '')
     {
         $this->setId($id)
              ->setAction($action);

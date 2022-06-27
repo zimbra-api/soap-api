@@ -46,10 +46,12 @@ class ZimletPrefsSpec
      * @param  ZimletStatus $presence
      * @return self
      */
-    public function __construct(string $name, ZimletStatus $presence)
+    public function __construct(
+        string $name = '', ?ZimletStatus $presence = NULL
+    )
     {
         $this->setName($name)
-             ->setPresence($presence);
+             ->setPresence($presence ?? ZimletStatus::DISABLED());
     }
 
     /**

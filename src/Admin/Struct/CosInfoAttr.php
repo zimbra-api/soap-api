@@ -49,7 +49,9 @@ class CosInfoAttr extends Attr
      * @param  bool $permDenied
      * @return self
      */
-    public function __construct(string $key, ?string $value = NULL, ?bool $cosAttr = NULL, ?bool $permDenied = NULL)
+    public function __construct(
+        string $key = '', ?string $value = NULL, ?bool $cosAttr = NULL, ?bool $permDenied = NULL
+    )
     {
     	parent::__construct($key, $value);
         if (NULL !== $cosAttr) {

@@ -54,7 +54,6 @@ class VCardInfo
     /**
      * inlined VCARD data
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue
      */

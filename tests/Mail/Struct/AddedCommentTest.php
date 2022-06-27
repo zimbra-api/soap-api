@@ -31,12 +31,5 @@ class AddedCommentTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comment, 'xml'));
         $this->assertEquals($comment, $this->serializer->deserialize($xml, AddedComment::class, 'xml'));
-
-        $json = json_encode([
-            'parentId' => $parentId,
-            'text' => $text,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($comment, 'json'));
-        $this->assertEquals($comment, $this->serializer->deserialize($json, AddedComment::class, 'json'));
     }
 }

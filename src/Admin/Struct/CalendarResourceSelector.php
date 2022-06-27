@@ -26,6 +26,7 @@ class CalendarResourceSelector
 {
     /**
      * Select the meaning of {cal-resource-selector-key}
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Common\Enum\CalendarResourceBy")
@@ -35,8 +36,8 @@ class CalendarResourceSelector
 
     /**
      * Specify calendar resource
+     * 
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -44,13 +45,16 @@ class CalendarResourceSelector
 
     /**
      * Constructor method for CalendarResourceSelector
+     * 
      * @param  CalendarResourceBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(CalendarResourceBy $by, ?string $value = NULL)
+    public function __construct(
+        ?CalendarResourceBy $by = NULL, ?string $value = NULL
+    )
     {
-        $this->setBy($by);
+        $this->setBy($by ?? CalendarResourceBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

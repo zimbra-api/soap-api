@@ -26,7 +26,6 @@ class AuthToken
     /**
      * Value for authorization token
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -53,12 +52,15 @@ class AuthToken
 
     /**
      * Constructor method for AuthToken
+     * 
      * @param  string $value
      * @param  bool   $verifyAccount
-     * @param  int   $lifetime
+     * @param  int    $lifetime
      * @return self
      */
-    public function __construct(string $value, ?bool $verifyAccount = NULL, ?int $lifetime = NULL)
+    public function __construct(
+        string $value = '', ?bool $verifyAccount = NULL, ?int $lifetime = NULL
+    )
     {
         $this->setValue($value);
         if (NULL !== $verifyAccount) {

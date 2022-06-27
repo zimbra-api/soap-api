@@ -31,7 +31,7 @@ class GetGrantsResponse implements ResponseInterface
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("grant")
      * @Type("array<Zimbra\Admin\Struct\GrantInfo>")
-     * @XmlList(inline = true, entry = "grant")
+     * @XmlList(inline=true, entry="grant", namespace="urn:zimbraAdmin")
      */
     private $grants = [];
 

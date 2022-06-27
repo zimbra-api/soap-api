@@ -43,7 +43,6 @@ class Session
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -55,7 +54,7 @@ class Session
      * @param  string $type
      * @return self
      */
-    public function __construct(string $id, ?string $type = NULL)
+    public function __construct(string $id = '', ?string $type = NULL)
     {
         $this->setValue($id)
              ->setId($id);

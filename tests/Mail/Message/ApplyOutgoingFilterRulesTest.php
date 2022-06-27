@@ -81,34 +81,5 @@ class ApplyOutgoingFilterRulesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, ApplyOutgoingFilterRulesEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'ApplyOutgoingFilterRulesRequest' => [
-                    'filterRules' => [
-                        'filterRule' => [
-                            [
-                                'name' => $name,
-                            ],
-                        ],
-                    ],
-                    'm' => [
-                        'ids' => $ids,
-                    ],
-                    'query' => [
-                        '_content' => $query,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'ApplyOutgoingFilterRulesResponse' => [
-                    'm' => [
-                        'ids' => $ids,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, ApplyOutgoingFilterRulesEnvelope::class, 'json'));
     }
 }

@@ -69,7 +69,7 @@ class VersionInfo
      * @return self
      */
     public function __construct(
-        string $fullVersion, string $release, string $date, string $host
+        string $fullVersion = '', string $release = '', string $date = '', string $host = ''
     )
     {
         $this->setFullVersion($fullVersion)

@@ -72,28 +72,5 @@ class PartInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mp, 'xml'));
         $this->assertEquals($mp, $this->serializer->deserialize($xml, PartInfo::class, 'xml'));
-
-        $json = json_encode([
-            'part' => $part,
-            'ct' => $contentType,
-            's' => $size,
-            'cd' => $contentDisposition,
-            'filename' => $contentFilename,
-            'ci' => $contentId,
-            'cl' => $location,
-            'body' => TRUE,
-            'truncated' => TRUE,
-            'content' => [
-                '_content' => $content,
-            ],
-            'mp' => [
-                [
-                    'part' => $part,
-                    'ct' => $contentType,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mp, 'json'));
-        $this->assertEquals($mp, $this->serializer->deserialize($json, PartInfo::class, 'json'));
     }
 }

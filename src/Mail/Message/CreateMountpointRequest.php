@@ -31,7 +31,7 @@ class CreateMountpointRequest extends Request
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\NewMountpointSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private NewMountpointSpec $folder;
 

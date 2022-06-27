@@ -47,7 +47,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalOrganizer $organizer = NULL;
 
@@ -56,7 +56,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "category")
+     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */
     private $categories = [];
 
@@ -65,7 +65,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?GeoInfo $geo = NULL;
 
@@ -74,7 +74,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 

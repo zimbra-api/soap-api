@@ -128,7 +128,7 @@ class ConversationSummary
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
     private $metadatas = [];
 
@@ -137,7 +137,7 @@ class ConversationSummary
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $subject;
 
@@ -146,7 +146,7 @@ class ConversationSummary
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -155,7 +155,7 @@ class ConversationSummary
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline = true, entry = "e")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emails = [];
 

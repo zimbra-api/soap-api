@@ -44,7 +44,6 @@ class MiniCalError
     /**
      * Error message from the exception (but no stack trace)
      * @Accessor(getter="getErrorMessage", setter="setErrorMessage")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

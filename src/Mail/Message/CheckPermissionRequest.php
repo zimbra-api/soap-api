@@ -32,7 +32,7 @@ class CheckPermissionRequest extends Request
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Mail\Struct\TargetSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TargetSpec $target = NULL;
 
@@ -42,7 +42,7 @@ class CheckPermissionRequest extends Request
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraMail")
      */
     private $rights = [];
 

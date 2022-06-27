@@ -31,7 +31,7 @@ class GetFreeBusyResponse implements ResponseInterface
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")
-     * @XmlList(inline = true, entry = "usr")
+     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      */
     private $freebusyUsers = [];
 

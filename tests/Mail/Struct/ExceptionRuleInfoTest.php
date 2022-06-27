@@ -55,28 +55,5 @@ class ExceptionRuleInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($except, 'xml'));
         $this->assertEquals($except, $this->serializer->deserialize($xml, ExceptionRuleInfo::class, 'xml'));
-
-        $json = json_encode([
-            'rangeType' => $recurrenceRangeType,
-            'recurId' => $recurrenceId,
-            'tz' => $timezone,
-            'ridZ' => $recurIdZ,
-            'add' => [
-                'rule' => [
-                    [
-                        'freq' => 'HOU',
-                    ],
-                ],
-            ],
-            'exclude' => [
-                'rule' => [
-                    [
-                        'freq' => 'HOU',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($except, 'json'));
-        $this->assertEquals($except, $this->serializer->deserialize($json, ExceptionRuleInfo::class, 'json'));
     }
 }

@@ -55,7 +55,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?ContactInterface $contact = NULL;
 

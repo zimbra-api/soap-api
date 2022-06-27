@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\TargetBy;
 use Zimbra\Common\Enum\TargetType;
 use Zimbra\Account\Struct\CheckRightsTargetSpec;
@@ -19,7 +21,7 @@ class CheckRightsTargetSpecTest extends ZimbraTestCase
         $right2 = $this->faker->unique()->word;
         $right3 = $this->faker->unique()->word;
 
-        $target = new CheckRightsTargetSpec(
+        $target = new MockCheckRightsTargetSpec(
             TargetType::DOMAIN(), TargetBy::ID(), $key, [$right1, $right2]
         );
         $this->assertEquals(TargetType::DOMAIN(), $target->getTargetType());
@@ -41,13 +43,20 @@ class CheckRightsTargetSpecTest extends ZimbraTestCase
         $by = TargetBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" by="$by" key="$key">
-    <right>$right1</right>
-    <right>$right2</right>
-    <right>$right3</right>
+<result type="$type" by="$by" key="$key" xmlns:urn="urn:zimbraAccount">
+    <urn:right>$right1</urn:right>
+    <urn:right>$right2</urn:right>
+    <urn:right>$right3</urn:right>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
-        $this->assertEquals($target, $this->serializer->deserialize($xml, CheckRightsTargetSpec::class, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, MockCheckRightsTargetSpec::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockCheckRightsTargetSpec extends CheckRightsTargetSpec
+{
 }

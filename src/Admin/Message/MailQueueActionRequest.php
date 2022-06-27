@@ -32,7 +32,7 @@ class MailQueueActionRequest extends Request
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerWithQueueAction")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Server $server;
 

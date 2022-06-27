@@ -78,54 +78,5 @@ class RecurrenceInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($recur, 'xml'));
         $this->assertEquals($recur, $this->serializer->deserialize($xml, RecurrenceInfo::class, 'xml'));
-
-        $json = json_encode([
-            'add' => [
-                [
-                    'rule' => [
-                        [
-                            'freq' => 'HOU',
-                        ],
-                    ],
-                ],
-            ],
-            'exclude' => [
-                [
-                    'rule' => [
-                        [
-                            'freq' => 'HOU',
-                        ],
-                    ],
-                ],
-            ],
-            'except' => [
-                [
-                    'rangeType' => $recurrenceRangeType,
-                    'recurId' => $recurrenceId,
-                    'tz' => $timezone,
-                    'ridZ' => $recurIdZ,
-                ],
-            ],
-            'cancel' => [
-                [
-                    'rangeType' => $recurrenceRangeType,
-                    'recurId' => $recurrenceId,
-                    'tz' => $timezone,
-                    'ridZ' => $recurIdZ,
-                ],
-            ],
-            'dates' => [
-                [
-                    'tz' => $timezone,
-                ],
-            ],
-            'rule' => [
-                [
-                    'freq' => 'HOU',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($recur, 'json'));
-        $this->assertEquals($recur, $this->serializer->deserialize($json, RecurrenceInfo::class, 'json'));
     }
 }

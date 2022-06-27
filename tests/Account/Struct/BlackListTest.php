@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\BlackList;
 use Zimbra\Common\Struct\OpValue;
 use Zimbra\Tests\ZimbraTestCase;
@@ -16,7 +18,7 @@ class BlackListTest extends ZimbraTestCase
         $value1 = $this->faker->word;
         $addr1 = new OpValue('+', $value1);
 
-        $blackList = new BlackList([$addr1]);
+        $blackList = new MockBlackList([$addr1]);
         $this->assertSame([$addr1], $blackList->getAddrs());
 
         $value2 = $this->faker->word;
@@ -27,12 +29,19 @@ class BlackListTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <addr op="+">$value1</addr>
-    <addr op="-">$value2</addr>
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:addr op="+">$value1</urn:addr>
+    <urn:addr op="-">$value2</urn:addr>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($blackList, 'xml'));
-        $this->assertEquals($blackList, $this->serializer->deserialize($xml, BlackList::class, 'xml'));
+        $this->assertEquals($blackList, $this->serializer->deserialize($xml, MockBlackList::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockBlackList extends BlackList
+{
 }

@@ -69,10 +69,10 @@ class AccountQuotaInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        string $id,
-        int $quotaUsed,
-        int $quotaLimit
+        string $name = '',
+        string $id = '',
+        int $quotaUsed = 0,
+        int $quotaLimit = 0
     )
     {
         $this->setName($name)

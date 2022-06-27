@@ -58,10 +58,12 @@ class ZimletDeploymentStatus
      * @param  string $error
      * @return self
      */
-    public function __construct(string $server, DeployStatus $status, ?string $error = NULL)
+    public function __construct(
+        string $server = , ?DeployStatus $status = NULL, ?string $error = NULL
+    )
     {
         $this->setServer($server)
-             ->setStatus($status);
+             ->setStatus($status ?? DeployStatus::PENDING());
         if (NULL !== $error) {
             $this->setError($error);
         }

@@ -34,7 +34,7 @@ class GetServerStatsRequest extends Request
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stat")
      * @Type("array<Zimbra\Admin\Struct\Stat>")
-     * @XmlList(inline = true, entry = "stat")
+     * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      */
     private $stats = [];
 

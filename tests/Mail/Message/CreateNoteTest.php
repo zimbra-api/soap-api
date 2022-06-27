@@ -109,52 +109,5 @@ class CreateNoteTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, CreateNoteEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'CreateNoteRequest' => [
-                    'note' => [
-                        'l' => $folder,
-                        'content' => $content,
-                        'color' => $color,
-                        'pos' => $bounds,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'CreateNoteResponse' => [
-                    'note' => [
-                        'id' => $id,
-                        'rev' => $revision,
-                        'l' => $folder,
-                        'd' => $date,
-                        'f' => $flags,
-                        't' => $tags,
-                        'tn' => $tagNames,
-                        'pos' => $bounds,
-                        'rgb' => $rgb,
-                        'color' => $color,
-                        'md' => $changeDate,
-                        'ms' => $modifiedSequence,
-                        'content' => [
-                            '_content' => $content,
-                        ],
-                        'meta' => [
-                            [
-                                'section' => $section,
-                                'a' => [
-                                    [
-                                        'n' => $key,
-                                        '_content' => $value,
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, CreateNoteEnvelope::class, 'json'));
     }
 }

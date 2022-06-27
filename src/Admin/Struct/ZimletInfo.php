@@ -40,7 +40,9 @@ class ZimletInfo extends AdminObjectInfo
      * @param  string $hasKeyword
      * @return self
      */
-    public function __construct(string $name, string $id, array $attrs = [], ?string $hasKeyword = NULL)
+    public function __construct(
+        string $name = '', string $id = '', array $attrs = [], ?string $hasKeyword = NULL
+    )
     {
         parent::__construct($name, $id, $attrs);
         if (NULL !== $hasKeyword) {

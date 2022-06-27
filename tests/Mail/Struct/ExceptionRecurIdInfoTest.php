@@ -35,13 +35,5 @@ class ExceptionRecurIdInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exceptId, 'xml'));
         $this->assertEquals($exceptId, $this->serializer->deserialize($xml, ExceptionRecurIdInfo::class, 'xml'));
-
-        $json = json_encode([
-            'd' => $dateTime,
-            'tz' => $timezone,
-            'rangeType' => $recurrenceRangeType,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($exceptId, 'json'));
-        $this->assertEquals($exceptId, $this->serializer->deserialize($json, ExceptionRecurIdInfo::class, 'json'));
     }
 }

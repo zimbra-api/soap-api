@@ -83,7 +83,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @Accessor(getter="getGlobal", setter="setGlobal")
      * @SerializedName("global")
      * @Type("Zimbra\Account\Struct\AccountZimletGlobalConfigInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletGlobalConfigInfo $global = NULL;
 
@@ -92,7 +92,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("Zimbra\Account\Struct\AccountZimletHostConfigInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletHostConfigInfo $host = NULL;
 

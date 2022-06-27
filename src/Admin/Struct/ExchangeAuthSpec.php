@@ -79,17 +79,17 @@ class ExchangeAuthSpec
      * @return self
      */
     public function __construct(
-        string $url,
-        string $user,
-        string $pass,
-        AuthScheme $scheme,
+        string $url = '',
+        string $user = '',
+        string $pass = '',
+        ?AuthScheme $scheme = NULL,
         ?string $type = NULL
     )
     {
         $this->setUrl($url)
              ->setAuthUserName($user)
              ->setAuthPassword($pass)
-             ->setScheme($scheme);
+             ->setScheme($scheme ?? AuthScheme::BASIC());
         if (NULL !== $type) {
             $this->setType($type);
         }

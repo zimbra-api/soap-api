@@ -25,14 +25,5 @@ class CancelRuleInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cancel, 'xml'));
         $this->assertEquals($cancel, $this->serializer->deserialize($xml, CancelRuleInfo::class, 'xml'));
-
-        $json = json_encode([
-            'rangeType' => $recurrenceRangeType,
-            'recurId' => $recurrenceId,
-            'tz' => $timezone,
-            'ridZ' => $recurIdZ,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($cancel, 'json'));
-        $this->assertEquals($cancel, $this->serializer->deserialize($json, CancelRuleInfo::class, 'json'));
     }
 }

@@ -10,6 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
@@ -24,6 +25,16 @@ use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 class AdminKeyValuePairs implements KeyValuePairs
 {
     use KeyValuePairsTrait;
+
+    /**
+     * Key value pairs
+     * 
+     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
+     * @SerializedName("a")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     */
+    protected $keyValuePairs = [];
 
     /**
      * AdminKeyValuePairs constructor.

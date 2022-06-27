@@ -57,13 +57,13 @@ class ModifyUCServiceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyUCServiceRequest>
-            <id>$id</id>
-            <a n="$key">$value</a>
+            <urn:id>$id</urn:id>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyUCServiceRequest>
         <urn:ModifyUCServiceResponse>
-            <ucservice name="$name" id="$id">
-                <a n="$key">$value</a>
-            </ucservice>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
         </urn:ModifyUCServiceResponse>
     </soap:Body>
 </soap:Envelope>

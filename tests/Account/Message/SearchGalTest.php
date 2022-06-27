@@ -188,23 +188,23 @@ class SearchGalTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:SearchGalRequest ref="$ref" name="$name" type="all" needExp="true" needIsOwner="true" needIsMember="all" needSMIMECerts="true" galAcctId="$galAccountId" quick="true" sortBy="$sortBy" limit="$limit" offset="$offset">
-            <locale>$locale</locale>
-            <cursor id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
-            <searchFilter>
-                <conds not="true" or="false">
-                    <conds not="false" or="true">
-                        <cond attr="$attr" op="ge" value="$value" not="false" />
-                    </conds>
-                    <cond attr="$attr" op="eq" value="$value" not="true" />
-                </conds>
-            </searchFilter>
+            <urn:locale>$locale</urn:locale>
+            <urn:cursor id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
+            <urn:searchFilter>
+                <urn:conds not="true" or="false">
+                    <urn:conds not="false" or="true">
+                        <urn:cond attr="$attr" op="ge" value="$value" not="false" />
+                    </urn:conds>
+                    <urn:cond attr="$attr" op="eq" value="$value" not="true" />
+                </urn:conds>
+            </urn:searchFilter>
         </urn:SearchGalRequest>
         <urn:SearchGalResponse sortBy="$sortBy" offset="$offset" more="true" paginationSupported="true" tokenizeKey="true">
-            <cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" isOwner="true" isMember="false">
-                <meta section="$section" />
-                <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
-                <m type="$type" value="$value" />
-            </cn>
+            <urn:cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" isOwner="true" isMember="false">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="$type" value="$value" />
+            </urn:cn>
         </urn:SearchGalResponse>
     </soap:Body>
 </soap:Envelope>

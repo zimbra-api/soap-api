@@ -40,14 +40,5 @@ class DocumentInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
         $this->assertEquals($doc, $this->serializer->deserialize($xml, DocumentInfo::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'loid' => $lockOwnerId,
-            'loe' => $lockOwnerEmail,
-            'lt' => $lockOwnerTimestamp,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($doc, 'json'));
-        $this->assertEquals($doc, $this->serializer->deserialize($json, DocumentInfo::class, 'json'));
     }
 }

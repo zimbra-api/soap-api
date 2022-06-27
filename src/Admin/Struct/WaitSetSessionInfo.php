@@ -109,11 +109,11 @@ class WaitSetSessionInfo
      * @return self
      */
     public function __construct(
-        string $interestMask,
-        int $highestChangeId,
-        int $lastAccessTime,
-        int $creationTime,
-        string $sessionId,
+        string $interestMask = 0,
+        int $highestChangeId = 0,
+        int $lastAccessTime = 0,
+        int $creationTime = 0,
+        string $sessionId = '',
         ?string $token = NULL,
         ?string $folderInterests = NULL,
         ?string $changedFolders = NULL

@@ -2,14 +2,15 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
-use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
-use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
-use Zimbra\Common\Enum\GranteeType;
-use Zimbra\Common\Enum\Operation;
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\DistributionListSubscribeReq;
 use Zimbra\Account\Struct\DistributionListRightSpec;
 use Zimbra\Account\Struct\DistributionListGranteeSelector;
 use Zimbra\Account\Struct\DistributionListAction;
+use Zimbra\Common\Enum\DistributionListSubscribeOp as DLSubscribeOp;
+use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
+use Zimbra\Common\Enum\{GranteeType, Operation};
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -31,7 +32,7 @@ class DistributionListActionTest extends ZimbraTestCase
         $right = new DistributionListRightSpec($name, [$grantee]);
         $attr = new KeyValuePair($name, $value);
 
-        $dl = new DistributionListAction(
+        $dl = new MockDistributionListAction(
             Operation::MODIFY(), $name, $subsReq, [$member], [$owner], [$right]
         );
         $this->assertEquals(Operation::MODIFY(), $dl->getOp());
@@ -41,7 +42,7 @@ class DistributionListActionTest extends ZimbraTestCase
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
 
-        $dl = new DistributionListAction(Operation::MODIFY());
+        $dl = new MockDistributionListAction(Operation::MODIFY());
         $dl->setOp(Operation::DELETE())
            ->setNewName($name)
            ->setSubsReq($subsReq)
@@ -59,18 +60,25 @@ class DistributionListActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result op="delete">
-    <a n="$name">$value</a>
-    <newName>$name</newName>
-    <subsReq op="subscribe" bccOwners="true">$value</subsReq>
-    <dlm>$member</dlm>
-    <owner type="usr" by="name">$value</owner>
-    <right right="$name">
-        <grantee type="usr" by="name">$value</grantee>
-    </right>
+<result op="delete" xmlns:urn="urn:zimbraAccount">
+    <urn:a n="$name">$value</urn:a>
+    <urn:newName>$name</urn:newName>
+    <urn:subsReq op="subscribe" bccOwners="true">$value</urn:subsReq>
+    <urn:dlm>$member</urn:dlm>
+    <urn:owner type="usr" by="name">$value</urn:owner>
+    <urn:right right="$name">
+        <urn:grantee type="usr" by="name">$value</urn:grantee>
+    </urn:right>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
-        $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListAction::class, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, MockDistributionListAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockDistributionListAction extends DistributionListAction
+{
 }

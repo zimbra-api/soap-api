@@ -59,22 +59,5 @@ class CalOrganizerTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($or, 'xml'));
         $this->assertEquals($or, $this->serializer->deserialize($xml, CalOrganizer::class, 'xml'));
-
-        $json = json_encode([
-            'a' => $address,
-            'url' => $url,
-            'd' => $displayName,
-            'sentBy' => $sentBy,
-            'dir' => $dir,
-            'lang' => $language,
-            'xparam' => [
-                [
-                    'name' => $name,
-                    'value' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($or, 'json'));
-        $this->assertEquals($or, $this->serializer->deserialize($json, CalOrganizer::class, 'json'));
     }
 }

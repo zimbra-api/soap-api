@@ -83,15 +83,15 @@ class ChangePasswordTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ChangePasswordRequest>
-            <account by="$by">$value</account>
-            <oldPassword>$oldPassword</oldPassword>
-            <password>$newPassword</password>
-            <virtualHost>$virtualHost</virtualHost>
-            <dryRun>true</dryRun>
+            <urn:account by="$by">$value</urn:account>
+            <urn:oldPassword>$oldPassword</urn:oldPassword>
+            <urn:password>$newPassword</urn:password>
+            <urn:virtualHost>$virtualHost</urn:virtualHost>
+            <urn:dryRun>true</urn:dryRun>
         </urn:ChangePasswordRequest>
         <urn:ChangePasswordResponse>
-            <authToken>$authToken</authToken>
-            <lifetime>$lifetime</lifetime>
+            <urn:authToken>$authToken</urn:authToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
         </urn:ChangePasswordResponse>
     </soap:Body>
 </soap:Envelope>

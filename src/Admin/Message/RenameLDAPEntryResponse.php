@@ -30,7 +30,7 @@ class RenameLDAPEntryResponse implements ResponseInterface
      * @Accessor(getter="getLDAPEntry", setter="setLDAPEntry")
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private LDAPEntryInfo $LDAPEntry;
 

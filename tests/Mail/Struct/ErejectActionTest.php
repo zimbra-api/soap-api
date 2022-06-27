@@ -28,12 +28,5 @@ class ErejectActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ErejectAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            '_content' => $content,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ErejectAction::class, 'json'));
     }
 }

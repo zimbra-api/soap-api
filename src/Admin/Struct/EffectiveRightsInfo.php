@@ -28,7 +28,7 @@ class EffectiveRightsInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
      */
     private $rights = [];
 
@@ -37,7 +37,7 @@ class EffectiveRightsInfo
      * @Accessor(getter="getSetAttrs", setter="setSetAttrs")
      * @SerializedName("setAttrs")
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private EffectiveAttrsInfo $setAttrs;
 
@@ -46,7 +46,7 @@ class EffectiveRightsInfo
      * @Accessor(getter="getGetAttrs", setter="setGetAttrs")
      * @SerializedName("getAttrs")
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private EffectiveAttrsInfo $getAttrs;
 
@@ -57,7 +57,9 @@ class EffectiveRightsInfo
      * @param array $rights
      * @return self
      */
-    public function __construct(EffectiveAttrsInfo $setAttrs, EffectiveAttrsInfo $getAttrs, array $rights = [])
+    public function __construct(
+        EffectiveAttrsInfo $setAttrs, EffectiveAttrsInfo $getAttrs, array $rights = []
+    )
     {
         $this->setSetAttrs($setAttrs)
              ->setGetAttrs($getAttrs)

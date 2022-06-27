@@ -38,7 +38,7 @@ class QueueQueryField
      * @Accessor(getter="getMatches", setter="setMatches")
      * @SerializedName("match")
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
-     * @XmlList(inline = true, entry = "match")
+     * @XmlList(inline=true, entry="match", namespace="urn:zimbraAdmin")
      */
     private $matches = [];
 
@@ -48,7 +48,7 @@ class QueueQueryField
      * @param  array $matches
      * @return self
      */
-    public function __construct(string $name, array $matches = [])
+    public function __construct(string $name = '', array $matches = [])
     {
         $this->setName($name)
              ->setMatches($matches);

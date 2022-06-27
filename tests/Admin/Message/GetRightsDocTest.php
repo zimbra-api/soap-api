@@ -77,28 +77,28 @@ class GetRightsDocTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetRightsDocRequest>
-            <package name="$name" />
+            <urn:package name="$name" />
         </urn:GetRightsDocRequest>
         <urn:GetRightsDocResponse>
-            <package name="$name">
-                <cmd name="$name">
-                    <rights>
-                        <right name="$name" />
-                    </rights>
-                    <desc>
-                        <note>$note</note>
-                    </desc>
-                </cmd>
-            </package>
-            <notUsed>$notUsed</notUsed>
-            <domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template>
-                <right name="$name" type="preset">
-                    <desc>$desc</desc>
-                    <rights>
-                        <r n="$name" />
-                    </rights>
+            <urn:package name="$name">
+                <urn:cmd name="$name">
+                    <urn:rights>
+                        <urn:right name="$name" />
+                    </urn:rights>
+                    <urn:desc>
+                        <urn:note>$note</urn:note>
+                    </urn:desc>
+                </urn:cmd>
+            </urn:package>
+            <urn:notUsed>$notUsed</urn:notUsed>
+            <urn:domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template>
+                <urn:right name="$name" type="preset">
+                    <urn:desc>$desc</urn:desc>
+                    <urn:rights>
+                        <urn:r n="$name" />
+                    </urn:rights>
                 </right>
-            </domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template>
+            </urn:domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template>
         </urn:GetRightsDocResponse>
     </soap:Body>
 </soap:Envelope>

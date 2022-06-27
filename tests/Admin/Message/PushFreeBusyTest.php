@@ -56,8 +56,8 @@ class PushFreeBusyTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:PushFreeBusyRequest>
-            <domain name="$name" />
-            <account id="$id" />
+            <urn:domain name="$name" />
+            <urn:account id="$id" />
         </urn:PushFreeBusyRequest>
         <urn:PushFreeBusyResponse />
     </soap:Body>

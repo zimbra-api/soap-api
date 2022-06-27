@@ -36,9 +36,8 @@ class RightPermission
     /**
      * Right name
      * @Accessor(getter="getRightName", setter="setRightName")
-     * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $rightName;
 

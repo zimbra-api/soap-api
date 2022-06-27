@@ -16,7 +16,7 @@ class AttributeNameTest extends ZimbraTestCase
         $attr = new AttributeName($name);
         $this->assertSame($name, $attr->getName());
 
-        $attr = new AttributeName('');
+        $attr = new AttributeName();
         $attr->setName($name);
         $this->assertSame($name, $attr->getName());
 

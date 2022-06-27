@@ -113,7 +113,7 @@ class DocumentSpec
      * @Accessor(getter="getUpload", setter="setUpload")
      * @SerializedName("upload")
      * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Id $upload = NULL;
 
@@ -122,7 +122,7 @@ class DocumentSpec
      * @Accessor(getter="getMessagePart", setter="setMessagePart")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MessagePartSpec $messagePart = NULL;
 
@@ -131,7 +131,7 @@ class DocumentSpec
      * @Accessor(getter="getDocRevision", setter="setDocRevision")
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersion")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?IdVersion $docRevision = NULL;
 

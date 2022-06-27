@@ -124,57 +124,5 @@ class MsgTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, Msg::class, 'xml'));
-
-        $json = json_encode([
-            'aid' => $id,
-            'origid' => $origId,
-            'rt' => 'r',
-            'idnt' => $identityId,
-            'su' => $subject,
-            'irt' => $inReplyTo,
-            'l' => $folderId,
-            'f' => $flags,
-            'header' => [
-                [
-                    'name' => $name,
-                    '_content' => $value,
-                ],
-            ],
-            'content' => [
-                '_content' => $content,
-            ],
-            'mp' => [
-                'ct' => $contentType,
-                'content' => $content,
-                'ci' => $contentId,
-            ],
-            'attach' => [
-                'aid' => $id,
-            ],
-            'inv' => [
-                'method' => $method,
-                'compNum' => $componentNum,
-                'rsvp' => TRUE,
-            ],
-            'e' => [
-                [
-                    'a' => $address,
-                    't' => 't',
-                    'p' => $personal,
-                ],
-            ],
-            'tz' => [
-                [
-                    'id' => $id,
-                    'stdoff' => $tzStdOffset,
-                    'dayoff' => $tzDayOffset,
-                ],
-            ],
-            'fr' => [
-                '_content' => $fragment,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($msg, 'json'));
-        $this->assertEquals($msg, $this->serializer->deserialize($json, Msg::class, 'json'));
     }
 }

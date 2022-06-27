@@ -59,18 +59,5 @@ class NewSearchFolderSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($folder, 'xml'));
         $this->assertEquals($folder, $this->serializer->deserialize($xml, NewSearchFolderSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'query' => $query,
-            'types' => $searchTypes,
-            'sortBy' => 'dateDesc',
-            'f' => $flags,
-            'rgb' => $rgb,
-            'color' => $color,
-            'l' => $parentFolderId,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($folder, 'json'));
-        $this->assertEquals($folder, $this->serializer->deserialize($json, NewSearchFolderSpec::class, 'json'));
     }
 }

@@ -31,7 +31,7 @@ class GetOAuthConsumersResponse implements ResponseInterface
      * @Accessor(getter="getConsumers", setter="setConsumers")
      * @SerializedName("OAuthConsumer")
      * @Type("array<Zimbra\Account\Struct\OAuthConsumer>")
-     * @XmlList(inline = true, entry = "OAuthConsumer")
+     * @XmlList(inline=true, entry="OAuthConsumer", namespace="urn:zimbraAccount")
      */
     private $consumers = [];
 

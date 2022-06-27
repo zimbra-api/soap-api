@@ -37,7 +37,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Accessor(getter="getMembers", setter="setMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "dlm")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */
     private $members = [];
 
@@ -46,7 +46,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
-     * @XmlList(inline = false, entry = "owner")
+     * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAdmin")
      */
     private $owners = [];
 
@@ -61,8 +61,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        string $id,
+        string $name = '',
+        string $id = '',
         array $members = [],
         array $attrs = [],
         array $owners = [],

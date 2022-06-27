@@ -26,10 +26,11 @@ class HABGroupMember extends HABMember
 {
     /**
      * Member attributes. Currently only these attributes are returned: zimbraId, displayName
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline = true, entry = "attr", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -42,7 +43,7 @@ class HABGroupMember extends HABMember
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         ?int $seniorityIndex = NULL,
         array $attrs = []
     )

@@ -51,7 +51,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $version;
 
@@ -60,7 +60,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAccountId", setter="setAccountId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $accountId;
 
@@ -69,7 +69,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getProfileImageId", setter="setProfileImageId")
      * @SerializedName("profileImageId")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $profileImageId;
 
@@ -78,7 +78,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAccountName", setter="setAccountName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $accountName;
 
@@ -87,7 +87,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getCrumb", setter="setCrumb")
      * @SerializedName("crumb")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $crumb;
 
@@ -96,7 +96,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
 
@@ -105,7 +105,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminDelegated", setter="setAdminDelegated")
      * @SerializedName("adminDelegated")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $adminDelegated;
 
@@ -114,7 +114,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getRestUrl", setter="setRestUrl")
      * @SerializedName("rest")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $restUrl;
 
@@ -124,7 +124,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $quotaUsed;
 
@@ -134,7 +134,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPreviousSessionTime", setter="setPreviousSessionTime")
      * @SerializedName("prevSession")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $previousSessionTime;
 
@@ -144,7 +144,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getLastWriteAccessTime", setter="setLastWriteAccessTime")
      * @SerializedName("accessed")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lastWriteAccessTime;
 
@@ -154,7 +154,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getRecentMessageCount", setter="setRecentMessageCount")
      * @SerializedName("recent")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $recentMessageCount;
 
@@ -163,7 +163,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Account\Struct\Cos")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?Cos $cos = NULL;
 
@@ -172,7 +172,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline = false, entry = "pref")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      */
     private $prefs = [];
 
@@ -182,7 +182,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline = false, entry = "attr")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -191,7 +191,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("array<Zimbra\Account\Struct\AccountZimletInfo>")
-     * @XmlList(inline = false, entry = "zimlet")
+     * @XmlList(inline=false, entry="zimlet", namespace="urn:zimbraAccount")
      */
     private $zimlets = [];
 
@@ -200,7 +200,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getProps", setter="setProps")
      * @SerializedName("props")
      * @Type("array<Zimbra\Account\Struct\Prop>")
-     * @XmlList(inline = false, entry = "prop")
+     * @XmlList(inline=false, entry="prop", namespace="urn:zimbraAccount")
      */
     private $props = [];
 
@@ -209,7 +209,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getIdentities", setter="setIdentities")
      * @SerializedName("identities")
      * @Type("array<Zimbra\Account\Struct\Identity>")
-     * @XmlList(inline = false, entry = "identity")
+     * @XmlList(inline=false, entry="identity", namespace="urn:zimbraAccount")
      */
     private $identities = [];
 
@@ -218,7 +218,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getSignatures", setter="setSignatures")
      * @SerializedName("signatures")
      * @Type("array<Zimbra\Account\Struct\Signature>")
-     * @XmlList(inline = false, entry = "signature")
+     * @XmlList(inline=false, entry="signature", namespace="urn:zimbraAccount")
      */
     private $signatures = [];
 
@@ -227,7 +227,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAccountDataSources", setter="setAccountDataSources")
      * @SerializedName("dataSources")
      * @Type("Zimbra\Account\Struct\AccountDataSources")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private $dataSources;
 
@@ -236,7 +236,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getChildAccounts", setter="setChildAccounts")
      * @SerializedName("childAccounts")
      * @Type("array<Zimbra\Account\Struct\ChildAccount>")
-     * @XmlList(inline = false, entry = "childAccount")
+     * @XmlList(inline=false, entry="childAccount", namespace="urn:zimbraAccount")
      */
     private $childAccounts = [];
 
@@ -245,7 +245,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
-     * @XmlList(inline = false, entry = "targets")
+     * @XmlList(inline=false, entry="targets", namespace="urn:zimbraAccount")
      */
     private $discoveredRights = [];
 
@@ -254,7 +254,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getSoapURL", setter="setSoapURL")
      * @SerializedName("soapURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $soapURL;
 
@@ -263,7 +263,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getPublicURL", setter="setPublicURL")
      * @SerializedName("publicURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $publicURL;
 
@@ -273,7 +273,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
      * @SerializedName("changePasswordURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $changePasswordURL;
 
@@ -282,7 +282,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminURL", setter="setAdminURL")
      * @SerializedName("adminURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $adminURL;
 
@@ -292,7 +292,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getBoshURL", setter="setBoshURL")
      * @SerializedName("boshURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $boshURL;
 
@@ -301,7 +301,7 @@ class GetInfoResponse implements ResponseInterface
      * @Accessor(getter="getIsTrackingIMAP", setter="setIsTrackingIMAP")
      * @SerializedName("isTrackingIMAP")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $isTrackingIMAP;
 

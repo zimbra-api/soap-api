@@ -46,7 +46,6 @@ class CosCountInfo
      * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
      * nor does it include any calendar resources.
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("int")
      * @XmlValue(cdata=false)
      */
@@ -59,7 +58,9 @@ class CosCountInfo
      * @param  int $value
      * @return self
      */
-    public function __construct(string $name, string $id, ?int $value = NULL)
+    public function __construct(
+        string $name = '', string $id = '', ?int $value = NULL
+    )
     {
         $this->setName($name)
              ->setId($id);

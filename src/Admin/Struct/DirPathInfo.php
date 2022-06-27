@@ -77,7 +77,13 @@ class DirPathInfo
      * @param bool   $writable
      * @return self
      */
-    public function __construct(string $path, bool $exists, bool $directory, bool $readable, bool $writable)
+    public function __construct(
+        string $path = '',
+        bool $exists = FALSE,
+        bool $directory = FALSE,
+        bool $readable = FALSE,
+        bool $writable = FALSE
+    )
     {
         $this->setPath($path)
              ->setExists($exists)

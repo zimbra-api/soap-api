@@ -78,58 +78,5 @@ class PendingFolderModificationsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mods, 'xml'));
         $this->assertEquals($mods, $this->serializer->deserialize($xml, PendingFolderModifications::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $folderId,
-            'created' => [
-                [
-                    'm' => [
-                        'id' => $id,
-                        'i4uid' => $imapUid,
-                        't' => $type,
-                        'f' => $flags,
-                        'tn' => $tags,
-                    ],
-                ],
-            ],
-            'deleted' => [
-                [
-                    'id' => $id,
-                    't' => $type,
-                ],
-            ],
-            'modMsgs' => [
-                [
-                    'change' => $changeBitmask,
-                    'm' => [
-                        'id' => $id,
-                        'i4uid' => $imapUid,
-                        't' => $type,
-                        'f' => $flags,
-                        'tn' => $tags,
-                    ],
-                ],
-            ],
-            'modTags' => [
-                [
-                    'change' => $changeBitmask,
-                    'id' => [
-                        '_content' => $id,
-                    ],
-                    'name' => [
-                        '_content' => $name,
-                    ],
-                ],
-            ],
-            'modFolders' => [
-                [
-                    'change' => $changeBitmask,
-                    'id' => $folderId,
-                    'path' => $path,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mods, 'json'));
-        $this->assertEquals($mods, $this->serializer->deserialize($json, PendingFolderModifications::class, 'json'));
     }
 }

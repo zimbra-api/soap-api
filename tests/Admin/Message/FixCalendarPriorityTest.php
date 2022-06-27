@@ -52,7 +52,7 @@ class FixCalendarPriorityTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:FixCalendarPriorityRequest sync="true">
-            <account name="$name" />
+            <urn:account name="$name" />
         </urn:FixCalendarPriorityRequest>
         <urn:FixCalendarPriorityResponse />
     </soap:Body>

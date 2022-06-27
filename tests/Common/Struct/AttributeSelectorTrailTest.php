@@ -37,7 +37,7 @@ class AttributeSelectorImp implements AttributeSelector
 {
     use AttributeSelectorTrait;
 
-    public function __construct($attrSel)
+    public function __construct(string $attrSel = '')
     {
         $this->setAttrs($attrSel);
     }

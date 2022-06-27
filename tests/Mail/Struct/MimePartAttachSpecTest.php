@@ -32,13 +32,5 @@ class MimePartAttachSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, MimePartAttachSpec::class, 'xml'));
-
-        $json = json_encode([
-            'mid' => $messageId,
-            'part' => $part,
-            'optional' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($spec, 'json'));
-        $this->assertEquals($spec, $this->serializer->deserialize($json, MimePartAttachSpec::class, 'json'));
     }
 }

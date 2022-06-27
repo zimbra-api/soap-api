@@ -33,7 +33,7 @@ class RunUnitTestsRequest extends Request
      * @Accessor(getter="getTests", setter="setTests")
      * @SerializedName("test")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "test")
+     * @XmlList(inline=true, entry="test", namespace="urn:zimbraAdmin")
      */
     private $tests;
 

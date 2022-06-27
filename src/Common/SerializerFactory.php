@@ -15,8 +15,6 @@ use JMS\Serializer\Handler\HandlerRegistryInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\{SerializerBuilder, SerializerInterface};
 use Zimbra\Common\Serializer\{
-    JsonDeserializationVisitorFactory,
-    JsonSerializationVisitorFactory,
     XmlDeserializationVisitorFactory,
     XmlSerializationVisitorFactory
 };
@@ -47,8 +45,6 @@ final class SerializerFactory
 
             self::$builder = SerializerBuilder::create()
                 ->addDefaultHandlers()
-                ->setSerializationVisitor('json', new JsonSerializationVisitorFactory())
-                ->setDeserializationVisitor('json', new JsonDeserializationVisitorFactory())
                 ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory())
                 ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory());
         }

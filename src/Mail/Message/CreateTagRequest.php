@@ -31,7 +31,7 @@ class CreateTagRequest extends Request
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?TagSpec $tag = NULL;
 

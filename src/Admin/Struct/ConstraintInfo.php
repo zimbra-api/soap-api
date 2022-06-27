@@ -28,7 +28,7 @@ class ConstraintInfo
      * @Accessor(getter="getMin", setter="setMin")
      * @SerializedName("min")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $min;
 
@@ -37,16 +37,17 @@ class ConstraintInfo
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("max")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $max;
 
     /**
      * Acceptable Values
+     * 
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "v")
+     * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
      */
     private $values = [];
 

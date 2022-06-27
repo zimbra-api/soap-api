@@ -39,12 +39,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'type' => MultiCond::class,
                 'method' => 'xmlDeserializeSearchFilterMultiCond',
             ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'json',
-                'type' => MultiCond::class,
-                'method' => 'jsonDeserializeSearchFilterMultiCond',
-            ],
         ];
     }
 
@@ -73,35 +67,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
             if ($name == 'cond') {
                 $conds->addCondition(
                     $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
-                );
-            }
-        }
-        return $conds;
-    }
-
-    public function jsonDeserializeSearchFilterMultiCond(
-        DeserializationVisitor $visitor, $data, array $type, Context $context
-    ): MultiCond
-    {
-        $serializer = SerializerFactory::create();
-        $conds = new MultiCond;
-        if (isset($data['not']) && $data['not'] !== NULL) {
-            $conds->setNot($data['not']);
-        }
-        if (isset($data['or']) && $data['or'] !== NULL) {
-            $conds->setOr($data['or']);
-        }
-        if (isset($data['conds']) && is_array($data['conds'])) {
-            foreach ($data['conds'] as $value) {
-                $conds->addCondition(
-                    $this->jsonDeserializeSearchFilterMultiCond($visitor, $value, $type, $context)
-                );
-            }
-        }
-        if (isset($data['cond']) && is_array($data['cond'])) {
-            foreach ($data['cond'] as $value) {
-                $conds->addCondition(
-                    $serializer->deserialize(json_encode($value), SingleCond::class, 'json')
                 );
             }
         }

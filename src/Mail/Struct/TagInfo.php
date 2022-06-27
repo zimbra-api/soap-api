@@ -120,7 +120,7 @@ class TagInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
     private $metadatas = [];
 
@@ -129,7 +129,7 @@ class TagInfo
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RetentionPolicy $retentionPolicy = NULL;
 

@@ -55,7 +55,7 @@ class MimePartInfo
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
-     * @XmlList(inline = true, entry = "mp")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
     private $mimeParts = [];
 
@@ -64,7 +64,7 @@ class MimePartInfo
      * @Accessor(getter="getAttachments", setter="setAttachments")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?AttachmentsInfo $attachments = NULL;
 

@@ -55,7 +55,7 @@ class FailedTestInfo
      * @Accessor(getter="getThrowable", setter="setThrowable")
      * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $throwable;
 
@@ -68,7 +68,9 @@ class FailedTestInfo
      * @param string $throwable
      * @return self
      */
-    public function __construct(string $name, int $execSeconds, string $className, string $throwable)
+    public function __construct(
+        string $name = '', int $execSeconds = 0, string $className = '', string $throwable = ''
+    )
     {
         $this->setName($name)
              ->setExecSeconds($execSeconds)

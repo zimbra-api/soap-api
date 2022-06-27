@@ -68,36 +68,5 @@ class MPInviteInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
         $this->assertEquals($inv, $this->serializer->deserialize($xml, MPInviteInfo::class, 'xml'));
-
-        $json = json_encode([
-            'type' => 'task',
-            'tz' => [
-                [
-                    'id' => $id,
-                    'stdoff' => $tzStdOffset,
-                    'dayoff' => $tzDayOffset,
-                ],
-            ],
-            'replies' => [
-                'reply' => [
-                    [
-                        'rangeType' => $rangeType,
-                        'recurId' => $recurId,
-                        'seq' => $seq,
-                        'd' => $date,
-                        'at' => $attendee,
-                    ],
-                ],
-            ],
-            'comp' => [
-                [
-                    'method' => $method,
-                    'compNum' => $componentNum,
-                    'rsvp' => TRUE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($inv, 'json'));
-        $this->assertEquals($inv, $this->serializer->deserialize($json, MPInviteInfo::class, 'json'));
     }
 }

@@ -59,8 +59,8 @@ class LocaleInfo implements LocaleInterface
      * @return self
      */
     public function __construct(
-        string $id,
-        string $name,
+        string $id = '',
+        string $name = '',
         ?string $localName = NULL
     )
     {

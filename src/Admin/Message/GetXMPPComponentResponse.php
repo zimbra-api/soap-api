@@ -30,7 +30,7 @@ class GetXMPPComponentResponse implements ResponseInterface
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private XMPPComponentInfo $component;
 

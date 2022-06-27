@@ -58,7 +58,9 @@ class CompletedTestInfo
      * @param string $className
      * @return self
      */
-    public function __construct(string $name, int $execSeconds, string $className)
+    public function __construct(
+        string $name = '', int $execSeconds = 0, string $className = ''
+    )
     {
         $this->setName($name)
              ->setExecSeconds($execSeconds)

@@ -37,7 +37,7 @@ class QueueSummary
      * @Accessor(getter="getItems", setter="setItems")
      * @SerializedName("qsi")
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
-     * @XmlList(inline = true, entry = "qsi")
+     * @XmlList(inline=true, entry="qsi", namespace="urn:zimbraAdmin")
      */
     private $items = [];
 
@@ -48,7 +48,7 @@ class QueueSummary
      * @param  array  $items
      * @return self
      */
-    public function __construct($type, array $items = [])
+    public function __construct(string $type = '', array $items = [])
     {
         $this->setType($type)
              ->setItems($items);

@@ -69,7 +69,7 @@ class CancelAppointmentRequest extends Request
      * @Accessor(getter="getInstance", setter="setInstance")
      * @SerializedName("inst")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InstanceRecurIdInfo $instance = NULL;
 
@@ -78,7 +78,7 @@ class CancelAppointmentRequest extends Request
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalTZInfo $timezone = NULL;
 
@@ -87,7 +87,7 @@ class CancelAppointmentRequest extends Request
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Msg $msg = NULL;
 

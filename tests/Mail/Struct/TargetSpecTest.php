@@ -38,13 +38,5 @@ class TargetSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
         $this->assertEquals($target, $this->serializer->deserialize($xml, TargetSpec::class, 'xml'));
-
-        $json = json_encode([
-            'type' => 'account',
-            'by' => 'name',
-            '_content' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($target, 'json'));
-        $this->assertEquals($target, $this->serializer->deserialize($json, TargetSpec::class, 'json'));
     }
 }

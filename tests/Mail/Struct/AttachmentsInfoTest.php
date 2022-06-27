@@ -51,38 +51,5 @@ class AttachmentsInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attach, 'xml'));
         $this->assertEquals($attach, $this->serializer->deserialize($xml, AttachmentsInfo::class, 'xml'));
-
-        $json = json_encode([
-            'aid' => $attachmentId,
-            'mp' => [
-                [
-                    'mid' => $messageId,
-                    'part' => $part,
-                    'optional' => TRUE,
-                ],
-            ],
-            'm' => [
-                [
-                    'id' => $id,
-                    'optional' => TRUE,
-                ],
-            ],
-            'cn' => [
-                [
-                    'id' => $id,
-                    'optional' => TRUE,
-                ],
-            ],
-            'doc' => [
-                [
-                    'path' => $path,
-                    'id' => $id,
-                    'ver' => $version,
-                    'optional' => TRUE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($attach, 'json'));
-        $this->assertEquals($attach, $this->serializer->deserialize($json, AttachmentsInfo::class, 'json'));
     }
 }

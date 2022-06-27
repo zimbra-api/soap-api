@@ -60,9 +60,9 @@ class GetAllZimletsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllZimletsRequest exclude="none" />
         <urn:GetAllZimletsResponse>
-            <zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
-                <a n="$key">$value</a>
-            </zimlet>
+            <urn:zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
+                <urn:a n="$key">$value</urn:a>
+            </urn:zimlet>
         </urn:GetAllZimletsResponse>
     </soap:Body>
 </soap:Envelope>

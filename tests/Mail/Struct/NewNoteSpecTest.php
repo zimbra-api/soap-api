@@ -44,14 +44,5 @@ class NewNoteSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($note, 'xml'));
         $this->assertEquals($note, $this->serializer->deserialize($xml, NewNoteSpec::class, 'xml'));
-
-        $json = json_encode([
-            'l' => $folder,
-            'content' => $content,
-            'color' => $color,
-            'pos' => $bounds,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($note, 'json'));
-        $this->assertEquals($note, $this->serializer->deserialize($json, NewNoteSpec::class, 'json'));
     }
 }

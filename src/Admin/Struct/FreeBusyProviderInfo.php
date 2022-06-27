@@ -88,12 +88,12 @@ class FreeBusyProviderInfo
      * @return self
      */
     public function __construct(
-        string $name,
-        bool $propagate,
-        int $start,
-        int $end,
-        string $queue,
-        string $prefix
+        string $name = '',
+        bool $propagate = FALSE,
+        int $start = 0,
+        int $end = 0,
+        string $queue = '',
+        string $prefix = ''
     )
     {
         $this->setName($name)

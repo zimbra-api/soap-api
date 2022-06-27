@@ -36,7 +36,6 @@ class PrincipalSelector
     /**
      * The key used to identify the principal
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +47,9 @@ class PrincipalSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(PrincipalBy $by, ?string $value = NULL)
+    public function __construct(?PrincipalBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? PrincipalBy::DN());
         if (NULL !== $value) {
             $this->setValue($value);
         }

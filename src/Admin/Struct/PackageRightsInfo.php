@@ -37,7 +37,7 @@ class PackageRightsInfo
      * @Accessor(getter="getCmds", setter="setCmds")
      * @SerializedName("cmd")
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
-     * @XmlList(inline = true, entry = "cmd")
+     * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
      */
     private $cmds = [];
 

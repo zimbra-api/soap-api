@@ -27,11 +27,5 @@ class ParentIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($parentId, 'xml'));
         $this->assertEquals($parentId, $this->serializer->deserialize($xml, ParentId::class, 'xml'));
-
-        $json = json_encode([
-            'parentId' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($parentId, 'json'));
-        $this->assertEquals($parentId, $this->serializer->deserialize($json, ParentId::class, 'json'));
     }
 }

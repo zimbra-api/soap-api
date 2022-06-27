@@ -39,13 +39,5 @@ class TagSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tag, 'xml'));
         $this->assertEquals($tag, $this->serializer->deserialize($xml, TagSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'rgb' => $rgb,
-            'color' => $color,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($tag, 'json'));
-        $this->assertEquals($tag, $this->serializer->deserialize($json, TagSpec::class, 'json'));
     }
 }

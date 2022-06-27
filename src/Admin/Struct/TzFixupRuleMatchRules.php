@@ -28,7 +28,7 @@ class TzFixupRuleMatchRules
      * @Accessor(getter="getStandard", setter="setStandard")
      * @SerializedName("standard")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TzFixupRuleMatchRule $standard;
 
@@ -37,7 +37,7 @@ class TzFixupRuleMatchRules
      * @Accessor(getter="getDaylight", setter="setDaylight")
      * @SerializedName("daylight")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TzFixupRuleMatchRule $daylight;
 
@@ -70,8 +70,8 @@ class TzFixupRuleMatchRules
     public function __construct(
         TzFixupRuleMatchRule $standard,
         TzFixupRuleMatchRule $daylight,
-        int $stdoff,
-        int $dayoff
+        int $stdoff = 0,
+        int $dayoff = 0
     )
     {
         $this->setStandard($standard)

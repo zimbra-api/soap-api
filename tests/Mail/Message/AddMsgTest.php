@@ -112,52 +112,5 @@ class AddMsgTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, AddMsgEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'AddMsgRequest' => [
-                    'filterSent' => TRUE,
-                    'm' => [
-                        'f' => $flags,
-                        't' => $tags,
-                        'tn' => $tagNames,
-                        'l' => $folder,
-                        'noICal' => TRUE,
-                        'd' => $dateReceived,
-                        'aid' => $attachmentId,
-                        'content' => [
-                            '_content' => $content,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'AddMsgResponse' => [
-                    'chat' => [
-                        'id' => $id,
-                        'autoSendTime' => $autoSendTime,
-                        'e' => [
-                            [
-                                'a' => $address,
-                                'd' => $display,
-                                'p' => $personal,
-                                't' => 't',
-                            ],
-                        ],
-                        'su' => [
-                            '_content' => $subject,
-                        ],
-                        'fr' => [
-                            '_content' => $fragment,
-                        ],
-                        'inv' => [
-                            'type' => 'task',
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, AddMsgEnvelope::class, 'json'));
     }
 }

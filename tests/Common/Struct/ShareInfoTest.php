@@ -47,7 +47,7 @@ class ShareInfoTest extends ZimbraTestCase
         $this->assertSame($granteeDisplayName, $share->getGranteeDisplayName());
         $this->assertSame($mountpointId, $share->getMountpointId());
 
-        $share = new ShareInfo('', '', '', 0, '', '', '', '', '', '', '', '', '');
+        $share = new ShareInfo();
         $share->setOwnerId($ownerId)
             ->setOwnerEmail($ownerEmail)
             ->setOwnerDisplayName($ownerDisplayName)

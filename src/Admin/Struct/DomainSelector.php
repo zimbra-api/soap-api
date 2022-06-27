@@ -36,7 +36,6 @@ class DomainSelector
     /**
      * The key used to identify the domain
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -44,13 +43,14 @@ class DomainSelector
 
     /**
      * Constructor method for DomainSelector
+     * 
      * @param  DomainBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(DomainBy $by, ?string $value = NULL)
+    public function __construct(?DomainBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? DomainBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

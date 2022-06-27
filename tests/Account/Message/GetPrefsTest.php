@@ -58,10 +58,10 @@ class GetPrefsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:GetPrefsRequest>
-            <pref name="$name" modified="$modified">$value</pref>
+            <urn:pref name="$name" modified="$modified">$value</urn:pref>
         </urn:GetPrefsRequest>
         <urn:GetPrefsResponse>
-            <pref name="$name" modified="$modified">$value</pref>
+            <urn:pref name="$name" modified="$modified">$value</urn:pref>
         </urn:GetPrefsResponse>
     </soap:Body>
 </soap:Envelope>

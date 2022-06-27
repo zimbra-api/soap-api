@@ -28,7 +28,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalOrganizer $organizer = NULL;
 
@@ -37,7 +37,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "category")
+     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */
     private $categories = [];
 
@@ -46,7 +46,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?GeoInfo $geo = NULL;
 
@@ -55,7 +55,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -64,7 +64,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getInstances", setter="setInstances")
      * @SerializedName("inst")
      * @Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")
-     * @XmlList(inline = true, entry = "inst")
+     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
      */
     private $instances = [];
 
@@ -73,7 +73,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getAlarmData", setter="setAlarmData")
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?AlarmDataInfo $alarmData = NULL;
 

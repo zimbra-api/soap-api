@@ -17,7 +17,7 @@ class IdTest extends ZimbraTestCase
         $id = new Id($value);
         $this->assertSame($value, $id->getId());
 
-        $id = new Id('');
+        $id = new Id();
         $id->setId($value);
         $this->assertSame($value, $id->getId());
 

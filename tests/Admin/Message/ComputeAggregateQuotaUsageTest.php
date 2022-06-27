@@ -54,7 +54,7 @@ class ComputeAggregateQuotaUsageTest extends ZimbraTestCase
     <soap:Body>
         <urn:ComputeAggregateQuotaUsageRequest />
         <urn:ComputeAggregateQuotaUsageResponse>
-            <domain name="$name" id="$id" used="$quotaUsed" />
+            <urn:domain name="$name" id="$id" used="$quotaUsed" />
         </urn:ComputeAggregateQuotaUsageResponse>
     </soap:Body>
 </soap:Envelope>

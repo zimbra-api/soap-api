@@ -49,7 +49,7 @@ class GetDistributionListMembershipRequest extends Request
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?DistributionList $dl = NULL;
 

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminCustomMetadata;
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
@@ -17,21 +19,28 @@ class AdminCustomMetadataTest extends ZimbraTestCase
         $value = $this->faker->word;
         $section = $this->faker->word;
 
-        $meta = new AdminCustomMetadata($section);
+        $meta = new StubAdminCustomMetadata($section);
         $this->assertSame($section, $meta->getSection());
 
-        $meta = new AdminCustomMetadata;
+        $meta = new StubAdminCustomMetadata;
         $meta->setSection($section)
              ->setKeyValuePairs([new KeyValuePair($key, $value)]);
         $this->assertSame($section, $meta->getSection());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result section="$section">
-    <a n="$key">$value</a>
+<result section="$section" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($meta, 'xml'));
-        $this->assertEquals($meta, $this->serializer->deserialize($xml, AdminCustomMetadata::class, 'xml'));
+        $this->assertEquals($meta, $this->serializer->deserialize($xml, StubAdminCustomMetadata::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAdminCustomMetadata extends AdminCustomMetadata
+{
 }

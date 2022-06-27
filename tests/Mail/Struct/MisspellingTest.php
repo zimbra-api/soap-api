@@ -31,12 +31,5 @@ class MisspellingTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($missed, 'xml'));
         $this->assertEquals($missed, $this->serializer->deserialize($xml, Misspelling::class, 'xml'));
-
-        $json = json_encode([
-            'word' => $word,
-            'suggestions' => $suggestions,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($missed, 'json'));
-        $this->assertEquals($missed, $this->serializer->deserialize($json, Misspelling::class, 'json'));
     }
 }

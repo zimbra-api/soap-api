@@ -30,7 +30,7 @@ class CreateCalendarResourceResponse implements ResponseInterface
      * @Accessor(getter="getCalResource", setter="setCalResource")
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private CalendarResourceInfo $calResource;
 

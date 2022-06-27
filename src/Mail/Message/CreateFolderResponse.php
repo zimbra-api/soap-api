@@ -32,7 +32,7 @@ class CreateFolderResponse implements ResponseInterface
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Folder $folder = NULL;
 
@@ -41,7 +41,7 @@ class CreateFolderResponse implements ResponseInterface
      * @Accessor(getter="getMountpoint", setter="setFolder")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Folder $mountpoint = NULL;
 
@@ -50,7 +50,7 @@ class CreateFolderResponse implements ResponseInterface
      * @Accessor(getter="getSearchFolder", setter="setFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Folder $searchFolder = NULL;
 

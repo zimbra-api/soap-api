@@ -47,7 +47,7 @@ class DeleteZimletTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteZimletRequest>
-            <zimlet name="$name" />
+            <urn:zimlet name="$name" />
         </urn:DeleteZimletRequest>
         <urn:DeleteZimletResponse />
     </soap:Body>

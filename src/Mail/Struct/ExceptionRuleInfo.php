@@ -30,7 +30,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @Accessor(getter="getAdd", setter="setAdd")
      * @SerializedName("add")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RecurrenceInfoInterface $add = NULL;
 
@@ -39,7 +39,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @Accessor(getter="getExclude", setter="setExclude")
      * @SerializedName("exclude")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RecurrenceInfoInterface $exclude = NULL;
 

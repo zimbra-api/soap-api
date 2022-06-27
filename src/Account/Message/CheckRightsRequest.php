@@ -31,7 +31,7 @@ class CheckRightsRequest extends Request
      * @Accessor(getter="getTargets", setter="setTargets")
      * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
-     * @XmlList(inline = true, entry = "target")
+     * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
      */
     private $targets = [];
 

@@ -29,7 +29,7 @@ class VerifyIndexResponse implements ResponseInterface
      * @Accessor(getter="isStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("bool")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $status;
 
@@ -38,7 +38,7 @@ class VerifyIndexResponse implements ResponseInterface
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $message;
 

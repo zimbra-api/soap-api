@@ -82,7 +82,7 @@ class SessionForWaitSet
      * @Accessor(getter="getWaitSetSession", setter="setWaitSetSession")
      * @SerializedName("WaitSetSession")
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?WaitSetSessionInfo $waitSetSession = NULL;
 
@@ -99,8 +99,8 @@ class SessionForWaitSet
      * @return self
      */
     public function __construct(
-        string $account,
-        string $interests,
+        string $account = '',
+        string $interests = '',
         ?string $token = NULL,
         ?int $mboxSyncToken = NULL,
         ?int $mboxSyncTokenDiff = NULL,

@@ -55,7 +55,7 @@ class GetAllFreeBusyProvidersTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllFreeBusyProvidersRequest />
         <urn:GetAllFreeBusyProvidersResponse>
-            <provider name="$name" propagate="true" start="$start" end="$end" queue="$queue" prefix="$prefix" />
+            <urn:provider name="$name" propagate="true" start="$start" end="$end" queue="$queue" prefix="$prefix" />
         </urn:GetAllFreeBusyProvidersResponse>
     </soap:Body>
 </soap:Envelope>

@@ -30,7 +30,7 @@ class CreateDataSourceResponse implements ResponseInterface
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?DataSourceInfo $dataSource = NULL;
 

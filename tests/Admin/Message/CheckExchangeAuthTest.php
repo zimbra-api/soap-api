@@ -68,11 +68,11 @@ class CheckExchangeAuthTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckExchangeAuthRequest>
-            <auth url="$url" user="$user" pass="$pass" scheme="form" type="$type" />
+            <urn:auth url="$url" user="$user" pass="$pass" scheme="form" type="$type" />
         </urn:CheckExchangeAuthRequest>
         <urn:CheckExchangeAuthResponse>
-            <code>$code</code>
-            <message>$message</message>
+            <urn:code>$code</urn:code>
+            <urn:message>$message</urn:message>
         </urn:CheckExchangeAuthResponse>
     </soap:Body>
 </soap:Envelope>

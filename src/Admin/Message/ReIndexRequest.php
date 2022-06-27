@@ -32,7 +32,7 @@ class ReIndexRequest extends Request
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private Mbox $mbox;
 

@@ -215,7 +215,7 @@ class AccountDataSource implements DataSource
      * @Accessor(getter="getLastError", setter="setLastError")
      * @SerializedName("lastError")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lastError;
 
@@ -224,7 +224,7 @@ class AccountDataSource implements DataSource
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @SerializedName("a")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */
     private $attributes;
 

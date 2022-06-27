@@ -50,8 +50,8 @@ class RefreshRegisteredAuthTokensTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body xmlns:urn="urn:zimbraAdmin">
         <urn:RefreshRegisteredAuthTokensRequest>
-            <token>$token1</token>
-            <token>$token2</token>
+            <urn:token>$token1</urn:token>
+            <urn:token>$token2</urn:token>
         </urn:RefreshRegisteredAuthTokensRequest>
         <urn:RefreshRegisteredAuthTokensResponse />
     </soap:Body>

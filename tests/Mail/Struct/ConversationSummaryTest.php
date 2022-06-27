@@ -111,48 +111,5 @@ class ConversationSummaryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conv, 'xml'));
         $this->assertEquals($conv, $this->serializer->deserialize($xml, ConversationSummary::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'n' => $num,
-            'u' => $numUnread,
-            'total' => $totalSize,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'd' => $date,
-            'elided' => TRUE,
-            'md' => $changeDate,
-            'ms' => $modifiedSequence,
-            'meta' => [
-                [
-                    'section' => $section,
-                    'a' => [
-                        [
-                            'n' => $key,
-                            '_content' => $value,
-                        ],
-                    ],
-                ],
-            ],
-            'su' => [
-                '_content' => $subject,
-            ],
-            'fr' => [
-                '_content' => $fragment,
-            ],
-            'e' => [
-                [
-                    'a' => $address,
-                    'd' => $display,
-                    'p' => $personal,
-                    't' => 't',
-                    'isGroup' => TRUE,
-                    'exp' => TRUE,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($conv, 'json'));
-        $this->assertEquals($conv, $this->serializer->deserialize($json, ConversationSummary::class, 'json'));
     }
 }

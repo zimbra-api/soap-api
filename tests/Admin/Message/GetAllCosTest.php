@@ -56,9 +56,9 @@ class GetAllCosTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllCosRequest />
         <urn:GetAllCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="false">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
         </urn:GetAllCosResponse>
     </soap:Body>
 </soap:Envelope>

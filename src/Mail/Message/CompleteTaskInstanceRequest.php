@@ -11,8 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Mail\Struct\DtTimeInfo;
+use Zimbra\Mail\Struct\{CalTZInfo, DtTimeInfo};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -41,7 +40,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private DtTimeInfo $exceptionId;
 
@@ -50,7 +49,7 @@ class CompleteTaskInstanceRequest extends Request
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalTZInfo $timezone = NULL;
 

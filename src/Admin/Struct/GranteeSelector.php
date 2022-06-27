@@ -45,7 +45,6 @@ class GranteeSelector
     /**
      * The key used to secretentify the grantee
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */

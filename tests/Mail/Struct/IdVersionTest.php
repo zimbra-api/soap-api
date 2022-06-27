@@ -33,12 +33,5 @@ class IdVersionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
         $this->assertEquals($doc, $this->serializer->deserialize($xml, IdVersion::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'ver' => $version,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($doc, 'json'));
-        $this->assertEquals($doc, $this->serializer->deserialize($json, IdVersion::class, 'json'));
     }
 }

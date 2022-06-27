@@ -41,7 +41,6 @@ class Prop
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -54,7 +53,9 @@ class Prop
      * @param  string $value
      * @return self
      */
-    public function __construct(string $zimlet, string $name, ?string $value = NULL)
+    public function __construct(
+        string $zimlet = '', string $name = '', ?string $value = NULL
+    )
     {
         $this->setZimlet($zimlet)
              ->setName($name);

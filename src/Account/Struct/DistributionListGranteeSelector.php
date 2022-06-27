@@ -43,7 +43,6 @@ class DistributionListGranteeSelector
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -51,15 +50,18 @@ class DistributionListGranteeSelector
 
     /**
      * Constructor method for DistributionListGranteeSelector
+     * 
      * @param GranteeType $type
      * @param GranteeBy $by
      * @param string $value
      * @return self
      */
-    public function __construct(GranteeType $type, GranteeBy $by, ?string $value = NULL)
+    public function __construct(
+        ?GranteeType $type = NULL, ?GranteeBy $by = NULL, ?string $value = NULL
+    )
     {
-        $this->setType($type)
-            ->setBy($by);
+        $this->setType($type ?? GranteeType::ALL())
+             ->setBy($by ?? GranteeBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

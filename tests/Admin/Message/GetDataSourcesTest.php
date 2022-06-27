@@ -59,12 +59,12 @@ class GetDataSourcesTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetDataSourcesRequest id="$id">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:GetDataSourcesRequest>
         <urn:GetDataSourcesResponse>
-            <dataSource name="$name" id="$id" type="pop3">
-                <a n="$key">$value</a>
-            </dataSource>
+            <urn:dataSource name="$name" id="$id" type="pop3">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dataSource>
         </urn:GetDataSourcesResponse>
     </soap:Body>
 </soap:Envelope>

@@ -33,15 +33,5 @@ class ConvActionSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ConvActionSelector::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $ids,
-            'op' => $operation,
-            'acctRelPath' => [
-                '_content' => $acctRelativePath,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ConvActionSelector::class, 'json'));
     }
 }

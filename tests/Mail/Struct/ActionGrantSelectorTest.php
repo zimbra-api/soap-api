@@ -54,17 +54,5 @@ class ActionGrantSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grant, 'xml'));
         $this->assertEquals($grant, $this->serializer->deserialize($xml, ActionGrantSelector::class, 'xml'));
-
-        $json = json_encode([
-            'perm' => $rights,
-            'gt' => 'usr',
-            'zid' => $zimbraId,
-            'd' => $displayName,
-            'args' => $args,
-            'pw' => $password,
-            'key' => $accessKey,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($grant, 'json'));
-        $this->assertEquals($grant, $this->serializer->deserialize($json, ActionGrantSelector::class, 'json'));
     }
 }

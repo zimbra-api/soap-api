@@ -148,7 +148,7 @@ class SearchGalRequest extends Request
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $locale;
 
@@ -157,7 +157,7 @@ class SearchGalRequest extends Request
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?CursorInfo $cursor = NULL;
 
@@ -166,7 +166,7 @@ class SearchGalRequest extends Request
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?EntrySearchFilterInfo $searchFilter = NULL;
 

@@ -29,7 +29,7 @@ class GetLastItemIdInMailboxResponse implements ResponseInterface
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $id;
 

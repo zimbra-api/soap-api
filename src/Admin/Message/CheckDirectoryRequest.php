@@ -32,7 +32,7 @@ class CheckDirectoryRequest extends Request
      * @Accessor(getter="getPaths", setter="setPaths")
      * @SerializedName("directory")
      * @Type("array<Zimbra\Admin\Struct\CheckDirSelector>")
-     * @XmlList(inline = true, entry = "directory")
+     * @XmlList(inline=true, entry="directory", namespace="urn:zimbraAdmin")
      */
     private $paths = [];
 

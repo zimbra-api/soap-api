@@ -67,12 +67,12 @@ class GetUCServiceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetUCServiceRequest attrs="$attrs">
-            <ucservice by="name">$value</ucservice>
+            <urn:ucservice by="name">$value</urn:ucservice>
         </urn:GetUCServiceRequest>
         <urn:GetUCServiceResponse>
-            <ucservice name="$name" id="$id">
-                <a n="$key">$value</a>
-            </ucservice>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
         </urn:GetUCServiceResponse>
     </soap:Body>
 </soap:Envelope>

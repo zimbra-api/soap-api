@@ -28,7 +28,7 @@ class RightViaInfo
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private TargetWithType $target;
 
@@ -37,7 +37,7 @@ class RightViaInfo
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private GranteeWithType $grantee;
 
@@ -46,16 +46,21 @@ class RightViaInfo
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private CheckedRight $right;
 
     /**
      * Constructor method for RightViaInfo
-     * @param string $value
+     * 
+     * @param TargetWithType $target
+     * @param GranteeWithType $grantee
+     * @param CheckedRight $right
      * @return self
      */
-    public function __construct(TargetWithType $target, GranteeWithType $grantee, CheckedRight $right)
+    public function __construct(
+        TargetWithType $target, GranteeWithType $grantee, CheckedRight $right
+    )
     {
         $this->setTarget($target)
              ->setGrantee($grantee)

@@ -64,7 +64,7 @@ class ChildAccount
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline = false, entry = "attr")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -79,10 +79,10 @@ class ChildAccount
      * @return self
      */
     public function __construct(
-        string $id,
-        string $name,
-        bool $isVisible = NULL,
-        bool $isActive,
+        string $id = '',
+        string $name = '',
+        bool $isVisible = FALSE,
+        bool $isActive = FALSE,
         array $attrs = []
     )
     {

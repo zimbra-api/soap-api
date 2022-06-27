@@ -57,14 +57,14 @@ class ModifyWhiteBlackListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ModifyWhiteBlackListRequest>
-            <whiteList>
-                <addr op="+">$white</addr>
-                <addr op="-">$white</addr>
-            </whiteList>
-            <blackList>
-                <addr op="+">$black</addr>
-                <addr op="-">$black</addr>
-            </blackList>
+            <urn:whiteList>
+                <urn:addr op="+">$white</urn:addr>
+                <urn:addr op="-">$white</urn:addr>
+            </urn:whiteList>
+            <urn:blackList>
+                <urn:addr op="+">$black</urn:addr>
+                <urn:addr op="-">$black</urn:addr>
+            </urn:blackList>
         </urn:ModifyWhiteBlackListRequest>
         <urn:ModifyWhiteBlackListResponse />
     </soap:Body>

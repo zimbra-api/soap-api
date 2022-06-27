@@ -40,7 +40,7 @@ class CheckRightResponse implements ResponseInterface
      * @Accessor(getter="getVia", setter="setVia")
      * @SerializedName("via")
      * @Type("Zimbra\Admin\Struct\RightViaInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?RightViaInfo $via = NULL;
 

@@ -38,7 +38,7 @@ class ZimletStatusCos
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlet")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
-     * @XmlList(inline = true, entry = "zimlet")
+     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      */
     private $zimlets = [];
 
@@ -49,7 +49,7 @@ class ZimletStatusCos
      * @param  array $zimlets
      * @return self
      */
-    public function __construct(string $name, array $zimlets = [])
+    public function __construct(string $name = '', array $zimlets = [])
     {
         $this->setName($name)
              ->setZimlets($zimlets);

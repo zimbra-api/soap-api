@@ -48,7 +48,7 @@ abstract class ObjectInfo
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */
     private $attrList = [];
 
@@ -60,7 +60,9 @@ abstract class ObjectInfo
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $name, string $id, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

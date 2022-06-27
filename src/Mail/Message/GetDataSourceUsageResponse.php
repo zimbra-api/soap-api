@@ -31,7 +31,7 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * @Accessor(getter="getUsages", setter="setUsages")
      * @SerializedName("dataSourceUsage")
      * @Type("array<Zimbra\Mail\Struct\DataSourceUsage>")
-     * @XmlList(inline = true, entry = "dataSourceUsage")
+     * @XmlList(inline=true, entry="dataSourceUsage", namespace="urn:zimbraMail")
      */
     private $usages = [];
 
@@ -39,7 +39,7 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * @Accessor(getter="getDataSourceQuota", setter="setDataSourceQuota")
      * @SerializedName("dsQuota")
      * @Type("integer")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $dataSourceQuota;
 
@@ -47,7 +47,7 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * @Accessor(getter="getDataSourceTotalQuota", setter="setDataSourceTotalQuota")
      * @SerializedName("dsTotalQuota")
      * @Type("integer")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $totalQuota;
 

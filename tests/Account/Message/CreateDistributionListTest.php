@@ -70,12 +70,12 @@ class CreateDistributionListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:CreateDistributionListRequest name="$name" dynamic="true">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateDistributionListRequest>
         <urn:CreateDistributionListResponse>
-            <dl name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true">
-                <a n="$key">$value</a>
-            </dl>
+            <urn:dl name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dl>
         </urn:CreateDistributionListResponse>
     </soap:Body>
 </soap:Envelope>

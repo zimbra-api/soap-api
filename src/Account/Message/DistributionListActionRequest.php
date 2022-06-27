@@ -38,7 +38,7 @@ class DistributionListActionRequest extends Request
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private DistributionListSelector $dl;
 
@@ -47,7 +47,7 @@ class DistributionListActionRequest extends Request
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Account\Struct\DistributionListAction")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private DistributionListAction $action;
 

@@ -40,7 +40,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
      * @SerializedName("property")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")
-     * @XmlList(inline = true, entry = "property")
+     * @XmlList(inline=true, entry="property", namespace="urn:zimbraAdmin")
      */
     private $properties = [];
 

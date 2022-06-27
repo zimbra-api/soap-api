@@ -29,7 +29,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Accessor(getter="getZimletContext", setter="setZimletContext")
      * @SerializedName("zimletContext")
      * @Type("Zimbra\Account\Struct\AccountZimletContext")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletContextInterface $zimletContext = NULL;
 
@@ -38,7 +38,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Account\Struct\AccountZimletDesc")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletDesc $zimlet = NULL;
 
@@ -47,7 +47,7 @@ class AccountZimletInfo implements ZimletInterface
      * @Accessor(getter="getZimletConfig", setter="setZimletConfig")
      * @SerializedName("zimletConfig")
      * @Type("Zimbra\Account\Struct\AccountZimletConfigInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ZimletConfigInfo $zimletConfig = NULL;
 

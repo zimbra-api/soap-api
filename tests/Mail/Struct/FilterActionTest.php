@@ -27,11 +27,5 @@ class FilterActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, FilterAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, FilterAction::class, 'json'));
     }
 }

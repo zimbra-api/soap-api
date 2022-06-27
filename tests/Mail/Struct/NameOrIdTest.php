@@ -40,12 +40,5 @@ class NameOrIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
         $this->assertEquals($doc, $this->serializer->deserialize($xml, NameOrId::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($doc, 'json'));
-        $this->assertEquals($doc, $this->serializer->deserialize($json, NameOrId::class, 'json'));
     }
 }

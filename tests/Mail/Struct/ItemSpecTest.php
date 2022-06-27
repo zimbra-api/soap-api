@@ -40,14 +40,5 @@ class ItemSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
         $this->assertEquals($item, $this->serializer->deserialize($xml, ItemSpec::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'l' => $folder,
-            'name' => $name,
-            'path' => $path,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($item, 'json'));
-        $this->assertEquals($item, $this->serializer->deserialize($json, ItemSpec::class, 'json'));
     }
 }

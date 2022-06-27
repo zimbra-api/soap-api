@@ -32,13 +32,5 @@ class LogActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, LogAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'level' => 'info',
-            '_content' => $content,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, LogAction::class, 'json'));
     }
 }

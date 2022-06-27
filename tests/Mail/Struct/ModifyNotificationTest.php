@@ -27,11 +27,5 @@ class ModifyNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mod, 'xml'));
         $this->assertEquals($mod, $this->serializer->deserialize($xml, ModifyNotification::class, 'xml'));
-
-        $json = json_encode([
-            'change' => $changeBitmask,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mod, 'json'));
-        $this->assertEquals($mod, $this->serializer->deserialize($json, ModifyNotification::class, 'json'));
     }
 }

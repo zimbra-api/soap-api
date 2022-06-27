@@ -31,12 +31,5 @@ class DeleteItemNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($deleted, 'xml'));
         $this->assertEquals($deleted, $this->serializer->deserialize($xml, DeleteItemNotification::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            't' => $type,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($deleted, 'json'));
-        $this->assertEquals($deleted, $this->serializer->deserialize($json, DeleteItemNotification::class, 'json'));
     }
 }

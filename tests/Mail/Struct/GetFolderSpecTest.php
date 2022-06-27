@@ -36,13 +36,5 @@ class GetFolderSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($folder, 'xml'));
         $this->assertEquals($folder, $this->serializer->deserialize($xml, GetFolderSpec::class, 'xml'));
-
-        $json = json_encode([
-            'uuid' => $uuid,
-            'l' => $folderId,
-            'path' => $path,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($folder, 'json'));
-        $this->assertEquals($folder, $this->serializer->deserialize($json, GetFolderSpec::class, 'json'));
     }
 }

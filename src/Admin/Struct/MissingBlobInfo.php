@@ -98,13 +98,13 @@ class MissingBlobInfo
      * @return self
      */
     public function __construct(
-        int $id,
-        int $revision,
-        int $size,
-        int $volumeId,
-        string $blobPath,
-        bool $external,
-        int $version
+        int $id = 0,
+        int $revision = 0,
+        int $size = 0,
+        int $volumeId = 0,
+        string $blobPath = '',
+        bool $external = FALSE,
+        int $version = 0
     )
     {
         $this->setId($id)

@@ -45,18 +45,5 @@ class EmptyDumpsterTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, EmptyDumpsterEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'EmptyDumpsterRequest' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'EmptyDumpsterResponse' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, EmptyDumpsterEnvelope::class, 'json'));
     }
 }

@@ -57,10 +57,10 @@ class ModifyDataSourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyDataSourceRequest id="$id">
-            <dataSource name="$name" id="$id" type="pop3">
-                <a n="$key">$value</a>
-            </dataSource>
-            <a n="$key">$value</a>
+            <urn:dataSource name="$name" id="$id" type="pop3">
+                <urn:a n="$key">$value</urn:a>
+            </urn:dataSource>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyDataSourceRequest>
         <urn:ModifyDataSourceResponse />
     </soap:Body>

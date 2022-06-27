@@ -27,7 +27,7 @@ class StatsSpec
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private StatsValueWrapper $values;
 
@@ -54,7 +54,9 @@ class StatsSpec
      * @param  string $limit
      * @return self
      */
-    public function __construct(StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL)
+    public function __construct(
+        StatsValueWrapper $values, ?string $name = NULL, ?string $limit = NULL
+    )
     {
         $this->setValues($values);
         if (NULL !== $name) {

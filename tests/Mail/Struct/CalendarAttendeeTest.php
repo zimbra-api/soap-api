@@ -79,29 +79,5 @@ class CalendarAttendeeTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($at, 'xml'));
         $this->assertEquals($at, $this->serializer->deserialize($xml, CalendarAttendee::class, 'xml'));
-
-        $json = json_encode([
-            'a' => $address,
-            'url' => $url,
-            'd' => $displayName,
-            'sentBy' => $sentBy,
-            'dir' => $dir,
-            'lang' => $language,
-            'cutype' => $cuType,
-            'role' => $role,
-            'ptst' => 'AC',
-            'rsvp' => TRUE,
-            'member' => $member,
-            'delegatedTo' => $delegatedTo,
-            'delegatedFrom' => $delegatedFrom,
-            'xparam' => [
-                [
-                    'name' => $name,
-                    'value' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($at, 'json'));
-        $this->assertEquals($at, $this->serializer->deserialize($json, CalendarAttendee::class, 'json'));
     }
 }

@@ -120,11 +120,11 @@ class SearchGalTest extends ZimbraTestCase
     <soap:Body>
         <urn:SearchGalRequest domain="$domain" name="$name" limit="$limit" type="account" galAcctId="$galAccountId" />
         <urn:SearchGalResponse sortBy="$sortBy" offset="$offset" more="true" tokenizeKey="true">
-            <cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="true">
-                <meta section="$section" />
-                <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
-                <m type="$type" value="$value" />
-            </cn>
+            <urn:cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="true">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="$type" value="$value" />
+            </urn:cn>
         </urn:SearchGalResponse>
     </soap:Body>
 </soap:Envelope>

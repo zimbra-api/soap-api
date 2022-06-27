@@ -35,13 +35,5 @@ class FreeBusyUserSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($usr, 'xml'));
         $this->assertEquals($usr, $this->serializer->deserialize($xml, FreeBusyUserSpec::class, 'xml'));
-
-        $json = json_encode([
-            'l' => $folderId,
-            'id' => $id,
-            'name' => $name,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($usr, 'json'));
-        $this->assertEquals($usr, $this->serializer->deserialize($json, FreeBusyUserSpec::class, 'json'));
     }
 }

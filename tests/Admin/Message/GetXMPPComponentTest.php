@@ -72,12 +72,12 @@ class GetXMPPComponentTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetXMPPComponentRequest attrs="$attrs">
-            <xmppcomponent by="name">$value</xmppcomponent>
+            <urn:xmppcomponent by="name">$value</urn:xmppcomponent>
         </urn:GetXMPPComponentRequest>
         <urn:GetXMPPComponentResponse>
-            <xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
-                <a n="$key">$value</a>
-            </xmppcomponent>
+            <urn:xmppcomponent name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
+                <urn:a n="$key">$value</urn:a>
+            </urn:xmppcomponent>
         </urn:GetXMPPComponentResponse>
     </soap:Body>
 </soap:Envelope>

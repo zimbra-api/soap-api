@@ -30,7 +30,7 @@ class GetEffectiveFolderPermsResponse implements ResponseInterface
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Rights")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private Rights $folder;
 

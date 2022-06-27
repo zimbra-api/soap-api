@@ -59,10 +59,10 @@ class PurgeMessagesTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:PurgeMessagesRequest>
-            <mbox id="$id" />
+            <urn:mbox id="$id" />
         </urn:PurgeMessagesRequest>
         <urn:PurgeMessagesResponse>
-            <mbox mbxid="$mbxid" id="$id" s="$size" />
+            <urn:mbox mbxid="$mbxid" id="$id" s="$size" />
         </urn:PurgeMessagesResponse>
     </soap:Body>
 </soap:Envelope>

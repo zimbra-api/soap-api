@@ -37,7 +37,7 @@ class Offset
      * @param int $offset
      * @return self
      */
-    public function __construct(int $offset)
+    public function __construct(int $offset = 0)
     {
         $this->setOffset($offset);
     }

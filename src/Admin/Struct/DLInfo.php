@@ -49,12 +49,14 @@ class DLInfo extends AdminObjectInfo
      * 
      * @param  string $via
      * @param  string $name
-     * @param  string $id ID
+     * @param  string $id
      * @param  bool   $dynamic
      * @param  array  $attrs
      * @return self
      */
-    public function __construct(string $via, string $name, string $id, ?bool $dynamic = NULL, array $attrs = [])
+    public function __construct(
+        string $via = '', string $name = '', string $id = '', ?bool $dynamic = NULL, array $attrs = []
+    )
     {
         parent::__construct($name, $id, $attrs);
         $this->setVia($via);

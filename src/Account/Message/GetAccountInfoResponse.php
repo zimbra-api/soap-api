@@ -30,7 +30,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $name;
 
@@ -42,7 +42,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attr")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline = true, entry = "attr")
+     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -51,7 +51,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getSoapURL", setter="setSoapURL")
      * @SerializedName("soapURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $soapURL;
 
@@ -60,7 +60,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getPublicURL", setter="setPublicURL")
      * @SerializedName("publicURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $publicURL;
 
@@ -70,7 +70,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
      * @SerializedName("changePasswordURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $changePasswordURL;
 
@@ -79,7 +79,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getCommunityURL", setter="setCommunityURL")
      * @SerializedName("communityURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $communityURL;
 
@@ -88,7 +88,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getAdminURL", setter="setAdminURL")
      * @SerializedName("adminURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $adminURL;
 
@@ -98,7 +98,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @Accessor(getter="getBoshURL", setter="setBoshURL")
      * @SerializedName("boshURL")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $boshURL;
 
@@ -116,7 +116,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         array $attrs = [],
         ?string $soapURL = NULL,
         ?string $publicURL = NULL,

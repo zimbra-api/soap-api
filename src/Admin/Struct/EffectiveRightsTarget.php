@@ -38,7 +38,7 @@ class EffectiveRightsTarget
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?EffectiveRightsInfo $all = NULL;
 
@@ -47,7 +47,7 @@ class EffectiveRightsTarget
      * @Accessor(getter="getInDomainLists", setter="setInDomainLists")
      * @SerializedName("inDomains")
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
-     * @XmlList(inline = true, entry = "inDomains")
+     * @XmlList(inline=true, entry="inDomains", namespace="urn:zimbraAdmin")
      */
     private $inDomainLists = [];
 
@@ -56,7 +56,7 @@ class EffectiveRightsTarget
      * @Accessor(getter="getEntriesLists", setter="setEntriesLists")
      * @SerializedName("entries")
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
-     * @XmlList(inline = true, entry = "entries")
+     * @XmlList(inline=true, entry="entries", namespace="urn:zimbraAdmin")
      */
     private $entriesLists = [];
 
@@ -69,13 +69,13 @@ class EffectiveRightsTarget
      * @return self
      */
     public function __construct(
-        TargetType $type,
+        ?TargetType $type = NULL,
         ?EffectiveRightsInfo $all = NULL,
         array $inDomainLists = [],
         array $entriesLists = []
     )
     {
-        $this->setType($type)
+        $this->setType($type ?? TargetType::ACCOUNT())
              ->setInDomainLists($inDomainLists)
              ->setEntriesLists($entriesLists);
         if ($all instanceof EffectiveRightsInfo) {

@@ -23,11 +23,5 @@ class YabDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($yab, 'xml'));
         $this->assertEquals($yab, $this->serializer->deserialize($xml, YabDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($yab, 'json'));
-        $this->assertEquals($yab, $this->serializer->deserialize($json, YabDataSourceId::class, 'json'));
     }
 }

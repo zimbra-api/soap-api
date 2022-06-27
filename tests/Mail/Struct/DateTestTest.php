@@ -34,14 +34,5 @@ class DateTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, DateTest::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'negative' => TRUE,
-            'dateComparison' => 'before',
-            'date' => $date,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, DateTest::class, 'json'));
     }
 }

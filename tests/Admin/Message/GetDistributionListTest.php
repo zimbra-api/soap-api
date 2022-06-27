@@ -88,15 +88,15 @@ class GetDistributionListTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetDistributionListRequest attrs="$attrs" limit="$limit" offset="$offset" sortAscending="true">
-            <dl by="name">$value</dl>
+            <urn:dl by="name">$value</urn:dl>
         </urn:GetDistributionListRequest>
         <urn:GetDistributionListResponse more="true" total="$total">
-            <dl name="$name" id="$id" dynamic="true">
-                <dlm>$member</dlm>
-                <owners>
-                    <owner id="$id" name="$name" type="all" />
-                </owners>
-            </dl>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
         </urn:GetDistributionListResponse>
     </soap:Body>
 </soap:Envelope>

@@ -35,7 +35,7 @@ class GetXMPPComponentRequest extends Request implements AttributeSelector
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private XMPPComponentSelector $component;
 

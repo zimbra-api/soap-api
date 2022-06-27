@@ -27,11 +27,5 @@ class NotifyInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, NotifyInfo::class, 'xml'));
-
-        $json = json_encode([
-            'seq' => $sequence,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($info, 'json'));
-        $this->assertEquals($info, $this->serializer->deserialize($json, NotifyInfo::class, 'json'));
     }
 }

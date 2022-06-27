@@ -52,23 +52,5 @@ class EditheaderTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, EditheaderTest::class, 'xml'));
-
-        $json = json_encode([
-            'matchType' => 'contains',
-            'countComparator' => TRUE,
-            'valueComparator' => TRUE,
-            'relationalComparator' => 'eq',
-            'comparator' => 'i;ascii-numeric',
-            'headerName' => [
-                '_content' => $headerName,
-            ],
-            'headerValue' => [
-                [
-                    '_content' => $headerValue,
-                ]
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, EditheaderTest::class, 'json'));
     }
 }

@@ -57,12 +57,12 @@ class ModifyLDAPEntryTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyLDAPEntryRequest dn="$dn">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyLDAPEntryRequest>
         <urn:ModifyLDAPEntryResponse>
-            <LDAPEntry name="$name">
-                <a n="$key">$value</a>
-            </LDAPEntry>
+            <urn:LDAPEntry name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:LDAPEntry>
         </urn:ModifyLDAPEntryResponse>
     </soap:Body>
 </soap:Envelope>

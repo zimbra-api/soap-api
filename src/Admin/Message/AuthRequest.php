@@ -49,7 +49,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $authToken;
 
@@ -58,7 +58,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement()
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Account $account = NULL;
 
@@ -67,7 +67,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $virtualHost;
 
@@ -94,7 +94,7 @@ class AuthRequest extends Request
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $twoFactorCode;
 

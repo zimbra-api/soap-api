@@ -23,11 +23,5 @@ class ImapDataSourceIdTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($imap, 'xml'));
         $this->assertEquals($imap, $this->serializer->deserialize($xml, ImapDataSourceId::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($imap, 'json'));
-        $this->assertEquals($imap, $this->serializer->deserialize($json, ImapDataSourceId::class, 'json'));
     }
 }

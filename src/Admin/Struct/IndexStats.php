@@ -48,7 +48,7 @@ class IndexStats
      * @param string $numDeletedDocs
      * @return self
      */
-    public function __construct(int $maxDocs, int $numDeletedDocs)
+    public function __construct(int $maxDocs = 0, int $numDeletedDocs = 0)
     {
         $this->setMaxDocs($maxDocs)
              ->setNumDeletedDocs($numDeletedDocs);

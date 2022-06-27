@@ -54,7 +54,7 @@ class CosInfo implements AdminObjectInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrs = [];
 
@@ -67,7 +67,9 @@ class CosInfo implements AdminObjectInterface
      * @param  array  $attrs Attributes
      * @return self
      */
-    public function __construct(string $name, string $id, ?bool $isDefaultCos = NULL, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', ?bool $isDefaultCos = NULL, array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

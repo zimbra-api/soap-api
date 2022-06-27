@@ -32,7 +32,7 @@ class ContactBackupRequest extends Request
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
-     * @XmlList(inline = false, entry = "server")
+     * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
      */
     private $servers = [];
 

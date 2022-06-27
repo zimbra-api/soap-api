@@ -58,7 +58,7 @@ class AdminWaitSetResponse implements ResponseInterface
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @SerializedName("a")
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $signalledAccounts = [];
 
@@ -67,7 +67,7 @@ class AdminWaitSetResponse implements ResponseInterface
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("error")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline = true, entry = "error")
+     * @XmlList(inline=true, entry="error", namespace="urn:zimbraAdmin")
      */
     private $errors = [];
 

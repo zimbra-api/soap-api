@@ -64,16 +64,16 @@ class GetSystemRetentionPolicyTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
         <urn:GetSystemRetentionPolicyRequest>
-            <cos by="name">$value</cos>
+            <urn:cos by="name">$value</urn:cos>
         </urn:GetSystemRetentionPolicyRequest>
         <urn:GetSystemRetentionPolicyResponse>
             <urn1:retentionPolicy>
-                <keep>
-                    <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-                </keep>
-                <purge>
-                    <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-                </purge>
+                <urn1:keep>
+                    <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+                </urn1:keep>
+                <urn1:purge>
+                    <urn1:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+                </urn1:purge>
             </urn1:retentionPolicy>
         </urn:GetSystemRetentionPolicyResponse>
     </soap:Body>

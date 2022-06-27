@@ -35,13 +35,5 @@ class RawInviteTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($invite, 'xml'));
         $this->assertEquals($invite, $this->serializer->deserialize($xml, RawInvite::class, 'xml'));
-
-        $json = json_encode([
-            'uid' => $uid,
-            'summary' => $summary,
-            '_content' => $content,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($invite, 'json'));
-        $this->assertEquals($invite, $this->serializer->deserialize($json, RawInvite::class, 'json'));
     }
 }

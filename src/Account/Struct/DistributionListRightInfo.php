@@ -37,7 +37,7 @@ class DistributionListRightInfo
      * @Accessor(getter="getGrantees", setter="setGrantees")
      * @SerializedName("grantee")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
-     * @XmlList(inline = true, entry = "grantee")
+     * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
      */
     private $grantees = [];
 
@@ -48,7 +48,7 @@ class DistributionListRightInfo
      * @param array  $grantees
      * @return self
      */
-    public function __construct(string $right, array $grantees = [])
+    public function __construct(string $right = '', array $grantees = [])
     {
         $this->setRight($right)
              ->setGrantees($grantees);

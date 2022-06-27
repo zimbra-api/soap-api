@@ -31,13 +31,5 @@ class RedirectActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RedirectAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'a' => $address,
-            'copy' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, RedirectAction::class, 'json'));
     }
 }

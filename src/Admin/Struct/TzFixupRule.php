@@ -28,7 +28,7 @@ class TzFixupRule
      * @Accessor(getter="getMatch", setter="setMatch")
      * @SerializedName("match")
      * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TZFixupRuleMatch $match = NULL;
 
@@ -37,7 +37,7 @@ class TzFixupRule
      * @Accessor(getter="getTouch", setter="setTouch")
      * @SerializedName("touch")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?SimpleElement $touch = NULL;
 
@@ -46,7 +46,7 @@ class TzFixupRule
      * @Accessor(getter="getReplace", setter="setReplace")
      * @SerializedName("replace")
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TzReplaceInfo $replace = NULL;
 

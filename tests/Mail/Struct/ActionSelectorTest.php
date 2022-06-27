@@ -75,23 +75,5 @@ class ActionSelectorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, ActionSelector::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $ids,
-            'op' => $operation,
-            'tcon' => $constraint,
-            'tag' => $tag,
-            'l' => $folder,
-            'rgb' => $rgb,
-            'color' => $color,
-            'name' => $name,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'nei' => TRUE,
-            'nci' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, ActionSelector::class, 'json'));
     }
 }

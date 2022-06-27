@@ -46,18 +46,21 @@ class ContactGroupMember
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Account\Struct\ContactInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?ContactInfo $contact = NULL;
 
     /**
      * Constructor method for ContactGroupMember
+     * 
      * @param  string $type
      * @param  string $value
      * @param  ContactInfo $contact
      * @return self
      */
-    public function __construct(string $type, string $value, ?ContactInfo $contact = NULL)
+    public function __construct(
+        string $type = '', string $value = '', ?ContactInfo $contact = NULL
+    )
     {
         $this->setType($type)
              ->setValue($value);

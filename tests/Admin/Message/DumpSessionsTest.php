@@ -92,42 +92,42 @@ class DumpSessionsTest extends ZimbraTestCase
     <soap:Body>
         <urn:DumpSessionsRequest listSessions="true" groupByAccount="true" />
         <urn:DumpSessionsResponse activeSessions="$totalActiveSessions">
-            <soap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            <urn:soap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
             </soap>
-            <imap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </imap>
-            <admin activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </admin>
-            <wiki activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </wiki>
-            <synclistener activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </synclistener>
-            <waitset activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-                <zid name="$name" id="$id">
-                    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-                </zid>
-                <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </waitset>
+            <urn:imap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </urn:imap>
+            <urn:admin activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </urn:admin>
+            <urn:wiki activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </urn:wiki>
+            <urn:synclistener activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </urn:synclistener>
+            <urn:waitset activeAccounts="$activeAccounts" activeSessions="$activeSessions">
+                <urn:zid name="$name" id="$id">
+                    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+                </urn:zid>
+                <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+            </urn:waitset>
         </urn:DumpSessionsResponse>
     </soap:Body>
 </soap:Envelope>

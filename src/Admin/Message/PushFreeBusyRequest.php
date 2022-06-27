@@ -35,7 +35,7 @@ class PushFreeBusyRequest extends Request
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?Names $domains = NULL;
 
@@ -45,7 +45,7 @@ class PushFreeBusyRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 

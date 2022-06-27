@@ -66,29 +66,5 @@ class MessageSummaryTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
         $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageSummary::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'autoSendTime' => $autoSendTime,
-            'e' => [
-                [
-                    'a' => $address,
-                    'd' => $display,
-                    'p' => $personal,
-                    't' => 't',
-                ],
-            ],
-            'su' => [
-                '_content' => $subject,
-            ],
-            'fr' => [
-                '_content' => $fragment,
-            ],
-            'inv' => [
-                'type' => 'task',
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($msg, 'json'));
-        $this->assertEquals($msg, $this->serializer->deserialize($json, MessageSummary::class, 'json'));
     }
 }

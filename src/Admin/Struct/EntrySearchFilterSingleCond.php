@@ -66,14 +66,14 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @return self
      */
     public function __construct(
-        string $attr,
-        ConditionOperator $op,
-        string $value,
+        string $attr = '',
+        ?ConditionOperator $op = NULL,
+        string $value = '',
         ?bool $not = NULL
     )
     {
         $this->setAttr($attr)
-             ->setOp($op)
+             ->setOp($op ?? ConditionOperator::EQ())
              ->setValue($value);
         if (NULL !== $not) {
             $this->setNot($not);

@@ -28,7 +28,7 @@ class CalEcho
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InviteAsMP $invite = NULL;
 

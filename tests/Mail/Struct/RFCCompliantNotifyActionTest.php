@@ -46,18 +46,5 @@ class RFCCompliantNotifyActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, RFCCompliantNotifyAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'from' => $from,
-            'importance' => $importance,
-            'options' => $options,
-            'message' => $message,
-            'method' => [
-                '_content' => $method,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, RFCCompliantNotifyAction::class, 'json'));
     }
 }

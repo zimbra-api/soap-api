@@ -38,7 +38,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private EffectiveRightsTargetSelector $target;
 
@@ -47,7 +47,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private GranteeSelector $grantee;
 
@@ -56,7 +56,7 @@ class CheckRightRequest extends Request implements AdminAttrs
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private CheckedRight $right;
 

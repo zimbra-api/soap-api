@@ -31,7 +31,7 @@ class CreateContactResponse implements ResponseInterface
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?ContactInfo $contact = NULL;
 

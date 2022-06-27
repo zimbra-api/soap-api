@@ -30,7 +30,7 @@ class AddCommentResponse implements ResponseInterface
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private Id $comment;
 

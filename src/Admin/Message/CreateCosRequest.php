@@ -35,7 +35,7 @@ class CreateCosRequest extends Request implements AdminAttrs
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $name;
 

@@ -35,7 +35,6 @@ class GranteeWithType
     /**
      * Target name
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -47,7 +46,7 @@ class GranteeWithType
      * @param  string $value
      * @return self
      */
-    public function __construct($type, ?string $value = NULL)
+    public function __construct($type = '', ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $value) {

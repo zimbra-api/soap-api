@@ -58,7 +58,9 @@ class GranteeInfo
      * @param  GranteeType $type
      * @return self
      */
-    public function __construct(string $id, string $name, ?GranteeType $type = NULL)
+    public function __construct(
+        string $id = '', string $name = '', ?GranteeType $type = NULL
+    )
     {
         $this->setId($id)
              ->setName($name);

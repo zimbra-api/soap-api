@@ -62,12 +62,12 @@ class GetZimletStatusTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetZimletStatusRequest />
         <urn:GetZimletStatusResponse>
-            <zimlets>
-                <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
-            </zimlets>
-            <cos name="$name">
-                <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
-            </cos>
+            <urn:zimlets>
+                <urn:zimlet name="$name" status="enabled" extension="true" priority="$priority" />
+            </urn:zimlets>
+            <urn:cos name="$name">
+                <urn:zimlet name="$name" status="enabled" extension="true" priority="$priority" />
+            </urn:cos>
         </urn:GetZimletStatusResponse>
     </soap:Body>
 </soap:Envelope>

@@ -53,7 +53,7 @@ class GetOAuthConsumersTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetOAuthConsumersRequest />
         <urn:GetOAuthConsumersResponse>
-            <OAuthConsumer accessToken="$accessToken" approvedOn="$approvedOn" appName="$applicationName" device="$device" />
+            <urn:OAuthConsumer accessToken="$accessToken" approvedOn="$approvedOn" appName="$applicationName" device="$device" />
         </urn:GetOAuthConsumersResponse>
     </soap:Body>
 </soap:Envelope>

@@ -57,20 +57,5 @@ class GetIMAPRecentCutoffTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetIMAPRecentCutoffEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetIMAPRecentCutoffRequest' => [
-                    'id' => $id,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetIMAPRecentCutoffResponse' => [
-                    'cutoff' => $cutoff,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetIMAPRecentCutoffEnvelope::class, 'json'));
     }
 }

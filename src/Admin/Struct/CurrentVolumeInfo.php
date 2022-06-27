@@ -46,7 +46,7 @@ class CurrentVolumeInfo
      * @param  int $id
      * @return self
      */
-    public function __construct(int $type, int $id)
+    public function __construct(int $type = 0, int $id = 0)
     {
         $this->setId($id)
              ->setType($type);

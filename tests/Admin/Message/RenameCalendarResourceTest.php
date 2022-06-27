@@ -64,9 +64,9 @@ class RenameCalendarResourceTest extends ZimbraTestCase
     <soap:Body>
         <urn:RenameCalendarResourceRequest id="$id" newName="$newName" />
         <urn:RenameCalendarResourceResponse>
-            <calresource name="$name" id="$id">
-                <a n="$key">$value</a>
-            </calresource>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
         </urn:RenameCalendarResourceResponse>
     </soap:Body>
 </soap:Envelope>

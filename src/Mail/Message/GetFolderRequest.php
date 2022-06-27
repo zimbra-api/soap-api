@@ -89,7 +89,7 @@ class GetFolderRequest extends Request
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\GetFolderSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?GetFolderSpec $folder = NULL;
 

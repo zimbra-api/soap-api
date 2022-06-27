@@ -35,8 +35,8 @@ class CacheEntrySelector
 
     /**
      * The key used to identify the cache entry
+     * 
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +48,9 @@ class CacheEntrySelector
      * @param  string $value
      * @return self
      */
-    public function __construct(CacheEntryBy $by, ?string $value = NULL)
+    public function __construct(?CacheEntryBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? CacheEntryBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

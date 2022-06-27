@@ -39,14 +39,5 @@ class RecurIdInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($recurId, 'xml'));
         $this->assertEquals($recurId, $this->serializer->deserialize($xml, RecurIdInfo::class, 'xml'));
-
-        $json = json_encode([
-            'rangeType' => $recurrenceRangeType,
-            'recurId' => $recurrenceId,
-            'tz' => $timezone,
-            'ridZ' => $recurIdZ,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($recurId, 'json'));
-        $this->assertEquals($recurId, $this->serializer->deserialize($json, RecurIdInfo::class, 'json'));
     }
 }

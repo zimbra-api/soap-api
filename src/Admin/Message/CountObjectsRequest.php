@@ -52,7 +52,7 @@ class CountObjectsRequest extends Request
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
-     * @XmlList(inline = true, entry = "domain")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */
     private $domains = [];
 
@@ -61,7 +61,7 @@ class CountObjectsRequest extends Request
      * @Accessor(getter="getUcService", setter="setUcService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?UcServiceSelector $ucService = NULL;
 

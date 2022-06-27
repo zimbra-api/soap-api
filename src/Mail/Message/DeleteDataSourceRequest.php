@@ -59,7 +59,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("imap")
      * @Type("array<Zimbra\Mail\Struct\ImapDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "imap")
+     * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -74,7 +74,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("pop3")
      * @Type("array<Zimbra\Mail\Struct\Pop3DataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "pop3")
+     * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -89,7 +89,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("caldav")
      * @Type("array<Zimbra\Mail\Struct\CaldavDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "caldav")
+     * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -104,7 +104,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("yab")
      * @Type("array<Zimbra\Mail\Struct\YabDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "yab")
+     * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -119,7 +119,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("rss")
      * @Type("array<Zimbra\Mail\Struct\RssDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "rss")
+     * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -134,7 +134,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("gal")
      * @Type("array<Zimbra\Mail\Struct\GalDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "gal")
+     * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -149,7 +149,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("cal")
      * @Type("array<Zimbra\Mail\Struct\CalDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "cal")
+     * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
      *
      * @return array
      */
@@ -164,7 +164,7 @@ class DeleteDataSourceRequest extends Request
      * @SerializedName("unknown")
      * @Type("array<Zimbra\Mail\Struct\UnknownDataSourceNameOrId>")
      * @VirtualProperty
-     * @XmlList(inline = true, entry = "unknown")
+     * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
      *
      * @return array
      */

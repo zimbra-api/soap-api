@@ -30,7 +30,7 @@ class GetICalResponse implements ResponseInterface
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("ical")
      * @Type("Zimbra\Mail\Struct\ICalContent")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ICalContent $content;
 

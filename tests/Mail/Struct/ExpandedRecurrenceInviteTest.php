@@ -50,31 +50,5 @@ class ExpandedRecurrenceInviteTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comp, 'xml'));
         $this->assertEquals($comp, $this->serializer->deserialize($xml, ExpandedRecurrenceInvite::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'e' => $endTime,
-            'exceptId' => [
-                'range' => $range,
-                'd' => $dateTime,
-                'tz' => $tz,
-            ],
-            'dur' => [
-                'w' => $weeks,
-                'd' => $days,
-                'h' => $hours,
-                'm' => $minutes,
-                's' => $seconds,
-            ],
-            'recur' => [
-                'rule' => [
-                    [
-                        'freq' => 'HOU',
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($comp, 'json'));
-        $this->assertEquals($comp, $this->serializer->deserialize($json, ExpandedRecurrenceInvite::class, 'json'));
     }
 }

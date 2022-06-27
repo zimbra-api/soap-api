@@ -52,27 +52,5 @@ class DtValTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dtval, 'xml'));
         $this->assertEquals($dtval, $this->serializer->deserialize($xml, DtVal::class, 'xml'));
-
-        $json = json_encode([
-            's' => [
-                'd' => $dateTime,
-                'tz' => $timezone,
-                'u' => $utcTime,
-            ],
-            'e' => [
-                'd' => $dateTime,
-                'tz' => $timezone,
-                'u' => $utcTime,
-            ],
-            'dur' => [
-                'w' => $weeks,
-                'd' => $days,
-                'h' => $hours,
-                'm' => $minutes,
-                's' => $seconds,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dtval, 'json'));
-        $this->assertEquals($dtval, $this->serializer->deserialize($json, DtVal::class, 'json'));
     }
 }

@@ -69,12 +69,12 @@ class GetServerTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetServerRequest attrs="$attrs" applyConfig="true">
-            <server by="name">$value</server>
+            <urn:server by="name">$value</urn:server>
         </urn:GetServerRequest>
         <urn:GetServerResponse>
-            <server name="$name" id="$id">
-                <a n="$key">$value</a>
-            </server>
+            <urn:server name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:server>
         </urn:GetServerResponse>
     </soap:Body>
 </soap:Envelope>

@@ -53,7 +53,7 @@ class MigrateAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:MigrateAccountRequest>
-            <migrate id="$id" action="$action" />
+            <urn:migrate id="$id" action="$action" />
         </urn:MigrateAccountRequest>
         <urn:MigrateAccountResponse />
     </soap:Body>

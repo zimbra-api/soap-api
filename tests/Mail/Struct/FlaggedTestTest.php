@@ -30,13 +30,5 @@ class FlaggedTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, FlaggedTest::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'negative' => TRUE,
-            'flagName' => $flag,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, FlaggedTest::class, 'json'));
     }
 }

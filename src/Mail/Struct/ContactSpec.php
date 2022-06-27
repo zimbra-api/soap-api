@@ -65,7 +65,7 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getVcard", setter="setVcard")
      * @SerializedName("vcard")
      * @Type("Zimbra\Mail\Struct\VCardInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?VCardInfo $vcard = NULL;
 
@@ -74,7 +74,7 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
     private $attrs = [];
 
@@ -84,7 +84,7 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")
-     * @XmlList(inline = true, entry = "m")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */
     private $contactGroupMembers = [];
 

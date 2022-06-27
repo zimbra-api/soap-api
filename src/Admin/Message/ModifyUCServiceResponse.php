@@ -30,7 +30,7 @@ class ModifyUCServiceResponse implements ResponseInterface
      * @Accessor(getter="getUCService", setter="setUCService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?UCServiceInfo $ucService = NULL;
 

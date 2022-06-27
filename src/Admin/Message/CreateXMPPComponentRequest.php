@@ -31,7 +31,7 @@ class CreateXMPPComponentRequest extends Request
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private XMPPComponentSpec $component;
 

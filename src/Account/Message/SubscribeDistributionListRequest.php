@@ -41,7 +41,7 @@ class SubscribeDistributionListRequest extends Request
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private DistributionListSelector $dl;
 
@@ -53,11 +53,11 @@ class SubscribeDistributionListRequest extends Request
      * @return self
      */
     public function __construct(
-        DistributionListSelector $dl, DistributionListSubscribeOp $op
+        DistributionListSelector $dl, ?DistributionListSubscribeOp $op = NULL
     )
     {
         $this->setDl($dl)
-             ->setOp($op);
+             ->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE());
     }
 
     /**

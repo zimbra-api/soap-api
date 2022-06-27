@@ -38,7 +38,7 @@ class FreeBusyQueueProvider
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 
@@ -49,7 +49,7 @@ class FreeBusyQueueProvider
      * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $name, array $accounts = [])
+    public function __construct(string $name = '', array $accounts = [])
     {
         $this->setName($name)
              ->setAccounts($accounts);

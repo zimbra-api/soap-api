@@ -28,7 +28,7 @@ class ServerWithQueueAction
      * @Accessor(getter="getQueue", setter="setQueue")
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private MailQueueWithAction $queue;
 
@@ -47,7 +47,7 @@ class ServerWithQueueAction
      * @param  string $name
      * @return self
      */
-    public function __construct(MailQueueWithAction $queue, string $name)
+    public function __construct(MailQueueWithAction $queue, string $name = '')
     {
         $this->setQueue($queue)
              ->setName($name);

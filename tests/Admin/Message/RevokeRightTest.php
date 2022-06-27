@@ -85,9 +85,9 @@ class RevokeRightTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:RevokeRightRequest>
-            <target type="account" by="name">$value</target>
-            <grantee type="usr" by="id" secret="$secret" all="true">$value</grantee>
-            <right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</right>
+            <urn:target type="account" by="name">$value</urn:target>
+            <urn:grantee type="usr" by="id" secret="$secret" all="true">$value</urn:grantee>
+            <urn:right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</urn:right>
         </urn:RevokeRightRequest>
         <urn:RevokeRightResponse />
     </soap:Body>

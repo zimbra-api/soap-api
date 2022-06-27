@@ -88,23 +88,5 @@ class NewMountpointSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mount, 'xml'));
         $this->assertEquals($mount, $this->serializer->deserialize($xml, NewMountpointSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'view' => 'conversation',
-            'f' => $flags,
-            'rgb' => $rgb,
-            'color' => $color,
-            'url' => $url,
-            'l' => $folderId,
-            'fie' => TRUE,
-            'reminder' => TRUE,
-            'zid' => $ownerId,
-            'owner' => $ownerName,
-            'rid' => $remoteId,
-            'path' => $path,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($mount, 'json'));
-        $this->assertEquals($mount, $this->serializer->deserialize($json, NewMountpointSpec::class, 'json'));
     }
 }

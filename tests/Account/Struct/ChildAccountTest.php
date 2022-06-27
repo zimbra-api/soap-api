@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\ChildAccount;
 use Zimbra\Tests\ZimbraTestCase;
@@ -19,14 +21,14 @@ class ChildAccountTest extends ZimbraTestCase
 
         $attr = new Attr($name, $value, TRUE);
 
-        $childAccount = new ChildAccount($id, $name, FALSE, FALSE, [$attr]);
+        $childAccount = new MockChildAccount($id, $name, FALSE, FALSE, [$attr]);
         $this->assertSame($id, $childAccount->getId());
         $this->assertSame($name, $childAccount->getName());
         $this->assertFalse($childAccount->isVisible());
         $this->assertFalse($childAccount->isActive());
         $this->assertSame([$attr], $childAccount->getAttrs());
 
-        $childAccount = new ChildAccount('', '', FALSE, FALSE);
+        $childAccount = new MockChildAccount('', '', FALSE, FALSE);
         $childAccount->setName($name)
             ->setId($id)
             ->setIsVisible(TRUE)
@@ -42,13 +44,20 @@ class ChildAccountTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" visible="true" active="true">
-    <attrs>
-        <attr name="$name" pd="true">$value</attr>
-    </attrs>
+<result id="$id" name="$name" visible="true" active="true" xmlns:urn="urn:zimbraAccount">
+    <urn:attrs>
+        <urn:attr name="$name" pd="true">$value</urn:attr>
+    </urn:attrs>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($childAccount, 'xml'));
-        $this->assertEquals($childAccount, $this->serializer->deserialize($xml, ChildAccount::class, 'xml'));
+        $this->assertEquals($childAccount, $this->serializer->deserialize($xml, MockChildAccount::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockChildAccount extends ChildAccount
+{
 }

@@ -58,12 +58,12 @@ class ModifyAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyAccountRequest id="$id">
-            <a n="$key">$value</a>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyAccountRequest>
         <urn:ModifyAccountResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:ModifyAccountResponse>
     </soap:Body>
 </soap:Envelope>

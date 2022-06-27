@@ -58,7 +58,7 @@ class SetPasswordTest extends ZimbraTestCase
     <soap:Body>
         <urn:SetPasswordRequest id="$id" newPassword="$newPassword" />
         <urn:SetPasswordResponse>
-            <message>$message</message>
+            <urn:message>$message</urn:message>
         </urn:SetPasswordResponse>
     </soap:Body>
 </soap:Envelope>

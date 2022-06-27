@@ -146,7 +146,7 @@ class CalendarItemInfo
      * @Accessor(getter="getInvites", setter="setInvites")
      * @SerializedName("inv")
      * @Type("array<Zimbra\Mail\Struct\Invitation>")
-     * @XmlList(inline = true, entry = "inv")
+     * @XmlList(inline=true, entry="inv", namespace="urn:zimbraMail")
      */
     private $invites = [];
 
@@ -156,7 +156,7 @@ class CalendarItemInfo
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
-     * @XmlList(inline = false, entry = "reply")
+     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
     private $calendarReplies = [];
 
@@ -166,7 +166,7 @@ class CalendarItemInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline = true, entry = "meta")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
     private $metadatas = [];
 

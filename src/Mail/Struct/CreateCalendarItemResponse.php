@@ -76,7 +76,7 @@ class CreateCalendarItemResponse implements ResponseInterface
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Id $msg = NULL;
 
@@ -85,7 +85,7 @@ class CreateCalendarItemResponse implements ResponseInterface
      * @Accessor(getter="getEcho", setter="setEcho")
      * @SerializedName("echo")
      * @Type("Zimbra\Mail\Struct\CalEcho")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalEcho $echo = NULL;
 

@@ -70,11 +70,14 @@ class ZimletStatus
      * @return self
      */
     public function __construct(
-        string $name, ZimletStatusSetting $status, bool $extension, ?int $priority = NULL
+        string $name = '',
+        ?ZimletStatusSetting $status = NULL,
+        bool $extension = FALSE,
+        ?int $priority = NULL
     )
     {
         $this->setName($name)
-             ->setStatus($status)
+             ->setStatus($status ?? ZimletStatusSetting::DISABLED())
              ->setExtension($extension);
         if (NULL !== $priority) {
             $this->setPriority($priority);

@@ -59,7 +59,9 @@ class DistributionListMembershipInfo
      * @param string $via
      * @return self
      */
-    public function __construct(string $id, string $name, ?string $via = NULL)
+    public function __construct(
+        string $id = '', string $name = '', ?string $via = NULL
+    )
     {
         $this->setId($id)
              ->setName($name);

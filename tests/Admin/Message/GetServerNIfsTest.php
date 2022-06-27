@@ -66,12 +66,12 @@ class GetServerNIfsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetServerNIfsRequest type="both">
-            <server by="name">$value</server>
+            <urn:server by="name">$value</urn:server>
         </urn:GetServerNIfsRequest>
         <urn:GetServerNIfsResponse>
-            <ni>
-                <a n="$key">$value</a>
-            </ni>
+            <urn:ni>
+                <urn:a n="$key">$value</urn:a>
+            </urn:ni>
         </urn:GetServerNIfsResponse>
     </soap:Body>
 </soap:Envelope>

@@ -83,7 +83,7 @@ class ConversationSpec
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline = true, entry = "header")
+     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */
     private $headers = [];
 

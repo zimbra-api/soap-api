@@ -31,12 +31,5 @@ class GeoInfoTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($geo, 'xml'));
         $this->assertEquals($geo, $this->serializer->deserialize($xml, GeoInfo::class, 'xml'));
-
-        $json = json_encode([
-            'lat' => $latitude,
-            'lon' => $longitude,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($geo, 'json'));
-        $this->assertEquals($geo, $this->serializer->deserialize($json, GeoInfo::class, 'json'));
     }
 }

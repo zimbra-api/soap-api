@@ -44,7 +44,7 @@ class DeleteUCServiceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteUCServiceRequest>
-            <id>$id</id>
+            <urn:id>$id</urn:id>
         </urn:DeleteUCServiceRequest>
         <urn:DeleteUCServiceResponse />
     </soap:Body>

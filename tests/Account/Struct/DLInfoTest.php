@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\DLInfo;
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
@@ -21,7 +23,7 @@ class DLInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $dl = new DLInfo($id, $ref, $name, $displayName, FALSE, $via, FALSE, FALSE);
+        $dl = new MockDLInfo($id, $ref, $name, $displayName, FALSE, $via, FALSE, FALSE);
         $this->assertSame($ref, $dl->getRef());
         $this->assertSame($displayName, $dl->getDisplayName());
         $this->assertFalse($dl->isDynamic());
@@ -29,7 +31,7 @@ class DLInfoTest extends ZimbraTestCase
         $this->assertFalse($dl->isOwner());
         $this->assertFalse($dl->isMember());
 
-        $dl = new DLInfo($id, '', $name, '', FALSE, '', FALSE, FALSE, [new KeyValuePair($key, $value)]);
+        $dl = new MockDLInfo($id, '', $name, '', FALSE, '', FALSE, FALSE, [new KeyValuePair($key, $value)]);
         $dl->setRef($ref)
             ->setDisplayName($displayName)
             ->setDynamic(TRUE)
@@ -45,11 +47,18 @@ class DLInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" ref="$ref" d="$displayName" dynamic="true" via="$via" isOwner="true" isMember="true" xmlns:urn="urn:zimbraAccount">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
-        $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, MockDLInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockDLInfo extends DLInfo
+{
 }

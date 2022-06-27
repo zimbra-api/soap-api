@@ -46,7 +46,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline = true, entry = "e")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emails = [];
 
@@ -55,7 +55,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $subject;
 
@@ -64,7 +64,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -73,7 +73,7 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InviteInfo $invite = NULL;
 

@@ -59,9 +59,9 @@ class GetAllAdminAccountsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllAdminAccountsRequest applyCos="true" />
         <urn:GetAllAdminAccountsResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:GetAllAdminAccountsResponse>
     </soap:Body>
 </soap:Envelope>

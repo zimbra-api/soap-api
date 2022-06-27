@@ -31,11 +31,5 @@ class ByYearDayRuleTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
         $this->assertEquals($rule, $this->serializer->deserialize($xml, ByYearDayRule::class, 'xml'));
-
-        $json = json_encode([
-            'yrdaylist' => $list,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($rule, 'json'));
-        $this->assertEquals($rule, $this->serializer->deserialize($json, ByYearDayRule::class, 'json'));
     }
 }

@@ -28,12 +28,5 @@ class TagActionTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
         $this->assertEquals($action, $this->serializer->deserialize($xml, TagAction::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'tagName' => $tag,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($action, 'json'));
-        $this->assertEquals($action, $this->serializer->deserialize($json, TagAction::class, 'json'));
     }
 }

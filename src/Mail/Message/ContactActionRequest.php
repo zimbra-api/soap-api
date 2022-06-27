@@ -31,7 +31,7 @@ class ContactActionRequest extends Request
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ContactActionSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ContactActionSelector $action;
 

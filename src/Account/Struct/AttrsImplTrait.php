@@ -27,12 +27,13 @@ trait AttrsImplTrait
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
     /**
      * Constructor method for AttrsImpl
+     * 
      * @param array $attrs
      * @return self
      */

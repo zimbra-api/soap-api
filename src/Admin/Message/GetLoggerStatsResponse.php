@@ -31,7 +31,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      * @Accessor(getter="getHostNames", setter="setHostNames")
      * @SerializedName("hostname")
      * @Type("array<Zimbra\Admin\Struct\HostStats>")
-     * @XmlList(inline = true, entry = "hostname")
+     * @XmlList(inline=true, entry="hostname", namespace="urn:zimbraAdmin")
      */
     private $hostNames = [];
 
@@ -40,7 +40,7 @@ class GetLoggerStatsResponse implements ResponseInterface
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
     private $note;
 

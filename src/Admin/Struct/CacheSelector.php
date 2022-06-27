@@ -28,7 +28,7 @@ class CacheSelector
      * @Accessor(getter="getEntries", setter="setEntries")
      * @SerializedName("entry")
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
-     * @XmlList(inline = true, entry = "entry")
+     * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
      */
     private $entries = [];
 
@@ -66,13 +66,16 @@ class CacheSelector
 
     /**
      * Constructor method for CacheSelector
+     * 
      * @param  string $types
      * @param  bool $allServers
      * @param  bool $imapServers 
      * @param  array $entries
      * @return self
      */
-    public function __construct(string $types, ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = [])
+    public function __construct(
+        string $types = '', ?bool $allServers = NULL, ?bool $imapServers = NULL, array $entries = []
+    )
     {
         $this->setTypes($types);
         if (NULL !== $allServers) {

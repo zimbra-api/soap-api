@@ -68,10 +68,10 @@ class BlobRevisionInfo
      * @return self
      */
     public function __construct(
-        string $path,
-        int $fileSize,
-        int $revision,
-        bool $external
+        string $path = '',
+        int $fileSize = 0,
+        int $revision = 0,
+        bool $external = FALSE
     )
     {
         $this->setPath($path)

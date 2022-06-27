@@ -26,7 +26,7 @@ trait AttrsImplTrait
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "a")
+     * @XmlList(inline=true, entry="a")
      */
     private $attrs = [];
 

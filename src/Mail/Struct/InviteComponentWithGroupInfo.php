@@ -29,7 +29,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getCategories", setter="setCategories")
      * @SerializedName("category")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "category")
+     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */
     private $categories = [];
 
@@ -38,7 +38,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getComments", setter="setComments")
      * @SerializedName("comment")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "comment")
+     * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      */
     private $comments = [];
 
@@ -47,7 +47,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getContacts", setter="setContacts")
      * @SerializedName("contact")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "contact")
+     * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
      */
     private $contacts = [];
 
@@ -56,7 +56,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("App\Libraries\Zimbra\Mail\Type\GeoInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?GeoInfo $geo = NULL;
 
@@ -65,7 +65,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @SerializedName("at")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\CalendarAttendee>")
-     * @XmlList(inline = true, entry = "at")
+     * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
      */
     private $attendees = [];
 
@@ -74,7 +74,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getAlarms", setter="setAlarms")
      * @SerializedName("alarm")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\AlarmInfo>")
-     * @XmlList(inline = true, entry = "alarm")
+     * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
      */
     private $alarms = [];
 
@@ -83,7 +83,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getXProps", setter="setXProps")
      * @SerializedName("xprop")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\XProp>")
-     * @XmlList(inline = true, entry = "xprop")
+     * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
      */
     private $xProps = [];
 
@@ -92,7 +92,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -101,7 +101,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $description;
 
@@ -110,7 +110,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $htmlDescription;
 
@@ -119,7 +119,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("App\Libraries\Zimbra\Mail\Type\CalOrganizer")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?CalOrganizer $organizer = NULL;
 
@@ -128,7 +128,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("App\Libraries\Zimbra\Mail\Type\RecurrenceInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?RecurrenceInfo $recurrence = NULL;
 
@@ -137,7 +137,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("App\Libraries\Zimbra\Mail\Type\ExceptionRecurIdInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?ExceptionRecurIdInfo $exceptionId = NULL;
 
@@ -146,7 +146,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getDtStart", setter="setDtStart")
      * @SerializedName("s")
      * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfo $dtStart = NULL;
 
@@ -155,7 +155,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getDtEnd", setter="setDtEnd")
      * @SerializedName("e")
      * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DtTimeInfo $dtEnd = NULL;
 
@@ -164,7 +164,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("App\Libraries\Zimbra\Mail\Type\DurationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?DurationInfo $duration = NULL;
 

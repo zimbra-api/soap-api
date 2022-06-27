@@ -41,7 +41,7 @@ class AutoCompleteResponse implements ResponseInterface
      * @Accessor(getter="getMatches", setter="setMatches")
      * @SerializedName("match")
      * @Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")
-     * @XmlList(inline = true, entry = "match")
+     * @XmlList(inline=true, entry="match", namespace="urn:zimbraMail")
      */
     private $matches = [];
 

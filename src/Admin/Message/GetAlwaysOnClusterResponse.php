@@ -30,7 +30,7 @@ class GetAlwaysOnClusterResponse implements ResponseInterface
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?AlwaysOnClusterInfo $cluster = NULL;
 

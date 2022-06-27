@@ -48,9 +48,9 @@ class ModifyIdentityTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
     <soap:Body>
         <urn:ModifyIdentityRequest>
-            <identity name="$name" id="$id">
-                <a name="$name" pd="true">$value</a>
-            </identity>
+            <urn:identity name="$name" id="$id">
+                <urn:a name="$name" pd="true">$value</urn:a>
+            </urn:identity>
         </urn:ModifyIdentityRequest>
         <urn:ModifyIdentityResponse />
     </soap:Body>

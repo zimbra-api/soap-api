@@ -31,7 +31,7 @@ class GetApptSummariesResponse implements ResponseInterface
      * @Accessor(getter="getApptEntries", setter="setApptEntries")
      * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")
-     * @XmlList(inline = true, entry = "appt")
+     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      */
     private $apptEntries = [];
 
@@ -41,7 +41,7 @@ class GetApptSummariesResponse implements ResponseInterface
      * @Accessor(getter="getTaskEntries", setter="setTaskEntries")
      * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\LegacyTaskData>")
-     * @XmlList(inline = true, entry = "task")
+     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      */
     private $taskEntries = [];
 

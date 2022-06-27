@@ -31,7 +31,7 @@ class GetRightsDocRequest extends Request
      * @Accessor(getter="getPkgs", setter="setPkgs")
      * @SerializedName("package")
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
-     * @XmlList(inline = true, entry = "package")
+     * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
      */
     private $pkgs = [];
 

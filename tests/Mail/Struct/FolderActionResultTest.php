@@ -41,17 +41,5 @@ class FolderActionResultTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($result, 'xml'));
         $this->assertEquals($result, $this->serializer->deserialize($xml, FolderActionResult::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'op' => $operation,
-            'nei' => $nonExistentIds,
-            'nci' => $newlyCreatedIds,
-            'zid' => $zimbraId,
-            'd' => $displayName,
-            'key' => $accessKey,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($result, 'json'));
-        $this->assertEquals($result, $this->serializer->deserialize($json, FolderActionResult::class, 'json'));
     }
 }

@@ -48,7 +48,7 @@ class DeleteXMPPComponentTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteXMPPComponentRequest>
-            <xmppcomponent by="name">$value</xmppcomponent>
+            <urn:xmppcomponent by="name">$value</urn:xmppcomponent>
         </urn:DeleteXMPPComponentRequest>
         <urn:DeleteXMPPComponentResponse />
     </soap:Body>

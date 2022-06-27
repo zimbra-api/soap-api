@@ -42,11 +42,12 @@ class LoggerInfo
 
     /**
      * Constructor method for loggerInfo
+     * 
      * @param string $category
      * @param LoggingLevel $level
      * @return self
      */
-    public function __construct($category, ?LoggingLevel $level = NULL)
+    public function __construct(string $category = '', ?LoggingLevel $level = NULL)
     {
         $this->setCategory($category);
         if (NULL !== $level) {

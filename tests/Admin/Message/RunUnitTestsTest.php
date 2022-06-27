@@ -72,14 +72,14 @@ class RunUnitTestsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body xmlns:urn="urn:zimbraAdmin">
         <urn:RunUnitTestsRequest>
-            <test>$test1</test>
-            <test>$test2</test>
+            <urn:test>$test1</urn:test>
+            <urn:test>$test2</urn:test>
         </urn:RunUnitTestsRequest>
         <urn:RunUnitTestsResponse numExecuted="$numExecuted" numFailed="$numFailed">
-            <results>
-                <completed name="$name" execSeconds="$execSeconds" class="$className"/>
-                <failure name="$name" execSeconds="$execSeconds" class="$className">$throwable</failure>
-            </results>
+            <urn:results>
+                <urn:completed name="$name" execSeconds="$execSeconds" class="$className"/>
+                <urn:failure name="$name" execSeconds="$execSeconds" class="$className">$throwable</urn:failure>
+            </urn:results>
         </urn:RunUnitTestsResponse>
     </soap:Body>
 </soap:Envelope>

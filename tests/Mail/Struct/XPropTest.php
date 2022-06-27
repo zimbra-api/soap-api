@@ -40,18 +40,5 @@ class XPropTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xprop, 'xml'));
         $this->assertEquals($xprop, $this->serializer->deserialize($xml, XProp::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'value' => $value,
-            'xparam' => [
-                [
-                    'name' => $name,
-                    'value' => $value,
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($xprop, 'json'));
-        $this->assertEquals($xprop, $this->serializer->deserialize($json, XProp::class, 'json'));
     }
 }

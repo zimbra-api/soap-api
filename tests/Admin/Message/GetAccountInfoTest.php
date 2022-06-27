@@ -82,17 +82,17 @@ class GetAccountInfoTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetAccountInfoRequest>
-            <account by="name">$value</account>
+            <urn:account by="name">$value</urn:account>
         </urn:GetAccountInfoRequest>
         <urn:GetAccountInfoResponse>
-            <name>$name</name>
-            <a n="$key">$value</a>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="true">$value</a>
-            </cos>
-            <soapURL>$soapURL</soapURL>
-            <adminSoapURL>$adminSoapURL</adminSoapURL>
-            <publicMailURL>$publicMailURL</publicMailURL>
+            <urn:name>$name</urn:name>
+            <urn:a n="$key">$value</urn:a>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
+            <urn:soapURL>$soapURL</urn:soapURL>
+            <urn:adminSoapURL>$adminSoapURL</urn:adminSoapURL>
+            <urn:publicMailURL>$publicMailURL</urn:publicMailURL>
         </urn:GetAccountInfoResponse>
     </soap:Body>
 </soap:Envelope>

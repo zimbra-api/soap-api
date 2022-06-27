@@ -41,16 +41,6 @@ class GetCalendarItemRequestBaseTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($request, 'xml'));
         $this->assertEquals($request, $this->serializer->deserialize($xml, GetCalendarRequest::class, 'xml'));
-
-        $json = json_encode([
-            'sync' => TRUE,
-            'includeContent' => TRUE,
-            'includeInvites' => TRUE,
-            'uid' => $uid,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($request, 'json'));
-        $this->assertEquals($request, $this->serializer->deserialize($json, GetCalendarRequest::class, 'json'));
     }
 }
 

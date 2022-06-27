@@ -31,7 +31,7 @@ class MigrateAccountRequest extends Request
      * @Accessor(getter="getMigrate", setter="setMigrate")
      * @SerializedName("migrate")
      * @Type("Zimbra\Admin\Struct\IdAndAction")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private IdAndAction $migrate;
 

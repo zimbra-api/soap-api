@@ -53,7 +53,7 @@ class FixCalendarTZRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 
@@ -62,7 +62,7 @@ class FixCalendarTZRequest extends Request
      * @Accessor(getter="getTzFixup", setter="setTzFixup")
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?TzFixup $tzFixup = NULL;
 

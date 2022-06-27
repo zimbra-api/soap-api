@@ -37,13 +37,5 @@ class MiniCalErrorTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($error, 'xml'));
         $this->assertEquals($error, $this->serializer->deserialize($xml, MiniCalError::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'code' => $code,
-            '_content' => $errorMessage,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($error, 'json'));
-        $this->assertEquals($error, $this->serializer->deserialize($json, MiniCalError::class, 'json'));
     }
 }

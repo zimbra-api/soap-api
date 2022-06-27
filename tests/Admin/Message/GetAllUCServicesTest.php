@@ -55,9 +55,9 @@ class GetAllUCServicesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllUCServicesRequest />
         <urn:GetAllUCServicesResponse>
-            <ucservice name="$name" id="$id">
-                <a n="$key">$value</a>
-            </ucservice>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
         </urn:GetAllUCServicesResponse>
     </soap:Body>
 </soap:Envelope>

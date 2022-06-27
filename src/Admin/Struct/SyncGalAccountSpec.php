@@ -38,7 +38,7 @@ class SyncGalAccountSpec
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @SerializedName("datasource")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
-     * @XmlList(inline = true, entry = "datasource")
+     * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
      */
     private $dataSources = [];
 
@@ -48,7 +48,7 @@ class SyncGalAccountSpec
      * @param array $dataSources
      * @return self
      */
-    public function __construct(string $id, array $dataSources = [])
+    public function __construct(string $id = '', array $dataSources = [])
     {
         $this->setId($id)
              ->setDataSources($dataSources);

@@ -45,9 +45,8 @@ class RawInvite
     /**
      * Raw iCalendar data
      * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $content;
 

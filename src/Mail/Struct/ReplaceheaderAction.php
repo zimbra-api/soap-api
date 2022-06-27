@@ -28,7 +28,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $newName;
 
@@ -37,7 +37,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @Accessor(getter="getNewValue", setter="setNewValue")
      * @SerializedName("newValue")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $newValue;
 

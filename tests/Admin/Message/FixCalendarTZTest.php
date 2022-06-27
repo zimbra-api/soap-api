@@ -118,32 +118,32 @@ class FixCalendarTZTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:FixCalendarTZRequest sync="true" after="$after">
-            <account name="$name" />
-            <tzfixup>
-            <fixupRule>
-                <match>
-                    <any />
-                    <tzid id="$id" />
-                    <nonDst offset="$offset" />
-                    <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
-                        <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-                        <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-                    </rules>
-                    <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
-                        <standard mon="$date_mon" mday="$date_mday" />
-                        <daylight mon="$date_mon" mday="$date_mday" />
-                    </dates>
-                </match>
-                <touch />
-                <replace>
-                    <wellKnownTz id="$id" />
-                    <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
-                        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
-                        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
-                    </tz>
-                </replace>
-            </fixupRule>
-        </tzfixup>
+            <urn:account name="$name" />
+            <urn:tzfixup>
+            <urn:fixupRule>
+                <urn:match>
+                    <urn:any />
+                    <urn:tzid id="$id" />
+                    <urn:nonDst offset="$offset" />
+                    <urn:rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+                        <urn:standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+                        <urn:daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+                    </urn:rules>
+                    <urn:dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+                        <urn:standard mon="$date_mon" mday="$date_mday" />
+                        <urn:daylight mon="$date_mon" mday="$date_mday" />
+                    </urn:dates>
+                </urn:match>
+                <urn:touch />
+                <urn:replace>
+                    <urn:wellKnownTz id="$id" />
+                    <urn:tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+                        <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
+                        <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
+                    </urn:tz>
+                </urn:replace>
+            </urn:fixupRule>
+        </urn:tzfixup>
         </urn:FixCalendarTZRequest>
         <urn:FixCalendarTZResponse />
     </soap:Body>

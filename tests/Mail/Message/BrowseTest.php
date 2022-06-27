@@ -75,28 +75,5 @@ class BrowseTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, BrowseEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'BrowseRequest' => [
-                    'browseBy' => 'domains',
-                    'regex' => $regex,
-                    'maxToReturn' => $max,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'BrowseResponse' => [
-                    'bd' => [
-                        [
-                            'h' => $browseDomainHeader,
-                            'freq' => $frequency,
-                            '_content' => $data,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, BrowseEnvelope::class, 'json'));
     }
 }

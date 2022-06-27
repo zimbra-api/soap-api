@@ -34,7 +34,6 @@ class SignatureContent
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -51,7 +50,7 @@ class SignatureContent
         if (NULL !== $value) {
             $this->setValue($value);
         }
-        if (NULL !== $type) {
+        if ($type instanceof ContentType) {
             $this->setContentType($type);
         }
     }

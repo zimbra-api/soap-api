@@ -63,21 +63,5 @@ class FreeBusySlotTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($slot, 'xml'));
         $this->assertEquals($slot, $this->serializer->deserialize($xml, FreeBusySlot::class, 'xml'));
-
-        $json = json_encode([
-            's' => $startTime,
-            'e' => $endTime,
-            'eventId' => $id,
-            'subject' => $subject,
-            'location' => $location,
-            'isMeeting' => TRUE,
-            'isRecurring' => TRUE,
-            'isException' => TRUE,
-            'isReminderSet' => TRUE,
-            'isPrivate' => TRUE,
-            'hasPermission' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($slot, 'json'));
-        $this->assertEquals($slot, $this->serializer->deserialize($json, FreeBusySlot::class, 'json'));
     }
 }

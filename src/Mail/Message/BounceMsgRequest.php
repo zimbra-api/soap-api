@@ -36,7 +36,7 @@ class BounceMsgRequest extends Request
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\BounceMsgSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private BounceMsgSpec $msg;
 

@@ -114,19 +114,19 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:SearchCalendarResourcesRequest limit="$limit" offset="$offset" domain="$domain" applyCos="true" sortBy="$sortBy" sortAscending="true" attrs="$attrs">
-            <searchFilter>
-                <conds not="true" or="false">
-                    <conds not="false" or="true">
-                        <cond attr="$attr" op="ge" value="$value" not="false" />
-                    </conds>
-                    <cond attr="$attr" op="eq" value="$value" not="true" />
-                </conds>
-            </searchFilter>
+            <urn:searchFilter>
+                <urn:conds not="true" or="false">
+                    <urn:conds not="false" or="true">
+                        <urn:cond attr="$attr" op="ge" value="$value" not="false" />
+                    </urn:conds>
+                    <urn:cond attr="$attr" op="eq" value="$value" not="true" />
+                </urn:conds>
+            </urn:searchFilter>
         </urn:SearchCalendarResourcesRequest>
         <urn:SearchCalendarResourcesResponse more="true" searchTotal="$searchTotal">
-            <calresource name="$name" id="$id">
-                <a n="$key">$value</a>
-            </calresource>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
         </urn:SearchCalendarResourcesResponse>
     </soap:Body>
 </soap:Envelope>

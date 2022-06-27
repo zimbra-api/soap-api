@@ -31,7 +31,7 @@ class CreateSearchFolderRequest extends Request
      * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\NewSearchFolderSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private NewSearchFolderSpec $searchFolder;
 

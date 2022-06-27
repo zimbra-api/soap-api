@@ -31,7 +31,7 @@ class ModifyZimletRequest extends Request
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletAclStatusPri")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ZimletAclStatusPri $zimlet;
 

@@ -66,7 +66,7 @@ class WaitSetInfo
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline = false, entry = "error")
+     * @XmlList(inline=false, entry="error", namespace="urn:zimbraAdmin")
      */
     private $errors = [];
 
@@ -75,7 +75,7 @@ class WaitSetInfo
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @SerializedName("ready")
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?AccountsAttrib $signalledAccounts = NULL;
 
@@ -111,7 +111,7 @@ class WaitSetInfo
      * @Accessor(getter="getBufferedCommits", setter="setBufferedCommits")
      * @SerializedName("buffered")
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
-     * @XmlList(inline = false, entry = "commit")
+     * @XmlList(inline=false, entry="commit", namespace="urn:zimbraAdmin")
      */
     private $bufferedCommits = [];
 
@@ -120,7 +120,7 @@ class WaitSetInfo
      * @Accessor(getter="getSessions", setter="setSessions")
      * @SerializedName("session")
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
-     * @XmlList(inline = true, entry = "session")
+     * @XmlList(inline=true, entry="session", namespace="urn:zimbraAdmin")
      */
     private $sessions = [];
 
@@ -141,10 +141,10 @@ class WaitSetInfo
      * @return self
      */
     public function __construct(
-        string $waitSetId,
-        string $owner,
-        string $defaultInterests,
-        int $lastAccessDate,
+        string $waitSetId = '',
+        string $owner = '',
+        string $defaultInterests = '',
+        int $lastAccessDate = 0,
         array $errors = [],
         ?AccountsAttrib $signalledAccounts = NULL,
         ?string $cbSeqNo = NULL,

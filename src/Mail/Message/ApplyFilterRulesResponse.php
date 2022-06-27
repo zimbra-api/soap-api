@@ -30,7 +30,7 @@ class ApplyFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?IdsAttr $msgIds = NULL;
 

@@ -41,16 +41,5 @@ class MimeHeaderTestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
         $this->assertEquals($test, $this->serializer->deserialize($xml, MimeHeaderTest::class, 'xml'));
-
-        $json = json_encode([
-            'index' => $index,
-            'negative' => TRUE,
-            'header' => $headers,
-            'stringComparison' => 'contains',
-            'value' => $value,
-            'caseSensitive' => TRUE,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($test, 'json'));
-        $this->assertEquals($test, $this->serializer->deserialize($json, MimeHeaderTest::class, 'json'));
     }
 }

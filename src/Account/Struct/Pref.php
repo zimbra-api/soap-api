@@ -33,7 +33,6 @@ class Pref
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -51,10 +50,12 @@ class Pref
      * Constructor method for preference
      * @param  string $name
      * @param  string $value
-     * @param  int   $modified
+     * @param  int    $modified
      * @return self
      */
-    public function __construct(string $name, ?string $value = NULL, ?int $modified = NULL)
+    public function __construct(
+        string $name = '', ?string $value = NULL, ?int $modified = NULL
+    )
     {
         $this->setName($name);
         if (NULL !== $value) {

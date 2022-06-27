@@ -28,7 +28,7 @@ class AddheaderAction extends FilterAction
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $headerName;
 
@@ -37,7 +37,7 @@ class AddheaderAction extends FilterAction
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @SerializedName("headerValue")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $headerValue;
 

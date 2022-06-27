@@ -45,18 +45,5 @@ class BeginTrackingIMAPTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, BeginTrackingIMAPEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'BeginTrackingIMAPRequest' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'BeginTrackingIMAPResponse' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, BeginTrackingIMAPEnvelope::class, 'json'));
     }
 }

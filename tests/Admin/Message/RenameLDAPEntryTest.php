@@ -63,9 +63,9 @@ class RenameLDAPEntryTest extends ZimbraTestCase
     <soap:Body>
         <urn:RenameLDAPEntryRequest dn="$dn" new_dn="$newDn" />
         <urn:RenameLDAPEntryResponse>
-            <LDAPEntry name="$name">
-                <a n="$key">$value</a>
-            </LDAPEntry>
+            <urn:LDAPEntry name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:LDAPEntry>
         </urn:RenameLDAPEntryResponse>
     </soap:Body>
 </soap:Envelope>

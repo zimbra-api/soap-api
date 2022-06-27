@@ -53,7 +53,7 @@ class GetMiniCalRequest extends Request
      * @Accessor(getter="getFolders", setter="setFolders")
      * @SerializedName("folder")
      * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline = true, entry = "folder")
+     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
      */
     private $folders = [];
 
@@ -64,7 +64,7 @@ class GetMiniCalRequest extends Request
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private $timezone = [];
 

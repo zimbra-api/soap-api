@@ -38,7 +38,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $newName;
 
@@ -46,7 +46,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getSubsReq", setter="setSubsReq")
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?Subscribe $subsReq = NULL;
 
@@ -54,8 +54,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getMembers", setter="setMembers")
      * @SerializedName("dlm")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "dlm")
-     * @XmlElement(cdata = false)
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
      */
     private $members = [];
 
@@ -63,7 +62,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owner")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
-     * @XmlList(inline = true, entry = "owner")
+     * @XmlList(inline=true, entry="owner", namespace="urn:zimbraAccount")
      */
     private $owners = [];
 
@@ -71,7 +70,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */
     private $rights = [];
 
@@ -87,7 +86,7 @@ class DistributionListAction extends AccountKeyValuePairs
      * @return self
      */
     public function __construct(
-        Operation $op,
+        ?Operation $op = NULL,
         ?string $newName = NULL,
         ?Subscribe $subsReq = NULL,
         array $dlms = [],
@@ -97,7 +96,7 @@ class DistributionListAction extends AccountKeyValuePairs
     )
     {
         parent::__construct($attrs);
-        $this->setOp($op);
+        $this->setOp($op ?? Operation::GRANT_RIGHTS());
         if (NULL !== $newName) {
             $this->setNewName($newName);
         }

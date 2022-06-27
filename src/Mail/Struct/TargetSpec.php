@@ -47,9 +47,8 @@ class TargetSpec
      * The key used to identify the target
      * Meaning determined by {accountBy}
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
-     * @XmlValue(cdata = false)
+     * @XmlValue(cdata=false)
      */
     private $value;
 

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminKeyValuePairs;
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Tests\ZimbraTestCase;
@@ -13,16 +15,16 @@ class AdminKeyValuePairsTest extends ZimbraTestCase
 {
     public function testAdminKeyValuePairs()
     {
-        $key1 = $this->faker->word;
-        $key2 = $this->faker->word;
-        $value1 = $this->faker->text;
-        $value2 = $this->faker->text;
+        $key1 = $this->faker->unique->word;
+        $key2 = $this->faker->unique->word;
+        $value1 = $this->faker->unique->word;
+        $value2 = $this->faker->unique->word;
 
         $kvp1 = new KeyValuePair($key1, $value1);
         $kvp2 = new KeyValuePair($key1, $value2);
         $kvp3 = new KeyValuePair($key2, $value2);
 
-        $stub = new AdminKeyValuePairs([$kvp1]);
+        $stub = new StubAdminKeyValuePairs([$kvp1]);
         $this->assertSame([$kvp1], $stub->getKeyValuePairs());
 
         $stub->setKeyValuePairs([$kvp1, $kvp2])
@@ -33,13 +35,20 @@ class AdminKeyValuePairsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <a n="$key1">$value1</a>
-    <a n="$key1">$value2</a>
-    <a n="$key2">$value2</a>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key1">$value1</urn:a>
+    <urn:a n="$key1">$value2</urn:a>
+    <urn:a n="$key2">$value2</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
-        $this->assertEquals($stub, $this->serializer->deserialize($xml, AdminKeyValuePairs::class, 'xml'));
+        $this->assertEquals($stub, $this->serializer->deserialize($xml, StubAdminKeyValuePairs::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAdminKeyValuePairs extends AdminKeyValuePairs
+{
 }

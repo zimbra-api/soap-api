@@ -31,7 +31,7 @@ class CreateFolderRequest extends Request
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\NewFolderSpec")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private NewFolderSpec $folder;
 

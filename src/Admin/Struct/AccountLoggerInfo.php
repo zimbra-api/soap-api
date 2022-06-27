@@ -44,7 +44,7 @@ class AccountLoggerInfo
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @SerializedName("logger")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
-     * @XmlList(inline = true, entry = "logger")
+     * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
      */
     private $loggers = [];
 
@@ -56,7 +56,9 @@ class AccountLoggerInfo
      * @param  array  $loggers
      * @return self
      */
-    public function __construct(string $name, string $id, array $loggers = [])
+    public function __construct(
+        string $name = '', string $id = '', array $loggers = []
+    )
     {
         $this->setName($name)
              ->setId($id)

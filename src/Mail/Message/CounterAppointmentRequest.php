@@ -71,7 +71,7 @@ class CounterAppointmentRequest extends Request
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?Msg $msg = NULL;
 

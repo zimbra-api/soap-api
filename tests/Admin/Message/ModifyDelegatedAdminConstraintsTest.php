@@ -67,15 +67,15 @@ class ModifyDelegatedAdminConstraintsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyDelegatedAdminConstraintsRequest type="server" id="$id" name="$name">
-            <a name="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value</v>
-                    </values>
-                </constraint>
-            </a>
+            <urn:a name="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value</urn:v>
+                    </urn:values>
+                </urn:constraint>
+            </urn:a>
         </urn:ModifyDelegatedAdminConstraintsRequest>
         <urn:ModifyDelegatedAdminConstraintsResponse />
     </soap:Body>

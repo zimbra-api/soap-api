@@ -59,22 +59,5 @@ class EnableSharedReminderTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, EnableSharedReminderEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'EnableSharedReminderRequest' => [
-                    'link' => [
-                        'id' => $id,
-                        'reminder' => TRUE,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'EnableSharedReminderResponse' => [
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, EnableSharedReminderEnvelope::class, 'json'));
     }
 }

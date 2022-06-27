@@ -50,7 +50,7 @@ class GetAvailableSkinsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAvailableSkinsRequest />
         <urn:GetAvailableSkinsResponse>
-            <skin name="$name" />
+            <urn:skin name="$name" />
         </urn:GetAvailableSkinsResponse>
     </soap:Body>
 </soap:Envelope>

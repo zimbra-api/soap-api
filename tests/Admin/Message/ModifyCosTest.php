@@ -61,13 +61,13 @@ class ModifyCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ModifyCosRequest>
-            <id>$id</id>
-            <a n="$key">$value</a>
+            <urn:id>$id</urn:id>
+            <urn:a n="$key">$value</urn:a>
         </urn:ModifyCosRequest>
         <urn:ModifyCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="true">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
         </urn:ModifyCosResponse>
     </soap:Body>
 </soap:Envelope>

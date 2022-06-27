@@ -28,7 +28,6 @@ class GenerateUUIDResponse implements ResponseInterface
      * Generated globally unique UUID
      * 
      * @Accessor(getter="getUuid", setter="setUuid")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue
      */

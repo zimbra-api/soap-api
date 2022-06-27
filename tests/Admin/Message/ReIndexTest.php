@@ -70,10 +70,10 @@ class ReIndexTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:ReIndexRequest action="start">
-            <mbox id="$id" types="$types" ids="$ids" />
+            <urn:mbox id="$id" types="$types" ids="$ids" />
         </urn:ReIndexRequest>
         <urn:ReIndexResponse status="running">
-            <progress numSucceeded="$numSucceeded" numFailed="$numFailed" numRemaining="$numRemaining" />
+            <urn:progress numSucceeded="$numSucceeded" numFailed="$numFailed" numRemaining="$numRemaining" />
         </urn:ReIndexResponse>
     </soap:Body>
 </soap:Envelope>

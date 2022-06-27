@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,12 +22,12 @@ class IdentityTest extends ZimbraTestCase
         $attr1 = new Attr($name, $value, TRUE);
         $attr2 = new Attr($name, $value, FALSE);
 
-        $identity = new Identity($name, $id, [$attr1]);
+        $identity = new MockIdentity($name, $id, [$attr1]);
         $this->assertSame($name, $identity->getName());
         $this->assertSame($id, $identity->getId());
         $this->assertSame([$attr1], $identity->getAttrs());
 
-        $identity = new Identity('');
+        $identity = new MockIdentity('');
         $identity->setName($name)
                  ->setId($id)
                  ->setAttrs([$attr1])
@@ -36,12 +38,19 @@ class IdentityTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a name="$name" pd="true">$value</a>
-    <a name="$name" pd="false">$value</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAccount">
+    <urn:a name="$name" pd="true">$value</urn:a>
+    <urn:a name="$name" pd="false">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($identity, 'xml'));
-        $this->assertEquals($identity, $this->serializer->deserialize($xml, Identity::class, 'xml'));
+        $this->assertEquals($identity, $this->serializer->deserialize($xml, MockIdentity::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockIdentity extends Identity
+{
 }

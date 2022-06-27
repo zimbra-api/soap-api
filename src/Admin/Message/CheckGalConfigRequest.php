@@ -34,7 +34,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?LimitedQuery $query = NULL;
 
@@ -44,7 +44,7 @@ class CheckGalConfigRequest extends Request implements AdminAttrs
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private $action;
 

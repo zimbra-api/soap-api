@@ -12,9 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
-use Zimbra\Common\Struct\AttributeSelector;
-use Zimbra\Common\Struct\AttributeSelectorTrait;
-use Zimbra\Common\Struct\CursorInfo;
+use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, CursorInfo};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -78,7 +76,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $locale;
 
@@ -87,7 +85,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?CursorInfo $cursor = NULL;
 
@@ -105,7 +103,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $name;
 
@@ -114,7 +112,7 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?EntrySearchFilterInfo $searchFilter = NULL;
 

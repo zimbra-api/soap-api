@@ -33,12 +33,5 @@ class DismissAlarmTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alarm, 'xml'));
         $this->assertEquals($alarm, $this->serializer->deserialize($xml, DismissAlarm::class, 'xml'));
-
-        $json = json_encode([
-            'id' => $id,
-            'dismissedAt' => $dismissedAt,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($alarm, 'json'));
-        $this->assertEquals($alarm, $this->serializer->deserialize($json, DismissAlarm::class, 'json'));
     }
 }

@@ -37,7 +37,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private DomainSelector $domain;
 
@@ -46,7 +46,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ServerSelector $server;
 
@@ -59,7 +59,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         DomainSelector $domain,
         ServerSelector $server,
         array $attrs = []

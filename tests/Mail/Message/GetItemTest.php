@@ -108,28 +108,5 @@ class GetItemTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetItemEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetItemRequest' => [
-                    'item' => [
-                        'id' => $id,
-                        'l' => $folderId,
-                        'name' => $name,
-                        'path' => $path,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetItemResponse' => [
-                    'folder' => [
-                        'id' => $id,
-                        'uuid' => $uuid,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetItemEnvelope::class, 'json'));
     }
 }

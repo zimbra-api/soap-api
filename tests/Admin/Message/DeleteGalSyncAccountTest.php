@@ -51,7 +51,7 @@ class DeleteGalSyncAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:DeleteGalSyncAccountRequest>
-            <account by="name">$value</account>
+            <urn:account by="name">$value</urn:account>
         </urn:DeleteGalSyncAccountRequest>
         <urn:DeleteGalSyncAccountResponse />
     </soap:Body>

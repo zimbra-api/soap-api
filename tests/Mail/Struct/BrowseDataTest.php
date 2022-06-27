@@ -35,13 +35,5 @@ class BrowseDataTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($bd, 'xml'));
         $this->assertEquals($bd, $this->serializer->deserialize($xml, BrowseData::class, 'xml'));
-
-        $json = json_encode([
-            'h' => $browseDomainHeader,
-            'freq' => $frequency,
-            '_content' => $data,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($bd, 'json'));
-        $this->assertEquals($bd, $this->serializer->deserialize($json, BrowseData::class, 'json'));
     }
 }

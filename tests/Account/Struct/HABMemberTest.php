@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\HABMember;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -27,8 +29,8 @@ class HABMemberTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result seniorityIndex="$seniorityIndex">
-    <name>$name</name>
+<result seniorityIndex="$seniorityIndex" xmlns:urn="urn:zimbraAccount">
+    <urn:name>$name</urn:name>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
@@ -36,6 +38,9 @@ EOT;
     }
 }
 
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
 class StubHABMember extends HABMember
 {
 }

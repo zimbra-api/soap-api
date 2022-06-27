@@ -28,7 +28,7 @@ class InviteTest extends FilterTest
      * @Accessor(getter="getMethods", setter="setMethods")
      * @SerializedName("method")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "method")
+     * @XmlList(inline=true, entry="method", namespace="urn:zimbraMail")
      */
     private $methods;
 

@@ -37,7 +37,7 @@ class HostStats
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?StatsInfo $stats = NULL;
 
@@ -48,7 +48,7 @@ class HostStats
      * @param  StatsInfo $stats
      * @return self
      */
-    public function __construct(string $hostName, ?StatsInfo $stats = NULL)
+    public function __construct(string $hostName = '', ?StatsInfo $stats = NULL)
     {
         $this->setHostName($hostName);
         if ($stats instanceof StatsInfo) {

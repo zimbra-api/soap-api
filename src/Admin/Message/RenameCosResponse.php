@@ -30,7 +30,7 @@ class RenameCosResponse implements ResponseInterface
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private CosInfo $cos;
 

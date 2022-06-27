@@ -40,7 +40,7 @@ class CheckPermissionResponse implements ResponseInterface
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("right")
      * @Type("array<Zimbra\Mail\Struct\RightPermission>")
-     * @XmlList(inline = true, entry = "right")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraMail")
      */
     private $rights = [];
 

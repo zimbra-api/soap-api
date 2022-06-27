@@ -30,7 +30,7 @@ class GetLicenseInfoResponse implements ResponseInterface
      * @Accessor(getter="getExpiration", setter="setExpiration")
      * @SerializedName("expiration")
      * @Type("Zimbra\Admin\Struct\LicenseExpirationInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private LicenseExpirationInfo $expiration;
 

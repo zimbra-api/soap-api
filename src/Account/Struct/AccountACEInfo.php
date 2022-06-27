@@ -101,8 +101,8 @@ class AccountACEInfo
      * @return self
      */
     public function __construct(
-        GranteeType $granteeType,
-        string $right,
+        ?GranteeType $granteeType = NULL,
+        string $right = '',
         ?string $zimbraId = NULL,
         ?string $displayName = NULL,
         ?string $accessKey = NULL,
@@ -111,8 +111,8 @@ class AccountACEInfo
         ?bool $checkGranteeType = NULL
     )
     {
-        $this->setGranteeType($granteeType)
-            ->setRight($right);
+        $this->setGranteeType($granteeType ?? GranteeType::ALL())
+             ->setRight($right);
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }

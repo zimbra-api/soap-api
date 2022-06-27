@@ -39,7 +39,7 @@ class ExportAndDeleteMailboxSpec
      * @Accessor(getter="getItems", setter="setItems")
      * @SerializedName("item")
      * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
-     * @XmlList(inline = true, entry = "item")
+     * @XmlList(inline=true, entry="item", namespace="urn:zimbraAdmin")
      */
     private $items = [];
 
@@ -49,7 +49,7 @@ class ExportAndDeleteMailboxSpec
      * @param  array $items
      * @return self
      */
-    public function __construct(int $id, array $items = [])
+    public function __construct(int $id = 0, array $items = [])
     {
         $this->setId($id)
              ->setItems($items);

@@ -120,7 +120,7 @@ class FolderActionRequest extends Request
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private FolderActionSelector $action;
 

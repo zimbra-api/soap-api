@@ -47,7 +47,7 @@ class Acl
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("grant")
      * @Type("array<Zimbra\Mail\Struct\Grant>")
-     * @XmlList(inline = true, entry = "grant")
+     * @XmlList(inline=true, entry="grant", namespace="urn:zimbraMail")
      */
     private $grants = [];
 

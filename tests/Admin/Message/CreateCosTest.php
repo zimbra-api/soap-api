@@ -61,13 +61,13 @@ class CreateCosTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateCosRequest>
-            <name>$name</name>
-            <a n="$key">$value</a>
+            <urn:name>$name</urn:name>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateCosRequest>
         <urn:CreateCosResponse>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="true">$value</a>
-            </cos>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
         </urn:CreateCosResponse>
     </soap:Body>
 </soap:Envelope>

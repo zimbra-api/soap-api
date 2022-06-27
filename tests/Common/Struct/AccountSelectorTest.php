@@ -18,7 +18,7 @@ class AccountSelectorTest extends ZimbraTestCase
         $this->assertEquals(AccountBy::ID(), $acc->getBy());
         $this->assertSame($value, $acc->getValue());
 
-        $acc = new AccountSelector(AccountBy::ID());
+        $acc = new AccountSelector();
         $acc->setBy(AccountBy::NAME())
             ->setValue($value);
         $this->assertEquals(AccountBy::NAME(), $acc->getBy());

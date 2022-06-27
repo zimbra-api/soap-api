@@ -131,7 +131,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -140,7 +140,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline = true, entry = "e", namespace="urn:zimbraMail")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emails = [];
 
@@ -149,7 +149,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $subject;
 
@@ -158,7 +158,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
      * @SerializedName("mid")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $messageIdHeader;
 
@@ -167,7 +167,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
      * @SerializedName("irt")
      * @Type("string")
-     * @XmlElement(cdata = false, namespace="urn:zimbraMail")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $inReplyTo;
 
@@ -185,7 +185,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "header", namespace="urn:zimbraMail")
+     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */
     private $headers = [];
 

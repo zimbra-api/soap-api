@@ -37,7 +37,7 @@ class StatsValues
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stat")
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
-     * @XmlList(inline = true, entry = "stat")
+     * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      */
     private $stats = [];
 
@@ -48,7 +48,7 @@ class StatsValues
      * @param  array $stats
      * @return self
      */
-    public function __construct(string $t, array $stats = [])
+    public function __construct(string $t = '', array $stats = [])
     {
         $this->setT($t)
              ->setStats($stats);

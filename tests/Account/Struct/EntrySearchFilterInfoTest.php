@@ -2,6 +2,8 @@
 
 namespace Zimbra\Account\Struct\Tests;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Account\SerializerHandler;
 
@@ -37,32 +39,39 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <conds not="true" or="false">
-        <conds not="false" or="true">
-            <cond attr="$attr" op="ge" value="$value" not="false" />
-        </conds>
-        <cond attr="$attr" op="eq" value="$value" not="true" />
-    </conds>
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:onds not="true" or="false">
+        <urn:conds not="false" or="true">
+            <urn:cond attr="$attr" op="ge" value="$value" not="false" />
+        </urn:conds>
+        <urn:cond attr="$attr" op="eq" value="$value" not="true" />
+    </urn:conds>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
 
-        $filter = $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml');
+        $filter = $this->serializer->deserialize($xml, MockEntrySearchFilterInfo::class, 'xml');
         $this->assertEquals($conds, $filter->getConditions());
 
-        $filter = new EntrySearchFilterInfo($cond);
+        $filter = new MockEntrySearchFilterInfo($cond);
         $this->assertSame($cond, $filter->getCondition());
         $filter->setCondition($cond);
         $this->assertSame($cond, $filter->getCondition());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <cond attr="$attr" op="eq" value="$value" not="true" />
+<result xmlns:urn="urn:zimbraAccount">
+    <urn:cond attr="$attr" op="eq" value="$value" not="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
-        $this->assertEquals($filter, $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml'));
+        $this->assertEquals($filter, $this->serializer->deserialize($xml, MockEntrySearchFilterInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockEntrySearchFilterInfo extends EntrySearchFilterInfo
+{
 }

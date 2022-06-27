@@ -26,14 +26,5 @@ class ShareNotificationTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($shr, 'xml'));
         $this->assertEquals($shr, $this->serializer->deserialize($xml, ShareNotification::class, 'xml'));
-
-        $json = json_encode([
-            'truncated' => TRUE,
-            'content' => [
-                '_content' => $content,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($shr, 'json'));
-        $this->assertEquals($shr, $this->serializer->deserialize($json, ShareNotification::class, 'json'));
     }
 }

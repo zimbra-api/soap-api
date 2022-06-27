@@ -71,22 +71,6 @@ class CommonCalendaringDataTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
         $this->assertEquals($data, $this->serializer->deserialize($xml, CommonCalendaringDataMock::class, 'xml'));
-
-        $json = json_encode([
-            'x_uid' => $xUid,
-            'uid' => $uid,
-            'f' => $flags,
-            't' => $tags,
-            'tn' => $tagNames,
-            'l' => $folderId,
-            's' => $size,
-            'md' => $changeDate,
-            'ms' => $modifiedSequence,
-            'rev' => $revision,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($data, 'json'));
-        $this->assertEquals($data, $this->serializer->deserialize($json, CommonCalendaringDataMock::class, 'json'));
     }
 }
 

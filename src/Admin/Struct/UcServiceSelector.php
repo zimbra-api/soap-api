@@ -36,7 +36,6 @@ class UcServiceSelector
     /**
      * Key for choosing ucservice
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +47,9 @@ class UcServiceSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(UcServiceBy $by, ?string $value = NULL)
+    public function __construct(?UcServiceBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? UcServiceBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

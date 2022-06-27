@@ -53,7 +53,7 @@ class GetAllLocalesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAllLocalesRequest />
         <urn:GetAllLocalesResponse>
-            <locale id="$id" name="$name" localName="$localName" />
+            <urn:locale id="$id" name="$name" localName="$localName" />
         </urn:GetAllLocalesResponse>
     </soap:Body>
 </soap:Envelope>

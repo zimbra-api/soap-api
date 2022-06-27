@@ -37,7 +37,7 @@ class ServerQueues
      * @Accessor(getter="getQueues", setter="setQueues")
      * @SerializedName("queue")
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
-     * @XmlList(inline = true, entry = "queue")
+     * @XmlList(inline=true, entry="queue", namespace="urn:zimbraAdmin")
      */
     private $queues = [];
 
@@ -48,7 +48,7 @@ class ServerQueues
      * @param  array  $queues
      * @return self
      */
-    public function __construct($serverName, array $queues = [])
+    public function __construct(string $serverName = '', array $queues = [])
     {
         $this->setServerName($serverName)
              ->setQueues($queues);

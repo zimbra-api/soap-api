@@ -100,13 +100,13 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CreateGalSyncAccountRequest name="$name" domain="$domain" type="ldap" password="$password" folder="$folder" server="$mailHost">
-            <account by="name">$value</account>
-            <a n="$key">$value</a>
+            <urn:account by="name">$value</urn:account>
+            <urn:a n="$key">$value</urn:a>
         </urn:CreateGalSyncAccountRequest>
         <urn:CreateGalSyncAccountResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:CreateGalSyncAccountResponse>
     </soap:Body>
 </soap:Envelope>

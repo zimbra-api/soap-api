@@ -71,14 +71,14 @@ class AutoProvAccountTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AutoProvAccountRequest>
-            <domain by="name">$value</domain>
-            <principal by="name">$value</principal>
-            <password>$password</password>
+            <urn:domain by="name">$value</urn:domain>
+            <urn:principal by="name">$value</urn:principal>
+            <urn:password>$password</urn:password>
         </urn:AutoProvAccountRequest>
         <urn:AutoProvAccountResponse>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
         </urn:AutoProvAccountResponse>
     </soap:Body>
 </soap:Envelope>

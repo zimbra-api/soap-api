@@ -93,12 +93,12 @@ class AdminCreateWaitSetTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:AdminCreateWaitSetRequest defTypes="$defaultInterests" allAccounts="true">
-            <add>
-                <a name="$name" id="$id" token="$token" types="f,m" />
-            </add>
+            <urn:add>
+                <urn:a name="$name" id="$id" token="$token" types="f,m" />
+            </urn:add>
         </urn:AdminCreateWaitSetRequest>
         <urn:AdminCreateWaitSetResponse waitSet="$waitSetId" defTypes="$defaultInterests" seq="$sequence">
-            <error id="$id" type="$type" />
+            <urn:error id="$id" type="$type" />
         </urn:AdminCreateWaitSetResponse>
     </soap:Body>
 </soap:Envelope>

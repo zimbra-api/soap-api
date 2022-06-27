@@ -31,12 +31,5 @@ class FilterVariableTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($variable, 'xml'));
         $this->assertEquals($variable, $this->serializer->deserialize($xml, FilterVariable::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'value' => $value,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($variable, 'json'));
-        $this->assertEquals($variable, $this->serializer->deserialize($json, FilterVariable::class, 'json'));
     }
 }

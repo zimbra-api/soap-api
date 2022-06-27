@@ -37,7 +37,7 @@ class EffectiveAttrInfo
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private ?ConstraintInfo $constraint = NULL;
 
@@ -46,7 +46,7 @@ class EffectiveAttrInfo
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("default")
      * @Type("array<string>")
-     * @XmlList(inline = false, entry = "v")
+     * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
      */
     private $values = [];
 
@@ -57,7 +57,9 @@ class EffectiveAttrInfo
      * @param array $values
      * @return self
      */
-    public function __construct(string $name, ?ConstraintInfo $constraint = NULL, array $values = [])
+    public function __construct(
+        string $name = '', ?ConstraintInfo $constraint = NULL, array $values = []
+    )
     {
         $this->setName($name)
              ->setValues($values);

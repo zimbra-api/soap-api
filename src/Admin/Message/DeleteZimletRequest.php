@@ -31,7 +31,7 @@ class DeleteZimletRequest extends Request
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Common\Struct\NamedElement")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private NamedElement $zimlet;
 

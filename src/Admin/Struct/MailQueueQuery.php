@@ -28,7 +28,7 @@ class MailQueueQuery
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private QueueQuery $query;
 
@@ -67,7 +67,9 @@ class MailQueueQuery
      * @param  int $wait
      * @return self
      */
-    public function __construct(QueueQuery $query, string $name, ?bool $scan = NULL, ?int $wait = NULL)
+    public function __construct(
+        QueueQuery $query, string $name = '', ?bool $scan = NULL, ?int $wait = NULL
+    )
     {
         $this->setQuery($query)
              ->setQueueName($name);

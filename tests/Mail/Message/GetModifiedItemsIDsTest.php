@@ -66,28 +66,5 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetModifiedItemsIDsEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetModifiedItemsIDsRequest' => [
-                    'l' => $folderId,
-                    'ms' => $modSeq,
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetModifiedItemsIDsResponse' => [
-                    'ids' => [
-                        [
-                            '_content' => $id1,
-                        ],
-                        [
-                            '_content' => $id2,
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetModifiedItemsIDsEnvelope::class, 'json'));
     }
 }

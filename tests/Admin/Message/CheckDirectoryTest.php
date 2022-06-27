@@ -61,10 +61,10 @@ class CheckDirectoryTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:CheckDirectoryRequest>
-            <directory path="$path" create="true" />
+            <urn:directory path="$path" create="true" />
         </urn:CheckDirectoryRequest>
         <urn:CheckDirectoryResponse>
-            <directory path="$path" exists="true" isDirectory="true" readable="true" writable="true" />
+            <urn:directory path="$path" exists="true" isDirectory="true" readable="true" writable="true" />
         </urn:CheckDirectoryResponse>
     </soap:Body>
 </soap:Envelope>

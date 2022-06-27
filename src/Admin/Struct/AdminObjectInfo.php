@@ -43,7 +43,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline = true, entry = "a", skipWhenEmpty = true)
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
     private $attrList = [];
 
@@ -55,7 +55,9 @@ abstract class AdminObjectInfo implements AdminObjectInterface
      * @param  array  $attrs Attributes
      * @return self
      */
-    public function __construct($name, $id, array $attrs = [])
+    public function __construct(
+        string $name = '', string $id = '', array $attrs = []
+    )
     {
         $this->setName($name)
              ->setId($id)

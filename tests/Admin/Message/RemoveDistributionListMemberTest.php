@@ -60,10 +60,10 @@ class RemoveDistributionListMemberTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body xmlns:urn="urn:zimbraAdmin">
         <urn:RemoveDistributionListMemberRequest id="$id">
-            <dlm>$member1</dlm>
-            <dlm>$member2</dlm>
-            <account>$account1</account>
-            <account>$account2</account>
+            <urn:dlm>$member1</urn:dlm>
+            <urn:dlm>$member2</urn:dlm>
+            <urn:account>$account1</urn:account>
+            <urn:account>$account2</urn:account>
         </urn:RemoveDistributionListMemberRequest>
         <urn:RemoveDistributionListMemberResponse />
     </soap:Body>

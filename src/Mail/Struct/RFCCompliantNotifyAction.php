@@ -64,7 +64,7 @@ class RFCCompliantNotifyAction extends FilterAction
      * @Accessor(getter="getMethod", setter="setMethod")
      * @SerializedName("method")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $method;
 

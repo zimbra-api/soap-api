@@ -46,7 +46,7 @@ class GetAccountRequest extends Request implements AttributeSelector
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     private AccountSelector $account;
 

@@ -46,7 +46,7 @@ class AccountSessionInfo
      * @Accessor(getter="getSessions", setter="setSessions")
      * @SerializedName("s")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
-     * @XmlList(inline = true, entry = "s")
+     * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      */
     private $sessions = [];
 
@@ -58,7 +58,9 @@ class AccountSessionInfo
      * @param  array  $sessions
      * @return self
      */
-    public function __construct($name, $id, array $sessions = [])
+    public function __construct(
+        string $name = '', string $id = '', array $sessions = []
+    )
     {
         $this->setName($name)
              ->setId($id)

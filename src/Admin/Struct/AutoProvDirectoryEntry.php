@@ -38,7 +38,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @Accessor(getter="getKeys", setter="setKeys")
      * @SerializedName("key")
      * @Type("array<string>")
-     * @XmlList(inline = true, entry = "key")
+     * @XmlList(inline=true, entry="key", namespace="urn:zimbraAdmin")
      */
     private $keys = [];
 
@@ -50,7 +50,9 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @param array $keyValuePairs
      * @return self
      */
-    public function __construct($dn, array $keys = [], array $keyValuePairs = [])
+    public function __construct(
+        string $dn = '', array $keys = [], array $keyValuePairs = []
+    )
     {
     	parent::__construct($keyValuePairs);
         $this->setDn($dn)

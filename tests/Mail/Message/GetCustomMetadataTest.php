@@ -79,32 +79,5 @@ class GetCustomMetadataTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, GetCustomMetadataEnvelope::class, 'xml'));
-
-        $json = json_encode([
-            'Body' => [
-                'GetCustomMetadataRequest' => [
-                    'id' => $id,
-                    'meta' => [
-                        'section' => $section,
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-                'GetCustomMetadataResponse' => [
-                    'id' => $id,
-                    'meta' => [
-                        'section' => $section,
-                        'a' => [
-                            [
-                                'n' => $key,
-                                '_content' => $value,
-                            ],
-                        ],
-                    ],
-                    '_jsns' => 'urn:zimbraMail',
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($envelope, 'json'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($json, GetCustomMetadataEnvelope::class, 'json'));
     }
 }

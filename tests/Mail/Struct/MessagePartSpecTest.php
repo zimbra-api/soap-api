@@ -33,12 +33,5 @@ class MessagePartSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, MessagePartSpec::class, 'xml'));
-
-        $json = json_encode([
-            'part' => $part,
-            'id' => $id,
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($spec, 'json'));
-        $this->assertEquals($spec, $this->serializer->deserialize($json, MessagePartSpec::class, 'json'));
     }
 }

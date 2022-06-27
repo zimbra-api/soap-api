@@ -91,7 +91,7 @@ class AutoCompleteGalTest extends ZimbraTestCase
     <soap:Body>
         <urn:AutoCompleteGalRequest name="$name" type="account" needExp="true" galAcctId="$galAccountId" limit="$limit" />
         <urn:AutoCompleteGalResponse more="true" tokenizeKey="false" paginationSupported="true">
-            <cn email="$email" />
+            <urn:cn email="$email" />
         </urn:AutoCompleteGalResponse>
     </soap:Body>
 </soap:Envelope>

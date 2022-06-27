@@ -36,7 +36,6 @@ class ServerSelector
     /**
      * Key for choosing server
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +47,9 @@ class ServerSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(ServerBy $by, ?string $value = NULL)
+    public function __construct(?ServerBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by);
+        $this->setBy($by ?? ServerBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

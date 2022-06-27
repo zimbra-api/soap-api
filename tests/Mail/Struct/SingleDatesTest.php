@@ -56,32 +56,5 @@ class SingleDatesTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
         $this->assertEquals($dates, $this->serializer->deserialize($xml, SingleDates::class, 'xml'));
-
-        $json = json_encode([
-            'tz' => $timezone,
-            'dtval' => [
-                [
-                    's' => [
-                        'd' => $dateTime,
-                        'tz' => $timezone,
-                        'u' => $utcTime,
-                    ],
-                    'e' => [
-                        'd' => $dateTime,
-                        'tz' => $timezone,
-                        'u' => $utcTime,
-                    ],
-                    'dur' => [
-                        'w' => $weeks,
-                        'd' => $days,
-                        'h' => $hours,
-                        'm' => $minutes,
-                        's' => $seconds,
-                    ],
-                ],
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($dates, 'json'));
-        $this->assertEquals($dates, $this->serializer->deserialize($json, SingleDates::class, 'json'));
     }
 }

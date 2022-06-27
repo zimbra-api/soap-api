@@ -26,6 +26,7 @@ class AlwaysOnClusterSelector
 {
     /**
      * Selects the meaning of alwaysOnCluster-key
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Zimbra\Common\Enum\AlwaysOnClusterBy")
@@ -35,8 +36,8 @@ class AlwaysOnClusterSelector
 
     /**
      * Key for choosing alwaysOnCluster
+     * 
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,9 +49,11 @@ class AlwaysOnClusterSelector
      * @param  string $value
      * @return self
      */
-    public function __construct(AlwaysOnClusterBy $by, ?string $value = NULL)
+    public function __construct(
+        ?AlwaysOnClusterBy $by = NULL, ?string $value = NULL
+    )
     {
-        $this->setBy($by);
+        $this->setBy($by ?? AlwaysOnClusterBy::ID());
         if (NULL !== $value) {
             $this->setValue($value);
         }

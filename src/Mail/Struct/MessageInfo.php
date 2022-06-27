@@ -131,7 +131,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $fragment;
 
@@ -140,7 +140,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getEmails", setter="setEmails")
      * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
-     * @XmlList(inline = true, entry = "e")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
     private $emails = [];
 
@@ -149,7 +149,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $subject;
 
@@ -158,7 +158,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
      * @SerializedName("mid")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $messageIdHeader;
 
@@ -167,7 +167,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
      * @SerializedName("irt")
      * @Type("string")
-     * @XmlElement(cdata=false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $inReplyTo;
 
@@ -176,7 +176,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?InviteInfo $invite = NULL;
 
@@ -185,7 +185,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline = true, entry = "header")
+     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */
     private $headers = [];
 
@@ -194,7 +194,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
      * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
-     * @XmlList(inline = true, entry = "mp")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
     private $partInfos = [];
 
@@ -203,7 +203,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
      * @SerializedName("shr")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
-     * @XmlList(inline = true, entry = "shr")
+     * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
      */
     private $shareNotifications = [];
 
@@ -212,7 +212,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
      * @SerializedName("dlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
-     * @XmlList(inline = true, entry = "dlSubs")
+     * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
      */
     private $dlSubs = [];
 

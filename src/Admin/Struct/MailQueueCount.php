@@ -48,7 +48,7 @@ class MailQueueCount
      * @param int $count
      * @return self
      */
-    public function __construct(string $name, int $count)
+    public function __construct(string $name = '', int $count = 0)
     {
         $this->setName($name)
              ->setCount($count);

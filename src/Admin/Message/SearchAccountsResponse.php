@@ -51,7 +51,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
      * @SerializedName("calresource")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
-     * @XmlList(inline = true, entry = "calresource")
+     * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
      */
     private $calResources = [];
 
@@ -61,7 +61,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getDistributionLists", setter="setDistributionLists")
      * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
-     * @XmlList(inline = true, entry = "dl")
+     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */
     private $dls = [];
 
@@ -71,7 +71,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getAliases", setter="setAliases")
      * @SerializedName("alias")
      * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
-     * @XmlList(inline = true, entry = "alias")
+     * @XmlList(inline=true, entry="alias", namespace="urn:zimbraAdmin")
      */
     private $aliases = [];
 
@@ -81,7 +81,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
-     * @XmlList(inline = true, entry = "account")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];
 
@@ -91,7 +91,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
-     * @XmlList(inline = true, entry = "domain")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */
     private $domains = [];
 
@@ -101,7 +101,7 @@ class SearchAccountsResponse implements ResponseInterface
      * @Accessor(getter="getCOSes", setter="setCOSes")
      * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
-     * @XmlList(inline = true, entry = "cos")
+     * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */
     private $coses = [];
 

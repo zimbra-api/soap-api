@@ -31,7 +31,7 @@ class AddCommentRequest extends Request
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\AddedComment")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private AddedComment $comment;
 

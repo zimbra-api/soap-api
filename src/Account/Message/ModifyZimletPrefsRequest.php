@@ -31,7 +31,7 @@ class ModifyZimletPrefsRequest extends Request
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlet")
      * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
-     * @XmlList(inline = true, entry = "zimlet")
+     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
      */
     private $zimlets = [];
 

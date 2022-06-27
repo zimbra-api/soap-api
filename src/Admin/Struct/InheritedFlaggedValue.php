@@ -36,7 +36,6 @@ class InheritedFlaggedValue
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -48,7 +47,7 @@ class InheritedFlaggedValue
      * @param  string $value
      * @return self
      */
-    public function __construct(bool $inherited, ?string $value = NULL)
+    public function __construct(bool $inherited = FALSE, ?string $value = NULL)
     {
         $this->setInherited($inherited);
         if (NULL !== $value) {

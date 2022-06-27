@@ -30,7 +30,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $authToken;
 
@@ -39,7 +39,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
 
@@ -48,7 +48,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
      * @SerializedName("trustLifetime")
      * @Type("integer")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $trustLifetime;
 
@@ -57,7 +57,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getSession", setter="setSession")
      * @SerializedName("session")
      * @Type("Zimbra\Account\Struct\Session")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraAccount")
      */
     private ?Session $session = NULL;
 
@@ -67,7 +67,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getRefer", setter="setRefer")
      * @SerializedName("refer")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $refer;
 
@@ -76,7 +76,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getSkin", setter="setSkin")
      * @SerializedName("skin")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $skin;
 
@@ -85,7 +85,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $csrfToken;
 
@@ -94,7 +94,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $deviceId;
 
@@ -103,7 +103,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustedToken", setter="setTrustedToken")
      * @SerializedName("trustedToken")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $trustedToken;
 
@@ -120,7 +120,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlList(inline = false, entry = "pref")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      */
     private $prefs = [];
 
@@ -128,7 +128,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlList(inline = false, entry = "attr")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];
 
@@ -136,7 +136,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
      * @SerializedName("twoFactorAuthRequired")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $twoFactorAuthRequired;
 
@@ -144,7 +144,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getTrustedDevicesEnabled", setter="setTrustedDevicesEnabled")
      * @SerializedName("trustedDevicesEnabled")
      * @Type("bool")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $trustedDevicesEnabled;
 

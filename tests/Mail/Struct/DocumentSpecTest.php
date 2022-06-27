@@ -82,30 +82,5 @@ class DocumentSpecTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
         $this->assertEquals($spec, $this->serializer->deserialize($xml, DocumentSpec::class, 'xml'));
-
-        $json = json_encode([
-            'name' => $name,
-            'ct' => $contentType,
-            'desc' => $description,
-            'l' => $folderId,
-            'id' => $id,
-            'ver' => $version,
-            'content' => $content,
-            'descEnabled' => TRUE,
-            'f' => $flags,
-            'upload' => [
-                'id' => $id,
-            ],
-            'm' => [
-                'part' => $part,
-                'id' => $id,
-            ],
-            'doc' => [
-                'id' => $id,
-                'ver' => $version,
-            ],
-        ]);
-        $this->assertJsonStringEqualsJsonString($json, $this->serializer->serialize($spec, 'json'));
-        $this->assertEquals($spec, $this->serializer->deserialize($json, DocumentSpec::class, 'json'));
     }
 }

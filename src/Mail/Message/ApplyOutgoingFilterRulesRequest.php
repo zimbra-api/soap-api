@@ -37,7 +37,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline = false, entry = "filterRule")
+     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      */
     private $filterRules = [];
 
@@ -46,7 +46,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?IdsAttr $msgIds = NULL;
 
@@ -55,7 +55,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
-     * @XmlElement(cdata = false)
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $query;
 

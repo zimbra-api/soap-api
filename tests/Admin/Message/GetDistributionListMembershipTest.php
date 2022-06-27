@@ -73,10 +73,10 @@ class GetDistributionListMembershipTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
         <urn:GetDistributionListMembershipRequest limit="$limit" offset="$offset">
-            <dl by="name">$value</dl>
+            <urn:dl by="name">$value</urn:dl>
         </urn:GetDistributionListMembershipRequest>
         <urn:GetDistributionListMembershipResponse>
-            <dl id="$id" name="$name" via="$via" />
+            <urn:dl id="$id" name="$name" via="$via" />
         </urn:GetDistributionListMembershipResponse>
     </soap:Body>
 </soap:Envelope>

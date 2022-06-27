@@ -152,28 +152,28 @@ class SearchDirectoryTest extends ZimbraTestCase
     <soap:Body>
         <urn:SearchDirectoryRequest query="$query" maxResults="$maxResults" limit="$limit" offset="$offset" domain="$domain" applyCos="true" applyConfig="true" sortBy="$sortBy" types="$types" sortAscending="true" countOnly="true" attrs="$attrs" />
         <urn:SearchDirectoryResponse num="$num" more="true" searchTotal="$searchTotal">
-            <calresource name="$name" id="$id">
-                <a n="$key">$value</a>
-            </calresource>
-            <dl name="$name" id="$id" dynamic="true">
-                <a n="$key">$value</a>
-                <dlm>$member</dlm>
-                <owners>
-                    <owner id="$id" name="$name" type="all" />
-                </owners>
-            </dl>
-            <alias name="$name" id="$id" targetName="$targetName" type="$targetType">
-                <a n="$key">$value</a>
-            </alias>
-            <account name="$name" id="$id" isExternal="true">
-                <a n="$key">$value</a>
-            </account>
-            <domain name="$name" id="$id">
-                <a n="$key">$value</a>
-            </domain>
-            <cos name="$name" id="$id" isDefaultCos="true">
-                <a n="$key" c="true" pd="false">$value</a>
-            </cos>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alias>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
         </urn:SearchDirectoryResponse>
     </soap:Body>
 </soap:Envelope>

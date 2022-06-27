@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Account\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Account\Struct\AccountZimletDesc;
 use Zimbra\Account\Struct\AccountZimletInclude;
 use Zimbra\Account\Struct\AccountZimletIncludeCSS;
@@ -32,7 +34,7 @@ class AccountZimletDescTest extends ZimbraTestCase
         $include = new AccountZimletInclude($value);
         $includeCSS = new AccountZimletIncludeCSS($value);
 
-        $zimlet = new AccountZimletDesc(
+        $zimlet = new MockAccountZimletDesc(
             $name, $version, $description, $extension, $target, $label
         );
         $this->assertSame($name, $zimlet->getName());
@@ -42,7 +44,7 @@ class AccountZimletDescTest extends ZimbraTestCase
         $this->assertSame($target, $zimlet->getTarget());
         $this->assertSame($label, $zimlet->getLabel());
 
-        $zimlet = new AccountZimletDesc();
+        $zimlet = new MockAccountZimletDesc();
         $zimlet->setName($name)
             ->setVersion($version)
             ->setDescription($description)
@@ -64,13 +66,20 @@ class AccountZimletDescTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-    <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-    <include>$value</include>
-    <includeCSS>$value</includeCSS>
+<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label" xmlns:urn="urn:zimbraAccount">
+    <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+    <urn:include>$value</urn:include>
+    <urn:includeCSS>$value</urn:includeCSS>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AccountZimletDesc::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, MockAccountZimletDesc::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
+ */
+class MockAccountZimletDesc extends AccountZimletDesc
+{
 }
