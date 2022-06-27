@@ -45,7 +45,7 @@ class IdAndType
      * @param  string $type The type
      * @return self
      */
-    public function __construct(string $id, string $type)
+    public function __construct(string $id = '', string $type = '')
     {
         $this->setId($id)
              ->setType($type);

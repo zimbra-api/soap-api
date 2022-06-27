@@ -160,18 +160,18 @@ class ShareInfo
      * @return self
      */
     public function __construct(
-        string $ownerId,
-        string $ownerEmail,
-        string $ownerDisplayName,
-        int $folderId,
-        string $folderUuid,
-        string $folderPath,
-        string $defaultView,
-        string $rights,
-        string $granteeType,
-        string $granteeId,
-        string $granteeName,
-        string $granteeDisplayName,
+        string $ownerId = '',
+        string $ownerEmail = '',
+        string $ownerDisplayName = '',
+        int $folderId = 0,
+        string $folderUuid = '',
+        string $folderPath = '',
+        string $defaultView = '',
+        string $rights = '',
+        string $granteeType = '',
+        string $granteeId = '',
+        string $granteeName = '',
+        string $granteeDisplayName = '',
         string $mountpointId = NULL
     )
     {

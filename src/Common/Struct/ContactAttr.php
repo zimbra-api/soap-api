@@ -66,7 +66,7 @@ class ContactAttr extends KeyValuePair
      * @return self
      */
     public function __construct(
-        string $key,
+        string $key = '',
         ?string$value = NULL,
         ?string $part = NULL,
         ?string $contentType = NULL,

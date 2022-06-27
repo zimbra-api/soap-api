@@ -38,7 +38,7 @@ class SectionAttr
      * @param string $section
      * @return self
      */
-    public function __construct(string $section)
+    public function __construct(string $section = '')
     {
         $this->setSection($section);
     }

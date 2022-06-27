@@ -45,7 +45,7 @@ class KeyValuePair
      * @param string $value
      * @return self
      */
-    public function __construct(string $key, ?string $value = NULL)
+    public function __construct(string $key = '', ?string $value = NULL)
     {
         $this->setKey($key)
              ->setValue($value);
