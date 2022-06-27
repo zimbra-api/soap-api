@@ -17,7 +17,7 @@ class SectionAttrTest extends ZimbraTestCase
         $attr = new SectionAttr($section);
         $this->assertSame($section, $attr->getSection());
 
-        $attr = new SectionAttr('');
+        $attr = new SectionAttr();
         $attr->setSection($section);
         $this->assertSame($section, $attr->getSection());
 

@@ -19,7 +19,7 @@ class IdAndTypeTest extends ZimbraTestCase
         $this->assertSame($id, $idType->getId());
         $this->assertSame($type, $idType->getType());
 
-        $idType = new IdAndType('', '');
+        $idType = new IdAndType();
         $idType->setId($id)
                ->setType($type);
         $this->assertSame($id, $idType->getId());
