@@ -38,7 +38,7 @@ class RevokeOAuthConsumerRequest extends Request
      * @param string $accessToken
      * @return self
      */
-    public function __construct(string $accessToken)
+    public function __construct(string $accessToken = '')
     {
         $this->setAccessToken($accessToken);
     }

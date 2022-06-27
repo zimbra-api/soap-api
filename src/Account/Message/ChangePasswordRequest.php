@@ -83,8 +83,8 @@ class ChangePasswordRequest extends Request
      */
     public function __construct(
         AccountSelector $account,
-        string $oldPassword,
-        string $newPassword,
+        string $oldPassword = '',
+        string $newPassword = '',
         ?string $virtualHost = NULL,
         ?bool $dryRun = NULL
     )

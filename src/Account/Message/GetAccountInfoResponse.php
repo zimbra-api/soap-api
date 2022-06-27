@@ -116,7 +116,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         array $attrs = [],
         ?string $soapURL = NULL,
         ?string $publicURL = NULL,

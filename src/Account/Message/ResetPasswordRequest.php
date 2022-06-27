@@ -40,7 +40,7 @@ class ResetPasswordRequest extends Request
      * @param string $password
      * @return self
      */
-    public function __construct(string $password)
+    public function __construct(string $password = '')
     {
         $this->setPassword($password);
     }
