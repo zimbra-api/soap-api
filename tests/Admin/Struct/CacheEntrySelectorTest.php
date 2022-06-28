@@ -19,7 +19,7 @@ class CacheEntrySelectorTest extends ZimbraTestCase
         $this->assertEquals(CacheEntryBy::NAME(), $entry->getBy());
         $this->assertSame($value, $entry->getValue());
 
-        $entry = new CacheEntrySelector(CacheEntryBy::NAME());
+        $entry = new CacheEntrySelector();
         $entry->setBy(CacheEntryBy::ID())
             ->setValue($value);
         $this->assertEquals(CacheEntryBy::ID(), $entry->getBy());

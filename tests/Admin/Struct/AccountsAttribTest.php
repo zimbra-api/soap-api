@@ -16,7 +16,7 @@ class AccountsAttribTest extends ZimbraTestCase
         $attr = new AccountsAttrib($accounts);
         $this->assertSame($accounts, $attr->getAccounts());
 
-        $attr = new AccountsAttrib('');
+        $attr = new AccountsAttrib();
         $attr->setAccounts($accounts);
         $this->assertSame($accounts, $attr->getAccounts());
 

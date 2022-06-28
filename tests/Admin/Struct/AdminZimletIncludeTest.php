@@ -16,7 +16,7 @@ class AdminZimletIncludeTest extends ZimbraTestCase
         $include = new AdminZimletInclude($value);
         $this->assertSame($value, $include->getValue());
 
-        $include = new AdminZimletInclude('');
+        $include = new AdminZimletInclude();
         $include->setValue($value);
         $this->assertSame($value, $include->getValue());
 
