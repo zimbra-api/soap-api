@@ -54,7 +54,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     )
     {
         parent::__construct($attrs);
-        $this->setType($type ?? DataSourceType::IMAP())
+        $this->setType($type ?? DataSourceType::UNKNOWN())
              ->setName($name);
     }
 

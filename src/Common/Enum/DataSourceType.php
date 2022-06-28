@@ -82,4 +82,34 @@ class DataSourceType extends Enum
      * @return string 'tagmap'
      */
     private const TAGMAP = 'tagmap';
+
+    /**
+     * Constant for value 'unknown'
+     * @return string 'unknown'
+     */
+    private const UNKNOWN = 'unknown';
+
+    /**
+     * Constant for value 'oauth2contact'
+     * @return string 'oauth2contact'
+     */
+    private const OAUTH2CONTACT = 'oauth2contact';
+
+    /**
+     * Constant for value 'oauth2calendar'
+     * @return string 'oauth2calendar'
+     */
+    private const OAUTH2CALENDAR = 'oauth2calendar';
+
+    /**
+     * Constant for value 'oauth2caldav'
+     * @return string 'oauth2caldav'
+     */
+    private const OAUTH2CALDAV = 'oauth2caldav';
+
+    /**
+     * Constant for value 'oauth2noop'
+     * @return string 'oauth2noop'
+     */
+    private const OAUTH2NOOP = 'oauth2noop';
 }
