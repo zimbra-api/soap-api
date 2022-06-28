@@ -21,7 +21,7 @@ class MailboxQuotaInfoTest extends ZimbraTestCase
         $this->assertSame($accountId, $mbox->getAccountId());
         $this->assertSame($quotaUsed, $mbox->getQuotaUsed());
 
-        $mbox = new MailboxQuotaInfo('', 0);
+        $mbox = new MailboxQuotaInfo();
         $mbox->setAccountId($accountId)
             ->setQuotaUsed($quotaUsed);
         $this->assertSame($accountId, $mbox->getAccountId());

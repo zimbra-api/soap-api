@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AccountSessionInfo;
 use Zimbra\Admin\Struct\InfoForSessionType;
 use Zimbra\Admin\Struct\SessionInfo;
@@ -15,13 +17,13 @@ class InfoForSessionTypeTest extends ZimbraTestCase
     public function testInfoForSessionType()
     {
         $sessionId = $this->faker->uuid;
-        $createdDate = mt_rand(1, 1000);
-        $lastAccessedDate = mt_rand(1, 1000);
+        $createdDate = $this->faker->unixTime;
+        $lastAccessedDate = $this->faker->unixTime;
         $zimbraId = $this->faker->uuid;
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $activeAccounts = mt_rand(1, 1000);
-        $activeSessions = mt_rand(1, 1000);
+        $activeAccounts = $this->faker->randomNumber;
+        $activeSessions = $this->faker->randomNumber;
 
         $session = new SessionInfo(
             $sessionId, $createdDate, $lastAccessedDate, $zimbraId, $name
@@ -29,12 +31,12 @@ class InfoForSessionTypeTest extends ZimbraTestCase
 
         $account = new AccountSessionInfo($name, $id, [$session]);
 
-        $infoSession = new InfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
+        $infoSession = new StubInfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
         $this->assertSame($activeSessions, $infoSession->getActiveSessions());
         $this->assertSame($activeAccounts, $infoSession->getActiveAccounts());
         $this->assertSame([$account], $infoSession->getAccounts());
         $this->assertSame([$session], $infoSession->getSessions());
-        $infoSession = new InfoForSessionType(0, 0);
+        $infoSession = new StubInfoForSessionType();
         $infoSession->setActiveSessions($activeSessions)
             ->setActiveAccounts($activeAccounts)
             ->setAccounts([$account])
@@ -46,17 +48,24 @@ class InfoForSessionTypeTest extends ZimbraTestCase
         $this->assertSame([$account, $account], $infoSession->getAccounts());
         $this->assertSame([$session, $session], $infoSession->getSessions());
 
-        $infoSession = new InfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
+        $infoSession = new StubInfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result activeAccounts="$activeAccounts" activeSessions="$activeSessions">
-    <zid name="$name" id="$id">
-        <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-    </zid>
-    <s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+<result activeAccounts="$activeAccounts" activeSessions="$activeSessions" xmlns:urn="urn:zimbraAdmin">
+    <urn:zid name="$name" id="$id">
+        <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
+    </urn:zid>
+    <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($infoSession, 'xml'));
-        $this->assertEquals($infoSession, $this->serializer->deserialize($xml, InfoForSessionType::class, 'xml'));
+        $this->assertEquals($infoSession, $this->serializer->deserialize($xml, StubInfoForSessionType::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubInfoForSessionType extends InfoForSessionType
+{
 }

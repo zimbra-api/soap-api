@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Admin\Struct\Offset;
 use Zimbra\Admin\Struct\SimpleElement;
@@ -64,7 +66,7 @@ class TzFixupRuleTest extends ZimbraTestCase
         $replace = new TzReplaceInfo($wellKnownTz, $tz);
         
         $touch = new SimpleElement;
-        $fixupRule = new TzFixupRule($match, $touch, $replace);
+        $fixupRule = new StubTzFixupRule($match, $touch, $replace);
         $this->assertSame($match, $fixupRule->getMatch());
         $this->assertSame($touch, $fixupRule->getTouch());
         $this->assertSame($replace, $fixupRule->getReplace());
@@ -78,31 +80,38 @@ class TzFixupRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <match>
-        <any />
-        <tzid id="$id" />
-        <nonDst offset="$offset" />
-        <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
-            <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-            <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-        </rules>
-        <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
-            <standard mon="$date_mon" mday="$date_mday" />
-            <daylight mon="$date_mon" mday="$date_mday" />
-        </dates>
-    </match>
-    <touch />
-    <replace>
-        <wellKnownTz id="$id" />
-        <tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
-            <standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
-            <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
-        </tz>
-    </replace>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:match>
+        <urn:any />
+        <urn:tzid id="$id" />
+        <urn:nonDst offset="$offset" />
+        <urn:rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+            <urn:standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+            <urn:daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+        </urn:rules>
+        <urn:dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+            <urn:standard mon="$date_mon" mday="$date_mday" />
+            <urn:daylight mon="$date_mon" mday="$date_mday" />
+        </urn:dates>
+    </urn:match>
+    <urn:touch />
+    <urn:replace>
+        <urn:wellKnownTz id="$id" />
+        <urn:tz id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
+            <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" />
+            <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" />
+        </urn:tz>
+    </urn:replace>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($fixupRule, 'xml'));
-        $this->assertEquals($fixupRule, $this->serializer->deserialize($xml, TzFixupRule::class, 'xml'));
+        $this->assertEquals($fixupRule, $this->serializer->deserialize($xml, StubTzFixupRule::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubTzFixupRule extends TzFixupRule
+{
 }

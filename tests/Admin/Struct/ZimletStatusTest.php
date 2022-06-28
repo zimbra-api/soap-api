@@ -22,7 +22,7 @@ class ZimletStatusTest extends ZimbraTestCase
         $this->assertFalse($zimlet->getExtension());
         $this->assertSame($priority, $zimlet->getPriority());
 
-        $zimlet = new ZimletStatus('', ZimletStatusSetting::DISABLED(), FALSE, 0);
+        $zimlet = new ZimletStatus();
         $zimlet->setName($name)
             ->setStatus(ZimletStatusSetting::ENABLED())
             ->setExtension(TRUE)

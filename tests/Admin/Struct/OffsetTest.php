@@ -16,7 +16,7 @@ class OffsetTest extends ZimbraTestCase
         $offset = new Offset($value);
         $this->assertSame($value, $offset->getOffset());
 
-        $offset = new Offset(0);
+        $offset = new Offset();
         $offset->setOffset($value);
         $this->assertSame($value, $offset->getOffset());
 

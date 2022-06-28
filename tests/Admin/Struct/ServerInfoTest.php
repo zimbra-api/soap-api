@@ -18,15 +18,22 @@ class ServerInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
+        $server = new StubServerInfo($name, $id, [new Attr($key, $value)]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
-        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerInfo::class, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, StubServerInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubServerInfo extends ServerInfo
+{
 }

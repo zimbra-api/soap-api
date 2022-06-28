@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\MailboxBlobConsistency;
 
 use Zimbra\Admin\Struct\BlobSizeInfo;
@@ -62,7 +64,7 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
             )
         );
 
-        $mbox = new MailboxBlobConsistency(
+        $mbox = new StubMailboxBlobConsistency(
             $id, [$missingBlob], [$incorrectSize], [$unexpectedBlob], [$incorrectRevision], [$usedBlob]
         );
         $this->assertSame($id, $mbox->getId());
@@ -72,7 +74,7 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
         $this->assertSame([$incorrectRevision], $mbox->getIncorrectRevisions());
         $this->assertSame([$usedBlob], $mbox->getUsedBlobs());
 
-        $mbox = new MailboxBlobConsistency(0);
+        $mbox = new StubMailboxBlobConsistency();
         $mbox->setId($id)
              ->setMissingBlobs([$missingBlob])
              ->addMissingBlob($missingBlob)
@@ -91,36 +93,43 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
         $this->assertSame([$incorrectRevision, $incorrectRevision], $mbox->getIncorrectRevisions());
         $this->assertSame([$usedBlob, $usedBlob], $mbox->getUsedBlobs());
 
-        $mbox = new MailboxBlobConsistency(
+        $mbox = new StubMailboxBlobConsistency(
             $id, [$missingBlob], [$incorrectSize], [$unexpectedBlob], [$incorrectRevision], [$usedBlob]
         );
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id ="$id">
-    <missingBlobs>
-        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
-    </missingBlobs>
-    <incorrectSizes>
-        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-            <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
-        </item>
-    </incorrectSizes>
-    <unexpectedBlobs>
-        <blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
-    </unexpectedBlobs>
-    <incorrectRevisions>
-        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-            <blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
-        </item>
-    </incorrectRevisions>
-    <usedBlobs>
-        <item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-            <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
-        </item>
-    </usedBlobs>
+<result id ="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:missingBlobs>
+        <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId" blobPath="$blobPath" external="true" version="$version" />
+    </urn:missingBlobs>
+    <urn:incorrectSizes>
+        <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <urn:blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+        </urn:item>
+    </urn:incorrectSizes>
+    <urn:unexpectedBlobs>
+        <urn:blob volumeId="$volumeId" path="$path" fileSize="$fileSize" external="true" />
+    </urn:unexpectedBlobs>
+    <urn:incorrectRevisions>
+        <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <urn:blob path="$path" fileSize="$fileSize" rev="$revision" external="true" />
+        </urn:item>
+    </urn:incorrectRevisions>
+    <urn:usedBlobs>
+        <urn:item id="$id" rev="$revision" s="$size" volumeId="$volumeId">
+            <urn:blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+        </urn:item>
+    </urn:usedBlobs>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mbox, 'xml'));
-        $this->assertEquals($mbox, $this->serializer->deserialize($xml, MailboxBlobConsistency::class, 'xml'));
+        $this->assertEquals($mbox, $this->serializer->deserialize($xml, StubMailboxBlobConsistency::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubMailboxBlobConsistency extends MailboxBlobConsistency
+{
 }

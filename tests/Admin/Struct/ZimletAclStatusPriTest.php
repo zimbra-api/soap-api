@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\IntegerValueAttrib;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Admin\Struct\ZimletAcl;
@@ -25,13 +27,13 @@ class ZimletAclStatusPriTest extends ZimbraTestCase
         $status = new ValueAttrib(ZimletStatus::ENABLED()->getValue());
         $priority = new IntegerValueAttrib($value);
 
-        $zimlet = new ZimletAclStatusPri($name, $acl, $status, $priority);
+        $zimlet = new StubZimletAclStatusPri($name, $acl, $status, $priority);
         $this->assertSame($name, $zimlet->getName());
         $this->assertSame($acl, $zimlet->getAcl());
         $this->assertSame($status, $zimlet->getStatus());
         $this->assertSame($priority, $zimlet->getPriority());
 
-        $zimlet = new ZimletAclStatusPri('');
+        $zimlet = new StubZimletAclStatusPri();
         $zimlet->setName($name)
                ->setAcl($acl)
                ->setStatus($status)
@@ -43,13 +45,20 @@ class ZimletAclStatusPriTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <acl cos="$cos" acl="grant" />
-    <status value="enabled" />
-    <priority value="$value" />
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:acl cos="$cos" acl="grant" />
+    <urn:status value="enabled" />
+    <urn:priority value="$value" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletAclStatusPri::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, StubZimletAclStatusPri::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubZimletAclStatusPri extends ZimletAclStatusPri
+{
 }

@@ -19,7 +19,7 @@ class IndexStatsTest extends ZimbraTestCase
         $this->assertSame($maxDocs, $stats->getMaxDocs());
         $this->assertSame($numDeletedDocs, $stats->getNumDeletedDocs());
 
-        $stats = new IndexStats(0, 0);
+        $stats = new IndexStats();
         $stats->setMaxDocs($maxDocs)
              ->setNumDeletedDocs($numDeletedDocs);
         $this->assertSame($maxDocs, $stats->getMaxDocs());

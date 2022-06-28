@@ -19,7 +19,7 @@ class LoggerInfoTest extends ZimbraTestCase
         $this->assertSame($category, $logger->getCategory());
         $this->assertEquals(LoggingLevel::ERROR(), $logger->getLevel());
 
-        $logger = new LoggerInfo('');
+        $logger = new LoggerInfo();
         $logger->setCategory($category)
                ->setLevel(LoggingLevel::INFO());
         $this->assertSame($category, $logger->getCategory());

@@ -20,7 +20,7 @@ class DomainAggregateQuotaInfoTest extends ZimbraTestCase
         $this->assertSame($id, $domain->getId());
         $this->assertSame($quotaUsed, $domain->getQuotaUsed());
 
-        $domain = new DomainAggregateQuotaInfo('', '', 0);
+        $domain = new DomainAggregateQuotaInfo();
         $domain->setName($name)
                ->setId($id)
                ->setQuotaUsed($quotaUsed);

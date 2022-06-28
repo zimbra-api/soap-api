@@ -16,7 +16,7 @@ class DeviceIdTest extends ZimbraTestCase
         $device = new DeviceId($id);
         $this->assertSame($id, $device->getId());
 
-        $device = new DeviceId('');
+        $device = new DeviceId();
         $device->setId($id);
         $this->assertSame($id, $device->getId());
 

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\IncorrectBlobSizeInfo;
 use Zimbra\Admin\Struct\BlobSizeInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -24,7 +26,7 @@ class IncorrectBlobSizeInfoTest extends ZimbraTestCase
             $path, $size, $fileSize, TRUE
         );
 
-        $item = new IncorrectBlobSizeInfo(
+        $item = new StubIncorrectBlobSizeInfo(
             $id, $revision, $size, $volumeId, $blob
         );
         $this->assertSame($id, $item->getId());
@@ -33,7 +35,7 @@ class IncorrectBlobSizeInfoTest extends ZimbraTestCase
         $this->assertSame($volumeId, $item->getVolumeId());
         $this->assertEquals($blob, $item->getBlob());
 
-        $item = new IncorrectBlobSizeInfo(0, 0, 0, 0, new BlobSizeInfo('', 0, 0, FALSE));
+        $item = new StubIncorrectBlobSizeInfo();
         $item->setId($id)
               ->setRevision($revision)
               ->setSize($size)
@@ -47,11 +49,18 @@ class IncorrectBlobSizeInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" rev="$revision" s="$size" volumeId="$volumeId">
-    <blob path="$path" s="$size" fileSize="$fileSize" external="true" />
+<result id="$id" rev="$revision" s="$size" volumeId="$volumeId" xmlns:urn="urn:zimbraAdmin">
+    <urn:blob path="$path" s="$size" fileSize="$fileSize" external="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
-        $this->assertEquals($item, $this->serializer->deserialize($xml, IncorrectBlobSizeInfo::class, 'xml'));
+        $this->assertEquals($item, $this->serializer->deserialize($xml, StubIncorrectBlobSizeInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubIncorrectBlobSizeInfo extends IncorrectBlobSizeInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Offset;
 use Zimbra\Admin\Struct\SimpleElement;
 use Zimbra\Admin\Struct\TzFixupRuleMatch;
@@ -42,14 +44,14 @@ class TzFixupRuleMatchTest extends ZimbraTestCase
         $date_daylight = new TzFixupRuleMatchDate($date_mon, $date_mday);
         $dates = new TzFixupRuleMatchDates($date_standard, $date_daylight, $date_stdoff, $date_dayoff);
 
-        $match = new TzFixupRuleMatch($any, $tzid, $nonDst, $rules, $dates);
+        $match = new StubTzFixupRuleMatch($any, $tzid, $nonDst, $rules, $dates);
         $this->assertSame($any, $match->getAny());
         $this->assertSame($tzid, $match->getTzid());
         $this->assertSame($nonDst, $match->getNonDst());
         $this->assertSame($rules, $match->getRules());
         $this->assertSame($dates, $match->getDates());
 
-        $match = new TzFixupRuleMatch();
+        $match = new StubTzFixupRuleMatch();
         $match->setAny($any)
               ->setTzid($tzid)
               ->setNonDst($nonDst)
@@ -63,21 +65,28 @@ class TzFixupRuleMatchTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <any />
-    <tzid id="$id" />
-    <nonDst offset="$offset" />
-    <rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
-        <standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-        <daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
-    </rules>
-    <dates stdoff="$date_stdoff" dayoff="$date_dayoff">
-        <standard mon="$date_mon" mday="$date_mday" />
-        <daylight mon="$date_mon" mday="$date_mday" />
-    </dates>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:any />
+    <urn:tzid id="$id" />
+    <urn:nonDst offset="$offset" />
+    <urn:rules stdoff="$rule_stdoff" dayoff="$rule_dayoff">
+        <urn:standard mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+        <urn:daylight mon="$rule_mon" week="$rule_week" wkday="$rule_wkday" />
+    </urn:rules>
+    <urn:dates stdoff="$date_stdoff" dayoff="$date_dayoff">
+        <urn:standard mon="$date_mon" mday="$date_mday" />
+        <urn:daylight mon="$date_mon" mday="$date_mday" />
+    </urn:dates>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($match, 'xml'));
-        $this->assertEquals($match, $this->serializer->deserialize($xml, TzFixupRuleMatch::class, 'xml'));
+        $this->assertEquals($match, $this->serializer->deserialize($xml, StubTzFixupRuleMatch::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubTzFixupRuleMatch extends TzFixupRuleMatch
+{
 }

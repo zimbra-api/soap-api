@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\MailQueueWithAction;
 use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
@@ -28,11 +30,11 @@ class MailQueueWithActionTest extends ZimbraTestCase
         $query = new QueueQuery([$field], $limit, $offset);
         $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
 
-        $queue = new MailQueueWithAction($action, $name);
+        $queue = new StubMailQueueWithAction($action, $name);
         $this->assertSame($name, $queue->getName());
         $this->assertSame($action, $queue->getAction());
 
-        $queue = new MailQueueWithAction(new MailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID()), '');
+        $queue = new StubMailQueueWithAction(new MailQueueAction($query));
         $queue->setAction($action)
               ->setName($name);
         $this->assertSame($name, $queue->getName());
@@ -42,17 +44,24 @@ class MailQueueWithActionTest extends ZimbraTestCase
         $by = QueueActionBy::QUERY()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <action op="$op" by="$by">
-        <query limit="$limit" offset="$offset">
-            <field name="$name">
-                <match value="$value" />
-            </field>
-        </query>
-    </action>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:action op="$op" by="$by">
+        <urn:query limit="$limit" offset="$offset">
+            <urn:field name="$name">
+                <urn:match value="$value" />
+            </urn:field>
+        </urn:query>
+    </urn:action>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($queue, 'xml'));
-        $this->assertEquals($queue, $this->serializer->deserialize($xml, MailQueueWithAction::class, 'xml'));
+        $this->assertEquals($queue, $this->serializer->deserialize($xml, StubMailQueueWithAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubMailQueueWithAction extends MailQueueWithAction
+{
 }

@@ -16,7 +16,7 @@ class NamesTest extends ZimbraTestCase
         $names = new Names($name);
         $this->assertSame($name, $names->getName());
 
-        $names = new Names('');
+        $names = new Names();
         $names->setName($name);
         $this->assertSame($name, $names->getName());
 

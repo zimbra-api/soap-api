@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+namespace Zimbra\Tests\Admin\Struct;
+
 use Zimbra\Admin\Struct\FreeBusyQueueProvider;
 use Zimbra\Common\Struct\Id;
 use Zimbra\Tests\ZimbraTestCase;
@@ -17,11 +19,11 @@ class FreeBusyQueueProviderTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $account = new Id($id);
 
-        $provider = new FreeBusyQueueProvider($name, [$account]);
+        $provider = new StubFreeBusyQueueProvider($name, [$account]);
         $this->assertSame($name, $provider->getName());
         $this->assertSame([$account], $provider->getAccounts());
 
-        $provider = new FreeBusyQueueProvider('');
+        $provider = new StubFreeBusyQueueProvider();
         $provider->setName($name)
              ->setAccounts([$account])
              ->addAccount($account);
@@ -31,11 +33,18 @@ class FreeBusyQueueProviderTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <account id="$id" />
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:account id="$id" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($provider, 'xml'));
-        $this->assertEquals($provider, $this->serializer->deserialize($xml, FreeBusyQueueProvider::class, 'xml'));
+        $this->assertEquals($provider, $this->serializer->deserialize($xml, StubFreeBusyQueueProvider::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubFreeBusyQueueProvider extends FreeBusyQueueProvider
+{
 }

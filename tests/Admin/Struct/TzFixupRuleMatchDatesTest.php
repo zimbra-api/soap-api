@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\TzFixupRuleMatchDates;
 use Zimbra\Admin\Struct\TzFixupRuleMatchDate;
 use Zimbra\Tests\ZimbraTestCase;
@@ -23,17 +25,15 @@ class TzFixupRuleMatchDatesTest extends ZimbraTestCase
 
         $stdoff = mt_rand(1, 100);
         $dayoff = mt_rand(1, 100);
-        $dates = new TzFixupRuleMatchDates($standard, $daylight, $stdoff, $dayoff);
+        $dates = new StubTzFixupRuleMatchDates($standard, $daylight, $stdoff, $dayoff);
         $this->assertSame($standard, $dates->getStandard());
         $this->assertSame($daylight, $dates->getDaylight());
         $this->assertSame($stdoff, $dates->getStdOffset());
         $this->assertSame($dayoff, $dates->getDstOffset());
 
-        $dates = new TzFixupRuleMatchDates(
-            new TzFixupRuleMatchDate(0, 0),
-            new TzFixupRuleMatchDate(0, 0),
-            0,
-            0
+        $dates = new StubTzFixupRuleMatchDates(
+            new TzFixupRuleMatchDate(),
+            new TzFixupRuleMatchDate()
         );
         $dates->setStandard($standard)
               ->setDaylight($daylight)
@@ -46,12 +46,19 @@ class TzFixupRuleMatchDatesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result stdoff="$stdoff" dayoff="$dayoff">
-    <standard mon="$std_mon" mday="$std_mday" />
-    <daylight mon="$day_mon" mday="$day_mday" />
+<result stdoff="$stdoff" dayoff="$dayoff" xmlns:urn="urn:zimbraAdmin">
+    <urn:standard mon="$std_mon" mday="$std_mday" />
+    <urn:daylight mon="$day_mon" mday="$day_mday" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dates, 'xml'));
-        $this->assertEquals($dates, $this->serializer->deserialize($xml, TzFixupRuleMatchDates::class, 'xml'));
+        $this->assertEquals($dates, $this->serializer->deserialize($xml, StubTzFixupRuleMatchDates::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubTzFixupRuleMatchDates extends TzFixupRuleMatchDates
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\SessionForWaitSet;
 use Zimbra\Admin\Struct\WaitSetSessionInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -32,7 +34,7 @@ class SessionForWaitSetTest extends ZimbraTestCase
             $interestMask, $highestChangeId, $lastAccessTime, $creationTime, $sessionId, $token, $folderInterests, $changedFolders
         );
 
-        $session = new SessionForWaitSet(
+        $session = new StubSessionForWaitSet(
             $account, $interests, $token, $mboxSyncToken, $mboxSyncTokenDiff, $acctIdError, $WaitSetSession
         );
         $this->assertSame($account, $session->getAccount());
@@ -43,7 +45,7 @@ class SessionForWaitSetTest extends ZimbraTestCase
         $this->assertSame($acctIdError, $session->getAcctIdError());
         $this->assertSame($WaitSetSession, $session->getWaitSetSession());
 
-        $session = new SessionForWaitSet('', '');
+        $session = new StubSessionForWaitSet();
         $session->setAccount($account)
             ->setInterests($interests)
             ->setToken($token)
@@ -61,11 +63,18 @@ class SessionForWaitSetTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
-    <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
+<result account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError" xmlns:urn="urn:zimbraAdmin">
+    <urn:WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($session, 'xml'));
-        $this->assertEquals($session, $this->serializer->deserialize($xml, SessionForWaitSet::class, 'xml'));
+        $this->assertEquals($session, $this->serializer->deserialize($xml, StubSessionForWaitSet::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubSessionForWaitSet extends SessionForWaitSet
+{
 }

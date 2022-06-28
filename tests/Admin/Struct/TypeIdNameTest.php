@@ -23,7 +23,7 @@ class TypeIdNameTest extends ZimbraTestCase
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $target = new TypeIdName('', '', '');
+        $target = new TypeIdName();
         $target->setId($id)
                ->setName($name)
                ->setType($type);

@@ -22,7 +22,7 @@ class EntrySearchFilterSingleCondTest extends ZimbraTestCase
         $this->assertSame($value, $cond->getValue());
         $this->assertFalse($cond->isNot());
 
-        $cond = new EntrySearchFilterSingleCond('', CondOp::GE(), '', FALSE);
+        $cond = new EntrySearchFilterSingleCond();
         $cond->setAttr($attr)
              ->setOp(CondOp::EQ())
              ->setValue($value)

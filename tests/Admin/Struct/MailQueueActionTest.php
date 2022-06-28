@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\MailQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
@@ -25,13 +27,13 @@ class MailQueueActionTest extends ZimbraTestCase
         $attr = new ValueAttrib($value);
         $field = new QueueQueryField($name, [$attr]);
         $query = new QueueQuery([$field], $limit, $offset);
-        $action = new MailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID());
+        $action = new StubMailQueueAction($query, QueueAction::REQUEUE(), QueueActionBy::ID());
 
         $this->assertSame($query, $action->getQuery());
         $this->assertEquals(QueueAction::REQUEUE(), $action->getOp());
         $this->assertEquals(QueueActionBy::ID(), $action->getBy());
 
-        $action = new MailQueueAction(new QueueQuery(), QueueAction::REQUEUE(), QueueActionBy::ID());
+        $action = new StubMailQueueAction(new QueueQuery());
         $action->setQuery($query)
                ->setOp(QueueAction::HOLD())
                ->setBy(QueueActionBy::QUERY());
@@ -44,15 +46,22 @@ class MailQueueActionTest extends ZimbraTestCase
         $by = QueueActionBy::QUERY()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result op="$op" by="$by">
-    <query limit="$limit" offset="$offset">
-        <field name="$name">
-            <match value="$value" />
-        </field>
-    </query>
+<result op="$op" by="$by" xmlns:urn="urn:zimbraAdmin">
+    <urn:query limit="$limit" offset="$offset">
+        <urn:field name="$name">
+            <urn:match value="$value" />
+        </urn:field>
+    </urn:query>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, MailQueueAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubMailQueueAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubMailQueueAction extends MailQueueAction
+{
 }

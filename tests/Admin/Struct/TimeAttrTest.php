@@ -16,7 +16,7 @@ class TimeAttrTest extends ZimbraTestCase
         $attr = new TimeAttr($time);
         $this->assertSame($time, $attr->getTime());
 
-        $attr = new TimeAttr('');
+        $attr = new TimeAttr();
         $attr->setTime($time);
         $this->assertSame($time, $attr->getTime());
 

@@ -19,7 +19,7 @@ class QueueSummaryItemTest extends ZimbraTestCase
         $this->assertSame($count, $qsi->getCount());
         $this->assertSame($term, $qsi->getTerm());
 
-        $qsi = new QueueSummaryItem(0, '');
+        $qsi = new QueueSummaryItem();
         $qsi->setTerm($term)
              ->setCount($count);
         $this->assertSame($count, $qsi->getCount());

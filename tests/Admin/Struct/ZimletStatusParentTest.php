@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ZimletStatus;
 use Zimbra\Admin\Struct\ZimletStatusParent;
 use Zimbra\Common\Enum\ZimletStatusSetting;
@@ -19,10 +21,10 @@ class ZimletStatusParentTest extends ZimbraTestCase
 
         $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED(), TRUE, $priority);
 
-        $zimlets = new ZimletStatusParent([$zimlet]);
+        $zimlets = new StubZimletStatusParent([$zimlet]);
         $this->assertSame([$zimlet], $zimlets->getZimlets());
 
-        $zimlets = new ZimletStatusParent();
+        $zimlets = new StubZimletStatusParent();
         $zimlets->setZimlets([$zimlet])
              ->addZimlet($zimlet);
         $this->assertSame([$zimlet, $zimlet], $zimlets->getZimlets());
@@ -30,11 +32,18 @@ class ZimletStatusParentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <zimlet name="$name" status="enabled" extension="true" priority="$priority" />
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:zimlet name="$name" status="enabled" extension="true" priority="$priority" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlets, 'xml'));
-        $this->assertEquals($zimlets, $this->serializer->deserialize($xml, ZimletStatusParent::class, 'xml'));
+        $this->assertEquals($zimlets, $this->serializer->deserialize($xml, StubZimletStatusParent::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubZimletStatusParent extends ZimletStatusParent
+{
 }

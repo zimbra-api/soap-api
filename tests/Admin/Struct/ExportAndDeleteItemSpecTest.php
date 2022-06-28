@@ -19,7 +19,7 @@ class ExportAndDeleteItemSpecTest extends ZimbraTestCase
         $this->assertSame($id, $item->getId());
         $this->assertSame($version, $item->getVersion());
 
-        $item = new ExportAndDeleteItemSpec(0, 0);
+        $item = new ExportAndDeleteItemSpec();
         $item->setId($id)
              ->setVersion($version);
         $this->assertSame($id, $item->getId());

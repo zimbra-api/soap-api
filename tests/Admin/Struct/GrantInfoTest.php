@@ -29,14 +29,14 @@ class GrantInfoTest extends ZimbraTestCase
         );
         $right = new RightModifierInfo($value, TRUE, TRUE, TRUE, TRUE);
 
-        $grant = new GrantInfo(
+        $grant = new StubGrantInfo(
             $target, $grantee, $right
         );
         $this->assertSame($target, $grant->getTarget());
         $this->assertSame($grantee, $grant->getGrantee());
         $this->assertSame($right, $grant->getRight());
 
-        $grant = new GrantInfo(new TypeIdName('', '', ''), new GranteeInfo('', ''), new RightModifierInfo(''));
+        $grant = new StubGrantInfo(new TypeIdName(), new GranteeInfo(), new RightModifierInfo());
         $grant->setTarget($target)
             ->setGrantee($grantee)
             ->setRight($right);
@@ -46,13 +46,20 @@ class GrantInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <target type="$type" id="$id" name="$name" />
-    <grantee id="$id" name="$name" type="usr" />
-    <right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</right>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:target type="$type" id="$id" name="$name" />
+    <urn:grantee id="$id" name="$name" type="usr" />
+    <urn:right deny="true" canDelegate="true" disinheritSubGroups="true" subDomain="true">$value</urn:right>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($grant, 'xml'));
-        $this->assertEquals($grant, $this->serializer->deserialize($xml, GrantInfo::class, 'xml'));
+        $this->assertEquals($grant, $this->serializer->deserialize($xml, StubGrantInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubGrantInfo extends GrantInfo
+{
 }

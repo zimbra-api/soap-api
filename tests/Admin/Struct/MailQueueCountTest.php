@@ -19,7 +19,7 @@ class MailQueueCountTest extends ZimbraTestCase
         $this->assertSame($count, $queue->getCount());
         $this->assertSame($name, $queue->getName());
 
-        $queue = new MailQueueCount('', 0);
+        $queue = new MailQueueCount();
         $queue->setName($name)
              ->setCount($count);
         $this->assertSame($count, $queue->getCount());

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -17,12 +19,12 @@ class ConstraintInfoTest extends ZimbraTestCase
         $max = $this->faker->word;
         $min = $this->faker->word;
 
-        $constraint = new ConstraintInfo($min, $max, [$value1]);
+        $constraint = new StubConstraintInfo($min, $max, [$value1]);
         $this->assertSame($min, $constraint->getMin());
         $this->assertSame($max, $constraint->getMax());
         $this->assertSame([$value1], $constraint->getValues());
 
-        $constraint = new ConstraintInfo();
+        $constraint = new StubConstraintInfo();
         $constraint->setMin($min)
             ->setMax($max)
             ->setValues([$value1])
@@ -33,16 +35,23 @@ class ConstraintInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <min>$min</min>
-    <max>$max</max>
-    <values>
-        <v>$value1</v>
-        <v>$value2</v>
-    </values>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:min>$min</urn:min>
+    <urn:max>$max</urn:max>
+    <urn:values>
+        <urn:v>$value1</urn:v>
+        <urn:v>$value2</urn:v>
+    </urn:values>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($constraint, 'xml'));
-        $this->assertEquals($constraint, $this->serializer->deserialize($xml, ConstraintInfo::class, 'xml'));
+        $this->assertEquals($constraint, $this->serializer->deserialize($xml, StubConstraintInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubConstraintInfo extends ConstraintInfo
+{
 }

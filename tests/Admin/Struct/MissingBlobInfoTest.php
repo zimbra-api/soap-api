@@ -30,7 +30,7 @@ class MissingBlobInfoTest extends ZimbraTestCase
         $this->assertFalse($item->getExternal());
         $this->assertSame($version, $item->getVersion());
 
-        $item = new MissingBlobInfo(0, 0, 0, 0, '', FALSE, 0);
+        $item = new MissingBlobInfo();
         $item->setId($id)
              ->setRevision($revision)
              ->setSize($size)

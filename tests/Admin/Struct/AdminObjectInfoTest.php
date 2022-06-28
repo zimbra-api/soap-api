@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminObjectInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -40,9 +42,9 @@ class AdminObjectInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a n="$key1">$value1</a>
-    <a n="$key2">$value2</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key1">$value1</urn:a>
+    <urn:a n="$key2">$value2</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($stub, 'xml'));
@@ -50,6 +52,9 @@ EOT;
     }
 }
 
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
 class StubAdminObjectInfo extends AdminObjectInfo
 {
 }

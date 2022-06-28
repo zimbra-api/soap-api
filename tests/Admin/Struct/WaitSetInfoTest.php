@@ -55,7 +55,7 @@ class WaitSetInfoTest extends ZimbraTestCase
             $account, $interests, $token, $mboxSyncToken, $mboxSyncTokenDiff, $acctIdError, $WaitSetSession
         );
 
-        $waitSet = new WaitSetInfo(
+        $waitSet = new StubWaitSetInfo(
             $waitSetId, $owner, $defaultInterests, $lastAccessDate, [$error], $signalledAccounts, $cbSeqNo, $currentSeqNo, $nextSeqNo, [$commit], [$session]
         );
         $this->assertSame($waitSetId, $waitSet->getWaitSetId());
@@ -70,7 +70,7 @@ class WaitSetInfoTest extends ZimbraTestCase
         $this->assertSame([$commit], $waitSet->getBufferedCommits());
         $this->assertSame([$session], $waitSet->getSessions());
 
-        $waitSet = new WaitSetInfo('', '', '', 0);
+        $waitSet = new StubWaitSetInfo();
         $waitSet->setWaitSetId($waitSetId)
             ->setOwner($owner)
             ->setDefaultInterests($defaultInterests)
@@ -102,20 +102,27 @@ class WaitSetInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
-    <errors>
-        <error id="$id" type="$type" />
-    </errors>
-    <ready accounts="$accounts" />
-    <buffered>
-        <commit aid="$aid" cid="$cid" />
-    </buffered>
-    <session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
-        <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
-    </session>
+<result id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo" xmlns:urn="urn:zimbraAdmin">
+    <urn:errors>
+        <urn:error id="$id" type="$type" />
+    </urn:errors>
+    <urn:ready accounts="$accounts" />
+    <urn:buffered>
+        <urn:commit aid="$aid" cid="$cid" />
+    </urn:buffered>
+    <urn:session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
+        <urn:WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
+    </urn:session>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($waitSet, 'xml'));
-        $this->assertEquals($waitSet, $this->serializer->deserialize($xml, WaitSetInfo::class, 'xml'));
+        $this->assertEquals($waitSet, $this->serializer->deserialize($xml, StubWaitSetInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubWaitSetInfo extends WaitSetInfo
+{
 }

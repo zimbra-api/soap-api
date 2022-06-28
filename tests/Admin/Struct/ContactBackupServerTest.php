@@ -19,7 +19,7 @@ class ContactBackupServerTest extends ZimbraTestCase
         $this->assertSame($name, $server->getName());
         $this->assertEquals(ContactBackupStatus::STARTED(), $server->getStatus());
 
-        $server = new ContactBackupServer('', ContactBackupStatus::STOPPED());
+        $server = new ContactBackupServer();
         $server->setName($name)
                ->setStatus(ContactBackupStatus::STOPPED());
         $this->assertSame($name, $server->getName());

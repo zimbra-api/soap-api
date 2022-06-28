@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\QueueSummary;
 use Zimbra\Admin\Struct\QueueSummaryItem;
 use Zimbra\Tests\ZimbraTestCase;
@@ -19,11 +21,11 @@ class QueueSummaryTest extends ZimbraTestCase
 
         $qsi = new QueueSummaryItem($count, $term);
 
-        $qs = new QueueSummary($type, [$qsi]);
+        $qs = new StubQueueSummary($type, [$qsi]);
         $this->assertSame($type, $qs->getType());
         $this->assertSame([$qsi], $qs->getItems());
 
-        $qs = new QueueSummary('');
+        $qs = new StubQueueSummary();
         $qs->setType($type)
             ->setItems([$qsi])
             ->addItem($qsi);
@@ -33,11 +35,18 @@ class QueueSummaryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type">
-    <qsi n="$count" t="$term" />
+<result type="$type" xmlns:urn="urn:zimbraAdmin">
+    <urn:qsi n="$count" t="$term" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($qs, 'xml'));
-        $this->assertEquals($qs, $this->serializer->deserialize($xml, QueueSummary::class, 'xml'));
+        $this->assertEquals($qs, $this->serializer->deserialize($xml, StubQueueSummary::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubQueueSummary extends QueueSummary
+{
 }

@@ -16,7 +16,7 @@ class IntIdAttrTest extends ZimbraTestCase
         $attr = new IntIdAttr($value);
         $this->assertSame($value, $attr->getId());
 
-        $attr = new IntIdAttr(0);
+        $attr = new IntIdAttr();
         $attr->setId($value);
         $this->assertSame($value, $attr->getId());
 

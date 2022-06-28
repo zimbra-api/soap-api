@@ -18,7 +18,7 @@ class ServerSelectorTest extends ZimbraTestCase
         $this->assertEquals(ServerBy::ID(), $server->getBy());
         $this->assertSame($value, $server->getValue());
 
-        $server = new ServerSelector(ServerBy::ID());
+        $server = new ServerSelector();
         $server->setBy(ServerBy::NAME())
                ->setValue($value);
         $this->assertEquals(ServerBy::NAME(), $server->getBy());

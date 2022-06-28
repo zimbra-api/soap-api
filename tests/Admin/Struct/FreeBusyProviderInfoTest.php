@@ -26,7 +26,7 @@ class FreeBusyProviderInfoTest extends ZimbraTestCase
         $this->assertSame($queue, $provider->getQueue());
         $this->assertSame($prefix, $provider->getPrefix());
 
-        $provider = new FreeBusyProviderInfo('', FALSE, 0, 0, '', '');
+        $provider = new FreeBusyProviderInfo();
         $provider->setName($name)
             ->setPropagate(TRUE)
             ->setStart($start)

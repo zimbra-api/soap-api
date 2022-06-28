@@ -18,7 +18,7 @@ class TzFixupRuleMatchDateTest extends ZimbraTestCase
         $this->assertSame($mon, $date->getMonth());
         $this->assertSame($mday, $date->getMonthDay());
 
-        $date = new TzFixupRuleMatchDate(0, 0);
+        $date = new TzFixupRuleMatchDate();
         $date->setMonth($mon)
              ->setMonthDay($mday);
         $this->assertSame($mon, $date->getMonth());

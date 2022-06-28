@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -18,15 +20,22 @@ class UCServiceInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $ucservice = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
+        $ucservice = new StubUCServiceInfo($name, $id, [new Attr($key, $value)]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ucservice, 'xml'));
-        $this->assertEquals($ucservice, $this->serializer->deserialize($xml, UCServiceInfo::class, 'xml'));
+        $this->assertEquals($ucservice, $this->serializer->deserialize($xml, StubUCServiceInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubUCServiceInfo extends UCServiceInfo
+{
 }

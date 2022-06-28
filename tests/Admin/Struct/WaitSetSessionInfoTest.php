@@ -33,7 +33,7 @@ class WaitSetSessionInfoTest extends ZimbraTestCase
         $this->assertSame($folderInterests, $WaitSetSession->getFolderInterests());
         $this->assertSame($changedFolders, $WaitSetSession->getChangedFolders());
 
-        $WaitSetSession = new WaitSetSessionInfo('', 0, 0, 0, '');
+        $WaitSetSession = new WaitSetSessionInfo();
         $WaitSetSession->setInterestMask($interestMask)
             ->setHighestChangeId($highestChangeId)
             ->setLastAccessTime($lastAccessTime)

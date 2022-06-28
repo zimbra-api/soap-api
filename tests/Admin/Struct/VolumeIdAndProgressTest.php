@@ -18,7 +18,7 @@ class VolumeIdAndProgressTest extends ZimbraTestCase
         $volumeProgress = new VolumeIdAndProgress($volumeId, $progress);
         $this->assertSame($volumeId, $volumeProgress->getVolumeId());
         $this->assertSame($progress, $volumeProgress->getProgress());
-        $volumeProgress = new VolumeIdAndProgress('', '');
+        $volumeProgress = new VolumeIdAndProgress();
         $volumeProgress->setVolumeId($volumeId)
             ->setProgress($progress);
         $this->assertSame($volumeId, $volumeProgress->getVolumeId());

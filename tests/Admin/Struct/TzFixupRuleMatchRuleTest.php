@@ -21,7 +21,7 @@ class TzFixupRuleMatchRuleTest extends ZimbraTestCase
         $this->assertSame($week, $rule->getWeek());
         $this->assertSame($wkday, $rule->getWeekDay());
 
-        $rule = new TzFixupRuleMatchRule(0, 0, 0);
+        $rule = new TzFixupRuleMatchRule();
         $rule->setMonth($mon)
              ->setWeek($week)
              ->setWeekDay($wkday);

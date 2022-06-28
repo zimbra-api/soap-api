@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\DistributionListInfo;
 use Zimbra\Admin\Struct\GranteeInfo;
 use Zimbra\Common\Enum\GranteeType;
@@ -23,12 +25,12 @@ class DistributionListInfoTest extends ZimbraTestCase
             $id, $name, GranteeType::USR()
         );
 
-        $dl = new DistributionListInfo($name, $id, [$member1], [], [$owner], FALSE);
+        $dl = new StubDistributionListInfo($name, $id, [$member1], [], [$owner], FALSE);
         $this->assertFalse($dl->isDynamic());
         $this->assertSame([$member1], $dl->getMembers());
         $this->assertSame([$owner], $dl->getOwners());
 
-        $dl = new DistributionListInfo($name, $id);
+        $dl = new StubDistributionListInfo($name, $id);
         $dl->setDynamic(TRUE)
            ->setMembers([$member1])
            ->addMember($member2)
@@ -40,16 +42,23 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" dynamic="true">
-    <dlm>$member1</dlm>
-    <dlm>$member2</dlm>
-    <owners>
-        <owner id="$id" name="$name" type="usr" />
-        <owner id="$id" name="$name" type="usr" />
-    </owners>
+<result name="$name" id="$id" dynamic="true" xmlns:urn="urn:zimbraAdmin">
+    <urn:dlm>$member1</urn:dlm>
+    <urn:dlm>$member2</urn:dlm>
+    <urn:owners>
+        <urn:owner id="$id" name="$name" type="usr" />
+        <urn:owner id="$id" name="$name" type="usr" />
+    </urn:owners>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
-        $this->assertEquals($dl, $this->serializer->deserialize($xml, DistributionListInfo::class, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, StubDistributionListInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubDistributionListInfo extends DistributionListInfo
+{
 }

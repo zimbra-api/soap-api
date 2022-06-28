@@ -21,7 +21,7 @@ class MailboxStatsTest extends ZimbraTestCase
         $this->assertSame($numMboxes, $stats->getNumMboxes());
         $this->assertSame($totalSize, $stats->getTotalSize());
 
-        $stats = new MailboxStats(0, 0);
+        $stats = new MailboxStats();
         $stats->setNumMboxes($numMboxes)
              ->setTotalSize($totalSize);
         $this->assertSame($numMboxes, $stats->getNumMboxes());

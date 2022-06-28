@@ -18,7 +18,7 @@ class DomainSelectorTest extends ZimbraTestCase
         $this->assertEquals(DomainBy::ID(), $domain->getBy());
         $this->assertSame($value, $domain->getValue());
 
-        $domain = new DomainSelector(DomainBy::ID());
+        $domain = new DomainSelector();
         $domain->setBy(DomainBy::NAME())
                ->setValue($value);
         $this->assertEquals(DomainBy::NAME(), $domain->getBy());

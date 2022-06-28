@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
 use Zimbra\Common\Enum\RightType;
@@ -21,7 +23,7 @@ class ComboRightsTest extends ZimbraTestCase
             $name, RightType::PRESET(), $targetType
         );
 
-        $rights = new ComboRights([$right]);
+        $rights = new StubComboRights([$right]);
         $this->assertSame([$right], $rights->getComboRights());
         $rights->setComboRights([$right])
             ->addComboRight($right);
@@ -31,11 +33,18 @@ class ComboRightsTest extends ZimbraTestCase
         $type = RightType::PRESET()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <r n="$name" type="$type" targetType="$targetType" />
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:r n="$name" type="$type" targetType="$targetType" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rights, 'xml'));
-        $this->assertEquals($rights, $this->serializer->deserialize($xml, ComboRights::class, 'xml'));
+        $this->assertEquals($rights, $this->serializer->deserialize($xml, StubComboRights::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubComboRights extends ComboRights
+{
 }

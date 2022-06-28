@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
@@ -33,60 +35,67 @@ class RightsEntriesInfoTest extends ZimbraTestCase
         $rights = new EffectiveRightsInfo($setAttrs, $getAttrs, [$right]);
         $entry = new NamedElement($name);
 
-        $entries = new RightsEntriesInfo($rights, [$entry]);
+        $entries = new StubRightsEntriesInfo($rights, [$entry]);
         $this->assertSame($rights, $entries->getRights());
         $this->assertSame([$entry], $entries->getEntries());
 
-        $entries = new RightsEntriesInfo(new EffectiveRightsInfo($setAttrs, $getAttrs));
+        $entries = new StubRightsEntriesInfo(new EffectiveRightsInfo($setAttrs, $getAttrs));
         $entries->setRights($rights)
             ->setEntries([$entry])
             ->addEntry($entry);
         $this->assertSame($rights, $entries->getRights());
         $this->assertSame([$entry, $entry], $entries->getEntries());
-        $entries = new RightsEntriesInfo($rights, [$entry]);
+        $entries = new StubRightsEntriesInfo($rights, [$entry]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <entry name="$name" />
-    <rights>
-        <right n="$name" />
-        <setAttrs all="true">
-            <a n="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </values>
-                </constraint>
-                <default>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </default>
-            </a>
-        </setAttrs>
-        <getAttrs all="false">
-            <a n="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </values>
-                </constraint>
-                <default>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </default>
-            </a>
-        </getAttrs>
-    </rights>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:entry name="$name" />
+    <urn:rights>
+        <urn:right n="$name" />
+        <urn:setAttrs all="true">
+            <urn:a n="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:values>
+                </urn:constraint>
+                <urn:default>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:default>
+            </urn:a>
+        </urn:setAttrs>
+        <urn:getAttrs all="false">
+            <urn:a n="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:values>
+                </urn:constraint>
+                <urn:default>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:default>
+            </urn:a>
+        </urn:getAttrs>
+    </urn:rights>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($entries, 'xml'));
-        $this->assertEquals($entries, $this->serializer->deserialize($xml, RightsEntriesInfo::class, 'xml'));
+        $this->assertEquals($entries, $this->serializer->deserialize($xml, StubRightsEntriesInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubRightsEntriesInfo extends RightsEntriesInfo
+{
 }

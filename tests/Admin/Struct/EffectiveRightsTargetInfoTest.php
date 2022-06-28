@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
@@ -30,12 +32,12 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
         $setAttrs = new EffectiveAttrsInfo(TRUE, [$attr]);
         $getAttrs = new EffectiveAttrsInfo(FALSE, [$attr]);
 
-        $target = new EffectiveRightsTargetInfo(TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]);
+        $target = new StubEffectiveRightsTargetInfo(TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]);
         $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $target = new EffectiveRightsTargetInfo(TargetType::ACCOUNT(), '', '', $setAttrs, $getAttrs, [$right]);
+        $target = new StubEffectiveRightsTargetInfo(TargetType::ACCOUNT(), '', '', $setAttrs, $getAttrs, [$right]);
         $target->setType(TargetType::DOMAIN())
             ->setId($id)
             ->setName($name);
@@ -46,43 +48,50 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
         $type = TargetType::DOMAIN()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" id="$id" name="$name">
-    <right n="$name" />
-    <setAttrs all="true">
-        <a n="$name">
-            <constraint>
-                <min>$min</min>
-                <max>$max</max>
-                <values>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </values>
-            </constraint>
-            <default>
-                <v>$value1</v>
-                <v>$value2</v>
-            </default>
-        </a>
-    </setAttrs>
-    <getAttrs all="false">
-        <a n="$name">
-            <constraint>
-                <min>$min</min>
-                <max>$max</max>
-                <values>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </values>
-            </constraint>
-            <default>
-                <v>$value1</v>
-                <v>$value2</v>
-            </default>
-        </a>
-    </getAttrs>
+<result type="$type" id="$id" name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:right n="$name" />
+    <urn:setAttrs all="true">
+        <urn:a n="$name">
+            <urn:constraint>
+                <urn:min>$min</urn:min>
+                <urn:max>$max</urn:max>
+                <urn:values>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:values>
+            </urn:constraint>
+            <urn:default>
+                <urn:v>$value1</urn:v>
+                <urn:v>$value2</urn:v>
+            </urn:default>
+        </urn:a>
+    </urn:setAttrs>
+    <urn:getAttrs all="false">
+        <urn:a n="$name">
+            <urn:constraint>
+                <urn:min>$min</urn:min>
+                <urn:max>$max</urn:max>
+                <urn:values>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:values>
+            </urn:constraint>
+            <urn:default>
+                <urn:v>$value1</urn:v>
+                <urn:v>$value2</urn:v>
+            </urn:default>
+        </urn:a>
+    </urn:getAttrs>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
-        $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTargetInfo::class, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, StubEffectiveRightsTargetInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubEffectiveRightsTargetInfo extends EffectiveRightsTargetInfo
+{
 }

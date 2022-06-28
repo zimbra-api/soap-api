@@ -18,7 +18,7 @@ class XMPPComponentSelectorTest extends ZimbraTestCase
         $this->assertEquals(XmppBy::ID(), $xmpp->getBy());
         $this->assertSame($value, $xmpp->getValue());
 
-        $xmpp = new XMPPComponentSelector(XmppBy::ID());
+        $xmpp = new XMPPComponentSelector();
         $xmpp->setBy(XmppBy::NAME())
              ->setValue($value);
         $this->assertEquals(XmppBy::NAME(), $xmpp->getBy());

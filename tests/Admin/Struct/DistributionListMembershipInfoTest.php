@@ -21,7 +21,7 @@ class DistributionListMembershipInfoTest extends ZimbraTestCase
         $this->assertSame($name, $dl->getName());
         $this->assertSame($via, $dl->getVia());
 
-        $dl = new DistributionListMembershipInfo('', '');
+        $dl = new DistributionListMembershipInfo();
         $dl->setId($id)
             ->setName($name)
             ->setVia($via);

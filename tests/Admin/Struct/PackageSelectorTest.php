@@ -16,7 +16,7 @@ class PackageSelectorTest extends ZimbraTestCase
         $package = new PackageSelector($name);
         $this->assertSame($name, $package->getName());
 
-        $package = new PackageSelector('');
+        $package = new PackageSelector();
         $package->setName($name);
         $this->assertSame($name, $package->getName());
 

@@ -17,7 +17,7 @@ class CheckDirSelectorTest extends ZimbraTestCase
         $this->assertSame($path, $dir->getPath());
         $this->assertFalse($dir->isCreate());
 
-        $dir = new CheckDirSelector('', FALSE);
+        $dir = new CheckDirSelector();
         $dir->setPath($path)
             ->setCreate(TRUE);
         $this->assertSame($path, $dir->getPath());

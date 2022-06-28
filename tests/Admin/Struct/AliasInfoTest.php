@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AliasInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Common\Enum\TargetType;
@@ -21,11 +23,11 @@ class AliasInfoTest extends ZimbraTestCase
         $targetName = $this->faker->word;
         $targetType = TargetType::ACCOUNT();
 
-        $alias = new AliasInfo($name, $id, $targetName, $targetType);
+        $alias = new StubAliasInfo($name, $id, $targetName, $targetType);
         $this->assertSame($targetName, $alias->getTargetName());
         $this->assertSame($targetType, $alias->getTargetTyoe());
 
-        $alias = new AliasInfo($name, $id, '', TargetType::ACCOUNT(), [new Attr($key, $value)]);
+        $alias = new StubAliasInfo($name, $id, '', TargetType::ACCOUNT(), [new Attr($key, $value)]);
         $alias->setTargetName($targetName)
             ->setTargetTyoe($targetType);
         $this->assertSame($targetName, $alias->getTargetName());
@@ -33,11 +35,18 @@ class AliasInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" targetName="$targetName" type="$targetType">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" targetName="$targetName" type="$targetType" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alias, 'xml'));
-        $this->assertEquals($alias, $this->serializer->deserialize($xml, AliasInfo::class, 'xml'));
+        $this->assertEquals($alias, $this->serializer->deserialize($xml, StubAliasInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAliasInfo extends AliasInfo
+{
 }

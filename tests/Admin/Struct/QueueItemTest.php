@@ -41,9 +41,7 @@ class QueueItemTest extends ZimbraTestCase
         $this->assertSame($todomain, $qi->getTodomain());
         $this->assertSame($received, $qi->getReceived());
 
-        $qi = new QueueItem(
-            '', '', '', '', '', '', '', '', '', '', '', ''
-        );
+        $qi = new QueueItem();
         $qi->setId($id)
             ->setTime($time)
             ->setFromdomain($fromdomain)

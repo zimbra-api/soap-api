@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ConstraintInfo;
 use Zimbra\Admin\Struct\EffectiveAttrInfo;
 use Zimbra\Admin\Struct\EffectiveAttrsInfo;
@@ -39,13 +41,13 @@ class EffectiveRightsTargetTest extends ZimbraTestCase
         $inDomains = new InDomainInfo($rights, [$domain]);
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $target = new EffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
+        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
         $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
         $this->assertSame($rights, $target->getAll());
         $this->assertSame([$inDomains], $target->getInDomainLists());
         $this->assertSame([$entries], $target->getEntriesLists());
 
-        $target = new EffectiveRightsTarget(TargetType::ACCOUNT());
+        $target = new StubEffectiveRightsTarget();
         $target->setType(TargetType::DOMAIN())
             ->setAll($rights)
             ->setInDomainLists([$inDomains])
@@ -56,126 +58,133 @@ class EffectiveRightsTargetTest extends ZimbraTestCase
         $this->assertSame($rights, $target->getAll());
         $this->assertSame([$inDomains, $inDomains], $target->getInDomainLists());
         $this->assertSame([$entries, $entries], $target->getEntriesLists());
-        $target = new EffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
+        $target = new StubEffectiveRightsTarget(TargetType::ACCOUNT(), $rights, [$inDomains], [$entries]);
 
         $type = TargetType::ACCOUNT()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type">
-    <all>
-        <right n="$name" />
-        <setAttrs all="true">
-            <a n="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </values>
-                </constraint>
-                <default>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </default>
-            </a>
-        </setAttrs>
-        <getAttrs all="false">
-            <a n="$name">
-                <constraint>
-                    <min>$min</min>
-                    <max>$max</max>
-                    <values>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </values>
-                </constraint>
-                <default>
-                    <v>$value1</v>
-                    <v>$value2</v>
-                </default>
-            </a>
-        </getAttrs>
-    </all>
-    <inDomains>
-        <domain name="$name" />
-        <rights>
-            <right n="$name" />
-            <setAttrs all="true">
-                <a n="$name">
-                    <constraint>
-                        <min>$min</min>
-                        <max>$max</max>
-                        <values>
-                            <v>$value1</v>
-                            <v>$value2</v>
+<result type="$type" xmlns:urn="urn:zimbraAdmin">
+    <urn:all>
+        <urn:right n="$name" />
+        <urn:setAttrs all="true">
+            <urn:a n="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:values>
+                </urn:constraint>
+                <urn:default>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:default>
+            </urn:a>
+        </urn:setAttrs>
+        <urn:getAttrs all="false">
+            <urn:a n="$name">
+                <urn:constraint>
+                    <urn:min>$min</urn:min>
+                    <urn:max>$max</urn:max>
+                    <urn:values>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:values>
+                </urn:constraint>
+                <urn:default>
+                    <urn:v>$value1</urn:v>
+                    <urn:v>$value2</urn:v>
+                </urn:default>
+            </urn:a>
+        </urn:getAttrs>
+    </urn:all>
+    <urn:inDomains>
+        <urn:domain name="$name" />
+        <urn:rights>
+            <urn:right n="$name" />
+            <urn:setAttrs all="true">
+                <urn:a n="$name">
+                    <urn:constraint>
+                        <urn:min>$min</urn:min>
+                        <urn:max>$max</urn:max>
+                        <urn:values>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:values>
+                    </urn:constraint>
+                    <urn:default>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:default>
+                </urn:a>
+            </urn:setAttrs>
+            <urn:getAttrs all="false">
+                <urn:a n="$name">
+                    <urn:constraint>
+                        <urn:min>$min</urn:min>
+                        <urn:max>$max</urn:max>
+                        <urn:values>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:values>
+                    </urn:constraint>
+                    <urn:default>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:default>
+                </urn:a>
+            </urn:getAttrs>
+        </urn:rights>
+    </urn:inDomains>
+    <urn:entries>
+        <urn:entry name="$name" />
+        <urn:rights>
+            <urn:right n="$name" />
+            <urn:setAttrs all="true">
+                <urn:a n="$name">
+                    <urn:constraint>
+                        <urn:min>$min</urn:min>
+                        <urn:max>$max</urn:max>
+                        <urn:values>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
+                        </urn:values>
+                    </urn:constraint>
+                    <urn:default>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:default>
+                </urn:a>
+            </urn:setAttrs>
+            <urn:getAttrs all="false">
+                <urn:a n="$name">
+                    <urn:constraint>
+                        <urn:min>$min</urn:min>
+                        <urn:max>$max</urn:max>
+                        <urn:values>
+                            <urn:v>$value1</urn:v>
+                            <urn:v>$value2</urn:v>
                         </values>
-                    </constraint>
-                    <default>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </default>
-                </a>
-            </setAttrs>
-            <getAttrs all="false">
-                <a n="$name">
-                    <constraint>
-                        <min>$min</min>
-                        <max>$max</max>
-                        <values>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </values>
-                    </constraint>
-                    <default>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </default>
-                </a>
-            </getAttrs>
-        </rights>
-    </inDomains>
-    <entries>
-        <entry name="$name" />
-        <rights>
-            <right n="$name" />
-            <setAttrs all="true">
-                <a n="$name">
-                    <constraint>
-                        <min>$min</min>
-                        <max>$max</max>
-                        <values>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </values>
-                    </constraint>
-                    <default>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </default>
-                </a>
-            </setAttrs>
-            <getAttrs all="false">
-                <a n="$name">
-                    <constraint>
-                        <min>$min</min>
-                        <max>$max</max>
-                        <values>
-                            <v>$value1</v>
-                            <v>$value2</v>
-                        </values>
-                    </constraint>
-                    <default>
-                        <v>$value1</v>
-                        <v>$value2</v>
-                    </default>
-                </a>
-            </getAttrs>
-        </rights>
-    </entries>
+                    </urn:constraint>
+                    <urn:default>
+                        <urn:v>$value1</urn:v>
+                        <urn:v>$value2</urn:v>
+                    </urn:default>
+                </urn:a>
+            </urn:getAttrs>
+        </urn:rights>
+    </urn:entries>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($target, 'xml'));
-        $this->assertEquals($target, $this->serializer->deserialize($xml, EffectiveRightsTarget::class, 'xml'));
+        $this->assertEquals($target, $this->serializer->deserialize($xml, StubEffectiveRightsTarget::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubEffectiveRightsTarget extends EffectiveRightsTarget
+{
 }

@@ -18,7 +18,7 @@ class CosSelectorTest extends ZimbraTestCase
         $this->assertEquals(CosBy::ID(), $cos->getBy());
         $this->assertSame($value, $cos->getValue());
 
-        $cos = new CosSelector(CosBy::ID());
+        $cos = new CosSelector();
         $cos->setBy(CosBy::NAME())
             ->setValue($value);
         $this->assertEquals(CosBy::NAME(), $cos->getBy());

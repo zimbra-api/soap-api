@@ -18,7 +18,7 @@ class UcServiceSelectorTest extends ZimbraTestCase
         $this->assertEquals(UcServiceBy::ID(), $ucs->getBy());
         $this->assertSame($value, $ucs->getValue());
 
-        $ucs = new UcServiceSelector(UcServiceBy::ID());
+        $ucs = new UcServiceSelector();
         $ucs->setBy(UcServiceBy::NAME())
             ->setValue($value);
         $this->assertEquals(UcServiceBy::NAME(), $ucs->getBy());

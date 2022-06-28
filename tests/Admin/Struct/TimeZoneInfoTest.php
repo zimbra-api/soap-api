@@ -19,7 +19,7 @@ class TimeZoneInfoTest extends ZimbraTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame($displayName, $info->getDisplayName());
 
-        $info = new TimeZoneInfo('', '');
+        $info = new TimeZoneInfo();
         $info->setId($id)
            ->setDisplayName($displayName);
         $this->assertSame($id, $info->getId());
