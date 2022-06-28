@@ -83,14 +83,14 @@ class GetSessionsRequest extends Request
      * @return self
      */
     public function __construct(
-        SessionType $type,
+        ?SessionType $type = NULL,
         ?GetSessionsSortBy $sortBy = NULL,
         ?int $offset = NULL,
         ?int $limit = NULL,
         ?bool $refresh = NULL
     )
     {
-        $this->setType($type);
+        $this->setType($type ?? SessionType::SOAP());
         if ($sortBy instanceof GetSessionsSortBy) {
             $this->setSortBy($sortBy);
         }

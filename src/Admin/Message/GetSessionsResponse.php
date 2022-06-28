@@ -61,8 +61,8 @@ class GetSessionsResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        bool $more,
-        int $total,
+        bool $more = FALSE,
+        int $total = 0,
         array $sessions = []
     )
     {

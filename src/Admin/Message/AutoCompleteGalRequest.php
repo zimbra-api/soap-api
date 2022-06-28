@@ -82,8 +82,8 @@ class AutoCompleteGalRequest extends Request
      * @return self
      */
     public function __construct(
-        string $domain,
-        string $name,
+        string $domain = '',
+        string $name = '',
         ?GalSearchType $type = NULL,
         ?string $galAccountId = NULL,
         ?int $limit = NULL

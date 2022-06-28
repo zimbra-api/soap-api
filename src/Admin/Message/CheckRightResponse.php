@@ -51,7 +51,7 @@ class CheckRightResponse implements ResponseInterface
      * @param RightViaInfo $via
      * @return self
      */
-    public function __construct(bool $allow, ?RightViaInfo $via = NULL)
+    public function __construct(bool $allow = FALSE, ?RightViaInfo $via = NULL)
     {
         $this->setAllow($allow);
         if ($via instanceof RightViaInfo) {

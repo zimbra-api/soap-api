@@ -61,7 +61,7 @@ class CheckGalConfigResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $code,
+        string $code = '',
         ?string $message = NULL,
         array $galContacts = []
     )

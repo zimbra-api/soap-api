@@ -123,7 +123,7 @@ class SearchAccountsRequest extends Request
      * @return self
      */
     public function __construct(
-        string $query,
+        string $query = '',
         ?int $limit = NULL,
         ?int $offset = NULL,
         ?string $domain = NULL,

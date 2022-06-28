@@ -71,9 +71,9 @@ class AdminCreateWaitSetResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-    	string $waitSetId,
-        string $defaultInterests,
-        int $sequence,
+    	string $waitSetId = '',
+        string $defaultInterests = '',
+        int $sequence = 0,
         array $errors = [])
     {
         $this->setWaitSetId($waitSetId)

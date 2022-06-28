@@ -41,7 +41,7 @@ class ContactBackupResponse implements ResponseInterface
      * @param array $servers
      * @return self
      */
-    public function __construct(array $servers)
+    public function __construct(array $servers = [])
     {
         $this->setServers($servers);
     }

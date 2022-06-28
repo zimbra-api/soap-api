@@ -50,7 +50,7 @@ class SetPasswordRequest extends Request
      * @param string $newPassword
      * @return self
      */
-    public function __construct(string $id, string $newPassword)
+    public function __construct(string $id = '', string $newPassword = '')
     {
         $this->setId($id)
              ->setNewPassword($newPassword);

@@ -61,11 +61,11 @@ class GetAllMailboxesResponse implements ResponseInterface
      * @param array $mboxes
      * @return self
      */
-    public function __construct(bool $more, int $searchTotal, array $mboxes = [])
+    public function __construct(bool $more = FALSE, int $searchTotal = 0, array $mboxes = [])
     {
         $this->setMore($more)
-            ->setSearchTotal($searchTotal)
-            ->setMboxes($mboxes);
+             ->setSearchTotal($searchTotal)
+             ->setMboxes($mboxes);
     }
 
     /**

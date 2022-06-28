@@ -123,7 +123,7 @@ class SearchAutoProvDirectoryRequest extends Request implements AttributeSelecto
      * @return self
      */
     public function __construct(
-        string $keyAttr,
+        string $keyAttr = '',
         DomainSelector $domain,
         ?string $query = NULL,
         ?string $name = NULL,

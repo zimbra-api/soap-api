@@ -63,7 +63,7 @@ class RemoveDistributionListMemberRequest extends Request
      * @param  array  $accounts
      * @return self
      */
-    public function __construct(string $id, array $members = [], array $accounts = [])
+    public function __construct(string $id = '', array $members = [], array $accounts = [])
     {
         $this->setId($id)
              ->setMembers($members)

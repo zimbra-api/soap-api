@@ -84,13 +84,13 @@ class CountObjectsRequest extends Request
      * @return self
      */
     public function __construct(
-        CountObjectsType $type,
+        ?CountObjectsType $type = NULL,
         array $domains = [],
         ?UcServiceSelector $ucService = NULL,
         ?bool $onlyRelated = NULL
     )
     {
-        $this->setType($type)
+        $this->setType($type ?? CountObjectsType::ACCOUNT())
              ->setDomains($domains);
         if ($ucService instanceof UcServiceSelector) {
             $this->setUcService($ucService);

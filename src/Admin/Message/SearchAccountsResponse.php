@@ -119,8 +119,8 @@ class SearchAccountsResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        bool $more,
-        int $searchTotal,
+        bool $more = FALSE,
+        int $searchTotal = 0,
         array $calResources = [],
         array $dls = [],
         array $aliases = [],

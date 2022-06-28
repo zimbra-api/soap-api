@@ -129,9 +129,9 @@ class SearchDirectoryResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        int $num,
-        bool $more,
-        int $searchTotal,
+        int $num = 0,
+        bool $more = FALSE,
+        int $searchTotal = 0,
         array $calResources = [],
         array $dls = [],
         array $aliases = [],

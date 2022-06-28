@@ -49,7 +49,7 @@ class VerifyIndexResponse implements ResponseInterface
      * @param string $message
      * @return self
      */
-    public function __construct(bool $status, string $message)
+    public function __construct(bool $status = FALSE, string $message = '')
     {
         $this->setStatus($status)
              ->setMessage($message);

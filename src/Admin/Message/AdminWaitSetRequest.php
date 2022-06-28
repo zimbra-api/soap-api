@@ -135,8 +135,8 @@ class AdminWaitSetRequest extends Request
      * @return self
      */
     public function __construct(
-        string $waitSetId,
-        string $lastKnownSeqNo,
+        string $waitSetId = '',
+        string $lastKnownSeqNo = '',
         ?bool $block = NULL,
         ?bool $expand = NULL,
         ?string $defaultInterests = NULL,

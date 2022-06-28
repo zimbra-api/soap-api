@@ -62,8 +62,9 @@ class RunUnitTestsResponse implements ResponseInterface
      */
     public function __construct(
     	TestResultInfo $results,
-        int $numExecuted,
-        int $numFailed)
+        int $numExecuted = 0,
+        int $numFailed = 0
+    )
     {
         $this->setResults($results)
         	 ->setNumExecuted($numExecuted)

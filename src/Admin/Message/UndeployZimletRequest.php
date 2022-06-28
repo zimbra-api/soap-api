@@ -50,7 +50,7 @@ class UndeployZimletRequest extends Request
      * @param  string $action
      * @return self
      */
-    public function __construct(string $name, ?string $action = NULL)
+    public function __construct(string $name = '', ?string $action = NULL)
     {
         $this->setName($name);
         if (NULL !== $action) {

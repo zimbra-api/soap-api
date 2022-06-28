@@ -51,7 +51,7 @@ class AddDistributionListMemberRequest extends Request
      * @param  array  $members
      * @return self
      */
-    public function __construct(string $id, array $members = [])
+    public function __construct(string $id = '', array $members = [])
     {
         $this->setId($id)
              ->setMembers($members);

@@ -86,13 +86,14 @@ class SearchGalResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $sortBy = NULL,
-        int $offset = NULL,
-        bool $more = NULL,
-        bool $tokenizeKey = NULL,
+        ?string $sortBy = NULL,
+        ?int $offset = NULL,
+        ?bool $more = NULL,
+        ?bool $tokenizeKey = NULL,
         array $contacts = []
     )
     {
+        $this->setContacts($contacts);
         if (NULL !== $sortBy) {
             $this->setSortBy($sortBy);
         }
@@ -105,7 +106,6 @@ class SearchGalResponse implements ResponseInterface
         if (NULL !== $tokenizeKey) {
             $this->setTokenizeKey($tokenizeKey);
         }
-        $this->setContacts($contacts);
     }
 
     /**

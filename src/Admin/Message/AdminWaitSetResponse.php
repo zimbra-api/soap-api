@@ -82,7 +82,7 @@ class AdminWaitSetResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $waitSetId,
+        string $waitSetId = '',
         ?bool $canceled = NULL,
         ?string $seqNo = NULL,
         array $signalledAccounts = [],

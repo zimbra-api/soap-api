@@ -46,7 +46,7 @@ class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name, array $attrs = []
+        string $name = '', array $attrs = []
     )
     {
         $this->setName($name)

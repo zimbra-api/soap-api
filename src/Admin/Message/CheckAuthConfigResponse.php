@@ -60,8 +60,8 @@ class CheckAuthConfigResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $code,
-        string $bindDn,
+        string $code = '',
+        string $bindDn = '',
         ?string $message = NULL
     )
     {

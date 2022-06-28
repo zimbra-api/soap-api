@@ -86,14 +86,14 @@ class GetFilterRulesRequest extends Request
      * @return self
      */
     public function __construct(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?Account $account = NULL,
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
         ?Server $server = NULL
     )
     {
-        $this->setType($type);
+        $this->setType($type ?? AdminFilterType::BEFORE());
         if ($account instanceof Account) {
             $this->setAccount($account);
         }

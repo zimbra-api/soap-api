@@ -50,7 +50,7 @@ class RenameLDAPEntryRequest extends Request
      * @param string $newDn
      * @return self
      */
-    public function __construct(string $dn, string $newDn)
+    public function __construct(string $dn = '', string $newDn = '')
     {
         $this->setDn($dn)
              ->setNewDn($newDn);

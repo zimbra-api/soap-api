@@ -56,7 +56,7 @@ class ModifyDataSourceRequest extends Request implements AdminAttrs
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $id, DataSourceInfo $dataSource, array $attrs = [])
+    public function __construct(string $id = '', DataSourceInfo $dataSource, array $attrs = [])
     {
         $this->setId($id)
              ->setDataSource($dataSource)

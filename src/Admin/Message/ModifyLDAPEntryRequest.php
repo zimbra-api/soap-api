@@ -44,7 +44,7 @@ class ModifyLDAPEntryRequest extends Request implements AdminAttrs
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $dn, array $attrs = [])
+    public function __construct(string $dn = '', array $attrs = [])
     {
         $this->setDn($dn)
              ->setAttrs($attrs);

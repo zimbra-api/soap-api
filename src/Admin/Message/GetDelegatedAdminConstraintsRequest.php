@@ -76,11 +76,11 @@ class GetDelegatedAdminConstraintsRequest extends Request
      * @return self
      */
     public function __construct(
-        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
     )
     {
-        $this->setType($type)
-            ->setAttrs($attrs);
+        $this->setType($type ?? TargetType::ACCOUNT())
+             ->setAttrs($attrs);
         if (NULL !== $id) {
             $this->setId($id);
         }

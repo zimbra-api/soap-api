@@ -93,7 +93,7 @@ class GetAccountInfoResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         array $attrList = [],
         ?CosInfo $cos = NULL,
         array $soapURLList = [],
