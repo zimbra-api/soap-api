@@ -61,7 +61,7 @@ class GetDistributionListMembersRequest extends Request
      * @return self
      */
     public function __construct(
-        string $dl,
+        string $dl = '',
         ?int $limit = NULL,
         ?int $offset = NULL
     )
