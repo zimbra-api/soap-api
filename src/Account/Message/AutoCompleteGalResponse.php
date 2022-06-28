@@ -75,7 +75,10 @@ class AutoCompleteGalResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        ?bool $more = NULL, ?bool $tokenizeKey = NULL, ?bool $pagingSupported = NULL, array $contacts = []
+        ?bool $more = NULL,
+        ?bool $tokenizeKey = NULL,
+        ?bool $pagingSupported = NULL,
+        array $contacts = []
     )
     {
         $this->setContacts($contacts);
