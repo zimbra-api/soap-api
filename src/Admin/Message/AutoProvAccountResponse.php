@@ -33,7 +33,7 @@ class AutoProvAccountResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private AccountInfo $account;
+    private ?AccountInfo $account = NULL;
 
     /**
      * Constructor method for AutoProvAccountResponse
@@ -41,9 +41,11 @@ class AutoProvAccountResponse implements ResponseInterface
      * @param AccountInfo $account The account
      * @return self
      */
-    public function __construct(AccountInfo $account)
+    public function __construct(?AccountInfo $account = NULL)
     {
-        $this->setAccount($account);
+        if ($account instanceof AccountInfo) {
+            $this->setAccount($account);
+        }
     }
 
     /**
@@ -51,7 +53,7 @@ class AutoProvAccountResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount(): AccountInfo
+    public function getAccount(): ?AccountInfo
     {
         return $this->account;
     }

@@ -32,7 +32,7 @@ class AutoProvTaskControlResponse implements ResponseInterface
      * @Type("Zimbra\Common\Enum\AutoProvTaskStatus")
      * @XmlAttribute
      */
-    private AutoProvTaskStatus $status;
+    private ?AutoProvTaskStatus $status = NULL;
 
     /**
      * Constructor method for AutoProvTaskControlResponse
@@ -40,9 +40,11 @@ class AutoProvTaskControlResponse implements ResponseInterface
      * @param AutoProvTaskStatus $status
      * @return self
      */
-    public function __construct(AutoProvTaskStatus $status)
+    public function __construct(?AutoProvTaskStatus $status = NULL)
     {
-        $this->setStatus($status);
+        if ($status instanceof AutoProvTaskStatus) {
+            $this->setStatus($status);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class AutoProvTaskControlResponse implements ResponseInterface
      *
      * @return AutoProvTaskStatus
      */
-    public function getStatus(): AutoProvTaskStatus
+    public function getStatus(): ?AutoProvTaskStatus
     {
         return $this->status;
     }

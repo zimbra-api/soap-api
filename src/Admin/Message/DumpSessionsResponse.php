@@ -100,7 +100,8 @@ class DumpSessionsResponse implements ResponseInterface
      * @param InfoForSessionType $waitsetSessions
      * @return self
      */
-    public function __construct(int $totalActiveSessions,
+    public function __construct(
+        int $totalActiveSessions = 0,
         ?InfoForSessionType $soapSessions = NULL,
         ?InfoForSessionType $imapSessions = NULL,
         ?InfoForSessionType $adminSessions = NULL,

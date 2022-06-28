@@ -32,7 +32,7 @@ class CreateLDAPEntryResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private LDAPEntryInfo $LDAPEntry;
+    private ?LDAPEntryInfo $LDAPEntry = NULL;
 
     /**
      * Constructor method for CreateLDAPEntryResponse
@@ -40,9 +40,11 @@ class CreateLDAPEntryResponse implements ResponseInterface
      * @param LDAPEntryInfo $LDAPEntry
      * @return self
      */
-    public function __construct(LDAPEntryInfo $LDAPEntry)
+    public function __construct(?LDAPEntryInfo $LDAPEntry = NULL)
     {
-        $this->setLDAPEntry($LDAPEntry);
+        if ($LDAPEntry instanceof LDAPEntryInfo) {
+            $this->setLDAPEntry($LDAPEntry);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateLDAPEntryResponse implements ResponseInterface
      *
      * @return LDAPEntryInfo
      */
-    public function getLDAPEntry(): LDAPEntryInfo
+    public function getLDAPEntry(): ?LDAPEntryInfo
     {
         return $this->LDAPEntry;
     }

@@ -32,7 +32,7 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private Policy $policy;
+    private ?Policy $policy = NULL;
 
     /**
      * Constructor method for CreateSystemRetentionPolicyResponse
@@ -40,9 +40,11 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
      * @param  Policy $policy
      * @return self
      */
-    public function __construct(Policy $policy)
+    public function __construct(?Policy $policy = NULL)
     {
-        $this->setPolicy($policy);
+        if ($policy instanceof Policy) {
+            $this->setPolicy($policy);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateSystemRetentionPolicyResponse implements ResponseInterface
      *
      * @return Policy
      */
-    public function getPolicy(): Policy
+    public function getPolicy(): ?Policy
     {
         return $this->policy;
     }

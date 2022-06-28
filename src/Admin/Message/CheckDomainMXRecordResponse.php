@@ -60,8 +60,8 @@ class CheckDomainMXRecordResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        array $entries,
-        string $code,
+        array $entries = [],
+        string $code = '',
         ?string $message = NULL
     )
     {

@@ -32,7 +32,7 @@ class GetVolumeResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private VolumeInfo $volume;
+    private ?VolumeInfo $volume = NULL;
 
     /**
      * Constructor method for GetVolumeResponse
@@ -40,9 +40,11 @@ class GetVolumeResponse implements ResponseInterface
      * @param VolumeInfo $volume
      * @return self
      */
-    public function __construct(VolumeInfo $volume)
+    public function __construct(?VolumeInfo $volume = NULL)
     {
-        $this->setVolume($volume);
+        if ($volume instanceof VolumeInfo) {
+            $this->setVolume($volume);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetVolumeResponse implements ResponseInterface
      *
      * @return VolumeInfo
      */
-    public function getVolume(): VolumeInfo
+    public function getVolume(): ?VolumeInfo
     {
         return $this->volume;
     }

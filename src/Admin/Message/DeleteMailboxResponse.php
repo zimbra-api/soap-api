@@ -32,7 +32,7 @@ class DeleteMailboxResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private MailboxId $mbox;
+    private ?MailboxId $mbox = NULL;
 
     /**
      * Constructor method for DeleteMailboxResponse
@@ -40,9 +40,11 @@ class DeleteMailboxResponse implements ResponseInterface
      * @param MailboxId $mbox
      * @return self
      */
-    public function __construct(MailboxId $mbox)
+    public function __construct(?MailboxId $mbox = NULL)
     {
-        $this->setMbox($mbox);
+        if ($mbox instanceof MailboxId) {
+            $this->setMbox($mbox);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class DeleteMailboxResponse implements ResponseInterface
      *
      * @return MailboxId
      */
-    public function getMbox(): MailboxId
+    public function getMbox(): ?MailboxId
     {
         return $this->mbox;
     }

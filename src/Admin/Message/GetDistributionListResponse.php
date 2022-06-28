@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Admin\Struct\DistributionListInfo;
+use Zimbra\Admin\Struct\DistributionListInfo as DLInfo;
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -52,19 +52,19 @@ class GetDistributionListResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?DistributionListInfo $dl = NULL;
+    private ?DLInfo $dl = NULL;
 
     /**
      * Constructor method for GetDistributionListResponse
      *
-     * @param DistributionListInfo $dl
+     * @param DLInfo $dl
      * @param bool $more
      * @param int $total
      * @return self
      */
-    public function __construct(?DistributionListInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
+    public function __construct(?DLInfo $dl = NULL, ?bool $more = NULL, ?int $total = NULL)
     {
-        if ($dl instanceof DistributionListInfo) {
+        if ($dl instanceof DLInfo) {
             $this->setDl($dl);
         }
         if (NULL !== $more) {
@@ -122,9 +122,9 @@ class GetDistributionListResponse implements ResponseInterface
     /**
      * Gets the dl.
      *
-     * @return DistributionListInfo
+     * @return DLInfo
      */
-    public function getDl(): ?DistributionListInfo
+    public function getDl(): ?DLInfo
     {
         return $this->dl;
     }
@@ -132,10 +132,10 @@ class GetDistributionListResponse implements ResponseInterface
     /**
      * Sets the dl.
      *
-     * @param  DistributionListInfo $dl
+     * @param  DLInfo $dl
      * @return self
      */
-    public function setDl(DistributionListInfo $dl): self
+    public function setDl(DLInfo $dl): self
     {
         $this->dl = $dl;
         return $this;

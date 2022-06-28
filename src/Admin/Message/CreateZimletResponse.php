@@ -32,7 +32,7 @@ class CreateZimletResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ZimletInfo $zimlet;
+    private ?ZimletInfo $zimlet = NULL;
 
     /**
      * Constructor method for CreateZimletResponse
@@ -40,9 +40,11 @@ class CreateZimletResponse implements ResponseInterface
      * @param ZimletInfo $zimlet
      * @return self
      */
-    public function __construct(ZimletInfo $zimlet)
+    public function __construct(?ZimletInfo $zimlet = NULL)
     {
-        $this->setZimlet($zimlet);
+        if ($zimlet instanceof ZimletInfo) {
+            $this->setZimlet($zimlet);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateZimletResponse implements ResponseInterface
      *
      * @return ZimletInfo
      */
-    public function getZimlet(): ZimletInfo
+    public function getZimlet(): ?ZimletInfo
     {
         return $this->zimlet;
     }

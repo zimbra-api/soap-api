@@ -32,7 +32,7 @@ class GetIndexStatsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\IndexStats")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private IndexStats $stats;
+    private ?IndexStats $stats = NULL;
 
     /**
      * Constructor method for GetIndexStatsResponse
@@ -40,9 +40,11 @@ class GetIndexStatsResponse implements ResponseInterface
      * @param Account $stats
      * @return self
      */
-    public function __construct(IndexStats $stats)
+    public function __construct(?IndexStats $stats = NULL)
     {
-        $this->setStats($stats);
+        if ($stats instanceof IndexStats) {
+            $this->setStats($stats);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetIndexStatsResponse implements ResponseInterface
      *
      * @return IndexStats
      */
-    public function getStats(): IndexStats
+    public function getStats(): ?IndexStats
     {
         return $this->stats;
     }

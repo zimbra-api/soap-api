@@ -32,7 +32,7 @@ class CompactIndexResponse implements ResponseInterface
      * @Type("Zimbra\Common\Enum\CompactIndexStatus")
      * @XmlAttribute
      */
-    private Status $status;
+    private ?Status $status = NULL;
 
     /**
      * Constructor method for CompactIndexResponse
@@ -40,9 +40,11 @@ class CompactIndexResponse implements ResponseInterface
      * @param Status  $status
      * @return self
      */
-    public function __construct(Status $status)
+    public function __construct(?Status $status = NULL)
     {
-        $this->setStatus($status);
+        if ($status instanceof Status) {
+            $this->setStatus($status);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CompactIndexResponse implements ResponseInterface
      *
      * @return Status
      */
-    public function getStatus(): Status
+    public function getStatus(): ?Status
     {
         return $this->status;
     }

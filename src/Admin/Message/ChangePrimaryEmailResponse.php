@@ -32,7 +32,7 @@ class ChangePrimaryEmailResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private Account $account;
+    private ?Account $account = NULL;
 
     /**
      * Constructor method for ChangePrimaryEmailResponse
@@ -40,9 +40,11 @@ class ChangePrimaryEmailResponse implements ResponseInterface
      * @param Account $account
      * @return self
      */
-    public function __construct(Account $account)
+    public function __construct(?Account $account = NULL)
     {
-        $this->setAccount($account);
+        if ($account instanceof Account) {
+            $this->setAccount($account);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class ChangePrimaryEmailResponse implements ResponseInterface
      *
      * @return Account
      */
-    public function getAccount(): Account
+    public function getAccount(): ?Account
     {
         return $this->account;
     }
