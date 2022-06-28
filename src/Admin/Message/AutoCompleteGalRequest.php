@@ -90,7 +90,7 @@ class AutoCompleteGalRequest extends Request
     )
     {
         $this->setDomain($domain)
-            ->setName($name);
+             ->setName($name);
         if (NULL !== $type) {
             $this->setType($type);
         }

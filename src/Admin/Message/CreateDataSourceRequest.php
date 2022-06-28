@@ -51,12 +51,12 @@ class CreateDataSourceRequest extends Request
     /**
      * Constructor method for CreateDataSourceRequest
      * 
-     * @param string $id
      * @param DataSourceSpecifier $dataSource
+     * @param string $id
      * @return self
      */
     public function __construct(
-        string $id = '', DataSourceSpecifier $dataSource
+        DataSourceSpecifier $dataSource, string $id = ''
     )
     {
         $this->setId($id)

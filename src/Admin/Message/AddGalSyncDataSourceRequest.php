@@ -97,7 +97,7 @@ class AddGalSyncDataSourceRequest extends Request implements AdminAttrs
         $this->setAccount($account)
              ->setName($name)
              ->setDomain($domain)
-             ->setType($type ?? GalMode::LDAP());
+             ->setType($type ?? GalMode::BOTH());
         if (NULL !== $folder) {
             $this->setFolder($folder);
         }

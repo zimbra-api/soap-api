@@ -51,7 +51,7 @@ class ModifyVolumeRequest extends Request
      * @param VolumeInfo $volume
      * @return self
      */
-    public function __construct(int $id = 0, VolumeInfo $volume)
+    public function __construct(VolumeInfo $volume, int $id = 0)
     {
         $this->setId($id)
              ->setVolume($volume);

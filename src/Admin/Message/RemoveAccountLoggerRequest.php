@@ -66,7 +66,9 @@ class RemoveAccountLoggerRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function __construct(?Logger $logger = NULL, ?Account $account = NULL, ?string $id = NULL)
+    public function __construct(
+        ?Logger $logger = NULL, ?Account $account = NULL, ?string $id = NULL
+    )
     {
         if ($logger instanceof Logger) {
             $this->setLogger($logger);
