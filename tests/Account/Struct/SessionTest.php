@@ -20,7 +20,7 @@ class SessionTest extends ZimbraTestCase
         $this->assertSame($id, $session->getId());
         $this->assertSame($id, $session->getValue());
 
-        $session = new Session('', '');
+        $session = new Session();
         $session->setType($type)
              ->setId($id)
              ->setValue($id);

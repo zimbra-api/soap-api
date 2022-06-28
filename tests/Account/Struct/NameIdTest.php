@@ -19,7 +19,7 @@ class NameIdTest extends ZimbraTestCase
         $this->assertSame($name, $nameId->getName());
         $this->assertSame($id, $nameId->getId());
 
-        $nameId = new NameId('', '');
+        $nameId = new NameId();
         $nameId->setName($name)
                ->setId($id);
         $this->assertSame($name, $nameId->getName());

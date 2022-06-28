@@ -18,7 +18,7 @@ class CheckRightsRightInfoTest extends ZimbraTestCase
         $this->assertSame($right, $rightInfo->getRight());
         $this->assertFalse($rightInfo->getAllow());
 
-        $rightInfo = new CheckRightsRightInfo('', FALSE);
+        $rightInfo = new CheckRightsRightInfo();
         $rightInfo->setRight($right)
             ->setAllow(TRUE);
         $this->assertSame($right, $rightInfo->getRight());

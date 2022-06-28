@@ -30,7 +30,7 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
         $this->assertSame($right, $targets->getRight());
         $this->assertSame([$target], $targets->getTargets());
 
-        $targets = new MockDiscoverRightsInfo('');
+        $targets = new MockDiscoverRightsInfo();
         $targets->setRight($right)
             ->setTargets([$target])
             ->addTarget($target);

@@ -21,7 +21,7 @@ class HABMemberTest extends ZimbraTestCase
         $this->assertSame($name, $stub->getName());
         $this->assertSame($seniorityIndex, $stub->getSeniorityIndex());
 
-        $stub = new StubHABMember('', 0);
+        $stub = new StubHABMember();
         $stub->setName($name)
              ->setSeniorityIndex($seniorityIndex);
         $this->assertSame($name, $stub->getName());

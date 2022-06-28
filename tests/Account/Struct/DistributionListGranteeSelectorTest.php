@@ -20,7 +20,7 @@ class DistributionListGranteeSelectorTest extends ZimbraTestCase
         $this->assertEquals(DLGranteeBy::ID(), $grantee->getBy());
         $this->assertSame($value, $grantee->getValue());
 
-        $grantee = new DistributionListGranteeSelector(GranteeType::ALL(), DLGranteeBy::ID());
+        $grantee = new DistributionListGranteeSelector();
         $grantee->setType(GranteeType::USR())
                 ->setBy(DLGranteeBy::NAME())
                 ->setValue($value);

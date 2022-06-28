@@ -23,7 +23,7 @@ class VersionInfoTest extends ZimbraTestCase
         $this->assertSame($date, $info->getDate());
         $this->assertSame($host, $info->getHost());
 
-        $info = new VersionInfo('', '', '', '');
+        $info = new VersionInfo();
         $info->setFullVersion($fullVersion)
             ->setRelease($release)
             ->setDate($date)

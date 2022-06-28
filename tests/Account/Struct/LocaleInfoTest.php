@@ -21,7 +21,7 @@ class LocaleInfoTest extends ZimbraTestCase
         $this->assertSame($name, $locale->getName());
         $this->assertSame($localName, $locale->getLocalName());
 
-        $locale = new LocaleInfo('', '', '');
+        $locale = new LocaleInfo();
         $locale->setId($id)
             ->setName($name)
             ->setLocalName($localName);

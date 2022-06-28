@@ -27,7 +27,7 @@ class DistributionListRightSpecTest extends ZimbraTestCase
         $this->assertSame($name, $right->getRight());
         $this->assertSame([$grantee1], $right->getGrantees());
 
-        $right = new MockDistributionListRightSpec('');
+        $right = new MockDistributionListRightSpec();
         $right->setRight($name)
               ->setGrantees([$grantee1])
               ->addGrantee($grantee2);

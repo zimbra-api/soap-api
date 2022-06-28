@@ -24,7 +24,7 @@ class DistributionListGranteeInfoTest extends ZimbraTestCase
         $this->assertSame($name, $grantee->getName());
         $this->assertSame($type, $grantee->getType());
 
-        $grantee = new DistributionListGranteeInfo(GranteeType::ALL(), '', '');
+        $grantee = new DistributionListGranteeInfo();
         $grantee->setId($id)
                 ->setName($name)
                 ->setType($type);

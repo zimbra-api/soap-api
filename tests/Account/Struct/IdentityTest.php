@@ -27,7 +27,7 @@ class IdentityTest extends ZimbraTestCase
         $this->assertSame($id, $identity->getId());
         $this->assertSame([$attr1], $identity->getAttrs());
 
-        $identity = new MockIdentity('');
+        $identity = new MockIdentity();
         $identity->setName($name)
                  ->setId($id)
                  ->setAttrs([$attr1])

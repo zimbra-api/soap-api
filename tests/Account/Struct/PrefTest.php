@@ -21,7 +21,7 @@ class PrefTest extends ZimbraTestCase
         $this->assertSame($value, $pref->getValue());
         $this->assertSame($modified, $pref->getModified());
 
-        $pref = new Pref('');
+        $pref = new Pref();
         $pref->setName($name)
              ->setValue($value)
              ->setModified($modified);

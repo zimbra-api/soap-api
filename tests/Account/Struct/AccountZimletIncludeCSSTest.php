@@ -16,7 +16,7 @@ class AccountZimletIncludeCSSTest extends ZimbraTestCase
         $includeCSS = new AccountZimletIncludeCSS($value);
         $this->assertSame($value, $includeCSS->getValue());
 
-        $includeCSS = new AccountZimletIncludeCSS('');
+        $includeCSS = new AccountZimletIncludeCSS();
         $includeCSS->setValue($value);
         $this->assertSame($value, $includeCSS->getValue());
 

@@ -29,9 +29,7 @@ class ZmgDeviceSpecTest extends ZimbraTestCase
         $this->assertSame($osVersion, $device->getOsVersion());
         $this->assertSame($maxPayloadSize, $device->getMaxPayloadSize());
 
-        $device = new ZmgDeviceSpec(
-            '', '', ''
-        );
+        $device = new ZmgDeviceSpec();
         $device->setAppId($appId)
             ->setRegistrationId($registrationId)
             ->setPushProvider($pushProvider)

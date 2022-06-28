@@ -42,7 +42,7 @@ class DistributionListActionTest extends ZimbraTestCase
         $this->assertSame([$owner], $dl->getOwners());
         $this->assertSame([$right], $dl->getRights());
 
-        $dl = new MockDistributionListAction(Operation::MODIFY());
+        $dl = new MockDistributionListAction();
         $dl->setOp(Operation::DELETE())
            ->setNewName($name)
            ->setSubsReq($subsReq)
