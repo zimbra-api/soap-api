@@ -47,7 +47,7 @@ class DismissAlarm
      * @param int $dismissedAt
      * @return self
      */
-    public function __construct(string $id, int $dismissedAt)
+    public function __construct(string $id = '', int $dismissedAt = 0)
     {
         $this->setId($id)
              ->setDismissedAt($dismissedAt);

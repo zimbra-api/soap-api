@@ -162,8 +162,8 @@ class NewMountpointSpec
      * @return self
      */
     public function __construct(
-        string $name,
-        string $folderId,
+        string $name = '',
+        string $folderId = '',
         ?ViewType $defaultView = NULL,
         ?string $flags = NULL,
         ?int $color = NULL,

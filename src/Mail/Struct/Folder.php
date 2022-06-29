@@ -335,8 +335,8 @@ class Folder
      * @return self
      */
     public function __construct(
-        string $id,
-        string $uuid,
+        string $id = '',
+        string $uuid = '',
         ?string $name = NULL,
         ?string $absoluteFolderPath = NULL,
         ?string $parentId = NULL,

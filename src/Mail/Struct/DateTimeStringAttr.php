@@ -40,7 +40,7 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
      * @param  string $dateTime
      * @return self
      */
-    public function __construct(string $dateTime)
+    public function __construct(string $dateTime = '')
     {
         $this->setDateTime($dateTime);
     }

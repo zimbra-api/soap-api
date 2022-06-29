@@ -58,7 +58,9 @@ class IdVersionName
      * @param string $name
      * @return self
      */
-    public function __construct(string $id, int $version, string $name)
+    public function __construct(
+        string $id = '', int $version = 0, string $name = ''
+    )
     {
         $this->setId($id)
              ->setVersion($version)

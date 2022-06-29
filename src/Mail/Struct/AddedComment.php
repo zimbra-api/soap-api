@@ -48,7 +48,7 @@ class AddedComment
      * @param  string $text
      * @return self
      */
-    public function __construct(string $parentId, string $text)
+    public function __construct(string $parentId = '', string $text = '')
     {
         $this->setParentId($parentId)
              ->setText($text);

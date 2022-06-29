@@ -48,7 +48,7 @@ class DataSourceUsage
      * @param int $usage
      * @return self
      */
-    public function __construct(string $id, int $usage)
+    public function __construct(string $id = '', int $usage = 0)
     {
         $this->setId($id)
              ->setUsage($usage);

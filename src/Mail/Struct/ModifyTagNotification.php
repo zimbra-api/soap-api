@@ -48,7 +48,7 @@ class ModifyTagNotification extends ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct(int $id, string $name, int $changeBitmask)
+    public function __construct(int $id = 0, string $name = '', int $changeBitmask = 0)
     {
         parent::__construct($changeBitmask);
         $this->setId($id)

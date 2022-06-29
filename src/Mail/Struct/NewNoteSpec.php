@@ -70,8 +70,8 @@ class NewNoteSpec
      * @return self
      */
     public function __construct(
-        string $folder,
-        string $content,
+        string $folder = '',
+        string $content = '',
         ?int $color = NULL,
         ?string $bounds = NULL
     )

@@ -53,7 +53,7 @@ class ContactActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation,
+        string $operation = '',
         ?string $ids = NULL,
         array $attrs = [],
         ?string $constraint = NULL,

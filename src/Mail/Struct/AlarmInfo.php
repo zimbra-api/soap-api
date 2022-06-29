@@ -123,7 +123,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @return self
      */
     public function __construct(
-        AlarmAction $action,
+        ?AlarmAction $action = NULL,
         ?AlarmTriggerInfo $trigger = NULL,
         ?DurationInfo $repeat = NULL,
         ?string $description = NULL,
@@ -133,7 +133,7 @@ class AlarmInfo implements AlarmInfoInterface
         array $xProps = []
     )
     {
-        $this->setAction($action)
+        $this->setAction($action ?? AlarmAction::DISPLAY())
              ->setAttendees($attendees)
              ->setXProps($xProps);
         if ($trigger instanceof AlarmTriggerInfo) {

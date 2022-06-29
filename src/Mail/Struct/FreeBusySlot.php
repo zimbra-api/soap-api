@@ -140,8 +140,8 @@ class FreeBusySlot
      * @return self
      */
     public function __construct(
-        int $startTime,
-        int $endTime,
+        int $startTime = 0,
+        int $endTime = 0,
         ?string $id = NULL,
         ?string $subject = NULL,
         ?string $location = NULL,

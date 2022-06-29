@@ -40,7 +40,7 @@ class IntervalRule implements IntervalRuleInterface
      * @param  int $ival
      * @return self
      */
-    public function __construct(int $ival)
+    public function __construct(int $ival = 0)
     {
         $this->setIval($ival);
     }

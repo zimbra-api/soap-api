@@ -57,7 +57,7 @@ class ConvActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation,
+        string $operation = '',
         ?string $ids = NULL,
         ?string $acctRelativePath = NULL,
         ?string $constraint = NULL,

@@ -189,7 +189,7 @@ class ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation,
+        string $operation = '',
         ?string $ids = NULL,
         ?string $constraint = NULL,
         ?int $tag = NULL,

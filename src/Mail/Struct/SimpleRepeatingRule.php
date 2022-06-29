@@ -181,16 +181,80 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * Constructor method for SimpleRepeatingRule
      *
      * @param  Frequency $frequency
-     * @param  IntervalRule $interval
+     * @param  DateTimeStringAttrInterface $until
+     * @param  NumAttrInterface $count
+     * @param  IntervalRuleInterface $interval
+     * @param  BySecondRuleInterface $bySecond
+     * @param  ByMinuteRuleInterface $byMinute
+     * @param  ByHourRuleInterface $byHour
+     * @param  ByDayRuleInterface $byDay
+     * @param  ByMonthDayRuleInterface $byMonthDay
+     * @param  ByYearDayRuleInterface $byYearDay
+     * @param  ByWeekNoRuleInterface $byWeekNo
+     * @param  ByMonthRuleInterface $byMonth
+     * @param  BySetPosRuleInterface $bySetPos
+     * @param  WkstRuleInterface $weekStart
      * @param  array $xNames
      * @return self
      */
-    public function __construct(Frequency $frequency, ?IntervalRule $interval = NULL, array $xNames = [])
+    public function __construct(
+        ?Frequency $frequency = NULL,
+        ?DateTimeStringAttrInterface $until = NULL,
+        ?NumAttrInterface $count = NULL,
+        ?IntervalRuleInterface $interval = NULL,
+        ?BySecondRuleInterface $bySecond = NULL,
+        ?ByMinuteRuleInterface $byMinute = NULL,
+        ?ByHourRuleInterface $byHour = NULL,
+        ?ByDayRuleInterface $byDay = NULL,
+        ?ByMonthDayRuleInterface $byMonthDay = NULL,
+        ?ByYearDayRuleInterface $byYearDay = NULL,
+        ?ByWeekNoRuleInterface $byWeekNo = NULL,
+        ?ByMonthRuleInterface $byMonth = NULL,
+        ?BySetPosRuleInterface $bySetPos = NULL,
+        ?WkstRuleInterface $weekStart = NULL,
+        array $xNames = []
+    )
     {
-        $this->setFrequency($frequency)
+        $this->setFrequency($frequency ?? Frequency::SECOND())
              ->setXNames($xNames);
-        if ($interval instanceof IntervalRule) {
+        if ($until instanceof DateTimeStringAttrInterface) {
+            $this->setUntil($until);
+        }
+        if ($count instanceof NumAttrInterface) {
+            $this->setCount($count);
+        }
+        if ($interval instanceof IntervalRuleInterface) {
             $this->setInterval($interval);
+        }
+        if ($bySecond instanceof BySecondRuleInterface) {
+            $this->setBySecond($bySecond);
+        }
+        if ($byMinute instanceof ByMinuteRuleInterface) {
+            $this->setByMinute($byMinute);
+        }
+        if ($byHour instanceof ByHourRuleInterface) {
+            $this->setByHour($byHour);
+        }
+        if ($byDay instanceof ByDayRuleInterface) {
+            $this->setByDay($byDay);
+        }
+        if ($byMonthDay instanceof ByMonthDayRuleInterface) {
+            $this->setByMonthDay($byMonthDay);
+        }
+        if ($byYearDay instanceof ByYearDayRuleInterface) {
+            $this->setByYearDay($byYearDay);
+        }
+        if ($byWeekNo instanceof ByWeekNoRuleInterface) {
+            $this->setByWeekNo($byWeekNo);
+        }
+        if ($byMonth instanceof ByMonthRuleInterface) {
+            $this->setByMonth($byMonth);
+        }
+        if ($bySetPos instanceof BySetPosRuleInterface) {
+            $this->setBySetPos($bySetPos);
+        }
+        if ($weekStart instanceof WkstRuleInterface) {
+            $this->setWeekStart($weekStart);
         }
     }
 

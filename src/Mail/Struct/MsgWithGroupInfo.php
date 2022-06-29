@@ -226,6 +226,100 @@ class MsgWithGroupInfo extends MessageCommon
     private ?UrlAndValue $content = NULL;
 
     /**
+     * Constructor method for MsgWithGroupInfo
+     *
+     * @return self
+     */
+    public function __construct(
+        ?string $id = NULL,
+        ?int $imapUid = NULL,
+        ?string $calendarIntendedFor = NULL,
+        ?string $origId = NULL,
+        ?string $draftReplyType = NULL,
+        ?string $identityId = NULL,
+        ?string $draftAccountId = NULL,
+        ?int $draftAutoSendTime = NULL,
+        ?int $sentDate = NULL,
+        ?int $resentDate = NULL,
+        ?string $part = NULL,
+        ?string $fragment = NULL,
+        array $emails = [],
+        ?string $subject = NULL,
+        ?string $messageIdHeader = NULL,
+        ?string $inReplyTo = NULL,
+        ?InviteWithGroupInfo $invite = NULL,
+        array $headers = [],
+        ?MimePartInfo $mimePart = NULL,
+        ?ShareNotification $shr = NULL,
+        ?DLSubscriptionNotification $dlSubs = NULL,
+        ?UrlAndValue $content = NULL
+    )
+    {
+        $this->setHeaders($headers)
+             ->setEmails($emails);
+        if (NULL !== $id) {
+            $this->setId($id);
+        }
+        if (NULL !== $imapUid) {
+            $this->setImapUid($imapUid);
+        }
+        if (NULL !== $calendarIntendedFor) {
+            $this->setCalendarIntendedFor($calendarIntendedFor);
+        }
+        if (NULL !== $origId) {
+            $this->setOrigId($origId);
+        }
+        if (NULL !== $draftReplyType) {
+            $this->setDraftReplyType($draftReplyType);
+        }
+        if (NULL !== $identityId) {
+            $this->setIdentityId($identityId);
+        }
+        if (NULL !== $draftAccountId) {
+            $this->setDraftAccountId($draftAccountId);
+        }
+        if (NULL !== $draftAutoSendTime) {
+            $this->setDraftAutoSendTime($draftAutoSendTime);
+        }
+        if (NULL !== $sentDate) {
+            $this->setSentDate($sentDate);
+        }
+        if (NULL !== $resentDate) {
+            $this->setResentDate($resentDate);
+        }
+        if (NULL !== $part) {
+            $this->setPart($part);
+        }
+        if (NULL !== $fragment) {
+            $this->setFragment($fragment);
+        }
+        if (NULL !== $subject) {
+            $this->setSubject($subject);
+        }
+        if (NULL !== $messageIdHeader) {
+            $this->setMessageIdHeader($messageIdHeader);
+        }
+        if (NULL !== $inReplyTo) {
+            $this->setInReplyTo($inReplyTo);
+        }
+        if ($invite instanceof InviteWithGroupInfo) {
+            $this->setInvite($invite);
+        }
+        if ($mimePart instanceof MimePartInfo) {
+            $this->setMimePart($mimePart);
+        }
+        if ($shr instanceof ShareNotification) {
+            $this->setShareNotification($shr);
+        }
+        if ($dlSubs instanceof DLSubscriptionNotification) {
+            $this->setDLSubs($dlSubs);
+        }
+        if ($content instanceof UrlAndValue) {
+            $this->setContent($content);
+        }
+    }
+
+    /**
      * Gets id
      *
      * @return string

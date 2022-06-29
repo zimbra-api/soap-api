@@ -40,7 +40,7 @@ class NumAttr implements NumAttrInterface
      * @param  int $num
      * @return self
      */
-    public function __construct(int $num)
+    public function __construct(int $num = 0)
     {
         $this->setNum($num);
     }

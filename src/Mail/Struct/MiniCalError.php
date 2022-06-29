@@ -58,8 +58,8 @@ class MiniCalError
      * @return self
      */
     public function __construct(
-        string $id,
-        string $code,
+        string $id = '',
+        string $code = '',
         ?string $errorMessage = NULL
     )
     {

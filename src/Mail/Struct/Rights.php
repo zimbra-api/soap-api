@@ -38,7 +38,7 @@ class Rights
      * @param string $effectivePermissions
      * @return self
      */
-    public function __construct(string $effectivePermissions)
+    public function __construct(string $effectivePermissions = '')
     {
         $this->setEffectivePermissions($effectivePermissions);
     }

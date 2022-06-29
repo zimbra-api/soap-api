@@ -48,7 +48,7 @@ class RenameFolderNotification extends ModifyNotification
      * @param  int $changeBitmask
      * @return self
      */
-    public function __construct(int $folderId, string $path, int $changeBitmask)
+    public function __construct(int $folderId = 0, string $path = '', int $changeBitmask = 0)
     {
         parent::__construct($changeBitmask);
         $this->setFolderId($folderId)

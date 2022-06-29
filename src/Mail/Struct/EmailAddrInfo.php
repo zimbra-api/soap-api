@@ -61,7 +61,7 @@ class EmailAddrInfo
      * @return self
      */
     public function __construct(
-        string $address, ?AddressType $addressType = NULL, ?string $personal = NULL
+        string $address = '', ?AddressType $addressType = NULL, ?string $personal = NULL
     )
     {
         $this->setAddress($address);

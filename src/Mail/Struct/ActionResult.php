@@ -70,7 +70,7 @@ class ActionResult
      * @return self
      */
     public function __construct(
-        string $id, string $operation, ?string $nonExistentIds = NULL, ?string $newlyCreatedIds = NULL
+        string $id = '', string $operation = '', ?string $nonExistentIds = NULL, ?string $newlyCreatedIds = NULL
     )
     {
         $this->setId($id)

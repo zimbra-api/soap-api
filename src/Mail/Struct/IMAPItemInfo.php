@@ -47,7 +47,7 @@ class IMAPItemInfo
      * @param  int $imapUid IMAP UID
      * @return self
      */
-    public function __construct(int $id, int $imapUid)
+    public function __construct(int $id = 0, int $imapUid = 0)
     {
         $this->setId($id)
              ->setImapUid($imapUid);

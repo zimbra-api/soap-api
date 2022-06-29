@@ -38,7 +38,7 @@ class FolderSpec
      * @param string $folder
      * @return self
      */
-    public function __construct(string $folder)
+    public function __construct(string $folder = '')
     {
         $this->setFolder($folder);
     }

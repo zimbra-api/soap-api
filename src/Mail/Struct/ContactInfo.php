@@ -275,7 +275,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * @return self
      */
     public function __construct(
-        string $id,
+        string $id = '',
         ?string $sortField = NULL,
         ?bool $canExpand = NULL,
         ?int $imapUid = NULL,

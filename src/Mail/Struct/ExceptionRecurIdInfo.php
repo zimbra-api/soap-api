@@ -76,7 +76,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * @return self
      */
     public function __construct(
-        string $dateTime,
+        string $dateTime = '',
         ?string $timezone = NULL,
         ?int $recurrenceRangeType = NULL
     )

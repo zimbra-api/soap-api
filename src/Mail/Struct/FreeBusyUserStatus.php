@@ -50,10 +50,10 @@ class FreeBusyUserStatus
      * @param  FreeBusyStatus $freebusyStatus
      * @return self
      */
-    public function __construct(string $name, FreeBusyStatus $freebusyStatus)
+    public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = NULL)
     {
         $this->setName($name)
-             ->setFreebusyStatus($freebusyStatus);
+             ->setFreebusyStatus($freebusyStatus ?? FreeBusyStatus::FREE());
     }
 
     /**

@@ -48,7 +48,7 @@ class IdVersion
      * @param int $version
      * @return self
      */
-    public function __construct(string $id, ?int $version = NULL)
+    public function __construct(string $id = '', ?int $version = NULL)
     {
         $this->setId($id);
         if (NULL !== $version) {

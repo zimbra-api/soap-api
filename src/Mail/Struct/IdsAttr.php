@@ -38,7 +38,7 @@ class IdsAttr
      * @param  string $ids
      * @return self
      */
-    public function __construct(string $ids)
+    public function __construct(string $ids = '')
     {
         $this->setIds($ids);
     }

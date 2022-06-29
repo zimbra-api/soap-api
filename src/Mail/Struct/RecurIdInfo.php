@@ -73,8 +73,8 @@ class RecurIdInfo implements RecurIdInfoInterface
      * @return self
      */
     public function __construct(
-        int $recurrenceRangeType,
-        string $recurrenceId,
+        int $recurrenceRangeType = 0,
+        string $recurrenceId = '',
         ?string $timezone = NULL,
         ?string $recurIdZ = NULL
     )

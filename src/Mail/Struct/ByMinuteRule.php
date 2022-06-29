@@ -40,7 +40,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list)
+    public function __construct(string $list = '')
     {
         $this->setList($list);
     }

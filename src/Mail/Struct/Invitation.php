@@ -119,10 +119,10 @@ class Invitation
      * @return self
      */
     public function __construct(
-        string $calItemType,
-        int $sequence,
-        int $id,
-        int $componentNum,
+        string $calItemType = '',
+        int $sequence = 0,
+        int $id = 0,
+        int $componentNum = 0,
         ?string $recurrenceId = NULL,
         array $timezones = [],
         ?InviteComponent $inviteComponent = NULL,

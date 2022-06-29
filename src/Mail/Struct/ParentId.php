@@ -38,7 +38,7 @@ class ParentId
      * @param  string $parentId
      * @return self
      */
-    public function __construct(string $parentId)
+    public function __construct(string $parentId = '')
     {
         $this->setParentId($parentId);
     }

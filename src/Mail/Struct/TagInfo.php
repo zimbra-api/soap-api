@@ -141,7 +141,7 @@ class TagInfo
      * @return self
      */
     public function __construct(
-        string $id,
+        string $id = '',
         ?string $name = NULL,
         ?int $color = NULL,
         ?string $rgb = NULL,

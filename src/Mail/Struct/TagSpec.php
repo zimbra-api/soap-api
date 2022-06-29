@@ -61,7 +61,7 @@ class TagSpec
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         ?string $rgb = NULL,
         ?int $color = NULL
     )
