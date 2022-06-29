@@ -114,7 +114,7 @@ class GetAppointmentTest extends ZimbraTestCase
         $response = new GetAppointmentResponse($appt, $task);
         $this->assertSame($appt, $response->getApptItem());
         $this->assertSame($task, $response->getTaskItem());
-        $response = new GetAppointmentResponse($appt, $task);
+        $response = new GetAppointmentResponse();
         $response->setApptItem($appt)
             ->setTaskItem($task);
         $this->assertSame($appt, $response->getApptItem());

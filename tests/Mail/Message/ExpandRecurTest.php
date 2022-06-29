@@ -55,7 +55,7 @@ class ExpandRecurTest extends ZimbraTestCase
         $this->assertSame([$timezone], $request->getTimezones());
         $this->assertEquals($components, $request->getComponents());
 
-        $request = new ExpandRecurRequest(0, 0);
+        $request = new ExpandRecurRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setTimezones([$timezone])

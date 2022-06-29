@@ -27,14 +27,14 @@ class AddCommentTest extends ZimbraTestCase
         $addedComment = new AddedComment($parentId, $text);
         $request = new AddCommentRequest($addedComment);
         $this->assertSame($addedComment, $request->getComment());
-        $request = new AddCommentRequest(new AddedComment('', ''));
+        $request = new AddCommentRequest(new AddedComment());
         $request->setComment($addedComment);
         $this->assertSame($addedComment, $request->getComment());
 
         $idComment = new Id($id);
         $response = new AddCommentResponse($idComment);
         $this->assertSame($idComment, $response->getComment());
-        $response = new AddCommentResponse(new Id(''));
+        $response = new AddCommentResponse();
         $response->setComment($idComment);
         $this->assertSame($idComment, $response->getComment());
 

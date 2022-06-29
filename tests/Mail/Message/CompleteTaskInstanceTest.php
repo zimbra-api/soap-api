@@ -36,7 +36,7 @@ class CompleteTaskInstanceTest extends ZimbraTestCase
         $this->assertSame($exceptionId, $request->getExceptionId());
         $this->assertSame($timezone, $request->getTimezone());
 
-        $request = new CompleteTaskInstanceRequest('', new DtTimeInfo());
+        $request = new CompleteTaskInstanceRequest(new DtTimeInfo());
         $request->setId($id)
             ->setExceptionId($exceptionId)
             ->setTimezone($timezone);

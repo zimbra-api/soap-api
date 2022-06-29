@@ -30,7 +30,7 @@ class AutoCompleteTest extends ZimbraTestCase
         $this->assertFalse($request->getNeedCanExpand());
         $this->assertSame($folderList, $request->getFolderList());
         $this->assertFalse($request->getIncludeGal());
-        $request = new AutoCompleteRequest('');
+        $request = new AutoCompleteRequest();
         $request->setName($name)
             ->setType($type)
             ->setNeedCanExpand(TRUE)

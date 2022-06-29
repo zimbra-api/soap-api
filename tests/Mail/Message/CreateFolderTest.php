@@ -102,7 +102,7 @@ class CreateFolderTest extends ZimbraTestCase
         );
         $request = new CreateFolderRequest($newFolder);
         $this->assertSame($newFolder, $request->getFolder());
-        $request = new CreateFolderRequest(new NewFolderSpec('', ''));
+        $request = new CreateFolderRequest(new NewFolderSpec());
         $request->setFolder($newFolder);
         $this->assertSame($newFolder, $request->getFolder());
 

@@ -45,7 +45,7 @@ class CheckPermissionTest extends ZimbraTestCase
         $response = new CheckPermissionResponse(FALSE, [$right]);
         $this->assertFalse($response->getAllow());
         $this->assertSame([$right], $response->getRights());
-        $response = new CheckPermissionResponse(FALSE);
+        $response = new CheckPermissionResponse();
         $response->setAllow(TRUE)
             ->setRights([$right])
             ->addRight($right);

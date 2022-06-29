@@ -45,7 +45,7 @@ class ExportContactsTest extends ZimbraTestCase
 
         $response = new ExportContactsResponse($content);
         $this->assertSame($content, $response->getContent());
-        $response = new ExportContactsResponse('');
+        $response = new ExportContactsResponse();
         $response->setContent($content);
         $this->assertSame($content, $response->getContent());
 

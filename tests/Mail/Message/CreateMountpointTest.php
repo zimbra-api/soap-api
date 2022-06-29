@@ -58,7 +58,7 @@ class CreateMountpointTest extends ZimbraTestCase
         );
         $request = new CreateMountpointRequest($folder);
         $this->assertSame($folder, $request->getFolder());
-        $request = new CreateMountpointRequest(new NewMountpointSpec('', ''));
+        $request = new CreateMountpointRequest(new NewMountpointSpec());
         $request->setFolder($folder);
         $this->assertSame($folder, $request->getFolder());
 
@@ -75,7 +75,7 @@ class CreateMountpointTest extends ZimbraTestCase
         );
         $response = new CreateMountpointResponse($link);
         $this->assertSame($link, $response->getMount());
-        $response = new CreateMountpointResponse(new Mountpoint('', ''));
+        $response = new CreateMountpointResponse();
         $response->setMount($link);
         $this->assertSame($link, $response->getMount());
 

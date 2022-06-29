@@ -106,7 +106,7 @@ class GetApptSummariesTest extends ZimbraTestCase
         $this->assertSame($startTime, $request->getStartTime());
         $this->assertSame($endTime, $request->getEndTime());
         $this->assertSame($folderId, $request->getFolderId());
-        $request = new GetApptSummariesRequest(0, 0);
+        $request = new GetApptSummariesRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setFolderId($folderId);

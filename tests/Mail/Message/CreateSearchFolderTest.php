@@ -38,7 +38,7 @@ class CreateSearchFolderTest extends ZimbraTestCase
         );
         $request = new CreateSearchFolderRequest($newSearch);
         $this->assertSame($newSearch, $request->getSearchFolder());
-        $request = new CreateSearchFolderRequest(new NewSearchFolderSpec('', ''));
+        $request = new CreateSearchFolderRequest(new NewSearchFolderSpec());
         $request->setSearchFolder($newSearch);
         $this->assertSame($newSearch, $request->getSearchFolder());
 
@@ -51,7 +51,7 @@ class CreateSearchFolderTest extends ZimbraTestCase
         );
         $response = new CreateSearchFolderResponse($search);
         $this->assertSame($search, $response->getSearchFolder());
-        $response = new CreateSearchFolderResponse(new SearchFolder('', ''));
+        $response = new CreateSearchFolderResponse();
         $response->setSearchFolder($search);
         $this->assertSame($search, $response->getSearchFolder());
 

@@ -40,7 +40,7 @@ class ContactActionTest extends ZimbraTestCase
         )]);
         $request = new ContactActionRequest($action);
         $this->assertSame($action, $request->getAction());
-        $request = new ContactActionRequest(new ContactActionSelector($operation, $id));
+        $request = new ContactActionRequest(new ContactActionSelector());
         $request->setAction($action);
         $this->assertSame($action, $request->getAction());
 
@@ -49,7 +49,7 @@ class ContactActionTest extends ZimbraTestCase
         );
         $response = new ContactActionResponse($action);
         $this->assertSame($action, $response->getAction());
-        $response = new ContactActionResponse(new FolderActionResult($id, $operation));
+        $response = new ContactActionResponse();
         $response->setAction($action);
         $this->assertSame($action, $response->getAction());
 

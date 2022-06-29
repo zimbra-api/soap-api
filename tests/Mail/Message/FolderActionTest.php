@@ -68,7 +68,7 @@ class FolderActionTest extends ZimbraTestCase
 
         $response = new FolderActionResponse($result);
         $this->assertSame($result, $response->getAction());
-        $response = new FolderActionResponse(new FolderActionResult('', '', '', ''));
+        $response = new FolderActionResponse();
         $response->setAction($result);
         $this->assertSame($result, $response->getAction());
 

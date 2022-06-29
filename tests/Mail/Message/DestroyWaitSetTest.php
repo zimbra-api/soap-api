@@ -20,13 +20,13 @@ class DestroyWaitSetTest extends ZimbraTestCase
 
         $request = new DestroyWaitSetRequest($waitSetId);
         $this->assertSame($waitSetId, $request->getWaitSetId());
-        $request = new DestroyWaitSetRequest('');
+        $request = new DestroyWaitSetRequest();
         $request->setWaitSetId($waitSetId);
         $this->assertSame($waitSetId, $request->getWaitSetId());
 
         $response = new DestroyWaitSetResponse($waitSetId);
         $this->assertSame($waitSetId, $response->getWaitSetId());
-        $response = new DestroyWaitSetResponse('');
+        $response = new DestroyWaitSetResponse();
         $response->setWaitSetId($waitSetId);
         $this->assertSame($waitSetId, $response->getWaitSetId());
 

@@ -39,7 +39,7 @@ class ConvActionTest extends ZimbraTestCase
         );
         $response = new ConvActionResponse($action);
         $this->assertSame($action, $response->getAction());
-        $response = new ConvActionResponse(new ActionResult($id, $operation));
+        $response = new ConvActionResponse();
         $response->setAction($action);
         $this->assertSame($action, $response->getAction());
 

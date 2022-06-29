@@ -27,7 +27,7 @@ class GetIMAPRecentTest extends ZimbraTestCase
 
         $response = new GetIMAPRecentResponse($num);
         $this->assertSame($num, $response->getNum());
-        $response = new GetIMAPRecentResponse(0);
+        $response = new GetIMAPRecentResponse();
         $response->setNum($num);
         $this->assertSame($num, $response->getNum());
 

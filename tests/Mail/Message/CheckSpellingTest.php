@@ -43,7 +43,7 @@ class CheckSpellingTest extends ZimbraTestCase
         $response = new CheckSpellingResponse(FALSE, [$missed]);
         $this->assertFalse($response->isAvailable());
         $this->assertSame([$missed], $response->getMisspelledWords());
-        $response = new CheckSpellingResponse(FALSE);
+        $response = new CheckSpellingResponse();
         $response->setMisspelledWords([$missed])
             ->addMisspelledWord($missed)
             ->setAvailable(TRUE);

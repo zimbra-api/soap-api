@@ -47,7 +47,7 @@ class CreateNoteTest extends ZimbraTestCase
         );
         $request = new CreateNoteRequest($newNote);
         $this->assertSame($newNote, $request->getNote());
-        $request = new CreateNoteRequest(new NewNoteSpec('', ''));
+        $request = new CreateNoteRequest(new NewNoteSpec());
         $request->setNote($newNote);
         $this->assertSame($newNote, $request->getNote());
 
@@ -70,7 +70,7 @@ class CreateNoteTest extends ZimbraTestCase
         );
         $response = new CreateNoteResponse($noteInfo);
         $this->assertSame($noteInfo, $response->getNote());
-        $response = new CreateNoteResponse(new NoteInfo());
+        $response = new CreateNoteResponse();
         $response->setNote($noteInfo);
         $this->assertSame($noteInfo, $response->getNote());
 

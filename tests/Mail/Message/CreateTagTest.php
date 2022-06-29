@@ -48,7 +48,7 @@ class CreateTagTest extends ZimbraTestCase
         );
         $request = new CreateTagRequest($tagSpec);
         $this->assertSame($tagSpec, $request->getTag());
-        $request = new CreateTagRequest(new TagSpec('', ''));
+        $request = new CreateTagRequest(new TagSpec());
         $request->setTag($tagSpec);
         $this->assertSame($tagSpec, $request->getTag());
 
@@ -73,7 +73,7 @@ class CreateTagTest extends ZimbraTestCase
         );
         $response = new CreateTagResponse($tagInfo);
         $this->assertSame($tagInfo, $response->getTag());
-        $response = new CreateTagResponse(new TagInfo(''));
+        $response = new CreateTagResponse();
         $response->setTag($tagInfo);
         $this->assertSame($tagInfo, $response->getTag());
 

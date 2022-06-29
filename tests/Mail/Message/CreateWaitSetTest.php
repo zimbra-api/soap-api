@@ -38,7 +38,7 @@ class CreateWaitSetTest extends ZimbraTestCase
         $this->assertSame($interests, $request->getDefaultInterests());
         $this->assertFalse($request->getAllAccounts());
         $this->assertSame([$waitSet], $request->getAccounts());
-        $request = new CreateWaitSetRequest('');
+        $request = new CreateWaitSetRequest();
         $request->setAccounts([$waitSet])
             ->addAccount($waitSet)
             ->setDefaultInterests($interests)
