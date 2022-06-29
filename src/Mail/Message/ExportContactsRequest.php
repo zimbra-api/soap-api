@@ -88,7 +88,7 @@ class ExportContactsRequest extends Request
      * @return self
      */
     public function __construct(
-        string $contentType,
+        string $contentType = '',
         ?string $folderId = NULL,
         ?string $csvFormat = NULL,
         ?string $csvLocale = NULL,

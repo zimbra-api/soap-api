@@ -32,7 +32,7 @@ class GetICalResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ICalContent")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ICalContent $content;
+    private ?ICalContent $content = NULL;
 
     /**
      * Constructor method for GetICalResponse
@@ -40,9 +40,11 @@ class GetICalResponse implements ResponseInterface
      * @param  ICalContent $content
      * @return self
      */
-    public function __construct(ICalContent $content)
+    public function __construct(?ICalContent $content = NULL)
     {
-        $this->setContent($content);
+        if ($content instanceof ICalContent) {
+            $this->setContent($content);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetICalResponse implements ResponseInterface
      *
      * @return ICalContent
      */
-    public function getContent(): ICalContent
+    public function getContent(): ?ICalContent
     {
         return $this->content;
     }

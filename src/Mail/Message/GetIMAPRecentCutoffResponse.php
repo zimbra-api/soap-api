@@ -42,7 +42,7 @@ class GetIMAPRecentCutoffResponse implements ResponseInterface
      * @param  int $cutoff
      * @return self
      */
-    public function __construct(int $cutoff)
+    public function __construct(int $cutoff = 0)
     {
         $this->setCutoff($cutoff);
     }

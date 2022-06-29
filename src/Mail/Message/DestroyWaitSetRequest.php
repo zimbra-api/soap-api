@@ -43,7 +43,7 @@ class DestroyWaitSetRequest extends Request
      * @param  string $waitSetId
      * @return self
      */
-    public function __construct(string $waitSetId)
+    public function __construct(string $waitSetId = '')
     {
         $this->setWaitSetId($waitSetId);
     }

@@ -78,8 +78,8 @@ class GetMiniCalRequest extends Request
      * @return self
      */
     public function __construct(
-        int $startTime,
-        int $endTime,
+        int $startTime = 0,
+        int $endTime = 0,
         array $folders = [],
         ?CalTZInfo $timezone = NULL
     )

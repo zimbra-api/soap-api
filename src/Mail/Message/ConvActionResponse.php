@@ -32,7 +32,7 @@ class ConvActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ActionResult $action;
+    private ?ActionResult $action = NULL;
 
     /**
      * Constructor method for ConvActionResponse
@@ -40,9 +40,11 @@ class ConvActionResponse implements ResponseInterface
      * @param  ActionResult $action
      * @return self
      */
-    public function __construct(ActionResult $action)
+    public function __construct(?ActionResult $action = NULL)
     {
-        $this->setAction($action);
+        if ($action instanceof ActionResult) {
+            $this->setAction($action);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class ConvActionResponse implements ResponseInterface
      *
      * @return ActionResult
      */
-    public function getAction(): ActionResult
+    public function getAction(): ?ActionResult
     {
         return $this->action;
     }

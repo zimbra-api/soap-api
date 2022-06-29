@@ -99,8 +99,8 @@ class ExpandRecurRequest extends Request
      * @return self
      */
     public function __construct(
-        int $startTime,
-        int $endTime,
+        int $startTime = 0,
+        int $endTime = 0,
         array $timezones = [],
         array $components = []
     )

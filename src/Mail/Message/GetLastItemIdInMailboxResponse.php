@@ -39,7 +39,7 @@ class GetLastItemIdInMailboxResponse implements ResponseInterface
      * @param  int $id
      * @return self
      */
-    public function __construct(int $id)
+    public function __construct(int $id = 0)
     {
         $this->setId($id);
     }

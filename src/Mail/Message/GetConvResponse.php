@@ -32,7 +32,7 @@ class GetConvResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ConversationInfo $conversation;
+    private ?ConversationInfo $conversation = NULL;
 
     /**
      * Constructor method for GetConvResponse
@@ -40,9 +40,11 @@ class GetConvResponse implements ResponseInterface
      * @param  ConversationInfo $conversation
      * @return self
      */
-    public function __construct(ConversationInfo $conversation)
+    public function __construct(?ConversationInfo $conversation = NULL)
     {
-        $this->setConversation($conversation);
+        if ($conversation instanceof ConversationInfo) {
+            $this->setConversation($conversation);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetConvResponse implements ResponseInterface
      *
      * @return ConversationInfo
      */
-    public function getConversation(): ConversationInfo
+    public function getConversation(): ?ConversationInfo
     {
         return $this->conversation;
     }

@@ -58,7 +58,7 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        int $dataSourceQuota, int $totalQuota, array $usages = []
+        int $dataSourceQuota = 0, int $totalQuota = 0, array $usages = []
     )
     {
         $this->setDataSourceQuota($dataSourceQuota)

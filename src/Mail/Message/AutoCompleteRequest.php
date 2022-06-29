@@ -86,7 +86,7 @@ class AutoCompleteRequest extends Request
      * @return self
      */
     public function __construct(
-        string $name,
+        string $name = '',
         ?GalSearchType $type = NULL,
         ?bool $needCanExpand = NULL,
         ?string $folderList = NULL,

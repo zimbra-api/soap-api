@@ -77,7 +77,7 @@ class CreateWaitSetRequest extends Request implements CreateWaitSetReq
      * @return self
      */
     public function __construct(
-        string $defaultInterests,
+        string $defaultInterests = '',
         ?bool $allAccounts = NULL,
         array $accounts = []
     )
