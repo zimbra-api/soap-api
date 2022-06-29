@@ -72,7 +72,7 @@ class CheckSpellingTest extends ZimbraTestCase
     <soap:Body>
         <urn:CheckSpellingRequest dictionary="$dictionary" ignore="$ignoreList">$text</urn:CheckSpellingRequest>
         <urn:CheckSpellingResponse available="true">
-            <misspelled word="$word" suggestions="$suggestions" />
+            <urn:misspelled word="$word" suggestions="$suggestions" />
         </urn:CheckSpellingResponse>
     </soap:Body>
 </soap:Envelope>

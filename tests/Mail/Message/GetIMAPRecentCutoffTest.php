@@ -27,7 +27,7 @@ class GetIMAPRecentCutoffTest extends ZimbraTestCase
 
         $response = new GetIMAPRecentCutoffResponse($cutoff);
         $this->assertSame($cutoff, $response->getCutoff());
-        $response = new GetIMAPRecentCutoffResponse(0);
+        $response = new GetIMAPRecentCutoffResponse();
         $response->setCutoff($cutoff);
         $this->assertSame($cutoff, $response->getCutoff());
 

@@ -143,17 +143,17 @@ class GetContactsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetContactsRequest sync="true" l="$folderId" sortBy="$sortBy" derefGroupMember="true" memberOf="true" returnHiddenAttrs="true" returnCertInfo="true" wantImapUid="true" maxMembers="$maxMembers">
-            <a n="$name" />
-            <ma n="$name" />
-            <cn id="$value" />
+            <urn:a n="$name" />
+            <urn:ma n="$name" />
+            <urn:cn id="$value" />
         </urn:GetContactsRequest>
         <urn:GetContactsResponse>
-            <cn sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
-                <meta section="$section" />
-                <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
-                <m type="C" value="$value" />
-                <memberOf>$memberOf</memberOf>
-            </cn>
+            <urn:cn sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="C" value="$value" />
+                <urn:memberOf>$memberOf</urn:memberOf>
+            </urn:cn>
         </urn:GetContactsResponse>
     </soap:Body>
 </soap:Envelope>

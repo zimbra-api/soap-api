@@ -32,7 +32,7 @@ class GetEffectiveFolderPermsTest extends ZimbraTestCase
         $rights = new Rights($effectivePermissions);
         $response = new GetEffectiveFolderPermsResponse($rights);
         $this->assertSame($rights, $response->getFolder());
-        $response = new GetEffectiveFolderPermsResponse(new Rights(''));
+        $response = new GetEffectiveFolderPermsResponse();
         $response->setFolder($rights);
         $this->assertSame($rights, $response->getFolder());
 
@@ -56,10 +56,10 @@ class GetEffectiveFolderPermsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetEffectiveFolderPermsRequest>
-            <folder l="$folder" />
+            <urn:folder l="$folder" />
         </urn:GetEffectiveFolderPermsRequest>
         <urn:GetEffectiveFolderPermsResponse>
-            <folder perm="$effectivePermissions" />
+            <urn:folder perm="$effectivePermissions" />
         </urn:GetEffectiveFolderPermsResponse>
     </soap:Body>
 </soap:Envelope>

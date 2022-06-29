@@ -58,8 +58,8 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetModifiedItemsIDsRequest l="$folderId" ms="$modSeq" />
         <urn:GetModifiedItemsIDsResponse>
-            <ids>$id1</ids>
-            <ids>$id2</ids>
+            <urn:ids>$id1</urn:ids>
+            <urn:ids>$id2</urn:ids>
         </urn:GetModifiedItemsIDsResponse>
     </soap:Body>
 </soap:Envelope>

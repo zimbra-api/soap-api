@@ -92,23 +92,23 @@ class FolderActionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:FolderActionRequest>
-            <action id="$ids" op="$operation" recursive="true" url="$url" excludeFreeBusy="true" zid="$zimbraId" gt="usr" view="$view" numDays="$numDays">
-                <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-                <acl>
-                    <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-                </acl>
-                <retentionPolicy>
-                    <keep>
-                        <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-                    </keep>
-                    <purge>
-                        <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-                    </purge>
-                </retentionPolicy>
-            </action>
+            <urn:action id="$ids" op="$operation" recursive="true" url="$url" excludeFreeBusy="true" zid="$zimbraId" gt="usr" view="$view" numDays="$numDays">
+                <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+                <urn:acl>
+                    <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+                </urn:acl>
+                <urn:retentionPolicy>
+                    <urn:keep>
+                        <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:keep>
+                    <urn:purge>
+                        <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:purge>
+                </urn:retentionPolicy>
+            </urn:action>
         </urn:FolderActionRequest>
         <urn:FolderActionResponse>
-            <action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
         </urn:FolderActionResponse>
     </soap:Body>
 </soap:Envelope>

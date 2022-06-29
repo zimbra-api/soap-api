@@ -67,14 +67,14 @@ class ApplyOutgoingFilterRulesTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:ApplyOutgoingFilterRulesRequest>
-            <filterRules>
-                <filterRule name="$name" />
-            </filterRules>
-            <m ids="$ids" />
-            <query>$query</query>
+            <urn:filterRules>
+                <urn:filterRule name="$name" />
+            </urn:filterRules>
+            <urn:m ids="$ids" />
+            <urn:query>$query</urn:query>
         </urn:ApplyOutgoingFilterRulesRequest>
         <urn:ApplyOutgoingFilterRulesResponse>
-            <m ids="$ids" />
+            <urn:m ids="$ids" />
         </urn:ApplyOutgoingFilterRulesResponse>
     </soap:Body>
 </soap:Envelope>

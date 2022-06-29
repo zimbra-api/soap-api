@@ -97,22 +97,22 @@ class CreateTagTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateTagRequest>
-            <tag name="$name" rgb="$rgb" color="$color" />
+            <urn:tag name="$name" rgb="$rgb" color="$color" />
         </urn:CreateTagRequest>
         <urn:CreateTagResponse>
-            <tag id="$id" name="$name" color="$color" rgb="$rgb" u="$unread" n="$count" d="$date" rev="$revision" md="$changeDate" ms="$modifiedSequence">
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-                <retentionPolicy>
-                    <keep>
-                        <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-                    </keep>
-                    <purge>
-                        <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-                    </purge>
-                </retentionPolicy>
-            </tag>
+            <urn:tag id="$id" name="$name" color="$color" rgb="$rgb" u="$unread" n="$count" d="$date" rev="$revision" md="$changeDate" ms="$modifiedSequence">
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:meta>
+                <urn:urn:retentionPolicy>
+                    <urn:keep>
+                        <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:keep>
+                    <urn:purge>
+                        <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:purge>
+                </urn:retentionPolicy>
+            </urn:tag>
         </urn:CreateTagResponse>
     </soap:Body>
 </soap:Envelope>

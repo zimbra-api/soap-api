@@ -85,12 +85,12 @@ class CreateWaitSetTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateWaitSetRequest defTypes="$interests" allAccounts="true">
-            <add>
-                <a name="$name" id="$id" token="$token" types="$interests" />
-            </add>
+            <urn:add>
+                <urn:a name="$name" id="$id" token="$token" types="$interests" />
+            </urn:add>
         </urn:CreateWaitSetRequest>
         <urn:CreateWaitSetResponse waitSet="$id" defTypes="$interests" seq="$sequence">
-            <error id="$id" type="$type" />
+            <urn:error id="$id" type="$type" />
         </urn:CreateWaitSetResponse>
     </soap:Body>
 </soap:Envelope>

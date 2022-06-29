@@ -141,56 +141,56 @@ class GetAppointmentTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetAppointmentRequest sync="true" includeContent="true" includeInvites="true" uid="$uid" id="$id" />
         <urn:GetAppointmentResponse>
-            <appt f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">
-                <inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
-                    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
-                        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-                        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-                    </tz>
-                    <comp method="$method" compNum="$componentNum" rsvp="true" />
-                    <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-                        <content>$content</content>
-                        <mp part="$part" ct="$contentType" />
-                    </mp>
-                    <shr truncated="true">
-                        <content>$content</content>
-                    </shr>
-                    <dlSubs truncated="true">
-                        <content>$content</content>
-                    </dlSubs>
-                </inv>
-                <replies>
-                    <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
-                </replies>
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-            </appt>
-            <task f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">
-                <inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
-                    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
-                        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-                        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-                    </tz>
-                    <comp method="$method" compNum="$componentNum" rsvp="true" />
-                    <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-                        <content>$content</content>
-                        <mp part="$part" ct="$contentType" />
-                    </mp>
-                    <shr truncated="true">
-                        <content>$content</content>
-                    </shr>
-                    <dlSubs truncated="true">
-                        <content>$content</content>
-                    </dlSubs>
-                </inv>
-                <replies>
-                    <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
-                </replies>
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-            </task>
+            <urn:appt f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">
+                <urn:inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
+                    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
+                        <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+                        <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+                    </urn:tz>
+                    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+                    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                        <urn:content>$content</urn:content>
+                        <urn:mp part="$part" ct="$contentType" />
+                    </urn:mp>
+                    <urn:shr truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:shr>
+                    <urn:dlSubs truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:dlSubs>
+                </urn:inv>
+                <urn:replies>
+                    <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
+                </urn:replies>
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</a>
+                </urn:meta>
+            </urn:appt>
+            <urn:task f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">
+                <urn:inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
+                    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
+                        <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+                        <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+                    </urn:tz>
+                    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+                    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                        <urn:content>$content</urn:content>
+                        <urn:mp part="$part" ct="$contentType" />
+                    </urn:mp>
+                    <urn:shr truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:shr>
+                    <urn:dlSubs truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:dlSubs>
+                </urn:inv>
+                <urn:replies>
+                    <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
+                </urn:replies>
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:meta>
+            </urn:task>
         </urn:GetAppointmentResponse>
     </soap:Body>
 </soap:Envelope>

@@ -91,7 +91,7 @@ class AutoCompleteTest extends ZimbraTestCase
     <soap:Body>
         <urn:AutoCompleteRequest name="$name" t="account" needExp="true" folders="$folderList" includeGal="true" />
         <urn:AutoCompleteResponse canBeCached="true">
-            <match email="$email" type="gal" ranking="$ranking" isGroup="true" exp="true" id="$id" l="$folder" display="$displayName" first="$firstName" middle="$middleName" last="$lastName" full="$fullName" nick="$nickname" company="$company" fileas="$fileAs" />
+            <urn:match email="$email" type="gal" ranking="$ranking" isGroup="true" exp="true" id="$id" l="$folder" display="$displayName" first="$firstName" middle="$middleName" last="$lastName" full="$fullName" nick="$nickname" company="$company" fileas="$fileAs" />
         </urn:AutoCompleteResponse>
     </soap:Body>
 </soap:Envelope>

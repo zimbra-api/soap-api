@@ -126,14 +126,14 @@ class GetImportStatusTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetImportStatusRequest />
         <urn:GetImportStatusResponse>
-            <imap id="$id" isRunning="true" success="true" error="$error" />
-            <pop3 id="$id" isRunning="true" success="true" error="$error" />
-            <caldav id="$id" isRunning="true" success="true" error="$error" />
-            <yab id="$id" isRunning="true" success="true" error="$error" />
-            <rss id="$id" isRunning="true" success="true" error="$error" />
-            <gal id="$id" isRunning="true" success="true" error="$error" />
-            <cal id="$id" isRunning="true" success="true" error="$error" />
-            <unknown id="$id" isRunning="true" success="true" error="$error" />
+            <urn:imap id="$id" isRunning="true" success="true" error="$error" />
+            <urn:pop3 id="$id" isRunning="true" success="true" error="$error" />
+            <urn:caldav id="$id" isRunning="true" success="true" error="$error" />
+            <urn:yab id="$id" isRunning="true" success="true" error="$error" />
+            <urn:rss id="$id" isRunning="true" success="true" error="$error" />
+            <urn:gal id="$id" isRunning="true" success="true" error="$error" />
+            <urn:cal id="$id" isRunning="true" success="true" error="$error" />
+            <urn:unknown id="$id" isRunning="true" success="true" error="$error" />
         </urn:GetImportStatusResponse>
     </soap:Body>
 </soap:Envelope>

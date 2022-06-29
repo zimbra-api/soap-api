@@ -54,9 +54,9 @@ class BounceMsgTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:BounceMsgRequest>
-            <m id="$id">
-                <e a="$address" t="t" p="$personal" />
-            </m>
+            <urn:m id="$id">
+                <urn:e a="$address" t="t" p="$personal" />
+            </urn:m>
         </urn:BounceMsgRequest>
         <urn:BounceMsgResponse />
     </soap:Body>

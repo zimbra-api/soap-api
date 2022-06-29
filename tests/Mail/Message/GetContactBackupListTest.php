@@ -47,10 +47,10 @@ class GetContactBackupListTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetContactBackupListRequest />
         <urn:GetContactBackupListResponse>
-            <backups>
-                <backup>$backup1</backup>
-                <backup>$backup2</backup>
-            </backups>
+            <urn:backups>
+                <urn:backup>$backup1</urn:backup>
+                <urn:backup>$backup2</urn:backup>
+            </urn:backups>
         </urn:GetContactBackupListResponse>
     </soap:Body>
 </soap:Envelope>

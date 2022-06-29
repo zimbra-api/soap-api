@@ -60,12 +60,12 @@ class GetMailboxMetadataTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetMailboxMetadataRequest>
-            <meta section="$section" />
+            <urn:meta section="$section" />
         </urn:GetMailboxMetadataRequest>
         <urn:GetMailboxMetadataResponse>
-            <meta section="$section">
-                <a n="$key">$value</a>
-            </meta>
+            <urn:meta section="$section">
+                <urn:a n="$key">$value</a>
+            </urn:meta>
         </urn:GetMailboxMetadataResponse>
     </soap:Body>
 </soap:Envelope>

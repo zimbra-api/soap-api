@@ -147,78 +147,78 @@ class GetApptSummariesTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetApptSummariesRequest s="$startTime" e="$endTime" l="$folderId" />
         <urn:GetApptSummariesResponse>
-            <appt x_uid="$xUid" uid="$uid">
-                <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-                    <xparam name="$name" value="$value" />
-                </or>
-                <category>$category1</category>
-                <category>$category2</category>
-                <geo lat="$latitude" lon="$longitude" />
-                <fr>$fragment</fr>
-                <inst s="$startTime" ex="true">
-                    <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-                        <xparam name="$name" value="$value" />
-                    </or>
-                    <category>$category1</category>
-                    <category>$category2</category>
-                    <geo lat="$latitude" lon="$longitude" />
-                    <fr>$fragment</fr>
-                </inst>
-                <alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
-                    <alarm action="DISPLAY">
-                        <trigger>
-                            <abs d="$date" />
-                            <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        </trigger>
-                        <repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        <desc>$description</desc>
-                        <attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
-                        <summary>$summary</summary>
-                        <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-                            <xparam name="$name" value="$value" />
-                        </at>
-                        <xprop name="$name" value="$value">
-                            <xparam name="$name" value="$value" />
-                        </xprop>
-                    </alarm>
-                </alarmData>
-            </appt>
-            <task x_uid="$xUid" uid="$uid">
-                <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-                    <xparam name="$name" value="$value" />
-                </or>
-                <category>$category1</category>
-                <category>$category2</category>
-                <geo lat="$latitude" lon="$longitude" />
-                <fr>$fragment</fr>
-                <inst s="$startTime" ex="true">
-                    <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-                        <xparam name="$name" value="$value" />
-                    </or>
-                    <category>$category1</category>
-                    <category>$category2</category>
-                    <geo lat="$latitude" lon="$longitude" />
-                    <fr>$fragment</fr>
-                </inst>
-                <alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
-                    <alarm action="DISPLAY">
-                        <trigger>
-                            <abs d="$date" />
-                            <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        </trigger>
-                        <repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        <desc>$description</desc>
-                        <attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
-                        <summary>$summary</summary>
-                        <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-                            <xparam name="$name" value="$value" />
-                        </at>
-                        <xprop name="$name" value="$value">
-                            <xparam name="$name" value="$value" />
-                        </xprop>
-                    </alarm>
-                </alarmData>
-            </task>
+            <urn:appt x_uid="$xUid" uid="$uid">
+                <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+                    <urn:xparam name="$name" value="$value" />
+                </urn:or>
+                <urn:category>$category1</urn:category>
+                <urn:category>$category2</urn:category>
+                <urn:geo lat="$latitude" lon="$longitude" />
+                <urn:fr>$fragment</urn:fr>
+                <urn:inst s="$startTime" ex="true">
+                    <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+                        <urn:xparam name="$name" value="$value" />
+                    </urn:or>
+                    <urn:category>$category1</urn:category>
+                    <urn:category>$category2</urn:category>
+                    <urn:geo lat="$latitude" lon="$longitude" />
+                    <urn:fr>$fragment</urn:fr>
+                </urn:inst>
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
+                        <urn:summary>$summary</urn:summary>
+                        <aurn:t a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:appt>
+            <urn:task x_uid="$xUid" uid="$uid">
+                <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+                    <urn:xparam name="$name" value="$value" />
+                </urn:or>
+                <urn:category>$category1</urn:category>
+                <urn:category>$category2</urn:category>
+                <urn:geo lat="$latitude" lon="$longitude" />
+                <urn:fr>$fragment</urn:fr>
+                <urn:inst s="$startTime" ex="true">
+                    <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+                        <urn:xparam name="$name" value="$value" />
+                    </urn:or>
+                    <urn:category>$category1</urn:category>
+                    <urn:category>$category2</urn:category>
+                    <urn:geo lat="$latitude" lon="$longitude" />
+                    <urn:fr>$fragment</urn:fr>
+                </urn:inst>
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+                        <urn:summary>$summary</urn:summary>
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:task>
         </urn:GetApptSummariesResponse>
     </soap:Body>
 </soap:Envelope>

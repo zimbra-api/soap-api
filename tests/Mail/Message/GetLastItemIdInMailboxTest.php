@@ -21,7 +21,7 @@ class GetLastItemIdInMailboxTest extends ZimbraTestCase
         $request = new GetLastItemIdInMailboxRequest();
         $response = new GetLastItemIdInMailboxResponse($id);
         $this->assertSame($id, $response->getId());
-        $response = new GetLastItemIdInMailboxResponse(0);
+        $response = new GetLastItemIdInMailboxResponse();
         $response->setId($id);
         $this->assertSame($id, $response->getId());
 
@@ -46,7 +46,7 @@ class GetLastItemIdInMailboxTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetLastItemIdInMailboxRequest />
         <urn:GetLastItemIdInMailboxResponse>
-            <id>$id</id>
+            <urn:id>$id</urn:id>
         </urn:GetLastItemIdInMailboxResponse>
     </soap:Body>
 </soap:Envelope>

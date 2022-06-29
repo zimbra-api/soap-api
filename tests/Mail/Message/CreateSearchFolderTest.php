@@ -75,10 +75,10 @@ class CreateSearchFolderTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateSearchFolderRequest>
-            <search name="$name" query="$query" types="$searchTypes" sortBy="dateDesc" f="$flags" color="$color" rgb="$rgb" l="$parentFolderId" />
+            <urn:search name="$name" query="$query" types="$searchTypes" sortBy="dateDesc" f="$flags" color="$color" rgb="$rgb" l="$parentFolderId" />
         </urn:CreateSearchFolderRequest>
         <urn:CreateSearchFolderResponse>
-            <search id="$id" uuid="$uuid" query="$query" sortBy="dateDesc" types="$searchTypes" />
+            <urn:search id="$id" uuid="$uuid" query="$query" sortBy="dateDesc" types="$searchTypes" />
         </urn:CreateSearchFolderResponse>
     </soap:Body>
 </soap:Envelope>

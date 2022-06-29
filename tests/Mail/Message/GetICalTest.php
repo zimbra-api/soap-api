@@ -40,7 +40,7 @@ class GetICalTest extends ZimbraTestCase
         );
         $response = new GetICalResponse($content);
         $this->assertSame($content, $response->getContent());
-        $response = new GetICalResponse(new ICalContent());
+        $response = new GetICalResponse();
         $response->setContent($content);
         $this->assertSame($content, $response->getContent());
 
@@ -65,7 +65,7 @@ class GetICalTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetICalRequest id="$id" s="$startTime" e="$endTime" />
         <urn:GetICalResponse>
-            <ical id="$id">$ical</ical>
+            <urn:ical id="$id">$ical</urn:ical>
         </urn:GetICalResponse>
     </soap:Body>
 </soap:Envelope>

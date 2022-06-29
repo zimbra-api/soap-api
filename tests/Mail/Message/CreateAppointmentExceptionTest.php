@@ -153,37 +153,37 @@ class CreateAppointmentExceptionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateAppointmentExceptionRequest id="$id" comp="$numComponents" ms="$modifiedSequence" rev="$revision" echo="true" max="$maxSize" want="true" neuter="true" forcesend="true">
-            <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
-                <header name="$name">$value</header>
-                <content>$content</content>
-                <mp ct="$contentType" content="$content" ci="$contentId" />
-                <attach aid="$id" />
-                <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="t" p="$personal" />
-                <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-                <fr>$fragment</fr>
-            </m>
+            <urn:m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
+                <urn:header name="$name">$value</urn:header>
+                <urn:content>$content</urn:content>
+                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:attach aid="$id" />
+                <urn:inv method="$method" compNum="$componentNum" rsvp="true" />
+                <urn:e a="$address" t="t" p="$personal" />
+                <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+                <urn:fr>$fragment</urn:fr>
+            </urn:m>
         </urn:CreateAppointmentExceptionRequest>
         <urn:CreateAppointmentExceptionResponse calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
-            <m id="$id" />
-            <echo>
-                <m id="$id" part="$part" sd="$sentDate">
-                    <e a="$address" d="$display" p="$personal" t="t" />
-                    <su>$subject</su>
-                    <mid>$messageIdHeader</mid>
-                    <inv type="task" />
-                    <header n="$key">$value</header>
-                    <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-                        <content>$content</content>
-                    </mp>
-                    <shr truncated="true">
-                        <content>$content</content>
-                    </shr>
-                    <dlSubs truncated="true">
-                        <content>$content</content>
-                    </dlSubs>
-                </m>
-            </echo>
+            <urn:m id="$id" />
+            <urn:echo>
+                <urn:m id="$id" part="$part" sd="$sentDate">
+                    <urn:e a="$address" d="$display" p="$personal" t="t" />
+                    <urn:su>$subject</urn:su>
+                    <urn:mid>$messageIdHeader</urn:mid>
+                    <urn:inv type="task" />
+                    <urn:header n="$key">$value</urn:header>
+                    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:mp>
+                    <urn:shr truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:shr>
+                    <urn:dlSubs truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:dlSubs>
+                </urn:m>
+            </urn:echo>
         </urn:CreateAppointmentExceptionResponse>
     </soap:Body>
 </soap:Envelope>

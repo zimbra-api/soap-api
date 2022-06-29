@@ -67,12 +67,12 @@ class GetCustomMetadataTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetCustomMetadataRequest id="$id">
-            <meta section="$section" />
+            <urn:meta section="$section" />
         </urn:GetCustomMetadataRequest>
         <urn:GetCustomMetadataResponse id="$id">
-            <meta section="$section">
-                <a n="$key">$value</a>
-            </meta>
+            <urn:meta section="$section">
+                <urn:a n="$key">$value</urn:a>
+            </urn:meta>
         </urn:GetCustomMetadataResponse>
     </soap:Body>
 </soap:Envelope>
