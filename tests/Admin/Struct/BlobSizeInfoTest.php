@@ -24,7 +24,7 @@ class BlobSizeInfoTest extends ZimbraTestCase
         $this->assertSame($fileSize, $blob->getFileSize());
         $this->assertFalse($blob->getExternal());
 
-        $blob = new BlobSizeInfo('', 0, 0, FALSE);
+        $blob = new BlobSizeInfo();
         $blob->setPath($path)
              ->setSize($size)
              ->setFileSize($fileSize)

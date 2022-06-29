@@ -25,7 +25,7 @@ class AccountQuotaInfoTest extends ZimbraTestCase
         $this->assertSame($quotaUsed, $account->getQuotaUsed());
         $this->assertSame($quotaLimit, $account->getQuotaLimit());
 
-        $account = new AccountQuotaInfo('', '', 0, 0);
+        $account = new AccountQuotaInfo();
         $account->setName($name)
             ->setId($id)
             ->setQuotaLimit($quotaLimit)

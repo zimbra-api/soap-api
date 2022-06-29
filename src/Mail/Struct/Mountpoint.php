@@ -94,8 +94,8 @@ class Mountpoint extends Folder
      * @return self
      */
     public function __construct(
-        string $id,
-        string $uuid,
+        string $id = '',
+        string $uuid = '',
         ?string $ownerEmail = NULL,
         ?string $ownerAccountId = NULL,
         ?int $remoteFolderId = NULL,

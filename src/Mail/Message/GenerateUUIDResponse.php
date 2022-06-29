@@ -39,7 +39,7 @@ class GenerateUUIDResponse implements ResponseInterface
      * @param  string $uuid
      * @return self
      */
-    public function __construct(string $uuid)
+    public function __construct(string $uuid = '')
     {
         $this->setUuid($uuid);
     }

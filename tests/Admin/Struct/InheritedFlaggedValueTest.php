@@ -18,7 +18,7 @@ class InheritedFlaggedValueTest extends ZimbraTestCase
         $this->assertFalse($flag->getInherited());
         $this->assertSame($value, $flag->getValue());
 
-        $flag = new InheritedFlaggedValue(FALSE);
+        $flag = new InheritedFlaggedValue();
         $flag->setInherited(TRUE)
               ->setValue($value);
         $this->assertTrue($flag->getInherited());

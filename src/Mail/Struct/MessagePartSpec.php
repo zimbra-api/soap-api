@@ -47,7 +47,7 @@ class MessagePartSpec
      * @param string $id
      * @return self
      */
-    public function __construct(string $part, string $id)
+    public function __construct(string $part = '', string $id = '')
     {
         $this->setPart($part)
              ->setId($id);

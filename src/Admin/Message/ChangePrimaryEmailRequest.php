@@ -51,7 +51,7 @@ class ChangePrimaryEmailRequest extends Request
      * @param string  $newName
      * @return self
      */
-    public function __construct(Account $account, string $newName)
+    public function __construct(Account $account, string $newName = '')
     {
         $this->setAccount($account)
              ->setNewName($newName);

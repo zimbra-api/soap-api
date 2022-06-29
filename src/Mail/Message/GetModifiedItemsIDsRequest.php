@@ -52,7 +52,7 @@ class GetModifiedItemsIDsRequest extends Request
      * @param  int $modSeq
      * @return self
      */
-    public function __construct(int $folderId, int $modSeq)
+    public function __construct(int $folderId = 0, int $modSeq = 0)
     {
         $this->setFolderId($folderId)
              ->setModSeq($modSeq);

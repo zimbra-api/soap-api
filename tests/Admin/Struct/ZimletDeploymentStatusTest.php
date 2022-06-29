@@ -20,7 +20,7 @@ class ZimletDeploymentStatusTest extends ZimbraTestCase
         $this->assertEquals(ZimletDeployStatus::SUCCEEDED(), $progress->getStatus());
         $this->assertSame($error, $progress->getError());
 
-        $progress = new ZimletDeploymentStatus('', ZimletDeployStatus::FAILED());
+        $progress = new ZimletDeploymentStatus();
         $progress->setServer($server)
             ->setStatus(ZimletDeployStatus::SUCCEEDED())
             ->setError($error);

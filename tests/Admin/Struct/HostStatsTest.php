@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\HostStats;
 use Zimbra\Admin\Struct\StatsInfo;
 use Zimbra\Admin\Struct\StatsValues;
@@ -22,11 +24,11 @@ class HostStatsTest extends ZimbraTestCase
 
         $stats = new StatsInfo($name, new StatsValues($t, [new NameAndValue($name, $value)]));
 
-        $hostname = new HostStats($hostName, $stats);
+        $hostname = new StubHostStats($hostName, $stats);
         $this->assertSame($hostName, $hostname->getHostName());
         $this->assertSame($stats, $hostname->getStats());
 
-        $hostname = new HostStats('');
+        $hostname = new StubHostStats();
         $hostname->setHostName($hostName)
              ->setStats($stats);
         $this->assertSame($hostName, $hostname->getHostName());
@@ -34,15 +36,22 @@ class HostStatsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result hn="$hostName">
-    <stats name="$name">
-        <values t="$t">
-            <stat name="$name" value="$value" />
-        </values>
-    </stats>
+<result hn="$hostName" xmlns:urn="urn:zimbraAdmin">
+    <urn:stats name="$name">
+        <urn:values t="$t">
+            <urn:stat name="$name" value="$value" />
+        </urn:values>
+    </urn:stats>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($hostname, 'xml'));
-        $this->assertEquals($hostname, $this->serializer->deserialize($xml, HostStats::class, 'xml'));
+        $this->assertEquals($hostname, $this->serializer->deserialize($xml, StubHostStats::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubHostStats extends HostStats
+{
 }

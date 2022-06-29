@@ -91,7 +91,7 @@ class GetLDAPEntriesRequest extends Request
      * @return self
      */
     public function __construct(
-        string $ldapSearchBase,
+        string $ldapSearchBase = '',
         ?string $sortBy = NULL,
         ?bool $sortAscending = NULL,
         ?int $limit = NULL,

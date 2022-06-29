@@ -32,7 +32,7 @@ class GetAccountResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private AccountInfo $account;
+    private ?AccountInfo $account = NULL;
 
     /**
      * Constructor method for GetAccountResponse
@@ -40,9 +40,11 @@ class GetAccountResponse implements ResponseInterface
      * @param AccountInfo $account
      * @return self
      */
-    public function __construct(AccountInfo $account)
+    public function __construct(?AccountInfo $account = NULL)
     {
-        $this->setAccount($account);
+        if ($account instanceof AccountInfo) {
+            $this->setAccount($account);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetAccountResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount(): AccountInfo
+    public function getAccount(): ?AccountInfo
     {
         return $this->account;
     }

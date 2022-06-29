@@ -104,9 +104,9 @@ class CalTZInfo implements CalTZInfoInterface
      * @return self
      */
     public function __construct(
-        string $id,
-        int $tzStdOffset,
-        int $tzDayOffset,
+        string $id = '',
+        int $tzStdOffset = 0,
+        int $tzDayOffset = 0,
         ?TzOnsetInfo $standardTzOnset = NULL,
         ?TzOnsetInfo $daylightTzOnset = NULL,
         ?string $standardTZName = NULL,

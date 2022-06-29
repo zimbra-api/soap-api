@@ -19,7 +19,7 @@ class IdAndActionTest extends ZimbraTestCase
         $this->assertSame($id, $ia->getId());
         $this->assertSame($action, $ia->getAction());
 
-        $ia = new IdAndAction('', '');
+        $ia = new IdAndAction();
         $ia->setId($id)
            ->setAction($action);
         $this->assertSame($id, $ia->getId());

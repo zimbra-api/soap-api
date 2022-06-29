@@ -31,7 +31,7 @@ class ObjectInfoTest extends ZimbraTestCase
         $this->assertSame($id, $stub->getId());
         $this->assertSame([$attr1], $stub->getAttrList());
 
-        $stub = new StubObjectInfo('', '');
+        $stub = new StubObjectInfo();
         $stub->setName($name)
              ->setId($id)
              ->setAttrList([$attr1])

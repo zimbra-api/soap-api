@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\CalTZInfo;
 use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -30,7 +32,7 @@ class CalTZInfoTest extends ZimbraTestCase
         $dayname = $this->faker->word;
         $stdoff = mt_rand(0, 100);
         $dayoff = mt_rand(0, 100);
-        $tzi = new CalTZInfo($id, $stdoff, $dayoff, $daylight, $standard, $stdname, $dayname);
+        $tzi = new StubCalTZInfo($id, $stdoff, $dayoff, $daylight, $standard, $stdname, $dayname);
 
         $this->assertSame($id, $tzi->getId());
         $this->assertSame($stdoff, $tzi->getTzStdOffset());
@@ -40,7 +42,7 @@ class CalTZInfoTest extends ZimbraTestCase
         $this->assertSame($daylight, $tzi->getStandardTzOnset());
         $this->assertSame($standard, $tzi->getDaylightTzOnset());
 
-        $tzi = new CalTZInfo('', 0, 0);
+        $tzi = new StubCalTZInfo();
         $tzi->setId($id)
             ->setTzStdOffset($stdoff)
             ->setTzDayOffset($dayoff)
@@ -58,12 +60,19 @@ class CalTZInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname">
-    <standard mon="$std_mon" hour="$std_hour" min="$std_min" sec="$std_sec" />
-    <daylight mon="$day_mon" hour="$day_hour" min="$day_min" sec="$day_sec" />
+<result id="$id" stdoff="$stdoff" dayoff="$dayoff" stdname="$stdname" dayname="$dayname" xmlns:urn="urn:zimbraAdmin">
+    <urn:standard mon="$std_mon" hour="$std_hour" min="$std_min" sec="$std_sec" />
+    <urn:daylight mon="$day_mon" hour="$day_hour" min="$day_min" sec="$day_sec" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tzi, 'xml'));
-        $this->assertEquals($tzi, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
+        $this->assertEquals($tzi, $this->serializer->deserialize($xml, StubCalTZInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubCalTZInfo extends CalTZInfo
+{
 }

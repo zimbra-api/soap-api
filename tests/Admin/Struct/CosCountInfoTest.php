@@ -20,7 +20,7 @@ class CosCountInfoTest extends ZimbraTestCase
         $this->assertSame($id, $cos->getId());
         $this->assertSame($value, $cos->getValue());
 
-        $cos = new CosCountInfo('', '');
+        $cos = new CosCountInfo();
         $cos->setName($name)
             ->setId($id)
             ->setValue($value);

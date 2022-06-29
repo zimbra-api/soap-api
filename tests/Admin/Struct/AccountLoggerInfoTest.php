@@ -26,7 +26,7 @@ class AccountLoggerInfoTest extends ZimbraTestCase
         $this->assertSame($id, $accountLogger->getId());
         $this->assertSame([$logger], $accountLogger->getLoggers());
 
-        $accountLogger = new StubAccountLoggerInfo('', '');
+        $accountLogger = new StubAccountLoggerInfo();
         $accountLogger->setName($name)
              ->setId($id)
              ->setLoggers([$logger])

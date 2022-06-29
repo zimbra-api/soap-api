@@ -40,7 +40,7 @@ class DateAttr implements DateAttrInterface
      * @param  string $date
      * @return self
      */
-    public function __construct(string $date)
+    public function __construct(string $date = '')
     {
         $this->setDate($date);
     }

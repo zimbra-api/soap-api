@@ -97,7 +97,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?Account $account = NULL,
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
@@ -105,7 +105,7 @@ class GetFilterRulesResponse implements ResponseInterface
         array $rules = []
     )
     {
-        $this->setType($type)
+        $this->setType($type ?? AdminFilterType::BEFORE())
              ->setFilterRules($rules);
         if ($account instanceof Account) {
             $this->setAccount($account);

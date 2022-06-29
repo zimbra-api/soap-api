@@ -32,7 +32,7 @@ class CreateSignatureResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private NameId $signature;
+    private ?NameId $signature = NULL;
 
     /**
      * Constructor method for CreateSignatureResponse
@@ -40,9 +40,11 @@ class CreateSignatureResponse implements ResponseInterface
      * @param NameId $signature
      * @return self
      */
-    public function __construct(NameId $signature)
+    public function __construct(?NameId $signature = NULL)
     {
-        $this->setSignature($signature);
+        if ($signature instanceof NameId) {
+            $this->setSignature($signature);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateSignatureResponse implements ResponseInterface
      *
      * @return NameId
      */
-    public function getSignature(): NameId
+    public function getSignature(): ?NameId
     {
         return $this->signature;
     }

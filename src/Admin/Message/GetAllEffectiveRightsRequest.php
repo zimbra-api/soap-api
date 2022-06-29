@@ -54,7 +54,9 @@ class GetAllEffectiveRightsRequest extends Request
      * @param  bool $expandGetAttrs
      * @return self
      */
-    public function __construct(?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL)
+    public function __construct(
+        ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+    )
     {
         if ($grantee instanceof Grantee) {
             $this->setGrantee($grantee);

@@ -52,7 +52,7 @@ class CheckSpellingResponse implements ResponseInterface
      * @param  array $misspelledWords
      * @return self
      */
-    public function __construct(bool $available, array $misspelledWords = [])
+    public function __construct(bool $available = FALSE, array $misspelledWords = [])
     {
         $this->setAvailable($available)
              ->setMisspelledWords($misspelledWords);

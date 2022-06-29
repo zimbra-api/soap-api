@@ -19,7 +19,7 @@ class CurrentVolumeInfoTest extends ZimbraTestCase
         $this->assertSame($type, $volume->getType());
         $this->assertSame($id, $volume->getId());
 
-        $volume = new CurrentVolumeInfo(0, 0);
+        $volume = new CurrentVolumeInfo();
         $volume->setId($id)
                ->setType($type);
         $this->assertSame($type, $volume->getType());

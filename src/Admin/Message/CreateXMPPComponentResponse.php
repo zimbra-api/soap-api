@@ -32,7 +32,7 @@ class CreateXMPPComponentResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private XMPPComponentInfo $component;
+    private ?XMPPComponentInfo $component = NULL;
 
     /**
      * Constructor method for CreateXMPPComponentResponse
@@ -40,9 +40,11 @@ class CreateXMPPComponentResponse implements ResponseInterface
      * @param XMPPComponentInfo $component
      * @return self
      */
-    public function __construct(XMPPComponentInfo $component)
+    public function __construct(?XMPPComponentInfo $component = NULL)
     {
-        $this->setComponent($component);
+        if ($component instanceof XMPPComponentInfo) {
+            $this->setComponent($component);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateXMPPComponentResponse implements ResponseInterface
      *
      * @return XMPPComponentInfo
      */
-    public function getComponent(): XMPPComponentInfo
+    public function getComponent(): ?XMPPComponentInfo
     {
         return $this->component;
     }

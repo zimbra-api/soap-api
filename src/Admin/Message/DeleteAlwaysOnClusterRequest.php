@@ -42,7 +42,7 @@ class DeleteAlwaysOnClusterRequest extends Request
      * @param  string $id
      * @return self
      */
-    public function __construct(string $id)
+    public function __construct(string $id = '')
     {
         $this->setId($id);
     }

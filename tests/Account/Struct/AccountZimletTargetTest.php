@@ -16,7 +16,7 @@ class AccountZimletTargetTest extends ZimbraTestCase
         $target = new AccountZimletTarget($value);
         $this->assertSame($value, $target->getValue());
 
-        $target = new AccountZimletTarget('');
+        $target = new AccountZimletTarget();
         $target->setValue($value);
         $this->assertSame($value, $target->getValue());
 

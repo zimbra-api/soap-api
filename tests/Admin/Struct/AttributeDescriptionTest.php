@@ -19,7 +19,7 @@ class AttributeDescriptionTest extends ZimbraTestCase
         $this->assertSame($name, $attr->getName());
         $this->assertSame($description, $attr->getDescription());
 
-        $attr = new AttributeDescription('', '');
+        $attr = new AttributeDescription();
         $attr->setName($name)
             ->setDescription($description);
         $this->assertSame($name, $attr->getName());

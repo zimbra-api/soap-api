@@ -17,7 +17,7 @@ class AlwaysOnClusterSelectorTest extends ZimbraTestCase
         $this->assertEquals(AlwaysOnClusterBy::ID(), $aoc->getBy());
         $this->assertSame($value, $aoc->getValue());
 
-        $aoc = new AlwaysOnClusterSelector(AlwaysOnClusterBy::ID());
+        $aoc = new AlwaysOnClusterSelector();
         $aoc->setBy(AlwaysOnClusterBy::NAME())
             ->setValue($value);
         $this->assertEquals(AlwaysOnClusterBy::NAME(), $aoc->getBy());

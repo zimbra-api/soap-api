@@ -17,7 +17,7 @@ class AttachmentIdAttribTest extends ZimbraTestCase
         $content = new AttachmentIdAttrib($aid);
         $this->assertSame($aid, $content->getAttachmentId());
 
-        $content = new AttachmentIdAttrib('');
+        $content = new AttachmentIdAttrib();
         $content->setAttachmentId($aid);
         $this->assertSame($aid, $content->getAttachmentId());
 

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminZimletInfo;
 use Zimbra\Admin\Struct\AdminZimletContext;
 use Zimbra\Admin\Struct\AdminZimletDesc;
@@ -60,14 +62,14 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $zimletConfig->setGlobal($global)
             ->setHost($host);
 
-        $zimlet = new AdminZimletInfo(
+        $zimlet = new StubAdminZimletInfo(
             $zimletContext, $zimletDesc, $zimletConfig
         );
         $this->assertSame($zimletContext, $zimlet->getZimletContext());
         $this->assertSame($zimletDesc, $zimlet->getZimlet());
         $this->assertSame($zimletConfig, $zimlet->getZimletConfig());
 
-        $zimlet = new AdminZimletInfo();
+        $zimlet = new StubAdminZimletInfo();
         $zimlet->setZimletContext($zimletContext)
             ->setZimlet($zimletDesc)
             ->setZimletConfig($zimletConfig);
@@ -78,24 +80,31 @@ class AdminZimletInfoTest extends ZimbraTestCase
         $presence = ZimletPresence::ENABLED()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
-    <zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-        <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-        <include>$value</include>
-        <includeCSS>$value</includeCSS>
-    </zimlet>
-    <zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-        <global>
-            <property name="$name">$value</property>
-        </global>
-        <host name="$name">
-            <property name="$name">$value</property>
-        </host>
-    </zimletConfig>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:zimletContext baseUrl="$baseUrl" priority="$priority" presence="$presence" />
+    <urn:zimlet name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+        <urn:include>$value</urn:include>
+        <urn:includeCSS>$value</urn:includeCSS>
+    </urn:zimlet>
+    <urn:zimletConfig name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
+        <urn:global>
+            <urn:property name="$name">$value</urn:property>
+        </urn:global>
+        <urn:host name="$name">
+            <urn:property name="$name">$value</urn:property>
+        </urn:host>
+    </urn:zimletConfig>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletInfo::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, StubAdminZimletInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAdminZimletInfo extends AdminZimletInfo
+{
 }

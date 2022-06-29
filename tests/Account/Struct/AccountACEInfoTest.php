@@ -32,7 +32,7 @@ class AccountACEInfoTest extends ZimbraTestCase
         $this->assertFalse($ace->getDeny());
         $this->assertTrue($ace->getCheckGranteeType());
 
-        $ace = new AccountACEInfo(GranteeType::ALL(), AceRightType::INVITE()->getValue());
+        $ace = new AccountACEInfo();
         $ace->setGranteeType(GranteeType::USR())
             ->setRight($right)
             ->setZimbraId($zimbraId)

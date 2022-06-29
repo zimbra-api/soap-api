@@ -92,8 +92,8 @@ class FilterRule
      * @return self
      */
     public function __construct(
-        string $name,
-        bool $active,
+        string $name = '',
+        bool $active = FALSE,
         FilterTests $tests,
         ?FilterVariables $filterVariables = NULL,
         array $actions = [],

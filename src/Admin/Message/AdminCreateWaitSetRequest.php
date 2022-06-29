@@ -64,7 +64,7 @@ class AdminCreateWaitSetRequest extends Request
      * @return self
      */
     public function __construct(
-        string $defaultInterests,
+        string $defaultInterests = '',
         ?bool $allAccounts = NULL,
         array $accounts = []
     )

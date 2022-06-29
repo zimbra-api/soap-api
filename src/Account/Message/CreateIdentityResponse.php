@@ -32,7 +32,7 @@ class CreateIdentityResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private Identity $identity;
+    private ?Identity $identity = NULL;
 
     /**
      * Constructor method for CreateIdentityResponse
@@ -40,9 +40,11 @@ class CreateIdentityResponse implements ResponseInterface
      * @param Identity $identity
      * @return self
      */
-    public function __construct(Identity $identity)
+    public function __construct(?Identity $identity = NULL)
     {
-        $this->setIdentity($identity);
+        if ($identity instanceof Identity) {
+            $this->setIdentity($identity);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateIdentityResponse implements ResponseInterface
      *
      * @return Identity
      */
-    public function getIdentity(): Identity
+    public function getIdentity(): ?Identity
     {
         return $this->identity;
     }

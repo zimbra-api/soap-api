@@ -32,7 +32,7 @@ class GetMailQueueResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private Server $server;
+    private ?Server $server = NULL;
 
     /**
      * Constructor method for GetMailQueueResponse
@@ -40,9 +40,11 @@ class GetMailQueueResponse implements ResponseInterface
      * @param Server $server
      * @return self
      */
-    public function __construct(Server $server)
+    public function __construct(?Server $server = NULL)
     {
-        $this->setServer($server);
+        if ($server instanceof Server) {
+            $this->setServer($server);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetMailQueueResponse implements ResponseInterface
      *
      * @return Server
      */
-    public function getServer(): Server
+    public function getServer(): ?Server
     {
         return $this->server;
     }

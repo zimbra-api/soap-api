@@ -51,9 +51,9 @@ class FilterTests
      * @param array $tests
      * @return self
      */
-    public function __construct(FilterCondition $condition, array $tests = [])
+    public function __construct(?FilterCondition $condition = NULL, array $tests = [])
     {
-        $this->setCondition($condition)
+        $this->setCondition($condition ?? FilterCondition::ALL_OF())
              ->setTests($tests);
     }
 

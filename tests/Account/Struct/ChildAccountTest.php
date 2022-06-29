@@ -28,7 +28,7 @@ class ChildAccountTest extends ZimbraTestCase
         $this->assertFalse($childAccount->isActive());
         $this->assertSame([$attr], $childAccount->getAttrs());
 
-        $childAccount = new MockChildAccount('', '', FALSE, FALSE);
+        $childAccount = new MockChildAccount();
         $childAccount->setName($name)
             ->setId($id)
             ->setIsVisible(TRUE)

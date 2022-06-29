@@ -23,7 +23,7 @@ class AdminZimletContextTest extends ZimbraTestCase
         $this->assertEquals(ZimletPresence::MANDATORY(), $zimletContext->getZimletPresence());
         $this->assertSame($priority, $zimletContext->getZimletPriority());
 
-        $zimletContext = new AdminZimletContext('', ZimletPresence::MANDATORY());
+        $zimletContext = new AdminZimletContext();
         $zimletContext->setZimletBaseUrl($baseUrl)
             ->setZimletPresence(ZimletPresence::ENABLED())
             ->setZimletPriority($priority);

@@ -52,10 +52,10 @@ class ContactBackupRequest extends Request
      * @param  Operation $op
      * @return self
      */
-    public function __construct(array $servers, Operation $op)
+    public function __construct(array $servers = [], ?Operation $op = NULL)
     {
         $this->setServers($servers)
-             ->setOp($op);
+             ->setOp($op ?? Operation::START());
     }
 
     /**

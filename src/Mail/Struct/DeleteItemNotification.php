@@ -47,7 +47,7 @@ class DeleteItemNotification
      * @param  string $type
      * @return self
      */
-    public function __construct(int $id, string $type)
+    public function __construct(int $id = 0, string $type = '')
     {
         $this->setId($id)
              ->setType($type);

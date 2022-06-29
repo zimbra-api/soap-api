@@ -2,6 +2,8 @@
 
 namespace Zimbra\Admin\Struct\Tests;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Admin\SerializerHandler;
 
@@ -30,39 +32,46 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
         $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
 
-        $filter = new EntrySearchFilterInfo($conds);
+        $filter = new StubEntrySearchFilterInfo($conds);
         $this->assertSame($conds, $filter->getConditions());
         $filter->setCondition($conds);
         $this->assertSame($conds, $filter->getConditions());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <conds not="true" or="false">
-        <conds not="false" or="true">
-            <cond attr="$attr" op="ge" value="$value" not="false" />
-        </conds>
-        <cond attr="$attr" op="eq" value="$value" not="true" />
-    </conds>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:conds not="true" or="false">
+        <urn:conds not="false" or="true">
+            <urn:cond attr="$attr" op="ge" value="$value" not="false" />
+        </urn:conds>
+        <curn:ond attr="$attr" op="eq" value="$value" not="true" />
+    </urn:conds>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
 
-        $filter = $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml');
+        $filter = $this->serializer->deserialize($xml, StubEntrySearchFilterInfo::class, 'xml');
         $this->assertEquals($conds, $filter->getConditions());
 
-        $filter = new EntrySearchFilterInfo($cond);
+        $filter = new StubEntrySearchFilterInfo($cond);
         $this->assertSame($cond, $filter->getCondition());
         $filter->setCondition($cond);
         $this->assertSame($cond, $filter->getCondition());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <cond attr="$attr" op="eq" value="$value" not="true" />
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:cond attr="$attr" op="eq" value="$value" not="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filter, 'xml'));
-        $this->assertEquals($filter, $this->serializer->deserialize($xml, EntrySearchFilterInfo::class, 'xml'));
+        $this->assertEquals($filter, $this->serializer->deserialize($xml, StubEntrySearchFilterInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubEntrySearchFilterInfo extends EntrySearchFilterInfo
+{
 }

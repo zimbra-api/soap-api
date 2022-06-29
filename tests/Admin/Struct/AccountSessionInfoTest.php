@@ -31,7 +31,7 @@ class AccountSessionInfoTest extends ZimbraTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame([$session], $info->getSessions());
 
-        $info = new StubAccountSessionInfo('', '');
+        $info = new StubAccountSessionInfo();
         $info->setName($name)
             ->setId($id)
             ->setSessions([$session])

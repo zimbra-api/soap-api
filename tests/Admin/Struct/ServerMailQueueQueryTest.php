@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ServerMailQueueQuery;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
@@ -29,11 +31,11 @@ class ServerMailQueueQueryTest extends ZimbraTestCase
         );
         $queue = new MailQueueQuery($query, $name, TRUE, $wait);
 
-        $server = new ServerMailQueueQuery($queue, $name);
+        $server = new StubServerMailQueueQuery($queue, $name);
         $this->assertSame($name, $server->getServerName());
         $this->assertSame($queue, $server->getQueue());
 
-        $server = new ServerMailQueueQuery(new MailQueueQuery($query, ''), '');
+        $server = new StubServerMailQueueQuery(new MailQueueQuery($query));
         $server->setServerName($name)
                ->setQueue($queue);
         $this->assertSame($name, $server->getServerName());
@@ -41,17 +43,24 @@ class ServerMailQueueQueryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <queue name="$name" scan="true" wait="$wait">
-        <query limit="$limit" offset="$offset">
-            <field name="$name">
-                <match value="$value" />
-            </field>
-        </query>
-    </queue>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:queue name="$name" scan="true" wait="$wait">
+        <urn:query limit="$limit" offset="$offset">
+            <urn:field name="$name">
+                <urn:match value="$value" />
+            </urn:field>
+        </urn:query>
+    </urn:queue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
-        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerMailQueueQuery::class, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, StubServerMailQueueQuery::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubServerMailQueueQuery extends ServerMailQueueQuery
+{
 }

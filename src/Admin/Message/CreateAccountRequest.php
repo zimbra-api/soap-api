@@ -59,7 +59,7 @@ class CreateAccountRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name, ?string $password = NULL, array $attrs = []
+        string $name = '', ?string $password = NULL, array $attrs = []
     )
     {
         $this->setName($name)

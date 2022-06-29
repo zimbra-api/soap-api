@@ -32,7 +32,7 @@ class RenameUCServiceResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private UCServiceInfo $ucService;
+    private ?UCServiceInfo $ucService = NULL;
 
     /**
      * Constructor method for RenameUCServiceResponse
@@ -40,9 +40,11 @@ class RenameUCServiceResponse implements ResponseInterface
      * @param UCServiceInfo $ucService
      * @return self
      */
-    public function __construct(UCServiceInfo $ucService)
+    public function __construct(?UCServiceInfo $ucService = NULL)
     {
-        $this->setUCService($ucService);
+        if ($ucService instanceof UCServiceInfo) {
+            $this->setUCService($ucService);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class RenameUCServiceResponse implements ResponseInterface
      *
      * @return UCServiceInfo
      */
-    public function getUCService(): UCServiceInfo
+    public function getUCService(): ?UCServiceInfo
     {
         return $this->ucService;
     }

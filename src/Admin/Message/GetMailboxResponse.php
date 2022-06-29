@@ -32,7 +32,7 @@ class GetMailboxResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private Mailbox $mbox;
+    private ?Mailbox $mbox = NULL;
 
     /**
      * Constructor method for GetMailboxResponse
@@ -40,9 +40,11 @@ class GetMailboxResponse implements ResponseInterface
      * @param Mailbox $mbox
      * @return self
      */
-    public function __construct(Mailbox $mbox)
+    public function __construct(?Mailbox $mbox = NULL)
     {
-        $this->setMbox($mbox);
+        if ($mbox instanceof Mailbox) {
+            $this->setMbox($mbox);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetMailboxResponse implements ResponseInterface
      *
      * @return Mailbox
      */
-    public function getMbox(): Mailbox
+    public function getMbox(): ?Mailbox
     {
         return $this->mbox;
     }

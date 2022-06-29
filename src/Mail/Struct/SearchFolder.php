@@ -60,8 +60,8 @@ class SearchFolder extends Folder
      * @return self
      */
     public function __construct(
-        string $id,
-        string $uuid,
+        string $id = '',
+        string $uuid = '',
         ?string $query = NULL,
         ?SearchSortBy $sortBy = NULL,
         ?string $types = NULL

@@ -52,6 +52,78 @@ class MsgToSend extends Msg
     private $dataSourceId;
 
     /**
+     * Constructor method for Msg
+     *
+     * @param  string $attachmentId
+     * @param  string $origId
+     * @param  ReplyType $replyType
+     * @param  string $identityId
+     * @param  string $subject
+     * @param  array $headers
+     * @param  string $inReplyTo
+     * @param  string $folderId
+     * @param  string $flags
+     * @param  string $content
+     * @param  MimePartInfo $mimePart
+     * @param  AttachmentsInfo $attachments
+     * @param  InvitationInfo $invite
+     * @param  array $emailAddresses
+     * @param  array $timezones
+     * @param  string $fragment
+     * @return self
+     */
+    public function __construct(
+        ?string $attachmentId = NULL,
+        ?string $origId = NULL,
+        ?ReplyType $replyType = NULL,
+        ?string $identityId = NULL,
+        ?string $subject = NULL,
+        array $headers = [],
+        ?string $inReplyTo = NULL,
+        ?string $folderId = NULL,
+        ?string $flags = NULL,
+        ?string $content = NULL,
+        ?MimePartInfo $mimePart = NULL,
+        ?AttachmentsInfo $attachments = NULL,
+        ?InvitationInfo $invite = NULL,
+        array $emailAddresses = [],
+        array $timezones = [],
+        ?string $fragment = NULL,
+        ?string $draftId = NULL,
+        ?bool $sendFromDraft = NULL,
+        ?string $dataSourceId = NULL
+    )
+    {
+        parent::__construct(
+            $attachmentId,
+            $origId,
+            $replyType,
+            $identityId,
+            $subject,
+            $headers,
+            $inReplyTo,
+            $folderId,
+            $flags,
+            $content,
+            $mimePart,
+            $attachments,
+            $invite,
+            $emailAddresses,
+            $timezones,
+            $fragment
+        );
+        if (NULL !== $draftId) {
+            $this->setDraftId($draftId);
+        }
+        if (NULL !== $sendFromDraft) {
+            $this->setSendFromDraft($sendFromDraft);
+        }
+        if (NULL !== $dataSourceId) {
+            $this->setDataSourceId($dataSourceId);
+        }
+    }
+
+    /**
      * Gets draftId
      *
      * @return string

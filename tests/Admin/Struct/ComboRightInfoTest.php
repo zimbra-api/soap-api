@@ -23,7 +23,7 @@ class ComboRightInfoTest extends ZimbraTestCase
         $this->assertEquals(RightType::COMBO(), $right->getType());
         $this->assertSame($targetType, $right->getTargetType());
 
-        $right = new ComboRightInfo('', RightType::COMBO());
+        $right = new ComboRightInfo();
         $right->setName($name)
             ->setType(RightType::PRESET())
             ->setTargetType($targetType);

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\ValueAttrib;
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,11 +22,11 @@ class QueueQueryFieldTest extends ZimbraTestCase
         $match1 = new ValueAttrib($value1);
         $match2 = new ValueAttrib($value2);
 
-        $field = new QueueQueryField($name, [$match1]);
+        $field = new StubQueueQueryField($name, [$match1]);
         $this->assertSame($name, $field->getName());
         $this->assertSame([$match1], $field->getMatches());
 
-        $field = new QueueQueryField('');
+        $field = new StubQueueQueryField();
         $field->setName($name)
               ->setMatches([$match1])
               ->addMatch($match2);
@@ -33,12 +35,19 @@ class QueueQueryFieldTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <match value="$value1" />
-    <match value="$value2" />
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:match value="$value1" />
+    <urn:match value="$value2" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($field, 'xml'));
-        $this->assertEquals($field, $this->serializer->deserialize($xml, QueueQueryField::class, 'xml'));
+        $this->assertEquals($field, $this->serializer->deserialize($xml, StubQueueQueryField::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubQueueQueryField extends QueueQueryField
+{
 }

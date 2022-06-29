@@ -66,9 +66,11 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @param  ContactInterface $contact
      * @return self
      */
-    public function __construct(MemberType $type, string $value, ?ContactInterface $contact = NULL)
+    public function __construct(
+        ?MemberType $type = NULL, string $value = '', ?ContactInterface $contact = NULL
+    )
     {
-        $this->setType($type)
+        $this->setType($type ?? MemberType::CONTACT())
              ->setValue($value);
         if ($contact instanceof ContactInfo) {
             $this->setContact($contact);

@@ -44,7 +44,7 @@ class MailboxInfoTest extends ZimbraTestCase
         $this->assertSame($lastSoapAccess, $mbox->getLastSoapAccess());
         $this->assertSame($newMessages, $mbox->getNewMessages());
 
-        $mbox = new MailboxInfo(0, 0, '', 0, 0, 0, 0, 0, 0, FALSE, 0, 0, 0);
+        $mbox = new MailboxInfo();
         $mbox->setId($id)
             ->setGroupId($groupId)
             ->setAccountId($accountId)

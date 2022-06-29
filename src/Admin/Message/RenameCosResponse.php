@@ -32,7 +32,7 @@ class RenameCosResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private CosInfo $cos;
+    private ?CosInfo $cos = NULL;
 
     /**
      * Constructor method for RenameCosResponse
@@ -40,9 +40,11 @@ class RenameCosResponse implements ResponseInterface
      * @param CosInfo $cos
      * @return self
      */
-    public function __construct(CosInfo $cos)
+    public function __construct(?CosInfo $cos = NULL)
     {
-        $this->setCos($cos);
+        if ($cos instanceof CosInfo) {
+            $this->setCos($cos);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class RenameCosResponse implements ResponseInterface
      *
      * @return CosInfo
      */
-    public function getCos(): CosInfo
+    public function getCos(): ?CosInfo
     {
         return $this->cos;
     }

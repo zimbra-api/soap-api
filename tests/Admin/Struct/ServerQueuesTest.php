@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ServerQueues;
 use Zimbra\Admin\Struct\MailQueueCount;
 use Zimbra\Tests\ZimbraTestCase;
@@ -18,11 +20,11 @@ class ServerQueuesTest extends ZimbraTestCase
 
         $queue = new MailQueueCount($name, $count);
 
-        $server = new ServerQueues($name, [$queue]);
+        $server = new StubServerQueues($name, [$queue]);
         $this->assertSame($name, $server->getServerName());
         $this->assertSame([$queue], $server->getQueues());
 
-        $server = new ServerQueues('');
+        $server = new StubServerQueues();
         $server->setServerName($name)
             ->setQueues([$queue])
             ->addQueue($queue);
@@ -32,11 +34,18 @@ class ServerQueuesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <queue name="$name" n="$count" />
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:queue name="$name" n="$count" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
-        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerQueues::class, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, StubServerQueues::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubServerQueues extends ServerQueues
+{
 }

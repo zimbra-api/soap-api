@@ -33,7 +33,7 @@ class GetZimletStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ZimletStatusParent $zimlets;
+    private ?ZimletStatusParent $zimlets = NULL;
 
     /**
      * Class Of Service (COS) Information
@@ -52,10 +52,12 @@ class GetZimletStatusResponse implements ResponseInterface
      * @param array $coses
      * @return self
      */
-    public function __construct(ZimletStatusParent $zimlets, array $coses = [])
+    public function __construct(?ZimletStatusParent $zimlets = NULL, array $coses = [])
     {
-        $this->setZimlets($zimlets)
-             ->setCoses($coses);
+        $this->setCoses($coses);
+        if ($zimlets instanceof ZimletStatusParent) {
+            $this->setZimlets($zimlets);
+        }
     }
 
     /**
@@ -63,7 +65,7 @@ class GetZimletStatusResponse implements ResponseInterface
      *
      * @return ZimletStatusParent
      */
-    public function getZimlets(): ZimletStatusParent
+    public function getZimlets(): ?ZimletStatusParent
     {
         return $this->zimlets;
     }

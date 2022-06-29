@@ -14,15 +14,15 @@ class DistributionListSubscribeReqTest extends ZimbraTestCase
     public function testDistributionListSubscribeReq()
     {
         $value = $this->faker->word;
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), $value, false);
+        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE(), $value, FALSE);
         $this->assertEquals(DLSubscribeOp::UNSUBSCRIBE(), $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertFalse($subsReq->getBccOwners());
 
-        $subsReq = new DistributionListSubscribeReq(DLSubscribeOp::UNSUBSCRIBE());
+        $subsReq = new DistributionListSubscribeReq();
         $subsReq->setOp(DLSubscribeOp::SUBSCRIBE())
                 ->setValue($value)
-                ->setBccOwners(true);
+                ->setBccOwners(TRUE);
         $this->assertEquals(DLSubscribeOp::SUBSCRIBE(), $subsReq->getOp());
         $this->assertSame($value, $subsReq->getValue());
         $this->assertTrue($subsReq->getBccOwners());

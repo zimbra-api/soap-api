@@ -32,7 +32,7 @@ class RecalculateMailboxCountsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxQuotaInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private Mailbox $mailbox;
+    private ?Mailbox $mailbox = NULL;
 
     /**
      * Constructor method for RecalculateMailboxCountsResponse
@@ -40,9 +40,11 @@ class RecalculateMailboxCountsResponse implements ResponseInterface
      * @param Mailbox $mailbox
      * @return self
      */
-    public function __construct(Mailbox $mailbox)
+    public function __construct(?Mailbox $mailbox = NULL)
     {
-        $this->setMailbox($mailbox);
+        if ($mailbox instanceof Mailbox) {
+            $this->setMailbox($mailbox);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class RecalculateMailboxCountsResponse implements ResponseInterface
      *
      * @return Mailbox
      */
-    public function getMailbox(): Mailbox
+    public function getMailbox(): ?Mailbox
     {
         return $this->mailbox;
     }

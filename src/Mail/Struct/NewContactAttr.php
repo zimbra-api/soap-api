@@ -81,7 +81,7 @@ class NewContactAttr
      * @return self
      */
     public function __construct(
-        string $name, ?string $attachId = NULL, ?int $id = NULL, ?string $part = NULL, ?string $value = NULL
+        string $name = '', ?string $attachId = NULL, ?int $id = NULL, ?string $part = NULL, ?string $value = NULL
     )
     {
         $this->setName($name);

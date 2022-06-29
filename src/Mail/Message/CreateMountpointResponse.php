@@ -32,7 +32,7 @@ class CreateMountpointResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\Mountpoint")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private Mountpoint $mount;
+    private ?Mountpoint $mount = NULL;
 
     /**
      * Constructor method for CreateMountpointResponse
@@ -40,9 +40,11 @@ class CreateMountpointResponse implements ResponseInterface
      * @param  Mountpoint $mount
      * @return self
      */
-    public function __construct(Mountpoint $mount)
+    public function __construct(?Mountpoint $mount = NULL)
     {
-        $this->setMount($mount);
+        if ($mount instanceof Mountpoint) {
+            $this->setMount($mount);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateMountpointResponse implements ResponseInterface
      *
      * @return Mountpoint
      */
-    public function getMount(): Mountpoint
+    public function getMount(): ?Mountpoint
     {
         return $this->mount;
     }

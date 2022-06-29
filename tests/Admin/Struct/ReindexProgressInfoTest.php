@@ -21,7 +21,7 @@ class ReindexProgressInfoTest extends ZimbraTestCase
         $this->assertSame($numFailed, $progress->getNumFailed());
         $this->assertSame($numRemaining, $progress->getNumRemaining());
 
-        $progress = new ReindexProgressInfo(0, 0, 0);
+        $progress = new ReindexProgressInfo();
         $progress->setNumSucceeded($numSucceeded)
              ->setNumFailed($numFailed)
              ->setNumRemaining($numRemaining);

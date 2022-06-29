@@ -18,7 +18,7 @@ class DistributionListSelectorTest extends ZimbraTestCase
         $this->assertEquals(DLBy::ID(), $dl->getBy());
         $this->assertSame($value, $dl->getValue());
 
-        $dl = new DistributionListSelector(DLBy::ID());
+        $dl = new DistributionListSelector();
         $dl->setBy(DLBy::NAME())
            ->setValue($value);
         $this->assertEquals(DLBy::NAME(), $dl->getBy());

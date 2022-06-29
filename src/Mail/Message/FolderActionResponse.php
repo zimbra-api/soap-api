@@ -32,7 +32,7 @@ class FolderActionResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private FolderActionResult $action;
+    private ?FolderActionResult $action = NULL;
 
     /**
      * Constructor method for FolderActionResponse
@@ -40,9 +40,11 @@ class FolderActionResponse implements ResponseInterface
      * @param  FolderActionResult $action
      * @return self
      */
-    public function __construct(FolderActionResult $action)
+    public function __construct(?FolderActionResult $action = NULL)
     {
-        $this->setAction($action);
+        if ($action instanceof FolderActionResult) {
+            $this->setAction($action);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class FolderActionResponse implements ResponseInterface
      *
      * @return FolderActionResult
      */
-    public function getAction(): FolderActionResult
+    public function getAction(): ?FolderActionResult
     {
         return $this->action;
     }

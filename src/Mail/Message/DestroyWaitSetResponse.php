@@ -40,7 +40,7 @@ class DestroyWaitSetResponse implements ResponseInterface
      * @param  string $waitSetId
      * @return self
      */
-    public function __construct(string $waitSetId)
+    public function __construct(string $waitSetId = '')
     {
         $this->setWaitSetId($waitSetId);
     }

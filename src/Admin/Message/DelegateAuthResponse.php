@@ -49,7 +49,7 @@ class DelegateAuthResponse implements ResponseInterface
      * @param int    $lifetime
      * @return self
      */
-    public function __construct(string $authToken, int $lifetime)
+    public function __construct(string $authToken = '', int $lifetime = 0)
     {
         $this->setAuthToken($authToken)
              ->setLifetime($lifetime);

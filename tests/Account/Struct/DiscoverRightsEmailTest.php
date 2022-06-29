@@ -16,7 +16,7 @@ class DiscoverRightsEmailTest extends ZimbraTestCase
         $email = new DiscoverRightsEmail($addr);
         $this->assertSame($addr, $email->getAddr());
 
-        $email = new DiscoverRightsEmail('');
+        $email = new DiscoverRightsEmail();
         $email->setAddr($addr);
         $this->assertSame($addr, $email->getAddr());
 

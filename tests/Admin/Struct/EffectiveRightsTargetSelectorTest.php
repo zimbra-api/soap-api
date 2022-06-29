@@ -22,7 +22,7 @@ class EffectiveRightsTargetSelectorTest extends ZimbraTestCase
         $this->assertEquals(TargetBy::ID(), $target->getBy());
         $this->assertSame($value, $target->getValue());
 
-        $target = new EffectiveRightsTargetSelector(TargetType::DOMAIN(), TargetBy::ID());
+        $target = new EffectiveRightsTargetSelector();
         $target->setType(TargetType::ACCOUNT())
                ->setBy(TargetBy::NAME())
                ->setValue($value);

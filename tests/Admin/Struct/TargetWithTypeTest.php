@@ -18,7 +18,7 @@ class TargetWithTypeTest extends ZimbraTestCase
         $this->assertSame($type, $target->getType());
         $this->assertSame($value, $target->getValue());
 
-        $target = new TargetWithType('');
+        $target = new TargetWithType();
         $target->setType($type)
                ->setValue($value);
         $this->assertSame($type, $target->getType());

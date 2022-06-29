@@ -59,7 +59,9 @@ class ImapMessageInfo extends IMAPItemInfo
      * @param  string $tags IMAP UID
      * @return self
      */
-    public function __construct(int $id, int $imapUid, string $type, int $flags, string $tags)
+    public function __construct(
+        int $id = 0, int $imapUid = 0, string $type = '', int $flags = 0, string $tags = ''
+    )
     {
         parent::__construct($id, $imapUid);
         $this->setType($type)

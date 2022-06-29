@@ -21,7 +21,7 @@ class SyncGalAccountDataSourceSpecTest extends ZimbraTestCase
         $this->assertFalse($ds->getFullSync());
         $this->assertTrue($ds->getReset());
 
-        $ds = new SyncGalAccountDataSourceSpec(DataSourceBy::ID(), '', FALSE, TRUE);
+        $ds = new SyncGalAccountDataSourceSpec();
         $ds->setBy(DataSourceBy::NAME())
            ->setValue($value)
            ->setFullSync(TRUE)

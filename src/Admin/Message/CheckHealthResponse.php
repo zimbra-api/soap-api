@@ -39,7 +39,7 @@ class CheckHealthResponse implements ResponseInterface
      * @param bool $healthy
      * @return self
      */
-    public function __construct(bool $healthy)
+    public function __construct(bool $healthy = FALSE)
     {
         $this->setHealthy($healthy);
     }

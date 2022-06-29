@@ -32,7 +32,7 @@ class AddCommentResponse implements ResponseInterface
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private Id $comment;
+    private ?Id $comment = NULL;
 
     /**
      * Constructor method for AddCommentResponse
@@ -40,9 +40,11 @@ class AddCommentResponse implements ResponseInterface
      * @param  Id $comment
      * @return self
      */
-    public function __construct(Id $comment)
+    public function __construct(?Id $comment = NULL)
     {
-        $this->setComment($comment);
+        if ($comment instanceof Id) {
+            $this->setComment($comment);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class AddCommentResponse implements ResponseInterface
      *
      * @return Id
      */
-    public function getComment(): Id
+    public function getComment(): ?Id
     {
         return $this->comment;
     }

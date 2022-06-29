@@ -50,7 +50,7 @@ class DeleteDistributionListRequest extends Request
      * @param  bool   $cascadeDelete
      * @return self
      */
-    public function __construct(string $id, ?bool $cascadeDelete = NULL)
+    public function __construct(string $id = '', ?bool $cascadeDelete = NULL)
     {
         $this->setId($id);
         if (NULL !== $cascadeDelete) {

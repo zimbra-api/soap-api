@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ComboRightInfo;
 use Zimbra\Admin\Struct\ComboRights;
@@ -29,7 +31,7 @@ class RightInfoTest extends ZimbraTestCase
             $name, RightType::PRESET(), $targetType
         )]);
 
-        $right = new RightInfo($name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, $attrs, $rights);
+        $right = new StubRightInfo($name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, $attrs, $rights);
         $this->assertSame($name, $right->getName());
         $this->assertEquals(RightType::PRESET(), $right->getType());
         $this->assertEquals(RightClass::ALL(), $right->getRightClass());
@@ -38,7 +40,7 @@ class RightInfoTest extends ZimbraTestCase
         $this->assertSame($attrs, $right->getAttrs());
         $this->assertSame($rights, $right->getRights());
 
-        $right = new RightInfo('', RightType::COMBO(), RightClass::ADMIN(), '');
+        $right = new StubRightInfo();
         $right->setName($name)
              ->setType(RightType::PRESET())
              ->setRightClass(RightClass::ALL())
@@ -56,17 +58,24 @@ class RightInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" type="preset" targetType="$targetType" rightClass="ALL">
-    <desc>$desc</desc>
-    <attrs all="true">
-        <a n="$key">$value</a>
-    </attrs>
-    <rights>
-        <r n="$name" type="preset" targetType="$targetType" />
-    </rights>
+<result name="$name" type="preset" targetType="$targetType" rightClass="ALL" xmlns:urn="urn:zimbraAdmin">
+    <urn:desc>$desc</urn:desc>
+    <urn:attrs all="true">
+        <urn:a n="$key">$value</urn:a>
+    </urn:attrs>
+    <urn:rights>
+        <urn:r n="$name" type="preset" targetType="$targetType" />
+    </urn:rights>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
-        $this->assertEquals($right, $this->serializer->deserialize($xml, RightInfo::class, 'xml'));
+        $this->assertEquals($right, $this->serializer->deserialize($xml, StubRightInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubRightInfo extends RightInfo
+{
 }

@@ -70,7 +70,7 @@ class InviteWithGroupInfo
      * @return self
      */
     public function __construct(
-        string $calItemType,
+        string $calItemType = '',
         array $timezones = [],
         array $inviteComponents = [],
         array $calendarReplies = []

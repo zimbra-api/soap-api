@@ -107,8 +107,8 @@ class GetFreeBusyRequest extends Request
      * @return self
      */
     public function __construct(
-        int $startTime,
-        int $endTime,
+        int $startTime = 0,
+        int $endTime = 0,
         ?string $uid = NULL,
         ?string $id = NULL,
         ?string $name = NULL,

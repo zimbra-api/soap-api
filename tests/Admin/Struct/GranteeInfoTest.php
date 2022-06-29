@@ -23,7 +23,7 @@ class GranteeInfoTest extends ZimbraTestCase
         $this->assertSame($name, $grantee->getName());
         $this->assertEquals(GranteeType::ALL(), $grantee->getType());
 
-        $grantee = new GranteeInfo('', '');
+        $grantee = new GranteeInfo();
         $grantee->setId($id)
                 ->setName($name)
                 ->setType(GranteeType::USR());

@@ -32,7 +32,7 @@ class RunUnitTestsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private TestResultInfo $results;
+    private ?TestResultInfo $results = NULL;
 
     /**
      * Number of executed tests
@@ -61,13 +61,16 @@ class RunUnitTestsResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-    	TestResultInfo $results,
-        int $numExecuted,
-        int $numFailed)
+        ?TestResultInfo $results = NULL,
+        int $numExecuted = 0,
+        int $numFailed = 0
+    )
     {
-        $this->setResults($results)
-        	 ->setNumExecuted($numExecuted)
-        	 ->setNumFailed($numFailed);
+        $this->setNumExecuted($numExecuted)
+             ->setNumFailed($numFailed);
+        if ($results instanceof TestResultInfo) {
+            $this->setResults($results);
+        }
     }
 
     /**
@@ -75,7 +78,7 @@ class RunUnitTestsResponse implements ResponseInterface
      *
      * @return string
      */
-    public function getResults(): TestResultInfo
+    public function getResults(): ?TestResultInfo
     {
         return $this->results;
     }

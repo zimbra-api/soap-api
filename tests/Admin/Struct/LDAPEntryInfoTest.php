@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\LDAPEntryInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -18,20 +20,27 @@ class LDAPEntryInfoTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $ldap = new LDAPEntryInfo($name, [$attr]);
+        $ldap = new StubLDAPEntryInfo($name, [$attr]);
         $this->assertSame($name, $ldap->getName());
 
-        $ldap = new LDAPEntryInfo('', [$attr]);
+        $ldap = new StubLDAPEntryInfo('', [$attr]);
         $ldap->setName($name);
         $this->assertSame($name, $ldap->getName());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <a n="$key">$value</a>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ldap, 'xml'));
-        $this->assertEquals($ldap, $this->serializer->deserialize($xml, LDAPEntryInfo::class, 'xml'));
+        $this->assertEquals($ldap, $this->serializer->deserialize($xml, StubLDAPEntryInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubLDAPEntryInfo extends LDAPEntryInfo
+{
 }

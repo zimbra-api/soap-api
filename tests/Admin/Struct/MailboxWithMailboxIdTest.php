@@ -21,7 +21,7 @@ class MailboxWithMailboxIdTest extends ZimbraTestCase
         $this->assertSame($id, $mbox->getAccountId());
         $this->assertSame($size, $mbox->getSize());
 
-        $mbox = new MailboxWithMailboxId(0, '');
+        $mbox = new MailboxWithMailboxId();
         $mbox->setMbxid($mbxid)
             ->setAccountId($id)
             ->setSize($size);

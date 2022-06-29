@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -18,15 +20,22 @@ class DomainInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $domain = new DomainInfo($name, $id, [new Attr($key, $value)]);
+        $domain = new StubDomainInfo($name, $id, [new Attr($key, $value)]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($domain, 'xml'));
-        $this->assertEquals($domain, $this->serializer->deserialize($xml, DomainInfo::class, 'xml'));
+        $this->assertEquals($domain, $this->serializer->deserialize($xml, StubDomainInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubDomainInfo extends DomainInfo
+{
 }

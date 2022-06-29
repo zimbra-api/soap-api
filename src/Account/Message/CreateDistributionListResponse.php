@@ -32,7 +32,7 @@ class CreateDistributionListResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\DLInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private DLInfo $dl;
+    private ?DLInfo $dl = NULL;
 
     /**
      * Constructor method for CreateDistributionListResponse
@@ -40,9 +40,11 @@ class CreateDistributionListResponse implements ResponseInterface
      * @param DLInfo $dl
      * @return self
      */
-    public function __construct(DLInfo $dl)
+    public function __construct(?DLInfo $dl = NULL)
     {
-        $this->setDl($dl);
+        if ($dl instanceof DLInfo) {
+            $this->setDl($dl);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class CreateDistributionListResponse implements ResponseInterface
      *
      * @return DLInfo
      */
-    public function getDl(): DLInfo
+    public function getDl(): ?DLInfo
     {
         return $this->dl;
     }

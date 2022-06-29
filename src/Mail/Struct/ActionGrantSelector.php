@@ -100,8 +100,8 @@ class ActionGrantSelector
      * @return self
      */
     public function __construct(
-        string $rights,
-        GranteeType $grantType,
+        string $rights = '',
+        ?GranteeType $grantType = NULL,
         ?string $zimbraId = NULL,
         ?string $displayName = NULL,
         ?string $args = NULL,
@@ -110,7 +110,7 @@ class ActionGrantSelector
     )
     {
         $this->setRights($rights)
-             ->setGrantType($grantType);
+             ->setGrantType($grantType ?? GranteeType::ALL());
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }

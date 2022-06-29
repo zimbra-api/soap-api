@@ -74,13 +74,13 @@ class InviteInfo implements InviteInfoInterface
      * @return self
      */
     public function __construct(
-        InviteType $calItemType,
+        ?InviteType $calItemType = NULL,
         array $timezones = [],
         ?InviteComponent $inviteComponent = NULL,
         array $calendarReplies = []
     )
     {
-        $this->setCalItemType($calItemType)
+        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT())
              ->setTimezones($timezones)
              ->setCalendarReplies($calendarReplies);
         if ($inviteComponent instanceof InviteComponent) {

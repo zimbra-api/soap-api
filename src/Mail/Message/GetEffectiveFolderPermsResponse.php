@@ -32,7 +32,7 @@ class GetEffectiveFolderPermsResponse implements ResponseInterface
      * @Type("Zimbra\Mail\Struct\Rights")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private Rights $folder;
+    private ?Rights $folder = NULL;
 
     /**
      * Constructor method for GetEffectiveFolderPermsResponse
@@ -40,9 +40,11 @@ class GetEffectiveFolderPermsResponse implements ResponseInterface
      * @param  Rights $folder
      * @return self
      */
-    public function __construct(Rights $folder)
+    public function __construct(?Rights $folder = NULL)
     {
-        $this->setFolder($folder);
+        if ($folder instanceof Rights) {
+            $this->setFolder($folder);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetEffectiveFolderPermsResponse implements ResponseInterface
      *
      * @return Rights
      */
-    public function getFolder(): Rights
+    public function getFolder(): ?Rights
     {
         return $this->folder;
     }

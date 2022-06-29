@@ -32,7 +32,7 @@ class GetMailboxStatsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\MailboxStats")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private MailboxStats $stats;
+    private ?MailboxStats $stats = NULL;
 
     /**
      * Constructor method for GetMailboxStatsResponse
@@ -40,9 +40,11 @@ class GetMailboxStatsResponse implements ResponseInterface
      * @param MailboxStats $stats
      * @return self
      */
-    public function __construct(MailboxStats $stats)
+    public function __construct(?MailboxStats $stats = NULL)
     {
-        $this->setStats($stats);
+        if ($stats instanceof MailboxStats) {
+            $this->setStats($stats);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetMailboxStatsResponse implements ResponseInterface
      *
      * @return MailboxStats
      */
-    public function getStats(): MailboxStats
+    public function getStats(): ?MailboxStats
     {
         return $this->stats;
     }

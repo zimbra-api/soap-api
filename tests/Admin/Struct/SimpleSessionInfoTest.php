@@ -27,7 +27,7 @@ class SimpleSessionInfoTest extends ZimbraTestCase
         $this->assertSame($createdDate, $session->getCreatedDate());
         $this->assertSame($lastAccessedDate, $session->getLastAccessedDate());
 
-        $session = new SimpleSessionInfo('', '', '', 0, 0);
+        $session = new SimpleSessionInfo();
         $session->setSessionId($sessionId)
             ->setCreatedDate($createdDate)
             ->setLastAccessedDate($lastAccessedDate)

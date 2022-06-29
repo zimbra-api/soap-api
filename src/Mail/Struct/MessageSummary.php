@@ -89,7 +89,7 @@ class MessageSummary extends MessageCommon
      * @return self
      */
     public function __construct(
-        string $id,
+        string $id = '',
         ?int $autoSendTime = NULL,
         array $emails = [],
         ?string $subject = NULL,

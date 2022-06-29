@@ -64,8 +64,8 @@ class FolderActionResult extends ActionResult
      * @return self
      */
     public function __construct(
-        string $id,
-        string $operation,
+        string $id = '',
+        string $operation = '',
         ?string $nonExistentIds = NULL,
         ?string $newlyCreatedIds = NULL,
         ?string $zimbraId = NULL,

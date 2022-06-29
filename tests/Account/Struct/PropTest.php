@@ -21,7 +21,7 @@ class PropTest extends ZimbraTestCase
         $this->assertSame($name, $prop->getName());
         $this->assertSame($value, $prop->getValue());
 
-        $prop = new Prop('', '');
+        $prop = new Prop();
         $prop->setZimlet($zimlet)
              ->setName($name)
              ->setValue($value);

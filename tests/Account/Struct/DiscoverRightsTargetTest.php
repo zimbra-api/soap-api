@@ -31,7 +31,7 @@ class DiscoverRightsTargetTest extends ZimbraTestCase
         $this->assertSame($displayName, $target->getDisplayName());
         $this->assertSame([$email], $target->getEmails());
 
-        $target = new MockDiscoverRightsTarget(TargetType::DOMAIN());
+        $target = new MockDiscoverRightsTarget();
         $target->setType($type)
             ->setId($id)
             ->setName($name)

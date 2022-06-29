@@ -19,7 +19,7 @@ class PrincipalSelectorTest extends ZimbraTestCase
         $this->assertEquals(PrincipalBy::DN(), $pri->getBy());
         $this->assertSame($value, $pri->getValue());
 
-        $pri = new PrincipalSelector(PrincipalBy::DN());
+        $pri = new PrincipalSelector();
         $pri->setBy(PrincipalBy::NAME())
             ->setValue($value);
         $this->assertEquals(PrincipalBy::NAME(), $pri->getBy());

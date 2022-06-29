@@ -18,7 +18,7 @@ class BufferedCommitInfoTest extends ZimbraTestCase
         $this->assertSame($aid, $commit->getAid());
         $this->assertSame($cid, $commit->getCid());
 
-        $commit = new BufferedCommitInfo('', '');
+        $commit = new BufferedCommitInfo();
         $commit->setAid($aid)
             ->setCid($cid);
         $this->assertSame($aid, $commit->getAid());

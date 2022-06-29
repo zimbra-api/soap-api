@@ -49,7 +49,7 @@ class BounceMsgSpec
      * @return self
      */
     public function __construct(
-        string $id,
+        string $id = '',
         array $emailAddresses = []
     )
     {

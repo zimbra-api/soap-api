@@ -19,7 +19,7 @@ class AuthTokenTest extends ZimbraTestCase
         $this->assertFalse($token->getVerifyAccount());
         $this->assertSame($lifetime, $token->getLifetime());
 
-        $token = new AuthToken('');
+        $token = new AuthToken();
         $token->setValue($value)
             ->setVerifyAccount(TRUE)
             ->setLifetime($lifetime);

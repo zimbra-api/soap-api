@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminZimletDesc;
 use Zimbra\Admin\Struct\AdminZimletInclude;
 use Zimbra\Admin\Struct\AdminZimletIncludeCSS;
@@ -32,7 +34,7 @@ class AdminZimletDescTest extends ZimbraTestCase
         $include = new AdminZimletInclude($value);
         $includeCSS = new AdminZimletIncludeCSS($value);
 
-        $zimlet = new AdminZimletDesc(
+        $zimlet = new StubAdminZimletDesc(
             $name, $version, $description, $extension, $target, $label
         );
         $this->assertSame($name, $zimlet->getName());
@@ -42,7 +44,7 @@ class AdminZimletDescTest extends ZimbraTestCase
         $this->assertSame($target, $zimlet->getTarget());
         $this->assertSame($label, $zimlet->getLabel());
 
-        $zimlet = new AdminZimletDesc();
+        $zimlet = new StubAdminZimletDesc();
         $zimlet->setName($name)
             ->setVersion($version)
             ->setDescription($description)
@@ -64,13 +66,20 @@ class AdminZimletDescTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-    <serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
-    <include>$value</include>
-    <includeCSS>$value</includeCSS>
+<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label" xmlns:urn="urn:zimbraAdmin">
+    <urn:serverExtension hasKeyword="$hasKeyword" extensionClass="$extensionClass" regex="$regex" />
+    <urn:include>$value</urn:include>
+    <urn:includeCSS>$value</urn:includeCSS>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, AdminZimletDesc::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, StubAdminZimletDesc::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAdminZimletDesc extends AdminZimletDesc
+{
 }

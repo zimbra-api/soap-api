@@ -19,7 +19,7 @@ class ZimletPrefsSpecTest extends ZimbraTestCase
         $this->assertSame($name, $zimlet->getName());
         $this->assertEquals(ZimletStatus::ENABLED(), $zimlet->getPresence());
 
-        $zimlet = new ZimletPrefsSpec('', ZimletStatus::ENABLED());
+        $zimlet = new ZimletPrefsSpec();
         $zimlet->setName($name)
                ->setPresence(ZimletStatus::DISABLED());
         $this->assertSame($name, $zimlet->getName());

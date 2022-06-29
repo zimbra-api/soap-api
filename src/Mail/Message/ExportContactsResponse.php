@@ -40,7 +40,7 @@ class ExportContactsResponse implements ResponseInterface
      * @param  string $content
      * @return self
      */
-    public function __construct(string $content)
+    public function __construct(string $content = '')
     {
         $this->setContent($content);
     }

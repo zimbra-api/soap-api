@@ -16,7 +16,7 @@ class ValueAttribTest extends ZimbraTestCase
         $attr = new ValueAttrib($value);
         $this->assertSame($value, $attr->getValue());
 
-        $attr = new ValueAttrib('');
+        $attr = new ValueAttrib();
         $attr->setValue($value);
         $this->assertSame($value, $attr->getValue());
 

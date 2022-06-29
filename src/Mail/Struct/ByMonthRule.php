@@ -40,7 +40,7 @@ class ByMonthRule implements ByMonthRuleInterface
      * @param  string $list
      * @return self
      */
-    public function __construct(string $list)
+    public function __construct(string $list = '')
     {
         $this->setList($list);
     }

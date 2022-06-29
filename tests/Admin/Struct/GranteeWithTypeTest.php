@@ -18,7 +18,7 @@ class GranteeWithTypeTest extends ZimbraTestCase
         $this->assertSame($type, $grantee->getType());
         $this->assertSame($value, $grantee->getValue());
 
-        $grantee = new GranteeWithType('');
+        $grantee = new GranteeWithType();
         $grantee->setType($type)
                ->setValue($value);
         $this->assertSame($type, $grantee->getType());

@@ -20,7 +20,7 @@ class AttrTest extends ZimbraTestCase
         $this->assertSame($value, $attr->getValue());
         $this->assertFalse($attr->getPermDenied());
 
-        $attr = new Attr('');
+        $attr = new Attr();
         $attr->setName($name)
              ->setValue($value)
              ->setPermDenied(TRUE);

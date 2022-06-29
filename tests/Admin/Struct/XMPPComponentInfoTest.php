@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,13 +22,13 @@ class XMPPComponentInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $xmpp = new XMPPComponentInfo($name, $id, $domainName, $serverName);
+        $xmpp = new StubXMPPComponentInfo($name, $id, $domainName, $serverName);
         $this->assertSame($name, $xmpp->getName());
         $this->assertSame($id, $xmpp->getId());
         $this->assertSame($domainName, $xmpp->getDomainName());
         $this->assertSame($serverName, $xmpp->getServerName());
 
-        $xmpp = new XMPPComponentInfo('', '');
+        $xmpp = new StubXMPPComponentInfo();
         $xmpp->setName($name)
             ->setId($id)
             ->setDomainName($domainName)
@@ -39,11 +41,18 @@ class XMPPComponentInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" x-domainName="$domainName" x-serverName="$serverName" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentInfo::class, 'xml'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, StubXMPPComponentInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubXMPPComponentInfo extends XMPPComponentInfo
+{
 }

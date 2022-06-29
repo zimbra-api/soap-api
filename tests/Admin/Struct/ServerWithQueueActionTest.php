@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ServerWithQueueAction;
 use Zimbra\Admin\Struct\QueueQueryField;
 use Zimbra\Admin\Struct\QueueQuery;
@@ -30,11 +32,11 @@ class ServerWithQueueActionTest extends ZimbraTestCase
         $action = new MailQueueAction($query, QueueAction::HOLD(), QueueActionBy::QUERY());
         $queue = new MailQueueWithAction($action, $name);
 
-        $server = new ServerWithQueueAction($queue, $name);
+        $server = new StubServerWithQueueAction($queue, $name);
         $this->assertSame($name, $server->getName());
         $this->assertSame($queue, $server->getQueue());
 
-        $server = new ServerWithQueueAction(new MailQueueWithAction($action, $name), '');
+        $server = new StubServerWithQueueAction(new MailQueueWithAction($action));
         $server->setName($name)
                ->setQueue($queue);
         $this->assertSame($name, $server->getName());
@@ -42,19 +44,26 @@ class ServerWithQueueActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <queue name="$name">
-        <action op="hold" by="query">
-            <query limit="$limit" offset="$offset">
-                <field name="$name">
-                    <match value="$value" />
-                </field>
-            </query>
-        </action>
-    </queue>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:queue name="$name">
+        <urn:action op="hold" by="query">
+            <urn:query limit="$limit" offset="$offset">
+                <urn:field name="$name">
+                    <urn:match value="$value" />
+                </urn:field>
+            </urn:query>
+        </urn:action>
+    </urn:queue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
-        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerWithQueueAction::class, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, StubServerWithQueueAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubServerWithQueueAction extends ServerWithQueueAction
+{
 }

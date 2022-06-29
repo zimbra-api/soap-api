@@ -31,7 +31,7 @@ class CalendarResourceInfoTest extends ZimbraTestCase
         $this->assertSame($id, $info->getId());
         $this->assertSame([$attr1], $info->getKeyValuePairs());
 
-        $info = new MockCalendarResourceInfo('', '');
+        $info = new MockCalendarResourceInfo();
         $info->setName($name)
              ->setId($id)
              ->setKeyValuePairs([$attr1])

@@ -20,8 +20,7 @@ class SignatureContentTest extends ZimbraTestCase
         $this->assertEquals(ContentType::TEXT_PLAIN(), $content->getContentType());
 
         $content = new SignatureContent();
-        $content
-            ->setValue($value)
+        $content->setValue($value)
             ->setContentType(ContentType::TEXT_HTML());
         $this->assertSame($value, $content->getValue());
         $this->assertEquals(ContentType::TEXT_HTML(), $content->getContentType());

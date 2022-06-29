@@ -32,7 +32,7 @@ class GetCreateObjectAttrsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private EffectiveAttrsInfo $setAttrs;
+    private ?EffectiveAttrsInfo $setAttrs = NULL;
 
     /**
      * Constructor method for GetCreateObjectAttrsResponse
@@ -40,9 +40,11 @@ class GetCreateObjectAttrsResponse implements ResponseInterface
      * @param EffectiveAttrsInfo $setAttrs
      * @return self
      */
-    public function __construct(EffectiveAttrsInfo $setAttrs)
+    public function __construct(?EffectiveAttrsInfo $setAttrs = NULL)
     {
-        $this->setSetAttrs($setAttrs);
+        if ($setAttrs instanceof EffectiveAttrsInfo) {
+            $this->setSetAttrs($setAttrs);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetCreateObjectAttrsResponse implements ResponseInterface
      *
      * @return EffectiveAttrsInfo
      */
-    public function getSetAttrs(): EffectiveAttrsInfo
+    public function getSetAttrs(): ?EffectiveAttrsInfo
     {
         return $this->setAttrs;
     }

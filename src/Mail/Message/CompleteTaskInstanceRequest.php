@@ -56,14 +56,14 @@ class CompleteTaskInstanceRequest extends Request
     /**
      * Constructor method for CompleteTaskInstanceRequest
      *
-     * @param  string $id
      * @param  DtTimeInfo $exceptionId
+     * @param  string $id
      * @param  CalTZInfo $timezone
      * @return self
      */
     public function __construct(
-        string $id,
         DtTimeInfo $exceptionId,
+        string $id = '',
         ?CalTZInfo $timezone = NULL
     )
     {

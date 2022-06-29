@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\RightViaInfo;
 use Zimbra\Admin\Struct\TargetWithType;
 use Zimbra\Admin\Struct\GranteeWithType;
@@ -22,12 +24,12 @@ class RightViaInfoTest extends ZimbraTestCase
         $grantee = new GranteeWithType($type, $value);
         $right = new CheckedRight($value);
 
-        $via = new RightViaInfo($target, $grantee, $right);
+        $via = new StubRightViaInfo($target, $grantee, $right);
         $this->assertSame($target, $via->getTarget());
         $this->assertSame($grantee, $via->getGrantee());
         $this->assertSame($right, $via->getRight());
 
-        $via = new RightViaInfo(new TargetWithType('', ''), new GranteeWithType('', ''), new CheckedRight(''));
+        $via = new StubRightViaInfo(new TargetWithType(), new GranteeWithType(), new CheckedRight());
         $via->setTarget($target)
             ->setGrantee($grantee)
             ->setRight($right);
@@ -37,13 +39,20 @@ class RightViaInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <target type="$type">$value</target>
-    <grantee type="$type">$value</grantee>
-    <right>$value</right>
+<result xmlns:urn="urn:zimbraAdmin">
+    <urn:target type="$type">$value</urn:target>
+    <urn:grantee type="$type">$value</urn:grantee>
+    <urn:right>$value</urn:right>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($via, 'xml'));
-        $this->assertEquals($via, $this->serializer->deserialize($xml, RightViaInfo::class, 'xml'));
+        $this->assertEquals($via, $this->serializer->deserialize($xml, StubRightViaInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubRightViaInfo extends RightViaInfo
+{
 }

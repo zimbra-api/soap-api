@@ -23,7 +23,7 @@ class ReindexMailboxInfoTest extends ZimbraTestCase
         $this->assertSame($types, $mbox->getTypes());
         $this->assertSame($ids, $mbox->getIds());
 
-        $mbox = new ReindexMailboxInfo('');
+        $mbox = new ReindexMailboxInfo();
         $mbox->setId($id)
              ->setTypes($types)
              ->setIds($ids);

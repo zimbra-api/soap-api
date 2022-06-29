@@ -86,11 +86,11 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @return self
      */
     public function __construct(
-        int $recurrenceRangeType,
-        string $recurrenceId,
-        int $seq,
-        int $date,
-        string $attendee,
+        int $recurrenceRangeType = 0,
+        string $recurrenceId = '',
+        int $seq = 0,
+        int $date = 0,
+        string $attendee = '',
         ?string $sentBy = NULL,
         ?ParticipationStatus $partStat = NULL
     )

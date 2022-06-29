@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\DomainAdminRight;
 use Zimbra\Admin\Struct\RightWithName;
 use Zimbra\Common\Enum\RightType;
@@ -19,13 +21,13 @@ class DomainAdminRightTest extends ZimbraTestCase
 
         $r = new RightWithName($name);
 
-        $right = new DomainAdminRight($name, RightType::PRESET(), $desc, [$r]);
+        $right = new StubDomainAdminRight($name, RightType::PRESET(), $desc, [$r]);
         $this->assertSame($name, $right->getName());
         $this->assertEquals(RightType::PRESET(), $right->getType());
         $this->assertSame($desc, $right->getDesc());
         $this->assertSame([$r], $right->getRights());
 
-        $right = new DomainAdminRight('', RightType::COMBO(), '');
+        $right = new StubDomainAdminRight();
         $right->setName($name)
             ->setType(RightType::PRESET())
             ->setDesc($desc)
@@ -39,14 +41,21 @@ class DomainAdminRightTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" type="preset">
-    <desc>$desc</desc>
-    <rights>
-        <r n="$name" />
-    </rights>
+<result name="$name" type="preset" xmlns:urn="urn:zimbraAdmin">
+    <urn:desc>$desc</urn:desc>
+    <urn:rights>
+        <urn:r n="$name" />
+    </urn:rights>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($right, 'xml'));
-        $this->assertEquals($right, $this->serializer->deserialize($xml, DomainAdminRight::class, 'xml'));
+        $this->assertEquals($right, $this->serializer->deserialize($xml, StubDomainAdminRight::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubDomainAdminRight extends DomainAdminRight
+{
 }

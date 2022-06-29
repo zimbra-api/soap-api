@@ -24,7 +24,7 @@ class BlobRevisionInfoTest extends ZimbraTestCase
         $this->assertSame($revision, $blob->getRevision());
         $this->assertFalse($blob->getExternal());
 
-        $blob = new BlobRevisionInfo('', 0, 0, FALSE);
+        $blob = new BlobRevisionInfo();
         $blob->setPath($path)
              ->setRevision($revision)
              ->setFileSize($fileSize)

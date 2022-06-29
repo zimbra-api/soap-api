@@ -32,7 +32,7 @@ class GetLicenseInfoResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\LicenseExpirationInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private LicenseExpirationInfo $expiration;
+    private ?LicenseExpirationInfo $expiration = NULL;
 
     /**
      * Constructor method for GetLicenseInfoResponse
@@ -40,9 +40,11 @@ class GetLicenseInfoResponse implements ResponseInterface
      * @param Account $expiration
      * @return self
      */
-    public function __construct(LicenseExpirationInfo $expiration)
+    public function __construct(?LicenseExpirationInfo $expiration = NULL)
     {
-        $this->setExpiration($expiration);
+        if ($expiration instanceof LicenseExpirationInfo) {
+            $this->setExpiration($expiration);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class GetLicenseInfoResponse implements ResponseInterface
      *
      * @return LicenseExpirationInfo
      */
-    public function getExpiration(): LicenseExpirationInfo
+    public function getExpiration(): ?LicenseExpirationInfo
     {
         return $this->expiration;
     }

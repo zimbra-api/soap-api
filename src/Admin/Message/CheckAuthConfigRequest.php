@@ -55,7 +55,7 @@ class CheckAuthConfigRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name, string $password, array $attrs = []
+        string $name = '', string $password = '', array $attrs = []
     )
     {
         $this->setName($name)

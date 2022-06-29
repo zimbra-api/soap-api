@@ -16,7 +16,7 @@ class RightWithNameTest extends ZimbraTestCase
         $right = new RightWithName($name);
         $this->assertSame($name, $right->getName());
 
-        $right = new RightWithName('');
+        $right = new RightWithName();
         $right->setName($name);
         $this->assertSame($name, $right->getName());
 

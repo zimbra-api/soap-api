@@ -46,7 +46,7 @@ class FreeBusyUserInfo
      * @param  array $elements
      * @return self
      */
-    public function __construct(string $id, array $elements = [])
+    public function __construct(string $id = '', array $elements = [])
     {
         $this->setId($id)
              ->setElements($elements);

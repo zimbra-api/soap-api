@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -19,19 +21,26 @@ class ZimletInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
+        $zimlet = new StubZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
         $this->assertSame($hasKeyword, $zimlet->getHasKeyword());
-        $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)]);
+        $zimlet = new StubZimletInfo($name, $id, [new Attr($key, $value)]);
         $zimlet->setHasKeyword($hasKeyword);
         $this->assertSame($hasKeyword, $zimlet->getHasKeyword());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" hasKeyword="$hasKeyword">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" hasKeyword="$hasKeyword" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimlet, 'xml'));
-        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, ZimletInfo::class, 'xml'));
+        $this->assertEquals($zimlet, $this->serializer->deserialize($xml, StubZimletInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubZimletInfo extends ZimletInfo
+{
 }

@@ -16,7 +16,7 @@ class CookieSpecTest extends ZimbraTestCase
         $cookie = new CookieSpec($name);
         $this->assertSame($name, $cookie->getName());
 
-        $cookie = new CookieSpec('');
+        $cookie = new CookieSpec();
         $cookie->setName($name);
         $this->assertSame($name, $cookie->getName());
 

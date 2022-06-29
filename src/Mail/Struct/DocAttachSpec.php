@@ -60,7 +60,7 @@ class DocAttachSpec extends AttachSpec
      * @return self
      */
     public function __construct(
-        string $path = NULL, string $id = NULL, ?int $version = NULL, ?bool $optional = NULL
+        ?string $path = NULL, ?string $id = NULL, ?int $version = NULL, ?bool $optional = NULL
     )
     {
         parent::__construct($optional);

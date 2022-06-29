@@ -33,7 +33,7 @@ class GetVersionInfoResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\VersionInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private VersionInfo $versionInfo;
+    private ?VersionInfo $versionInfo = NULL;
 
     /**
      * Constructor method for GetVersionInfoResponse
@@ -41,9 +41,11 @@ class GetVersionInfoResponse implements ResponseInterface
      * @param VersionInfo $versionInfo
      * @return self
      */
-    public function __construct(VersionInfo $versionInfo)
+    public function __construct(?VersionInfo $versionInfo = NULL)
     {
-        $this->setVersionInfo($versionInfo);
+        if ($versionInfo instanceof VersionInfo) {
+            $this->setVersionInfo($versionInfo);
+        }
     }
 
     /**
@@ -63,7 +65,7 @@ class GetVersionInfoResponse implements ResponseInterface
      *
      * @return VersionInfo
      */
-    public function getVersionInfo(): VersionInfo
+    public function getVersionInfo(): ?VersionInfo
     {
         return $this->versionInfo;
     }

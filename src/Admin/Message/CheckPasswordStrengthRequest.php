@@ -50,7 +50,7 @@ class CheckPasswordStrengthRequest extends Request
      * @param  string $password
      * @return self
      */
-    public function __construct(string $id, string $password)
+    public function __construct(string $id = '', string $password = '')
     {
         $this->setId($id)
              ->setPassword($password);

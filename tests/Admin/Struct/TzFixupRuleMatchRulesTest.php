@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\TzFixupRuleMatchRules;
 use Zimbra\Admin\Struct\TzFixupRuleMatchRule;
 use Zimbra\Tests\ZimbraTestCase;
@@ -25,17 +27,15 @@ class TzFixupRuleMatchRulesTest extends ZimbraTestCase
 
         $stdoff = mt_rand(1, 100);
         $dayoff = mt_rand(1, 100);
-        $rules = new TzFixupRuleMatchRules($standard, $daylight, $stdoff, $dayoff);
+        $rules = new StubTzFixupRuleMatchRules($standard, $daylight, $stdoff, $dayoff);
         $this->assertSame($standard, $rules->getStandard());
         $this->assertSame($daylight, $rules->getDaylight());
         $this->assertSame($stdoff, $rules->getStdOffset());
         $this->assertSame($dayoff, $rules->getDstOffset());
 
-        $rules = new TzFixupRuleMatchRules(
-            new TzFixupRuleMatchRule(0, 0, 0),
-            new TzFixupRuleMatchRule(0, 0, 0),
-            0,
-            0
+        $rules = new StubTzFixupRuleMatchRules(
+            new TzFixupRuleMatchRule(),
+            new TzFixupRuleMatchRule()
         );
         $rules->setStandard($standard)
               ->setDaylight($daylight)
@@ -48,12 +48,19 @@ class TzFixupRuleMatchRulesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result stdoff="$stdoff" dayoff="$dayoff">
-    <standard mon="$std_mon" week="$std_week" wkday="$std_wkday" />
-    <daylight mon="$day_mon" week="$day_week" wkday="$day_wkday" />
+<result stdoff="$stdoff" dayoff="$dayoff" xmlns:urn="urn:zimbraAdmin">
+    <urn:standard mon="$std_mon" week="$std_week" wkday="$std_wkday" />
+    <urn:daylight mon="$day_mon" week="$day_week" wkday="$day_wkday" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rules, 'xml'));
-        $this->assertEquals($rules, $this->serializer->deserialize($xml, TzFixupRuleMatchRules::class, 'xml'));
+        $this->assertEquals($rules, $this->serializer->deserialize($xml, StubTzFixupRuleMatchRules::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubTzFixupRuleMatchRules extends TzFixupRuleMatchRules
+{
 }

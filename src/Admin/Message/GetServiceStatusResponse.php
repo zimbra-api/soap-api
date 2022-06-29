@@ -33,7 +33,7 @@ class GetServiceStatusResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private TimeZoneInfo $timezone;
+    private ?TimeZoneInfo $timezone = NULL;
 
     /**
      * Service status information
@@ -52,10 +52,14 @@ class GetServiceStatusResponse implements ResponseInterface
      * @param array $serviceStatuses
      * @return self
      */
-    public function __construct(TimeZoneInfo $timezone, array $serviceStatuses = [])
+    public function __construct(
+        ?TimeZoneInfo $timezone = NULL, array $serviceStatuses = []
+    )
     {
-        $this->setTimezone($timezone)
-             ->setServiceStatuses($serviceStatuses);
+        $this->setServiceStatuses($serviceStatuses);
+        if ($timezone instanceof TimeZoneInfo) {
+            $this->setTimezone($timezone);
+        }
     }
 
     /**
@@ -63,7 +67,7 @@ class GetServiceStatusResponse implements ResponseInterface
      *
      * @return TimeZoneInfo
      */
-    public function getTimezone(): TimeZoneInfo
+    public function getTimezone(): ?TimeZoneInfo
     {
         return $this->timezone;
     }

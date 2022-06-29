@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\{Attr, DataSourceSpecifier};
 use Zimbra\Common\Enum\DataSourceType;
 use Zimbra\Tests\ZimbraTestCase;
@@ -17,12 +19,12 @@ class DataSourceSpecifierTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $ds = new DataSourceSpecifier(DataSourceType::IMAP(), $name);
+        $ds = new StubDataSourceSpecifier(DataSourceType::IMAP(), $name);
         $this->assertEquals(DataSourceType::IMAP(), $ds->getType());
         $this->assertSame($name, $ds->getName());
 
         $attr = new Attr($key, $value);
-        $ds = new DataSourceSpecifier(DataSourceType::IMAP(), '');
+        $ds = new StubDataSourceSpecifier();
         $ds->setType(DataSourceType::POP3())
            ->setName($name)
            ->addAttr($attr);
@@ -32,11 +34,18 @@ class DataSourceSpecifierTest extends ZimbraTestCase
         $type = DataSourceType::POP3()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$type" name="$name">
-    <a n="$key">$value</a>
+<result type="$type" name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ds, 'xml'));
-        $this->assertEquals($ds, $this->serializer->deserialize($xml, DataSourceSpecifier::class, 'xml'));
+        $this->assertEquals($ds, $this->serializer->deserialize($xml, StubDataSourceSpecifier::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubDataSourceSpecifier extends DataSourceSpecifier
+{
 }

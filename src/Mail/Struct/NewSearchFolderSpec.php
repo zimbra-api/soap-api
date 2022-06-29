@@ -112,8 +112,8 @@ class NewSearchFolderSpec
      * @return self
      */
     public function __construct(
-        string $name,
-        string $query,
+        string $name = '',
+        string $query = '',
         ?string $searchTypes = NULL,
         ?SearchSortBy $sortBy = NULL,
         ?string $flags = NULL,

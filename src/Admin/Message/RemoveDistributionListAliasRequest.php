@@ -50,7 +50,7 @@ class RemoveDistributionListAliasRequest extends Request
      * @param  string $alias
      * @return self
      */
-    public function __construct(string $id, string $alias)
+    public function __construct(string $id = '', string $alias = '')
     {
         $this->setId($id)
              ->setAlias($alias);

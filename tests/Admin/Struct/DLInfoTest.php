@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\DLInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,11 +22,11 @@ class DLInfoTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $attr = new Attr($key, $value);
-        $dl = new DLInfo($via, $name, $id, FALSE, [$attr]);
+        $dl = new StubDLInfo($via, $name, $id, FALSE, [$attr]);
         $this->assertFalse($dl->isDynamic());
         $this->assertSame($via, $dl->getVia());
 
-        $dl = new DLInfo('', $name, $id, FALSE, [$attr]);
+        $dl = new StubDLInfo('', $name, $id, FALSE, [$attr]);
         $dl->setDynamic(TRUE)
             ->setVia($via);
         $this->assertTrue($dl->isDynamic());
@@ -32,11 +34,18 @@ class DLInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id" dynamic="true" via="$via">
-    <a n="$key">$value</a>
+<result name="$name" id="$id" dynamic="true" via="$via" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dl, 'xml'));
-        $this->assertEquals($dl, $this->serializer->deserialize($xml, DLInfo::class, 'xml'));
+        $this->assertEquals($dl, $this->serializer->deserialize($xml, StubDLInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubDLInfo extends DLInfo
+{
 }

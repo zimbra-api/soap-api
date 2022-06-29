@@ -101,9 +101,9 @@ class Grant
      * @return self
      */
     public function __construct(
-        string $perm,
-        GrantGranteeType $granteeType,
-        string $granteeId,
+        string $perm = '',
+        ?GrantGranteeType $granteeType = NULL,
+        string $granteeId = '',
         ?int $expiry = NULL,
         ?string $granteeName = NULL,
         ?string $guestPassword = NULL,
@@ -111,7 +111,7 @@ class Grant
     )
     {
         $this->setPerm($perm)
-             ->setGranteeType($granteeType)
+             ->setGranteeType($granteeType ?? GrantGranteeType::ALL())
              ->setGranteeId($granteeId);
         if (NULL !== $expiry) {
             $this->setExpiry($expiry);

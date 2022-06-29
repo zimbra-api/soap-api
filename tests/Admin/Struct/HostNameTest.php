@@ -16,7 +16,7 @@ class HostNameTest extends ZimbraTestCase
         $host = new HostName($name);
         $this->assertSame($name, $host->getHostName());
 
-        $host = new HostName('');
+        $host = new HostName();
         $host->setHostName($name);
         $this->assertSame($name, $host->getHostName());
 

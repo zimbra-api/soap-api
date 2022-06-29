@@ -50,7 +50,7 @@ class XParam implements XParamInterface
      * @param  string $value
      * @return self
      */
-    public function __construct(string $name, string $value)
+    public function __construct(string $name = '', string $value = '')
     {
         $this->setName($name)
              ->setValue($value);

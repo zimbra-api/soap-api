@@ -20,7 +20,7 @@ class DirPathInfoTest extends ZimbraTestCase
         $this->assertFalse($dir->isReadable());
         $this->assertFalse($dir->isWritable());
 
-        $dir = new DirPathInfo('', FALSE, FALSE, FALSE, FALSE);
+        $dir = new DirPathInfo();
         $dir->setPath($path)
             ->setExists(TRUE)
             ->setIsDirectory(TRUE)

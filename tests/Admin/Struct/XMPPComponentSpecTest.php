@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\{Attr, DomainSelector, ServerSelector, XMPPComponentSpec};
 use Zimbra\Common\Enum\{DomainBy, ServerBy};
 use Zimbra\Tests\ZimbraTestCase;
@@ -20,12 +22,12 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $server = new ServerSelector(ServerBy::NAME(), $value);
 
-        $xmpp = new XMPPComponentSpec($name, $domain, $server);
+        $xmpp = new StubXMPPComponentSpec($name, $domain, $server);
         $this->assertSame($name, $xmpp->getName());
         $this->assertSame($domain, $xmpp->getDomain());
         $this->assertSame($server, $xmpp->getServer());
 
-        $xmpp = new XMPPComponentSpec('', new DomainSelector(DomainBy::ID()), new ServerSelector(ServerBy::ID()));
+        $xmpp = new StubXMPPComponentSpec('', new DomainSelector(), new ServerSelector());
         $xmpp->setName($name)
              ->setDomain($domain)
              ->setServer($server)
@@ -37,13 +39,20 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $by = DomainBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <a n="$name">$value</a>
-    <domain by="$by">$value</domain>
-    <server by="$by">$value</server>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$name">$value</urn:a>
+    <urn:domain by="$by">$value</urn:domain>
+    <urn:server by="$by">$value</urn:server>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xmpp, 'xml'));
-        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, XMPPComponentSpec::class, 'xml'));
+        $this->assertEquals($xmpp, $this->serializer->deserialize($xml, StubXMPPComponentSpec::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubXMPPComponentSpec extends XMPPComponentSpec
+{
 }

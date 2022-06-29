@@ -23,7 +23,7 @@ class ServiceStatusTest extends ZimbraTestCase
         $this->assertSame($time, $status->getTime());
         $this->assertEquals(ZeroOrOne::ZERO(), $status->getStatus());
 
-        $status = new ServiceStatus('', '', 0, ZeroOrOne::ZERO());
+        $status = new ServiceStatus();
         $status->setServer($server)
            ->setService($service)
            ->setTime($time)

@@ -40,7 +40,7 @@ class DeleteLDAPEntryRequest extends Request
      * @param  string $dn
      * @return self
      */
-    public function __construct(string $dn)
+    public function __construct(string $dn = '')
     {
         $this->setDn($dn);
     }

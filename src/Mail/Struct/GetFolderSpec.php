@@ -58,7 +58,9 @@ class GetFolderSpec
      * @param string $path
      * @return self
      */
-    public function __construct(?string $uuid = NULL, ?string $folderId = NULL, ?string $path = NULL)
+    public function __construct(
+        ?string $uuid = NULL, ?string $folderId = NULL, ?string $path = NULL
+    )
     {
         if (NULL !== $uuid) {
             $this->setUuid($uuid);

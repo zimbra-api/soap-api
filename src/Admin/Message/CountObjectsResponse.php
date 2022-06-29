@@ -48,7 +48,7 @@ class CountObjectsResponse implements ResponseInterface
      * @param string  $type
      * @return self
      */
-    public function __construct(int $num, string $type)
+    public function __construct(int $num = 0, string $type = '')
     {
         $this->setNum($num)
              ->setType($type);

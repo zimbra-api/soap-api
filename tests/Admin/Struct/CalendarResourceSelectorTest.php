@@ -18,7 +18,7 @@ class CalendarResourceSelectorTest extends ZimbraTestCase
         $this->assertEquals(CalResBy::ID(), $cal->getBy());
         $this->assertSame($value, $cal->getValue());
 
-        $cal = new CalendarResourceSelector(CalResBy::ID());
+        $cal = new CalendarResourceSelector();
         $cal->setBy(CalResBy::NAME())
             ->setValue($value);
         $this->assertEquals(CalResBy::NAME(), $cal->getBy());

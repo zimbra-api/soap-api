@@ -129,8 +129,8 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @return self
      */
     public function __construct(
-        string $xUid,
-        string $uid,
+        string $xUid = '',
+        string $uid = '',
         ?string $flags = NULL,
         ?string $tags = NULL,
         ?string $tagNames = NULL,

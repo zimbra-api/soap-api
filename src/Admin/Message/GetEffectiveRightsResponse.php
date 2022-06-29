@@ -33,7 +33,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private GranteeInfo $grantee;
+    private ?GranteeInfo $grantee = NULL;
 
     /**
      * Information about target
@@ -42,7 +42,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private Target $target;
+    private ?Target $target = NULL;
 
     /**
      * Constructor method for GetEffectiveRightsResponse
@@ -51,10 +51,16 @@ class GetEffectiveRightsResponse implements ResponseInterface
      * @param Target $target
      * @return self
      */
-    public function __construct(GranteeInfo $grantee, Target $target)
+    public function __construct(
+        ?GranteeInfo $grantee = NULL, ?Target $target = NULL
+    )
     {
-        $this->setGrantee($grantee)
-             ->setTarget($target);
+        if ($grantee instanceof GranteeInfo) {
+            $this->setGrantee($grantee);
+        }
+        if ($target instanceof Target) {
+            $this->setTarget($target);
+        }
     }
 
     /**
@@ -62,7 +68,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      *
      * @return GranteeInfo
      */
-    public function getGrantee(): GranteeInfo
+    public function getGrantee(): ?GranteeInfo
     {
         return $this->grantee;
     }
@@ -96,7 +102,7 @@ class GetEffectiveRightsResponse implements ResponseInterface
      *
      * @return Target
      */
-    public function getTarget(): Target
+    public function getTarget(): ?Target
     {
         return $this->target;
     }

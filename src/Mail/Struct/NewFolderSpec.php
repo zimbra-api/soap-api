@@ -133,8 +133,8 @@ class NewFolderSpec
      * @return self
      */
     public function __construct(
-        string $name,
-        string $parentFolderId,
+        string $name = '',
+        string $parentFolderId = '',
         ?ViewType $defaultView = NULL,
         ?string $flags = NULL,
         ?int $color = NULL,

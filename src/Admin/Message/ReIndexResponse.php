@@ -51,9 +51,9 @@ class ReIndexResponse implements ResponseInterface
      * @param Progress  $progress
      * @return self
      */
-    public function __construct(Status $status, ?Progress $progress = NULL)
+    public function __construct(?Status $status = NULL, ?Progress $progress = NULL)
     {
-        $this->setStatus($status);
+        $this->setStatus($status ?? Status::RUNNING());
         if ($progress instanceof Progress) {
             $this->setProgress($progress);
         }

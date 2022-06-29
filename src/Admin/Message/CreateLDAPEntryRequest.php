@@ -45,7 +45,7 @@ class CreateLDAPEntryRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $dn, array $attrs = []
+        string $dn = '', array $attrs = []
     )
     {
         $this->setDn($dn)

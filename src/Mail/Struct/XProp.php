@@ -60,7 +60,7 @@ class XProp implements XPropInterface
      * @param  array $xParams
      * @return self
      */
-    public function __construct(string $name, string $value, array $xParams = [])
+    public function __construct(string $name = '', string $value = '', array $xParams = [])
     {
         $this->setName($name)
              ->setValue($value)

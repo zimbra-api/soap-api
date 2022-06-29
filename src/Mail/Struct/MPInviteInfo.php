@@ -72,13 +72,13 @@ class MPInviteInfo
      * @return self
      */
     public function __construct(
-        InviteType $calItemType,
+        ?InviteType $calItemType = NULL,
         array $timezones = [],
         array $calendarReplies = [],
         array $inviteComponents = []
     )
     {
-        $this->setCalItemType($calItemType)
+        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT())
              ->setTimezones($timezones)
              ->setCalendarReplies($calendarReplies)
              ->setInviteComponents($inviteComponents);

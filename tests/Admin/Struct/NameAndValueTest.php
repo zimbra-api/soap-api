@@ -18,7 +18,7 @@ class NameAndValueTest extends ZimbraTestCase
         $this->assertSame($name, $nameValue->getName());
         $this->assertSame($value, $nameValue->getValue());
 
-        $nameValue = new NameAndValue('');
+        $nameValue = new NameAndValue();
         $nameValue->setName($name)
             ->setValue($value);
         $this->assertSame($name, $nameValue->getName());

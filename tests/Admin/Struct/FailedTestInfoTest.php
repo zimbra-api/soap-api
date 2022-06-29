@@ -23,7 +23,7 @@ class FailedTestInfoTest extends ZimbraTestCase
         $this->assertSame($className, $failure->getClassName());
         $this->assertSame($throwable, $failure->getThrowable());
 
-        $failure = new FailedTestInfo('', 0, '', '');
+        $failure = new FailedTestInfo();
         $failure->setName($name)
             ->setExecSeconds($execSeconds)
             ->setClassName($className)

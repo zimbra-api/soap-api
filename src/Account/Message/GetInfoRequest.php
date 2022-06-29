@@ -53,7 +53,7 @@ class GetInfoRequest extends Request
      * @param string $rights
      * @return self
      */
-    public function __construct(string $sections = NULL, string $rights = NULL)
+    public function __construct(?string $sections = NULL, ?string $rights = NULL)
     {
         if (NULL !== $sections) {
             $this->setSections($sections);

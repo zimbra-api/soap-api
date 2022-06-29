@@ -51,7 +51,7 @@ class SetCurrentVolumeRequest extends Request
      * @param  int $type
      * @return self
      */
-    public function __construct(int $id, int $type)
+    public function __construct(int $id = 0, int $type = 0)
     {
         $this->setId($id)
              ->setType($type);

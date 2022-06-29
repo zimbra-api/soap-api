@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\ServerMailQueueDetails;
 use Zimbra\Admin\Struct\MailQueueDetails;
 use Zimbra\Admin\Struct\QueueSummary;
@@ -42,11 +44,11 @@ class ServerMailQueueDetailsTest extends ZimbraTestCase
         );
         $queue = new MailQueueDetails($name, $scanTime, TRUE, $total, TRUE, [$qs], [$qi]);
 
-        $server = new ServerMailQueueDetails($queue, $name);
+        $server = new StubServerMailQueueDetails($queue, $name);
         $this->assertSame($name, $server->getServerName());
         $this->assertSame($queue, $server->getQueue());
 
-        $server = new ServerMailQueueDetails(new MailQueueDetails('', 0, FALSE, 0, FALSE), '');
+        $server = new StubServerMailQueueDetails(new MailQueueDetails());
         $server->setServerName($name)
                ->setQueue($queue);
         $this->assertSame($name, $server->getServerName());
@@ -54,16 +56,23 @@ class ServerMailQueueDetailsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
-        <qs type="$type">
-            <qsi n="$count" t="$term" />
-        </qs>
-        <qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
-    </queue>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:queue name="$name" time="$scanTime" scan="true" total="$total" more="true">
+        <urn:qs type="$type">
+            <urn:qsi n="$count" t="$term" />
+        </urn:qs>
+        <urn:qi id="$id" time="$time" fromdomain="$fromdomain" size="$size" from="$from" to="$to" host="$host" addr="$addr" reason="$reason" filter="$filter" todomain="$todomain" received="$received" />
+    </urn:queue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($server, 'xml'));
-        $this->assertEquals($server, $this->serializer->deserialize($xml, ServerMailQueueDetails::class, 'xml'));
+        $this->assertEquals($server, $this->serializer->deserialize($xml, StubServerMailQueueDetails::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubServerMailQueueDetails extends ServerMailQueueDetails
+{
 }

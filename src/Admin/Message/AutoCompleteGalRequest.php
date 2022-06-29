@@ -82,15 +82,15 @@ class AutoCompleteGalRequest extends Request
      * @return self
      */
     public function __construct(
-        string $domain,
-        string $name,
+        string $domain = '',
+        string $name = '',
         ?GalSearchType $type = NULL,
         ?string $galAccountId = NULL,
         ?int $limit = NULL
     )
     {
         $this->setDomain($domain)
-            ->setName($name);
+             ->setName($name);
         if (NULL !== $type) {
             $this->setType($type);
         }

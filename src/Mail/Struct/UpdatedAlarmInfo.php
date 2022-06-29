@@ -49,7 +49,7 @@ class UpdatedAlarmInfo
      * @return self
      */
     public function __construct(
-        string $calItemId,
+        string $calItemId = '',
         ?AlarmDataInfo $alarmData = NULL
     )
     {

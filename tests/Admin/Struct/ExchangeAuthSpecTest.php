@@ -25,7 +25,7 @@ class ExchangeAuthSpecTest extends ZimbraTestCase
         $this->assertEquals(AuthScheme::BASIC(), $auth->getScheme());
         $this->assertSame($type, $auth->getType());
 
-        $auth = new ExchangeAuthSpec('', '', '', AuthScheme::BASIC());
+        $auth = new ExchangeAuthSpec();
         $auth->setUrl($url)
              ->setAuthUserName($user)
              ->setAuthPassword($pass)

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AdminZimletConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo;
 use Zimbra\Admin\Struct\AdminZimletHostConfigInfo;
@@ -27,7 +29,7 @@ class AdminZimletConfigInfoTest extends ZimbraTestCase
         $global = new AdminZimletGlobalConfigInfo([$property]);
         $host = new AdminZimletHostConfigInfo($name, [$property]);
 
-        $zimletConfig = new AdminZimletConfigInfo(
+        $zimletConfig = new StubAdminZimletConfigInfo(
             $name, $version, $description, $extension, $target, $label
         );
         $this->assertSame($name, $zimletConfig->getName());
@@ -37,7 +39,7 @@ class AdminZimletConfigInfoTest extends ZimbraTestCase
         $this->assertSame($target, $zimletConfig->getTarget());
         $this->assertSame($label, $zimletConfig->getLabel());
 
-        $zimletConfig = new AdminZimletConfigInfo();
+        $zimletConfig = new StubAdminZimletConfigInfo();
         $zimletConfig->setName($name)
             ->setVersion($version)
             ->setDescription($description)
@@ -57,16 +59,23 @@ class AdminZimletConfigInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label">
-    <global>
-        <property name="$name">$value</property>
-    </global>
-    <host name="$name">
-        <property name="$name">$value</property>
-    </host>
+<result name="$name" version="$version" description="$description" extension="$extension" target="$target" label="$label" xmlns:urn="urn:zimbraAdmin">
+    <urn:global>
+        <urn:property name="$name">$value</urn:property>
+    </urn:global>
+    <urn:host name="$name">
+        <urn:property name="$name">$value</urn:property>
+    </urn:host>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($zimletConfig, 'xml'));
-        $this->assertEquals($zimletConfig, $this->serializer->deserialize($xml, AdminZimletConfigInfo::class, 'xml'));
+        $this->assertEquals($zimletConfig, $this->serializer->deserialize($xml, StubAdminZimletConfigInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAdminZimletConfigInfo extends AdminZimletConfigInfo
+{
 }

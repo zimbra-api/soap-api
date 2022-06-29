@@ -52,7 +52,7 @@ class CheckPermissionResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        bool $allow,
+        bool $allow = FALSE,
         array $rights = []
     )
     {

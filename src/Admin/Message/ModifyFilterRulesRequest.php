@@ -98,7 +98,7 @@ class ModifyFilterRulesRequest extends Request
      * @return self
      */
     public function __construct(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?Account $account = NULL,
         ?Domain $domain = NULL,
         ?Cos $cos = NULL,
@@ -106,7 +106,7 @@ class ModifyFilterRulesRequest extends Request
         array $filterRules = []
     )
     {
-        $this->setType($type)
+        $this->setType($type ?? AdminFilterType::BEFORE())
              ->setFilterRules($filterRules);
         if ($account instanceof Account) {
             $this->setAccount($account);

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\CmdRightsInfo;
 use Zimbra\Admin\Struct\PackageRightsInfo;
 use Zimbra\Common\Struct\NamedElement;
@@ -20,11 +22,11 @@ class PackageRightsInfoTest extends ZimbraTestCase
 
         $cmd = new CmdRightsInfo($name, [new NamedElement($name)], [$note1, $note2]);
 
-        $package = new PackageRightsInfo($name, [$cmd]);
+        $package = new StubPackageRightsInfo($name, [$cmd]);
         $this->assertSame($name, $package->getName());
         $this->assertSame([$cmd], $package->getCmds());
 
-        $package = new PackageRightsInfo();
+        $package = new StubPackageRightsInfo();
         $package->setName($name)
             ->setCmds([$cmd])
             ->addCmd($cmd);
@@ -34,19 +36,26 @@ class PackageRightsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name">
-    <cmd name="$name">
-        <rights>
-            <right name="$name" />
-        </rights>
-        <desc>
-            <note>$note1</note>
-            <note>$note2</note>
-        </desc>
-    </cmd>
+<result name="$name" xmlns:urn="urn:zimbraAdmin">
+    <urn:cmd name="$name">
+        <urn:rights>
+            <urn:right name="$name" />
+        </urn:rights>
+        <urn:desc>
+            <urn:note>$note1</urn:note>
+            <urn:note>$note2</urn:note>
+        </urn:desc>
+    </urn:cmd>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($package, 'xml'));
-        $this->assertEquals($package, $this->serializer->deserialize($xml, PackageRightsInfo::class, 'xml'));
+        $this->assertEquals($package, $this->serializer->deserialize($xml, StubPackageRightsInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubPackageRightsInfo extends PackageRightsInfo
+{
 }

@@ -16,7 +16,7 @@ class LicenseExpirationInfoTest extends ZimbraTestCase
         $expiration = new LicenseExpirationInfo($date);
         $this->assertSame($date, $expiration->getDate());
 
-        $expiration = new LicenseExpirationInfo('');
+        $expiration = new LicenseExpirationInfo();
         $expiration->setDate($date);
         $this->assertSame($date, $expiration->getDate());
 

@@ -21,7 +21,7 @@ class CompletedTestInfoTest extends ZimbraTestCase
         $this->assertSame($execSeconds, $completed->getExecSeconds());
         $this->assertSame($className, $completed->getClassName());
 
-        $completed = new CompletedTestInfo('', 0, '');
+        $completed = new CompletedTestInfo();
         $completed->setName($name)
             ->setExecSeconds($execSeconds)
             ->setClassName($className);

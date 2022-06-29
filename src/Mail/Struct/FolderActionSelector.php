@@ -137,7 +137,7 @@ class FolderActionSelector extends ActionSelector
      * @return self
      */
     public function __construct(
-        string $operation,
+        string $operation = '',
         ?string $ids = NULL,
         ?bool $recursive = NULL,
         ?string $url = NULL,

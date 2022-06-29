@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+namespace Zimbra\Tests\Admin\Struct;
+
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\GalContactInfo;
 use Zimbra\Admin\Struct\Attr;
@@ -17,20 +19,27 @@ class GalContactInfoTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $cn = new GalContactInfo($id, [new Attr($key, $value)]);
+        $cn = new StubGalContactInfo($id, [new Attr($key, $value)]);
         $this->assertSame($id, $cn->getId());
 
-        $cn = new GalContactInfo('', [new Attr($key, $value)]);
+        $cn = new StubGalContactInfo('', [new Attr($key, $value)]);
         $cn->setId($id);
         $this->assertSame($id, $cn->getId());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id">
-    <a n="$key">$value</a>
+<result id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key">$value</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($cn, 'xml'));
-        $this->assertEquals($cn, $this->serializer->deserialize($xml, GalContactInfo::class, 'xml'));
+        $this->assertEquals($cn, $this->serializer->deserialize($xml, StubGalContactInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubGalContactInfo extends GalContactInfo
+{
 }

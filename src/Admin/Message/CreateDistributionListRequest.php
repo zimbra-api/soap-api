@@ -58,7 +58,7 @@ class CreateDistributionListRequest extends Request implements AdminAttrs
      * @return self
      */
     public function __construct(
-        string $name, ?bool $dynamic = NULL, array $attrs = []
+        string $name = '', ?bool $dynamic = NULL, array $attrs = []
     )
     {
         $this->setName($name)

@@ -16,7 +16,7 @@ class MailboxByAccountIdSelectorTest extends ZimbraTestCase
         $mbox = new MailboxByAccountIdSelector($id);
         $this->assertSame($id, $mbox->getId());
 
-        $mbox = new MailboxByAccountIdSelector('');
+        $mbox = new MailboxByAccountIdSelector();
         $mbox->setId($id);
         $this->assertSame($id, $mbox->getId());
 

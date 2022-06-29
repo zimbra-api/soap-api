@@ -85,8 +85,8 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @return self
      */
     public function __construct(
-        string $xUid,
-        string $uid,
+        string $xUid = '',
+        string $uid = '',
         ?CalOrganizer $organizer = NULL,
         array $categories = [],
         ?GeoInfo $geo = NULL,

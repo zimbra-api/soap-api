@@ -40,7 +40,7 @@ class DistributionListInfoTest extends ZimbraTestCase
         $this->assertFalse($dl->isMember());
         $this->assertFalse($dl->isDynamic());
 
-        $dl = new MockDistributionListInfo($name, $id, [new KeyValuePair($key, $value)], [], [], [], FALSE, FALSE, FALSE);
+        $dl = new MockDistributionListInfo($name, $id, [new KeyValuePair($key, $value)]);
         $dl->setMembers([$member1])
             ->addMember($member2)
             ->setOwners([$owner])

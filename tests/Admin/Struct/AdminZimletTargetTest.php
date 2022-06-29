@@ -16,7 +16,7 @@ class AdminZimletTargetTest extends ZimbraTestCase
         $target = new AdminZimletTarget($value);
         $this->assertSame($value, $target->getValue());
 
-        $target = new AdminZimletTarget('');
+        $target = new AdminZimletTarget();
         $target->setValue($value);
         $this->assertSame($value, $target->getValue());
 

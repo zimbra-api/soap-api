@@ -40,9 +40,11 @@ class AddGalSyncDataSourceResponse implements ResponseInterface
      * @param Account $account
      * @return self
      */
-    public function __construct(AccountInfo $account)
+    public function __construct(?AccountInfo $account = NULL)
     {
-        $this->setAccount($account);
+        if ($account instanceof AccountInfo) {
+            $this->setAccount($account);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class AddGalSyncDataSourceResponse implements ResponseInterface
      *
      * @return AccountInfo
      */
-    public function getAccount(): AccountInfo
+    public function getAccount(): ?AccountInfo
     {
         return $this->account;
     }

@@ -16,7 +16,7 @@ class AccountZimletIncludeTest extends ZimbraTestCase
         $include = new AccountZimletInclude($value);
         $this->assertSame($value, $include->getValue());
 
-        $include = new AccountZimletInclude('');
+        $include = new AccountZimletInclude();
         $include->setValue($value);
         $this->assertSame($value, $include->getValue());
 

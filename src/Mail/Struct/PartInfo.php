@@ -141,8 +141,8 @@ class PartInfo implements PartInfoInterface
      * @return self
      */
     public function __construct(
-        string $part,
-        string $contentType,
+        string $part = '',
+        string $contentType = '',
         ?int $size = NULL,
         ?string $contentDisposition = NULL,
         ?string $contentFilename = NULL,

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -24,12 +26,12 @@ class AlwaysOnClusterInfoTest extends ZimbraTestCase
         $attr1 = new Attr($key1, $value1);
         $attr2 = new Attr($key2, $value2);
 
-        $info = new AlwaysOnClusterInfo($name, $id, [$attr1]);
+        $info = new StubAlwaysOnClusterInfo($name, $id, [$attr1]);
         $this->assertSame($name, $info->getName());
         $this->assertSame($id, $info->getId());
         $this->assertSame([$attr1], $info->getAttrList());
 
-        $info = new AlwaysOnClusterInfo('', '');
+        $info = new StubAlwaysOnClusterInfo();
         $info->setName($name)
              ->setId($id)
              ->setAttrList([$attr1])
@@ -40,12 +42,19 @@ class AlwaysOnClusterInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" id="$id">
-    <a n="$key1">$value1</a>
-    <a n="$key2">$value2</a>
+<result name="$name" id="$id" xmlns:urn="urn:zimbraAdmin">
+    <urn:a n="$key1">$value1</urn:a>
+    <urn:a n="$key2">$value2</urn:a>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
-        $this->assertEquals($info, $this->serializer->deserialize($xml, AlwaysOnClusterInfo::class, 'xml'));
+        $this->assertEquals($info, $this->serializer->deserialize($xml, StubAlwaysOnClusterInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ */
+class StubAlwaysOnClusterInfo extends AlwaysOnClusterInfo
+{
 }

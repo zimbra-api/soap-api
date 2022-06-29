@@ -55,9 +55,9 @@ class NewContactGroupMember
      * @param  string $value
      * @return self
      */
-    public function __construct(MemberType $type, string $value)
+    public function __construct(?MemberType $type = NULL, string $value = '')
     {
-        $this->setType($type)
+        $this->setType($type ?? MemberType::CONTACT())
              ->setValue($value);
     }
 

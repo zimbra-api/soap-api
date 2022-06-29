@@ -27,7 +27,7 @@ class ContactGroupMemberTest extends ZimbraTestCase
         $this->assertSame($value, $member->getValue());
         $this->assertSame($contact, $member->getContact());
 
-        $member = new MockContactGroupMember('', '');
+        $member = new MockContactGroupMember();
         $member->setType($type)
             ->setValue($value)
             ->setContact($contact);

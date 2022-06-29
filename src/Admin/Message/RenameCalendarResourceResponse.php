@@ -32,7 +32,7 @@ class RenameCalendarResourceResponse implements ResponseInterface
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private CalendarResourceInfo $calResource;
+    private ?CalendarResourceInfo $calResource = NULL;
 
     /**
      * Constructor method for RenameCalendarResourceResponse
@@ -40,9 +40,11 @@ class RenameCalendarResourceResponse implements ResponseInterface
      * @param CalendarResourceInfo $calResource
      * @return self
      */
-    public function __construct(CalendarResourceInfo $calResource)
+    public function __construct(?CalendarResourceInfo $calResource = NULL)
     {
-        $this->setCalResource($calResource);
+        if ($calResource instanceof CalendarResourceInfo) {
+            $this->setCalResource($calResource);
+        }
     }
 
     /**
@@ -50,7 +52,7 @@ class RenameCalendarResourceResponse implements ResponseInterface
      *
      * @return CalendarResourceInfo
      */
-    public function getCalResource(): CalendarResourceInfo
+    public function getCalResource(): ?CalendarResourceInfo
     {
         return $this->calResource;
     }

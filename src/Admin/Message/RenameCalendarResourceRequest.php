@@ -50,7 +50,7 @@ class RenameCalendarResourceRequest extends Request
      * @param string $newName
      * @return self
      */
-    public function __construct(string $id, string $newName)
+    public function __construct(string $id = '', string $newName = '')
     {
         $this->setId($id)
              ->setNewName($newName);
