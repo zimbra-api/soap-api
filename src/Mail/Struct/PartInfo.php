@@ -118,7 +118,6 @@ class PartInfo implements PartInfoInterface
     /**
      * Mime parts
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
-     * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */

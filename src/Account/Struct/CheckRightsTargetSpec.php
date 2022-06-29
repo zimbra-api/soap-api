@@ -50,7 +50,6 @@ class CheckRightsTargetSpec
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("right")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */

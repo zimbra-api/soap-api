@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\AccountInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllAdminAccountsResponse implements ResponseInterface
      * Information on accounts
      * 
      * @Accessor(getter="getAccountList", setter="setAccountList")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

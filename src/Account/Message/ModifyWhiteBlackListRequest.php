@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Common\Struct\OpValue;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -31,6 +31,7 @@ class ModifyWhiteBlackListRequest extends Request
      * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
      * @SerializedName("whiteList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
      */
     private $whiteListEntries = [];
@@ -40,6 +41,7 @@ class ModifyWhiteBlackListRequest extends Request
      * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
      * @SerializedName("blackList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
      */
     private $blackListEntries = [];

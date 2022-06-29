@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CheckDirSelector;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -30,7 +30,6 @@ class CheckDirectoryRequest extends Request
      * Directories
      * 
      * @Accessor(getter="getPaths", setter="setPaths")
-     * @SerializedName("directory")
      * @Type("array<Zimbra\Admin\Struct\CheckDirSelector>")
      * @XmlList(inline=true, entry="directory", namespace="urn:zimbraAdmin")
      */

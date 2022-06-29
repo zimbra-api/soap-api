@@ -34,7 +34,6 @@ class AccountWithModifications
     /**
      * Serialized pending modifications per folder
      * @Accessor(getter="getPendingFolderModifications", setter="setPendingFolderModifications")
-     * @SerializedName("mods")
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline=true, entry="mods", namespace="urn:zimbraMail")
      */

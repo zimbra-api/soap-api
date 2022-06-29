@@ -47,6 +47,7 @@ class ConstraintInfo
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("array<string>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
      */
     private $values = [];

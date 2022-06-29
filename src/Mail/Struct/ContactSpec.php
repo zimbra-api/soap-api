@@ -72,7 +72,6 @@ class ContactSpec implements SpecifyContact
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
@@ -82,7 +81,6 @@ class ContactSpec implements SpecifyContact
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
-     * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */

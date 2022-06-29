@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * AdminAttrsImplTrait trait
@@ -25,7 +25,6 @@ trait AdminAttrsImplTrait
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */

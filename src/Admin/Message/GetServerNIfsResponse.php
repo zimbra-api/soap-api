@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\NetworkInformation;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetServerNIfsResponse implements ResponseInterface
      * Network interface information
      * 
      * @Accessor(getter="getNetworkInterfaces", setter="setNetworkInterfaces")
-     * @SerializedName("ni")
      * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
      * @XmlList(inline=true, entry="ni", namespace="urn:zimbraAdmin")
      */

@@ -68,7 +68,6 @@ class CreateWaitSetResponse implements CreateWaitSetResp, ResponseInterface
      * Error information
      * 
      * @Accessor(getter="getErrors", setter="setErrors")
-     * @SerializedName("error")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      */

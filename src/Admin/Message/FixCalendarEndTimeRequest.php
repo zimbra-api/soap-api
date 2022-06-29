@@ -42,7 +42,6 @@ class FixCalendarEndTimeRequest extends Request
     /**
      * Accounts
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

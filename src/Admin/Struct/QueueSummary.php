@@ -35,7 +35,6 @@ class QueueSummary
     /**
      * Queue summary items
      * @Accessor(getter="getItems", setter="setItems")
-     * @SerializedName("qsi")
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
      * @XmlList(inline=true, entry="qsi", namespace="urn:zimbraAdmin")
      */

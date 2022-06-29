@@ -36,7 +36,6 @@ class ZimletStatusCos
      * Information on zimlet status
      * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @SerializedName("zimlet")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      */

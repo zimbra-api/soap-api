@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\DLInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class GetAccountDistributionListsResponse implements ResponseInterface
     /**
      * Information on distribution lists
      * @Accessor(getter="getDlList", setter="setDlList")
-     * @SerializedName("dl")
      * @Type("array<Zimbra\Account\Struct\DLInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAccount")
      */

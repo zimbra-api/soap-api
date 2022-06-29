@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{DismissAppointmentAlarm, DismissTaskAlarm};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -30,7 +30,6 @@ class DismissCalendarItemAlarmRequest extends Request
      * Details of appt alarms to dismiss
      * 
      * @Accessor(getter="getApptAlarms", setter="setApptAlarms")
-     * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\DismissAppointmentAlarm>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      */
@@ -40,7 +39,6 @@ class DismissCalendarItemAlarmRequest extends Request
      * Details of task alarms to dismiss
      * 
      * @Accessor(getter="getTaskAlarms", setter="setTaskAlarms")
-     * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\DismissTaskAlarm>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      */

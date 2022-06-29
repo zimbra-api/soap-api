@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -31,7 +31,6 @@ class GetPrefsRequest extends Request
     /**
      * If any of these are specified then only get these preferences
      * @Accessor(getter="getPrefs", setter="setPrefs")
-     * @SerializedName("pref")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
      */

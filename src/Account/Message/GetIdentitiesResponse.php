@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetIdentitiesResponse implements ResponseInterface
      * Identities
      * 
      * @Accessor(getter="getIdentities", setter="setIdentities")
-     * @SerializedName("identity")
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlList(inline=true, entry="identity", namespace="urn:zimbraAccount")
      */

@@ -222,7 +222,6 @@ class AccountDataSource implements DataSource
     /**
      * Properties for the data source
      * @Accessor(getter="getAttributes", setter="setAttributes")
-     * @SerializedName("a")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */

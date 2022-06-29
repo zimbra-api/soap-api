@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * InviteTest struct class
@@ -26,7 +26,6 @@ class InviteTest extends FilterTest
     /**
      * Methods
      * @Accessor(getter="getMethods", setter="setMethods")
-     * @SerializedName("method")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="method", namespace="urn:zimbraMail")
      */

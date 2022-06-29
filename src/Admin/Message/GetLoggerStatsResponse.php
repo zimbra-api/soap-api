@@ -29,7 +29,6 @@ class GetLoggerStatsResponse implements ResponseInterface
      * Info by hostname
      * 
      * @Accessor(getter="getHostNames", setter="setHostNames")
-     * @SerializedName("hostname")
      * @Type("array<Zimbra\Admin\Struct\HostStats>")
      * @XmlList(inline=true, entry="hostname", namespace="urn:zimbraAdmin")
      */

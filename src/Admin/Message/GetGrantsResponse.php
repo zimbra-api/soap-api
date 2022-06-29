@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\GrantInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetGrantsResponse implements ResponseInterface
      * Information about grants
      * 
      * @Accessor(getter="getGrants", setter="setGrants")
-     * @SerializedName("grant")
      * @Type("array<Zimbra\Admin\Struct\GrantInfo>")
      * @XmlList(inline=true, entry="grant", namespace="urn:zimbraAdmin")
      */

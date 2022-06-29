@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\ShareInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class GetShareInfoResponse implements ResponseInterface
     /**
      * Share information
      * @Accessor(getter="getShares", setter="setShares")
-     * @SerializedName("share")
      * @Type("array<Zimbra\Common\Struct\ShareInfo>")
      * @XmlList(inline=true, entry="share", namespace="urn:zimbraAdmin")
      */

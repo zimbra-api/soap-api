@@ -29,7 +29,6 @@ class GetAllDistributionListsResponse implements ResponseInterface
      * Information on distribution lists
      * 
      * @Accessor(getter="getDls", setter="setDls")
-     * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetDelegatedAdminConstraintsResponse implements ResponseInterface
      * Constraint attributes
      * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\LDAPEntryInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetLDAPEntriesResponse implements ResponseInterface
      * LDAP entries
      * 
      * @Accessor(getter="getLDAPEntries", setter="setLDAPEntries")
-     * @SerializedName("LDAPEntry")
      * @Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")
      * @XmlList(inline=true, entry="LDAPEntry", namespace="urn:zimbraAdmin")
      */

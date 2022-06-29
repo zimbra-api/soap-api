@@ -26,7 +26,6 @@ class EffectiveRightsInfo
     /**
      * Rights
      * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("right")
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
      */

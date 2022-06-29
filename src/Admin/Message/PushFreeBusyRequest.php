@@ -43,7 +43,6 @@ class PushFreeBusyRequest extends Request
      * Account ID
      * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

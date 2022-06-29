@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\ExpandedRecurrenceInstance;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class ExpandRecurResponse implements ResponseInterface
      * Expanded recurrence instances
      * 
      * @Accessor(getter="getInstances", setter="setInstances")
-     * @SerializedName("inst")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInstance>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
      */

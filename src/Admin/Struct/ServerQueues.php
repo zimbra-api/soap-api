@@ -35,7 +35,6 @@ class ServerQueues
     /**
      * Queue information
      * @Accessor(getter="getQueues", setter="setQueues")
-     * @SerializedName("queue")
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
      * @XmlList(inline=true, entry="queue", namespace="urn:zimbraAdmin")
      */

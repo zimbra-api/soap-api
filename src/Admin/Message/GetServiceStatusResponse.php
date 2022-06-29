@@ -39,7 +39,6 @@ class GetServiceStatusResponse implements ResponseInterface
      * Service status information
      * 
      * @Accessor(getter="getServiceStatuses", setter="setServiceStatuses")
-     * @SerializedName("status")
      * @Type("array<Zimbra\Admin\Struct\ServiceStatus>")
      * @XmlList(inline=true, entry="status", namespace="urn:zimbraAdmin")
      */

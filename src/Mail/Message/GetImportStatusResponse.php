@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Exclude, Type, VirtualProperty, XmlList};
 use Zimbra\Mail\Struct\{
     ImapImportStatusInfo,
     Pop3ImportStatusInfo,
@@ -55,7 +55,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets imap data sources
      *
-     * @SerializedName("imap")
      * @Type("array<Zimbra\Mail\Struct\ImapImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
@@ -70,7 +69,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets pop3 data sources
      *
-     * @SerializedName("pop3")
      * @Type("array<Zimbra\Mail\Struct\Pop3ImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
@@ -85,7 +83,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets caldav data sources
      *
-     * @SerializedName("caldav")
      * @Type("array<Zimbra\Mail\Struct\CaldavImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
@@ -100,7 +97,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets yab data sources
      *
-     * @SerializedName("yab")
      * @Type("array<Zimbra\Mail\Struct\YabImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
@@ -115,7 +111,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets rss data sources
      *
-     * @SerializedName("rss")
      * @Type("array<Zimbra\Mail\Struct\RssImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
@@ -130,7 +125,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets gal data sources
      *
-     * @SerializedName("gal")
      * @Type("array<Zimbra\Mail\Struct\GalImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
@@ -145,7 +139,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets cal data sources
      *
-     * @SerializedName("cal")
      * @Type("array<Zimbra\Mail\Struct\CalImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
@@ -160,7 +153,6 @@ class GetImportStatusResponse implements ResponseInterface
     /**
      * Gets unknown data sources
      *
-     * @SerializedName("unknown")
      * @Type("array<Zimbra\Mail\Struct\UnknownImportStatusInfo>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")

@@ -71,7 +71,6 @@ class Invitation
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
@@ -89,7 +88,6 @@ class Invitation
     /**
      * Mime parts
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
-     * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */
@@ -98,7 +96,6 @@ class Invitation
     /**
      * Share notifications
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
-     * @SerializedName("shr")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
      * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
      */
@@ -107,7 +104,6 @@ class Invitation
     /**
      * Distribution list subscription notifications
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
-     * @SerializedName("dlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
      * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
      */

@@ -120,6 +120,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      */
     private $prefs = [];
@@ -128,6 +129,7 @@ class AuthResponse implements ResponseInterface
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
      */
     private $attrs = [];

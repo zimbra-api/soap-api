@@ -10,7 +10,7 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * AttrsImpl trait
@@ -24,11 +24,10 @@ trait AttrsImplTrait
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a")
      */
-    private $attrs = [];
+    protected $attrs = [];
 
     /**
      * Add an attr

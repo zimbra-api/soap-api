@@ -27,7 +27,6 @@ class QueueQuery
      * Queue query field
      * 
      * @Accessor(getter="getFields", setter="setFields")
-     * @SerializedName("field")
      * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
      * @XmlList(inline=true, entry="field", namespace="urn:zimbraAdmin")
      */

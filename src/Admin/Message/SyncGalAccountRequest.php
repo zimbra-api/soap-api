@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\SyncGalAccountSpec;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -32,7 +32,6 @@ class SyncGalAccountRequest extends Request
     /**
      * Sync GalAccount specification
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

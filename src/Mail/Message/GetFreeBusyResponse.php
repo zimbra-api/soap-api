@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\FreeBusyUserInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetFreeBusyResponse implements ResponseInterface
      * Freebusy information for users
      * 
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      */

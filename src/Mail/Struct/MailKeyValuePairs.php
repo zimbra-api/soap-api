@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\{KeyValuePairs, KeyValuePairsTrait};
 
 /**
@@ -30,7 +30,6 @@ class MailKeyValuePairs implements KeyValuePairs
      * Key value pairs
      * 
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */

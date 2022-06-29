@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Exclude, Type, VirtualProperty, XmlList};
 use Zimbra\Mail\Struct\CalDataSourceNameOrId;
 use Zimbra\Mail\Struct\CaldavDataSourceNameOrId;
 use Zimbra\Mail\Struct\DataSourceNameOrId;
@@ -56,7 +56,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets imap data sources
      *
-     * @SerializedName("imap")
      * @Type("array<Zimbra\Mail\Struct\ImapDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
@@ -71,7 +70,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets pop3 data sources
      *
-     * @SerializedName("pop3")
      * @Type("array<Zimbra\Mail\Struct\Pop3DataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
@@ -86,7 +84,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets caldav data sources
      *
-     * @SerializedName("caldav")
      * @Type("array<Zimbra\Mail\Struct\CaldavDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
@@ -101,7 +98,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets yab data sources
      *
-     * @SerializedName("yab")
      * @Type("array<Zimbra\Mail\Struct\YabDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
@@ -116,7 +112,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets rss data sources
      *
-     * @SerializedName("rss")
      * @Type("array<Zimbra\Mail\Struct\RssDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
@@ -131,7 +126,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets gal data sources
      *
-     * @SerializedName("gal")
      * @Type("array<Zimbra\Mail\Struct\GalDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
@@ -146,7 +140,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets cal data sources
      *
-     * @SerializedName("cal")
      * @Type("array<Zimbra\Mail\Struct\CalDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
@@ -161,7 +154,6 @@ class DeleteDataSourceRequest extends Request
     /**
      * Gets unknown data sources
      *
-     * @SerializedName("unknown")
      * @Type("array<Zimbra\Mail\Struct\UnknownDataSourceNameOrId>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")

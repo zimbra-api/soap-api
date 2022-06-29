@@ -52,7 +52,6 @@ class CreateDistributionListRequest extends Request implements KeyValuePairs
      * Key value pairs
      * 
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */

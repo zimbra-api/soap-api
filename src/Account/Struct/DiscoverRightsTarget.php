@@ -63,7 +63,6 @@ class DiscoverRightsTarget
     /**
      * Email addresses
      * @Accessor(getter="getEmails", setter="setEmails")
-     * @SerializedName("email")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
      * @XmlList(inline=true, entry="email", namespace="urn:zimbraAccount")
      */

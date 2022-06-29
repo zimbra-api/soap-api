@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * InviteWithGroupInfo class
@@ -36,7 +36,6 @@ class InviteWithGroupInfo
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @SerializedName("tz")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
@@ -45,9 +44,8 @@ class InviteWithGroupInfo
     /**
      * Invite components
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @SerializedName("comp")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\InviteComponentWithGroupInfo>")
-     * @XmlList(inline=false, entry="comp", namespace="urn:zimbraMail")
+     * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
      */
     private $inviteComponents = [];
 
@@ -56,6 +54,7 @@ class InviteWithGroupInfo
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<App\Libraries\Zimbra\Mail\Type\CalendarReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
     private $calendarReplies = [];

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\MailboxBlobConsistency;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class CheckBlobConsistencyResponse implements ResponseInterface
      * Mailboxes
      * 
      * @Accessor(getter="getMailboxes", setter="setMailboxes")
-     * @SerializedName("mbox")
      * @Type("array<Zimbra\Admin\Struct\MailboxBlobConsistency>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
      */

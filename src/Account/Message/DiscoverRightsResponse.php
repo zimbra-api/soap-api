@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class DiscoverRightsResponse implements ResponseInterface
     /**
      * Information about targets for rights
      * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
-     * @SerializedName("targets")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlList(inline=true, entry="targets", namespace="urn:zimbraAccount")
      */

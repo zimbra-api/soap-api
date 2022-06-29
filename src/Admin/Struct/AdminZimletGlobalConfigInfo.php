@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\{ZimletGlobalConfigInfo, ZimletProperty};
 
 /**
@@ -28,7 +28,6 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
      * Global zimlet configuration property
      * 
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
-     * @SerializedName("property")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAdmin")
      */

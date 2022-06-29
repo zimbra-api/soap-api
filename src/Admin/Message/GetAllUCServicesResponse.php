@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\UCServiceInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllUCServicesResponse implements ResponseInterface
      * Information about uc services
      * 
      * @Accessor(getter="getUCServiceList", setter="setUCServiceList")
-     * @SerializedName("ucservice")
      * @Type("array<Zimbra\Admin\Struct\UCServiceInfo>")
      * @XmlList(inline=true, entry="ucservice", namespace="urn:zimbraAdmin")
      */

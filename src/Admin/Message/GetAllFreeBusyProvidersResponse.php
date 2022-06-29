@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\FreeBusyProviderInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllFreeBusyProvidersResponse implements ResponseInterface
      * Information on Free/Busy providers
      * 
      * @Accessor(getter="getProviders", setter="setProviders")
-     * @SerializedName("provider")
      * @Type("array<Zimbra\Admin\Struct\FreeBusyProviderInfo>")
      * @XmlList(inline=true, entry="provider", namespace="urn:zimbraAdmin")
      */

@@ -42,7 +42,6 @@ class AccountLoggerInfo
     /**
      * Logger information
      * @Accessor(getter="getLoggers", setter="setLoggers")
-     * @SerializedName("logger")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
      */

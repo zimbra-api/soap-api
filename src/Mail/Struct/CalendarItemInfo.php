@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * CalendarItemInfo class
@@ -144,7 +144,6 @@ class CalendarItemInfo
      * Invites
      * 
      * @Accessor(getter="getInvites", setter="setInvites")
-     * @SerializedName("inv")
      * @Type("array<Zimbra\Mail\Struct\Invitation>")
      * @XmlList(inline=true, entry="inv", namespace="urn:zimbraMail")
      */
@@ -156,6 +155,7 @@ class CalendarItemInfo
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
     private $calendarReplies = [];
@@ -164,7 +164,6 @@ class CalendarItemInfo
      * Metadata
      * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */

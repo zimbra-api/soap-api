@@ -35,7 +35,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * Categories
      * @Accessor(getter="getCategories", setter="setCategories")
-     * @SerializedName("category")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */
@@ -62,7 +61,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     /**
      * Instances
      * @Accessor(getter="getInstances", setter="setInstances")
-     * @SerializedName("inst")
      * @Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
      */

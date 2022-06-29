@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\BrowseData;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class BrowseResponse implements ResponseInterface
      * Browse data
      * 
      * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
-     * @SerializedName("bd")
      * @Type("array<Zimbra\Mail\Struct\BrowseData>")
      * @XmlList(inline=true, entry="bd", namespace="urn:zimbraMail")
      */

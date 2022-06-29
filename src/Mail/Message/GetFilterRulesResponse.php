@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Mail\Struct\FilterRule;
 use Zimbra\Soap\ResponseInterface;
 
@@ -31,6 +31,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @Accessor(getter="getFilterRules", setter="setFilterRules")
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      */
     private $filterRules = [];

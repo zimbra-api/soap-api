@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\MiniCalError;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetMiniCalResponse implements ResponseInterface
      * Matching busy dates in format : yyyymmdd
      * 
      * @Accessor(getter="getBusyDates", setter="setBusyDates")
-     * @SerializedName("date")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="date", namespace="urn:zimbraMail")
      */
@@ -39,7 +38,6 @@ class GetMiniCalResponse implements ResponseInterface
      * Error for each calendar folder that couldn't be accessed
      * 
      * @Accessor(getter="getErrors", setter="setErrors")
-     * @SerializedName("error")
      * @Type("array<Zimbra\Mail\Struct\MiniCalError>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      */

@@ -46,7 +46,6 @@ class GetSessionsResponse implements ResponseInterface
     /**
      * Session information
      * @Accessor(getter="getSessions", setter="setSessions")
-     * @SerializedName("s")
      * @Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      */

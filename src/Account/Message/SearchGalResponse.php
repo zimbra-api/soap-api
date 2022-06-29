@@ -76,7 +76,6 @@ class SearchGalResponse implements ResponseInterface
      * Matching contacts
      * 
      * @Accessor(getter="getContacts", setter="setContacts")
-     * @SerializedName("cn")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
      */

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -30,7 +30,6 @@ class GetAdminSavedSearchesRequest extends Request
     /**
      * Search information
      * @Accessor(getter="getSearches", setter="setSearches")
-     * @SerializedName("search")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
      */

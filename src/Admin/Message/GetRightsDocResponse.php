@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DomainAdminRight as Right;
 use Zimbra\Admin\Struct\PackageRightsInfo as Package;
 use Zimbra\Soap\ResponseInterface;
@@ -30,7 +30,6 @@ class GetRightsDocResponse implements ResponseInterface
      * Information for packages
      * 
      * @Accessor(getter="getPackages", setter="setPackages")
-     * @SerializedName("package")
      * @Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")
      * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
      */
@@ -40,7 +39,6 @@ class GetRightsDocResponse implements ResponseInterface
      * Unused Admin rights
      * 
      * @Accessor(getter="getNotUsed", setter="setNotUsed")
-     * @SerializedName("notUsed")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="notUsed", namespace="urn:zimbraAdmin")
      */

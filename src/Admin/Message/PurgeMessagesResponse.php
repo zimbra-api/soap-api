@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\MailboxWithMailboxId;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class PurgeMessagesResponse implements ResponseInterface
      * Information about mailboxes where aged messages have been purged
      * 
      * @Accessor(getter="getMailboxes", setter="setMailboxes")
-     * @SerializedName("mbox")
      * @Type("array<Zimbra\Admin\Struct\MailboxWithMailboxId>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
      */

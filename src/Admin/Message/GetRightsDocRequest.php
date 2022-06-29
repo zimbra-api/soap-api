@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\PackageSelector;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -29,7 +29,6 @@ class GetRightsDocRequest extends Request
     /**
      * Packages
      * @Accessor(getter="getPkgs", setter="setPkgs")
-     * @SerializedName("package")
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
      * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
      */

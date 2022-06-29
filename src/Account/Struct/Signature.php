@@ -51,7 +51,6 @@ class Signature
      * Content of the signature sequence
      * 
      * @Accessor(getter="getContents", setter="setContents")
-     * @SerializedName("content")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline=true, entry="content", namespace="urn:zimbraAccount")
      */

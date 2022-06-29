@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\ModifyZimletPrefsSpec;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -29,7 +29,6 @@ class ModifyZimletPrefsRequest extends Request
     /**
      * Zimlet Preference Specifications
      * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @SerializedName("zimlet")
      * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
      */

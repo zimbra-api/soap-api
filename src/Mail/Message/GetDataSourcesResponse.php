@@ -55,7 +55,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets imap data sources
      *
-     * @SerializedName("imap")
      * @Type("array<Zimbra\Mail\Struct\MailImapDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
@@ -70,7 +69,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets pop3 data sources
      *
-     * @SerializedName("pop3")
      * @Type("array<Zimbra\Mail\Struct\MailPop3DataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
@@ -85,7 +83,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets caldav data sources
      *
-     * @SerializedName("caldav")
      * @Type("array<Zimbra\Mail\Struct\MailCaldavDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
@@ -100,7 +97,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets yab data sources
      *
-     * @SerializedName("yab")
      * @Type("array<Zimbra\Mail\Struct\MailYabDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
@@ -115,7 +111,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets rss data sources
      *
-     * @SerializedName("rss")
      * @Type("array<Zimbra\Mail\Struct\MailRssDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
@@ -130,7 +125,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets gal data sources
      *
-     * @SerializedName("gal")
      * @Type("array<Zimbra\Mail\Struct\MailGalDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
@@ -145,7 +139,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets cal data sources
      *
-     * @SerializedName("cal")
      * @Type("array<Zimbra\Mail\Struct\MailCalDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
@@ -160,7 +153,6 @@ class GetDataSourcesResponse implements ResponseInterface
     /**
      * Gets unknown data sources
      *
-     * @SerializedName("unknown")
      * @Type("array<Zimbra\Mail\Struct\MailUnknownDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")

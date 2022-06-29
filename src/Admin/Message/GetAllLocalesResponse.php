@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\LocaleInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllLocalesResponse implements ResponseInterface
      * Information for system locales
      * 
      * @Accessor(getter="getLocales", setter="setLocales")
-     * @SerializedName("locale")
      * @Type("array<Zimbra\Admin\Struct\LocaleInfo>")
      * @XmlList(inline=true, entry="locale", namespace="urn:zimbraAdmin")
      */

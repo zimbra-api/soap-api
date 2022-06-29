@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * ComboRights struct class
@@ -26,7 +26,6 @@ class ComboRights
     /**
      * Rights information
      * @Accessor(getter="getComboRights", setter="setComboRights")
-     * @SerializedName("r")
      * @Type("array<Zimbra\Admin\Struct\ComboRightInfo>")
      * @XmlList(inline=true, entry="r", namespace="urn:zimbraAdmin")
      */

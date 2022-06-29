@@ -45,7 +45,6 @@ class InfoForSessionType
      * If the request selected "groupByAccount" and "listSessions" then
      * the session information will be grouped under here.
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("zid")
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
      * @XmlList(inline=true, entry="zid", namespace="urn:zimbraAdmin")
      */
@@ -55,7 +54,6 @@ class InfoForSessionType
      * If the request selected "listSessions" but NOT "groupByAccount" then
      * the session information will be under here.
      * @Accessor(getter="getSessions", setter="setSessions")
-     * @SerializedName("s")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      */

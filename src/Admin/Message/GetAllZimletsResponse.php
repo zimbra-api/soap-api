@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\ZimletInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllZimletsResponse implements ResponseInterface
      * Information on zimlets
      * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @SerializedName("zimlet")
      * @Type("array<Zimbra\Admin\Struct\ZimletInfo>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      */

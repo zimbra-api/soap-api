@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\OAuthConsumer;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetOAuthConsumersResponse implements ResponseInterface
      * Consumers
      * 
      * @Accessor(getter="getConsumers", setter="setConsumers")
-     * @SerializedName("OAuthConsumer")
      * @Type("array<Zimbra\Account\Struct\OAuthConsumer>")
      * @XmlList(inline=true, entry="OAuthConsumer", namespace="urn:zimbraAccount")
      */

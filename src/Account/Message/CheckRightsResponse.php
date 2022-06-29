@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\CheckRightsTargetInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class CheckRightsResponse implements ResponseInterface
     /**
      * Rights information for targets
      * @Accessor(getter="getTargets", setter="setTargets")
-     * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
      */

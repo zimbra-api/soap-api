@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\LoggerInfo as Logger;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class AddAccountLoggerResponse implements ResponseInterface
      * Information on loggers
      * 
      * @Accessor(getter="getLoggers", setter="setLoggers")
-     * @SerializedName("logger")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
      */

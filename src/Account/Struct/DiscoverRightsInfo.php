@@ -35,7 +35,6 @@ class DiscoverRightsInfo
     /**
      * Targets
      * @Accessor(getter="getTargets", setter="setTargets")
-     * @SerializedName("target")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
      */

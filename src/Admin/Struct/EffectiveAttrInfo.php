@@ -46,6 +46,7 @@ class EffectiveAttrInfo
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("default")
      * @Type("array<string>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
      */
     private $values = [];

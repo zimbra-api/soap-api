@@ -45,7 +45,6 @@ class EffectiveRightsTarget
     /**
      * Attributes
      * @Accessor(getter="getInDomainLists", setter="setInDomainLists")
-     * @SerializedName("inDomains")
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
      * @XmlList(inline=true, entry="inDomains", namespace="urn:zimbraAdmin")
      */
@@ -54,7 +53,6 @@ class EffectiveRightsTarget
     /**
      * Attributes
      * @Accessor(getter="getEntriesLists", setter="setEntriesLists")
-     * @SerializedName("entries")
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
      * @XmlList(inline=true, entry="entries", namespace="urn:zimbraAdmin")
      */

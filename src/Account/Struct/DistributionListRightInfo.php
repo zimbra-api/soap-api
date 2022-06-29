@@ -35,7 +35,6 @@ class DistributionListRightInfo
     /**
      * Grantees
      * @Accessor(getter="getGrantees", setter="setGrantees")
-     * @SerializedName("grantee")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
      */

@@ -39,7 +39,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Categories - for iCalendar CATEGORY properties
      * @Accessor(getter="getCategories", setter="setCategories")
-     * @SerializedName("category")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */
@@ -48,7 +47,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Comments - for iCalendar COMMENT properties
      * @Accessor(getter="getComments", setter="setComments")
-     * @SerializedName("comment")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      */
@@ -57,7 +55,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Contacts - for iCalendar CONTACT properties
      * @Accessor(getter="getContacts", setter="setContacts")
-     * @SerializedName("contact")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
      */
@@ -75,7 +72,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Attendees
      * @Accessor(getter="getAttendees", setter="setAttendees")
-     * @SerializedName("at")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
      */
@@ -84,7 +80,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Alarm information
      * @Accessor(getter="getAlarms", setter="setAlarms")
-     * @SerializedName("alarm")
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
      */
@@ -93,7 +88,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * XPROP properties
      * @Accessor(getter="getXProps", setter="setXProps")
-     * @SerializedName("xprop")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
      */

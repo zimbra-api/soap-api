@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * TestResultInfo struct class
@@ -27,7 +27,6 @@ class TestResultInfo
      * Information for completed tests
      * 
      * @Accessor(getter="getCompletedTests", setter="setCompletedTests")
-     * @SerializedName("completed")
      * @Type("array<Zimbra\Admin\Struct\CompletedTestInfo>")
      * @XmlList(inline=true, entry="completed", namespace="urn:zimbraAdmin")
      */
@@ -37,7 +36,6 @@ class TestResultInfo
      * Information for failed tests
      * 
      * @Accessor(getter="getFailedTests", setter="setFailedTests")
-     * @SerializedName("failure")
      * @Type("array<Zimbra\Admin\Struct\FailedTestInfo>")
      * @XmlList(inline=true, entry="failure", namespace="urn:zimbraAdmin")
      */

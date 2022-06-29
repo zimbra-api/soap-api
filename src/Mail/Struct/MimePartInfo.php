@@ -53,7 +53,6 @@ class MimePartInfo
     /**
      * MIME Parts
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
-     * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */

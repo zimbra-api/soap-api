@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllCosResponse implements ResponseInterface
      * Information on Classes of Service (COS)
      * 
      * @Accessor(getter="getCosList", setter="setCosList")
-     * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */

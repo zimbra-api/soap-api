@@ -38,7 +38,6 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
      * Host specifice zimlet configuration properties
      * 
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
-     * @SerializedName("property")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAdmin")
      */

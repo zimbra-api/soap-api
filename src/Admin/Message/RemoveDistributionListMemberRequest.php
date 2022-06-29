@@ -39,7 +39,6 @@ class RemoveDistributionListMemberRequest extends Request
      * Members
      * 
      * @Accessor(getter="getMembers", setter="setMembers")
-     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */
@@ -49,7 +48,6 @@ class RemoveDistributionListMemberRequest extends Request
      * Specify Accounts insteaf of members if you want to remove all addresses that belong to an account from the list
      * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("account")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

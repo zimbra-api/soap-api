@@ -38,7 +38,6 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      * Host specifice zimlet configuration properties
      * 
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
-     * @SerializedName("property")
      * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAccount")
      */

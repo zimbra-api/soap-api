@@ -27,7 +27,6 @@ class ModifyZimletPrefsResponse implements ResponseInterface
     /**
      * Zimlets
      * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @SerializedName("zimlet")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
      */

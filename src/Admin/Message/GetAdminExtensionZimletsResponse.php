@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\AdminZimletInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -31,6 +31,7 @@ class GetAdminExtensionZimletsResponse implements ResponseInterface
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("array<Zimbra\Admin\Struct\AdminZimletInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="zimlet", namespace="urn:zimbraAdmin")
      */
     private $zimlets = [];

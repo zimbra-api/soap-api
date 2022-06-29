@@ -35,7 +35,6 @@ class StatsValues
     /**
      * Stats
      * @Accessor(getter="getStats", setter="setStats")
-     * @SerializedName("stat")
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      */

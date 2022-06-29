@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * TzFixup struct class
@@ -25,7 +25,6 @@ class TzFixup
 {
     /**
      * @Accessor(getter="getFixupRules", setter="setFixupRules")
-     * @SerializedName("fixupRule")
      * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
      * @XmlList(inline=true, entry="fixupRule", namespace="urn:zimbraAdmin")
      */

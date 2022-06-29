@@ -47,7 +47,6 @@ class SearchCalendarResourcesResponse implements ResponseInterface
      * Information about calendar resources
      * 
      * @Accessor(getter="getCalResources", setter="setCalResources")
-     * @SerializedName("calresource")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
      */

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 
 /**
@@ -28,7 +28,6 @@ class StatsValueWrapper
      * Stats specification
      * 
      * @Accessor(getter="getStats", setter="setStats")
-     * @SerializedName("stat")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      */

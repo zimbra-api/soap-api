@@ -39,7 +39,6 @@ class DedupeBlobsRequest extends Request
     /**
      * Volumes
      * @Accessor(getter="getVolumes", setter="setVolumes")
-     * @SerializedName("volume")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
      */
