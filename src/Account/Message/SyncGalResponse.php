@@ -84,7 +84,6 @@ class SyncGalResponse implements ResponseInterface
     /**
      * Details of contact
      * @Accessor(getter="getContacts", setter="setContacts")
-     * @SerializedName("cn")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
      */
@@ -93,7 +92,6 @@ class SyncGalResponse implements ResponseInterface
     /**
      * details of deleted entries
      * @Accessor(getter="getDeleted", setter="setDeleted")
-     * @SerializedName("deleted")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="deleted", namespace="urn:zimbraAccount")
      */

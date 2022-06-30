@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -31,7 +31,6 @@ class RunUnitTestsRequest extends Request
      * Test names - each entry of form: className[#testName[+testName]*]
      * 
      * @Accessor(getter="getTests", setter="setTests")
-     * @SerializedName("test")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="test", namespace="urn:zimbraAdmin")
      */

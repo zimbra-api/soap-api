@@ -46,7 +46,6 @@ class GetQuotaUsageResponse implements ResponseInterface
     /**
      * Account quota information
      * @Accessor(getter="getAccountQuotas", setter="setAccountQuotas")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountQuotaInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */

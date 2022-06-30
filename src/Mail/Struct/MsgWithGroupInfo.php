@@ -138,7 +138,6 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Email addresses
      * @Accessor(getter="getEmails", setter="setEmails")
-     * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
@@ -183,7 +182,6 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Headers
      * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */

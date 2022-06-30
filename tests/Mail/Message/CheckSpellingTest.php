@@ -43,7 +43,7 @@ class CheckSpellingTest extends ZimbraTestCase
         $response = new CheckSpellingResponse(FALSE, [$missed]);
         $this->assertFalse($response->isAvailable());
         $this->assertSame([$missed], $response->getMisspelledWords());
-        $response = new CheckSpellingResponse(FALSE);
+        $response = new CheckSpellingResponse();
         $response->setMisspelledWords([$missed])
             ->addMisspelledWord($missed)
             ->setAvailable(TRUE);
@@ -72,7 +72,7 @@ class CheckSpellingTest extends ZimbraTestCase
     <soap:Body>
         <urn:CheckSpellingRequest dictionary="$dictionary" ignore="$ignoreList">$text</urn:CheckSpellingRequest>
         <urn:CheckSpellingResponse available="true">
-            <misspelled word="$word" suggestions="$suggestions" />
+            <urn:misspelled word="$word" suggestions="$suggestions" />
         </urn:CheckSpellingResponse>
     </soap:Body>
 </soap:Envelope>

@@ -44,7 +44,6 @@ class MessageSummary extends MessageCommon
     /**
      * Email address information
      * @Accessor(getter="getEmails", setter="setEmails")
-     * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */

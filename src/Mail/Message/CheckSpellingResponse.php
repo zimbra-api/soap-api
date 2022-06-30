@@ -39,7 +39,6 @@ class CheckSpellingResponse implements ResponseInterface
      * Information for misspelled words
      * 
      * @Accessor(getter="getMisspelledWords", setter="setMisspelledWords")
-     * @SerializedName("misspelled")
      * @Type("array<Zimbra\Mail\Struct\Misspelling>")
      * @XmlList(inline=true, entry="misspelled", namespace="urn:zimbraMail")
      */

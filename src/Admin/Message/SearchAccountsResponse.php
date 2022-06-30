@@ -49,7 +49,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on calendar resources
      * 
      * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
-     * @SerializedName("calresource")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
      */
@@ -59,7 +58,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on distribution lists
      * 
      * @Accessor(getter="getDistributionLists", setter="setDistributionLists")
-     * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */
@@ -69,7 +67,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on aliases
      * 
      * @Accessor(getter="getAliases", setter="setAliases")
-     * @SerializedName("alias")
      * @Type("array<Zimbra\Admin\Struct\AliasInfo>")
      * @XmlList(inline=true, entry="alias", namespace="urn:zimbraAdmin")
      */
@@ -79,7 +76,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on accounts
      * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("account")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      */
@@ -89,7 +85,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on domains
      * 
      * @Accessor(getter="getDomains", setter="setDomains")
-     * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */
@@ -99,7 +94,6 @@ class SearchAccountsResponse implements ResponseInterface
      * Information on Classes of Service (COS)
      * 
      * @Accessor(getter="getCOSes", setter="setCOSes")
-     * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\CosInfo>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */

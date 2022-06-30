@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Type;
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\RetentionPolicy;
@@ -20,11 +22,11 @@ class RetentionPolicyTest extends ZimbraTestCase
         $keep = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
         $purge = new Policy(Type::USER(), $id, $name, $lifetime);
 
-        $retention = new RetentionPolicy([$keep], [$purge]);
+        $retention = new StubRetentionPolicy([$keep], [$purge]);
         $this->assertSame([$keep], $retention->getKeepPolicy());
         $this->assertSame([$purge], $retention->getPurgePolicy());
 
-        $retention = new RetentionPolicy();
+        $retention = new StubRetentionPolicy();
         $retention->setKeepPolicy([$keep])
             ->setPurgePolicy([$purge]);
         $this->assertSame([$keep], $retention->getKeepPolicy());
@@ -32,16 +34,23 @@ class RetentionPolicyTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <keep>
-        <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-    </keep>
-    <purge>
-        <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-    </purge>
+<result xmlns:urn="urn:zimbraMail">
+    <urn:keep>
+        <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+    </urn:keep>
+    <urn:purge>
+        <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+    </urn:purge>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($retention, 'xml'));
-        $this->assertEquals($retention, $this->serializer->deserialize($xml, RetentionPolicy::class, 'xml'));
+        $this->assertEquals($retention, $this->serializer->deserialize($xml, StubRetentionPolicy::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubRetentionPolicy extends RetentionPolicy
+{
 }

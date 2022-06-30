@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Prop;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -29,7 +29,6 @@ class ModifyPropertiesRequest extends Request
     /**
      * Property to be modified
      * @Accessor(getter="getProps", setter="setProps")
-     * @SerializedName("prop")
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline=true, entry="prop", namespace="urn:zimbraAccount")
      */

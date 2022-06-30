@@ -68,7 +68,7 @@ class BrowseTest extends ZimbraTestCase
     <soap:Body>
         <urn:BrowseRequest browseBy="domains" regex="$regex" maxToReturn="$max" />
         <urn:BrowseResponse>
-            <bd h="$browseDomainHeader" freq="$frequency">$data</bd>
+            <urn:bd h="$browseDomainHeader" freq="$frequency">$data</urn:bd>
         </urn:BrowseResponse>
     </soap:Body>
 </soap:Envelope>

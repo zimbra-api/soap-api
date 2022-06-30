@@ -66,6 +66,7 @@ class WaitSetInfo
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="error", namespace="urn:zimbraAdmin")
      */
     private $errors = [];
@@ -111,6 +112,7 @@ class WaitSetInfo
      * @Accessor(getter="getBufferedCommits", setter="setBufferedCommits")
      * @SerializedName("buffered")
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="commit", namespace="urn:zimbraAdmin")
      */
     private $bufferedCommits = [];
@@ -118,7 +120,6 @@ class WaitSetInfo
     /**
      * Session information
      * @Accessor(getter="getSessions", setter="setSessions")
-     * @SerializedName("session")
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
      * @XmlList(inline=true, entry="session", namespace="urn:zimbraAdmin")
      */

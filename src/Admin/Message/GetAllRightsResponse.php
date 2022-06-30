@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\RightInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllRightsResponse implements ResponseInterface
      * Information for rights
      * 
      * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("right")
      * @Type("array<Zimbra\Admin\Struct\RightInfo>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAdmin")
      */

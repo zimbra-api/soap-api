@@ -47,7 +47,7 @@ class CreateNoteTest extends ZimbraTestCase
         );
         $request = new CreateNoteRequest($newNote);
         $this->assertSame($newNote, $request->getNote());
-        $request = new CreateNoteRequest(new NewNoteSpec('', ''));
+        $request = new CreateNoteRequest(new NewNoteSpec());
         $request->setNote($newNote);
         $this->assertSame($newNote, $request->getNote());
 
@@ -70,7 +70,7 @@ class CreateNoteTest extends ZimbraTestCase
         );
         $response = new CreateNoteResponse($noteInfo);
         $this->assertSame($noteInfo, $response->getNote());
-        $response = new CreateNoteResponse(new NoteInfo());
+        $response = new CreateNoteResponse();
         $response->setNote($noteInfo);
         $this->assertSame($noteInfo, $response->getNote());
 
@@ -94,15 +94,15 @@ class CreateNoteTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateNoteRequest>
-            <note l="$folder" content="$content" color="$color" pos="$bounds" />
+            <urn:note l="$folder" content="$content" color="$color" pos="$bounds" />
         </urn:CreateNoteRequest>
         <urn:CreateNoteResponse>
-            <note id="$id" rev="$revision" l="$folder" d="$date" f="$flags" t="$tags" tn="$tagNames" pos="$bounds" color="$color" rgb="$rgb" md="$changeDate" ms="$modifiedSequence">
-                <content>$content</content>
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-            </note>
+            <urn:note id="$id" rev="$revision" l="$folder" d="$date" f="$flags" t="$tags" tn="$tagNames" pos="$bounds" color="$color" rgb="$rgb" md="$changeDate" ms="$modifiedSequence">
+                <urn:content>$content</urn:content>
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:meta>
+            </urn:note>
         </urn:CreateNoteResponse>
     </soap:Body>
 </soap:Envelope>

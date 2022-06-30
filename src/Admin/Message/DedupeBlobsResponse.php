@@ -54,7 +54,6 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * volumeBlobsProgress
      * @Accessor(getter="getVolumeBlobsProgress", setter="setVolumeBlobsProgress")
-     * @SerializedName("volumeBlobsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="volumeBlobsProgress", namespace="urn:zimbraAdmin")
      */
@@ -63,7 +62,6 @@ class DedupeBlobsResponse implements ResponseInterface
     /**
      * blobDigestsProgress
      * @Accessor(getter="getBlobDigestsProgress", setter="setBlobDigestsProgress")
-     * @SerializedName("blobDigestsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="blobDigestsProgress", namespace="urn:zimbraAdmin")
      */

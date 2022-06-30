@@ -35,7 +35,6 @@ class PackageRightsInfo
     /**
      * Command cmds information
      * @Accessor(getter="getCmds", setter="setCmds")
-     * @SerializedName("cmd")
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
      */

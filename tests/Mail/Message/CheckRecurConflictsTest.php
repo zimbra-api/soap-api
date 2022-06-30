@@ -118,22 +118,22 @@ class CheckRecurConflictsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CheckRecurConflictsRequest s="$startTime" e="$endTime" all="true" excludeUid="$excludeUid">
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-            <cancel s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </cancel>
-            <comp s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </comp>
-            <except s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </except>
-            <usr l="$folderId" id="$id" name="$name" />
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:cancel s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:cancel>
+            <urn:comp s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:comp>
+            <urn:except s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:except>
+            <urn:usr l="$folderId" id="$id" name="$name" />
         </urn:CheckRecurConflictsRequest>
         <urn:CheckRecurConflictsResponse>
-            <inst>
-                <usr name="$name" fb="F" />
-            </inst>
+            <urn:inst>
+                <urn:usr name="$name" fb="F" />
+            </urn:inst>
         </urn:CheckRecurConflictsResponse>
     </soap:Body>
 </soap:Envelope>

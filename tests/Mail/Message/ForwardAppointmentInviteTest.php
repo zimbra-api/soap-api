@@ -89,16 +89,16 @@ class ForwardAppointmentInviteTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:ForwardAppointmentInviteRequest id="$id">
-            <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
-                <header name="$name">$value</header>
-                <content>$content</content>
-                <mp ct="$contentType" content="$content" ci="$contentId" />
-                <attach aid="$id" />
-                <inv method="$method" compNum="$componentNum" rsvp="true" />
-                <e a="$address" t="t" p="$personal" />
-                <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-                <fr>$fragment</fr>
-            </m>
+            <urn:m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
+                <urn:header name="$name">$value</urn:header>
+                <urn:content>$content</urn:content>
+                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:attach aid="$id" />
+                <urn:inv method="$method" compNum="$componentNum" rsvp="true" />
+                <urn:e a="$address" t="t" p="$personal" />
+                <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+                <urn:fr>$fragment</urn:fr>
+            </urn:m>
         </urn:ForwardAppointmentInviteRequest>
         <urn:ForwardAppointmentInviteResponse />
     </soap:Body>

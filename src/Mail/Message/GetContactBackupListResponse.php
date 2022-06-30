@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Soap\ResponseInterface;
 
 /**
@@ -30,6 +30,7 @@ class GetContactBackupListResponse implements ResponseInterface
      * @Accessor(getter="getBackup", setter="setBackup")
      * @SerializedName("backups")
      * @Type("array<string>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="backup", namespace="urn:zimbraMail")
      */
     private $backup = [];

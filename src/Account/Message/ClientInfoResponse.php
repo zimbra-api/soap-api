@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class ClientInfoResponse implements ResponseInterface
     /**
      * Attributes
      * @Accessor(getter="getAttrList", setter="setAttrList")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */

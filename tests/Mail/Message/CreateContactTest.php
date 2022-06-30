@@ -116,19 +116,19 @@ class CreateContactTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateContactRequest verbose="true" wantImapUid="true" wantModSeq="true">
-            <cn id="$id" l="$folder" t="$tags" tn="$tagNames">
-                <vcard mid="$messageId" part="$part" aid="$attachId">$value</vcard>
-                <a n="$name" aid="$attachId" id="$id" part="$part">$value</a>
-                <m type="C" value="$value" />
-            </cn>
+            <urn:cn id="$id" l="$folder" t="$tags" tn="$tagNames">
+                <urn:vcard mid="$messageId" part="$part" aid="$attachId">$value</urn:vcard>
+                <urn:a n="$name" aid="$attachId" id="$id" part="$part">$value</urn:a>
+                <urn:m type="C" value="$value" />
+            </urn:cn>
         </urn:CreateContactRequest>
         <urn:CreateContactResponse>
-            <cn sf="$sortField" exp="true" id="$uuid" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
-                <meta section="$section" />
-                <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
-                <m type="C" value="$value" />
-                <memberOf>$memberOf</memberOf>
-            </cn>
+            <urn:cn sf="$sortField" exp="true" id="$uuid" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="C" value="$value" />
+                <urn:memberOf>$memberOf</urn:memberOf>
+            </urn:cn>
         </urn:CreateContactResponse>
     </soap:Body>
 </soap:Envelope>

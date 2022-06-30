@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\WaitSetInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class QueryWaitSetResponse implements ResponseInterface
      * Information about WaitSets
      * 
      * @Accessor(getter="getWaitsets", setter="setWaitsets")
-     * @SerializedName("waitSet")
      * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
      * @XmlList(inline=true, entry="waitSet", namespace="urn:zimbraAdmin")
      */

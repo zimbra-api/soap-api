@@ -55,7 +55,7 @@ class ExpandRecurTest extends ZimbraTestCase
         $this->assertSame([$timezone], $request->getTimezones());
         $this->assertEquals($components, $request->getComponents());
 
-        $request = new ExpandRecurRequest(0, 0);
+        $request = new ExpandRecurRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setTimezones([$timezone])
@@ -103,19 +103,19 @@ class ExpandRecurTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:ExpandRecurRequest s="$startTime" e="$endTime">
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-            <comp s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </comp>
-            <except s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </except>
-            <cancel s="$startTime" e="$endTime">
-                <exceptId range="$range" d="$dateTime" tz="$tz" />
-            </cancel>
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:comp s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:comp>
+            <urn:except s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:except>
+            <urn:cancel s="$startTime" e="$endTime">
+                <urn:exceptId range="$range" d="$dateTime" tz="$tz" />
+            </urn:cancel>
         </urn:ExpandRecurRequest>
         <urn:ExpandRecurResponse>
-            <inst s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ" />
+            <urn:inst s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ" />
         </urn:ExpandRecurResponse>
     </soap:Body>
 </soap:Envelope>

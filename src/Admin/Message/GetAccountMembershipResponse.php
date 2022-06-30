@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DLInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class GetAccountMembershipResponse implements ResponseInterface
     /**
      * List membership information
      * @Accessor(getter="getDlList", setter="setDlList")
-     * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DLInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */

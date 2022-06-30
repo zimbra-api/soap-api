@@ -17,7 +17,7 @@ class IdsAttrTest extends ZimbraTestCase
         $attr = new IdsAttr($ids);
         $this->assertSame($ids, $attr->getIds());
 
-        $attr = new IdsAttr('');
+        $attr = new IdsAttr();
         $attr->setIds($ids);
         $this->assertSame($ids, $attr->getIds());
 

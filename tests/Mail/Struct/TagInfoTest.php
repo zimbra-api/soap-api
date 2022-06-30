@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Type;
 use Zimbra\Common\Struct\KeyValuePair;
 
@@ -41,7 +43,7 @@ class TagInfoTest extends ZimbraTestCase
             [new Policy(Type::USER(), $id, $name, $lifetime)]
         );
 
-        $tag = new TagInfo(
+        $tag = new StubTagInfo(
             $id,
             $name,
             $color,
@@ -68,7 +70,7 @@ class TagInfoTest extends ZimbraTestCase
         $this->assertSame([$metadata], $tag->getMetadatas());
         $this->assertSame($retentionPolicy, $tag->getRetentionPolicy());
 
-        $tag = new TagInfo('');
+        $tag = new StubTagInfo();
         $tag->setId($id)
             ->setName($name)
             ->setColor($color)
@@ -97,21 +99,28 @@ class TagInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" name="$name" color="$color" rgb="$rgb" u="$unread" n="$count" d="$date" rev="$revision" md="$changeDate" ms="$modifiedSequence">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
-    <retentionPolicy>
-        <keep>
-            <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-        </keep>
-        <purge>
-            <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-        </purge>
-    </retentionPolicy>
+<result id="$id" name="$name" color="$color" rgb="$rgb" u="$unread" n="$count" d="$date" rev="$revision" md="$changeDate" ms="$modifiedSequence" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
+    <urn:retentionPolicy>
+        <urn:keep>
+            <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:keep>
+        <urn:purge>
+            <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:purge>
+    </urn:retentionPolicy>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tag, 'xml'));
-        $this->assertEquals($tag, $this->serializer->deserialize($xml, TagInfo::class, 'xml'));
+        $this->assertEquals($tag, $this->serializer->deserialize($xml, StubTagInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubTagInfo extends TagInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\NotifyAction;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -19,14 +21,14 @@ class NotifyActionTest extends ZimbraTestCase
         $content = $this->faker->word;
         $origHeaders = $this->faker->word;
 
-        $action = new NotifyAction($index, $address, $subject, $maxBodySize, $content, $origHeaders);
+        $action = new StubNotifyAction($index, $address, $subject, $maxBodySize, $content, $origHeaders);
         $this->assertSame($address, $action->getAddress());
         $this->assertSame($subject, $action->getSubject());
         $this->assertSame($maxBodySize, $action->getMaxBodySize());
         $this->assertSame($content, $action->getContent());
         $this->assertSame($origHeaders, $action->getOrigHeaders());
 
-        $action = new NotifyAction($index);
+        $action = new StubNotifyAction($index);
         $action->setAddress($address)
             ->setSubject($subject)
             ->setMaxBodySize($maxBodySize)
@@ -40,11 +42,18 @@ class NotifyActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result index="$index" a="$address" su="$subject" maxBodySize="$maxBodySize" origHeaders="$origHeaders">
-    <content>$content</content>
+<result index="$index" a="$address" su="$subject" maxBodySize="$maxBodySize" origHeaders="$origHeaders" xmlns:urn="urn:zimbraMail">
+    <urn:content>$content</urn:content>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, NotifyAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubNotifyAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubNotifyAction extends NotifyAction
+{
 }

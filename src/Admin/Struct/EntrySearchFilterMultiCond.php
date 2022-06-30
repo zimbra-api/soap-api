@@ -48,7 +48,6 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * The array of compound conditions
      * @Accessor(getter="getCompoundConditions", setter="setConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")
-     * @SerializedName("conds")
      * @XmlList(inline=true, entry="conds", namespace="urn:zimbraAdmin")
      */
     private $compoundConditions = [];
@@ -57,7 +56,6 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * The array of simple conditions
      * @Accessor(getter="getSingleConditions", setter="setConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")
-     * @SerializedName("cond")
      * @XmlList(inline=true, entry="cond", namespace="urn:zimbraAdmin")
      */
     private $singleConditions = [];

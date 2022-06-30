@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DistributionListMembershipInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetDistributionListMembershipResponse implements ResponseInterface
      * Information on distribution lists
      * 
      * @Accessor(getter="getDls", setter="setDls")
-     * @SerializedName("dl")
      * @Type("array<Zimbra\Admin\Struct\DistributionListMembershipInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
      */

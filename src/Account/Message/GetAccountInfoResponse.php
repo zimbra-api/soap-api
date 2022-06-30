@@ -39,8 +39,8 @@ class GetAccountInfoResponse implements ResponseInterface
      * zimbraId: the unique UUID of the zimbra account 
      * zimbraMailHost: the server on which this user's mail resides
      * displayName: display name for the account
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attr")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
      */

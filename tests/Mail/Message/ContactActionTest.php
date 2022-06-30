@@ -40,7 +40,7 @@ class ContactActionTest extends ZimbraTestCase
         )]);
         $request = new ContactActionRequest($action);
         $this->assertSame($action, $request->getAction());
-        $request = new ContactActionRequest(new ContactActionSelector($operation, $id));
+        $request = new ContactActionRequest(new ContactActionSelector());
         $request->setAction($action);
         $this->assertSame($action, $request->getAction());
 
@@ -49,7 +49,7 @@ class ContactActionTest extends ZimbraTestCase
         );
         $response = new ContactActionResponse($action);
         $this->assertSame($action, $response->getAction());
-        $response = new ContactActionResponse(new FolderActionResult($id, $operation));
+        $response = new ContactActionResponse();
         $response->setAction($action);
         $this->assertSame($action, $response->getAction());
 
@@ -73,12 +73,12 @@ class ContactActionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:ContactActionRequest>
-            <action id="$id" op="$operation">
-                <attr n="$name" aid="$attachId" id="$cid" part="$part">$value</attr>
-            </action>
+            <urn:action id="$id" op="$operation">
+                <urn:attr n="$name" aid="$attachId" id="$cid" part="$part">$value</urn:attr>
+            </urn:action>
         </urn:ContactActionRequest>
         <urn:ContactActionResponse>
-            <action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
         </urn:ContactActionResponse>
     </soap:Body>
 </soap:Envelope>

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\{
     AccountWithModifications,
     CreateItemNotification,
@@ -40,12 +42,12 @@ class AccountWithModificationsTest extends ZimbraTestCase
         $modFolder = new RenameFolderNotification($folderId, $path, $changeBitmask);
         $mod = new PendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
 
-        $account = new AccountWithModifications($id, [$mod], $lastChangeId);
+        $account = new StubAccountWithModifications($id, [$mod], $lastChangeId);
         $this->assertSame($id, $account->getId());
         $this->assertSame([$mod], $account->getPendingFolderModifications());
         $this->assertSame($lastChangeId, $account->getLastChangeId());
 
-        $account = new AccountWithModifications();
+        $account = new StubAccountWithModifications();
         $account->setId($id)
                 ->setPendingFolderModifications([$mod])
                 ->addPendingFolderModification($mod)
@@ -54,28 +56,35 @@ class AccountWithModificationsTest extends ZimbraTestCase
         $this->assertSame([$mod, $mod], $account->getPendingFolderModifications());
         $this->assertSame($lastChangeId, $account->getLastChangeId());
 
-        $account = new AccountWithModifications($id, [$mod], $lastChangeId);
+        $account = new StubAccountWithModifications($id, [$mod], $lastChangeId);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" changeid="$lastChangeId">
-    <mods id="$folderId">
-        <created>
-            <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-        </created>
-        <deleted id="$id" t="$type" />
-        <modMsgs change="$changeBitmask">
-            <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-        </modMsgs>
-        <modTags change="$changeBitmask">
-            <id>$id</id>
-            <name>$name</name>
-        </modTags>
-        <modFolders id="$folderId" path="$path" change="$changeBitmask" />
-    </mods>
+<result id="$id" changeid="$lastChangeId" xmlns:urn="urn:zimbraMail">
+    <urn:mods id="$folderId">
+        <urn:created>
+            <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+        </urn:created>
+        <urn:deleted id="$id" t="$type" />
+        <urn:modMsgs change="$changeBitmask">
+            <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+        </urn:modMsgs>
+        <urn:modTags change="$changeBitmask">
+            <urn:id>$id</urn:id>
+            <urn:name>$name</urn:name>
+        </urn:modTags>
+        <urn:modFolders id="$folderId" path="$path" change="$changeBitmask" />
+    </urn:mods>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($account, 'xml'));
-        $this->assertEquals($account, $this->serializer->deserialize($xml, AccountWithModifications::class, 'xml'));
+        $this->assertEquals($account, $this->serializer->deserialize($xml, StubAccountWithModifications::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubAccountWithModifications extends AccountWithModifications
+{
 }

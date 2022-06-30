@@ -85,13 +85,13 @@ class GetMiniCalTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetMiniCalRequest s="$startTime" e="$endTime">
-            <folder id="$id" />
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:folder id="$id" />
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
         </urn:GetMiniCalRequest>
         <urn:GetMiniCalResponse>
-            <date>$date1</date>
-            <date>$date2</date>
-            <error id="$id" code="$code">$errorMessage</error>
+            <urn:date>$date1</urn:date>
+            <urn:date>$date2</urn:date>
+            <urn:error id="$id" code="$code">$errorMessage</urn:error>
         </urn:GetMiniCalResponse>
     </soap:Body>
 </soap:Envelope>

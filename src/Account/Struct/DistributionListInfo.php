@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * DistributionListInfo struct class
@@ -55,7 +55,6 @@ class DistributionListInfo extends ObjectInfo
     /**
      * Group members
      * @Accessor(getter="getMembers", setter="setMembers")
-     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
      */
@@ -66,6 +65,7 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAccount")
      */
     private $owners = [];
@@ -75,6 +75,7 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAccount")
      */
     private $rights = [];

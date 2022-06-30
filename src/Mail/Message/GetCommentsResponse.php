@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{IdEmailName, CommentInfo};
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetCommentsResponse implements ResponseInterface
      * Users
      * 
      * @Accessor(getter="getUsers", setter="setUsers")
-     * @SerializedName("user")
      * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
      * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
      */
@@ -39,7 +38,6 @@ class GetCommentsResponse implements ResponseInterface
      * Comment information
      * 
      * @Accessor(getter="getComments", setter="setComments")
-     * @SerializedName("comment")
      * @Type("array<Zimbra\Mail\Struct\CommentInfo>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      */

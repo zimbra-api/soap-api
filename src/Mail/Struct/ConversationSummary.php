@@ -126,7 +126,6 @@ class ConversationSummary
     /**
      * Custom metadata
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
@@ -153,7 +152,6 @@ class ConversationSummary
     /**
      * Email addresses
      * @Accessor(getter="getEmails", setter="setEmails")
-     * @SerializedName("e")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */

@@ -45,7 +45,7 @@ class CheckPermissionTest extends ZimbraTestCase
         $response = new CheckPermissionResponse(FALSE, [$right]);
         $this->assertFalse($response->getAllow());
         $this->assertSame([$right], $response->getRights());
-        $response = new CheckPermissionResponse(FALSE);
+        $response = new CheckPermissionResponse();
         $response->setAllow(TRUE)
             ->setRights([$right])
             ->addRight($right);
@@ -73,12 +73,12 @@ class CheckPermissionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CheckPermissionRequest>
-            <target type="account" by="name">$value</target>
-            <right>$right1</right>
-            <right>$right2</right>
+            <urn:target type="account" by="name">$value</urn:target>
+            <urn:right>$right1</urn:right>
+            <urn:right>$right2</urn:right>
         </urn:CheckPermissionRequest>
         <urn:CheckPermissionResponse allow="true">
-            <right allow="true">$rightName</right>
+            <urn:right allow="true">$rightName</urn:right>
         </urn:CheckPermissionResponse>
     </soap:Body>
 </soap:Envelope>

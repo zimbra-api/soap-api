@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 
 /**
@@ -38,6 +38,7 @@ class CmdRightsInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
      */
     private $rights = [];
@@ -47,6 +48,7 @@ class CmdRightsInfo
      * @Accessor(getter="getNotes", setter="setNotes")
      * @SerializedName("desc")
      * @Type("array<string>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="note", namespace="urn:zimbraAdmin")
      */
     private $notes = [];

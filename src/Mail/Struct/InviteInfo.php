@@ -40,7 +40,6 @@ class InviteInfo implements InviteInfoInterface
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
@@ -60,6 +59,7 @@ class InviteInfo implements InviteInfoInterface
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
     private $calendarReplies = [];

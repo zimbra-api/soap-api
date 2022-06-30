@@ -81,7 +81,6 @@ class ConversationSpec
      * inlined into the response (not available when raw is set)
      * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @SerializedName("header")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */

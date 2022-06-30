@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * ConflictRecurrenceInstance class
@@ -27,7 +27,6 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     /**
      * Free/Busy user status
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      */

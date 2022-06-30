@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -29,7 +29,6 @@ class RefreshRegisteredAuthTokensRequest extends Request
      * Tokens
      * 
      * @Accessor(getter="getTokens", setter="setTokens")
-     * @SerializedName("token")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="token", namespace="urn:zimbraAdmin")
      */

@@ -72,7 +72,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
@@ -81,7 +80,6 @@ class InvitationInfo extends InviteComponent
     /**
      * Meeting notes parts
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
-     * @SerializedName("mp")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
      */

@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlKeyValuePairs
-};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 
 /**
  * FilterRule struct class
@@ -63,13 +61,13 @@ class FilterRule
 
     /**
      * Filter actions
-     * @Accessor(getter="getFilterActions", setter="setFilterActions")
-     * @Type("array<string, Zimbra\Mail\Struct\FilterAction>")
+     * 
+     * @Accessor(getter="getActions", setter="setActions")
+     * @Type("Zimbra\Mail\Struct\FilterActions")
      * @SerializedName("filterActions")
-     ^ @SkipWhenEmpty
-     * @XmlKeyValuePairs
+     * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $actions = [];
+    private ?FilterActions $actions = NULL;
 
     /**
      * Nested Rule
@@ -83,27 +81,27 @@ class FilterRule
     /**
      * Constructor method for FilterRule
      * 
+     * @param FilterTests $tests
      * @param string $name
      * @param bool $active
-     * @param FilterTests $tests
      * @param FilterVariables $filterVariables
      * @param array $actions
      * @param NestedRule $child
      * @return self
      */
     public function __construct(
+        FilterTests $tests,
         string $name = '',
         bool $active = FALSE,
-        FilterTests $tests,
         ?FilterVariables $filterVariables = NULL,
         array $actions = [],
         ?NestedRule $child = NULL
     )
     {
         $this->setName($name)
-            ->setActive($active)
-            ->setFilterTests($tests)
-            ->setFilterActions($actions);
+             ->setActive($active)
+             ->setFilterTests($tests)
+             ->setFilterActions($actions);
         if ($filterVariables instanceof FilterVariables) {
             $this->setFilterVariables($filterVariables);
         }
@@ -207,7 +205,7 @@ class FilterRule
      */
     public function getFilterActions(): array
     {
-        return $this->actions;
+        return ($this->actions instanceof FilterActions) ? $this->actions->getFilterActions() : [];
     }
 
     /**
@@ -218,12 +216,7 @@ class FilterRule
      */
     public function setFilterActions(array $actions): self
     {
-        $this->actions = [];
-        foreach ($actions as $action) {
-            if ($action instanceof FilterAction) {
-                $this->addFilterAction($action);
-            }
-        }
+        $this->actions = new FilterActions($actions);
         return $this;
     }
 
@@ -235,11 +228,32 @@ class FilterRule
      */
     public function addFilterAction(FilterAction $action): self
     {
-        foreach (self::filterActionTypes() as $key => $type) {
-            if (get_class($action) === $type) {
-                $this->actions[$key] = $action;
-            }
+        if (empty($this->actions)) {
+            $this->actions = new FilterActions();
         }
+        $this->actions->addFilterAction($action);
+        return $this;
+    }
+
+    /**
+     * Gets filterActions
+     *
+     * @return FilterActions
+     */
+    public function getActions(): ?FilterActions
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Sets filterActions
+     *
+     * @param  FilterActions $actions
+     * @return self
+     */
+    public function setActions(FilterActions $actions): self
+    {
+        $this->actions = $actions;
         return $this;
     }
 
@@ -263,28 +277,5 @@ class FilterRule
     {
         $this->child = $child;
         return $this;
-    }
-
-    public static function filterActionTypes(): array
-    {
-        return [
-            'filterVariables' => FilterVariables::class,
-            'actionKeep' => KeepAction::class,
-            'actionDiscard' => DiscardAction::class,
-            'actionFileInto' => FileIntoAction::class,
-            'actionFlag' => FlagAction::class,
-            'actionTag' => TagAction::class,
-            'actionRedirect' => RedirectAction::class,
-            'actionReply' => ReplyAction::class,
-            'actionNotify' => NotifyAction::class,
-            'actionRFCCompliantNotify' => RFCCompliantNotifyAction::class,
-            'actionStop' => StopAction::class,
-            'actionReject' => RejectAction::class,
-            'actionEreject' => ErejectAction::class,
-            'actionLog' => LogAction::class,
-            'actionAddheader' => AddheaderAction::class,
-            'actionDeleteheader' => DeleteheaderAction::class,
-            'actionReplaceheader' => ReplaceheaderAction::class,
-        ];
     }
 }

@@ -213,7 +213,6 @@ class ContactInfo implements ContactInterface, SearchHit
     /**
      * Custom metadata information
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @SerializedName("meta")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      */
@@ -222,7 +221,6 @@ class ContactInfo implements ContactInterface, SearchHit
     /**
      * Attributes
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
@@ -231,7 +229,6 @@ class ContactInfo implements ContactInterface, SearchHit
     /**
      * Contact group members
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
-     * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\ContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */

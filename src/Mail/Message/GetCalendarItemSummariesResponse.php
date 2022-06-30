@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{LegacyAppointmentData, LegacyTaskData};
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetCalendarItemSummariesResponse implements ResponseInterface
      * Appointment summaries
      * 
      * @Accessor(getter="getApptEntries", setter="setApptEntries")
-     * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      */
@@ -39,7 +38,6 @@ class GetCalendarItemSummariesResponse implements ResponseInterface
      * Task summaries
      * 
      * @Accessor(getter="getTaskEntries", setter="setTaskEntries")
-     * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\LegacyTaskData>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      */

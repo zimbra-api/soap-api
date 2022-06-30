@@ -25,7 +25,6 @@ trait AttrsImplTrait
 {
     /**
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */

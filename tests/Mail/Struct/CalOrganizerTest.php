@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\CalOrganizer;
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Tests\ZimbraTestCase;
@@ -24,7 +26,7 @@ class CalOrganizerTest extends ZimbraTestCase
 
         $xparam = new XParam($name, $value);
 
-        $or = new CalOrganizer($address, $url, $displayName, $sentBy, $dir, $language, [$xparam]);
+        $or = new StubCalOrganizer($address, $url, $displayName, $sentBy, $dir, $language, [$xparam]);
         $this->assertSame($address, $or->getAddress());
         $this->assertSame($url, $or->getUrl());
         $this->assertSame($displayName, $or->getDisplayName());
@@ -33,7 +35,7 @@ class CalOrganizerTest extends ZimbraTestCase
         $this->assertSame($language, $or->getLanguage());
         $this->assertSame([$xparam], $or->getXParams());
 
-        $or = new CalOrganizer();
+        $or = new StubCalOrganizer();
         $or->setAddress($address)
             ->setUrl($url)
             ->setDisplayName($displayName)
@@ -53,11 +55,18 @@ class CalOrganizerTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-    <xparam name="$name" value="$value" />
+<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language" xmlns:urn="urn:zimbraMail">
+    <urn:xparam name="$name" value="$value" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($or, 'xml'));
-        $this->assertEquals($or, $this->serializer->deserialize($xml, CalOrganizer::class, 'xml'));
+        $this->assertEquals($or, $this->serializer->deserialize($xml, StubCalOrganizer::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCalOrganizer extends CalOrganizer
+{
 }

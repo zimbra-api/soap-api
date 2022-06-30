@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAvailableSkinsResponse implements ResponseInterface
      * Information about skins
      * 
      * @Accessor(getter="getSkins", setter="setSkins")
-     * @SerializedName("skin")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAccount")
      */

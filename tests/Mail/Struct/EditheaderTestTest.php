@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\EditheaderTest;
 use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Tests\ZimbraTestCase;
@@ -16,7 +18,7 @@ class EditheaderTestTest extends ZimbraTestCase
         $headerName = $this->faker->word;
         $headerValue = $this->faker->word;
 
-        $test = new EditheaderTest(
+        $test = new StubEditheaderTest(
             MatchType::IS(), FALSE, FALSE, RelationalComparator::NOT_EQUAL(), ComparisonComparator::OCTET(), $headerName, [$headerValue]
         );
         $this->assertEquals(MatchType::IS(), $test->getMatchType());
@@ -27,7 +29,7 @@ class EditheaderTestTest extends ZimbraTestCase
         $this->assertSame($headerName, $test->getHeaderName());
         $this->assertSame([$headerValue], $test->getHeaderValue());
 
-        $test = new EditheaderTest();
+        $test = new StubEditheaderTest();
         $test->setMatchType(MatchType::CONTAINS())
             ->setCount(TRUE)
             ->setValue(TRUE)
@@ -45,12 +47,19 @@ class EditheaderTestTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
-    <headerName>$headerName</headerName>
-    <headerValue>$headerValue</headerValue>
+<result matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric" xmlns:urn="urn:zimbraMail">
+    <urn:headerName>$headerName</urn:headerName>
+    <urn:headerValue>$headerValue</urn:headerValue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($test, 'xml'));
-        $this->assertEquals($test, $this->serializer->deserialize($xml, EditheaderTest::class, 'xml'));
+        $this->assertEquals($test, $this->serializer->deserialize($xml, StubEditheaderTest::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubEditheaderTest extends EditheaderTest
+{
 }

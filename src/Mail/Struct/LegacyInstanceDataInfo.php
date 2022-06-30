@@ -54,7 +54,6 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     /**
      * Categories
      * @Accessor(getter="getCategories", setter="setCategories")
-     * @SerializedName("category")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
      */

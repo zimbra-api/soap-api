@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Enum\ContactActionOp;
 
 /**
@@ -27,7 +27,6 @@ class ContactActionSelector extends ActionSelector
     /**
      * New Contact attributes
      * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attr")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="attr", namespace="urn:zimbraMail")
      */

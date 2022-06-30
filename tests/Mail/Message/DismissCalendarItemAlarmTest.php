@@ -128,50 +128,50 @@ class DismissCalendarItemAlarmTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:DismissCalendarItemAlarmRequest>
-            <appt id="$id" dismissedAt="$dismissedAt" />
-            <task id="$id" dismissedAt="$dismissedAt" />
+            <urn:appt id="$id" dismissedAt="$dismissedAt" />
+            <urn:task id="$id" dismissedAt="$dismissedAt" />
         </urn:DismissCalendarItemAlarmRequest>
         <urn:DismissCalendarItemAlarmResponse>
-            <appt calItemId="$calItemId">
-                <alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
-                    <alarm action="DISPLAY">
-                        <trigger>
-                            <abs d="$date" />
-                            <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        </trigger>
-                        <repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        <desc>$description</desc>
-                        <attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
-                        <summary>$summary</summary>
-                        <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-                            <xparam name="$name" value="$value" />
-                        </at>
-                        <xprop name="$name" value="$value">
-                            <xparam name="$name" value="$value" />
-                        </xprop>
-                    </alarm>
-                </alarmData>
-            </appt>
-            <task calItemId="$calItemId">
-                <alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
-                    <alarm action="DISPLAY">
-                        <trigger>
-                            <abs d="$date" />
-                            <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        </trigger>
-                        <repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-                        <desc>$description</desc>
-                        <attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
-                        <summary>$summary</summary>
-                        <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-                            <xparam name="$name" value="$value" />
-                        </at>
-                        <xprop name="$name" value="$value">
-                            <xparam name="$name" value="$value" />
-                        </xprop>
-                    </alarm>
-                </alarmData>
-            </task>
+            <urn:appt calItemId="$calItemId">
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+                        <urn:summary>$summary</urn:summary>
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:appt>
+            <urn:task calItemId="$calItemId">
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+                        <urn:summary>$summary</urn:summary>
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:task>
         </urn:DismissCalendarItemAlarmResponse>
     </soap:Body>
 </soap:Envelope>

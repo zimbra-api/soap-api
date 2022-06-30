@@ -39,7 +39,6 @@ class GetAllEffectiveRightsResponse implements ResponseInterface
      * Effective rights targets
      * 
      * @Accessor(getter="getTargets", setter="setTargets")
-     * @SerializedName("target")
      * @Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAdmin")
      */

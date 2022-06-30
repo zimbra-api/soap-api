@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Enum\ViewType;
 use Zimbra\Common\Text;
 
@@ -113,6 +113,7 @@ class NewFolderSpec
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("acl")
      * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
      */
     private $grants = [];

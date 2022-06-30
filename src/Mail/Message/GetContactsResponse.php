@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\ContactInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetContactsResponse implements ResponseInterface
      * Contact information
      * 
      * @Accessor(getter="getContacts", setter="setContacts")
-     * @SerializedName("cn")
      * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      */

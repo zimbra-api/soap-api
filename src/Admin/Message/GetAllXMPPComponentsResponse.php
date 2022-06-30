@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\XMPPComponentInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllXMPPComponentsResponse implements ResponseInterface
      * Information on XMPP components
      * 
      * @Accessor(getter="getComponents", setter="setComponents")
-     * @SerializedName("xmppcomponent")
      * @Type("array<Zimbra\Admin\Struct\XMPPComponentInfo>")
      * @XmlList(inline=true, entry="xmppcomponent", namespace="urn:zimbraAdmin")
      */

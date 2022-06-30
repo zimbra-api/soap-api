@@ -73,7 +73,6 @@ class MailQueueDetails
      * The <qs> elements summarize the queue by various types of data (sender addresses, recipient domain, etc).
      * Only the deferred queue has error summary type.
      * @Accessor(getter="getQueueSummaries", setter="setQueueSummaries")
-     * @SerializedName("qs")
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline=true, entry="qs", namespace="urn:zimbraAdmin")
      */
@@ -82,7 +81,6 @@ class MailQueueDetails
     /**
      * The various queue items that match the requested query.
      * @Accessor(getter="getQueueItems", setter="setQueueItems")
-     * @SerializedName("qi")
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
      */

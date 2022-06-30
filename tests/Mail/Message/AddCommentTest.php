@@ -27,14 +27,14 @@ class AddCommentTest extends ZimbraTestCase
         $addedComment = new AddedComment($parentId, $text);
         $request = new AddCommentRequest($addedComment);
         $this->assertSame($addedComment, $request->getComment());
-        $request = new AddCommentRequest(new AddedComment('', ''));
+        $request = new AddCommentRequest(new AddedComment());
         $request->setComment($addedComment);
         $this->assertSame($addedComment, $request->getComment());
 
         $idComment = new Id($id);
         $response = new AddCommentResponse($idComment);
         $this->assertSame($idComment, $response->getComment());
-        $response = new AddCommentResponse(new Id(''));
+        $response = new AddCommentResponse();
         $response->setComment($idComment);
         $this->assertSame($idComment, $response->getComment());
 
@@ -58,10 +58,10 @@ class AddCommentTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:AddCommentRequest>
-            <comment parentId="$parentId" text="$text" />
+            <urn:comment parentId="$parentId" text="$text" />
         </urn:AddCommentRequest>
         <urn:AddCommentResponse>
-            <comment id="$id" />
+            <urn:comment id="$id" />
         </urn:AddCommentResponse>
     </soap:Body>
 </soap:Envelope>

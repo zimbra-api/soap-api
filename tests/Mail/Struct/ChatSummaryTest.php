@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\InviteType;
 
@@ -30,19 +32,26 @@ class ChatSummaryTest extends ZimbraTestCase
         $calItemType = InviteType::TASK();
 
         $email = new EmailInfo($address, $display, $personal, $addressType);
-        $chat = new ChatSummary($id, $autoSendTime, [$email], $subject, $fragment, new InviteInfo($calItemType));
+        $chat = new StubChatSummary($id, $autoSendTime, [$email], $subject, $fragment, new InviteInfo($calItemType));
         $this->assertTrue($chat instanceof MessageSummary);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" autoSendTime="$autoSendTime">
-    <e a="$address" d="$display" p="$personal" t="t" />
-    <su>$subject</su>
-    <fr>$fragment</fr>
-    <inv type="task" />
+<result id="$id" autoSendTime="$autoSendTime" xmlns:urn="urn:zimbraMail">
+    <urn:e a="$address" d="$display" p="$personal" t="t" />
+    <urn:su>$subject</urn:su>
+    <urn:fr>$fragment</urn:fr>
+    <urn:inv type="task" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($chat, 'xml'));
-        $this->assertEquals($chat, $this->serializer->deserialize($xml, ChatSummary::class, 'xml'));
+        $this->assertEquals($chat, $this->serializer->deserialize($xml, StubChatSummary::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubChatSummary extends ChatSummary
+{
 }

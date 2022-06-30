@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\ContactActionOp;
 use Zimbra\Mail\Struct\ContactActionSelector;
 use Zimbra\Mail\Struct\NewContactAttr;
@@ -26,12 +28,12 @@ class ContactActionSelectorTest extends ZimbraTestCase
             $name, $attachId, $id, $part, $value
         );
 
-        $action = new ContactActionSelector(
+        $action = new StubContactActionSelector(
             $operation, $ids, [$attr]
         );
         $this->assertSame([$attr], $action->getAttrs());
 
-        $action = new ContactActionSelector($operation, $ids);
+        $action = new StubContactActionSelector($operation, $ids);
         $action->setAttrs([$attr])
             ->addAttr($attr);
         $this->assertSame([$attr, $attr], $action->getAttrs());
@@ -39,11 +41,18 @@ class ContactActionSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$ids" op="$operation">
-    <attr n="$name" aid="$attachId" id="$id" part="$part">$value</attr>
+<result id="$ids" op="$operation" xmlns:urn="urn:zimbraMail">
+    <urn:attr n="$name" aid="$attachId" id="$id" part="$part">$value</urn:attr>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, ContactActionSelector::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubContactActionSelector::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubContactActionSelector extends ContactActionSelector
+{
 }

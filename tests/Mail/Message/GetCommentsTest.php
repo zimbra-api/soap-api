@@ -95,15 +95,15 @@ class GetCommentsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetCommentsRequest>
-            <comment parentId="$parentId" />
+            <urn:comment parentId="$parentId" />
         </urn:GetCommentsRequest>
         <urn:GetCommentsResponse>
-            <user id="$id" email="$email" name="$name" />
-            <comment parentId="$parentId" id="$id" uuid="$uuid" email="$creatorEmail" f="$flags" t="$tags" tn="$tagNames" color="$color" rgb="$rgb" d="$date">
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-            </comment>
+            <urn:user id="$id" email="$email" name="$name" />
+            <urn:comment parentId="$parentId" id="$id" uuid="$uuid" email="$creatorEmail" f="$flags" t="$tags" tn="$tagNames" color="$color" rgb="$rgb" d="$date">
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:meta>
+            </urn:comment>
         </urn:GetCommentsResponse>
     </soap:Body>
 </soap:Envelope>

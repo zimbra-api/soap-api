@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\Stat;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetServerStatsResponse implements ResponseInterface
      * Details of server monitoring statistics
      * 
      * @Accessor(getter="getStats", setter="setStats")
-     * @SerializedName("stat")
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      */

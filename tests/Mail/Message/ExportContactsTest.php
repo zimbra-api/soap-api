@@ -45,7 +45,7 @@ class ExportContactsTest extends ZimbraTestCase
 
         $response = new ExportContactsResponse($content);
         $this->assertSame($content, $response->getContent());
-        $response = new ExportContactsResponse('');
+        $response = new ExportContactsResponse();
         $response->setContent($content);
         $this->assertSame($content, $response->getContent());
 
@@ -70,7 +70,7 @@ class ExportContactsTest extends ZimbraTestCase
     <soap:Body>
         <urn:ExportContactsRequest ct="$contentType" l="$folderId" csvfmt="$csvFormat" csvlocale="$csvLocale" csvsep="$csvDelimiter" />
         <urn:ExportContactsResponse>
-            <content>$content</content>
+            <urn:content>$content</urn:content>
         </urn:ExportContactsResponse>
     </soap:Body>
 </soap:Envelope>

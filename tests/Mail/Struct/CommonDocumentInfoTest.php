@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 use Zimbra\Common\Struct\KeyValuePair;
 
@@ -63,7 +65,7 @@ class CommonDocumentInfoTest extends ZimbraTestCase
             )]
         );
 
-        $doc = new CommonDocumentInfo(
+        $doc = new StubCommonDocumentInfo(
             $id, $uuid, $name, $size, $date, $folderId, $folderUuid, $modifiedSequence, $metadataVersion, $changeDate, $revision, $flags, $tags, $tagNames, $description, $contentType, FALSE, $version, $lastEditedBy, $creator, $createdDate, [$metadata], $fragment, $acl
         );
         $this->assertSame($id, $doc->getId());
@@ -91,7 +93,7 @@ class CommonDocumentInfoTest extends ZimbraTestCase
         $this->assertSame($fragment, $doc->getFragment());
         $this->assertSame($acl, $doc->getAcl());
 
-        $doc = new CommonDocumentInfo();
+        $doc = new StubCommonDocumentInfo();
         $doc->setId($id)
             ->setUuid($uuid)
             ->setName($name)
@@ -147,17 +149,24 @@ class CommonDocumentInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" uuid="$uuid" name="$name" s="$size" d="$date" l="$folderId" luuid="$folderUuid" ms="$modifiedSequence" mdver="$metadataVersion" md="$changeDate" rev="$revision" f="$flags" t="$tags" tn="$tagNames" desc="$description" ct="$contentType" descEnabled="true" ver="$version" leb="$lastEditedBy" cr="$creator" cd="$createdDate">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
-    <fr>$fragment</fr>
-    <acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
-        <grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
-    </acl>
+<result id="$id" uuid="$uuid" name="$name" s="$size" d="$date" l="$folderId" luuid="$folderUuid" ms="$modifiedSequence" mdver="$metadataVersion" md="$changeDate" rev="$revision" f="$flags" t="$tags" tn="$tagNames" desc="$description" ct="$contentType" descEnabled="true" ver="$version" leb="$lastEditedBy" cr="$creator" cd="$createdDate" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
+    <urn:fr>$fragment</urn:fr>
+    <urn:acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
+        <urn:grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
+    </urn:acl>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
-        $this->assertEquals($doc, $this->serializer->deserialize($xml, CommonDocumentInfo::class, 'xml'));
+        $this->assertEquals($doc, $this->serializer->deserialize($xml, StubCommonDocumentInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCommonDocumentInfo extends CommonDocumentInfo
+{
 }

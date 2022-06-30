@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\AccountACEInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class GetRightsResponse implements ResponseInterface
     /**
      * Access Control Entries
      * @Accessor(getter="getAces", setter="setAces")
-     * @SerializedName("ace")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
      */

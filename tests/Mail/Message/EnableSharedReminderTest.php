@@ -51,7 +51,7 @@ class EnableSharedReminderTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:EnableSharedReminderRequest>
-            <link id="$id" reminder="true" />
+            <urn:link id="$id" reminder="true" />
         </urn:EnableSharedReminderRequest>
         <urn:EnableSharedReminderResponse />
     </soap:Body>

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Mail\Struct\NoteInfo;
 use Zimbra\Mail\Struct\MailCustomMetadata;
@@ -33,7 +35,7 @@ class NoteInfoTest extends ZimbraTestCase
         $value = $this->faker->text;
 
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
-        $note = new NoteInfo(
+        $note = new StubNoteInfo(
             $id,
             $revision,
             $folder,
@@ -64,7 +66,7 @@ class NoteInfoTest extends ZimbraTestCase
         $this->assertSame($content, $note->getContent());
         $this->assertSame([$metadata], $note->getMetadatas());
 
-        $note = new NoteInfo();
+        $note = new StubNoteInfo();
         $note->setId($id)
             ->setRevision($revision)
             ->setFolder($folder)
@@ -97,14 +99,21 @@ class NoteInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" rev="$revision" l="$folder" d="$date" f="$flags" t="$tags" tn="$tagNames" pos="$bounds" color="$color" rgb="$rgb" md="$changeDate" ms="$modifiedSequence">
-    <content>$content</content>
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
+<result id="$id" rev="$revision" l="$folder" d="$date" f="$flags" t="$tags" tn="$tagNames" pos="$bounds" color="$color" rgb="$rgb" md="$changeDate" ms="$modifiedSequence" xmlns:urn="urn:zimbraMail">
+    <urn:content>$content</urn:content>
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($note, 'xml'));
-        $this->assertEquals($note, $this->serializer->deserialize($xml, NoteInfo::class, 'xml'));
+        $this->assertEquals($note, $this->serializer->deserialize($xml, StubNoteInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubNoteInfo extends NoteInfo
+{
 }

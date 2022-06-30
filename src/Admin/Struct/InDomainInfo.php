@@ -27,7 +27,6 @@ class InDomainInfo
     /**
      * Domains
      * @Accessor(getter="getDomains", setter="setDomains")
-     * @SerializedName("domain")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */

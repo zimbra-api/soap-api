@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\InviteType;
 use Zimbra\Common\Enum\ReplyType;
@@ -101,7 +103,7 @@ class ConversationInfoTest extends ZimbraTestCase
             $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], [$mp], [$shr], [$dlSubs]
         );
 
-        $conv = new ConversationInfo(
+        $conv = new StubConversationInfo(
             $id, $num, $totalSize, $flags, $tags, $tagNames, $subject, [$metadata], [$chat], [$msg]
         );
         $this->assertSame($id, $conv->getId());
@@ -115,7 +117,7 @@ class ConversationInfoTest extends ZimbraTestCase
         $this->assertSame([$chat], $conv->getChatMessages());
         $this->assertSame([$msg], $conv->getMessages());
 
-        $conv = new ConversationInfo();
+        $conv = new StubConversationInfo();
         $conv->setId($id)
             ->setNum($num)
             ->setTotalSize($totalSize)
@@ -139,64 +141,71 @@ class ConversationInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" n="$num" total="$totalSize" f="$flags" t="$tags" tn="$tagNames">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
-    <su>$subject</su>
-    <chat id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part">
-        <fr>$fragment</fr>
-        <e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
-        <su>$subject</su>
-        <mid>$messageIdHeader</mid>
-        <irt>$inReplyTo</irt>
-        <inv type="task">
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-            <comp method="$method" compNum="$componentNum" rsvp="true" />
-            <replies>
-                <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
-            </replies>
-        </inv>
-        <header n="$key">$value</header>
-        <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-            <content>$content</content>
-            <mp part="$part" ct="$contentType" />
-        </mp>
-        <shr truncated="true">
-            <content>$content</content>
-        </shr>
-        <dlSubs truncated="true">
-            <content>$content</content>
-        </dlSubs>
-    </chat>
-    <m id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part">
-        <fr>$fragment</fr>
-        <e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
-        <su>$subject</su>
-        <mid>$messageIdHeader</mid>
-        <irt>$inReplyTo</irt>
-        <inv type="task">
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-            <comp method="$method" compNum="$componentNum" rsvp="true" />
-            <replies>
-                <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
-            </replies>
-        </inv>
-        <header n="$key">$value</header>
-        <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-            <content>$content</content>
-            <mp part="$part" ct="$contentType" />
-        </mp>
-        <shr truncated="true">
-            <content>$content</content>
-        </shr>
-        <dlSubs truncated="true">
-            <content>$content</content>
-        </dlSubs>
+<result id="$id" n="$num" total="$totalSize" f="$flags" t="$tags" tn="$tagNames" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
+    <urn:su>$subject</urn:su>
+    <urn:chat id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part">
+        <urn:fr>$fragment</urn:fr>
+        <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+        <urn:su>$subject</urn:su>
+        <urn:mid>$messageIdHeader</urn:mid>
+        <urn:irt>$inReplyTo</urn:irt>
+        <urn:inv type="task">
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+            <urn:replies>
+                <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+            </urn:replies>
+        </urn:inv>
+        <urn:header n="$key">$value</urn:header>
+        <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+            <urn:content>$content</urn:content>
+            <urn:mp part="$part" ct="$contentType" />
+        </urn:mp>
+        <urn:shr truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:shr>
+        <urn:dlSubs truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:dlSubs>
+    </urn:chat>
+    <urn:m id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part">
+        <urn:fr>$fragment</urn:fr>
+        <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+        <urn:su>$subject</urn:su>
+        <urn:mid>$messageIdHeader</urn:mid>
+        <urn:irt>$inReplyTo</urn:irt>
+        <urn:inv type="task">
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+            <urn:replies>
+                <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+            </urn:replies>
+        </urn:inv>
+        <urn:header n="$key">$value</urn:header>
+        <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+            <urn:content>$content</urn:content>
+            <urn:mp part="$part" ct="$contentType" />
+        </urn:mp>
+        <urn:shr truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:shr>
+        <urn:dlSubs truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:dlSubs>
     </m>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conv, 'xml'));
-        $this->assertEquals($conv, $this->serializer->deserialize($xml, ConversationInfo::class, 'xml'));
+        $this->assertEquals($conv, $this->serializer->deserialize($xml, StubConversationInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubConversationInfo extends ConversationInfo
+{
 }

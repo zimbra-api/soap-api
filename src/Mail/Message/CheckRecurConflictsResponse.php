@@ -29,7 +29,6 @@ class CheckRecurConflictsResponse implements ResponseInterface
      * Information on conflicting instances
      * 
      * @Accessor(getter="getInstances", setter="setInstances")
-     * @SerializedName("inst")
      * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
      */

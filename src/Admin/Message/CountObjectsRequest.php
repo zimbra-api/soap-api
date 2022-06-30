@@ -50,7 +50,6 @@ class CountObjectsRequest extends Request
      * Domain
      * 
      * @Accessor(getter="getDomains", setter="setDomains")
-     * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */

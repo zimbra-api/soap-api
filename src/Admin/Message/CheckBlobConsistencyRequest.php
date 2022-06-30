@@ -52,7 +52,6 @@ class CheckBlobConsistencyRequest extends Request
      * Volumes
      * 
      * @Accessor(getter="getVolumes", setter="setVolumes")
-     * @SerializedName("volume")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
      */
@@ -62,7 +61,6 @@ class CheckBlobConsistencyRequest extends Request
      * Mailboxes
      * 
      * @Accessor(getter="getMailboxes", setter="setMailboxes")
-     * @SerializedName("mbox")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
      */

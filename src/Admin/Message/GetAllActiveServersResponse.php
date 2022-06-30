@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllActiveServersResponse implements ResponseInterface
      * Information about active servers
      * 
      * @Accessor(getter="getServerList", setter="setServerList")
-     * @SerializedName("server")
      * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
      * @XmlList(inline=true, entry="server", namespace="urn:zimbraAdmin")
      */

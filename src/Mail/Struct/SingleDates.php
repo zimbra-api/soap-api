@@ -37,7 +37,6 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     /**
      * Information on start date/time and end date/time or duration
      * @Accessor(getter="getDtVals", setter="setDtVals")
-     * @SerializedName("dtval")
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
      * @XmlList(inline=true, entry="dtval", namespace="urn:zimbraMail")
      */

@@ -38,7 +38,6 @@ class AddDistributionListMemberRequest extends Request
      * Members
      * 
      * @Accessor(getter="getMembers", setter="setMembers")
-     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */

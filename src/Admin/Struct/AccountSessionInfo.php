@@ -44,7 +44,6 @@ class AccountSessionInfo
     /**
      * Information on sessions
      * @Accessor(getter="getSessions", setter="setSessions")
-     * @SerializedName("s")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      */

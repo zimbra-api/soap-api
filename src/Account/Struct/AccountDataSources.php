@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Exclude, Type, VirtualProperty, XmlList};
 
 /**
  * AccountDataSources struct class
@@ -43,7 +43,6 @@ class AccountDataSources
     /**
      * Gets imap data sources
      *
-     * @SerializedName("imap")
      * @Type("array<Zimbra\Account\Struct\AccountImapDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraAccount")
@@ -58,7 +57,6 @@ class AccountDataSources
     /**
      * Gets pop3 data sources
      *
-     * @SerializedName("pop3")
      * @Type("array<Zimbra\Account\Struct\AccountPop3DataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraAccount")
@@ -73,7 +71,6 @@ class AccountDataSources
     /**
      * Gets caldav data sources
      *
-     * @SerializedName("caldav")
      * @Type("array<Zimbra\Account\Struct\AccountCaldavDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraAccount")
@@ -88,7 +85,6 @@ class AccountDataSources
     /**
      * Gets yab data sources
      *
-     * @SerializedName("yab")
      * @Type("array<Zimbra\Account\Struct\AccountYabDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraAccount")
@@ -103,7 +99,6 @@ class AccountDataSources
     /**
      * Gets rss data sources
      *
-     * @SerializedName("rss")
      * @Type("array<Zimbra\Account\Struct\AccountRssDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraAccount")
@@ -118,7 +113,6 @@ class AccountDataSources
     /**
      * Gets gal data sources
      *
-     * @SerializedName("gal")
      * @Type("array<Zimbra\Account\Struct\AccountGalDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraAccount")
@@ -133,7 +127,6 @@ class AccountDataSources
     /**
      * Gets cal data sources
      *
-     * @SerializedName("cal")
      * @Type("array<Zimbra\Account\Struct\AccountCalDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraAccount")
@@ -148,7 +141,6 @@ class AccountDataSources
     /**
      * Gets unknown data sources
      *
-     * @SerializedName("unknown")
      * @Type("array<Zimbra\Account\Struct\AccountUnknownDataSource>")
      * @VirtualProperty
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraAccount")

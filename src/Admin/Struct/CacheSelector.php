@@ -26,7 +26,6 @@ class CacheSelector
     /**
      * The entries
      * @Accessor(getter="getEntries", setter="setEntries")
-     * @SerializedName("entry")
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
      */

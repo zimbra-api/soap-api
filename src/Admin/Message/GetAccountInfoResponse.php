@@ -38,7 +38,6 @@ class GetAccountInfoResponse implements ResponseInterface
     /**
      * Currently only these attributes are returned: zimbraId, zimbraMailHost
      * @Accessor(getter="getAttrList", setter="setAttrList")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
@@ -57,7 +56,6 @@ class GetAccountInfoResponse implements ResponseInterface
      * URL to talk to for SOAP service for this account.
      * 
      * @Accessor(getter="getSoapURLList", setter="setSoapURLList")
-     * @SerializedName("soapURL")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="soapURL", namespace="urn:zimbraAdmin")
      */

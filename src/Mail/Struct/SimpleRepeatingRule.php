@@ -171,7 +171,6 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * X Name rules
      * @Accessor(getter="getXNames", setter="setXNames")
-     * @SerializedName("rule-x-name")
      * @Type("array<Zimbra\Mail\Struct\XNameRule>")
      * @XmlList(inline=true, entry="rule-x-name", namespace="urn:zimbraMail")
      */

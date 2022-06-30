@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\{ByDayRuleInterface, WkDayInterface};
 
 /**
@@ -28,7 +28,6 @@ class ByDayRule implements ByDayRuleInterface
     /**
      * By day weekday rule specification
      * @Accessor(getter="getDays", setter="setDays")
-     * @SerializedName("wkday")
      * @Type("array<Zimbra\Mail\Struct\WkDay>")
      * @XmlList(inline=true, entry="wkday", namespace="urn:zimbraMail")
      */

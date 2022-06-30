@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\InviteType;
 
@@ -59,7 +61,7 @@ class InviteAsMPTest extends ZimbraTestCase
             $dlSubs,
         ];
 
-        $msg = new InviteAsMP($id, $part, $sentDate, [$email], $subject, $messageIdHeader, $invite, [$header], $contentElems);
+        $msg = new StubInviteAsMP($id, $part, $sentDate, [$email], $subject, $messageIdHeader, $invite, [$header], $contentElems);
         $this->assertSame($id, $msg->getId());
         $this->assertSame($part, $msg->getPart());
         $this->assertSame($sentDate, $msg->getSentDate());
@@ -70,7 +72,7 @@ class InviteAsMPTest extends ZimbraTestCase
         $this->assertSame([$header], $msg->getHeaders());
         $this->assertEquals($contentElems, $msg->getContentElems());
 
-        $msg = new InviteAsMP();
+        $msg = new StubInviteAsMP();
         $msg->setId($id)
             ->setPart($part)
             ->setSentDate($sentDate)
@@ -95,24 +97,31 @@ class InviteAsMPTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" part="$part" sd="$sentDate">
-    <e a="$address" d="$display" p="$personal" t="t" />
-    <su>$subject</su>
-    <mid>$messageIdHeader</mid>
-    <inv type="task" />
-    <header n="$key">$value</header>
-    <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-        <content>$content</content>
-    </mp>
-    <shr truncated="true">
-        <content>$content</content>
-    </shr>
-    <dlSubs truncated="true">
-        <content>$content</content>
-    </dlSubs>
+<result id="$id" part="$part" sd="$sentDate" xmlns:urn="urn:zimbraMail">
+    <urn:e a="$address" d="$display" p="$personal" t="t" />
+    <urn:su>$subject</urn:su>
+    <urn:mid>$messageIdHeader</urn:mid>
+    <iurn:nv type="task" />
+    <urn:header n="$key">$value</urn:header>
+    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:mp>
+    <urn:shr truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:shr>
+    <urn:dlSubs truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:dlSubs>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
-        $this->assertEquals($msg, $this->serializer->deserialize($xml, InviteAsMP::class, 'xml'));
+        $this->assertEquals($msg, $this->serializer->deserialize($xml, StubInviteAsMP::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubInviteAsMP extends InviteAsMP
+{
 }

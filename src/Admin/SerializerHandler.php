@@ -30,12 +30,14 @@ use Zimbra\Common\Text;
  */
 final class SerializerHandler implements SubscribingHandlerInterface
 {
+    const SERIALIZE_FORMAT = 'xml';
+
     public static function getSubscribingMethods(): array
     {
         return [
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'xml',
+                'format' => self::SERIALIZE_FORMAT,
                 'type' => MultiCond::class,
                 'method' => 'xmlDeserializeSearchFilterMultiCond',
             ],
@@ -49,24 +51,24 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
         foreach ($data->attributes() as $key => $value) {
-            if ($key == 'not') {
+            if ($key === 'not') {
                 $conds->setNot(Text::stringToBoolean($value));
             }
-            if ($key == 'or') {
+            if ($key === 'or') {
                 $conds->setOr(Text::stringToBoolean($value));
             }
         }
 
         foreach ($data->children() as $child) {
             $name = $child->getName();
-            if ($name == 'conds') {
+            if ($name === 'conds') {
                 $conds->addCondition(
                     $this->xmlDeserializeSearchFilterMultiCond($visitor, $child, $type, $context)
                 );
             }
-            if ($name == 'cond') {
+            if ($name === 'cond') {
                 $conds->addCondition(
-                    $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
+                    $serializer->deserialize($child->asXml(), SingleCond::class, self::SERIALIZE_FORMAT)
                 );
             }
         }

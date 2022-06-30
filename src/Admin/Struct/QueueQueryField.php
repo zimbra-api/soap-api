@@ -36,7 +36,6 @@ class QueueQueryField
      * Match specifications
      * 
      * @Accessor(getter="getMatches", setter="setMatches")
-     * @SerializedName("match")
      * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
      * @XmlList(inline=true, entry="match", namespace="urn:zimbraAdmin")
      */

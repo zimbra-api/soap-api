@@ -52,7 +52,6 @@ class DistributionListAction extends AccountKeyValuePairs
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")
-     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
      */
@@ -60,7 +59,6 @@ class DistributionListAction extends AccountKeyValuePairs
 
     /**
      * @Accessor(getter="getOwners", setter="setOwners")
-     * @SerializedName("owner")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
      * @XmlList(inline=true, entry="owner", namespace="urn:zimbraAccount")
      */
@@ -68,7 +66,6 @@ class DistributionListAction extends AccountKeyValuePairs
 
     /**
      * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("right")
      * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */

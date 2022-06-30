@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * UnexpectedBlobInfo class
@@ -37,6 +37,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getMissingBlobs", setter="setMissingBlobs")
      * @SerializedName("missingBlobs")
      * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $missingBlobs = [];
@@ -46,6 +47,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getIncorrectSizes", setter="setIncorrectSizes")
      * @SerializedName("incorrectSizes")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $incorrectSizes = [];
@@ -55,6 +57,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getUnexpectedBlobs", setter="setUnexpectedBlobs")
      * @SerializedName("unexpectedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="blob", namespace="urn:zimbraAdmin")
      */
     private $unexpectedBlobs = [];
@@ -64,6 +67,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getIncorrectRevisions", setter="setIncorrectRevisions")
      * @SerializedName("incorrectRevisions")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $incorrectRevisions = [];
@@ -73,6 +77,7 @@ class MailboxBlobConsistency
      * @Accessor(getter="getUsedBlobs", setter="setUsedBlobs")
      * @SerializedName("usedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      */
     private $usedBlobs = [];

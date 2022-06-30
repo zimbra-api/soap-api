@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CosCountInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class CountAccountResponse implements ResponseInterface
      * Account count information by Class Of Service (COS)
      * 
      * @Accessor(getter="getCos", setter="setCos")
-     * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */

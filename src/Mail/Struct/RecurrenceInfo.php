@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Common\Struct\{RecurrenceInfoInterface, RecurRuleBaseInterface};
 
 /**
@@ -28,7 +28,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Recurrence rules for adding
      * @Accessor(getter="getAddRules", setter="setAddRules")
-     * @SerializedName("add")
      * @Type("array<Zimbra\Mail\Struct\AddRecurrenceInfo>")
      * @XmlList(inline=true, entry="add", namespace="urn:zimbraMail")
      */
@@ -37,7 +36,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Recurrence rules for excluding
      * @Accessor(getter="getExcludeRules", setter="setExcludeRules")
-     * @SerializedName("exclude")
      * @Type("array<Zimbra\Mail\Struct\ExcludeRecurrenceInfo>")
      * @XmlList(inline=true, entry="exclude", namespace="urn:zimbraMail")
      */
@@ -46,7 +44,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Recurrence rules for excepting
      * @Accessor(getter="getExceptRules", setter="setExceptRules")
-     * @SerializedName("except")
      * @Type("array<Zimbra\Mail\Struct\ExceptionRuleInfo>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
      */
@@ -55,7 +52,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Recurrence rules for canceling
      * @Accessor(getter="getCancelRules", setter="setCancelRules")
-     * @SerializedName("cancel")
      * @Type("array<Zimbra\Mail\Struct\CancelRuleInfo>")
      * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
      */
@@ -64,7 +60,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Recurrence rules for dates
      * @Accessor(getter="getDatesRules", setter="setDatesRules")
-     * @SerializedName("dates")
      * @Type("array<Zimbra\Mail\Struct\SingleDates>")
      * @XmlList(inline=true, entry="dates", namespace="urn:zimbraMail")
      */
@@ -73,7 +68,6 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     /**
      * Simple recurrence rules
      * @Accessor(getter="getSimpleRules", setter="setSimpleRules")
-     * @SerializedName("rule")
      * @Type("array<Zimbra\Mail\Struct\SimpleRepeatingRule>")
      * @XmlList(inline=true, entry="rule", namespace="urn:zimbraMail")
      */

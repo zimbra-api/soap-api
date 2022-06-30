@@ -31,18 +31,20 @@ use Zimbra\Common\Text;
  */
 final class SerializerHandler implements SubscribingHandlerInterface
 {
+    const SERIALIZE_FORMAT = 'xml';
+
     public static function getSubscribingMethods(): array
     {
         return [
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'xml',
+                'format' => self::SERIALIZE_FORMAT,
                 'type' => AccountDataSources::class,
                 'method' => 'xmlDeserializeAccountDataSources',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => 'xml',
+                'format' => self::SERIALIZE_FORMAT,
                 'type' => MultiCond::class,
                 'method' => 'xmlDeserializeSearchFilterMultiCond',
             ],
@@ -56,7 +58,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $serializer = SerializerFactory::create();
         $types = AccountDataSources::dataSourceTypes();
         $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
+        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
         return new AccountDataSources(array_values($dataSources));
     }
 
@@ -68,10 +70,10 @@ final class SerializerHandler implements SubscribingHandlerInterface
         $conds = new MultiCond;
         $attributes = iterator_to_array($data->attributes());
         array_walk($attributes, static function ($value, $key) use ($conds) {
-            if ($key == 'not') {
+            if ($key === 'not') {
                 $conds->setNot(Text::stringToBoolean($value));
             }
-            if ($key == 'or') {
+            if ($key === 'or') {
                 $conds->setOr(Text::stringToBoolean($value));
             }
         });
@@ -85,7 +87,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
             if ($name === 'cond') {
                 $conds->addCondition(
-                    $serializer->deserialize($child->asXml(), SingleCond::class, 'xml')
+                    $serializer->deserialize($child->asXml(), SingleCond::class, self::SERIALIZE_FORMAT)
                 );
             }
         }

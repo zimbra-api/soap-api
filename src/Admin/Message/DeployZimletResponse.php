@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\ZimletDeploymentStatus;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class DeployZimletResponse implements ResponseInterface
     /**
      * Progress information on deployment to servers
      * @Accessor(getter="getProgresses", setter="setProgresses")
-     * @SerializedName("progress")
      * @Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")
      * @XmlList(inline=true, entry="progress", namespace="urn:zimbraAdmin")
      */

@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, SkipWhenEmpty, Type, XmlElement, XmlKeyValuePairs
-};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 
 /**
  * NestedRule struct class
@@ -45,13 +43,12 @@ class NestedRule
 
     /**
      * Filter actions
-     * @Accessor(getter="getFilterActions", setter="setFilterActions")
-     * @Type("array<string, Zimbra\Mail\Struct\FilterAction>")
+     * @Accessor(getter="getActions", setter="setActions")
+     * @Type("Zimbra\Mail\Struct\FilterActions")
      * @SerializedName("filterActions")
-     * @SkipWhenEmpty
-     * @XmlKeyValuePairs(namespace="urn:zimbraMail")
+     * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $actions = [];
+    private ?FilterActions $actions = NULL;
 
     /**
      * NestedRule child
@@ -72,7 +69,10 @@ class NestedRule
      * @return self
      */
     public function __construct(
-        FilterTests $tests, ?FilterVariables $filterVariables = NULL, array $actions = [], ?NestedRule $child = NULL
+        FilterTests $tests,
+        ?FilterVariables $filterVariables = NULL,
+        array $actions = [],
+        ?NestedRule $child = NULL
     )
     {
         $this->setFilterTests($tests)
@@ -136,7 +136,7 @@ class NestedRule
      */
     public function getFilterActions(): array
     {
-        return $this->actions;
+        return ($this->actions instanceof FilterActions) ? $this->actions->getFilterActions() : [];
     }
 
     /**
@@ -147,12 +147,7 @@ class NestedRule
      */
     public function setFilterActions(array $actions): self
     {
-        $this->actions = [];
-        foreach ($actions as $action) {
-            if ($action instanceof FilterAction) {
-                $this->addFilterAction($action);
-            }
-        }
+        $this->actions = new FilterActions($actions);
         return $this;
     }
 
@@ -164,11 +159,32 @@ class NestedRule
      */
     public function addFilterAction(FilterAction $action): self
     {
-        foreach (self::filterActionTypes() as $key => $type) {
-            if (get_class($action) === $type) {
-                $this->actions[$key] = $action;
-            }
+        if (empty($this->actions)) {
+            $this->actions = new FilterActions();
         }
+        $this->actions->addFilterAction($action);
+        return $this;
+    }
+
+    /**
+     * Gets filterActions
+     *
+     * @return FilterActions
+     */
+    public function getActions(): ?FilterActions
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Sets filterActions
+     *
+     * @param  FilterActions $actions
+     * @return self
+     */
+    public function setActions(FilterActions $actions): self
+    {
+        $this->actions = $actions;
         return $this;
     }
 
@@ -192,28 +208,5 @@ class NestedRule
     {
         $this->child = $child;
         return $this;
-    }
-
-    public static function filterActionTypes(): array
-    {
-        return [
-            'filterVariables' => FilterVariables::class,
-            'actionKeep' => KeepAction::class,
-            'actionDiscard' => DiscardAction::class,
-            'actionFileInto' => FileIntoAction::class,
-            'actionFlag' => FlagAction::class,
-            'actionTag' => TagAction::class,
-            'actionRedirect' => RedirectAction::class,
-            'actionReply' => ReplyAction::class,
-            'actionNotify' => NotifyAction::class,
-            'actionRFCCompliantNotify' => RFCCompliantNotifyAction::class,
-            'actionStop' => StopAction::class,
-            'actionReject' => RejectAction::class,
-            'actionEreject' => ErejectAction::class,
-            'actionLog' => LogAction::class,
-            'actionAddheader' => AddheaderAction::class,
-            'actionDeleteheader' => DeleteheaderAction::class,
-            'actionReplaceheader' => ReplaceheaderAction::class,
-        ];
     }
 }

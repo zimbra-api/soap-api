@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AlarmAction;
 use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 
@@ -51,7 +53,7 @@ class AlarmInfoTest extends ZimbraTestCase
         $at = new CalendarAttendee($address, $displayName, $role, $partStat, TRUE, [new XParam($name, $value)]);
         $xprop = new XProp($name, $value, [new XParam($name, $value)]);
 
-        $alarm = new AlarmInfo($action, $trigger, $repeat, $description, $attach, $summary, [$at], [$xprop]);
+        $alarm = new StubAlarmInfo($action, $trigger, $repeat, $description, $attach, $summary, [$at], [$xprop]);
         $this->assertSame($action, $alarm->getAction());
         $this->assertSame($trigger, $alarm->getTrigger());
         $this->assertSame($repeat, $alarm->getRepeat());
@@ -61,7 +63,7 @@ class AlarmInfoTest extends ZimbraTestCase
         $this->assertSame([$at], $alarm->getAttendees());
         $this->assertSame([$xprop], $alarm->getXProps());
 
-        $alarm = new AlarmInfo(AlarmAction::EMAIL());
+        $alarm = new StubAlarmInfo();
         $alarm->setAction($action)
             ->setTrigger($trigger)
             ->setRepeat($repeat)
@@ -84,24 +86,31 @@ class AlarmInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result action="DISPLAY">
-    <trigger>
-        <abs d="$date" />
-        <rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-    </trigger>
-    <repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-    <desc>$description</desc>
-    <attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
-    <summary>$summary</summary>
-    <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-        <xparam name="$name" value="$value" />
-    </at>
-    <xprop name="$name" value="$value">
-        <xparam name="$name" value="$value" />
-    </xprop>
+<result action="DISPLAY" xmlns:urn="urn:zimbraMail">
+    <urn:trigger>
+        <urn:abs d="$date" />
+        <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+    </urn:trigger>
+    <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+    <urn:desc>$description</urn:desc>
+    <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+    <urn:summary>$summary</urn:summary>
+    <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+        <urn:xparam name="$name" value="$value" />
+    </urn:at>
+    <urn:xprop name="$name" value="$value">
+        <urn:xparam name="$name" value="$value" />
+    </urn:xprop>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alarm, 'xml'));
-        $this->assertEquals($alarm, $this->serializer->deserialize($xml, AlarmInfo::class, 'xml'));
+        $this->assertEquals($alarm, $this->serializer->deserialize($xml, StubAlarmInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubAlarmInfo extends AlarmInfo
+{
 }

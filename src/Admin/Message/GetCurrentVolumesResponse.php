@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CurrentVolumeInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -30,7 +30,6 @@ class GetCurrentVolumesResponse implements ResponseInterface
      * Entry for secondary message type (2) is optional
      * 
      * @Accessor(getter="getVolumes", setter="setVolumes")
-     * @SerializedName("volume")
      * @Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
      */

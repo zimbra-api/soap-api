@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\MemberType;
 use Zimbra\Common\Struct\ContactAttr;
 use Zimbra\Mail\Struct\ContactGroupMember;
@@ -48,7 +50,7 @@ class ContactInfoTest extends ZimbraTestCase
         $attr = new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
         $member = new ContactGroupMember(MemberType::CONTACT(), $value);
 
-        $contact = new ContactInfo(
+        $contact = new StubContactInfo(
             $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );
         $this->assertSame($sortField, $contact->getSortField());
@@ -76,7 +78,7 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$member], $contact->getContactGroupMembers());
         $this->assertSame($memberOf, $contact->getMemberOf());
 
-        $contact = new ContactInfo('');
+        $contact = new StubContactInfo();
         $contact->setSortField($sortField)
             ->setCanExpand(FALSE)
             ->setId($id)
@@ -133,20 +135,27 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$attr, $attr], $contact->getAttrs());
         $this->assertSame([$member, $member], $contact->getContactGroupMembers());
 
-        $contact = new ContactInfo(
+        $contact = new StubContactInfo(
             $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
-    <meta section="$section" />
-    <a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
-    <m type="C" value="$value" />
-    <memberOf>$memberOf</memberOf>
+<result sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section" />
+    <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
+    <urn:m type="C" value="$value" />
+    <urn:memberOf>$memberOf</urn:memberOf>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($contact, 'xml'));
-        $this->assertEquals($contact, $this->serializer->deserialize($xml, ContactInfo::class, 'xml'));
+        $this->assertEquals($contact, $this->serializer->deserialize($xml, StubContactInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubContactInfo extends ContactInfo
+{
 }

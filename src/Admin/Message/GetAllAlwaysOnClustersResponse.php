@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\AlwaysOnClusterInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllAlwaysOnClustersResponse implements ResponseInterface
      * Information about alwaysOnClusters
      * 
      * @Accessor(getter="getAlwaysOnClusterList", setter="setAlwaysOnClusterList")
-     * @SerializedName("alwaysOnCluster")
      * @Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")
      * @XmlList(inline=true, entry="alwaysOnCluster", namespace="urn:zimbraAdmin")
      */

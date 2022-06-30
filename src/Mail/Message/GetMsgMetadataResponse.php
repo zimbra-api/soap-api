@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{ChatSummary, MessageSummary};
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetMsgMetadataResponse implements ResponseInterface
      * Chat message metadata
      * 
      * @Accessor(getter="getChatMessages", setter="setChatMessages")
-     * @SerializedName("chat")
      * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
      */
@@ -39,7 +38,6 @@ class GetMsgMetadataResponse implements ResponseInterface
      * Message metadata
      * 
      * @Accessor(getter="getMsgMessages", setter="setMsgMessages")
-     * @SerializedName("m")
      * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */

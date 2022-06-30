@@ -37,7 +37,6 @@ class ExportAndDeleteMailboxSpec
      * Items
      * 
      * @Accessor(getter="getItems", setter="setItems")
-     * @SerializedName("item")
      * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
      * @XmlList(inline=true, entry="item", namespace="urn:zimbraAdmin")
      */

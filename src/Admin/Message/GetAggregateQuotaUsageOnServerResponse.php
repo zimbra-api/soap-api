@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DomainAggregateQuotaInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAggregateQuotaUsageOnServerResponse implements ResponseInterface
      * Aggregate quota information reported per domain
      * 
      * @Accessor(getter="getDomainQuotas", setter="setDomainQuotas")
-     * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */

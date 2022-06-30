@@ -38,7 +38,6 @@ class MPInviteInfo
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @SerializedName("tz")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
@@ -49,6 +48,7 @@ class MPInviteInfo
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
     private $calendarReplies = [];
@@ -56,7 +56,6 @@ class MPInviteInfo
     /**
      * Invite components
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @SerializedName("comp")
      * @Type("array<Zimbra\Mail\Struct\InviteComponent>")
      * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
      */

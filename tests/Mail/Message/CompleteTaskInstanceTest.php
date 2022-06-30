@@ -36,7 +36,7 @@ class CompleteTaskInstanceTest extends ZimbraTestCase
         $this->assertSame($exceptionId, $request->getExceptionId());
         $this->assertSame($timezone, $request->getTimezone());
 
-        $request = new CompleteTaskInstanceRequest('', new DtTimeInfo());
+        $request = new CompleteTaskInstanceRequest(new DtTimeInfo());
         $request->setId($id)
             ->setExceptionId($exceptionId)
             ->setTimezone($timezone);
@@ -66,8 +66,8 @@ class CompleteTaskInstanceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CompleteTaskInstanceRequest id="$id">
-            <exceptId d="$dateTime" tz="$tz" u="$utcTime" />
-            <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+            <urn:exceptId d="$dateTime" tz="$tz" u="$utcTime" />
+            <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
         </urn:CompleteTaskInstanceRequest>
         <urn:CompleteTaskInstanceResponse />
     </soap:Body>

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\CalOrganizer;
 use Zimbra\Mail\Struct\GeoInfo;
 use Zimbra\Mail\Struct\InstanceDataInterface;
@@ -36,7 +38,7 @@ class LegacyInstanceDataInfoTest extends ZimbraTestCase
         $geo = new GeoInfo($latitude, $longitude);
         $organizer = new CalOrganizer($address, $url, $displayName, $sentBy, $dir, $language, [new XParam($name, $value)]);
 
-        $data = new LegacyInstanceDataInfo(
+        $data = new StubLegacyInstanceDataInfo(
             $startTime, FALSE, $organizer, [$category1, $category2], $geo, $fragment
         );
         $this->assertTrue($data instanceof InstanceDataInterface);
@@ -49,7 +51,7 @@ class LegacyInstanceDataInfoTest extends ZimbraTestCase
         $this->assertSame($geo, $data->getGeo());
         $this->assertSame($fragment, $data->getFragment());
 
-        $data = new LegacyInstanceDataInfo();
+        $data = new StubLegacyInstanceDataInfo();
         $data->setCategories([$category1])
             ->addCategory($category2)
             ->setGeo($geo)
@@ -66,17 +68,24 @@ class LegacyInstanceDataInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result s="$startTime" ex="true">
-    <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-        <xparam name="$name" value="$value" />
-    </or>
-    <category>$category1</category>
-    <category>$category2</category>
-    <geo lat="$latitude" lon="$longitude" />
-    <fr>$fragment</fr>
+<result s="$startTime" ex="true" xmlns:urn="urn:zimbraMail">
+    <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+        <urn:xparam name="$name" value="$value" />
+    </urn:or>
+    <urn:category>$category1</urn:category>
+    <urn:category>$category2</urn:category>
+    <urn:geo lat="$latitude" lon="$longitude" />
+    <urn:fr>$fragment</urn:fr>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($data, 'xml'));
-        $this->assertEquals($data, $this->serializer->deserialize($xml, LegacyInstanceDataInfo::class, 'xml'));
+        $this->assertEquals($data, $this->serializer->deserialize($xml, StubLegacyInstanceDataInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubLegacyInstanceDataInfo extends LegacyInstanceDataInfo
+{
 }

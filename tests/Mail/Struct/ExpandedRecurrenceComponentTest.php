@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\DurationInfo;
@@ -34,14 +36,14 @@ class ExpandedRecurrenceComponentTest extends ZimbraTestCase
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
         $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
 
-        $exp = new ExpandedRecurrenceComponent($exceptionId, $startTime, $endTime, $duration, $recurrence);
+        $exp = new StubExpandedRecurrenceComponent($exceptionId, $startTime, $endTime, $duration, $recurrence);
         $this->assertSame($exceptionId, $exp->getExceptionId());
         $this->assertSame($startTime, $exp->getStartTime());
         $this->assertSame($endTime, $exp->getEndTime());
         $this->assertSame($duration, $exp->getDuration());
         $this->assertSame($recurrence, $exp->getRecurrence());
 
-        $exp = new ExpandedRecurrenceComponent();
+        $exp = new StubExpandedRecurrenceComponent();
         $exp->setExceptionId($exceptionId)
             ->setStartTime($startTime)
             ->setEndTime($endTime)
@@ -55,15 +57,22 @@ class ExpandedRecurrenceComponentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result s="$startTime" e="$endTime">
-    <exceptId range="$range" d="$dateTime" tz="$timezone" />
-    <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-    <recur>
-        <rule freq="HOU"/>
-    </recur>
+<result s="$startTime" e="$endTime" xmlns:urn="urn:zimbraMail">
+    <urn:exceptId range="$range" d="$dateTime" tz="$timezone" />
+    <urn:dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+    <urn:recur>
+        <urn:rule freq="HOU"/>
+    </urn:recur>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($exp, 'xml'));
-        $this->assertEquals($exp, $this->serializer->deserialize($xml, ExpandedRecurrenceComponent::class, 'xml'));
+        $this->assertEquals($exp, $this->serializer->deserialize($xml, StubExpandedRecurrenceComponent::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubExpandedRecurrenceComponent extends ExpandedRecurrenceComponent
+{
 }

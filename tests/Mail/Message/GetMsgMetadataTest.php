@@ -86,21 +86,21 @@ class GetMsgMetadataTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetMsgMetadataRequest>
-            <m ids="$ids" />
+            <urn:m ids="$ids" />
         </urn:GetMsgMetadataRequest>
         <urn:GetMsgMetadataResponse>
-            <chat id="$id" autoSendTime="$autoSendTime">
-                <e a="$address" d="$display" p="$personal" t="t" />
-                <su>$subject</su>
-                <fr>$fragment</fr>
-                <inv type="task" />
-            </chat>
-            <m id="$id" autoSendTime="$autoSendTime">
-                <e a="$address" d="$display" p="$personal" t="t" />
-                <su>$subject</su>
-                <fr>$fragment</fr>
-                <inv type="task" />
-            </m>
+            <urn:chat id="$id" autoSendTime="$autoSendTime">
+                <urn:e a="$address" d="$display" p="$personal" t="t" />
+                <urn:su>$subject</urn:su>
+                <urn:fr>$fragment</urn:fr>
+                <urn:inv type="task" />
+            </urn:chat>
+            <urn:m id="$id" autoSendTime="$autoSendTime">
+                <urn:e a="$address" d="$display" p="$personal" t="t" />
+                <urn:su>$subject</urn:su>
+                <urn:fr>$fragment</urn:fr>
+                <urn:inv type="task" />
+            </urn:m>
         </urn:GetMsgMetadataResponse>
     </soap:Body>
 </soap:Envelope>

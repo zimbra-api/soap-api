@@ -111,14 +111,14 @@ class DeleteDataSourceTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:DeleteDataSourceRequest>
-            <imap name="$name" id="$id" />
-            <pop3 name="$name" id="$id" />
-            <caldav name="$name" id="$id" />
-            <yab name="$name" id="$id" />
-            <rss name="$name" id="$id" />
-            <gal name="$name" id="$id" />
-            <cal name="$name" id="$id" />
-            <unknown name="$name" id="$id" />
+            <urn:imap name="$name" id="$id" />
+            <urn:pop3 name="$name" id="$id" />
+            <urn:caldav name="$name" id="$id" />
+            <urn:yab name="$name" id="$id" />
+            <urn:rss name="$name" id="$id" />
+            <urn:gal name="$name" id="$id" />
+            <urn:cal name="$name" id="$id" />
+            <urn:unknown name="$name" id="$id" />
         </urn:DeleteDataSourceRequest>
         <urn:DeleteDataSourceResponse />
     </soap:Body>

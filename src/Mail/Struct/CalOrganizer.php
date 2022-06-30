@@ -82,7 +82,6 @@ class CalOrganizer implements CalOrganizerInterface
     /**
      * Non-standard parameters (XPARAMs)
      * @Accessor(getter="getXParams", setter="setXParams")
-     * @SerializedName("xparam")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
      */

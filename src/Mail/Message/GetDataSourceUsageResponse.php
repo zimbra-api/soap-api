@@ -29,7 +29,6 @@ class GetDataSourceUsageResponse implements ResponseInterface
      * GetDataSourceUsage data
      * 
      * @Accessor(getter="getUsages", setter="setUsages")
-     * @SerializedName("dataSourceUsage")
      * @Type("array<Zimbra\Mail\Struct\DataSourceUsage>")
      * @XmlList(inline=true, entry="dataSourceUsage", namespace="urn:zimbraMail")
      */

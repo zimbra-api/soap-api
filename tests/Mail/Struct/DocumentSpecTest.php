@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\DocumentSpec;
 use Zimbra\Mail\Struct\MessagePartSpec;
 use Zimbra\Mail\Struct\IdVersion;
@@ -30,7 +32,7 @@ class DocumentSpecTest extends ZimbraTestCase
         $messagePart = new MessagePartSpec($part, $id);
         $docRevision = new IdVersion($id, $version);
 
-        $spec = new DocumentSpec(
+        $spec = new StubDocumentSpec(
             $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $upload, $messagePart, $docRevision
         );
         $this->assertSame($name, $spec->getName());
@@ -46,7 +48,7 @@ class DocumentSpecTest extends ZimbraTestCase
         $this->assertSame($messagePart, $spec->getMessagePart());
         $this->assertSame($docRevision, $spec->getDocRevision());
 
-        $spec = new DocumentSpec();
+        $spec = new StubDocumentSpec();
         $spec->setName($name)
             ->setContentType($contentType)
             ->setDescription($description)
@@ -74,13 +76,20 @@ class DocumentSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags">
-    <upload id="$id" />
-    <m part="$part" id="$id" />
-    <doc id="$id" ver="$version" />
+<result name="$name" ct="$contentType" desc="$description" l="$folderId" id="$id" ver="$version" content="$content" descEnabled="true" f="$flags" xmlns:urn="urn:zimbraMail">
+    <urn:upload id="$id" />
+    <urn:m part="$part" id="$id" />
+    <urn:doc id="$id" ver="$version" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
-        $this->assertEquals($spec, $this->serializer->deserialize($xml, DocumentSpec::class, 'xml'));
+        $this->assertEquals($spec, $this->serializer->deserialize($xml, StubDocumentSpec::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubDocumentSpec extends DocumentSpec
+{
 }

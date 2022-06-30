@@ -51,7 +51,6 @@ class GetMiniCalRequest extends Request
      * Local and/or remote calendar folders
      * 
      * @Accessor(getter="getFolders", setter="setFolders")
-     * @SerializedName("folder")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
      */

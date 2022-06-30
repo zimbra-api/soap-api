@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Common\Enum\ContactBackupOp  as Operation;
 use Zimbra\Soap\{EnvelopeInterface, Request};
@@ -32,6 +32,7 @@ class ContactBackupRequest extends Request
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
      */
     private $servers = [];

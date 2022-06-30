@@ -98,10 +98,10 @@ class GetItemTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetItemRequest>
-            <item id="$id" l="$folderId" name="$name" path="$path" />
+            <urn:item id="$id" l="$folderId" name="$name" path="$path" />
         </urn:GetItemRequest>
         <urn:GetItemResponse>
-            <folder id="$id" uuid="$uuid" />
+            <urn:folder id="$id" uuid="$uuid" />
         </urn:GetItemResponse>
     </soap:Body>
 </soap:Envelope>

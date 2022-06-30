@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Struct\TzOnsetInfo;
 
 use Zimbra\Mail\Struct\CalTZInfo;
@@ -64,7 +66,7 @@ class InvitationTest extends ZimbraTestCase
         $shr = new ShareNotification(TRUE, $content);
         $dlSubs = new DLSubscriptionNotification(TRUE, $content);
 
-        $invite = new Invitation(
+        $invite = new StubInvitation(
             $calItemType, $sequence, $intId, $componentNum, $recurrenceId, [$tz], $comp, [$mp], [$shr], [$dlSubs]
         );
         $this->assertSame($calItemType, $invite->getCalItemType());
@@ -78,7 +80,7 @@ class InvitationTest extends ZimbraTestCase
         $this->assertSame([$shr], $invite->getShareNotifications());
         $this->assertSame([$dlSubs], $invite->getDlSubs());
 
-        $invite = new Invitation('', 0, 0, 0);
+        $invite = new StubInvitation();
         $invite->setCalItemType($calItemType)
             ->setSequence($sequence)
             ->setId($intId)
@@ -110,25 +112,32 @@ class InvitationTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
-    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
-        <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-        <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-    </tz>
-    <comp method="$method" compNum="$componentNum" rsvp="true" />
-    <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-        <content>$content</content>
-        <mp part="$part" ct="$contentType" />
-    </mp>
-    <shr truncated="true">
-        <content>$content</content>
-    </shr>
-    <dlSubs truncated="true">
-        <content>$content</content>
-    </dlSubs>
+<result type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId" xmlns:urn="urn:zimbraMail">
+    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
+        <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+        <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+    </urn:tz>
+    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+        <urn:content>$content</urn:content>
+        <urn:mp part="$part" ct="$contentType" />
+    </urn:mp>
+    <urn:shr truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:shr>
+    <urn:dlSubs truncated="true">
+        <urn:content>$content</urn:content>
+    </urn:dlSubs>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($invite, 'xml'));
-        $this->assertEquals($invite, $this->serializer->deserialize($xml, Invitation::class, 'xml'));
+        $this->assertEquals($invite, $this->serializer->deserialize($xml, StubInvitation::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubInvitation extends Invitation
+{
 }

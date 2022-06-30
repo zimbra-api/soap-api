@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\DurationInfo;
@@ -35,20 +37,27 @@ class ExpandedRecurrenceExceptionTest extends ZimbraTestCase
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
         $recurrence = new RecurrenceInfo([new SimpleRepeatingRule(Frequency::HOUR())]);
 
-        $except = new ExpandedRecurrenceException($exceptionId, $startTime, $endTime, $duration, $recurrence);
+        $except = new StubExpandedRecurrenceException($exceptionId, $startTime, $endTime, $duration, $recurrence);
         $this->assertTrue($except instanceof ExpandedRecurrenceComponent);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result s="$startTime" e="$endTime">
-    <exceptId range="$range" d="$dateTime" tz="$timezone" />
-    <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
-    <recur>
-        <rule freq="HOU"/>
-    </recur>
+<result s="$startTime" e="$endTime" xmlns:urn="urn:zimbraMail">
+    <urn:exceptId range="$range" d="$dateTime" tz="$timezone" />
+    <urn:dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+    <urn:recur>
+        <urn:rule freq="HOU"/>
+    </urn:recur>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($except, 'xml'));
-        $this->assertEquals($except, $this->serializer->deserialize($xml, ExpandedRecurrenceException::class, 'xml'));
+        $this->assertEquals($except, $this->serializer->deserialize($xml, StubExpandedRecurrenceException::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubExpandedRecurrenceException extends ExpandedRecurrenceException
+{
 }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * ZimletStatusParent struct class
@@ -27,7 +27,6 @@ class ZimletStatusParent
      * Status information
      * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
-     * @SerializedName("zimlet")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
      */

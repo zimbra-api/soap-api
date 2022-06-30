@@ -39,7 +39,6 @@ class GetZimletStatusResponse implements ResponseInterface
      * Class Of Service (COS) Information
      * 
      * @Accessor(getter="getCoses", setter="setCoses")
-     * @SerializedName("cos")
      * @Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")
      * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      */

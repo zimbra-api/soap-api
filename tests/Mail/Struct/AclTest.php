@@ -28,14 +28,14 @@ class AclTest extends ZimbraTestCase
             $perm, $granteeType, $granteeId, $expiry, $granteeName, $guestPassword, $accessKey
         );
 
-        $acl = new Acl(
+        $acl = new StubAcl(
             $internalGrantExpiry, $guestGrantExpiry, [$grant]
         );
         $this->assertSame($internalGrantExpiry, $acl->getInternalGrantExpiry());
         $this->assertSame($guestGrantExpiry, $acl->getGuestGrantExpiry());
         $this->assertSame([$grant], $acl->getGrants());
 
-        $acl = new Acl();
+        $acl = new StubAcl();
         $acl->setInternalGrantExpiry($internalGrantExpiry)
             ->setGuestGrantExpiry($guestGrantExpiry)
             ->setGrants([$grant])
@@ -47,11 +47,18 @@ class AclTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
-    <grant perm="$perm" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
+<result internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry" xmlns:urn="urn:zimbraMail">
+    <urn:grant perm="$perm" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($acl, 'xml'));
-        $this->assertEquals($acl, $this->serializer->deserialize($xml, Acl::class, 'xml'));
+        $this->assertEquals($acl, $this->serializer->deserialize($xml, StubAcl::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubAcl extends Acl
+{
 }

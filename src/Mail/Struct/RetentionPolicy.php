@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 
 /**
  * RetentionPolicy struct class
@@ -28,6 +28,7 @@ class RetentionPolicy
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      */
     private $keep = [];
@@ -37,6 +38,7 @@ class RetentionPolicy
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
+     * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      */
     private $purge = [];

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DataSourceInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetDataSourcesResponse implements ResponseInterface
      * Information on data sources
      * 
      * @Accessor(getter="getDataSources", setter="setDataSources")
-     * @SerializedName("dataSource")
      * @Type("array<Zimbra\Admin\Struct\DataSourceInfo>")
      * @XmlList(inline=true, entry="dataSource", namespace="urn:zimbraAdmin")
      */

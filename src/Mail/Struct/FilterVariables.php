@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 
 /**
  * FilterVariables struct class
@@ -26,7 +26,6 @@ class FilterVariables extends FilterAction
     /**
      * Filter variables
      * @Accessor(getter="getVariables", setter="setVariables")
-     * @SerializedName("filterVariable")
      * @Type("array<Zimbra\Mail\Struct\FilterVariable>")
      * @XmlList(inline=true, entry="filterVariable", namespace="urn:zimbraMail")
      */

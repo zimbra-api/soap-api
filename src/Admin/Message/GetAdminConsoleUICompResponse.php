@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\InheritedFlaggedValue;
 use Zimbra\Soap\ResponseInterface;
 
@@ -28,7 +28,6 @@ class GetAdminConsoleUICompResponse implements ResponseInterface
     /**
      * zimbraAdminConsoleUIComponents values
      * @Accessor(getter="getValues", setter="setValues")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Admin\Struct\InheritedFlaggedValue>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */

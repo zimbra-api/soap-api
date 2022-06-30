@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\DomainInfo;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetAllDomainsResponse implements ResponseInterface
      * Information on domains
      * 
      * @Accessor(getter="getDomainList", setter="setDomainList")
-     * @SerializedName("domain")
      * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
      */

@@ -120,7 +120,6 @@ class GetContactsRequest extends Request
      * Attrs - if present, return only the specified attribute(s).
      * 
      * @Accessor(getter="getAttributes", setter="setAttributes")
-     * @SerializedName("a")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      */
@@ -131,7 +130,6 @@ class GetContactsRequest extends Request
      * only when derefGroupMember is set.
      * 
      * @Accessor(getter="getMemberAttributes", setter="setMemberAttributes")
-     * @SerializedName("ma")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="ma", namespace="urn:zimbraMail")
      */
@@ -141,7 +139,6 @@ class GetContactsRequest extends Request
      * If present, only get the specified contact(s).
      * 
      * @Accessor(getter="getContacts", setter="setContacts")
-     * @SerializedName("cn")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      */

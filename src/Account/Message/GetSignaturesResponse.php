@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetSignaturesResponse implements ResponseInterface
      * Signatures
      * 
      * @Accessor(getter="getSignatures", setter="setSignatures")
-     * @SerializedName("signature")
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlList(inline=true, entry="signature", namespace="urn:zimbraAccount")
      */

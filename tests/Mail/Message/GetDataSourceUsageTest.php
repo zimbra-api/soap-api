@@ -32,7 +32,7 @@ class GetDataSourceUsageTest extends ZimbraTestCase
         $this->assertSame($dataSourceQuota, $response->getDataSourceQuota());
         $this->assertSame($totalQuota, $response->getDataSourceTotalQuota());
         $this->assertSame([$dsUsage], $response->getUsages());
-        $response = new GetDataSourceUsageResponse(0, 0);
+        $response = new GetDataSourceUsageResponse();
         $response->setDataSourceQuota($dataSourceQuota)
             ->setDataSourceTotalQuota($totalQuota)
             ->setUsages([$dsUsage])
@@ -63,9 +63,9 @@ class GetDataSourceUsageTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetDataSourceUsageRequest />
         <urn:GetDataSourceUsageResponse>
-            <dataSourceUsage id="$id" usage="$usage" />
-            <dsQuota>$dataSourceQuota</dsQuota>
-            <dsTotalQuota>$totalQuota</dsTotalQuota>
+            <urn:dataSourceUsage id="$id" usage="$usage" />
+            <urn:dsQuota>$dataSourceQuota</urn:dsQuota>
+            <urn:dsTotalQuota>$totalQuota</urn:dsTotalQuota>
         </urn:GetDataSourceUsageResponse>
     </soap:Body>
 </soap:Envelope>

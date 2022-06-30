@@ -39,7 +39,7 @@ class ConvActionTest extends ZimbraTestCase
         );
         $response = new ConvActionResponse($action);
         $this->assertSame($action, $response->getAction());
-        $response = new ConvActionResponse(new ActionResult($id, $operation));
+        $response = new ConvActionResponse();
         $response->setAction($action);
         $this->assertSame($action, $response->getAction());
 
@@ -63,9 +63,9 @@ class ConvActionTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:ConvActionRequest>
-            <action id="$id" op="$operation">
-                <acctRelPath>$acctRelativePath</acctRelPath>
-            </action>
+            <urn:action id="$id" op="$operation">
+                <urn:acctRelPath>$acctRelativePath</urn:acctRelPath>
+            </urn:action>
         </urn:ConvActionRequest>
         <urn:ConvActionResponse>
             <action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 
 /**
  * DistributionListInfo struct class
@@ -35,7 +35,6 @@ class DistributionListInfo extends AdminObjectInfo
     /**
      * dl members
      * @Accessor(getter="getMembers", setter="setMembers")
-     * @SerializedName("dlm")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */
@@ -46,6 +45,7 @@ class DistributionListInfo extends AdminObjectInfo
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAdmin")
      */
     private $owners = [];

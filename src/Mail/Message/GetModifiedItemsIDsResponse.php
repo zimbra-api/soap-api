@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\MiniCalError;
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class GetModifiedItemsIDsResponse implements ResponseInterface
      * IDs of modified items
      * 
      * @Accessor(getter="getIds", setter="setIds")
-     * @SerializedName("ids")
      * @Type("array<integer>")
      * @XmlList(inline=true, entry="ids", namespace="urn:zimbraMail")
      */

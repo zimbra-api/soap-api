@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Struct\WaitSetAddSpec;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -51,6 +51,7 @@ class AdminCreateWaitSetRequest extends Request
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("add")
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
      */
     private $accounts = [];

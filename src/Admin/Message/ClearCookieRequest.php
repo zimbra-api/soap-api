@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CookieSpec;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
@@ -29,7 +29,6 @@ class ClearCookieRequest extends Request
     /**
      * Specifies cookies to clean
      * @Accessor(getter="getCookies", setter="setCookies")
-     * @SerializedName("cookie")
      * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
      * @XmlList(inline=true, entry="cookie", namespace="urn:zimbraAdmin")
      */

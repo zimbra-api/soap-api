@@ -95,17 +95,17 @@ class AddMsgTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:AddMsgRequest filterSent="true">
-            <m f="$flags" t="$tags" tn="$tagNames" l="$folder" noICal="true" d="$dateReceived" aid="$attachmentId">
-                <content>$content</content>
-            </m>
+            <urn:m f="$flags" t="$tags" tn="$tagNames" l="$folder" noICal="true" d="$dateReceived" aid="$attachmentId">
+                <urn:content>$content</urn:content>
+            </urn:m>
         </urn:AddMsgRequest>
         <urn:AddMsgResponse>
-            <chat id="$id" autoSendTime="$autoSendTime">
-                <e a="$address" d="$display" p="$personal" t="t" />
-                <su>$subject</su>
-                <fr>$fragment</fr>
-                <inv type="task" />
-            </chat>
+            <urn:chat id="$id" autoSendTime="$autoSendTime">
+                <urn:e a="$address" d="$display" p="$personal" t="t" />
+                <urn:su>$subject</urn:su>
+                <urn:fr>$fragment</urn:fr>
+                <urn:inv type="task" />
+            </urn:chat>
         </urn:AddMsgResponse>
     </soap:Body>
 </soap:Envelope>

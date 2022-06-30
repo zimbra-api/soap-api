@@ -46,7 +46,6 @@ class CheckGalConfigResponse implements ResponseInterface
     /**
      * Information for GAL contacts
      * @Accessor(getter="getGalContacts", setter="setGalContacts")
-     * @SerializedName("cn")
      * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
      */

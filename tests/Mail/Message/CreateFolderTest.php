@@ -102,7 +102,7 @@ class CreateFolderTest extends ZimbraTestCase
         );
         $request = new CreateFolderRequest($newFolder);
         $this->assertSame($newFolder, $request->getFolder());
-        $request = new CreateFolderRequest(new NewFolderSpec('', ''));
+        $request = new CreateFolderRequest(new NewFolderSpec());
         $request->setFolder($newFolder);
         $this->assertSame($newFolder, $request->getFolder());
 
@@ -200,32 +200,32 @@ class CreateFolderTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateFolderRequest>
-            <folder name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true">
-                <acl>
-                    <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-                </acl>
-            </folder>
+            <urn:folder name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true">
+                <urn:acl>
+                    <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+                </urn:acl>
+            </urn:folder>
         </urn:CreateFolderRequest>
         <urn:CreateFolderResponse>
-            <folder id="$id" uuid="$uuid" name="$name" absFolderPath="$absoluteFolderPath" l="$parentId" luuid="$folderUuid" f="$flags" color="$color" rgb="$rgb" u="$unreadCount" i4u="$imapUnreadCount" view="conversation" rev="$revision" ms="$modifiedSequence" md="$changeDate" n="$itemCount" i4n="$imapItemCount" s="$totalSize" i4ms="$imapModifiedSequence" i4next="$imapUidNext" url="$url" activesyncdisabled="true" webOfflineSyncDays="$webOfflineSyncDays" perm="$perm" recursive="true" rest="$restUrl" deletable="true">
-                <meta section="$section">
-                    <a n="$key">$value</a>
-                </meta>
-                <acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
-                    <grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
-                </acl>
-                <folder id="$id" uuid="$uuid" />
-                <link id="$id" uuid="$uuid" />
-                <search id="$id" uuid="$uuid" />
-                <retentionPolicy>
-                    <keep>
-                        <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-                    </keep>
-                    <purge>
-                        <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-                    </purge>
-                </retentionPolicy>
-            </folder>
+            <urn:folder id="$id" uuid="$uuid" name="$name" absFolderPath="$absoluteFolderPath" l="$parentId" luuid="$folderUuid" f="$flags" color="$color" rgb="$rgb" u="$unreadCount" i4u="$imapUnreadCount" view="conversation" rev="$revision" ms="$modifiedSequence" md="$changeDate" n="$itemCount" i4n="$imapItemCount" s="$totalSize" i4ms="$imapModifiedSequence" i4next="$imapUidNext" url="$url" activesyncdisabled="true" webOfflineSyncDays="$webOfflineSyncDays" perm="$perm" recursive="true" rest="$restUrl" deletable="true">
+                <urn:meta section="$section">
+                    <urn:a n="$key">$value</urn:a>
+                </urn:meta>
+                <urn:acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
+                    <urn:grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
+                </urn:acl>
+                <urn:folder id="$id" uuid="$uuid" />
+                <urn:link id="$id" uuid="$uuid" />
+                <urn:search id="$id" uuid="$uuid" />
+                <urn:retentionPolicy>
+                    <urn:keep>
+                        <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:keep>
+                    <urn:purge>
+                        <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+                    </urn:purge>
+                </urn:retentionPolicy>
+            </urn:folder>
         </urn:CreateFolderResponse>
     </soap:Body>
 </soap:Envelope>

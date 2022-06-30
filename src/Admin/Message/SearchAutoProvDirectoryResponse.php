@@ -47,7 +47,6 @@ class SearchAutoProvDirectoryResponse implements ResponseInterface
      * Entries
      * 
      * @Accessor(getter="getEntries", setter="setEntries")
-     * @SerializedName("entry")
      * @Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
      */

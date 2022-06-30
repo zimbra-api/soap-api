@@ -29,7 +29,6 @@ class GetAllMailboxesResponse implements ResponseInterface
      * Mailboxes
      * 
      * @Accessor(getter="getMboxes", setter="setMboxes")
-     * @SerializedName("mbox")
      * @Type("array<Zimbra\Admin\Struct\MailboxInfo>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
      */

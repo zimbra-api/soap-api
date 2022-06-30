@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\PartInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -22,7 +24,7 @@ class PartInfoTest extends ZimbraTestCase
         $content = $this->faker->text;
 
         $mimePart = new PartInfo($part, $contentType);
-        $mp = new PartInfo(
+        $mp = new StubPartInfo(
             $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, FALSE, FALSE, $content, [$mimePart]
         );
         $this->assertSame($part, $mp->getPart());
@@ -37,7 +39,7 @@ class PartInfoTest extends ZimbraTestCase
         $this->assertSame($content, $mp->getContent());
         $this->assertSame([$mimePart], $mp->getMimeParts());
 
-        $mp = new PartInfo('', '');
+        $mp = new StubPartInfo();
         $mp->setPart($part)
             ->setContentType($contentType)
             ->setSize($size)
@@ -65,12 +67,19 @@ class PartInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-    <content>$content</content>
-    <mp part="$part" ct="$contentType" />
+<result part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true" xmlns:urn="urn:zimbraMail">
+    <urn:content>$content</urn:content>
+    <urn:mp part="$part" ct="$contentType" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mp, 'xml'));
-        $this->assertEquals($mp, $this->serializer->deserialize($xml, PartInfo::class, 'xml'));
+        $this->assertEquals($mp, $this->serializer->deserialize($xml, StubPartInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubPartInfo extends PartInfo
+{
 }

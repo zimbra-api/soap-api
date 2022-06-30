@@ -20,7 +20,7 @@ class AnnounceOrganizerChangeTest extends ZimbraTestCase
 
         $request = new AnnounceOrganizerChangeRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new AnnounceOrganizerChangeRequest('');
+        $request = new AnnounceOrganizerChangeRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

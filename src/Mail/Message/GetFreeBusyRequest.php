@@ -88,7 +88,6 @@ class GetFreeBusyRequest extends Request
      * To view free/busy for a single folders in particular accounts, use these.
      * 
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @SerializedName("usr")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      */

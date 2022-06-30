@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Struct\KeyValuePair;
 
@@ -42,7 +44,7 @@ class ConversationSummaryTest extends ZimbraTestCase
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
         $email = new EmailInfo($address, $display, $personal, $addressType, TRUE, TRUE);
 
-        $conv = new ConversationSummary(
+        $conv = new StubConversationSummary(
             $id, $num, $numUnread, $totalSize, $flags, $tags, $tagNames, $date, FALSE, $changeDate, $modifiedSequence, [$metadata], $subject, $fragment, [$email]
         );
         $this->assertSame($id, $conv->getId());
@@ -61,7 +63,7 @@ class ConversationSummaryTest extends ZimbraTestCase
         $this->assertSame($fragment, $conv->getFragment());
         $this->assertSame([$email], $conv->getEmails());
 
-        $conv = new ConversationSummary();
+        $conv = new StubConversationSummary();
         $conv->setId($id)
             ->setNum($num)
             ->setNumUnread($numUnread)
@@ -94,22 +96,29 @@ class ConversationSummaryTest extends ZimbraTestCase
         $this->assertSame($subject, $conv->getSubject());
         $this->assertSame($fragment, $conv->getFragment());
         $this->assertSame([$email, $email], $conv->getEmails());
-        $conv = new ConversationSummary(
+        $conv = new StubConversationSummary(
             $id, $num, $numUnread, $totalSize, $flags, $tags, $tagNames, $date, TRUE, $changeDate, $modifiedSequence, [$metadata], $subject, $fragment, [$email]
         );
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" n="$num" u="$numUnread" total="$totalSize" f="$flags" t="$tags" tn="$tagNames" d="$date" elided="true" md="$changeDate" ms="$modifiedSequence">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
-    <su>$subject</su>
-    <fr>$fragment</fr>
-    <e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+<result id="$id" n="$num" u="$numUnread" total="$totalSize" f="$flags" t="$tags" tn="$tagNames" d="$date" elided="true" md="$changeDate" ms="$modifiedSequence" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
+    <urn:su>$subject</urn:su>
+    <urn:fr>$fragment</urn:fr>
+    <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conv, 'xml'));
-        $this->assertEquals($conv, $this->serializer->deserialize($xml, ConversationSummary::class, 'xml'));
+        $this->assertEquals($conv, $this->serializer->deserialize($xml, StubConversationSummary::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubConversationSummary extends ConversationSummary
+{
 }

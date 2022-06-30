@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\ParticipationStatus as PartStat;
 use Zimbra\Mail\Struct\CalendarAttendee;
 use Zimbra\Mail\Struct\XParam;
@@ -31,7 +33,7 @@ class CalendarAttendeeTest extends ZimbraTestCase
 
         $xparam = new XParam($name, $value);
 
-        $at = new CalendarAttendee($address, $displayName, $role, $partStat, FALSE, [$xparam]);
+        $at = new StubCalendarAttendee($address, $displayName, $role, $partStat, FALSE, [$xparam]);
         $this->assertSame($address, $at->getAddress());
         $this->assertSame($displayName, $at->getDisplayName());
         $this->assertSame($role, $at->getRole());
@@ -39,7 +41,7 @@ class CalendarAttendeeTest extends ZimbraTestCase
         $this->assertFalse($at->getRsvp());
         $this->assertSame([$xparam], $at->getXParams());
 
-        $at = new CalendarAttendee();
+        $at = new StubCalendarAttendee();
         $at->setAddress($address)
             ->setUrl($url)
             ->setDisplayName($displayName)
@@ -73,11 +75,18 @@ class CalendarAttendeeTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language" cutype="$cuType" role="$role" ptst="AC" rsvp="true" member="$member" delegatedTo="$delegatedTo" delegatedFrom="$delegatedFrom">
-    <xparam name="$name" value="$value" />
+<result a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language" cutype="$cuType" role="$role" ptst="AC" rsvp="true" member="$member" delegatedTo="$delegatedTo" delegatedFrom="$delegatedFrom" xmlns:urn="urn:zimbraMail">
+    <urn:xparam name="$name" value="$value" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($at, 'xml'));
-        $this->assertEquals($at, $this->serializer->deserialize($xml, CalendarAttendee::class, 'xml'));
+        $this->assertEquals($at, $this->serializer->deserialize($xml, StubCalendarAttendee::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCalendarAttendee extends CalendarAttendee
+{
 }

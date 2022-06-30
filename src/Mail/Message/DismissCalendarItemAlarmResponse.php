@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{UpdatedAppointmentAlarmInfo, UpdatedTaskAlarmInfo};
 use Zimbra\Soap\ResponseInterface;
 
@@ -29,7 +29,6 @@ class DismissCalendarItemAlarmResponse implements ResponseInterface
      * Updated appointment alarm information
      * 
      * @Accessor(getter="getApptUpdatedAlarms", setter="setApptUpdatedAlarms")
-     * @SerializedName("appt")
      * @Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
      */
@@ -39,7 +38,6 @@ class DismissCalendarItemAlarmResponse implements ResponseInterface
      * Updated task alarm information
      * 
      * @Accessor(getter="getTaskUpdatedAlarms", setter="setTaskUpdatedAlarms")
-     * @SerializedName("task")
      * @Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      */

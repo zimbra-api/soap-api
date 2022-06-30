@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\{CreateItemNotification, ImapMessageInfo};
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -19,20 +21,27 @@ class CreateItemNotificationTest extends ZimbraTestCase
         $tags = $this->faker->word;
         $msgInfo = new ImapMessageInfo($id, $imapUid, $type, $flags, $tags);
 
-        $created = new CreateItemNotification($msgInfo);
+        $created = new StubCreateItemNotification($msgInfo);
         $this->assertSame($msgInfo, $created->getMessageInfo());
 
-        $created = new CreateItemNotification(new ImapMessageInfo(0, 0, '', 0, ''));
+        $created = new StubCreateItemNotification(new ImapMessageInfo());
         $created->setMessageInfo($msgInfo);
         $this->assertSame($msgInfo, $created->getMessageInfo());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+<result xmlns:urn="urn:zimbraMail">
+    <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($created, 'xml'));
-        $this->assertEquals($created, $this->serializer->deserialize($xml, CreateItemNotification::class, 'xml'));
+        $this->assertEquals($created, $this->serializer->deserialize($xml, StubCreateItemNotification::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCreateItemNotification extends CreateItemNotification
+{
 }

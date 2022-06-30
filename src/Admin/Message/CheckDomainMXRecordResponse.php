@@ -27,7 +27,6 @@ class CheckDomainMXRecordResponse implements ResponseInterface
     /**
      * MX Record entries
      * @Accessor(getter="getEntries", setter="setEntries")
-     * @SerializedName("entry")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
      */

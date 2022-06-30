@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Mail\Struct\BounceMsgSpec;
 use Zimbra\Mail\Struct\EmailAddrInfo;
@@ -21,11 +23,11 @@ class BounceMsgSpecTest extends ZimbraTestCase
 
         $emailAddress = new EmailAddrInfo($address, $addressType, $personal);
 
-        $msg = new BounceMsgSpec($id, [$emailAddress]);
+        $msg = new StubBounceMsgSpec($id, [$emailAddress]);
         $this->assertSame($id, $msg->getId());
         $this->assertSame([$emailAddress], $msg->getEmailAddresses());
 
-        $msg = new BounceMsgSpec('');
+        $msg = new StubBounceMsgSpec();
         $msg->setId($id)
             ->setEmailAddresses([$emailAddress])
             ->addEmailAddress($emailAddress);
@@ -35,11 +37,18 @@ class BounceMsgSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id">
-    <e a="$address" t="t" p="$personal" />
+<result id="$id" xmlns:urn="urn:zimbraMail">
+    <urn:e a="$address" t="t" p="$personal" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
-        $this->assertEquals($msg, $this->serializer->deserialize($xml, BounceMsgSpec::class, 'xml'));
+        $this->assertEquals($msg, $this->serializer->deserialize($xml, StubBounceMsgSpec::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubBounceMsgSpec extends BounceMsgSpec
+{
 }

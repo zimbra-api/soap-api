@@ -58,7 +58,7 @@ class CreateMountpointTest extends ZimbraTestCase
         );
         $request = new CreateMountpointRequest($folder);
         $this->assertSame($folder, $request->getFolder());
-        $request = new CreateMountpointRequest(new NewMountpointSpec('', ''));
+        $request = new CreateMountpointRequest(new NewMountpointSpec());
         $request->setFolder($folder);
         $this->assertSame($folder, $request->getFolder());
 
@@ -75,7 +75,7 @@ class CreateMountpointTest extends ZimbraTestCase
         );
         $response = new CreateMountpointResponse($link);
         $this->assertSame($link, $response->getMount());
-        $response = new CreateMountpointResponse(new Mountpoint('', ''));
+        $response = new CreateMountpointResponse();
         $response->setMount($link);
         $this->assertSame($link, $response->getMount());
 
@@ -99,10 +99,10 @@ class CreateMountpointTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:CreateMountpointRequest>
-            <link name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$folderId" fie="true" reminder="true" zid="$ownerId" owner="$ownerName" rid="$remoteId" path="$path" />
+            <urn:link name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$folderId" fie="true" reminder="true" zid="$ownerId" owner="$ownerName" rid="$remoteId" path="$path" />
         </urn:CreateMountpointRequest>
         <urn:CreateMountpointResponse>
-            <link id="$id" uuid="$uuid" owner="$ownerEmail" zid="$ownerAccountId" rid="$remoteFolderId" ruuid="$remoteUuid" oname="$remoteFolderName" reminder="true" broken="true" />
+            <urn:link id="$id" uuid="$uuid" owner="$ownerEmail" zid="$ownerAccountId" rid="$remoteFolderId" ruuid="$remoteUuid" oname="$remoteFolderName" reminder="true" broken="true" />
         </urn:CreateMountpointResponse>
     </soap:Body>
 </soap:Envelope>
