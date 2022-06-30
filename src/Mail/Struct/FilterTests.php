@@ -28,6 +28,7 @@ class FilterTests
 {
     /**
      * Condition - allof|anyof
+     * 
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("condition")
      * @Type("Zimbra\Common\Enum\FilterCondition")
