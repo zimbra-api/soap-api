@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\AddheaderAction;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -16,12 +18,12 @@ class AddheaderActionTest extends ZimbraTestCase
         $headerName = $this->faker->word;
         $headerValue = $this->faker->word;
 
-        $action = new AddheaderAction($index, $headerName, $headerValue, FALSE);
+        $action = new StubAddheaderAction($index, $headerName, $headerValue, FALSE);
         $this->assertSame($headerName, $action->getHeaderName());
         $this->assertSame($headerValue, $action->getHeaderValue());
         $this->assertFalse($action->getLast());
 
-        $action = new AddheaderAction($index);
+        $action = new StubAddheaderAction($index);
         $action->setHeaderName($headerName)
             ->setHeaderValue($headerValue)
             ->setLast(TRUE);
@@ -31,12 +33,19 @@ class AddheaderActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result index="$index" last="true">
-    <headerName>$headerName</headerName>
-    <headerValue>$headerValue</headerValue>
+<result index="$index" last="true" xmlns:urn="urn:zimbraMail">
+    <urn:headerName>$headerName</urn:headerName>
+    <urn:headerValue>$headerValue</urn:headerValue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, AddheaderAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubAddheaderAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubAddheaderAction extends AddheaderAction
+{
 }

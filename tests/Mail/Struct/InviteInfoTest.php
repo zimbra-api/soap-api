@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\InviteType;
 
 use Zimbra\Mail\Struct\CalendarReply;
@@ -34,13 +36,13 @@ class InviteInfoTest extends ZimbraTestCase
         $inviteComponent = new InviteComponent($method, $componentNum, TRUE);
         $calendarReply = new CalendarReply($rangeType, $recurId, $seq, $date, $attendee);
 
-        $inv = new InviteInfo($calItemType, [$timezone], $inviteComponent, [$calendarReply]);
+        $inv = new StubInviteInfo($calItemType, [$timezone], $inviteComponent, [$calendarReply]);
         $this->assertSame($calItemType, $inv->getCalItemType());
         $this->assertSame([$timezone], $inv->getTimezones());
         $this->assertSame($inviteComponent, $inv->getInviteComponent());
         $this->assertSame([$calendarReply], $inv->getCalendarReplies());
 
-        $inv = new InviteInfo(InviteType::TASK());
+        $inv = new StubInviteInfo();
         $inv->setCalItemType($calItemType)
             ->setTimezones([$timezone])
             ->addTimezone($timezone)
@@ -56,15 +58,22 @@ class InviteInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result type="task">
-    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-    <comp method="$method" compNum="$componentNum" rsvp="true" />
-    <replies>
-        <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
-    </replies>
+<result type="task" xmlns:urn="urn:zimbraMail">
+    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+    <urn:replies>
+        <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+    </urn:replies>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
-        $this->assertEquals($inv, $this->serializer->deserialize($xml, InviteInfo::class, 'xml'));
+        $this->assertEquals($inv, $this->serializer->deserialize($xml, StubInviteInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubInviteInfo extends InviteInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\DtVal;
 use Zimbra\Mail\Struct\DtTimeInfo;
 use Zimbra\Mail\Struct\DurationInfo;
@@ -27,14 +29,14 @@ class DtValTest extends ZimbraTestCase
         $endTime = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
 
-        $dtval = new DtVal(
+        $dtval = new StubDtVal(
             $startTime, $endTime, $duration
         );
         $this->assertSame($startTime, $dtval->getStartTime());
         $this->assertSame($endTime, $dtval->getEndTime());
         $this->assertSame($duration, $dtval->getDuration());
 
-        $dtval = new DtVal();
+        $dtval = new StubDtVal();
         $dtval->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setDuration($duration);
@@ -44,13 +46,20 @@ class DtValTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <s d="$dateTime" tz="$timezone" u="$utcTime" />
-    <e d="$dateTime" tz="$timezone" u="$utcTime" />
-    <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+<result xmlns:urn="urn:zimbraMail">
+    <urn:s d="$dateTime" tz="$timezone" u="$utcTime" />
+    <urn:e d="$dateTime" tz="$timezone" u="$utcTime" />
+    <urn:dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($dtval, 'xml'));
-        $this->assertEquals($dtval, $this->serializer->deserialize($xml, DtVal::class, 'xml'));
+        $this->assertEquals($dtval, $this->serializer->deserialize($xml, StubDtVal::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubDtVal extends DtVal
+{
 }

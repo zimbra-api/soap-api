@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ActionGrantRight, ContactActionOp, GranteeType, Type};
 
 use Zimbra\Mail\Struct\ActionGrantSelector;
@@ -45,7 +47,7 @@ class FolderActionSelectorTest extends ZimbraTestCase
             [new Policy(Type::USER(), $id, $name, $lifetime)]
         );
 
-        $action = new FolderActionSelector(
+        $action = new StubFolderActionSelector(
             $operation, $ids, FALSE, $url, FALSE, $zimbraId, $grantType, $view, $grant, [$grant], $retentionPolicy, $numDays
         );
         $this->assertFalse($action->getRecursive());
@@ -59,7 +61,7 @@ class FolderActionSelectorTest extends ZimbraTestCase
         $this->assertSame($retentionPolicy, $action->getRetentionPolicy());
         $this->assertSame($numDays, $action->getNumDays());
 
-        $action = new FolderActionSelector($operation, $ids);
+        $action = new StubFolderActionSelector($operation, $ids);
         $action->setRecursive(TRUE)
             ->setUrl($url)
             ->setExcludeFreebusy(TRUE)
@@ -85,22 +87,29 @@ class FolderActionSelectorTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$ids" op="$operation" recursive="true" url="$url" excludeFreeBusy="true" zid="$zimbraId" gt="usr" view="$view" numDays="$numDays">
-    <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-    <acl>
-        <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-    </acl>
-    <retentionPolicy>
-        <keep>
-            <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-        </keep>
-        <purge>
-            <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-        </purge>
-    </retentionPolicy>
+<result id="$ids" op="$operation" recursive="true" url="$url" excludeFreeBusy="true" zid="$zimbraId" gt="usr" view="$view" numDays="$numDays" xmlns:urn="urn:zimbraMail">
+    <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+    <urn:acl>
+        <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+    </urn:acl>
+    <urn:retentionPolicy>
+        <urn:keep>
+            <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:keep>
+        <urn:purge>
+            <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:purge>
+    </urn:retentionPolicy>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, FolderActionSelector::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubFolderActionSelector::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubFolderActionSelector extends FolderActionSelector
+{
 }

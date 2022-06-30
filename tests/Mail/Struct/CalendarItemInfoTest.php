@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Common\Struct\TzOnsetInfo;
@@ -98,7 +100,7 @@ class CalendarItemInfoTest extends ZimbraTestCase
         );
         $meta = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
 
-        $item = new CalendarItemInfo(
+        $item = new StubCalendarItemInfo(
             $flags, $tags, $tagNames, $uid, $id, $revision, $size, $date, $folder, $changeDate, $modifiedSequence, $nextAlarm, FALSE, [$inv], [$reply], [$meta]
         );
         $this->assertSame($flags, $item->getFlags());
@@ -118,7 +120,7 @@ class CalendarItemInfoTest extends ZimbraTestCase
         $this->assertSame([$reply], $item->getCalendarReplies());
         $this->assertSame([$meta], $item->getMetadatas());
 
-        $item = new CalendarItemInfo();
+        $item = new StubCalendarItemInfo();
         $item->setFlags($flags)
             ->setTags($tags)
             ->setTagNames($tagNames)
@@ -160,33 +162,40 @@ class CalendarItemInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">
-    <inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
-        <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
-            <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-            <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-        </tz>
-        <comp method="$method" compNum="$componentNum" rsvp="true" />
-        <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-            <content>$content</content>
-            <mp part="$part" ct="$contentType" />
-        </mp>
-        <shr truncated="true">
-            <content>$content</content>
-        </shr>
-        <dlSubs truncated="true">
-            <content>$content</content>
-        </dlSubs>
-    </inv>
-    <replies>
-        <reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
-    </replies>
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
+<result f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true" xmlns:urn="urn:zimbraMail">
+    <urn:inv type="$calItemType" seq="$sequence" id="$intId" compNum="$componentNum" recurId="$recurrenceId">
+        <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
+            <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+            <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+        </urn:tz>
+        <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+        <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+            <urn:content>$content</urn:content>
+            <urn:mp part="$part" ct="$contentType" />
+        </urn:mp>
+        <urn:shr truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:shr>
+        <urn:dlSubs truncated="true">
+            <urn:content>$content</urn:content>
+        </urn:dlSubs>
+    </urn:inv>
+    <urn:replies>
+        <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
+    </urn:replies>
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($item, 'xml'));
-        $this->assertEquals($item, $this->serializer->deserialize($xml, CalendarItemInfo::class, 'xml'));
+        $this->assertEquals($item, $this->serializer->deserialize($xml, StubCalendarItemInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCalendarItemInfo extends CalendarItemInfo
+{
 }

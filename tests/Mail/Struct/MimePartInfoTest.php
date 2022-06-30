@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\MimePartAttachSpec;
 use Zimbra\Mail\Struct\MsgAttachSpec;
@@ -35,14 +37,14 @@ class MimePartInfoTest extends ZimbraTestCase
         ]);
 
         $mimePart = new MimePartInfo($contentType, $content, $contentId);
-        $mp = new MimePartInfo($contentType, $content, $contentId, $attachments, [$mimePart]);
+        $mp = new StubMimePartInfo($contentType, $content, $contentId, $attachments, [$mimePart]);
         $this->assertSame($contentType, $mp->getContentType());
         $this->assertSame($content, $mp->getContent());
         $this->assertSame($contentId, $mp->getContentId());
         $this->assertSame($attachments, $mp->getAttachments());
         $this->assertSame([$mimePart], $mp->getMimeParts());
 
-        $mp = new MimePartInfo();
+        $mp = new StubMimePartInfo();
         $mp->setContentType($contentType)
             ->setContent($content)
             ->setContentId($contentId)
@@ -58,17 +60,24 @@ class MimePartInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result ct="$contentType" content="$content" ci="$contentId">
-    <mp ct="$contentType" content="$content" ci="$contentId" />
-    <attach aid="$attachmentId">
-        <mp mid="$messageId" part="$part" optional="true" />
-        <m id="$id" optional="true" />
-        <cn id="$id" optional="true" />
-        <doc path="$path" id="$id" ver="$version" optional="true" />
-    </attach>
+<result ct="$contentType" content="$content" ci="$contentId" xmlns:urn="urn:zimbraMail">
+    <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+    <urn:attach aid="$attachmentId">
+        <urn:mp mid="$messageId" part="$part" optional="true" />
+        <urn:m id="$id" optional="true" />
+        <urn:cn id="$id" optional="true" />
+        <urn:doc path="$path" id="$id" ver="$version" optional="true" />
+    </urn:attach>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mp, 'xml'));
-        $this->assertEquals($mp, $this->serializer->deserialize($xml, MimePartInfo::class, 'xml'));
+        $this->assertEquals($mp, $this->serializer->deserialize($xml, StubMimePartInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubMimePartInfo extends MimePartInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Mail\Struct\InviteComponent;
@@ -35,7 +37,7 @@ class InvitationInfoTest extends ZimbraTestCase
         $mimePart = new MimePartInfo($contentType, $value, $contentId);
         $attachments = new AttachmentsInfo($id);
 
-        $inv = new InvitationInfo($method, $componentNum, TRUE);
+        $inv = new StubInvitationInfo($method, $componentNum, TRUE);
         $inv->setId($id)
             ->setContentType($contentType)
             ->setContentId($contentId)
@@ -59,15 +61,22 @@ class InvitationInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result method="$method" compNum="$componentNum" rsvp="true" id="$id" ct="$contentType" ci="$contentId">
-    <content uid="$id" summary="$summary">$value</content>
-    <comp method="$method" compNum="$componentNum" rsvp="true" />
-    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-    <mp ct="$contentType" content="$value" ci="$contentId" />
-    <attach aid="$id" />
+<result method="$method" compNum="$componentNum" rsvp="true" id="$id" ct="$contentType" ci="$contentId" xmlns:urn="urn:zimbraMail">
+    <urn:content uid="$id" summary="$summary">$value</urn:content>
+    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+    <urn:mp ct="$contentType" content="$value" ci="$contentId" />
+    <urn:attach aid="$id" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
-        $this->assertEquals($inv, $this->serializer->deserialize($xml, InvitationInfo::class, 'xml'));
+        $this->assertEquals($inv, $this->serializer->deserialize($xml, StubInvitationInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubInvitationInfo extends InvitationInfo
+{
 }

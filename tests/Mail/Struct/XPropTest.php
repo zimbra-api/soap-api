@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\XProp;
 use Zimbra\Tests\ZimbraTestCase;
@@ -17,12 +19,12 @@ class XPropTest extends ZimbraTestCase
         $value = $this->faker->word;
         $xparam = new XParam($name, $value);
 
-        $xprop = new XProp($name, $value, [$xparam]);
+        $xprop = new StubXProp($name, $value, [$xparam]);
         $this->assertSame($name, $xprop->getName());
         $this->assertSame($value, $xprop->getValue());
         $this->assertSame([$xparam], $xprop->getXParams());
 
-        $xprop = new XProp('', '');
+        $xprop = new StubXProp();
         $xprop->setName($name)
             ->setValue($value)
             ->setXParams([$xparam])
@@ -34,11 +36,18 @@ class XPropTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" value="$value">
-    <xparam name="$name" value="$value" />
+<result name="$name" value="$value" xmlns:urn="urn:zimbraMail">
+    <urn:xparam name="$name" value="$value" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($xprop, 'xml'));
-        $this->assertEquals($xprop, $this->serializer->deserialize($xml, XProp::class, 'xml'));
+        $this->assertEquals($xprop, $this->serializer->deserialize($xml, StubXProp::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubXProp extends XProp
+{
 }

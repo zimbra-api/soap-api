@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\ReplaceheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
@@ -25,11 +27,11 @@ class ReplaceheaderActionTest extends ZimbraTestCase
             MatchType::CONTAINS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::ASCII_NUMERIC(), $headerName, [$headerValue]
         );
 
-        $action = new ReplaceheaderAction($index, TRUE, $offset, $test, $newName, $newValue);
+        $action = new StubReplaceheaderAction($index, TRUE, $offset, $test, $newName, $newValue);
         $this->assertSame($newName, $action->getNewName());
         $this->assertSame($newValue, $action->getNewValue());
 
-        $action = new ReplaceheaderAction($index, TRUE, $offset, $test);
+        $action = new StubReplaceheaderAction($index, TRUE, $offset, $test);
         $action->setNewName($newName)
             ->setNewValue($newValue);
         $this->assertSame($newName, $action->getNewName());
@@ -37,16 +39,23 @@ class ReplaceheaderActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result index="$index" last="true" offset="$offset">
-    <test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
-        <headerName>$headerName</headerName>
-        <headerValue>$headerValue</headerValue>
-    </test>
-    <newName>$newName</newName>
-    <newValue>$newValue</newValue>
+<result index="$index" last="true" offset="$offset" xmlns:urn="urn:zimbraMail">
+    <urn:test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
+        <urn:headerName>$headerName</urn:headerName>
+        <urn:headerValue>$headerValue</urn:headerValue>
+    </urn:test>
+    <urn:newName>$newName</urn:newName>
+    <urn:newValue>$newValue</urn:newValue>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, ReplaceheaderAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubReplaceheaderAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubReplaceheaderAction extends ReplaceheaderAction
+{
 }

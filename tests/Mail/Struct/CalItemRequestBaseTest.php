@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\ReplyType;
 use Zimbra\Mail\Struct\AttachmentsInfo;
@@ -83,17 +85,17 @@ class CalItemRequestBaseTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result echo="true" max="$maxSize" want="true" neuter="true" forcesend="true">
-    <m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
-        <header name="$name">$value</header>
-        <content>$content</content>
-        <mp ct="$contentType" content="$content" ci="$contentId" />
-        <attach aid="$id" />
-        <inv method="$method" compNum="$componentNum" rsvp="true" />
-        <e a="$address" t="t" p="$personal" />
-        <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-        <fr>$fragment</fr>
-    </m>
+<result echo="true" max="$maxSize" want="true" neuter="true" forcesend="true" xmlns:urn="urn:zimbraMail">
+    <urn:m aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
+        <urn:header name="$name">$value</urn:header>
+        <urn:content>$content</urn:content>
+        <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+        <urn:attach aid="$id" />
+        <urn:inv method="$method" compNum="$componentNum" rsvp="true" />
+        <urn:e a="$address" t="t" p="$personal" />
+        <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+        <urn:fr>$fragment</urn:fr>
+    </urn:m>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($request, 'xml'));
@@ -101,6 +103,9 @@ EOT;
     }
 }
 
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
 class CalItemRequest extends CalItemRequestBase
 {
     protected function envelopeInit(): EnvelopeInterface

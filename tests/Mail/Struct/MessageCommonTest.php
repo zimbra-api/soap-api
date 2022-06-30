@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Mail\Struct\MailCustomMetadata;
 use Zimbra\Mail\Struct\MessageCommon;
@@ -30,7 +32,7 @@ class MessageCommonTest extends ZimbraTestCase
 
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
 
-        $msg = new MessageCommon(
+        $msg = new StubMessageCommon(
             $size, $date, $folder, $conversationId, $flags, $tags, $tagNames, $revision, $changeDate, $modifiedSequence, [$metadata]
         );
         $this->assertSame($size, $msg->getSize());
@@ -45,7 +47,7 @@ class MessageCommonTest extends ZimbraTestCase
         $this->assertSame($modifiedSequence, $msg->getModifiedSequence());
         $this->assertSame([$metadata], $msg->getMetadatas());
 
-        $msg = new MessageCommon;
+        $msg = new StubMessageCommon;
         $msg->setSize($size)
             ->setDate($date)
             ->setFolder($folder)
@@ -73,13 +75,20 @@ class MessageCommonTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result s="$size" d="$date" l="$folder" cid="$conversationId" f="$flags" t="$tags" tn="$tagNames" rev="$revision" md="$changeDate" ms="$modifiedSequence">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
+<result s="$size" d="$date" l="$folder" cid="$conversationId" f="$flags" t="$tags" tn="$tagNames" rev="$revision" md="$changeDate" ms="$modifiedSequence" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
-        $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageCommon::class, 'xml'));
+        $this->assertEquals($msg, $this->serializer->deserialize($xml, StubMessageCommon::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubMessageCommon extends MessageCommon
+{
 }

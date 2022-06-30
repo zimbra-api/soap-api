@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 use Zimbra\Common\Enum\RemoteFolderAccess;
 use Zimbra\Common\Enum\Type;
@@ -80,7 +82,7 @@ class FolderTest extends ZimbraTestCase
         $mountpoint = new Mountpoint($id, $uuid);
         $searchFolder = new SearchFolder($id, $uuid);
 
-        $folder = new Folder(
+        $folder = new StubFolder(
             $id,
             $uuid,
             $name,
@@ -149,7 +151,7 @@ class FolderTest extends ZimbraTestCase
         $this->assertSame([$searchFolder], $folder->getSearchFolders());
         $this->assertSame($retentionPolicy, $folder->getRetentionPolicy());
 
-        $folder = new Folder('', '');
+        $folder = new StubFolder();
         $folder->setId($id)
             ->setUuid($uuid)
             ->setName($name)
@@ -220,27 +222,34 @@ class FolderTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" uuid="$uuid" name="$name" absFolderPath="$absoluteFolderPath" l="$parentId" luuid="$folderUuid" f="$flags" color="$color" rgb="$rgb" u="$unreadCount" i4u="$imapUnreadCount" view="conversation" rev="$revision" ms="$modifiedSequence" md="$changeDate" n="$itemCount" i4n="$imapItemCount" s="$totalSize" i4ms="$imapModifiedSequence" i4next="$imapUidNext" url="$url" activesyncdisabled="true" webOfflineSyncDays="$webOfflineSyncDays" perm="$perm" recursive="true" rest="$restUrl" deletable="true">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
-    <acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
-        <grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
-    </acl>
-    <folder id="$id" uuid="$uuid" />
-    <link id="$id" uuid="$uuid" />
-    <search id="$id" uuid="$uuid" />
-    <retentionPolicy>
-        <keep>
-            <policy type="system" id="$id" name="$name" lifetime="$lifetime" />
-        </keep>
-        <purge>
-            <policy type="user" id="$id" name="$name" lifetime="$lifetime" />
-        </purge>
-    </retentionPolicy>
+<result id="$id" uuid="$uuid" name="$name" absFolderPath="$absoluteFolderPath" l="$parentId" luuid="$folderUuid" f="$flags" color="$color" rgb="$rgb" u="$unreadCount" i4u="$imapUnreadCount" view="conversation" rev="$revision" ms="$modifiedSequence" md="$changeDate" n="$itemCount" i4n="$imapItemCount" s="$totalSize" i4ms="$imapModifiedSequence" i4next="$imapUidNext" url="$url" activesyncdisabled="true" webOfflineSyncDays="$webOfflineSyncDays" perm="$perm" recursive="true" rest="$restUrl" deletable="true" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
+    <urn:acl internalGrantExpiry="$internalGrantExpiry" guestGrantExpiry="$guestGrantExpiry">
+        <urn:grant perm="$grantRight" gt="usr" zid="$granteeId" expiry="$expiry" d="$granteeName" pw="$guestPassword" key="$accessKey" />
+    </urn:acl>
+    <urn:folder id="$id" uuid="$uuid" />
+    <urn:link id="$id" uuid="$uuid" />
+    <urn:search id="$id" uuid="$uuid" />
+    <urn:retentionPolicy>
+        <urn:keep>
+            <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:keep>
+        <urn:purge>
+            <urn:policy type="user" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:purge>
+    </urn:retentionPolicy>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($folder, 'xml'));
-        $this->assertEquals($folder, $this->serializer->deserialize($xml, Folder::class, 'xml'));
+        $this->assertEquals($folder, $this->serializer->deserialize($xml, StubFolder::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubFolder extends Folder
+{
 }

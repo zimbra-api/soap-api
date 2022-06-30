@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\InviteType;
 
@@ -31,7 +33,7 @@ class MessageSummaryTest extends ZimbraTestCase
         $email = new EmailInfo($address, $display, $personal, $addressType);
         $invite = new InviteInfo($calItemType);
 
-        $msg = new MessageSummary($id, $autoSendTime, [$email], $subject, $fragment, $invite);
+        $msg = new StubMessageSummary($id, $autoSendTime, [$email], $subject, $fragment, $invite);
         $this->assertSame($id, $msg->getId());
         $this->assertSame($autoSendTime, $msg->getAutoSendTime());
         $this->assertSame([$email], $msg->getEmails());
@@ -39,7 +41,7 @@ class MessageSummaryTest extends ZimbraTestCase
         $this->assertSame($fragment, $msg->getFragment());
         $this->assertSame($invite, $msg->getInvite());
 
-        $msg = new MessageSummary('');
+        $msg = new StubMessageSummary();
         $msg->setId($id)
             ->setAutoSendTime($autoSendTime)
             ->setEmails([$email])
@@ -57,14 +59,21 @@ class MessageSummaryTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" autoSendTime="$autoSendTime">
-    <e a="$address" d="$display" p="$personal" t="t" />
-    <su>$subject</su>
-    <fr>$fragment</fr>
-    <inv type="task" />
+<result id="$id" autoSendTime="$autoSendTime" xmlns:urn="urn:zimbraMail">
+    <urn:e a="$address" d="$display" p="$personal" t="t" />
+    <urn:su>$subject</urn:su>
+    <urn:fr>$fragment</urn:fr>
+    <urn:inv type="task" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
-        $this->assertEquals($msg, $this->serializer->deserialize($xml, MessageSummary::class, 'xml'));
+        $this->assertEquals($msg, $this->serializer->deserialize($xml, StubMessageSummary::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubMessageSummary extends MessageSummary
+{
 }

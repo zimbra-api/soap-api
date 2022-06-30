@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AlarmAction;
 use Zimbra\Common\Enum\Frequency;
 use Zimbra\Common\Enum\ParticipationStatus as PartStat;
@@ -72,7 +74,7 @@ class InviteComponentTest extends ZimbraTestCase
         $dtEnd = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
 
-        $inv = new InviteComponent($method, $componentNum, TRUE);
+        $inv = new StubInviteComponent($method, $componentNum, TRUE);
         $inv->setCategories([$category1])
             ->addCategory($category2)
             ->setComments([$comment1])
@@ -117,37 +119,44 @@ class InviteComponentTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result method="$method" compNum="$componentNum" rsvp="true">
-    <category>$category1</category>
-    <category>$category2</category>
-    <comment>$comment1</comment>
-    <comment>$comment2</comment>
-    <contact>$contact1</contact>
-    <contact>$contact2</contact>
-    <geo lat="$latitude" lon="$longitude" />
-    <at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
-        <xparam name="$name" value="$value" />
-    </at>
-    <alarm action="DISPLAY" />
-    <xprop name="$name" value="$value">
-        <xparam name="$name" value="$value" />
-    </xprop>
-    <fr>$fragment</fr>
-    <desc>$description</desc>
-    <descHtml>$htmlDescription</descHtml>
-    <or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
-        <xparam name="$name" value="$value" />
-    </or>
-    <recur>
-        <rule freq="HOU"/>
-    </recur>
-    <exceptId d="$dateTime" tz="$timezone" rangeType="$recurrenceRangeType" />
-    <s d="$dateTime" tz="$timezone" u="$utcTime" />
-    <e d="$dateTime" tz="$timezone" u="$utcTime" />
-    <dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+<result method="$method" compNum="$componentNum" rsvp="true" xmlns:urn="urn:zimbraMail">
+    <urn:category>$category1</urn:category>
+    <urn:category>$category2</urn:category>
+    <urn:comment>$comment1</urn:comment>
+    <urn:comment>$comment2</urn:comment>
+    <urn:contact>$contact1</urn:contact>
+    <urn:contact>$contact2</urn:contact>
+    <urn:geo lat="$latitude" lon="$longitude" />
+    <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+        <urn:xparam name="$name" value="$value" />
+    </urn:at>
+    <urn:alarm action="DISPLAY" />
+    <urn:xprop name="$name" value="$value">
+        <urn:xparam name="$name" value="$value" />
+    </urn:xprop>
+    <urn:fr>$fragment</urn:fr>
+    <urn:desc>$description</urn:desc>
+    <urn:descHtml>$htmlDescription</urn:descHtml>
+    <urn:or a="$address" url="$url" d="$displayName" sentBy="$sentBy" dir="$dir" lang="$language">
+        <urn:xparam name="$name" value="$value" />
+    </urn:or>
+    <urn:recur>
+        <urn:rule freq="HOU"/>
+    </urn:recur>
+    <urn:exceptId d="$dateTime" tz="$timezone" rangeType="$recurrenceRangeType" />
+    <urn:s d="$dateTime" tz="$timezone" u="$utcTime" />
+    <urn:e d="$dateTime" tz="$timezone" u="$utcTime" />
+    <urn:dur w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
-        $this->assertEquals($inv, $this->serializer->deserialize($xml, InviteComponent::class, 'xml'));
+        $this->assertEquals($inv, $this->serializer->deserialize($xml, StubInviteComponent::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubInviteComponent extends InviteComponent
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Mail\SerializerHandler;
 use Zimbra\Mail\Struct\AddressBookTest;
@@ -148,7 +150,7 @@ class FilterTestsTest extends ZimbraTestCase
             $index, TRUE
         );
 
-        $tests = new FilterTests(
+        $tests = new StubFilterTests(
             FilterCondition::ALL_OF(), [
                 $addressBookTest,
                 $addressTest,
@@ -211,7 +213,7 @@ class FilterTestsTest extends ZimbraTestCase
             $communityContentTest,
             $communityConnectionsTest,
         ], array_values($tests->getTests()));
-        $tests = new FilterTests(FilterCondition::ANY_OF());
+        $tests = new StubFilterTests(FilterCondition::ANY_OF());
         $tests->setCondition(FilterCondition::ALL_OF())
             ->setTests([
                 $addressBookTest,
@@ -277,40 +279,47 @@ class FilterTestsTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result condition="allof">
-    <addressBookTest index="$index" negative="true" header="$header"/>
-    <addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
-    <envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
-    <attachmentTest index="$index" negative="true"/>
-    <bodyTest index="$index" negative="true" value="$value" caseSensitive="true"/>
-    <bulkTest index="$index" negative="true"/>
-    <contactRankingTest index="$index" negative="true" header="$header"/>
-    <conversationTest index="$index" negative="true" where="$where"/>
-    <currentDayOfWeekTest index="$index" negative="true" value="$value"/>
-    <currentTimeTest index="$index" negative="true" dateComparison="before" time="$time"/>
-    <dateTest index="$index" negative="true" dateComparison="before" date="$date"/>
-    <facebookTest index="$index" negative="true"/>
-    <flaggedTest index="$index" negative="true" flagName="$flag"/>
-    <headerExistsTest index="$index" negative="true" header="$header"/>
-    <headerTest index="$index" negative="true" header="$header" stringComparison="is" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" value="$value" caseSensitive="true"/>
-    <importanceTest index="$index" negative="true" imp="high"/>
-    <inviteTest index="$index" negative="true">
-        <method>$method</method>
-    </inviteTest>
-    <linkedinTest index="$index" negative="true"/>
-    <listTest index="$index" negative="true"/>
-    <meTest index="$index" negative="true" header="$header"/>
-    <mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="is" value="$value" caseSensitive="true"/>
-    <sizeTest index="$index" negative="true" numberComparison="over" s="$size"/>
-    <socialcastTest index="$index" negative="true"/>
-    <trueTest index="$index" negative="true"/>
-    <twitterTest index="$index" negative="true"/>
-    <communityRequestsTest index="$index" negative="true"/>
-    <communityContentTest index="$index" negative="true"/>
-    <communityConnectionsTest index="$index" negative="true"/>
+<result condition="allof" xmlns:urn="urn:zimbraMail">
+    <urn:addressBookTest index="$index" negative="true" header="$header"/>
+    <urn:addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
+    <urn:envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet"/>
+    <urn:attachmentTest index="$index" negative="true"/>
+    <urn:bodyTest index="$index" negative="true" value="$value" caseSensitive="true"/>
+    <urn:bulkTest index="$index" negative="true"/>
+    <urn:contactRankingTest index="$index" negative="true" header="$header"/>
+    <urn:conversationTest index="$index" negative="true" where="$where"/>
+    <urn:currentDayOfWeekTest index="$index" negative="true" value="$value"/>
+    <urn:currentTimeTest index="$index" negative="true" dateComparison="before" time="$time"/>
+    <urn:dateTest index="$index" negative="true" dateComparison="before" date="$date"/>
+    <urn:facebookTest index="$index" negative="true"/>
+    <urn:flaggedTest index="$index" negative="true" flagName="$flag"/>
+    <urn:headerExistsTest index="$index" negative="true" header="$header"/>
+    <urn:headerTest index="$index" negative="true" header="$header" stringComparison="is" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" value="$value" caseSensitive="true"/>
+    <urn:importanceTest index="$index" negative="true" imp="high"/>
+    <urn:inviteTest index="$index" negative="true">
+        <urn:method>$method</urn:method>
+    </urn:inviteTest>
+    <urn:linkedinTest index="$index" negative="true"/>
+    <urn:listTest index="$index" negative="true"/>
+    <urn:meTest index="$index" negative="true" header="$header"/>
+    <urn:mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="is" value="$value" caseSensitive="true"/>
+    <urn:sizeTest index="$index" negative="true" numberComparison="over" s="$size"/>
+    <urn:socialcastTest index="$index" negative="true"/>
+    <urn:trueTest index="$index" negative="true"/>
+    <urn:twitterTest index="$index" negative="true"/>
+    <urn:communityRequestsTest index="$index" negative="true"/>
+    <urn:communityContentTest index="$index" negative="true"/>
+    <urn:communityConnectionsTest index="$index" negative="true"/>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tests, 'xml'));
-        $this->assertEquals($tests, $this->serializer->deserialize($xml, FilterTests::class, 'xml'));
+        $this->assertEquals($tests, $this->serializer->deserialize($xml, StubFilterTests::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubFilterTests extends FilterTests
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Struct\TzOnsetInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
 use Zimbra\Tests\ZimbraTestCase;
@@ -30,7 +32,7 @@ class CalTZInfoTest extends ZimbraTestCase
         $standardTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
         $daylightTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
 
-        $tz = new CalTZInfo(
+        $tz = new StubCalTZInfo(
             $id, $tzStdOffset, $tzDayOffset, $standardTzOnset, $daylightTzOnset, $standardTZName, $daylightTZName
         );
         $this->assertSame($id, $tz->getId());
@@ -41,7 +43,7 @@ class CalTZInfoTest extends ZimbraTestCase
         $this->assertSame($standardTZName, $tz->getStandardTZName());
         $this->assertSame($daylightTZName, $tz->getDaylightTZName());
 
-        $tz = new CalTZInfo('', 0, 0);
+        $tz = new StubCalTZInfo();
         $tz->setId($id)
             ->setTzStdOffset($tzStdOffset)
             ->setTzDayOffset($tzDayOffset)
@@ -59,12 +61,19 @@ class CalTZInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
-    <standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
-    <daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+<result id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName" xmlns:urn="urn:zimbraMail">
+    <urn:standard mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
+    <urn:daylight mon="$mon" hour="$hour" min="$min" sec="$sec" mday="$mday" week="$week" wkday="$wkday" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($tz, 'xml'));
-        $this->assertEquals($tz, $this->serializer->deserialize($xml, CalTZInfo::class, 'xml'));
+        $this->assertEquals($tz, $this->serializer->deserialize($xml, StubCalTZInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCalTZInfo extends CalTZInfo
+{
 }

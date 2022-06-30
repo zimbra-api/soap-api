@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Frequency;
 use Zimbra\Common\Enum\WeekDay;
 
@@ -93,13 +95,13 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
         $weekStart = new WkstRule($day);
         $xName = new XNameRule($name, $value);
 
-        $rule = new SimpleRepeatingRule(
+        $rule = new StubSimpleRepeatingRule(
             $frequency, $interval
         );
         $this->assertSame($frequency, $rule->getFrequency());
         $this->assertSame($interval, $rule->getInterval());
 
-        $rule = new SimpleRepeatingRule(Frequency::SECOND());
+        $rule = new StubSimpleRepeatingRule();
         $rule->setFrequency($frequency)
             ->setUntil($until)
             ->setCount($count)
@@ -135,26 +137,33 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result freq="HOU">
-    <until d="$date" />
-    <count num="$num" />
-    <interval ival="$ival" />
-    <bysecond seclist="$seclist" />
-    <byminute minlist="$minlist" />
-    <byhour hrlist="$hrlist" />
-    <byday>
-        <wkday day="SU" ordwk="$ordWk" />
-    </byday>
-    <bymonthday modaylist="$modaylist" />
-    <byyearday yrdaylist="$yrdaylist" />
-    <byweekno wklist="$wklist" />
-    <bymonth molist="$molist" />
-    <bysetpos poslist="$poslist" />
-    <wkst day="SU" />
-    <rule-x-name name="$name" value="$value" />
+<result freq="HOU" xmlns:urn="urn:zimbraMail">
+    <urn:until d="$date" />
+    <urn:count num="$num" />
+    <urn:interval ival="$ival" />
+    <urn:bysecond seclist="$seclist" />
+    <urn:byminute minlist="$minlist" />
+    <urn:byhour hrlist="$hrlist" />
+    <urn:byday>
+        <urn:wkday day="SU" ordwk="$ordWk" />
+    </urn:byday>
+    <urn:bymonthday modaylist="$modaylist" />
+    <urn:byyearday yrdaylist="$yrdaylist" />
+    <urn:byweekno wklist="$wklist" />
+    <urn:bymonth molist="$molist" />
+    <urn:bysetpos poslist="$poslist" />
+    <urn:wkst day="SU" />
+    <urn:rule-x-name name="$name" value="$value" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($rule, 'xml'));
-        $this->assertEquals($rule, $this->serializer->deserialize($xml, SimpleRepeatingRule::class, 'xml'));
+        $this->assertEquals($rule, $this->serializer->deserialize($xml, StubSimpleRepeatingRule::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubSimpleRepeatingRule extends SimpleRepeatingRule
+{
 }

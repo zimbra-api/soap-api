@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Struct\KeyValuePair;
 use Zimbra\Mail\Struct\CommentInfo;
 use Zimbra\Mail\Struct\MailCustomMetadata;
@@ -30,7 +32,7 @@ class CommentInfoTest extends ZimbraTestCase
         $value = $this->faker->text;
 
         $metadata = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
-        $comment = new CommentInfo(
+        $comment = new StubCommentInfo(
             $parentId,
             $id,
             $uuid,
@@ -55,7 +57,7 @@ class CommentInfoTest extends ZimbraTestCase
         $this->assertSame($date, $comment->getDate());
         $this->assertSame([$metadata], $comment->getMetadatas());
 
-        $comment = new CommentInfo();
+        $comment = new StubCommentInfo();
         $comment->setId($id)
             ->setUuid($uuid)
             ->setDate($date)
@@ -82,13 +84,20 @@ class CommentInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result parentId="$parentId" id="$id" uuid="$uuid" email="$creatorEmail" f="$flags" t="$tags" tn="$tagNames" color="$color" rgb="$rgb" d="$date">
-    <meta section="$section">
-        <a n="$key">$value</a>
-    </meta>
+<result parentId="$parentId" id="$id" uuid="$uuid" email="$creatorEmail" f="$flags" t="$tags" tn="$tagNames" color="$color" rgb="$rgb" d="$date" xmlns:urn="urn:zimbraMail">
+    <urn:meta section="$section">
+        <urn:a n="$key">$value</urn:a>
+    </urn:meta>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($comment, 'xml'));
-        $this->assertEquals($comment, $this->serializer->deserialize($xml, CommentInfo::class, 'xml'));
+        $this->assertEquals($comment, $this->serializer->deserialize($xml, StubCommentInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCommentInfo extends CommentInfo
+{
 }

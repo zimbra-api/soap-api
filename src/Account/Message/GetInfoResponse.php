@@ -235,7 +235,7 @@ class GetInfoResponse implements ResponseInterface
      * @Type("Zimbra\Account\Struct\AccountDataSources")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private $dataSources;
+    private ?AccountDataSources $dataSources = NULL;
 
     /**
      * Child accounts
@@ -1019,7 +1019,7 @@ class GetInfoResponse implements ResponseInterface
      */
     public function addDataSource(AccountDataSource $dataSource): self
     {
-        if (!($this->dataSources instanceof AccountDataSources)) {
+        if (empty($this->dataSources)) {
             $this->dataSources = new AccountDataSources();
         }
         $this->dataSources->addDataSource($dataSource);

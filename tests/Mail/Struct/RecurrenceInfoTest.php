@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\RecurrenceInfo;
@@ -45,12 +47,12 @@ class RecurrenceInfoTest extends ZimbraTestCase
             $simple,
         ];
 
-        $recur = new RecurrenceInfo(
+        $recur = new StubRecurrenceInfo(
             $rules
         );
         $this->assertEquals($rules, $recur->getRules());
 
-        $recur = new RecurrenceInfo();
+        $recur = new StubRecurrenceInfo();
         $recur->setRules([
             $add,
             $exclude,
@@ -63,20 +65,27 @@ class RecurrenceInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <add>
-        <rule freq="HOU"/>
-    </add>
-    <exclude>
-        <rule freq="HOU"/>
-    </exclude>
-    <except rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
-    <cancel rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
-    <dates tz="$timezone" />
-    <rule freq="HOU"/>
+<result xmlns:urn="urn:zimbraMail">
+    <urn:add>
+        <urn:rule freq="HOU"/>
+    </urn:add>
+    <urn:exclude>
+        <urn:rule freq="HOU"/>
+    </urn:exclude>
+    <urn:except rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
+    <urn:cancel rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" />
+    <urn:dates tz="$timezone" />
+    <urn:rule freq="HOU"/>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($recur, 'xml'));
-        $this->assertEquals($recur, $this->serializer->deserialize($xml, RecurrenceInfo::class, 'xml'));
+        $this->assertEquals($recur, $this->serializer->deserialize($xml, StubRecurrenceInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubRecurrenceInfo extends RecurrenceInfo
+{
 }

@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\RFCCompliantNotifyAction;
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -19,14 +21,14 @@ class RFCCompliantNotifyActionTest extends ZimbraTestCase
         $message = $this->faker->word;
         $method = $this->faker->word;
 
-        $action = new RFCCompliantNotifyAction($index, $from, $importance, $options, $message, $method);
+        $action = new StubRFCCompliantNotifyAction($index, $from, $importance, $options, $message, $method);
         $this->assertSame($from, $action->getFrom());
         $this->assertSame($importance, $action->getImportance());
         $this->assertSame($options, $action->getOptions());
         $this->assertSame($message, $action->getMessage());
         $this->assertSame($method, $action->getMethod());
 
-        $action = new RFCCompliantNotifyAction($index);
+        $action = new StubRFCCompliantNotifyAction($index);
         $action->setFrom($from)
             ->setImportance($importance)
             ->setOptions($options)
@@ -40,11 +42,18 @@ class RFCCompliantNotifyActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result index="$index" from="$from" importance="$importance" options="$options" message="$message">
-    <method>$method</method>
+<result index="$index" from="$from" importance="$importance" options="$options" message="$message" xmlns:urn="urn:zimbraMail">
+    <urn:method>$method</urn:method>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, RFCCompliantNotifyAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubRFCCompliantNotifyAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubRFCCompliantNotifyAction extends RFCCompliantNotifyAction
+{
 }

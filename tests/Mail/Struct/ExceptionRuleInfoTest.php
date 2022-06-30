@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\Frequency;
 
 use Zimbra\Mail\Struct\ExceptionRuleInfo;
@@ -25,13 +27,13 @@ class ExceptionRuleInfoTest extends ZimbraTestCase
         $add = new RecurrenceInfo([new SimpleRepeatingRule($frequency)]);
         $exclude = new RecurrenceInfo([new SimpleRepeatingRule($frequency)]);
 
-        $except = new ExceptionRuleInfo(
+        $except = new StubExceptionRuleInfo(
             $add, $exclude
         );
         $this->assertSame($add, $except->getAdd());
         $this->assertSame($exclude, $except->getExclude());
 
-        $except = new ExceptionRuleInfo();
+        $except = new StubExceptionRuleInfo();
         $except->setAdd($add)
             ->setExclude($exclude);
         $this->assertSame($add, $except->getAdd());
@@ -44,16 +46,23 @@ class ExceptionRuleInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ">
-    <add>
-        <rule freq="HOU" />
-    </add>
-    <exclude>
-        <rule freq="HOU" />
-    </exclude>
+<result rangeType="$recurrenceRangeType" recurId="$recurrenceId" tz="$timezone" ridZ="$recurIdZ" xmlns:urn="urn:zimbraMail">
+    <urn:add>
+        <urn:rule freq="HOU" />
+    </urn:add>
+    <urn:exclude>
+        <urn:rule freq="HOU" />
+    </urn:exclude>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($except, 'xml'));
-        $this->assertEquals($except, $this->serializer->deserialize($xml, ExceptionRuleInfo::class, 'xml'));
+        $this->assertEquals($except, $this->serializer->deserialize($xml, StubExceptionRuleInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubExceptionRuleInfo extends ExceptionRuleInfo
+{
 }

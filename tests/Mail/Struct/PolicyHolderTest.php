@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\Policy;
 use Zimbra\Mail\Struct\PolicyHolder;
 use Zimbra\Common\Enum\Type;
@@ -19,23 +21,27 @@ class PolicyHolderTest extends ZimbraTestCase
         $lifetime = $this->faker->word;
         $policy = new Policy(Type::SYSTEM(), $id, $name, $lifetime);
 
-        $holder = new PolicyHolder($policy);
+        $holder = new StubPolicyHolder($policy);
         $this->assertSame($policy, $holder->getPolicy());
 
-        $holder = new PolicyHolder();
+        $holder = new StubPolicyHolder();
         $holder->setPolicy($policy);
         $this->assertSame($policy, $holder->getPolicy());
 
-        $namespace = 'urn:zimbraMail';
-        $prefix = 'ns-' . substr(sha1($namespace), 0, 8);
-
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result>
-    <$prefix:policy xmlns:$prefix="$namespace" type="system" id="$id" name="$name" lifetime="$lifetime" />
+<result xmlns:urn="urn:zimbraMail">
+    <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($holder, 'xml'));
-        $this->assertEquals($holder, $this->serializer->deserialize($xml, PolicyHolder::class, 'xml'));
+        $this->assertEquals($holder, $this->serializer->deserialize($xml, StubPolicyHolder::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubPolicyHolder extends PolicyHolder
+{
 }

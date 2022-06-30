@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\NewFolderSpec;
 use Zimbra\Mail\Struct\ActionGrantSelector;
 use Zimbra\Common\Enum\{ActionGrantRight, GranteeType, ViewType};
@@ -34,7 +36,7 @@ class NewFolderSpecTest extends ZimbraTestCase
             $rights, $grantType, $zimbraId, $displayName, $args, $password, $accessKey
         );
 
-        $folder = new NewFolderSpec(
+        $folder = new StubNewFolderSpec(
             $name, $parentFolderId, $defaultView, $flags, $color, $rgb, $url, FALSE, FALSE, [$grant]
         );
         $this->assertSame($name, $folder->getName());
@@ -48,7 +50,7 @@ class NewFolderSpecTest extends ZimbraTestCase
         $this->assertFalse($folder->getSyncToUrl());
         $this->assertSame([$grant], $folder->getGrants());
 
-        $folder = new NewFolderSpec('', '');
+        $folder = new StubNewFolderSpec();
         $folder->setName($name)
             ->setParentFolderId($parentFolderId)
             ->setDefaultView($defaultView)
@@ -74,13 +76,20 @@ class NewFolderSpecTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true">
-    <acl>
-        <grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
-    </acl>
+<result name="$name" view="conversation" f="$flags" color="$color" rgb="$rgb" url="$url" l="$parentFolderId" fie="true" sync="true" xmlns:urn="urn:zimbraMail">
+    <urn:acl>
+        <urn:grant perm="$rights" gt="usr" zid="$zimbraId" d="$displayName" args="$args" pw="$password" key="$accessKey" />
+    </urn:acl>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($folder, 'xml'));
-        $this->assertEquals($folder, $this->serializer->deserialize($xml, NewFolderSpec::class, 'xml'));
+        $this->assertEquals($folder, $this->serializer->deserialize($xml, StubNewFolderSpec::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubNewFolderSpec extends NewFolderSpec
+{
 }

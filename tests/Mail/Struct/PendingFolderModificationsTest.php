@@ -2,7 +2,17 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
-use Zimbra\Mail\Struct\{CreateItemNotification, DeleteItemNotification, ImapMessageInfo, ModifyItemNotification, ModifyTagNotification, PendingFolderModifications, RenameFolderNotification};
+use JMS\Serializer\Annotation\XmlNamespace;
+
+use Zimbra\Mail\Struct\{
+    CreateItemNotification,
+    DeleteItemNotification,
+    ImapMessageInfo,
+    ModifyItemNotification,
+    ModifyTagNotification,
+    PendingFolderModifications,
+    RenameFolderNotification
+};
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -29,7 +39,7 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         $modTag = new ModifyTagNotification($id, $name, $changeBitmask);
         $modFolder = new RenameFolderNotification($folderId, $path, $changeBitmask);
 
-        $mods = new PendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
+        $mods = new StubPendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
         $this->assertSame($folderId, $mods->getFolderId());
         $this->assertSame([$created], $mods->getCreated());
         $this->assertSame([$deleted], $mods->getDeleted());
@@ -37,7 +47,7 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         $this->assertSame([$modTag], $mods->getModifiedTags());
         $this->assertSame([$modFolder], $mods->getRenamedFolders());
 
-        $mods = new PendingFolderModifications(0);
+        $mods = new StubPendingFolderModifications();
         $mods->setFolderId($folderId)
               ->setCreated([$created])
               ->addCreatedItem($created)
@@ -57,26 +67,33 @@ class PendingFolderModificationsTest extends ZimbraTestCase
         $this->assertSame([$modTag, $modTag], $mods->getModifiedTags());
         $this->assertSame([$modFolder, $modFolder], $mods->getRenamedFolders());
 
-        $mods = new PendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
+        $mods = new StubPendingFolderModifications($folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$folderId">
-    <created>
-        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-    </created>
-    <deleted id="$id" t="$type" />
-    <modMsgs change="$changeBitmask">
-        <m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
-    </modMsgs>
-    <modTags change="$changeBitmask">
-        <id>$id</id>
-        <name>$name</name>
-    </modTags>
-    <modFolders id="$folderId" path="$path" change="$changeBitmask" />
+<result id="$folderId" xmlns:urn="urn:zimbraMail">
+    <urn:created>
+        <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+    </urn:created>
+    <urn:deleted id="$id" t="$type" />
+    <urn:modMsgs change="$changeBitmask">
+        <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+    </urn:modMsgs>
+    <urn:modTags change="$changeBitmask">
+        <urn:id>$id</urn:id>
+        <urn:name>$name</urn:name>
+    </urn:modTags>
+    <urn:modFolders id="$folderId" path="$path" change="$changeBitmask" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($mods, 'xml'));
-        $this->assertEquals($mods, $this->serializer->deserialize($xml, PendingFolderModifications::class, 'xml'));
+        $this->assertEquals($mods, $this->serializer->deserialize($xml, StubPendingFolderModifications::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubPendingFolderModifications extends PendingFolderModifications
+{
 }

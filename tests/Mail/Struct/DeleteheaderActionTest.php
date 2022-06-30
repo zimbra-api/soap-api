@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ComparisonComparator, MatchType, RelationalComparator};
 use Zimbra\Mail\Struct\DeleteheaderAction;
 use Zimbra\Mail\Struct\EditheaderTest;
@@ -23,12 +25,12 @@ class DeleteheaderActionTest extends ZimbraTestCase
             MatchType::CONTAINS(), TRUE, TRUE, RelationalComparator::EQUAL(), ComparisonComparator::ASCII_NUMERIC(), $headerName, [$headerValue]
         );
 
-        $action = new DeleteheaderAction($index, FALSE, $offset, $test);
+        $action = new StubDeleteheaderAction($index, FALSE, $offset, $test);
         $this->assertFalse($action->getLast());
         $this->assertSame($offset, $action->getOffset());
         $this->assertSame($test, $action->getTest());
 
-        $action = new DeleteheaderAction($index);
+        $action = new StubDeleteheaderAction($index);
         $action->setLast(TRUE)
             ->setOffset($offset)
             ->setTest($test);
@@ -38,14 +40,21 @@ class DeleteheaderActionTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result index="$index" last="true" offset="$offset">
-    <test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
-        <headerName>$headerName</headerName>
-        <headerValue>$headerValue</headerValue>
-    </test>
+<result index="$index" last="true" offset="$offset" xmlns:urn="urn:zimbraMail">
+    <urn:test matchType="contains" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;ascii-numeric">
+        <urn:headerName>$headerName</urn:headerName>
+        <urn:headerValue>$headerValue</urn:headerValue>
+    </urn:test>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($action, 'xml'));
-        $this->assertEquals($action, $this->serializer->deserialize($xml, DeleteheaderAction::class, 'xml'));
+        $this->assertEquals($action, $this->serializer->deserialize($xml, StubDeleteheaderAction::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubDeleteheaderAction extends DeleteheaderAction
+{
 }

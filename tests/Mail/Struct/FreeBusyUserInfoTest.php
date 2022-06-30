@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Mail\SerializerHandler;
 
@@ -49,7 +51,7 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
             $startTime, $endTime, $id, $subject, $location, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE
         );
 
-        $usr = new FreeBusyUserInfo($id, [
+        $usr = new StubFreeBusyUserInfo($id, [
             $freeSlot,
             $busySlot,
             $tentativeSlot,
@@ -65,7 +67,7 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
             $noDataSlot,
         ], $usr->getElements());
 
-        $usr = new FreeBusyUserInfo('');
+        $usr = new StubFreeBusyUserInfo();
         $usr->setId($id)
             ->setElements([
                 $freeSlot,
@@ -85,15 +87,22 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result id="$id">
-    <f s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
-    <b s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
-    <t s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
-    <u s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
-    <n s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
+<result id="$id" xmlns:urn="urn:zimbraMail">
+    <urn:f s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
+    <urn:b s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
+    <urn:t s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
+    <urn:u s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
+    <urn:n s="$startTime" e="$endTime" eventId="$id" subject="$subject" location="$location" isMeeting="true" isRecurring="true" isException="true" isReminderSet="true" isPrivate="true" hasPermission="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($usr, 'xml'));
-        $this->assertEquals($usr, $this->serializer->deserialize($xml, FreeBusyUserInfo::class, 'xml'));
+        $this->assertEquals($usr, $this->serializer->deserialize($xml, StubFreeBusyUserInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubFreeBusyUserInfo extends FreeBusyUserInfo
+{
 }

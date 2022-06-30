@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\ReplyType;
 
@@ -49,7 +51,7 @@ class MsgTest extends ZimbraTestCase
         $emailAddress = new EmailAddrInfo($address, AddressType::TO(), $personal);
         $timezone = new CalTZInfo($id, $tzStdOffset, $tzDayOffset);
 
-        $msg = new Msg(
+        $msg = new StubMsg(
             $id, $origId, $replyType, $identityId, $subject, [$header], $inReplyTo, $folderId, $flags, $content, $mimePart, $attachments, $invite, [$emailAddress], [$timezone], $fragment
         );
         $this->assertSame($id, $msg->getAttachmentId());
@@ -69,7 +71,7 @@ class MsgTest extends ZimbraTestCase
         $this->assertSame([$timezone], $msg->getTimezones());
         $this->assertSame($fragment, $msg->getFragment());
 
-        $msg = new Msg();
+        $msg = new StubMsg();
         $msg->setAttachmentId($id)
             ->setOrigId($origId)
             ->setReplyType($replyType)
@@ -111,18 +113,25 @@ class MsgTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags">
-    <header name="$name">$value</header>
-    <content>$content</content>
-    <mp ct="$contentType" content="$content" ci="$contentId" />
-    <attach aid="$id" />
-    <inv method="$method" compNum="$componentNum" rsvp="true" />
-    <e a="$address" t="t" p="$personal" />
-    <tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-    <fr>$fragment</fr>
+<result aid="$id" origid="$origId" rt="r" idnt="$identityId" su="$subject" irt="$inReplyTo" l="$folderId" f="$flags" xmlns:urn="urn:zimbraMail">
+    <urn:header name="$name">$value</urn:header>
+    <urn:content>$content</urn:content>
+    <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+    <urn:attach aid="$id" />
+    <urn:inv method="$method" compNum="$componentNum" rsvp="true" />
+    <urn:e a="$address" t="t" p="$personal" />
+    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+    <urn:fr>$fragment</urn:fr>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($msg, 'xml'));
-        $this->assertEquals($msg, $this->serializer->deserialize($xml, Msg::class, 'xml'));
+        $this->assertEquals($msg, $this->serializer->deserialize($xml, StubMsg::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubMsg extends Msg
+{
 }

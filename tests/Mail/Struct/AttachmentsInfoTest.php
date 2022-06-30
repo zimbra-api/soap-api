@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Mail\Struct\AttachmentsInfo;
 use Zimbra\Mail\Struct\MimePartAttachSpec;
 use Zimbra\Mail\Struct\MsgAttachSpec;
@@ -30,11 +32,11 @@ class AttachmentsInfoTest extends ZimbraTestCase
             new DocAttachSpec($path, $id, $version, TRUE),
         ];
 
-        $attach = new AttachmentsInfo($attachmentId, $attachments);
+        $attach = new StubAttachmentsInfo($attachmentId, $attachments);
         $this->assertSame($attachmentId, $attach->getAttachmentId());
         $this->assertEquals($attachments, $attach->getAttachments());
 
-        $attach = new AttachmentsInfo();
+        $attach = new StubAttachmentsInfo();
         $attach->setAttachmentId($attachmentId)
                ->setAttachments($attachments);
         $this->assertSame($attachmentId, $attach->getAttachmentId());
@@ -42,14 +44,21 @@ class AttachmentsInfoTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result aid="$attachmentId">
-    <mp mid="$messageId" part="$part" optional="true" />
-    <m id="$id" optional="true" />
-    <cn id="$id" optional="true" />
-    <doc path="$path" id="$id" ver="$version" optional="true" />
+<result aid="$attachmentId" xmlns:urn="urn:zimbraMail">
+    <urn:mp mid="$messageId" part="$part" optional="true" />
+    <urn:m id="$id" optional="true" />
+    <urn:cn id="$id" optional="true" />
+    <urn:doc path="$path" id="$id" ver="$version" optional="true" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($attach, 'xml'));
-        $this->assertEquals($attach, $this->serializer->deserialize($xml, AttachmentsInfo::class, 'xml'));
+        $this->assertEquals($attach, $this->serializer->deserialize($xml, StubAttachmentsInfo::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubAttachmentsInfo extends AttachmentsInfo
+{
 }

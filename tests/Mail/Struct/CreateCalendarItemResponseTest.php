@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\AddressType;
 use Zimbra\Common\Enum\InviteType;
 
@@ -73,7 +75,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
         $msg = new Id($id);
         $echo = new CalEcho($invite);
 
-        $response = new CreateCalendarItemResponse(
+        $response = new StubCreateCalendarItemResponse(
             $calItemId, $deprecatedApptId, $calInvId, $modifiedSequence, $revision, $msg, $echo
         );
         $this->assertSame($calItemId, $response->getCalItemId());
@@ -84,7 +86,7 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
         $this->assertSame($msg, $response->getMsg());
         $this->assertSame($echo, $response->getEcho());
 
-        $response = new CreateCalendarItemResponse();
+        $response = new StubCreateCalendarItemResponse();
         $response->setCalItemId($calItemId)
             ->setDeprecatedApptId($deprecatedApptId)
             ->setCalInvId($calInvId)
@@ -103,28 +105,35 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
-    <m id="$id" />
-    <echo>
-        <m id="$id" part="$part" sd="$sentDate">
-            <e a="$address" d="$display" p="$personal" t="t" />
-            <su>$subject</su>
-            <mid>$messageIdHeader</mid>
-            <inv type="task" />
-            <header n="$key">$value</header>
-            <mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
-                <content>$content</content>
-            </mp>
-            <shr truncated="true">
-                <content>$content</content>
-            </shr>
-            <dlSubs truncated="true">
-                <content>$content</content>
-            </dlSubs>
-        </m>
-    </echo>
+    <urn:m id="$id" xmlns:urn="urn:zimbraMail" />
+    <urn:echo>
+        <urn:m id="$id" part="$part" sd="$sentDate">
+            <urn:e a="$address" d="$display" p="$personal" t="t" />
+            <urn:su>$subject</urn:su>
+            <urn:mid>$messageIdHeader</urn:mid>
+            <urn:inv type="task" />
+            <urn:header n="$key">$value</urn:header>
+            <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                <urn:content>$content</urn:content>
+            </urn:mp>
+            <urn:shr truncated="true">
+                <urn:content>$content</urn:content>
+            </urn:shr>
+            <urn:dlSubs truncated="true">
+                <urn:content>$content</urn:content>
+            </urn:dlSubs>
+        </urn:m>
+    </urn:echo>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($response, 'xml'));
-        $this->assertEquals($response, $this->serializer->deserialize($xml, CreateCalendarItemResponse::class, 'xml'));
+        $this->assertEquals($response, $this->serializer->deserialize($xml, StubCreateCalendarItemResponse::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubCreateCalendarItemResponse extends CreateCalendarItemResponse
+{
 }

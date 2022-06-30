@@ -18,7 +18,7 @@ class RightPermissionTest extends ZimbraTestCase
         $this->assertSame($rightName, $right->getRightName());
         $this->assertFalse($right->getAllow());
 
-        $right = new RightPermission(FALSE);
+        $right = new RightPermission();
         $right->setRightName($rightName)
             ->setAllow(TRUE);
         $this->assertSame($rightName, $right->getRightName());

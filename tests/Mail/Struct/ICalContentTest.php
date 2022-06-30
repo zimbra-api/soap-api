@@ -21,7 +21,7 @@ class ICalContentTest extends ZimbraTestCase
         $this->assertSame($id, $content->getId());
         $this->assertSame($ical, $content->getIcal());
 
-        $content = new ICalContent('');
+        $content = new ICalContent();
         $content->setId($id)
             ->setIcal($ical);
         $this->assertSame($id, $content->getId());

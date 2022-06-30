@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\FreeBusyStatus;
 use Zimbra\Mail\Struct\ConflictRecurrenceInstance;
 use Zimbra\Mail\Struct\FreeBusyUserStatus;
@@ -22,10 +24,10 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
 
         $freebusyUser = new FreeBusyUserStatus($name, FreeBusyStatus::FREE());
 
-        $inst = new ConflictRecurrenceInstance([$freebusyUser]);
+        $inst = new StubConflictRecurrenceInstance([$freebusyUser]);
         $this->assertSame([$freebusyUser], $inst->getFreebusyUsers());
 
-        $inst = new ConflictRecurrenceInstance();
+        $inst = new StubConflictRecurrenceInstance();
         $inst->setFreebusyUsers([$freebusyUser])
             ->addFreebusyUser($freebusyUser);
         $this->assertSame([$freebusyUser, $freebusyUser], $inst->getFreebusyUsers());
@@ -38,11 +40,18 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ">
-    <usr name="$name" fb="F" />
+<result s="$startTime" dur="$duration" allDay="true" tzo="$tzOffset" ridZ="$recurIdZ" xmlns:urn="urn:zimbraMail">
+    <urn:usr name="$name" fb="F" />
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inst, 'xml'));
-        $this->assertEquals($inst, $this->serializer->deserialize($xml, ConflictRecurrenceInstance::class, 'xml'));
+        $this->assertEquals($inst, $this->serializer->deserialize($xml, StubConflictRecurrenceInstance::class, 'xml'));
     }
+}
+
+/**
+ * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
+ */
+class StubConflictRecurrenceInstance extends ConflictRecurrenceInstance
+{
 }
