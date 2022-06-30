@@ -26,7 +26,6 @@ use Zimbra\Mail\Message\{
     GetItemResponse
 };
 use Zimbra\Mail\Struct\{
-    FilterTests,
     FreeBusyUserInfo
 };
 
@@ -80,12 +79,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => self::SERIALIZE_FORMAT,
                 'type' => GetItemResponse::class,
                 'method' => 'xmlDeserializeGetItemResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => FilterTests::class,
-                'method' => 'xmlDeserializeFilterTests',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -185,26 +178,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $response;
-
-    }
-
-    public function xmlDeserializeFilterTests(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): FilterTests
-    {
-        $serializer = SerializerFactory::create();
-        $filterTests = new FilterTests();
-        foreach ($data->attributes() as $key => $value) {
-            if ($key == 'condition') {
-                $filterTests->setCondition(new FilterCondition((string) $value));
-            }
-        }
-
-        $types = FilterTests::filterTestTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $tests = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-        $filterTests->setTests(array_values($tests));
-        return $filterTests;
 
     }
 
