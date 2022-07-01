@@ -165,7 +165,7 @@ class CreateTaskExceptionTest extends ZimbraTestCase
             </urn:m>
         </urn:CreateTaskExceptionRequest>
         <urn:CreateTaskExceptionResponse calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
-            <m id="$id" />
+            <urn:m id="$id" />
             <urn:echo>
                 <urn:m id="$id" part="$part" sd="$sentDate">
                     <urn:e a="$address" d="$display" p="$personal" t="t" />

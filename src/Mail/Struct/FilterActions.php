@@ -421,10 +421,6 @@ class FilterActions
     /**
      * Gets reject filter actions
      *
-     * @Type("array<Zimbra\Mail\Struct\RejectAction>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="actionReject", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getRejectActions(): array

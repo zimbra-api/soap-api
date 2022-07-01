@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlElement, XmlList};
 use Zimbra\Admin\Struct\DomainAdminRight as Right;
 use Zimbra\Admin\Struct\PackageRightsInfo as Package;
 use Zimbra\Soap\ResponseInterface;
@@ -50,6 +50,7 @@ class GetRightsDocResponse implements ResponseInterface
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template")
      * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
      */
     private $rights = [];

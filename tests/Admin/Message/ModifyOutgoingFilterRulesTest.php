@@ -272,7 +272,7 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
             $newName, $newValue
         );
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new FilterRule($name, TRUE, $filterTests, $filterVariables, [
+        $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
@@ -341,7 +341,7 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
             <urn:account by="name">$value</urn:account>
             <urn:domain by="name">$value</urn:domain>
             <urn:cos by="name">$value</urn:cos>
-            <urn:server by="name">$value</surn:erver>
+            <urn:server by="name">$value</urn:server>
             <urn:filterRules>
                 <urn:filterRule name="$name" active="true">
                     <urn:filterVariables index="$index">
@@ -356,7 +356,7 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
                         <urn:bulkTest index="$index" negative="true" />
                         <urn:contactRankingTest index="$index" negative="true" header="$header" />
                         <urn:conversationTest index="$index" negative="true" where="$where" />
-                        <urn:urn:currentDayOfWeekTest index="$index" negative="true" value="$value" />
+                        <urn:currentDayOfWeekTest index="$index" negative="true" value="$value" />
                         <urn:currentTimeTest index="$index" negative="true" dateComparison="before" time="$time" />
                         <urn:dateTest index="$index" negative="true" dateComparison="before" date="$date" />
                         <urn:facebookTest index="$index" negative="true" />
@@ -407,10 +407,10 @@ class ModifyOutgoingFilterRulesTest extends ZimbraTestCase
                             <urn:headerValue>$headerValue</urn:headerValue>
                         </urn:actionAddheader>
                         <urn:actionDeleteheader index="$index" last="true" offset="$offset">
-                            <test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
+                            <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
                                 <urn:headerName>$headerName</urn:headerName>
                                 <urn:headerValue>$headerValue</urn:headerValue>
-                            </test>
+                            </urn:test>
                         </urn:actionDeleteheader>
                         <urn:actionReplaceheader index="$index" last="true" offset="$offset">
                             <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">

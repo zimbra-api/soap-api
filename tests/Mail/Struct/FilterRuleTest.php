@@ -245,7 +245,7 @@ class FilterRuleTest extends ZimbraTestCase
         );
 
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new StubFilterRule($name, FALSE, $filterTests, $filterVariables, [
+        $filterRule = new StubFilterRule($filterTests, $name, FALSE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
@@ -289,7 +289,7 @@ class FilterRuleTest extends ZimbraTestCase
         ], array_values($filterRule->getFilterActions()));
         $this->assertSame($child, $filterRule->getChild());
 
-        $filterRule = new StubFilterRule();
+        $filterRule = new StubFilterRule(new FilterTests());
         $filterRule->setName($name)
             ->setActive(TRUE)
             ->setFilterTests($filterTests)

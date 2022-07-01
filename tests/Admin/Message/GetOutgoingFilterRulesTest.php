@@ -291,7 +291,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
             $newName, $newValue
         );
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new FilterRule($name, TRUE, $filterTests, $filterVariables, [
+        $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
@@ -438,7 +438,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
                             <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
                                 <urn:headerName>$headerName</urn:headerName>
                                 <urn:headerValue>$headerValue</urn:headerValue>
-                            </test>
+                            </urn:test>
                             <urn:newName>$newName</urn:newName>
                             <urn:newValue>$newValue</urn:newValue>
                         </urn:actionReplaceheader>

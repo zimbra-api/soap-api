@@ -272,7 +272,7 @@ class ModifyFilterRulesTest extends ZimbraTestCase
             $newName, $newValue
         );
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new FilterRule($name, TRUE, $filterTests, $filterVariables, [
+        $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
