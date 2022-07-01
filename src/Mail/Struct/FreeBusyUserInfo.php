@@ -131,7 +131,9 @@ class FreeBusyUserInfo
      */
     public function setFreeSlots(array $slots): self
     {
-        $this->freeSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyFREEslot);
+        $this->freeSlots = array_values(
+            array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyFREEslot)
+        );
         return $this;
     }
 
@@ -152,7 +154,9 @@ class FreeBusyUserInfo
      */
     public function setBusySlots(array $slots): self
     {
-        $this->busySlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYslot);
+        $this->busySlots = array_values(
+            array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYslot)
+        );
         return $this;
     }
 
@@ -173,7 +177,9 @@ class FreeBusyUserInfo
      */
     public function setTentativeSlots(array $slots): self
     {
-        $this->tentativeSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYTENTATIVEslot);
+        $this->tentativeSlots = array_values(
+            array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYTENTATIVEslot)
+        );
         return $this;
     }
 
@@ -195,7 +201,9 @@ class FreeBusyUserInfo
      */
     public function setUnavailableSlots(array $slots): self
     {
-        $this->unavailableSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYUNAVAILABLEslot);
+        $this->unavailableSlots = array_values(
+            array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYUNAVAILABLEslot)
+        );
         return $this;
     }
 
@@ -216,7 +224,9 @@ class FreeBusyUserInfo
      */
     public function setNodataSlots(array $slots): self
     {
-        $this->nodataSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyNODATAslot);
+        $this->nodataSlots = array_values(
+            array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyNODATAslot)
+        );
         return $this;
     }
 

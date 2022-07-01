@@ -135,7 +135,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setImapDataSources(array $dataSources): self
     {
-        $this->imapDataSources = array_filter($dataSources, static fn ($imap) => $imap instanceof ImapDataSourceNameOrId);
+        $this->imapDataSources = array_values(
+            array_filter($dataSources, static fn ($imap) => $imap instanceof ImapDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -156,7 +158,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setPop3DataSources(array $dataSources): self
     {
-        $this->pop3DataSources = array_filter($dataSources, static fn ($pop3) => $pop3 instanceof Pop3DataSourceNameOrId);
+        $this->pop3DataSources = array_values(
+            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof Pop3DataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -177,7 +181,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setCaldavDataSources(array $dataSources): self
     {
-        $this->caldavDataSources = array_filter($dataSources, static fn ($caldav) => $caldav instanceof CaldavDataSourceNameOrId);
+        $this->caldavDataSources = array_values(
+            array_filter($dataSources, static fn ($caldav) => $caldav instanceof CaldavDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -198,7 +204,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setYabDataSources(array $dataSources): self
     {
-        $this->yabDataSources = array_filter($dataSources, static fn ($yab) => $yab instanceof YabDataSourceNameOrId);
+        $this->yabDataSources = array_values(
+            array_filter($dataSources, static fn ($yab) => $yab instanceof YabDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -219,7 +227,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setRssDataSources(array $dataSources): self
     {
-        $this->rssDataSources = array_filter($dataSources, static fn ($rss) => $rss instanceof RssDataSourceNameOrId);
+        $this->rssDataSources = array_values(
+            array_filter($dataSources, static fn ($rss) => $rss instanceof RssDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -240,7 +250,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setGalDataSources(array $dataSources): self
     {
-        $this->galDataSources = array_filter($dataSources, static fn ($gal) => $gal instanceof GalDataSourceNameOrId);
+        $this->galDataSources = array_values(
+            array_filter($dataSources, static fn ($gal) => $gal instanceof GalDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -261,7 +273,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setCalDataSources(array $dataSources): self
     {
-        $this->calDataSources = array_filter($dataSources, static fn ($cal) => $cal instanceof CalDataSourceNameOrId);
+        $this->calDataSources = array_values(
+            array_filter($dataSources, static fn ($cal) => $cal instanceof CalDataSourceNameOrId)
+        );
         return $this;
     }
 
@@ -282,7 +296,9 @@ class DeleteDataSourceRequest extends Request
      */
     public function setUnknownDataSources(array $dataSources): self
     {
-        $this->unknownDataSources = array_filter($dataSources, static fn ($unknown) => $unknown instanceof UnknownDataSourceNameOrId);
+        $this->unknownDataSources = array_values(
+            array_filter($dataSources, static fn ($unknown) => $unknown instanceof UnknownDataSourceNameOrId)
+        );
         return $this;
     }
 

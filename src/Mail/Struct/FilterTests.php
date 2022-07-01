@@ -338,7 +338,9 @@ class FilterTests
      */
     public function setAddressBookTests(array $tests): self
     {
-        $this->addressBookTests = array_filter($tests, static fn ($test) => $test instanceof AddressBookTest);
+        $this->addressBookTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof AddressBookTest)
+        );
         return $this;
     }
 
@@ -359,7 +361,9 @@ class FilterTests
      */
     public function setAddressTests(array $tests): self
     {
-        $this->addressTests = array_filter($tests, static fn ($test) => $test instanceof AddressTest);
+        $this->addressTests = array_values(
+            array_filter($tests, static fn ($test) => get_class($test) === AddressTest::class)
+        );
         return $this;
     }
 
@@ -380,7 +384,9 @@ class FilterTests
      */
     public function setEnvelopeTests(array $tests): self
     {
-        $this->envelopeTests = array_filter($tests, static fn ($test) => $test instanceof EnvelopeTest);
+        $this->envelopeTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof EnvelopeTest)
+        );
         return $this;
     }
 
@@ -401,7 +407,9 @@ class FilterTests
      */
     public function setAttachmentTests(array $tests): self
     {
-        $this->attachmentTests = array_filter($tests, static fn ($test) => $test instanceof AttachmentTest);
+        $this->attachmentTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof AttachmentTest)
+        );
         return $this;
     }
 
@@ -422,7 +430,9 @@ class FilterTests
      */
     public function setBodyTests(array $tests): self
     {
-        $this->bodyTests = array_filter($tests, static fn ($test) => $test instanceof BodyTest);
+        $this->bodyTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof BodyTest)
+        );
         return $this;
     }
 
@@ -443,7 +453,9 @@ class FilterTests
      */
     public function setBulkTests(array $tests): self
     {
-        $this->bulkTests = array_filter($tests, static fn ($test) => $test instanceof BulkTest);
+        $this->bulkTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof BulkTest)
+        );
         return $this;
     }
 
@@ -464,7 +476,9 @@ class FilterTests
      */
     public function setContactRankingTests(array $tests): self
     {
-        $this->contactRankingTests = array_filter($tests, static fn ($test) => $test instanceof ContactRankingTest);
+        $this->contactRankingTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof ContactRankingTest)
+        );
         return $this;
     }
 
@@ -485,7 +499,9 @@ class FilterTests
      */
     public function setConversationTests(array $tests): self
     {
-        $this->conversationTests = array_filter($tests, static fn ($test) => $test instanceof ConversationTest);
+        $this->conversationTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof ConversationTest)
+        );
         return $this;
     }
 
@@ -506,7 +522,9 @@ class FilterTests
      */
     public function setCurrentDayOfWeekTests(array $tests): self
     {
-        $this->currentDayOfWeekTests = array_filter($tests, static fn ($test) => $test instanceof CurrentDayOfWeekTest);
+        $this->currentDayOfWeekTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof CurrentDayOfWeekTest)
+        );
         return $this;
     }
 
@@ -527,7 +545,9 @@ class FilterTests
      */
     public function setCurrentTimeTests(array $tests): self
     {
-        $this->currentTimeTests = array_filter($tests, static fn ($test) => $test instanceof CurrentTimeTest);
+        $this->currentTimeTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof CurrentTimeTest)
+        );
         return $this;
     }
 
@@ -548,7 +568,9 @@ class FilterTests
      */
     public function setDateTests(array $tests): self
     {
-        $this->dateTests = array_filter($tests, static fn ($test) => $test instanceof DateTest);
+        $this->dateTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof DateTest)
+        );
         return $this;
     }
 
@@ -569,7 +591,9 @@ class FilterTests
      */
     public function setFacebookTests(array $tests): self
     {
-        $this->facebookTests = array_filter($tests, static fn ($test) => $test instanceof FacebookTest);
+        $this->facebookTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof FacebookTest)
+        );
         return $this;
     }
 
@@ -590,7 +614,9 @@ class FilterTests
      */
     public function setFlaggedTests(array $tests): self
     {
-        $this->flaggedTests = array_filter($tests, static fn ($test) => $test instanceof FlaggedTest);
+        $this->flaggedTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof FlaggedTest)
+        );
         return $this;
     }
 
@@ -611,7 +637,9 @@ class FilterTests
      */
     public function setHeaderExistsTests(array $tests): self
     {
-        $this->headerExistsTests = array_filter($tests, static fn ($test) => $test instanceof HeaderExistsTest);
+        $this->headerExistsTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof HeaderExistsTest)
+        );
         return $this;
     }
 
@@ -632,7 +660,9 @@ class FilterTests
      */
     public function setHeaderTests(array $tests): self
     {
-        $this->headerTests = array_filter($tests, static fn ($test) => $test instanceof HeaderTest);
+        $this->headerTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof HeaderTest)
+        );
         return $this;
     }
 
@@ -653,7 +683,9 @@ class FilterTests
      */
     public function setImportanceTests(array $tests): self
     {
-        $this->importanceTests = array_filter($tests, static fn ($test) => $test instanceof ImportanceTest);
+        $this->importanceTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof ImportanceTest)
+        );
         return $this;
     }
 
@@ -674,7 +706,9 @@ class FilterTests
      */
     public function setInviteTests(array $tests): self
     {
-        $this->inviteTests = array_filter($tests, static fn ($test) => $test instanceof InviteTest);
+        $this->inviteTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof InviteTest)
+        );
         return $this;
     }
 
@@ -695,7 +729,9 @@ class FilterTests
      */
     public function setLinkedInTests(array $tests): self
     {
-        $this->linkedinTests = array_filter($tests, static fn ($test) => $test instanceof LinkedInTest);
+        $this->linkedinTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof LinkedInTest)
+        );
         return $this;
     }
 
@@ -716,7 +752,9 @@ class FilterTests
      */
     public function setListTests(array $tests): self
     {
-        $this->listTests = array_filter($tests, static fn ($test) => $test instanceof ListTest);
+        $this->listTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof ListTest)
+        );
         return $this;
     }
 
@@ -737,7 +775,9 @@ class FilterTests
      */
     public function setMeTests(array $tests): self
     {
-        $this->meTests = array_filter($tests, static fn ($test) => $test instanceof MeTest);
+        $this->meTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof MeTest)
+        );
         return $this;
     }
 
@@ -758,7 +798,9 @@ class FilterTests
      */
     public function setMimeHeaderTests(array $tests): self
     {
-        $this->mimeHeaderTests = array_filter($tests, static fn ($test) => $test instanceof MimeHeaderTest);
+        $this->mimeHeaderTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof MimeHeaderTest)
+        );
         return $this;
     }
 
@@ -779,7 +821,9 @@ class FilterTests
      */
     public function setSizeTests(array $tests): self
     {
-        $this->sizeTests = array_filter($tests, static fn ($test) => $test instanceof SizeTest);
+        $this->sizeTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof SizeTest)
+        );
         return $this;
     }
 
@@ -800,7 +844,9 @@ class FilterTests
      */
     public function setSocialcastTests(array $tests): self
     {
-        $this->socialcastTests = array_filter($tests, static fn ($test) => $test instanceof SocialcastTest);
+        $this->socialcastTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof SocialcastTest)
+        );
         return $this;
     }
 
@@ -821,7 +867,9 @@ class FilterTests
      */
     public function setTrueTests(array $tests): self
     {
-        $this->trueTests = array_filter($tests, static fn ($test) => $test instanceof TrueTest);
+        $this->trueTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof TrueTest)
+        );
         return $this;
     }
 
@@ -842,7 +890,9 @@ class FilterTests
      */
     public function setTwitterTests(array $tests): self
     {
-        $this->twitterTests = array_filter($tests, static fn ($test) => $test instanceof TwitterTest);
+        $this->twitterTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof TwitterTest)
+        );
         return $this;
     }
 
@@ -863,7 +913,9 @@ class FilterTests
      */
     public function setCommunityRequestsTests(array $tests): self
     {
-        $this->communityRequestsTests = array_filter($tests, static fn ($test) => $test instanceof CommunityRequestsTest);
+        $this->communityRequestsTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof CommunityRequestsTest)
+        );
         return $this;
     }
 
@@ -884,7 +936,9 @@ class FilterTests
      */
     public function setCommunityContentTests(array $tests): self
     {
-        $this->communityContentTests = array_filter($tests, static fn ($test) => $test instanceof CommunityContentTest);
+        $this->communityContentTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof CommunityContentTest)
+        );
         return $this;
     }
 
@@ -905,7 +959,9 @@ class FilterTests
      */
     public function setCommunityConnectionsTests(array $tests): self
     {
-        $this->communityConnectionsTests = array_filter($tests, static fn ($test) => $test instanceof CommunityConnectionsTest);
+        $this->communityConnectionsTests = array_values(
+            array_filter($tests, static fn ($test) => $test instanceof CommunityConnectionsTest)
+        );
         return $this;
     }
 
@@ -998,7 +1054,7 @@ class FilterTests
         if ($test instanceof AddressBookTest) {
             $this->addressBookTests[] = $test;
         }
-        if ($test instanceof AddressTest) {
+        if (get_class($test) === AddressTest::class) {
             $this->addressTests[] = $test;
         }
         if ($test instanceof EnvelopeTest) {

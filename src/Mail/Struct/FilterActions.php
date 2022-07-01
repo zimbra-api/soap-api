@@ -204,7 +204,9 @@ class FilterActions
      */
     public function setFilterVariables(array $filterVariables): self
     {
-        $this->filterVariables = array_filter($filterVariables, static fn ($action) => $action instanceof FilterVariables);
+        $this->filterVariables = array_values(
+            array_filter($filterVariables, static fn ($action) => $action instanceof FilterVariables)
+        );
         return $this;
     }
 
@@ -225,7 +227,9 @@ class FilterActions
      */
     public function setKeepActions(array $filterActions): self
     {
-        $this->keepActions = array_filter($filterActions, static fn ($action) => $action instanceof KeepAction);
+        $this->keepActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof KeepAction)
+        );
         return $this;
     }
 
@@ -246,7 +250,9 @@ class FilterActions
      */
     public function setDiscardActions(array $filterActions): self
     {
-        $this->discardActions = array_filter($filterActions, static fn ($action) => $action instanceof DiscardAction);
+        $this->discardActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof DiscardAction)
+        );
         return $this;
     }
 
@@ -267,7 +273,9 @@ class FilterActions
      */
     public function setFileIntoActions(array $filterActions): self
     {
-        $this->fileIntoActions = array_filter($filterActions, static fn ($action) => $action instanceof FileIntoAction);
+        $this->fileIntoActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof FileIntoAction)
+        );
         return $this;
     }
 
@@ -288,7 +296,9 @@ class FilterActions
      */
     public function setFlagActions(array $filterActions): self
     {
-        $this->flagActions = array_filter($filterActions, static fn ($action) => $action instanceof FlagAction);
+        $this->flagActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof FlagAction)
+        );
         return $this;
     }
 
@@ -309,7 +319,9 @@ class FilterActions
      */
     public function setTagActions(array $filterActions): self
     {
-        $this->tagActions = array_filter($filterActions, static fn ($action) => $action instanceof TagAction);
+        $this->tagActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof TagAction)
+        );
         return $this;
     }
 
@@ -330,7 +342,9 @@ class FilterActions
      */
     public function setRedirectActions(array $filterActions): self
     {
-        $this->redirectActions = array_filter($filterActions, static fn ($action) => $action instanceof RedirectAction);
+        $this->redirectActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof RedirectAction)
+        );
         return $this;
     }
 
@@ -351,7 +365,9 @@ class FilterActions
      */
     public function setReplyActions(array $filterActions): self
     {
-        $this->replyActions = array_filter($filterActions, static fn ($action) => $action instanceof ReplyAction);
+        $this->replyActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof ReplyAction)
+        );
         return $this;
     }
 
@@ -372,7 +388,9 @@ class FilterActions
      */
     public function setNotifyActions(array $filterActions): self
     {
-        $this->notifyActions = array_filter($filterActions, static fn ($action) => $action instanceof NotifyAction);
+        $this->notifyActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof NotifyAction)
+        );
         return $this;
     }
 
@@ -393,7 +411,9 @@ class FilterActions
      */
     public function setRFCCompliantNotifyActions(array $filterActions): self
     {
-        $this->rfcCompliantNotifyActions = array_filter($filterActions, static fn ($action) => $action instanceof RFCCompliantNotifyAction);
+        $this->rfcCompliantNotifyActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof RFCCompliantNotifyAction)
+        );
         return $this;
     }
 
@@ -414,7 +434,9 @@ class FilterActions
      */
     public function setStopActions(array $filterActions): self
     {
-        $this->stopActions = array_filter($filterActions, static fn ($action) => $action instanceof StopAction);
+        $this->stopActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof StopAction)
+        );
         return $this;
     }
 
@@ -435,7 +457,9 @@ class FilterActions
      */
     public function setRejectActions(array $filterActions): self
     {
-        $this->rejectActions = array_filter($filterActions, static fn ($action) => $action instanceof RejectAction);
+        $this->rejectActions = array_values(
+            array_filter($filterActions, static fn ($action) => get_class($action) === RejectAction::class)
+        );
         return $this;
     }
 
@@ -456,7 +480,9 @@ class FilterActions
      */
     public function setErejectActions(array $filterActions): self
     {
-        $this->erejectActions = array_filter($filterActions, static fn ($action) => $action instanceof ErejectAction);
+        $this->erejectActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof ErejectAction)
+        );
         return $this;
     }
 
@@ -477,7 +503,9 @@ class FilterActions
      */
     public function setLogActions(array $filterActions): self
     {
-        $this->logActions = array_filter($filterActions, static fn ($action) => $action instanceof LogAction);
+        $this->logActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof LogAction)
+        );
         return $this;
     }
 
@@ -498,7 +526,9 @@ class FilterActions
      */
     public function setAddheaderActions(array $filterActions): self
     {
-        $this->addheaderActions = array_filter($filterActions, static fn ($action) => $action instanceof AddheaderAction);
+        $this->addheaderActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof AddheaderAction)
+        );
         return $this;
     }
 
@@ -519,7 +549,9 @@ class FilterActions
      */
     public function setDeleteheaderActions(array $filterActions): self
     {
-        $this->deleteheaderActions = array_filter($filterActions, static fn ($action) => $action instanceof DeleteheaderAction);
+        $this->deleteheaderActions = array_values(
+            array_filter($filterActions, static fn ($action) => get_class($action) ===DeleteheaderAction::class)
+        );
         return $this;
     }
 
@@ -540,7 +572,9 @@ class FilterActions
      */
     public function setReplaceheaderActions(array $filterActions): self
     {
-        $this->replaceheaderActions = array_filter($filterActions, static fn ($action) => $action instanceof ReplaceheaderAction);
+        $this->replaceheaderActions = array_values(
+            array_filter($filterActions, static fn ($action) => $action instanceof ReplaceheaderAction)
+        );
         return $this;
     }
 
@@ -585,7 +619,7 @@ class FilterActions
         if ($filterAction instanceof StopAction) {
             $this->stopActions[] = $filterAction;
         }
-        if ($filterAction instanceof RejectAction) {
+        if (get_class($filterAction) === RejectAction::class) {
             $this->rejectActions[] = $filterAction;
         }
         if ($filterAction instanceof ErejectAction) {
@@ -597,7 +631,7 @@ class FilterActions
         if ($filterAction instanceof AddheaderAction) {
             $this->addheaderActions[] = $filterAction;
         }
-        if ($filterAction instanceof DeleteheaderAction) {
+        if (get_class($filterAction) === DeleteheaderAction::class) {
             $this->deleteheaderActions[] = $filterAction;
         }
         if ($filterAction instanceof ReplaceheaderAction) {
