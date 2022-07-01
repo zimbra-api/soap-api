@@ -37,6 +37,13 @@ abstract class AbstractApi implements ApiInterface
     private ClientInterface $client;
 
     /**
+     * Instance serializer.
+     *
+     * @var SerializerInterface
+     */
+    private SerializerInterface $serializer;
+
+    /**
      * Zimbra api request soap header
      * @var Header
      */
@@ -48,9 +55,10 @@ abstract class AbstractApi implements ApiInterface
      */
     private ?Header $responseHeader = NULL;
 
-    public function __construct(string $serviceUrl)
+    public function __construct(string $serviceUrl = '')
     {
-        $this->client = new ClientFactory::create($serviceUrl);
+        $this->client = ClientFactory::create($serviceUrl);
+        $this->serializer = SerializerFactory::create();
     }
 
     /**
@@ -126,14 +134,14 @@ abstract class AbstractApi implements ApiInterface
         if ($this->requestHeader instanceof Header) {
             $requestEnvelope->setHeader($this->requestHeader);
         }
-        $response = $this->getClient()->sendRequest(
-            $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
+        $response = $this->client->sendRequest(
+            $this->serializer->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
             [
                 'Content-Type' => static::SOAP_CONTENT_TYPE,
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
             ]
         );
-        $responseEnvelope = $this->getSerializer()->deserialize(
+        $responseEnvelope = $this->serializer->deserialize(
             $response->getBody()->getContents(),
             get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
@@ -141,16 +149,6 @@ abstract class AbstractApi implements ApiInterface
             $this->responseHeader = $responseEnvelope->getHeader();
         }
         return $responseEnvelope->getBody()->getResponse();
-    }
-
-    /**
-     * Gets serializer
-     *
-     * @return SerializerInterface
-     */
-    protected function getSerializer(): SerializerInterface
-    {
-        return SerializerFactory::create();
     }
 
     protected function initRequestHeader(): self
