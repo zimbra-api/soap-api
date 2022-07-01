@@ -10,17 +10,19 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty};
 use Zimbra\Common\Struct\DataSource;
-use Zimbra\Mail\Struct\MailImapDataSource;
-use Zimbra\Mail\Struct\MailPop3DataSource;
-use Zimbra\Mail\Struct\MailCaldavDataSource;
-use Zimbra\Mail\Struct\MailYabDataSource;
-use Zimbra\Mail\Struct\MailRssDataSource;
-use Zimbra\Mail\Struct\MailGalDataSource;
-use Zimbra\Mail\Struct\MailCalDataSource;
-use Zimbra\Mail\Struct\MailUnknownDataSource;
-use Zimbra\Mail\Struct\MailDataSource;
+use Zimbra\Mail\Struct\{
+    MailImapDataSource,
+    MailPop3DataSource,
+    MailCaldavDataSource,
+    MailYabDataSource,
+    MailRssDataSource,
+    MailGalDataSource,
+    MailCalDataSource,
+    MailUnknownDataSource,
+    MailDataSource
+};
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -38,6 +40,7 @@ class CreateDataSourceRequest extends Request
 {
     /**
      * The data source
+     * 
      * @Exclude
      */
     private ?DataSource $dataSource = NULL;
@@ -57,7 +60,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("imap")
-     * @Type("Zimbra\Mail\Struct\MailImapDataSource")
      * @VirtualProperty
      */
     public function getImapDataSource(): ?MailImapDataSource
@@ -67,7 +69,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("pop3")
-     * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
      * @VirtualProperty
      */
     public function getPop3DataSource(): ?MailPop3DataSource
@@ -77,7 +78,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("caldav")
-     * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
      * @VirtualProperty
      */
     public function getCaldavDataSource(): ?MailCaldavDataSource
@@ -87,7 +87,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("yab")
-     * @Type("Zimbra\Mail\Struct\MailYabDataSource")
      * @VirtualProperty
      */
     public function getYabDataSource(): ?MailYabDataSource
@@ -97,7 +96,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("rss")
-     * @Type("Zimbra\Mail\Struct\MailRssDataSource")
      * @VirtualProperty
      */
     public function getRssDataSource(): ?MailRssDataSource
@@ -107,7 +105,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("gal")
-     * @Type("Zimbra\Mail\Struct\MailGalDataSource")
      * @VirtualProperty
      */
     public function getGalDataSource(): ?MailGalDataSource
@@ -117,7 +114,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("cal")
-     * @Type("Zimbra\Mail\Struct\MailCalDataSource")
      * @VirtualProperty
      */
     public function getCalDataSource(): ?MailCalDataSource
@@ -127,7 +123,6 @@ class CreateDataSourceRequest extends Request
 
     /**
      * @SerializedName("unknown")
-     * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
      * @VirtualProperty
      */
     public function getUnknownDataSource(): ?MailUnknownDataSource

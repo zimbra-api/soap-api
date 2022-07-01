@@ -20,9 +20,6 @@ use Zimbra\Common\Enum\FilterCondition;
 use Zimbra\Mail\Message\{
     CreateDataSourceRequest,
     CreateDataSourceResponse,
-    DeleteDataSourceRequest,
-    GetDataSourcesResponse,
-    GetImportStatusResponse,
     GetItemResponse
 };
 
@@ -52,24 +49,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => self::SERIALIZE_FORMAT,
                 'type' => CreateDataSourceResponse::class,
                 'method' => 'xmlDeserializeCreateDataSourceResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => DeleteDataSourceRequest::class,
-                'method' => 'xmlDeserializeDeleteDataSourceRequest',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => GetDataSourcesResponse::class,
-                'method' => 'xmlDeserializeGetDataSourcesResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => GetImportStatusResponse::class,
-                'method' => 'xmlDeserializeGetImportStatusResponse',
             ],
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
@@ -117,39 +96,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
         }
         return $response;
 
-    }
-
-    public function xmlDeserializeDeleteDataSourceRequest(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): DeleteDataSourceRequest
-    {
-        $serializer = SerializerFactory::create();
-        $types = DeleteDataSourceRequest::dataSourceTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new DeleteDataSourceRequest(array_values($dataSources));
-    }
-
-    public function xmlDeserializeGetDataSourcesResponse(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): GetDataSourcesResponse
-    {
-        $serializer = SerializerFactory::create();
-        $types = GetDataSourcesResponse::dataSourceTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new GetDataSourcesResponse(array_values($dataSources));
-    }
-
-    public function xmlDeserializeGetImportStatusResponse(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): GetImportStatusResponse
-    {
-        $serializer = SerializerFactory::create();
-        $types = GetImportStatusResponse::statusTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $statuses = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new GetImportStatusResponse(array_values($statuses));
     }
 
     public function xmlDeserializeGetItemResponse(

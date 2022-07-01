@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty};
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\{
     ImapDataSourceId,
@@ -56,7 +56,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("imap")
-     * @Type("Zimbra\Mail\Struct\ImapDataSourceId")
      * @VirtualProperty
      */
     public function getImapDataSource(): ?ImapDataSourceId
@@ -66,7 +65,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("pop3")
-     * @Type("Zimbra\Mail\Struct\Pop3DataSourceId")
      * @VirtualProperty
      */
     public function getPop3DataSource(): ?Pop3DataSourceId
@@ -76,7 +74,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("caldav")
-     * @Type("Zimbra\Mail\Struct\CaldavDataSourceId")
      * @VirtualProperty
      */
     public function getCaldavDataSource(): ?CaldavDataSourceId
@@ -86,7 +83,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("yab")
-     * @Type("Zimbra\Mail\Struct\YabDataSourceId")
      * @VirtualProperty
      */
     public function getYabDataSource(): ?YabDataSourceId
@@ -96,7 +92,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("rss")
-     * @Type("Zimbra\Mail\Struct\RssDataSourceId")
      * @VirtualProperty
      */
     public function getRssDataSource(): ?RssDataSourceId
@@ -106,7 +101,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("gal")
-     * @Type("Zimbra\Mail\Struct\GalDataSourceId")
      * @VirtualProperty
      */
     public function getGalDataSource(): ?GalDataSourceId
@@ -116,7 +110,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("cal")
-     * @Type("Zimbra\Mail\Struct\CalDataSourceId")
      * @VirtualProperty
      */
     public function getCalDataSource(): ?CalDataSourceId
@@ -126,7 +119,6 @@ class CreateDataSourceResponse implements ResponseInterface
 
     /**
      * @SerializedName("unknown")
-     * @Type("Zimbra\Mail\Struct\UnknownDataSourceId")
      * @VirtualProperty
      */
     public function getUnknownDataSource(): ?UnknownDataSourceId

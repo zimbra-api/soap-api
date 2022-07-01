@@ -335,7 +335,7 @@ class AccountDataSources
      */
     public function getDataSources(): array
     {
-        return array_values(array_merge(
+        return array_merge(
             $this->imapDataSources,
             $this->pop3DataSources,
             $this->caldavDataSources,
@@ -344,6 +344,6 @@ class AccountDataSources
             $this->galDataSources,
             $this->calDataSources,
             $this->unknownDataSources
-        ));
+        );
     }
 }
