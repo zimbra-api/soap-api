@@ -25,9 +25,6 @@ use Zimbra\Mail\Message\{
     GetImportStatusResponse,
     GetItemResponse
 };
-use Zimbra\Mail\Struct\{
-    FreeBusyUserInfo
-};
 
 /**
  * SerializerHandler class.
@@ -79,12 +76,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
                 'format' => self::SERIALIZE_FORMAT,
                 'type' => GetItemResponse::class,
                 'method' => 'xmlDeserializeGetItemResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => FreeBusyUserInfo::class,
-                'method' => 'xmlDeserializeFreeBusyUserInfo',
             ],
         ];
     }
@@ -178,26 +169,5 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $response;
-
-    }
-
-    public function xmlDeserializeFreeBusyUserInfo(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): FreeBusyUserInfo
-    {
-        $serializer = SerializerFactory::create();
-        $types = FreeBusyUserInfo::elementTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $elements = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-
-        $id = '';
-        foreach ($data->attributes() as $key => $value) {
-            if ($key == 'id') {
-                $id = (string) $value;
-                break;
-            }
-        }
-
-        return new FreeBusyUserInfo($id, array_values($elements));
     }
 }
