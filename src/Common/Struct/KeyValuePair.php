@@ -33,7 +33,6 @@ class KeyValuePair
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -47,8 +46,10 @@ class KeyValuePair
      */
     public function __construct(string $key = '', ?string $value = NULL)
     {
-        $this->setKey($key)
-             ->setValue($value);
+        $this->setKey($key);
+        if (NULL !== $value) {
+            $this->setValue($value);
+        }
     }
 
     /**

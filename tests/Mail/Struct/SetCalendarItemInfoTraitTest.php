@@ -77,7 +77,7 @@ class SetCalendarItemInfoTraitTest extends ZimbraTestCase
         <urn:inv method="$method" compNum="$componentNum" rsvp="true" />
         <urn:e a="$address" t="t" p="$personal" />
         <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
-        <urn:fr>$fragment</vfr>
+        <urn:fr>$fragment</urn:fr>
     </urn:m>
 </result>
 EOT;

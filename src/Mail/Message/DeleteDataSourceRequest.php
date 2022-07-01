@@ -241,7 +241,7 @@ class DeleteDataSourceRequest extends Request
     public function setGalDataSources(array $dataSources): self
     {
         $this->galDataSources = array_filter($dataSources, static fn ($gal) => $gal instanceof GalDataSourceNameOrId);
-        return $this
+        return $this;
     }
 
     /**

@@ -166,7 +166,7 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
                                 </urn:constraint>
                                 <urn:default>
                                     <urn:v>$value1</urn:v>
-                                    <urn:v>$value2<urn:v>
+                                    <urn:v>$value2</urn:v>
                                 </urn:default>
                             </urn:a>
                         </urn:setAttrs>

@@ -143,7 +143,7 @@ class ContactInfoTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <result sf="$sortField" exp="true" id="$id" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false" xmlns:urn="urn:zimbraMail">
     <urn:meta section="$section" />
-    <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</a>
+    <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
     <urn:m type="C" value="$value" />
     <urn:memberOf>$memberOf</urn:memberOf>
 </result>

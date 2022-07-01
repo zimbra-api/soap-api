@@ -241,7 +241,7 @@ class GetImportStatusResponse implements ResponseInterface
     public function setGalStatuses(array $statuss): self
     {
         $this->galStatuses = array_filter($statuss, static fn ($gal) => $gal instanceof GalImportStatusInfo);
-        return $this
+        return $this;
     }
 
     /**

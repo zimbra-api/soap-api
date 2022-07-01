@@ -104,7 +104,7 @@ class CreateTagTest extends ZimbraTestCase
                 <urn:meta section="$section">
                     <urn:a n="$key">$value</urn:a>
                 </urn:meta>
-                <urn:urn:retentionPolicy>
+                <urn:retentionPolicy>
                     <urn:keep>
                         <urn:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
                     </urn:keep>

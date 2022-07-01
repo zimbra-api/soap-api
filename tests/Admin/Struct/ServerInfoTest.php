@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\ServerInfo;
 use Zimbra\Tests\ZimbraTestCase;

@@ -225,7 +225,7 @@ class FilterActions
      */
     public function setKeepActions(array $filterActions): self
     {
-        $this->keepActions = array_filter($this->filterActions, static fn ($action) => $action instanceof KeepAction);
+        $this->keepActions = array_filter($filterActions, static fn ($action) => $action instanceof KeepAction);
         return $this;
     }
 

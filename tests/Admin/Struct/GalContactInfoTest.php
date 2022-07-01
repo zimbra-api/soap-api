@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
-namespace Zimbra\Tests\Admin\Struct;
+use JMS\Serializer\Annotation\XmlNamespace;
 
 use Zimbra\Tests\ZimbraTestCase;
 use Zimbra\Admin\Struct\GalContactInfo;

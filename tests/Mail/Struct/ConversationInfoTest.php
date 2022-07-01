@@ -195,7 +195,7 @@ class ConversationInfoTest extends ZimbraTestCase
         <urn:dlSubs truncated="true">
             <urn:content>$content</urn:content>
         </urn:dlSubs>
-    </m>
+    </urn:m>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($conv, 'xml'));

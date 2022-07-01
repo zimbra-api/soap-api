@@ -64,7 +64,7 @@ class GetMailboxMetadataTest extends ZimbraTestCase
         </urn:GetMailboxMetadataRequest>
         <urn:GetMailboxMetadataResponse>
             <urn:meta section="$section">
-                <urn:a n="$key">$value</a>
+                <urn:a n="$key">$value</urn:a>
             </urn:meta>
         </urn:GetMailboxMetadataResponse>
     </soap:Body>

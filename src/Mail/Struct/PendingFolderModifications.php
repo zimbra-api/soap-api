@@ -83,7 +83,7 @@ class PendingFolderModifications
      * @return self
      */
     public function __construct(
-        $folderId = '',
+        int $folderId = 0,
         array $created = [],
         array $deleted = [],
         array $modifiedMsgs = [],

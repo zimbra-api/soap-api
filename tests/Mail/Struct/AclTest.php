@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\Enum\{ActionGrantRight, GrantGranteeType};
 use Zimbra\Mail\Struct\{Acl, Grant};
 use Zimbra\Tests\ZimbraTestCase;

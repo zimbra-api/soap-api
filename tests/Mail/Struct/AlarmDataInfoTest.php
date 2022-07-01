@@ -106,7 +106,7 @@ class AlarmDataInfoTest extends ZimbraTestCase
         <urn:xprop name="$name" value="$value">
             <urn:xparam name="$name" value="$value" />
         </urn:xprop>
-    </alarm>
+    </urn:alarm>
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($alarmData, 'xml'));

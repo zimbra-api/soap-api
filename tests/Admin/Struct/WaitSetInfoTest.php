@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\AccountsAttrib;
 use Zimbra\Admin\Struct\BufferedCommitInfo;
 use Zimbra\Admin\Struct\SessionForWaitSet;

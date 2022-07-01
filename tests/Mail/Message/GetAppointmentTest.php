@@ -163,7 +163,7 @@ class GetAppointmentTest extends ZimbraTestCase
                     <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" sentBy="$sentBy" ptst="AC" />
                 </urn:replies>
                 <urn:meta section="$section">
-                    <urn:a n="$key">$value</a>
+                    <urn:a n="$key">$value</urn:a>
                 </urn:meta>
             </urn:appt>
             <urn:task f="$flags" t="$tags" tn="$tagNames" uid="$uid" id="$id" rev="$revision" s="$size" d="$date" l="$folder" md="$changeDate" ms="$modifiedSequence" nextAlarm="$nextAlarm" orphan="true">

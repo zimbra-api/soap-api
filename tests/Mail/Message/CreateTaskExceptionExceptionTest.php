@@ -179,7 +179,7 @@ class CreateTaskExceptionTest extends ZimbraTestCase
                     <urn:shr truncated="true">
                         <urn:content>$content</urn:content>
                     </urn:shr>
-                    <durn:lSubs truncated="true">
+                    <urn:dlSubs truncated="true">
                         <urn:content>$content</urn:content>
                     </urn:dlSubs>
                 </urn:m>
