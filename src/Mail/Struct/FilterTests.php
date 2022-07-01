@@ -916,7 +916,7 @@ class FilterTests
      */
     public function getTests(): array
     {
-        return array_values(array_merge(
+        return array_merge(
             $this->addressBookTests,
             $this->addressTests,
             $this->envelopeTests,
@@ -945,7 +945,7 @@ class FilterTests
             $this->communityRequestsTests,
             $this->communityContentTests,
             $this->communityConnectionsTests
-        ));
+        );
     }
 
     /**

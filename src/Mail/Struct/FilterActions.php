@@ -645,7 +645,7 @@ class FilterActions
      */
     public function getFilterActions(): array
     {
-        return array_values(array_merge(
+        return array_merge(
             $this->filterVariables,
             $this->keepActions,
             $this->discardActions,
@@ -663,6 +663,6 @@ class FilterActions
             $this->addheaderActions,
             $this->deleteheaderActions,
             $this->replaceheaderActions
-        ));
+        );
     }
 }

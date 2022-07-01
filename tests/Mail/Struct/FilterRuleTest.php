@@ -4,7 +4,6 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
 use Zimbra\Common\Enum\FilterCondition;
 use Zimbra\Common\Enum\Importance;
 use Zimbra\Common\Enum\DateComparison;
@@ -12,8 +11,6 @@ use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Common\Enum\NumberComparison;
 use Zimbra\Common\Enum\{MatchType, RelationalComparator};
 use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-
-use Zimbra\Mail\SerializerHandler;
 
 use Zimbra\Mail\Struct\FilterVariable;
 use Zimbra\Mail\Struct\FilterVariables;
@@ -75,12 +72,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class FilterRuleTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testFilterRule()
     {
         $index = $this->faker->randomNumber;
@@ -298,7 +289,7 @@ class FilterRuleTest extends ZimbraTestCase
         ], array_values($filterRule->getFilterActions()));
         $this->assertSame($child, $filterRule->getChild());
 
-        $filterRule = new StubFilterRule('', FALSE, new FilterTests(FilterCondition::ALL_OF()));
+        $filterRule = new StubFilterRule();
         $filterRule->setName($name)
             ->setActive(TRUE)
             ->setFilterTests($filterTests)
