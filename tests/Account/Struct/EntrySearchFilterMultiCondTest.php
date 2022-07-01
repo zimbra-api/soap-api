@@ -2,6 +2,8 @@
 
 namespace Zimbra\Account\Struct\Tests;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Common\SerializerFactory;
 use Zimbra\Account\SerializerHandler;
 

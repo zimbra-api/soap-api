@@ -96,10 +96,23 @@ class SimpleRepeatingRuleTest extends ZimbraTestCase
         $xName = new XNameRule($name, $value);
 
         $rule = new StubSimpleRepeatingRule(
-            $frequency, $interval
+            $frequency, $until, $count, $interval, $bySecond, $byMinute, $byHour, $byDay, $byMonthDay, $byYearDay, $byWeekNo, $byMonth, $bySetPos, $weekStart, [$xName]
         );
         $this->assertSame($frequency, $rule->getFrequency());
+        $this->assertSame($until, $rule->getUntil());
+        $this->assertSame($count, $rule->getCount());
         $this->assertSame($interval, $rule->getInterval());
+        $this->assertSame($bySecond, $rule->getBySecond());
+        $this->assertSame($byMinute, $rule->getByMinute());
+        $this->assertSame($byHour, $rule->getByHour());
+        $this->assertSame($byDay, $rule->getByDay());
+        $this->assertSame($byMonthDay, $rule->getByMonthDay());
+        $this->assertSame($byYearDay, $rule->getByYearDay());
+        $this->assertSame($byWeekNo, $rule->getByWeekNo());
+        $this->assertSame($byMonth, $rule->getByMonth());
+        $this->assertSame($bySetPos, $rule->getBySetPos());
+        $this->assertSame($weekStart, $rule->getWeekStart());
+        $this->assertSame([$xName], $rule->getXNames());
 
         $rule = new StubSimpleRepeatingRule();
         $rule->setFrequency($frequency)

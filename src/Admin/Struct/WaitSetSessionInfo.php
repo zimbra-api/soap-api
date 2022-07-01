@@ -109,7 +109,7 @@ class WaitSetSessionInfo
      * @return self
      */
     public function __construct(
-        string $interestMask = 0,
+        string $interestMask = '',
         int $highestChangeId = 0,
         int $lastAccessTime = 0,
         int $creationTime = 0,

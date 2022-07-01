@@ -32,10 +32,10 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $account = new AccountSelector(AccountBy::NAME(), $value);
 
         $request = new CreateGalSyncAccountRequest(
+            $account,
             $name,
             $domain,
             GalMode::BOTH(),
-            $account,
             $mailHost,
             $password,
             $folder
@@ -49,10 +49,10 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $this->assertSame($folder, $request->getFolder());
 
         $request = new CreateGalSyncAccountRequest(
+            new AccountSelector(),
             '',
             '',
             GalMode::BOTH(),
-            new AccountSelector(AccountBy::NAME(), ''),
             ''
         );
         $request->setName($name)

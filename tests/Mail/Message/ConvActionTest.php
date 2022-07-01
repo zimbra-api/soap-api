@@ -68,7 +68,7 @@ class ConvActionTest extends ZimbraTestCase
             </urn:action>
         </urn:ConvActionRequest>
         <urn:ConvActionResponse>
-            <action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
         </urn:ConvActionResponse>
     </soap:Body>
 </soap:Envelope>

@@ -60,9 +60,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\Folder")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getFolderItem(): ?Folder
     {
@@ -71,9 +70,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("tag")
-     * @Type("Zimbra\Mail\Struct\TagInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getTagItem(): ?TagInfo
     {
@@ -82,9 +80,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("note")
-     * @Type("Zimbra\Mail\Struct\NoteInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getNoteIItem(): ?NoteInfo
     {
@@ -93,9 +90,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("cn")
-     * @Type("Zimbra\Mail\Struct\YabItemId")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getContactItem(): ?ContactInfo
     {
@@ -104,9 +100,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("appt")
-     * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
      */
     public function getApptItem(): ?CalendarItemInfo
     {
@@ -115,9 +110,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("task")
-     * @Type("Zimbra\Mail\Struct\TaskItemInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getTaskItem(): ?TaskItemInfo
     {
@@ -126,9 +120,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("c")
-     * @Type("Zimbra\Mail\Struct\ConversationSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getConvItem(): ?ConversationSummary
     {
@@ -137,9 +130,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("w")
-     * @Type("Zimbra\Mail\Struct\CommonDocumentInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getWikiItem(): ?CommonDocumentInfo
     {
@@ -148,9 +140,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\DocumentInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getDocItem(): ?DocumentInfo
     {
@@ -159,9 +150,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MessageSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getMsgItem(): ?MessageSummary
     {
@@ -170,9 +160,8 @@ class GetItemResponse implements ResponseInterface
 
     /**
      * @SerializedName("chat")
-     * @Type("Zimbra\Mail\Struct\ChatSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getChatItem(): ?ChatSummary
     {

@@ -612,7 +612,7 @@ class FilterTests
     public function setHeaderExistsTests(array $tests): self
     {
         $this->headerExistsTests = array_filter($tests, static fn ($test) => $test instanceof HeaderExistsTest);
-        return $this
+        return $this;
     }
 
     /**

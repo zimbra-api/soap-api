@@ -24,11 +24,11 @@ class CreateDataSourceTest extends ZimbraTestCase
 
         $attr = new Attr($key, $value);
         $ds = new DataSourceSpecifier(DataSourceType::IMAP(), $name, [$attr]);
-        $request = new CreateDataSourceRequest($id, $ds);
+        $request = new CreateDataSourceRequest($ds, $id);
         $this->assertSame($id, $request->getId());
         $this->assertSame($ds, $request->getDataSource());
 
-        $request = new CreateDataSourceRequest('', new DataSourceSpecifier(DataSourceType::IMAP(), ''));
+        $request = new CreateDataSourceRequest(new DataSourceSpecifier());
         $request->setId($id)
             ->setDataSource($ds);
         $this->assertSame($id, $request->getId());
@@ -38,7 +38,7 @@ class CreateDataSourceTest extends ZimbraTestCase
         $response = new CreateDataSourceResponse($dsInfo);
         $this->assertSame($dsInfo, $response->getDataSource());
 
-        $response = new CreateDataSourceResponse(new DataSourceInfo('', '', DataSourceType::POP3()));
+        $response = new CreateDataSourceResponse(new DataSourceInfo());
         $response->setDataSource($dsInfo);
         $this->assertSame($dsInfo, $response->getDataSource());
 

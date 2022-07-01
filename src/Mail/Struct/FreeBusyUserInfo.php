@@ -202,10 +202,6 @@ class FreeBusyUserInfo
     /**
      * Gets no data slots
      *
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyNODATAslot>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="n", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getNodataSlots(): array

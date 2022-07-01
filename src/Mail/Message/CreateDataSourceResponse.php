@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty, XmlElement};
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\{
     ImapDataSourceId,
@@ -57,6 +57,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("imap")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getImapDataSource(): ?ImapDataSourceId
     {
@@ -66,6 +67,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("pop3")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getPop3DataSource(): ?Pop3DataSourceId
     {
@@ -84,6 +86,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("yab")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getYabDataSource(): ?YabDataSourceId
     {
@@ -93,6 +96,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("rss")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getRssDataSource(): ?RssDataSourceId
     {
@@ -102,6 +106,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("gal")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getGalDataSource(): ?GalDataSourceId
     {
@@ -111,6 +116,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("cal")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getCalDataSource(): ?CalDataSourceId
     {
@@ -120,6 +126,7 @@ class CreateDataSourceResponse implements ResponseInterface
     /**
      * @SerializedName("unknown")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getUnknownDataSource(): ?UnknownDataSourceId
     {

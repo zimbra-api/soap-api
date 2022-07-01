@@ -26,7 +26,7 @@ class CreateZimletTest extends ZimbraTestCase
         $request = new CreateZimletRequest($name);
         $this->assertSame($name, $request->getName());
 
-        $request = new CreateZimletRequest('');
+        $request = new CreateZimletRequest();
         $request->setName($name)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
@@ -34,7 +34,7 @@ class CreateZimletTest extends ZimbraTestCase
         $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
         $response = new CreateZimletResponse($zimlet);
         $this->assertSame($zimlet, $response->getZimlet());
-        $response = new CreateZimletResponse(new ZimletInfo('', ''));
+        $response = new CreateZimletResponse();
         $response->setZimlet($zimlet);
         $this->assertSame($zimlet, $response->getZimlet());
 
@@ -65,7 +65,7 @@ class CreateZimletTest extends ZimbraTestCase
         <urn:CreateZimletResponse>
             <urn:zimlet name="$name" id="$id" hasKeyword="$hasKeyword">
                 <urn:a n="$key">$value</urn:a>
-            </zimlet>
+            </urn:zimlet>
         </urn:CreateZimletResponse>
     </soap:Body>
 </soap:Envelope>

@@ -68,7 +68,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     public function __construct(
         string $attr = '',
         ?Operator $op = NULL,
-        string $value,
+        string $value = '',
         ?bool $not = NULL
     )
     {

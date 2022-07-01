@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty};
+use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty, XmlElement};
 use Zimbra\Common\Struct\DataSource;
 use Zimbra\Mail\Struct\{
     MailImapDataSource,
@@ -61,6 +61,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("imap")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getImapDataSource(): ?MailImapDataSource
     {
@@ -70,6 +71,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("pop3")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getPop3DataSource(): ?MailPop3DataSource
     {
@@ -79,6 +81,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("caldav")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getCaldavDataSource(): ?MailCaldavDataSource
     {
@@ -88,6 +91,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("yab")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getYabDataSource(): ?MailYabDataSource
     {
@@ -97,6 +101,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("rss")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getRssDataSource(): ?MailRssDataSource
     {
@@ -106,6 +111,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("gal")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getGalDataSource(): ?MailGalDataSource
     {
@@ -115,6 +121,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("cal")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getCalDataSource(): ?MailCalDataSource
     {
@@ -124,6 +131,7 @@ class CreateDataSourceRequest extends Request
     /**
      * @SerializedName("unknown")
      * @VirtualProperty
+     * @XmlElement(namespace="urn:zimbraMail")
      */
     public function getUnknownDataSource(): ?MailUnknownDataSource
     {

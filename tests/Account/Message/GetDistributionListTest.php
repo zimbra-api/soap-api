@@ -97,7 +97,7 @@ class GetDistributionListTest extends ZimbraTestCase
                 </urn:owners>
                 <urn:rights>
                     <urn:right right="$name">
-                        <grantee type="usr" id="$id" name="$name" />
+                        <urn:grantee type="usr" id="$id" name="$name" />
                     </urn:right>
                 </urn:rights>
             </urn:dl>

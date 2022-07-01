@@ -32,7 +32,7 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
         $multiConds = new EntrySearchFilterMultiCond(FALSE, TRUE, [$singleCond]);
         $conds = new EntrySearchFilterMultiCond(TRUE, FALSE, [$cond, $multiConds]);
 
-        $filter = new EntrySearchFilterInfo($conds);
+        $filter = new MockEntrySearchFilterInfo($conds);
         $this->assertSame($conds, $filter->getConditions());
         $filter->setCondition($conds);
         $this->assertSame($conds, $filter->getConditions());
@@ -40,7 +40,7 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result xmlns:urn="urn:zimbraAccount">
-    <urn:onds not="true" or="false">
+    <urn:conds not="true" or="false">
         <urn:conds not="false" or="true">
             <urn:cond attr="$attr" op="ge" value="$value" not="false" />
         </urn:conds>

@@ -97,7 +97,7 @@ class DumpSessionsTest extends ZimbraTestCase
                     <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
                 </urn:zid>
                 <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />
-            </soap>
+            </urn:soap>
             <urn:imap activeAccounts="$activeAccounts" activeSessions="$activeSessions">
                 <urn:zid name="$name" id="$id">
                     <urn:s zid="$zimbraId" name="$name" sid="$sessionId" cd="$createdDate" ld="$lastAccessedDate" />

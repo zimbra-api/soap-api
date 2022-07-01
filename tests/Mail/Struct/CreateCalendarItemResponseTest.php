@@ -104,8 +104,8 @@ class CreateCalendarItemResponseTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
-    <urn:m id="$id" xmlns:urn="urn:zimbraMail" />
+<result calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision" xmlns:urn="urn:zimbraMail">
+    <urn:m id="$id" />
     <urn:echo>
         <urn:m id="$id" part="$part" sd="$sentDate">
             <urn:e a="$address" d="$display" p="$personal" t="t" />

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
+use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlList};
 use Zimbra\Admin\Struct\DomainAdminRight as Right;
 use Zimbra\Admin\Struct\PackageRightsInfo as Package;
 use Zimbra\Soap\ResponseInterface;
