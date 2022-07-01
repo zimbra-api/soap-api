@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlAttribute, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * FreeBusyUserInfo struct class
@@ -26,6 +26,7 @@ class FreeBusyUserInfo
     /**
      * Account identifier (email or id)
      * "id" is always account email; it is not zimbraId as the attribute name may suggest
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,10 +35,49 @@ class FreeBusyUserInfo
     private $id;
 
     /**
-     * Free/Busy slots
-     * @Exclude
+     * Free slots
+     * 
+     * @Accessor(getter="getFreeSlots", setter="setFreeSlots")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyFREEslot>")
+     * @XmlList(inline=true, entry="f", namespace="urn:zimbraMail")
      */
-    private $elements = [];
+    private $freeSlots = [];
+
+    /**
+     * Busy slots
+     * 
+     * @Accessor(getter="getBusySlots", setter="setBusySlots")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYslot>")
+     * @XmlList(inline=true, entry="b", namespace="urn:zimbraMail")
+     */
+    private $busySlots = [];
+
+    /**
+     * Tentative slots
+     * 
+     * @Accessor(getter="getTentativeSlots", setter="setTentativeSlots")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>")
+     * @XmlList(inline=true, entry="t", namespace="urn:zimbraMail")
+     */
+    private $tentativeSlots = [];
+
+    /**
+     * Unavailable slots
+     * 
+     * @Accessor(getter="getUnavailableSlots", setter="setUnavailableSlots")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>")
+     * @XmlList(inline=true, entry="u", namespace="urn:zimbraMail")
+     */
+    private $unavailableSlots = [];
+
+    /**
+     * No data slots
+     * 
+     * @Accessor(getter="getNodataSlots", setter="setNodataSlots")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyNODATAslot>")
+     * @XmlList(inline=true, entry="n", namespace="urn:zimbraMail")
+     */
+    private $nodataSlots = [];
 
     /**
      * Constructor method for FreeBusyUserInfo
@@ -77,57 +117,86 @@ class FreeBusyUserInfo
     /**
      * Gets free slots
      *
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyFREEslot>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="f", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getFreeSlots(): array
     {
-        return array_filter($this->elements, static fn ($slot) => $slot instanceof FreeBusyFREEslot);
+        return $this->freeSlots;
+    }
+
+    /**
+     * Sets free slots
+     *
+     * @return self
+     */
+    public function setFreeSlots(array $slots): self
+    {
+        $this->freeSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyFREEslot);
+        return $this;
     }
 
     /**
      * Gets busy slots
      *
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYslot>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="b", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getBusySlots(): array
     {
-        return array_filter($this->elements, static fn ($slot) => $slot instanceof FreeBusyBUSYslot);
+        return $this->busySlots;
+    }
+
+    /**
+     * Sets busy slots
+     *
+     * @return self
+     */
+    public function setBusySlots(array $slots): self
+    {
+        $this->busySlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYslot);
+        return $this;
     }
 
     /**
      * Gets tentative slots
      *
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="t", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getTentativeSlots(): array
     {
-        return array_filter($this->elements, static fn ($slot) => $slot instanceof FreeBusyBUSYTENTATIVEslot);
+        return $this->tentativeSlots;
+    }
+
+    /**
+     * Sets tentative slots
+     *
+     * @return self
+     */
+    public function setTentativeSlots(array $slots): self
+    {
+        $this->tentativeSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYTENTATIVEslot);
+        return $this;
     }
 
     /**
      * Gets unavailable slots
      *
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>")
-     * @VirtualProperty
-     * @XmlList(inline=true, entry="u", namespace="urn:zimbraMail")
-     *
      * @return array
      */
     public function getUnavailableSlots(): array
     {
-        return array_filter($this->elements, static fn ($slot) => $slot instanceof FreeBusyBUSYUNAVAILABLEslot);
+        return $this->unavailableSlots;
+    }
+
+    /**
+     * Sets unavailable slots
+     *
+     *
+     * @return self
+     */
+    public function setUnavailableSlots(array $slots): self
+    {
+        $this->unavailableSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyBUSYUNAVAILABLEslot);
+        return $this;
     }
 
     /**
@@ -141,51 +210,75 @@ class FreeBusyUserInfo
      */
     public function getNodataSlots(): array
     {
-        return array_filter($this->elements, static fn ($slot) => $slot instanceof FreeBusyNODATAslot);
+        return $this->nodataSlots;
     }
 
     /**
-     * Add dataSource
+     * Sets no data slots
      *
-     * @param  FreeBusySlot $dataSource
      * @return self
      */
-    public function addElement(FreeBusySlot $dataSource): self
+    public function setNodataSlots(array $slots): self
     {
-        $this->elements[] = $dataSource;
+        $this->nodataSlots = array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyNODATAslot);
         return $this;
     }
 
     /**
-     * Set elements
+     * Add free busy slot
+     *
+     * @param  FreeBusySlot $element
+     * @return self
+     */
+    public function addElement(FreeBusySlot $element): self
+    {
+        if ($element instanceof FreeBusyFREEslot) {
+            $this->freeSlots[] = $element;
+        }
+        if ($element instanceof FreeBusyBUSYslot) {
+            $this->busySlots[] = $element;
+        }
+        if ($element instanceof FreeBusyBUSYTENTATIVEslot) {
+            $this->tentativeSlots[] = $element;
+        }
+        if ($element instanceof FreeBusyBUSYUNAVAILABLEslot) {
+            $this->unavailableSlots[] = $element;
+        }
+        if ($element instanceof FreeBusyNODATAslot) {
+            $this->nodataSlots[] = $element;
+        }
+        return $this;
+    }
+
+    /**
+     * Set free busy slots
      *
      * @param  array $elements
      * @return self
      */
     public function setElements(array $elements): self
     {
-        $this->elements = array_filter($elements, static fn ($source) => $source instanceof FreeBusySlot);
+        $this->setFreeSlots($elements)
+             ->setBusySlots($elements)
+             ->setTentativeSlots($elements)
+             ->setUnavailableSlots($elements)
+             ->setNodataSlots($elements);
         return $this;
     }
 
     /**
-     * Gets elements
+     * Gets free busy slots
      *
      * @return array
      */
     public function getElements(): array
     {
-        return $this->elements;
-    }
-
-    public static function elementTypes(): array
-    {
-        return [
-            'f' => FreeBusyFREEslot::class,
-            'b' => FreeBusyBUSYslot::class,
-            't' => FreeBusyBUSYTENTATIVEslot::class,
-            'u' => FreeBusyBUSYUNAVAILABLEslot::class,
-            'n' => FreeBusyNODATAslot::class,
-        ];
+        return array_values(array_merge(
+            $this->freeSlots,
+            $this->busySlots,
+            $this->tentativeSlots,
+            $this->unavailableSlots,
+            $this->nodataSlots
+        ));
     }
 }

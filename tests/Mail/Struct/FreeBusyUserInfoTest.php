@@ -4,9 +4,6 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Struct\FreeBusyUserInfo;
 use Zimbra\Mail\Struct\FreeBusyFREEslot;
 use Zimbra\Mail\Struct\FreeBusyBUSYslot;
@@ -21,12 +18,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class FreeBusyUserInfoTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testFreeBusyUserInfo()
     {
         $id = $this->faker->uuid;
@@ -47,7 +38,7 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
         $unavailableSlot = new FreeBusyBUSYUNAVAILABLEslot(
             $startTime, $endTime, $id, $subject, $location, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE
         );
-        $noDataSlot = new FreeBusyNODATAslot(
+        $nodataSlot = new FreeBusyNODATAslot(
             $startTime, $endTime, $id, $subject, $location, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE
         );
 
@@ -56,7 +47,7 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
             $busySlot,
             $tentativeSlot,
             $unavailableSlot,
-            $noDataSlot,
+            $nodataSlot,
         ]);
         $this->assertSame($id, $usr->getId());
         $this->assertSame([
@@ -64,7 +55,7 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
             $busySlot,
             $tentativeSlot,
             $unavailableSlot,
-            $noDataSlot,
+            $nodataSlot,
         ], $usr->getElements());
 
         $usr = new StubFreeBusyUserInfo();
@@ -75,14 +66,14 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
                 $tentativeSlot,
                 $unavailableSlot,
             ])
-            ->addElement($noDataSlot);
+            ->addElement($nodataSlot);
         $this->assertSame($id, $usr->getId());
         $this->assertSame([
             $freeSlot,
             $busySlot,
             $tentativeSlot,
             $unavailableSlot,
-            $noDataSlot,
+            $nodataSlot,
         ], $usr->getElements());
 
         $xml = <<<EOT

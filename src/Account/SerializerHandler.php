@@ -15,7 +15,6 @@ use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\Visitor\SerializationVisitorInterface as SerializationVisitor;
 use JMS\Serializer\Visitor\DeserializationVisitorInterface as DeserializationVisitor;
 
-use Zimbra\Account\Struct\AccountDataSources;
 use Zimbra\Account\Struct\EntrySearchFilterMultiCond as MultiCond;
 use Zimbra\Account\Struct\EntrySearchFilterSingleCond as SingleCond;
 use Zimbra\Common\SerializerFactory;
@@ -39,27 +38,10 @@ final class SerializerHandler implements SubscribingHandlerInterface
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => self::SERIALIZE_FORMAT,
-                'type' => AccountDataSources::class,
-                'method' => 'xmlDeserializeAccountDataSources',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
                 'type' => MultiCond::class,
                 'method' => 'xmlDeserializeSearchFilterMultiCond',
             ],
         ];
-    }
-
-    public function xmlDeserializeAccountDataSources(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): AccountDataSources
-    {
-        $serializer = SerializerFactory::create();
-        $types = AccountDataSources::dataSourceTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-        return new AccountDataSources(array_values($dataSources));
     }
 
     public function xmlDeserializeSearchFilterMultiCond(

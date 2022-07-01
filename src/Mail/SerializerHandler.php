@@ -20,15 +20,7 @@ use Zimbra\Common\Enum\FilterCondition;
 use Zimbra\Mail\Message\{
     CreateDataSourceRequest,
     CreateDataSourceResponse,
-    DeleteDataSourceRequest,
-    GetDataSourcesResponse,
-    GetImportStatusResponse,
     GetItemResponse
-};
-use Zimbra\Mail\Struct\{
-    FilterActions,
-    FilterTests,
-    FreeBusyUserInfo
 };
 
 /**
@@ -61,44 +53,8 @@ final class SerializerHandler implements SubscribingHandlerInterface
             [
                 'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
                 'format' => self::SERIALIZE_FORMAT,
-                'type' => DeleteDataSourceRequest::class,
-                'method' => 'xmlDeserializeDeleteDataSourceRequest',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => GetDataSourcesResponse::class,
-                'method' => 'xmlDeserializeGetDataSourcesResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => GetImportStatusResponse::class,
-                'method' => 'xmlDeserializeGetImportStatusResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
                 'type' => GetItemResponse::class,
                 'method' => 'xmlDeserializeGetItemResponse',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => FilterActions::class,
-                'method' => 'xmlDeserializeFilterActions',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => FilterTests::class,
-                'method' => 'xmlDeserializeFilterTests',
-            ],
-            [
-                'direction' => GraphNavigator::DIRECTION_DESERIALIZATION,
-                'format' => self::SERIALIZE_FORMAT,
-                'type' => FreeBusyUserInfo::class,
-                'method' => 'xmlDeserializeFreeBusyUserInfo',
             ],
         ];
     }
@@ -142,39 +98,6 @@ final class SerializerHandler implements SubscribingHandlerInterface
 
     }
 
-    public function xmlDeserializeDeleteDataSourceRequest(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): DeleteDataSourceRequest
-    {
-        $serializer = SerializerFactory::create();
-        $types = DeleteDataSourceRequest::dataSourceTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new DeleteDataSourceRequest(array_values($dataSources));
-    }
-
-    public function xmlDeserializeGetDataSourcesResponse(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): GetDataSourcesResponse
-    {
-        $serializer = SerializerFactory::create();
-        $types = GetDataSourcesResponse::dataSourceTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $dataSources = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new GetDataSourcesResponse(array_values($dataSources));
-    }
-
-    public function xmlDeserializeGetImportStatusResponse(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): GetImportStatusResponse
-    {
-        $serializer = SerializerFactory::create();
-        $types = GetImportStatusResponse::statusTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $statuses = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], 'xml'), $children);
-        return new GetImportStatusResponse(array_values($statuses));
-    }
-
     public function xmlDeserializeGetItemResponse(
         DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
     ): GetItemResponse
@@ -192,57 +115,5 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
         return $response;
-
-    }
-
-    public function xmlDeserializeFilterActions(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): FilterActions
-    {
-        $serializer = SerializerFactory::create();
-        $types = FilterActions::filterActionTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $actions = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-        return new FilterActions(array_values($actions));
-    }
-
-    public function xmlDeserializeFilterTests(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): FilterTests
-    {
-        $serializer = SerializerFactory::create();
-        $filterTests = new FilterTests();
-        foreach ($data->attributes() as $key => $value) {
-            if ($key == 'condition') {
-                $filterTests->setCondition(new FilterCondition((string) $value));
-            }
-        }
-
-        $types = FilterTests::filterTestTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $tests = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-        $filterTests->setTests(array_values($tests));
-        return $filterTests;
-
-    }
-
-    public function xmlDeserializeFreeBusyUserInfo(
-        DeserializationVisitor $visitor, \SimpleXMLElement $data, array $type, Context $context
-    ): FreeBusyUserInfo
-    {
-        $serializer = SerializerFactory::create();
-        $types = FreeBusyUserInfo::elementTypes();
-        $children = array_filter(iterator_to_array($data->children()), static fn ($child) => !empty($types[$child->getName()]));
-        $elements = array_map(static fn ($child) => $serializer->deserialize($child->asXml(), $types[$child->getName()], self::SERIALIZE_FORMAT), $children);
-
-        $id = '';
-        foreach ($data->attributes() as $key => $value) {
-            if ($key == 'id') {
-                $id = (string) $value;
-                break;
-            }
-        }
-
-        return new FreeBusyUserInfo($id, array_values($elements));
     }
 }
