@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty, XmlElement};
-use Zimbra\Common\Struct\DataSource;
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\{
     MailImapDataSource,
     MailPop3DataSource,
@@ -39,19 +38,92 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 class CreateDataSourceRequest extends Request
 {
     /**
-     * The data source
+     * Imap data source
      * 
-     * @Exclude
+     * @Accessor(getter="getImapDataSource", setter="setDataSource")
+     * @SerializedName("imap")
+     * @Type("Zimbra\Mail\Struct\MailImapDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?DataSource $dataSource = NULL;
+    private ?MailImapDataSource $imapDataSource = NULL;
+
+    /**
+     * Pop3 data source
+     * 
+     * @Accessor(getter="getPop3DataSource", setter="setDataSource")
+     * @SerializedName("pop3")
+     * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailPop3DataSource $pop3DataSource = NULL;
+
+    /**
+     * Caldav data source
+     * 
+     * @Accessor(getter="getCaldavDataSource", setter="setDataSource")
+     * @SerializedName("caldav")
+     * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailCaldavDataSource $caldavDataSource = NULL;
+
+    /**
+     * Yab data source
+     * 
+     * @Accessor(getter="getYabDataSource", setter="setDataSource")
+     * @SerializedName("yab")
+     * @Type("Zimbra\Mail\Struct\MailYabDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailYabDataSource $yabDataSource = NULL;
+
+    /**
+     * Rss data source
+     * 
+     * @Accessor(getter="getRssDataSource", setter="setDataSource")
+     * @SerializedName("rss")
+     * @Type("Zimbra\Mail\Struct\MailRssDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailRssDataSource $rssDataSource = NULL;
+
+    /**
+     * Gal data source
+     * 
+     * @Accessor(getter="getGalDataSource", setter="setDataSource")
+     * @SerializedName("gal")
+     * @Type("Zimbra\Mail\Struct\MailGalDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailGalDataSource $galDataSource = NULL;
+
+    /**
+     * Cal data source
+     * 
+     * @Accessor(getter="getCalDataSource", setter="setDataSource")
+     * @SerializedName("cal")
+     * @Type("Zimbra\Mail\Struct\MailCalDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailCalDataSource $calDataSource = NULL;
+
+    /**
+     * Unknown data source
+     * 
+     * @Accessor(getter="getUnknownDataSource", setter="setDataSource")
+     * @SerializedName("unknown")
+     * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MailUnknownDataSource $unknownDataSource = NULL;
 
     /**
      * Constructor method for CreateDataSourceRequest
      *
-     * @param  DataSource $dataSource
+     * @param  MailDataSource $dataSource
      * @return self
      */
-    public function __construct(?DataSource $dataSource = NULL)
+    public function __construct(?MailDataSource $dataSource = NULL)
     {
         if ($dataSource instanceof MailDataSource) {
             $this->setDataSource($dataSource);
@@ -59,119 +131,126 @@ class CreateDataSourceRequest extends Request
     }
 
     /**
-     * @SerializedName("imap")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get imap data source
+     * 
+     * @return MailImapDataSource
      */
     public function getImapDataSource(): ?MailImapDataSource
     {
-        return ($this->dataSource instanceof MailImapDataSource) ? $this->dataSource : NULL;
+        return $this->imapDataSource;
     }
 
     /**
-     * @SerializedName("pop3")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get pop3 data source
+     * 
+     * @return MailPop3DataSource
      */
     public function getPop3DataSource(): ?MailPop3DataSource
     {
-        return ($this->dataSource instanceof MailPop3DataSource) ? $this->dataSource : NULL;
+        return $this->pop3DataSource;
     }
 
     /**
-     * @SerializedName("caldav")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get caldav data source
+     * 
+     * @return MailCaldavDataSource
      */
     public function getCaldavDataSource(): ?MailCaldavDataSource
     {
-        return ($this->dataSource instanceof MailCaldavDataSource) ? $this->dataSource : NULL;
+        return $this->caldavDataSource;
     }
 
     /**
-     * @SerializedName("yab")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get yab data source
+     * 
+     * @return MailYabDataSource
      */
     public function getYabDataSource(): ?MailYabDataSource
     {
-        return ($this->dataSource instanceof MailYabDataSource) ? $this->dataSource : NULL;
+        return $this->yabDataSource;
     }
 
     /**
-     * @SerializedName("rss")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get rss data source
+     * 
+     * @return MailRssDataSource
      */
     public function getRssDataSource(): ?MailRssDataSource
     {
-        return ($this->dataSource instanceof MailRssDataSource) ? $this->dataSource : NULL;
+        return $this->rssDataSource;
     }
 
     /**
-     * @SerializedName("gal")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get gal data source
+     * 
+     * @return MailGalDataSource
      */
     public function getGalDataSource(): ?MailGalDataSource
     {
-        return ($this->dataSource instanceof MailGalDataSource) ? $this->dataSource : NULL;
+        return $this->galDataSource;
     }
 
     /**
-     * @SerializedName("cal")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get cal data source
+     * 
+     * @return MailCalDataSource
      */
     public function getCalDataSource(): ?MailCalDataSource
     {
-        return ($this->dataSource instanceof MailCalDataSource) ? $this->dataSource : NULL;
+        return $this->calDataSource;
     }
 
     /**
-     * @SerializedName("unknown")
-     * @VirtualProperty
-     * @XmlElement(namespace="urn:zimbraMail")
+     * Get unknown data source
+     * 
+     * @return MailUnknownDataSource
      */
     public function getUnknownDataSource(): ?MailUnknownDataSource
     {
-        return ($this->dataSource instanceof MailUnknownDataSource) ? $this->dataSource : NULL;
-    }
-
-    /**
-     * Gets dataSource
-     *
-     * @return DataSource
-     */
-    public function getDataSource(): ?DataSource
-    {
-        return $this->dataSource;
+        return $this->unknownDataSource;
     }
 
     /**
      * Sets dataSource
      *
-     * @param  DataSource $dataSource
+     * @param  MailDataSource $dataSource
      * @return self
      */
-    public function setDataSource(DataSource $dataSource): self
+    public function setDataSource(MailDataSource $dataSource): self
     {
-        $this->dataSource = $dataSource;
+        $this->imapDataSource =
+        $this->pop3DataSource =
+        $this->caldavDataSource =
+        $this->yabDataSource =
+        $this->rssDataSource =
+        $this->galDataSource =
+        $this->calDataSource =
+        $this->unknownDataSource = NULL;
+        if ($dataSource instanceof MailImapDataSource) {
+            $this->imapDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailPop3DataSource) {
+            $this->pop3DataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailCaldavDataSource) {
+            $this->caldavDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailYabDataSource) {
+            $this->yabDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailRssDataSource) {
+            $this->rssDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailGalDataSource) {
+            $this->galDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailCalDataSource) {
+            $this->calDataSource = $dataSource;
+        }
+        if ($dataSource instanceof MailUnknownDataSource) {
+            $this->unknownDataSource = $dataSource;
+        }
         return $this;
-    }
-
-    public static function dataSourceTypes(): array
-    {
-        return [
-            'imap' => MailImapDataSource::class,
-            'pop3' => MailPop3DataSource::class,
-            'caldav' => MailCaldavDataSource::class,
-            'yab' => MailYabDataSource::class,
-            'rss' => MailRssDataSource::class,
-            'gal' => MailGalDataSource::class,
-            'cal' => MailCalDataSource::class,
-            'unknown' => MailUnknownDataSource::class,
-        ];
     }
 
     /**

@@ -29,6 +29,7 @@ class SyncGalAccountSpecTest extends ZimbraTestCase
 
         $sync = new StubSyncGalAccountSpec();
         $sync->setId($id)
+             ->setDataSources([$ds1])
              ->addDataSource($ds2);
         $this->assertSame($id, $sync->getId());
         $this->assertSame([$ds1, $ds2], $sync->getDataSources());
