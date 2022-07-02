@@ -25,12 +25,12 @@ class DeleteDataSourceTest extends ZimbraTestCase
         $attr = new Attr($key, $value);
 
         $request = new DeleteDataSourceRequest(
-            $id, $dataSource, [$attr]
+            $dataSource, $id, [$attr]
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($dataSource, $request->getDataSource());
         $request = new DeleteDataSourceRequest(
-            $id, new Id(''), [$attr]
+            new Id(), $id, [$attr]
         );
         $request->setId($id)
             ->setDataSource($dataSource);

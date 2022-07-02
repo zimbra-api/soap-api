@@ -133,9 +133,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setImapStatuses(array $statuss): self
+    public function setImapStatuses(array $statuses): self
     {
-        $this->imapStatuses = array_filter($statuss, static fn ($imap) => $imap instanceof ImapImportStatusInfo);
+        $this->imapStatuses = array_values(
+            array_filter($statuses, static fn ($imap) => $imap instanceof ImapImportStatusInfo)
+        );
         return $this;
     }
 
@@ -154,9 +156,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setPop3Statuses(array $statuss): self
+    public function setPop3Statuses(array $statuses): self
     {
-        $this->pop3Statuses = array_filter($statuss, static fn ($pop3) => $pop3 instanceof Pop3ImportStatusInfo);
+        $this->pop3Statuses = array_values(
+            array_filter($statuses, static fn ($pop3) => $pop3 instanceof Pop3ImportStatusInfo)
+        );
         return $this;
     }
 
@@ -175,9 +179,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setCaldavStatuses(array $statuss): self
+    public function setCaldavStatuses(array $statuses): self
     {
-        $this->caldavStatuses = array_filter($statuss, static fn ($caldav) => $caldav instanceof CaldavImportStatusInfo);
+        $this->caldavStatuses = array_values(
+            array_filter($statuses, static fn ($caldav) => $caldav instanceof CaldavImportStatusInfo)
+        );
         return $this;
     }
 
@@ -196,9 +202,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setYabStatuses(array $statuss): self
+    public function setYabStatuses(array $statuses): self
     {
-        $this->yabStatuses = array_filter($statuss, static fn ($yab) => $yab instanceof YabImportStatusInfo);
+        $this->yabStatuses = array_values(
+            array_filter($statuses, static fn ($yab) => $yab instanceof YabImportStatusInfo)
+        );
         return $this;
     }
 
@@ -217,9 +225,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setRssStatuses(array $statuss): self
+    public function setRssStatuses(array $statuses): self
     {
-        $this->rssStatuses = array_filter($statuss, static fn ($rss) => $rss instanceof RssImportStatusInfo);
+        $this->rssStatuses = array_values(
+            array_filter($statuses, static fn ($rss) => $rss instanceof RssImportStatusInfo)
+        );
         return $this;
     }
 
@@ -238,10 +248,12 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setGalStatuses(array $statuss): self
+    public function setGalStatuses(array $statuses): self
     {
-        $this->galStatuses = array_filter($statuss, static fn ($gal) => $gal instanceof GalImportStatusInfo);
-        return $this
+        $this->galStatuses = array_values(
+            array_filter($statuses, static fn ($gal) => $gal instanceof GalImportStatusInfo)
+        );
+        return $this;
     }
 
     /**
@@ -259,9 +271,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setCalStatuses(array $statuss): self
+    public function setCalStatuses(array $statuses): self
     {
-        $this->calStatuses = array_filter($statuss, static fn ($cal) => $cal instanceof CalImportStatusInfo);
+        $this->calStatuses = array_values(
+            array_filter($statuses, static fn ($cal) => $cal instanceof CalImportStatusInfo)
+        );
         return $this;
     }
 
@@ -280,9 +294,11 @@ class GetImportStatusResponse implements ResponseInterface
      *
      * @return self
      */
-    public function setUnknownStatuses(array $statuss): self
+    public function setUnknownStatuses(array $statuses): self
     {
-        $this->unknownStatuses = array_filter($statuss, static fn ($unknown) => $unknown instanceof UnknownImportStatusInfo);
+        $this->unknownStatuses = array_values(
+            array_filter($statuses, static fn ($unknown) => $unknown instanceof UnknownImportStatusInfo)
+        );
         return $this;
     }
 
@@ -318,7 +334,6 @@ class GetImportStatusResponse implements ResponseInterface
         if ($status instanceof UnknownImportStatusInfo) {
             $this->unknownStatuses[] = $status;
         }
-        $this->statuses[] = $status;
         return $this;
     }
 

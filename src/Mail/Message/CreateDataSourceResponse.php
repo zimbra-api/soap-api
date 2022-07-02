@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, VirtualProperty};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\{
     ImapDataSourceId,
@@ -36,10 +36,84 @@ use Zimbra\Soap\ResponseInterface;
 class CreateDataSourceResponse implements ResponseInterface
 {
     /**
-     * ID information for the created data source
-     * @Exclude
+     * Imap data source
+     * 
+     * @Accessor(getter="getImapDataSource", setter="setDataSource")
+     * @SerializedName("imap")
+     * @Type("Zimbra\Mail\Struct\ImapDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?Id $dataSource = NULL;
+    private ?ImapDataSourceId $imapDataSource = NULL;
+
+    /**
+     * Pop3 data source
+     * 
+     * @Accessor(getter="getPop3DataSource", setter="setDataSource")
+     * @SerializedName("pop3")
+     * @Type("Zimbra\Mail\Struct\Pop3DataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?Pop3DataSourceId $pop3DataSource = NULL;
+
+    /**
+     * Caldav data source
+     * 
+     * @Accessor(getter="getCaldavDataSource", setter="setDataSource")
+     * @SerializedName("caldav")
+     * @Type("Zimbra\Mail\Struct\CaldavDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?CaldavDataSourceId $caldavDataSource = NULL;
+
+    /**
+     * Yab data source
+     * 
+     * @Accessor(getter="getYabDataSource", setter="setDataSource")
+     * @SerializedName("yab")
+     * @Type("Zimbra\Mail\Struct\YabDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?YabDataSourceId $yabDataSource = NULL;
+
+    /**
+     * Rss data source
+     * 
+     * @Accessor(getter="getRssDataSource", setter="setDataSource")
+     * @SerializedName("rss")
+     * @Type("Zimbra\Mail\Struct\RssDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?RssDataSourceId $rssDataSource = NULL;
+
+    /**
+     * Gal data source
+     * 
+     * @Accessor(getter="getGalDataSource", setter="setDataSource")
+     * @SerializedName("gal")
+     * @Type("Zimbra\Mail\Struct\GalDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?GalDataSourceId $galDataSource = NULL;
+
+    /**
+     * Cal data source
+     * 
+     * @Accessor(getter="getCalDataSource", setter="setDataSource")
+     * @SerializedName("cal")
+     * @Type("Zimbra\Mail\Struct\CalDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?CalDataSourceId $calDataSource = NULL;
+
+    /**
+     * Unknown data source
+     * 
+     * @Accessor(getter="getUnknownDataSource", setter="setDataSource")
+     * @SerializedName("unknown")
+     * @Type("Zimbra\Mail\Struct\UnknownDataSourceId")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?UnknownDataSourceId $unknownDataSource = NULL;
 
     /**
      * Constructor method for CreateDataSourceResponse
@@ -55,85 +129,83 @@ class CreateDataSourceResponse implements ResponseInterface
     }
 
     /**
-     * @SerializedName("imap")
-     * @VirtualProperty
+     * Get imap data source
+     * 
+     * @return ImapDataSourceId
      */
     public function getImapDataSource(): ?ImapDataSourceId
     {
-        return ($this->dataSource instanceof ImapDataSourceId) ? $this->dataSource : NULL;
+        return $this->imapDataSource;
     }
 
     /**
-     * @SerializedName("pop3")
-     * @VirtualProperty
+     * Get pop3 data source
+     * 
+     * @return Pop3DataSourceId
      */
     public function getPop3DataSource(): ?Pop3DataSourceId
     {
-        return ($this->dataSource instanceof Pop3DataSourceId) ? $this->dataSource : NULL;
+        return $this->pop3DataSource;
     }
 
     /**
-     * @SerializedName("caldav")
-     * @VirtualProperty
+     * Get caldav data source
+     * 
+     * @return CaldavDataSourceId
      */
     public function getCaldavDataSource(): ?CaldavDataSourceId
     {
-        return ($this->dataSource instanceof CaldavDataSourceId) ? $this->dataSource : NULL;
+        return $this->caldavDataSource;
     }
 
     /**
-     * @SerializedName("yab")
-     * @VirtualProperty
+     * Get yab data source
+     * 
+     * @return YabDataSourceId
      */
     public function getYabDataSource(): ?YabDataSourceId
     {
-        return ($this->dataSource instanceof YabDataSourceId) ? $this->dataSource : NULL;
+        return $this->yabDataSource;
     }
 
     /**
-     * @SerializedName("rss")
-     * @VirtualProperty
+     * Get rss data source
+     * 
+     * @return RssDataSourceId
      */
     public function getRssDataSource(): ?RssDataSourceId
     {
-        return ($this->dataSource instanceof RssDataSourceId) ? $this->dataSource : NULL;
+        return $this->rssDataSource;
     }
 
     /**
-     * @SerializedName("gal")
-     * @VirtualProperty
+     * Get gal data source
+     * 
+     * @return GalDataSourceId
      */
     public function getGalDataSource(): ?GalDataSourceId
     {
-        return ($this->dataSource instanceof GalDataSourceId) ? $this->dataSource : NULL;
+        return $this->galDataSource;
     }
 
     /**
-     * @SerializedName("cal")
-     * @VirtualProperty
+     * Get cal data source
+     * 
+     * @return CalDataSourceId
      */
     public function getCalDataSource(): ?CalDataSourceId
     {
-        return ($this->dataSource instanceof CalDataSourceId) ? $this->dataSource : NULL;
+        return $this->calDataSource;
     }
 
     /**
-     * @SerializedName("unknown")
-     * @VirtualProperty
+     * Get unknown data source
+     * 
+     * @return UnknownDataSourceId
      */
     public function getUnknownDataSource(): ?UnknownDataSourceId
     {
-        return ($this->dataSource instanceof UnknownDataSourceId) ? $this->dataSource : NULL;
-    }
-
-    /**
-     * Gets dataSource
-     *
-     * @return Id
-     */
-    public function getDataSource(): ?Id
-    {
-        return $this->dataSource;
+        return $this->unknownDataSource;
     }
 
     /**
@@ -144,21 +216,38 @@ class CreateDataSourceResponse implements ResponseInterface
      */
     public function setDataSource(Id $dataSource): self
     {
-        $this->dataSource = $dataSource;
+        $this->imapDataSource =
+        $this->pop3DataSource =
+        $this->caldavDataSource =
+        $this->yabDataSource =
+        $this->rssDataSource =
+        $this->galDataSource =
+        $this->calDataSource =
+        $this->unknownDataSource = NULL;
+        if ($dataSource instanceof ImapDataSourceId) {
+            $this->imapDataSource = $dataSource;
+        }
+        if ($dataSource instanceof Pop3DataSourceId) {
+            $this->pop3DataSource = $dataSource;
+        }
+        if ($dataSource instanceof CaldavDataSourceId) {
+            $this->caldavDataSource = $dataSource;
+        }
+        if ($dataSource instanceof YabDataSourceId) {
+            $this->yabDataSource = $dataSource;
+        }
+        if ($dataSource instanceof RssDataSourceId) {
+            $this->rssDataSource = $dataSource;
+        }
+        if ($dataSource instanceof GalDataSourceId) {
+            $this->galDataSource = $dataSource;
+        }
+        if ($dataSource instanceof CalDataSourceId) {
+            $this->calDataSource = $dataSource;
+        }
+        if ($dataSource instanceof UnknownDataSourceId) {
+            $this->unknownDataSource = $dataSource;
+        }
         return $this;
-    }
-
-    public static function dataSourceTypes(): array
-    {
-        return [
-            'imap' => ImapDataSourceId::class,
-            'pop3' => Pop3DataSourceId::class,
-            'caldav' => CaldavDataSourceId::class,
-            'yab' => YabDataSourceId::class,
-            'rss' => RssDataSourceId::class,
-            'gal' => GalDataSourceId::class,
-            'cal' => CalDataSourceId::class,
-            'unknown' => UnknownDataSourceId::class,
-        ];
     }
 }

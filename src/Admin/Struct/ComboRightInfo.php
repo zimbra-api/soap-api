@@ -57,7 +57,7 @@ class ComboRightInfo
      * @return self
      */
     public function __construct(
-        string $name, ?RightType $type = NULL, ?string $targetType = NULL
+        string $name = '', ?RightType $type = NULL, ?string $targetType = NULL
     )
     {
         $this->setName($name)

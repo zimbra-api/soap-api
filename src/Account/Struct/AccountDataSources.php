@@ -123,7 +123,9 @@ class AccountDataSources
      */
     public function setImapDataSources(array $dataSources): self
     {
-        $this->imapDataSources = array_filter($dataSources, static fn ($imap) => $imap instanceof AccountImapDataSource);
+        $this->imapDataSources = array_values(
+            array_filter($dataSources, static fn ($imap) => $imap instanceof AccountImapDataSource)
+        );
         return $this;
     }
 
@@ -144,7 +146,9 @@ class AccountDataSources
      */
     public function setPop3DataSources(array $dataSources): self
     {
-        $this->pop3DataSources = array_filter($dataSources, static fn ($pop3) => $pop3 instanceof AccountPop3DataSource);
+        $this->pop3DataSources = array_values(
+            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof AccountPop3DataSource)
+        );
         return $this;
     }
 
@@ -165,7 +169,9 @@ class AccountDataSources
      */
     public function setCaldavDataSources(array $dataSources): self
     {
-        $this->caldavDataSources = array_filter($dataSources, static fn ($caldav) => $caldav instanceof AccountCaldavDataSource);
+        $this->caldavDataSources = array_values(
+            array_filter($dataSources, static fn ($caldav) => $caldav instanceof AccountCaldavDataSource)
+        );
         return $this;
     }
 
@@ -186,7 +192,9 @@ class AccountDataSources
      */
     public function setYabDataSources(array $dataSources): self
     {
-        $this->yabDataSources = array_filter($dataSources, static fn ($yab) => $yab instanceof AccountYabDataSource);
+        $this->yabDataSources = array_values(
+            array_filter($dataSources, static fn ($yab) => $yab instanceof AccountYabDataSource)
+        );
         return $this;
     }
 
@@ -207,7 +215,9 @@ class AccountDataSources
      */
     public function setRssDataSources(array $dataSources): self
     {
-        $this->rssDataSources = array_filter($dataSources, static fn ($rss) => $rss instanceof AccountRssDataSource);
+        $this->rssDataSources = array_values(
+            array_filter($dataSources, static fn ($rss) => $rss instanceof AccountRssDataSource)
+        );
         return $this;
     }
 
@@ -228,7 +238,9 @@ class AccountDataSources
      */
     public function setGalDataSources(array $dataSources): self
     {
-        $this->galDataSources = array_filter($dataSources, static fn ($gal) => $gal instanceof AccountGalDataSource);
+        $this->galDataSources = array_values(
+            array_filter($dataSources, static fn ($gal) => $gal instanceof AccountGalDataSource)
+        );
         return $this;
     }
 
@@ -249,7 +261,9 @@ class AccountDataSources
      */
     public function setCalDataSources(array $dataSources): self
     {
-        $this->calDataSources = array_filter($dataSources, static fn ($cal) => $cal instanceof AccountCalDataSource);
+        $this->calDataSources = array_values(
+            array_filter($dataSources, static fn ($cal) => $cal instanceof AccountCalDataSource)
+        );
         return $this;
     }
 
@@ -270,7 +284,9 @@ class AccountDataSources
      */
     public function setUnknownDataSources(array $dataSources): self
     {
-        $this->unknownDataSources = array_filter($dataSources, static fn ($unknown) => $unknown instanceof AccountUnknownDataSource);
+        $this->unknownDataSources = array_values(
+            array_filter($dataSources, static fn ($unknown) => $unknown instanceof AccountUnknownDataSource)
+        );
         return $this;
     }
 

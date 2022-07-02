@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, Type, VirtualProperty, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 
 use Zimbra\Mail\Struct\{
     Folder,
@@ -40,10 +40,114 @@ use Zimbra\Soap\ResponseInterface;
 class GetItemResponse implements ResponseInterface
 {
     /**
-     * Item
-     * @Exclude
+     * Folder item
+     * 
+     * @Accessor(getter="getFolderItem", setter="setItem")
+     * @SerializedName("folder")
+     * @Type("Zimbra\Mail\Struct\Folder")
+     * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $item;
+    private ?Folder $folderItem = NULL;
+
+    /**
+     * Tag item
+     * 
+     * @Accessor(getter="getTagItem", setter="setItem")
+     * @SerializedName("tag")
+     * @Type("Zimbra\Mail\Struct\TagInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?TagInfo $tagItem = NULL;
+
+    /**
+     * Note item
+     * 
+     * @Accessor(getter="getNoteItem", setter="setItem")
+     * @SerializedName("note")
+     * @Type("Zimbra\Mail\Struct\NoteInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?NoteInfo $noteItem = NULL;
+
+    /**
+     * Contact item
+     * 
+     * @Accessor(getter="getContactItem", setter="setItem")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ContactInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?ContactInfo $contactItem = NULL;
+
+    /**
+     * Calendar item
+     * 
+     * @Accessor(getter="getApptItem", setter="setItem")
+     * @SerializedName("appt")
+     * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?CalendarItemInfo $apptItem = NULL;
+
+    /**
+     * Task item
+     * 
+     * @Accessor(getter="getTaskItem", setter="setItem")
+     * @SerializedName("task")
+     * @Type("Zimbra\Mail\Struct\TaskItemInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?TaskItemInfo $taskItem = NULL;
+
+    /**
+     * Conversation item
+     * 
+     * @Accessor(getter="getConvItem", setter="setItem")
+     * @SerializedName("c")
+     * @Type("Zimbra\Mail\Struct\ConversationSummary")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?ConversationSummary $convItem = NULL;
+
+    /**
+     * Wiki item
+     * 
+     * @Accessor(getter="getWikiItem", setter="setItem")
+     * @SerializedName("w")
+     * @Type("Zimbra\Mail\Struct\CommonDocumentInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?CommonDocumentInfo $wikiItem = NULL;
+
+    /**
+     * Document item
+     * 
+     * @Accessor(getter="getDocItem", setter="setItem")
+     * @SerializedName("doc")
+     * @Type("Zimbra\Mail\Struct\DocumentInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?DocumentInfo $docItem = NULL;
+
+    /**
+     * Message item
+     * 
+     * @Accessor(getter="getMsgItem", setter="setItem")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\MessageSummary")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?MessageSummary $msgItem = NULL;
+
+    /**
+     * Chat item
+     * 
+     * @Accessor(getter="getChatItem", setter="setItem")
+     * @SerializedName("chat")
+     * @Type("Zimbra\Mail\Struct\ChatSummary")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?ChatSummary $chatItem = NULL;
 
     /**
      * Constructor method for GetItemResponse
@@ -59,169 +163,167 @@ class GetItemResponse implements ResponseInterface
     }
 
     /**
-     * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\Folder")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get folder item
+     * 
+     * @return Folder
      */
     public function getFolderItem(): ?Folder
     {
-        return ($this->item instanceof Folder) ? $this->item : NULL;
+        return $this->folderItem;
     }
 
     /**
-     * @SerializedName("tag")
-     * @Type("Zimbra\Mail\Struct\TagInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get tag item
+     * 
+     * @return TagInfo
      */
     public function getTagItem(): ?TagInfo
     {
-        return ($this->item instanceof TagInfo) ? $this->item : NULL;
+        return $this->tagItem;
     }
 
     /**
-     * @SerializedName("note")
-     * @Type("Zimbra\Mail\Struct\NoteInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get note item
+     * 
+     * @return NoteInfo
      */
-    public function getNoteIItem(): ?NoteInfo
+    public function getNoteItem(): ?NoteInfo
     {
-        return ($this->item instanceof NoteInfo) ? $this->item : NULL;
+        return $this->noteItem;
     }
 
     /**
-     * @SerializedName("cn")
-     * @Type("Zimbra\Mail\Struct\YabItemId")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get contact item
+     * 
+     * @return ContactInfo
      */
     public function getContactItem(): ?ContactInfo
     {
-        return ($this->item instanceof ContactInfo) ? $this->item : NULL;
+        return $this->contactItem;
     }
 
     /**
-     * @SerializedName("appt")
-     * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get appt item
+     * 
+     * @return CalendarItemInfo
      */
     public function getApptItem(): ?CalendarItemInfo
     {
-        return ($this->item instanceof CalendarItemInfo) ? $this->item : NULL;
+        return $this->apptItem;
     }
 
     /**
-     * @SerializedName("task")
-     * @Type("Zimbra\Mail\Struct\TaskItemInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get task item
+     * 
+     * @return TaskItemInfo
      */
     public function getTaskItem(): ?TaskItemInfo
     {
-        return ($this->item instanceof TaskItemInfo) ? $this->item : NULL;
+        return $this->taskItem;
     }
 
     /**
-     * @SerializedName("c")
-     * @Type("Zimbra\Mail\Struct\ConversationSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get conv item
+     * 
+     * @return ConversationSummary
      */
     public function getConvItem(): ?ConversationSummary
     {
-        return ($this->item instanceof ConversationSummary) ? $this->item : NULL;
+        return $this->convItem;
     }
 
     /**
-     * @SerializedName("w")
-     * @Type("Zimbra\Mail\Struct\CommonDocumentInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get wiki item
+     * 
+     * @return CommonDocumentInfo
      */
     public function getWikiItem(): ?CommonDocumentInfo
     {
-        return ($this->item instanceof CommonDocumentInfo) ? $this->item : NULL;
+        return $this->wikiItem;
     }
 
     /**
-     * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\DocumentInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get doc item
+     * 
+     * @return DocumentInfo
      */
     public function getDocItem(): ?DocumentInfo
     {
-        return ($this->item instanceof DocumentInfo) ? $this->item : NULL;
+        return $this->docItem;
     }
 
     /**
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MessageSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get msg item
+     * 
+     * @return MessageSummary
      */
     public function getMsgItem(): ?MessageSummary
     {
-        return ($this->item instanceof MessageSummary) ? $this->item : NULL;
+        return $this->msgItem;
     }
 
     /**
-     * @SerializedName("chat")
-     * @Type("Zimbra\Mail\Struct\ChatSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @VirtualProperty
+     * Get chat item
+     * 
+     * @return ChatSummary
      */
     public function getChatItem(): ?ChatSummary
     {
-        return ($this->item instanceof ChatSummary) ? $this->item : NULL;
+        return $this->chatItem;
     }
 
     /**
-     * Gets item
-     *
-     * @return mix
-     */
-    public function getItem()
-    {
-        return $this->item;
-    }
-
-    /**
-     * Sets item
-     *
-     * @param  mix $item
+     * Set item
+     * 
      * @return self
      */
     public function setItem($item): self
     {
-        if (is_object($item)) {
-            foreach (self::itemTypes() as $type) {
-                if (get_class($item) === $type) {
-                    $this->item = $item;
-                    break;
-                }
-            }
+        $this->folderItem =
+        $this->tagItem =
+        $this->noteItem =
+        $this->contactItem =
+        $this->apptItem =
+        $this->taskItem =
+        $this->convItem =
+        $this->wikiItem =
+        $this->docItem =
+        $this->msgItem =
+        $this->chatItem = NULL;
+
+        if ($item instanceof Folder) {
+            $this->folderItem = $item;
+        }
+        if ($item instanceof TagInfo) {
+            $this->tagItem = $item;
+        }
+        if ($item instanceof NoteInfo) {
+            $this->noteItem = $item;
+        }
+        if ($item instanceof ContactInfo) {
+            $this->contactItem = $item;
+        }
+        if ($item instanceof CalendarItemInfo) {
+            $this->apptItem = $item;
+        }
+        if ($item instanceof TaskItemInfo) {
+            $this->taskItem = $item;
+        }
+        if ($item instanceof ConversationSummary) {
+            $this->convItem = $item;
+        }
+        if ($item instanceof CommonDocumentInfo) {
+            $this->wikiItem = $item;
+        }
+        if ($item instanceof DocumentInfo) {
+            $this->docItem = $item;
+        }
+        if ($item instanceof MessageSummary) {
+            $this->msgItem = $item;
+        }
+        if ($item instanceof ChatSummary) {
+            $this->chatItem = $item;
         }
         return $this;
-    }
-
-    public static function itemTypes(): array
-    {
-        return [
-            'folder' => Folder::class,
-            'tag' => TagInfo::class,
-            'note' => NoteInfo::class,
-            'cn' => ContactInfo::class,
-            'appt' => CalendarItemInfo::class,
-            'task' => TaskItemInfo::class,
-            'c' => ConversationSummary::class,
-            'w' => CommonDocumentInfo::class,
-            'doc' => DocumentInfo::class,
-            'm' => MessageSummary::class,
-            'chat' => ChatSummary::class,
-        ];
     }
 }

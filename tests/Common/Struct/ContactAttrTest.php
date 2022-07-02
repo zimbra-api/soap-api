@@ -26,7 +26,7 @@ class ContactAttrTest extends ZimbraTestCase
         $this->assertSame($size, $attr->getSize());
         $this->assertSame($contentFilename, $attr->getContentFilename());
 
-        $attr = new ContactAttr();
+        $attr = new ContactAttr($key, $value);
         $attr->setPart($part)
             ->setContentType($contentType)
             ->setSize($size)

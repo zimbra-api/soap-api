@@ -85,7 +85,7 @@ class DistributionListActionTest extends ZimbraTestCase
                 <urn:dlm>$member</urn:dlm>
                 <urn:owner type="usr" by="name">$value</urn:owner>
                 <urn:right right="$name">
-                    <grantee type="usr" by="name">$value</urn:grantee>
+                    <urn:grantee type="usr" by="name">$value</urn:grantee>
                 </urn:right>
             </urn:action>
         </urn:DistributionListActionRequest>

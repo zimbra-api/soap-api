@@ -172,9 +172,9 @@ class GetApptSummariesTest extends ZimbraTestCase
                         </urn:trigger>
                         <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
                         <urn:desc>$description</urn:desc>
-                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</attach>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
                         <urn:summary>$summary</urn:summary>
-                        <aurn:t a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
                             <urn:xparam name="$name" value="$value" />
                         </urn:at>
                         <urn:xprop name="$name" value="$value">

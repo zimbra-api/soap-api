@@ -86,7 +86,7 @@ class GetAccountInfoTest extends ZimbraTestCase
             <urn:account by="name">$value</urn:account>
         </urn:GetAccountInfoRequest>
         <urn:GetAccountInfoResponse>
-            <urn:name>$name</name>
+            <urn:name>$name</urn:name>
             <urn:attr name="$name">$value</urn:attr>
             <urn:soapURL>$soapURL</urn:soapURL>
             <urn:publicURL>$publicURL</urn:publicURL>

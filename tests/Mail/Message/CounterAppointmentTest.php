@@ -113,7 +113,7 @@ class CounterAppointmentTest extends ZimbraTestCase
                 <urn:e a="$address" t="t" p="$personal" />
                 <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
                 <urn:fr>$fragment</urn:fr>
-            </m>
+            </urn:m>
         </urn:CounterAppointmentRequest>
         <urn:CounterAppointmentResponse />
     </soap:Body>

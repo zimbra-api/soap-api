@@ -166,7 +166,7 @@ class AccountDataSourcesTest extends ZimbraTestCase
         <urn:a>$attribute2</urn:a>
     </urn:cal>
     <urn:unknown id="$id" name="$name" l="$folderId" isEnabled="true" importOnly="true" host="$host" port="$port" connectionType="$connectionType" username="$username" password="$password" pollingInterval="$pollingInterval" emailAddress="$emailAddress" useAddressForForwardReply="true" defaultSignature="$defaultSignature" forwardReplySignature="$forwardReplySignature" fromDisplay="$fromDisplay" replyToAddress="$replyToAddress" replyToDisplay="$replyToDisplay" importClass="$importClass" failingSince="$failingSince" refreshToken="$refreshToken" refreshTokenUrl="$refreshTokenUrl">
-        <urn:lastError>$lastError</lurn:astError>
+        <urn:lastError>$lastError</urn:lastError>
         <urn:a>$attribute1</urn:a>
         <urn:a>$attribute2</urn:a>
     </urn:unknown>

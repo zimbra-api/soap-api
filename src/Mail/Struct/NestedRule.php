@@ -147,7 +147,9 @@ class NestedRule
      */
     public function setFilterActions(array $actions): self
     {
-        $this->actions = new FilterActions($actions);
+        if (!empty($actions)) {
+            $this->actions = new FilterActions($actions);
+        }
         return $this;
     }
 

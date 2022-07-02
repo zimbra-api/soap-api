@@ -196,7 +196,7 @@ class GetConvTest extends ZimbraTestCase
                         <urn:replies>
                             <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
                         </urn:replies>
-                    </inv>
+                    </urn:inv>
                     <urn:header n="$key">$value</urn:header>
                     <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
                         <urn:content>$content</urn:content>

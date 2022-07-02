@@ -143,7 +143,7 @@ class CommonDocumentInfoTest extends ZimbraTestCase
         $this->assertSame([$metadata, $metadata], $doc->getMetadatas());
         $this->assertSame($fragment, $doc->getFragment());
         $this->assertSame($acl, $doc->getAcl());
-        $doc = new CommonDocumentInfo(
+        $doc = new StubCommonDocumentInfo(
             $id, $uuid, $name, $size, $date, $folderId, $folderUuid, $modifiedSequence, $metadataVersion, $changeDate, $revision, $flags, $tags, $tagNames, $description, $contentType, TRUE, $version, $lastEditedBy, $creator, $createdDate, [$metadata], $fragment, $acl
         );
 

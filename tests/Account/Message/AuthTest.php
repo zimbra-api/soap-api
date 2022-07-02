@@ -248,10 +248,10 @@ class AuthTest extends ZimbraTestCase
             <urn:deviceId>$deviceId</urn:deviceId>
             <urn:trustedToken>$trustedToken</urn:trustedToken>
             <urn:prefs>
-                <pref name="$name" modified="$time">$value</urn:pref>
+                <urn:pref name="$name" modified="$time">$value</urn:pref>
             </urn:prefs>
             <urn:attrs>
-                <attr name="$name" pd="true">$value</urn:attr>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
             </urn:attrs>
             <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
             <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>

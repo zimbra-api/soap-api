@@ -44,7 +44,7 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
         <urn:conds not="false" or="true">
             <urn:cond attr="$attr" op="ge" value="$value" not="false" />
         </urn:conds>
-        <curn:ond attr="$attr" op="eq" value="$value" not="true" />
+        <urn:cond attr="$attr" op="eq" value="$value" not="true" />
     </urn:conds>
 </result>
 EOT;

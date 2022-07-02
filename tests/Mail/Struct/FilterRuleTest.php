@@ -245,7 +245,7 @@ class FilterRuleTest extends ZimbraTestCase
         );
 
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new StubFilterRule($name, FALSE, $filterTests, $filterVariables, [
+        $filterRule = new StubFilterRule($filterTests, $name, FALSE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
@@ -289,7 +289,7 @@ class FilterRuleTest extends ZimbraTestCase
         ], array_values($filterRule->getFilterActions()));
         $this->assertSame($child, $filterRule->getChild());
 
-        $filterRule = new StubFilterRule();
+        $filterRule = new StubFilterRule(new FilterTests());
         $filterRule->setName($name)
             ->setActive(TRUE)
             ->setFilterTests($filterTests)
@@ -397,9 +397,9 @@ class FilterRuleTest extends ZimbraTestCase
             <urn:method>$method</urn:method>
         </urn:actionRFCCompliantNotify>
         <urn:actionStop index="$index" />
-        <urn:actionReject index="$index">$content</actionReject>
-        <urn:actionEreject index="$index">$content</actionEreject>
-        <urn:actionLog index="$index" level="info">$content</actionLog>
+        <urn:actionReject index="$index">$content</urn:actionReject>
+        <urn:actionEreject index="$index">$content</urn:actionEreject>
+        <urn:actionLog index="$index" level="info">$content</urn:actionLog>
         <urn:actionAddheader index="$index" last="true">
             <urn:headerName>$headerName</urn:headerName>
             <urn:headerValue>$headerValue</urn:headerValue>

@@ -31,10 +31,10 @@ class ModifyVolumeTest extends ZimbraTestCase
             $id, $name, $rootPath, $type, TRUE, $threshold, $mgbits, $mbits, $fgbits, $fbits, TRUE
         );
 
-        $request = new ModifyVolumeRequest($id, $volume);
+        $request = new ModifyVolumeRequest($volume, $id);
         $this->assertSame($id, $request->getId());
         $this->assertEquals($volume, $request->getVolume());
-        $request = new ModifyVolumeRequest(0, new VolumeInfo());
+        $request = new ModifyVolumeRequest(new VolumeInfo());
         $request->setId($id)
             ->setVolume($volume);
         $this->assertSame($id, $request->getId());

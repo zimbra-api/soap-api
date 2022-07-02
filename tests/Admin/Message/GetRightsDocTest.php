@@ -97,7 +97,7 @@ class GetRightsDocTest extends ZimbraTestCase
                     <urn:rights>
                         <urn:r n="$name" />
                     </urn:rights>
-                </right>
+                </urn:right>
             </urn:domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template>
         </urn:GetRightsDocResponse>
     </soap:Body>

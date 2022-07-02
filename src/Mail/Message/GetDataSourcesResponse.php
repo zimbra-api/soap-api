@@ -135,7 +135,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setImapDataSources(array $dataSources): self
     {
-        $this->imapDataSources = array_filter($dataSources, static fn ($imap) => $imap instanceof MailImapDataSource);
+        $this->imapDataSources = array_values(
+            array_filter($dataSources, static fn ($imap) => $imap instanceof MailImapDataSource)
+        );
         return $this;
     }
 
@@ -156,7 +158,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setPop3DataSources(array $dataSources): self
     {
-        $this->pop3DataSources = array_filter($dataSources, static fn ($pop3) => $pop3 instanceof MailPop3DataSource);
+        $this->pop3DataSources = array_values(
+            array_filter($dataSources, static fn ($pop3) => $pop3 instanceof MailPop3DataSource)
+        );
         return $this;
     }
 
@@ -177,7 +181,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setCaldavDataSources(array $dataSources): self
     {
-        $this->caldavDataSources = array_filter($dataSources, static fn ($caldav) => $caldav instanceof MailCaldavDataSource);
+        $this->caldavDataSources = array_values(
+            array_filter($dataSources, static fn ($caldav) => $caldav instanceof MailCaldavDataSource)
+        );
         return $this;
     }
 
@@ -198,7 +204,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setYabDataSources(array $dataSources): self
     {
-        $this->yabDataSources = array_filter($dataSources, static fn ($yab) => $yab instanceof MailYabDataSource);
+        $this->yabDataSources = array_values(
+            array_filter($dataSources, static fn ($yab) => $yab instanceof MailYabDataSource)
+        );
         return $this;
     }
 
@@ -219,7 +227,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setRssDataSources(array $dataSources): self
     {
-        $this->rssDataSources = array_filter($dataSources, static fn ($rss) => $rss instanceof MailRssDataSource);
+        $this->rssDataSources = array_values(
+            array_filter($dataSources, static fn ($rss) => $rss instanceof MailRssDataSource)
+        );
         return $this;
     }
 
@@ -240,7 +250,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setGalDataSources(array $dataSources): self
     {
-        $this->galDataSources = array_filter($dataSources, static fn ($gal) => $gal instanceof MailGalDataSource);
+        $this->galDataSources = array_values(
+            array_filter($dataSources, static fn ($gal) => $gal instanceof MailGalDataSource)
+        );
         return $this;
     }
 
@@ -261,7 +273,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setCalDataSources(array $dataSources): self
     {
-        $this->calDataSources = array_filter($dataSources, static fn ($cal) => $cal instanceof MailCalDataSource);
+        $this->calDataSources = array_values(
+            array_filter($dataSources, static fn ($cal) => $cal instanceof MailCalDataSource)
+        );
         return $this;
     }
 
@@ -282,7 +296,9 @@ class GetDataSourcesResponse implements ResponseInterface
      */
     public function setUnknownDataSources(array $dataSources): self
     {
-        $this->unknownDataSources = array_filter($dataSources, static fn ($unknown) => $unknown instanceof MailUnknownDataSource);
+        $this->unknownDataSources = array_values(
+            array_filter($dataSources, static fn ($unknown) => $unknown instanceof MailUnknownDataSource)
+        );
         return $this;
     }
 

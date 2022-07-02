@@ -2,6 +2,8 @@
 
 namespace Zimbra\Tests\Admin\Struct;
 
+use JMS\Serializer\Annotation\XmlNamespace;
+
 use Zimbra\Admin\Struct\GrantInfo;
 use Zimbra\Admin\Struct\TypeIdName;
 use Zimbra\Admin\Struct\GranteeInfo;

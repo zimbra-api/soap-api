@@ -187,9 +187,9 @@ class FilterActionsTest extends ZimbraTestCase
         <urn:method>$method</urn:method>
     </urn:actionRFCCompliantNotify>
     <urn:actionStop index="$index" />
-    <urn:actionReject index="$index">$content</actionReject>
-    <urn:actionEreject index="$index">$content</actionEreject>
-    <urn:actionLog index="$index" level="info">$content</actionLog>
+    <urn:actionReject index="$index">$content</urn:actionReject>
+    <urn:actionEreject index="$index">$content</urn:actionEreject>
+    <urn:actionLog index="$index" level="info">$content</urn:actionLog>
     <urn:actionAddheader index="$index" last="true">
         <urn:headerName>$headerName</urn:headerName>
         <urn:headerValue>$headerValue</urn:headerValue>
@@ -210,8 +210,8 @@ class FilterActionsTest extends ZimbraTestCase
     </urn:actionReplaceheader>
 </result>
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filterRule, 'xml'));
-        $this->assertEquals($filterRule, $this->serializer->deserialize($xml, StubFilterActions::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($filterActions, 'xml'));
+        $this->assertEquals($filterActions, $this->serializer->deserialize($xml, StubFilterActions::class, 'xml'));
     }
 }
 

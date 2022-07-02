@@ -101,7 +101,7 @@ class InviteAsMPTest extends ZimbraTestCase
     <urn:e a="$address" d="$display" p="$personal" t="t" />
     <urn:su>$subject</urn:su>
     <urn:mid>$messageIdHeader</urn:mid>
-    <iurn:nv type="task" />
+    <urn:inv type="task" />
     <urn:header n="$key">$value</urn:header>
     <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
         <urn:content>$content</urn:content>

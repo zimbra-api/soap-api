@@ -91,7 +91,7 @@ class GetShareInfoTest extends ZimbraTestCase
     <soap:Body>
         <urn:GetShareInfoRequest>
             <urn:grantee type="$type" id="$id" name="$name" />
-            <urn:owner by="name">$value</owner>
+            <urn:owner by="name">$value</urn:owner>
         </urn:GetShareInfoRequest>
         <urn:GetShareInfoResponse>
             <urn:share ownerId="$ownerId" ownerEmail="$ownerEmail" ownerName="$ownerDisplayName" folderId="$folderId" folderUuid="$folderUuid" folderPath="$folderPath" view="$defaultView" rights="$rights" granteeType="$granteeType" granteeId="$granteeId" granteeName="$granteeName" granteeDisplayName="$granteeDisplayName" mid="$mountpointId" />

@@ -105,7 +105,7 @@ class QueryWaitSetTest extends ZimbraTestCase
                     <urn:commit aid="$aid" cid="$cid" />
                 </urn:buffered>
                 <urn:session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
-                    <WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
+                    <urn:WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
                 </urn:session>
             </urn:waitSet>
         </urn:QueryWaitSetResponse>

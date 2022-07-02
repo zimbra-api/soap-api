@@ -409,13 +409,13 @@ class NestedRuleTest extends ZimbraTestCase
             <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
                 <urn:headerName>$headerName</urn:headerName>
                 <urn:headerValue>$headerValue</urn:headerValue>
-            </turn:est>
+            </urn:test>
         </urn:actionDeleteheader>
         <urn:actionReplaceheader index="$index" last="true" offset="$offset">
             <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
                 <urn:headerName>$headerName</urn:headerName>
                 <urn:headerValue>$headerValue</urn:headerValue>
-            </test>
+            </urn:test>
             <urn:newName>$newName</urn:newName>
             <urn:newValue>$newValue</urn:newValue>
         </urn:actionReplaceheader>

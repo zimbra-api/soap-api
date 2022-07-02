@@ -31,6 +31,7 @@ use Zimbra\Common\Text;
 final class SerializerHandler implements SubscribingHandlerInterface
 {
     const SERIALIZE_FORMAT = 'xml';
+    const XML_NAMESPACE    = 'urn:zimbraMail';
 
     public static function getSubscribingMethods(): array
     {
@@ -59,7 +60,7 @@ final class SerializerHandler implements SubscribingHandlerInterface
             }
         }
 
-        foreach ($data->children() as $child) {
+        foreach ($data->children(self::XML_NAMESPACE) as $child) {
             $name = $child->getName();
             if ($name === 'conds') {
                 $conds->addCondition(

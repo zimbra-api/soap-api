@@ -82,7 +82,7 @@ class GetFilterRulesResponse implements ResponseInterface
      * @SerializedName("filterRules")
      * @Type("array<Zimbra\Mail\Struct\FilterRule>")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      */
     private $rules = [];
 

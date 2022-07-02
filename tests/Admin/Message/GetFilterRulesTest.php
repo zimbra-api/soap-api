@@ -291,7 +291,7 @@ class GetFilterRulesTest extends ZimbraTestCase
             $newName, $newValue
         );
         $child = new NestedRule(new FilterTests(FilterCondition::ALL_OF()));
-        $filterRule = new FilterRule($name, TRUE, $filterTests, $filterVariables, [
+        $filterRule = new FilterRule($filterTests, $name, TRUE, $filterVariables, [
             $filterVariables,
             $actionKeep,
             $actionDiscard,
@@ -351,7 +351,7 @@ class GetFilterRulesTest extends ZimbraTestCase
 
         $xml = <<<EOT
 <?xml version="1.0"?>
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
     <soap:Body>
         <urn:GetFilterRulesRequest type="$type">
             <urn:account by="name">$value</urn:account>
@@ -365,88 +365,88 @@ class GetFilterRulesTest extends ZimbraTestCase
             <urn:cos by="name">$value</urn:cos>
             <urn:server by="name">$value</urn:server>
             <urn:filterRules>
-                <urn:filterRule name="$name" active="true">
-                    <urn:filterVariables index="$index">
-                        <urn:filterVariable name="$name" value="$value" />
-                    </urn:filterVariables>
-                    <urn:filterTests condition="allof">
-                        <urn:addressBookTest index="$index" negative="true" header="$header" />
-                        <urn:addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" />
-                        <urn:envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" />
-                        <urn:attachmentTest index="$index" negative="true" />
-                        <urn:bodyTest index="$index" negative="true" value="$value" caseSensitive="true" />
-                        <urn:bulkTest index="$index" negative="true" />
-                        <urn:contactRankingTest index="$index" negative="true" header="$header" />
-                        <urn:conversationTest index="$index" negative="true" where="$where" />
-                        <urn:currentDayOfWeekTest index="$index" negative="true" value="$value" />
-                        <urn:currentTimeTest index="$index" negative="true" dateComparison="before" time="$time" />
-                        <urn:dateTest index="$index" negative="true" dateComparison="before" date="$date" />
-                        <urn:facebookTest index="$index" negative="true" />
-                        <urn:flaggedTest index="$index" negative="true" flagName="$flag" />
-                        <urn:headerExistsTest index="$index" negative="true" header="$header" />
-                        <urn:headerTest index="$index" negative="true" header="$header" stringComparison="is" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" value="$value" caseSensitive="true" />
-                        <urn:importanceTest index="$index" negative="true" imp="high" />
-                        <urn:inviteTest index="$index" negative="true">
-                            <urn:method>$method</urn:method>
-                        </urn:inviteTest>
-                        <urn:linkedinTest index="$index" negative="true" />
-                        <urn:listTest index="$index" negative="true" />
-                        <urn:meTest index="$index" negative="true" header="$header" />
-                        <urn:mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="is" value="$value" caseSensitive="true" />
-                        <urn:sizeTest index="$index" negative="true" numberComparison="over" s="$size" />
-                        <urn:socialcastTest index="$index" negative="true" />
-                        <urn:trueTest index="$index" negative="true" />
-                        <urn:twitterTest index="$index" negative="true" />
-                        <urn:communityRequestsTest index="$index" negative="true" />
-                        <urn:communityContentTest index="$index" negative="true" />
-                        <urn:communityConnectionsTest index="$index" negative="true" />
-                    </filterTests>
-                    <urn:filterActions>
-                        <urn:filterVariables index="$index">
-                            <urn:filterVariable name="$name" value="$value" />
-                        </urn:filterVariables>
-                        <urn:actionKeep index="$index" />
-                        <urn:actionDiscard index="$index" />
-                        <urn:actionFileInto index="$index" folderPath="$folder" copy="true" />
-                        <urn:actionFlag index="$index" flagName="$flag" />
-                        <urn:actionTag index="$index" tagName="$tag" />
-                        <urn:actionRedirect index="$index" a="$address" copy="true" />
-                        <urn:actionReply index="$index">
-                            <urn:content>$content</urn:content>
-                        </urn:actionReply>
-                        <urn:actionNotify index="$index" a="$address" su="$subject" maxBodySize="$maxBodySize" origHeaders="$origHeaders">
-                            <urn:content>$content</urn:content>
-                        </urn:actionNotify>
-                        <urn:actionRFCCompliantNotify index="$index" from="$from" importance="$importance" options="$options" message="$message">
-                            <urn:method>$method</urn:method>
-                        </urn:actionRFCCompliantNotify>
-                        <urn:actionStop index="$index" />
-                        <urn:actionReject index="$index">$content</urn:actionReject>
-                        <urn:actionEreject index="$index">$content</urn:actionEreject>
-                        <urn:actionLog index="$index" level="info">$content</urn:actionLog>
-                        <urn:actionAddheader index="$index" last="true">
-                            <urn:headerName>$headerName</urn:headerName>
-                            <urn:headerValue>$headerValue</urn:headerValue>
-                        </urn:actionAddheader>
-                        <urn:actionDeleteheader index="$index" last="true" offset="$offset">
-                            <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
-                                <urn:headerName>$headerName</urn:headerName>
-                                <urn:headerValue>$headerValue</urn:headerValue>
-                            </urn:test>
-                        </urn:actionDeleteheader>
-                        <urn:actionReplaceheader index="$index" last="true" offset="$offset">
-                            <urn:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
-                                <urn:headerName>$headerName</urn:headerName>
-                                <urn:headerValue>$headerValue</urn:headerValue>
-                            </test>
-                            <urn:newName>$newName</urn:newName>
-                            <urn:newValue>$newValue</urn:newValue>
-                        </urn:actionReplaceheader>
-                    </urn:filterActions>
-                    <urn:nestedRule>
-                        <urn:filterTests condition="allof" />
-                    </urn:nestedRule>
-                </urn:filterRule>
+                <urn1:filterRule name="$name" active="true">
+                    <urn1:filterVariables index="$index">
+                        <urn1:filterVariable name="$name" value="$value" />
+                    </urn1:filterVariables>
+                    <urn1:filterTests condition="allof">
+                        <urn1:addressBookTest index="$index" negative="true" header="$header" />
+                        <urn1:addressTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" />
+                        <urn1:envelopeTest index="$index" negative="true" header="$header" part="all" stringComparison="is" caseSensitive="true" value="$value" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" />
+                        <urn1:attachmentTest index="$index" negative="true" />
+                        <urn1:bodyTest index="$index" negative="true" value="$value" caseSensitive="true" />
+                        <urn1:bulkTest index="$index" negative="true" />
+                        <urn1:contactRankingTest index="$index" negative="true" header="$header" />
+                        <urn1:conversationTest index="$index" negative="true" where="$where" />
+                        <urn1:currentDayOfWeekTest index="$index" negative="true" value="$value" />
+                        <urn1:currentTimeTest index="$index" negative="true" dateComparison="before" time="$time" />
+                        <urn1:dateTest index="$index" negative="true" dateComparison="before" date="$date" />
+                        <urn1:facebookTest index="$index" negative="true" />
+                        <urn1:flaggedTest index="$index" negative="true" flagName="$flag" />
+                        <urn1:headerExistsTest index="$index" negative="true" header="$header" />
+                        <urn1:headerTest index="$index" negative="true" header="$header" stringComparison="is" valueComparison="eq" countComparison="eq" valueComparisonComparator="i;octet" value="$value" caseSensitive="true" />
+                        <urn1:importanceTest index="$index" negative="true" imp="high" />
+                        <urn1:inviteTest index="$index" negative="true">
+                            <urn1:method>$method</urn1:method>
+                        </urn1:inviteTest>
+                        <urn1:linkedinTest index="$index" negative="true" />
+                        <urn1:listTest index="$index" negative="true" />
+                        <urn1:meTest index="$index" negative="true" header="$header" />
+                        <urn1:mimeHeaderTest index="$index" negative="true" header="$header" stringComparison="is" value="$value" caseSensitive="true" />
+                        <urn1:sizeTest index="$index" negative="true" numberComparison="over" s="$size" />
+                        <urn1:socialcastTest index="$index" negative="true" />
+                        <urn1:trueTest index="$index" negative="true" />
+                        <urn1:twitterTest index="$index" negative="true" />
+                        <urn1:communityRequestsTest index="$index" negative="true" />
+                        <urn1:communityContentTest index="$index" negative="true" />
+                        <urn1:communityConnectionsTest index="$index" negative="true" />
+                    </urn1:filterTests>
+                    <urn1:filterActions>
+                        <urn1:filterVariables index="$index">
+                            <urn1:filterVariable name="$name" value="$value" />
+                        </urn1:filterVariables>
+                        <urn1:actionKeep index="$index" />
+                        <urn1:actionDiscard index="$index" />
+                        <urn1:actionFileInto index="$index" folderPath="$folder" copy="true" />
+                        <urn1:actionFlag index="$index" flagName="$flag" />
+                        <urn1:actionTag index="$index" tagName="$tag" />
+                        <urn1:actionRedirect index="$index" a="$address" copy="true" />
+                        <urn1:actionReply index="$index">
+                            <urn1:content>$content</urn1:content>
+                        </urn1:actionReply>
+                        <urn1:actionNotify index="$index" a="$address" su="$subject" maxBodySize="$maxBodySize" origHeaders="$origHeaders">
+                            <urn1:content>$content</urn1:content>
+                        </urn1:actionNotify>
+                        <urn1:actionRFCCompliantNotify index="$index" from="$from" importance="$importance" options="$options" message="$message">
+                            <urn1:method>$method</urn1:method>
+                        </urn1:actionRFCCompliantNotify>
+                        <urn1:actionStop index="$index" />
+                        <urn1:actionReject index="$index">$content</urn1:actionReject>
+                        <urn1:actionEreject index="$index">$content</urn1:actionEreject>
+                        <urn1:actionLog index="$index" level="info">$content</urn1:actionLog>
+                        <urn1:actionAddheader index="$index" last="true">
+                            <urn1:headerName>$headerName</urn1:headerName>
+                            <urn1:headerValue>$headerValue</urn1:headerValue>
+                        </urn1:actionAddheader>
+                        <urn1:actionDeleteheader index="$index" last="true" offset="$offset">
+                            <urn1:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
+                                <urn1:headerName>$headerName</urn1:headerName>
+                                <urn1:headerValue>$headerValue</urn1:headerValue>
+                            </urn1:test>
+                        </urn1:actionDeleteheader>
+                        <urn1:actionReplaceheader index="$index" last="true" offset="$offset">
+                            <urn1:test matchType="is" countComparator="true" valueComparator="true" relationalComparator="eq" comparator="i;octet">
+                                <urn1:headerName>$headerName</urn1:headerName>
+                                <urn1:headerValue>$headerValue</urn1:headerValue>
+                            </urn1:test>
+                            <urn1:newName>$newName</urn1:newName>
+                            <urn1:newValue>$newValue</urn1:newValue>
+                        </urn1:actionReplaceheader>
+                    </urn1:filterActions>
+                    <urn1:nestedRule>
+                        <urn1:filterTests condition="allof" />
+                    </urn1:nestedRule>
+                </urn1:filterRule>
             </urn:filterRules>
         </urn:GetFilterRulesResponse>
     </soap:Body>

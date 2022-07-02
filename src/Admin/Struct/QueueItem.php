@@ -159,7 +159,7 @@ class QueueItem
         string $addr = '',
         string $reason = '',
         string $filter = '',
-        string $todomain,
+        string $todomain = '',
         string $received = ''
     )
     {

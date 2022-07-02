@@ -36,7 +36,7 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
         $domain = new DomainSelector(DomainBy::NAME(), $value);
 
         $request = new SearchAutoProvDirectoryRequest(
-            $keyAttr, $domain, $query, $name, $maxResults, $limit, $offset, FALSE, $attrs
+            $domain, $keyAttr, $query, $name, $maxResults, $limit, $offset, FALSE, $attrs
         );
         $this->assertSame($keyAttr, $request->getKeyAttr());
         $this->assertSame($domain, $request->getDomain());
@@ -48,7 +48,7 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
         $this->assertFalse($request->isRefresh());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $request = new SearchAutoProvDirectoryRequest('', new DomainSelector(DomainBy::NAME(), ''));
+        $request = new SearchAutoProvDirectoryRequest(new DomainSelector());
         $request->setKeyAttr($keyAttr)
             ->setDomain($domain)
             ->setQuery($query)
@@ -76,7 +76,7 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
         $this->assertFalse($response->getMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$entry], $response->getEntries());
-        $response = new SearchAutoProvDirectoryResponse(FALSE, 0);
+        $response = new SearchAutoProvDirectoryResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
             ->setEntries([$entry]);

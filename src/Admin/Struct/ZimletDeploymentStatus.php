@@ -59,7 +59,7 @@ class ZimletDeploymentStatus
      * @return self
      */
     public function __construct(
-        string $server = , ?DeployStatus $status = NULL, ?string $error = NULL
+        string $server = '', ?DeployStatus $status = NULL, ?string $error = NULL
     )
     {
         $this->setServer($server)

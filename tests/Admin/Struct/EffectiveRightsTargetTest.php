@@ -165,7 +165,7 @@ class EffectiveRightsTargetTest extends ZimbraTestCase
                         <urn:values>
                             <urn:v>$value1</urn:v>
                             <urn:v>$value2</urn:v>
-                        </values>
+                        </urn:values>
                     </urn:constraint>
                     <urn:default>
                         <urn:v>$value1</urn:v>
