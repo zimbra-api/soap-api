@@ -31,7 +31,7 @@ use Zimbra\Common\Text;
 final class SerializerHandler implements SubscribingHandlerInterface
 {
     const SERIALIZE_FORMAT = 'xml';
-    const XML_NAMESPACE    = 'urn:zimbraMail';
+    const XML_NAMESPACE    = 'urn:zimbraAdmin';
 
     public static function getSubscribingMethods(): array
     {
@@ -51,14 +51,15 @@ final class SerializerHandler implements SubscribingHandlerInterface
     {
         $serializer = SerializerFactory::create();
         $conds = new MultiCond;
-        foreach ($data->attributes() as $key => $value) {
+        $attributes = iterator_to_array($data->attributes());
+        array_walk($attributes, static function ($value, $key) use ($conds) {
             if ($key === 'not') {
                 $conds->setNot(Text::stringToBoolean($value));
             }
             if ($key === 'or') {
                 $conds->setOr(Text::stringToBoolean($value));
             }
-        }
+        });
 
         foreach ($data->children(self::XML_NAMESPACE) as $child) {
             $name = $child->getName();
