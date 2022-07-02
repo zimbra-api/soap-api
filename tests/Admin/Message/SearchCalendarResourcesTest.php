@@ -7,9 +7,6 @@ use Zimbra\Admin\Message\SearchCalendarResourcesEnvelope;
 use Zimbra\Admin\Message\SearchCalendarResourcesRequest;
 use Zimbra\Admin\Message\SearchCalendarResourcesResponse;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Admin\SerializerHandler;
-
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CalendarResourceInfo;
 use Zimbra\Admin\Struct\{EntrySearchFilterInfo, EntrySearchFilterMultiCond, EntrySearchFilterSingleCond};
@@ -22,12 +19,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class SearchCalendarResourcesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testSearchCalendarResources()
     {
         $name = $this->faker->word;

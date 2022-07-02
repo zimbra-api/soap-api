@@ -2,7 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
 use Zimbra\Common\Enum\FilterCondition;
 use Zimbra\Common\Enum\Importance;
 use Zimbra\Common\Enum\DateComparison;
@@ -10,8 +9,6 @@ use Zimbra\Common\Enum\LoggingLevel;
 use Zimbra\Common\Enum\NumberComparison;
 use Zimbra\Common\Enum\{MatchType, RelationalComparator};
 use Zimbra\Common\Enum\{AddressPart, ComparisonComparator, CountComparison, StringComparison, ValueComparison};
-
-use Zimbra\Mail\SerializerHandler;
 
 use Zimbra\Mail\Message\GetFilterRulesEnvelope;
 use Zimbra\Mail\Message\GetFilterRulesBody;
@@ -78,12 +75,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetFilterRulesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testGetFilterRules()
     {
         $index = $this->faker->randomNumber;

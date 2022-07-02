@@ -4,9 +4,6 @@ namespace Zimbra\Account\Struct\Tests;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Account\SerializerHandler;
-
 use Zimbra\Common\Enum\ConditionOperator as CondOp;
 use Zimbra\Account\Struct\{EntrySearchFilterSingleCond, EntrySearchFilterMultiCond};
 use Zimbra\Tests\ZimbraTestCase;
@@ -16,12 +13,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class EntrySearchFilterMultiCondTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testEntrySearchFilterMultiCond()
     {
         $attr = $this->faker->word;

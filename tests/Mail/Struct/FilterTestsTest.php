@@ -4,8 +4,6 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
 use Zimbra\Mail\Struct\AddressBookTest;
 use Zimbra\Mail\Struct\AddressTest;
 use Zimbra\Mail\Struct\EnvelopeTest;
@@ -47,12 +45,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class FilterTestsTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testFilterTests()
     {
         $index = mt_rand(1, 99);

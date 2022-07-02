@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Account\SerializerHandler;
-
 use Zimbra\Account\Message\SearchGalBody;
 use Zimbra\Account\Message\SearchGalEnvelope;
 use Zimbra\Account\Message\SearchGalRequest;
@@ -30,12 +27,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class SearchGalTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testSearchGal()
     {
         $sortBy = $this->faker->word;

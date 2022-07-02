@@ -7,9 +7,6 @@ use Zimbra\Account\Message\GetInfoBody;
 use Zimbra\Account\Message\GetInfoRequest;
 use Zimbra\Account\Message\GetInfoResponse;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Account\SerializerHandler;
-
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Cos;
 use Zimbra\Account\Struct\Pref;
@@ -57,12 +54,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetInfoTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testGetInfo()
     {
         $id = $this->faker->uuid;
