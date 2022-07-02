@@ -4,9 +4,6 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Struct\FilterVariable;
 use Zimbra\Mail\Struct\FilterVariables;
 use Zimbra\Mail\Struct\AddressBookTest;
@@ -73,12 +70,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class NestedRuleTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testNestedRule()
     {
         $index = mt_rand(1, 99);

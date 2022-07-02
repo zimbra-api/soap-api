@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Message\GetImportStatusEnvelope;
 use Zimbra\Mail\Message\GetImportStatusBody;
 use Zimbra\Mail\Message\GetImportStatusRequest;
@@ -26,12 +23,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetImportStatusTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testGetImportStatus()
     {
         $id = $this->faker->uuid;

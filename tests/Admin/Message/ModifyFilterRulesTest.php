@@ -11,9 +11,6 @@ use Zimbra\Admin\Struct\CosSelector;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Admin\Struct\ServerSelector;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Struct\FilterVariable;
 use Zimbra\Mail\Struct\FilterVariables;
 use Zimbra\Mail\Struct\AddressBookTest;
@@ -90,12 +87,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class ModifyFilterRulesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testModifyFilterRules()
     {
         $type = AdminFilterType::BEFORE();

@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Account\SerializerHandler;
-
 use Zimbra\Account\Message\SearchCalendarResourcesBody;
 use Zimbra\Account\Message\SearchCalendarResourcesEnvelope;
 use Zimbra\Account\Message\SearchCalendarResourcesRequest;
@@ -25,12 +22,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class SearchCalendarResourcesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testSearchCalendarResources()
     {
         $sortBy = $this->faker->word;

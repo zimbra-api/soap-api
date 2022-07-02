@@ -2,9 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
 use Zimbra\Common\Enum\ConnectionType;
-use Zimbra\Mail\SerializerHandler;
 
 use Zimbra\Mail\Message\CreateDataSourceEnvelope;
 use Zimbra\Mail\Message\CreateDataSourceBody;
@@ -36,12 +34,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class CreateDataSourceTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testCreateDataSource()
     {
         $id = $this->faker->uuid;

@@ -4,8 +4,6 @@ namespace Zimbra\Tests\Account\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Account\SerializerHandler;
 use Zimbra\Account\Struct\AccountDataSources;
 use Zimbra\Account\Struct\AccountImapDataSource;
 use Zimbra\Account\Struct\AccountPop3DataSource;
@@ -23,12 +21,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class AccountDataSourcesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testAccountDataSources()
     {
         $id = $this->faker->uuid;

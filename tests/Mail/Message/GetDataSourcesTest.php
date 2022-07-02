@@ -2,9 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
 use Zimbra\Common\Enum\ConnectionType;
-use Zimbra\Mail\SerializerHandler;
 
 use Zimbra\Mail\Message\GetDataSourcesEnvelope;
 use Zimbra\Mail\Message\GetDataSourcesBody;
@@ -27,12 +25,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetDataSourcesTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testGetDataSources()
     {
         $id = $this->faker->uuid;

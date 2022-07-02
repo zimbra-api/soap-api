@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Message\GetFreeBusyEnvelope;
 use Zimbra\Mail\Message\GetFreeBusyBody;
 use Zimbra\Mail\Message\GetFreeBusyRequest;
@@ -25,12 +22,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetFreeBusyTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testGetFreeBusy()
     {
         $startTime = $this->faker->unixTime;

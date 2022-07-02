@@ -2,9 +2,6 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Mail\SerializerHandler;
-
 use Zimbra\Mail\Message\DeleteDataSourceEnvelope;
 use Zimbra\Mail\Message\DeleteDataSourceBody;
 use Zimbra\Mail\Message\DeleteDataSourceRequest;
@@ -26,12 +23,6 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class DeleteDataSourceTest extends ZimbraTestCase
 {
-    protected function setUp(): void
-    {
-        SerializerFactory::addSerializerHandler(new SerializerHandler);
-        parent::setUp();
-    }
-
     public function testDeleteDataSource()
     {
         $id = $this->faker->uuid;
