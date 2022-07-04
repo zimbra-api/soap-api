@@ -55,13 +55,13 @@ class InviteComponentTest extends ZimbraTestCase
         $language = $this->faker->locale;
         $dateTime = $this->faker->date;
         $timezone = $this->faker->timezone;
-        $recurrenceRangeType = mt_rand(1, 3);
-        $utcTime = time();
-        $weeks = mt_rand(1, 100);
-        $days = mt_rand(1, 30);
-        $hours = mt_rand(0, 23);
-        $minutes = mt_rand(0, 59);
-        $seconds = mt_rand(0, 59);
+        $recurrenceRangeType = $this->faker->numberBetween(1, 3);
+        $utcTime = $this->faker->unixTime;
+        $weeks = $this->faker->numberBetween(1, 100);
+        $days = $this->faker->numberBetween(1, 30);
+        $hours = $this->faker->numberBetween(0, 23);
+        $minutes = $this->faker->numberBetween(0, 59);
+        $seconds = $this->faker->numberBetween(0, 59);
 
         $geo = new GeoInfo($latitude, $longitude);
         $attendee = new CalendarAttendee($address, $displayName, $role, PartStat::ACCEPT(), TRUE, [new XParam($name, $value)]);
