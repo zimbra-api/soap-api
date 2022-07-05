@@ -303,7 +303,33 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     public function __construct(
         ?string $method = NULL,
         ?int $componentNum = NULL,
-        ?bool $rsvp = NULL
+        ?bool $rsvp = NULL,
+        ?string $priority = NULL,
+        ?string $name = NULL,
+        ?string $location = NULL,
+        ?string $percentComplete = NULL,
+        ?string $completed = NULL,
+        ?bool $noBlob = NULL,
+        ?FreeBusyStatus $freeBusyActual = NULL,
+        ?FreeBusyStatus $freeBusy = NULL,
+        ?Transparency $transparency = NULL,
+        ?bool $isOrganizer = NULL,
+        ?string $xUid = NULL,
+        ?string $uid = NULL,
+        ?int $sequence = NULL,
+        ?int $dateTime = NULL,
+        ?string $calItemId = NULL,
+        ?string $deprecatedApptId = NULL,
+        ?string $calItemFolder = NULL,
+        ?InviteStatus $status = NULL,
+        ?InviteClass $calClass = NULL,
+        ?string $url = NULL,
+        ?bool $isException = NULL,
+        ?string $recurIdZ = NULL,
+        ?bool $isAllDay = NULL,
+        ?bool $isDraft = NULL,
+        ?bool $neverSent = NULL,
+        ?string $changes = NULL
     )
     {
         if (NULL !== $method) {
@@ -314,6 +340,84 @@ class InviteComponentCommon implements InviteComponentCommonInterface
         }
         if (NULL !== $rsvp) {
             $this->setRsvp($rsvp);
+        }
+        if (NULL !== $priority) {
+            $this->setPriority($priority);
+        }
+        if (NULL !== $name) {
+            $this->setName($name);
+        }
+        if (NULL !== $location) {
+            $this->setLocation($location);
+        }
+        if (NULL !== $percentComplete) {
+            $this->setPercentComplete($percentComplete);
+        }
+        if (NULL !== $completed) {
+            $this->setCompleted($completed);
+        }
+        if (NULL !== $noBlob) {
+            $this->setNoBlob($noBlob);
+        }
+        if ($freeBusyActual instanceof FreeBusyStatus) {
+            $this->setFreeBusyActual($freeBusyActual);
+        }
+        if ($freeBusy instanceof FreeBusyStatus) {
+            $this->setFreeBusy($freeBusy);
+        }
+        if ($transparency instanceof Transparency) {
+            $this->setTransparency($transparency);
+        }
+        if (NULL !== $isOrganizer) {
+            $this->setIsOrganizer($isOrganizer);
+        }
+        if (NULL !== $xUid) {
+            $this->setXUid($xUid);
+        }
+        if (NULL !== $uid) {
+            $this->setUid($uid);
+        }
+        if (NULL !== $sequence) {
+            $this->setSequence($sequence);
+        }
+        if (NULL !== $dateTime) {
+            $this->setDateTime($dateTime);
+        }
+        if (NULL !== $calItemId) {
+            $this->setCalItemId($calItemId);
+        }
+        if (NULL !== $deprecatedApptId) {
+            $this->setDeprecatedApptId($deprecatedApptId);
+        }
+        if (NULL !== $calItemFolder) {
+            $this->setCalItemFolder($calItemFolder);
+        }
+        if ($status instanceof InviteStatus) {
+            $this->setStatus($status);
+        }
+        if ($calClass instanceof InviteClass) {
+            $this->setCalClass($calClass);
+        }
+        if (NULL !== $url) {
+            $this->setUrl($url);
+        }
+        if (NULL !== $isException) {
+            $this->setIsException($isException);
+        }
+        if (NULL !== $recurIdZ) {
+            $this->setRecurIdZ($recurIdZ);
+        }
+        if (NULL !== $isAllDay) {
+            $this->setIsAllDay($isAllDay);
+        }
+        if (NULL !== $isDraft) {
+            $this->setIsDraft($isDraft);
+        }
+        if (NULL !== $neverSent) {
+            $this->setNeverSent($neverSent);
+        }
+        if (NULL !== $changes) {
+            $this->setChanges($changes);
         }
     }
 

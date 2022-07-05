@@ -20,15 +20,15 @@ use Zimbra\Mail\Struct\SimpleRepeatingRule;
 use Zimbra\Mail\Struct\XParam;
 use Zimbra\Mail\Struct\XProp;
 
-use Zimbra\Mail\Struct\InviteComponent;
+use Zimbra\Mail\Struct\InviteComponentWithGroupInfo;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for InviteComponent.
+ * Testcase class for InviteComponentWithGroupInfo.
  */
-class InviteComponentTest extends ZimbraTestCase
+class InviteComponentWithGroupInfoTest extends ZimbraTestCase
 {
-    public function testInviteComponent()
+    public function testInviteComponentWithGroupInfo()
     {
         $method = $this->faker->word;
         $componentNum = $this->faker->randomNumber;
@@ -74,7 +74,7 @@ class InviteComponentTest extends ZimbraTestCase
         $dtEnd = new DtTimeInfo($dateTime, $timezone, $utcTime);
         $duration = new DurationInfo($weeks, $days, $hours, $minutes, $seconds);
 
-        $inv = new StubInviteComponent($method, $componentNum, TRUE);
+        $inv = new StubInviteComponentWithGroupInfo($method, $componentNum, TRUE);
         $inv->setCategories([$category1])
             ->addCategory($category2)
             ->setComments([$comment1])
@@ -150,13 +150,13 @@ class InviteComponentTest extends ZimbraTestCase
 </result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($inv, 'xml'));
-        $this->assertEquals($inv, $this->serializer->deserialize($xml, StubInviteComponent::class, 'xml'));
+        $this->assertEquals($inv, $this->serializer->deserialize($xml, StubInviteComponentWithGroupInfo::class, 'xml'));
     }
 }
 
 /**
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  */
-class StubInviteComponent extends InviteComponent
+class StubInviteComponentWithGroupInfo extends InviteComponentWithGroupInfo
 {
 }

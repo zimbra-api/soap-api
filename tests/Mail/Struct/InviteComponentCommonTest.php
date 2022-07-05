@@ -18,7 +18,7 @@ class InviteComponentCommonTest extends ZimbraTestCase
     public function testInviteComponentCommon()
     {
         $method = $this->faker->word;
-        $componentNum = mt_rand(1, 100);
+        $componentNum = $this->faker->randomNumber;
         $priority = (string) mt_rand(0, 9);
         $name = $this->faker->word;
         $location = $this->faker->word;
@@ -29,8 +29,8 @@ class InviteComponentCommonTest extends ZimbraTestCase
         $transparency = Transparency::OPAQUE();
         $xUid = $this->faker->uuid;
         $uid = $this->faker->uuid;
-        $sequence = mt_rand(1, 100);
-        $dateTime = mt_rand(1, 100);
+        $sequence = $this->faker->randomNumber;
+        $dateTime = $this->faker->unixTime;
         $calItemId = $this->faker->uuid;
         $deprecatedApptId = $this->faker->uuid;
         $calItemFolder = $this->faker->word;
@@ -40,10 +40,66 @@ class InviteComponentCommonTest extends ZimbraTestCase
         $recurIdZ = $this->faker->word;
         $changes = implode(',', $this->faker->randomElements(InviteChange::values(), 2));
 
-        $inv = new InviteComponentCommon($method, $componentNum, FALSE);
+        $inv = new InviteComponentCommon(
+            $method,
+            $componentNum,
+            FALSE,
+            $priority,
+            $name,
+            $location,
+            $percentComplete,
+            $completed,
+            FALSE,
+            $freeBusyActual,
+            $freeBusy,
+            $transparency,
+            FALSE,
+            $xUid,
+            $uid,
+            $sequence,
+            $dateTime,
+            $calItemId,
+            $deprecatedApptId,
+            $calItemFolder,
+            $status,
+            $calClass,
+            $url,
+            FALSE,
+            $recurIdZ,
+            FALSE,
+            FALSE,
+            FALSE,
+            $changes
+        );
         $this->assertSame($method, $inv->getMethod());
         $this->assertSame($componentNum, $inv->getComponentNum());
         $this->assertFalse($inv->getRsvp());
+        $this->assertSame($priority, $inv->getPriority());
+        $this->assertSame($name, $inv->getName());
+        $this->assertSame($location, $inv->getLocation());
+        $this->assertSame($percentComplete, $inv->getPercentComplete());
+        $this->assertSame($completed, $inv->getCompleted());
+        $this->assertFalse($inv->getNoBlob());
+        $this->assertSame($freeBusyActual, $inv->getFreeBusyActual());
+        $this->assertSame($freeBusy, $inv->getFreeBusy());
+        $this->assertSame($transparency, $inv->getTransparency());
+        $this->assertFalse($inv->getIsOrganizer());
+        $this->assertSame($xUid, $inv->getXUid());
+        $this->assertSame($uid, $inv->getUid());
+        $this->assertSame($sequence, $inv->getSequence());
+        $this->assertSame($dateTime, $inv->getDateTime());
+        $this->assertSame($calItemId, $inv->getCalItemId());
+        $this->assertSame($deprecatedApptId, $inv->getDeprecatedApptId());
+        $this->assertSame($calItemFolder, $inv->getCalItemFolder());
+        $this->assertSame($status, $inv->getStatus());
+        $this->assertSame($calClass, $inv->getCalClass());
+        $this->assertSame($url, $inv->getUrl());
+        $this->assertFalse($inv->getIsException());
+        $this->assertSame($recurIdZ, $inv->getRecurIdZ());
+        $this->assertFalse($inv->getIsAllDay());
+        $this->assertFalse($inv->getIsDraft());
+        $this->assertFalse($inv->getNeverSent());
+        $this->assertSame($changes, $inv->getChanges());
 
         $inv = new InviteComponentCommon();
         $inv->setMethod($method)

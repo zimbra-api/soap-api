@@ -8,15 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Mail\Struct;
+namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Mail\Struct\Policy;
 
 /**
  * PolicyHolder struct class
  *
  * @package    Zimbra
- * @subpackage Mail
+ * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.

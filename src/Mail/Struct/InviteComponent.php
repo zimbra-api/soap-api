@@ -185,10 +185,118 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     public function __construct(
         ?string $method = NULL,
         ?int $componentNum = NULL,
-        ?bool $rsvp = NULL
+        ?bool $rsvp = NULL,
+        ?string $priority = NULL,
+        ?string $name = NULL,
+        ?string $location = NULL,
+        ?string $percentComplete = NULL,
+        ?string $completed = NULL,
+        ?bool $noBlob = NULL,
+        ?FreeBusyStatus $freeBusyActual = NULL,
+        ?FreeBusyStatus $freeBusy = NULL,
+        ?Transparency $transparency = NULL,
+        ?bool $isOrganizer = NULL,
+        ?string $xUid = NULL,
+        ?string $uid = NULL,
+        ?int $sequence = NULL,
+        ?int $dateTime = NULL,
+        ?string $calItemId = NULL,
+        ?string $deprecatedApptId = NULL,
+        ?string $calItemFolder = NULL,
+        ?InviteStatus $status = NULL,
+        ?InviteClass $calClass = NULL,
+        ?string $url = NULL,
+        ?bool $isException = NULL,
+        ?string $recurIdZ = NULL,
+        ?bool $isAllDay = NULL,
+        ?bool $isDraft = NULL,
+        ?bool $neverSent = NULL,
+        ?string $changes = NULL,
+        array $categories = [],
+        array $comments = [],
+        array $contacts = [],
+        ?GeoInfoInterface $geo = NULL,
+        array $attendees = [],
+        array $alarms = [],
+        array $xProps = [],
+        ?string $fragment = NULL,
+        ?string $description = NULL,
+        ?string $htmlDescription = NULL,
+        ?CalOrganizerInterface $organizer = NULL,
+        ?RecurrenceInfoInterface $recurrence = NULL,
+        ?ExceptionRecurIdInfoInterface $exceptionId = NULL,
+        ?DtTimeInfoInterface $dtStart = NULL,
+        ?DtTimeInfoInterface $dtEnd = NULL,
+        ?DurationInfoInterface $duration = NULL
     )
     {
-        parent::__construct($method, $componentNum, $rsvp);
+        parent::__construct(
+            $method,
+            $componentNum,
+            $rsvp,
+            $priority,
+            $name,
+            $location,
+            $percentComplete,
+            $completed,
+            $noBlob,
+            $freeBusyActual,
+            $freeBusy,
+            $transparency,
+            $isOrganizer,
+            $xUid,
+            $uid,
+            $sequence,
+            $dateTime,
+            $calItemId,
+            $deprecatedApptId,
+            $calItemFolder,
+            $status,
+            $calClass,
+            $url,
+            $isException,
+            $recurIdZ,
+            $isAllDay,
+            $isDraft,
+            $neverSent,
+            $changes
+        );
+        $this->setCategories($categories)
+             ->setComments($comments)
+             ->setContacts($contacts)
+             ->setAttendees($attendees)
+             ->setAlarms($alarms)
+             ->setXProps($xProps);
+        if ($geo instanceof GeoInfoInterface) {
+            $this->setGeo($geo);
+        }
+        if (NULL !== $fragment) {
+            $this->setFragment($fragment);
+        }
+        if (NULL !== $description) {
+            $this->setDescription($description);
+        }
+        if (NULL !== $htmlDescription) {
+            $this->setHtmlDescription($htmlDescription);
+        }
+        if ($organizer instanceof CalOrganizerInterface) {
+            $this->setOrganizer($organizer);
+        }
+        if ($recurrence instanceof RecurrenceInfoInterface) {
+            $this->setRecurrence($recurrence);
+        }
+        if ($exceptionId instanceof ExceptionRecurIdInfoInterface) {
+            $this->setExceptionId($exceptionId);
+        }
+        if ($dtStart instanceof DtTimeInfoInterface) {
+            $this->setDtStart($dtStart);
+        }
+        if ($dtEnd instanceof DtTimeInfoInterface) {
+            $this->setDtEnd($dtEnd);
+        }
+        if ($duration instanceof DurationInfoInterface) {
+            $this->setDuration($duration);
+        }
     }
 
     /**

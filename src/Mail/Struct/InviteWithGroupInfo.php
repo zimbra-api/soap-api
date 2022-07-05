@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\InviteType;
 
 /**
  * InviteWithGroupInfo class
@@ -28,15 +29,15 @@ class InviteWithGroupInfo
      * Invite type - appt|task
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
-     * @Type("string")
+     * @Type("Zimbra\Common\Enum\InviteType")
      * @XmlAttribute
      */
-    private $calItemType;
+    private InviteType $calItemType;
 
     /**
      * Timezones
      * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\CalTZInfo>")
+     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
      */
     private $timezones = [];
@@ -44,7 +45,7 @@ class InviteWithGroupInfo
     /**
      * Invite components
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\InviteComponentWithGroupInfo>")
+     * @Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")
      * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
      */
     private $inviteComponents = [];
@@ -53,7 +54,7 @@ class InviteWithGroupInfo
      * Replies
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\CalendarReply>")
+     * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
@@ -62,20 +63,20 @@ class InviteWithGroupInfo
     /**
      * Constructor method for InviteWithGroupInfo
      *
-     * @param  string $calItemType
+     * @param  InviteType $calItemType
      * @param  array $timezones
-     * @param  InviteComponentWithGroupInfo $inviteComponent
+     * @param  array $inviteComponents
      * @param  array $calendarReplies
      * @return self
      */
     public function __construct(
-        string $calItemType = '',
+        ?InviteType $calItemType = NULL,
         array $timezones = [],
         array $inviteComponents = [],
         array $calendarReplies = []
     )
     {
-        $this->setCalItemType($calItemType)
+        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT())
              ->setTimezones($timezones)
              ->setInviteComponents($inviteComponents)
              ->setCalendarReplies($calendarReplies);
@@ -86,7 +87,7 @@ class InviteWithGroupInfo
      *
      * @return InviteType
      */
-    public function getCalItemType(): string
+    public function getCalItemType(): InviteType
     {
         return $this->calItemType;
     }
@@ -94,10 +95,10 @@ class InviteWithGroupInfo
     /**
      * Sets calItemType
      *
-     * @param  string $calItemType
+     * @param  InviteType $calItemType
      * @return self
      */
-    public function setCalItemType(string $calItemType): self
+    public function setCalItemType(InviteType $calItemType): self
     {
         $this->calItemType = $calItemType;
         return $this;
@@ -142,7 +143,7 @@ class InviteWithGroupInfo
      *
      * @return array
      */
-    public function getInviteComponent(): array
+    public function getInviteComponents(): array
     {
         return $this->inviteComponents;
     }
@@ -156,6 +157,18 @@ class InviteWithGroupInfo
     public function setInviteComponents(array $components): self
     {
         $this->inviteComponents = array_filter($components, static fn ($component) => $component instanceof InviteComponentWithGroupInfo);
+        return $this;
+    }
+
+    /**
+     * Add invite component
+     *
+     * @param  InviteComponentWithGroupInfo $component
+     * @return self
+     */
+    public function addInviteComponent(InviteComponentWithGroupInfo $component): self
+    {
+        $this->inviteComponents[] = $component;
         return $this;
     }
 

@@ -56,18 +56,6 @@ class Text
     }
 
     /**
-     * Check the tag is valid.
-     *
-     * @param  string $tag The tag name.
-     * @return bool
-     */
-    public static function isValidTagName($tag)
-    {
-        $pattern = '/^[a-z_]+[a-z0-9\:\-\.\_]*[^:]*$/i';
-        return preg_match($pattern, (string) $tag, $matches) && $matches[0] == $tag;
-    }
-
-    /**
      * Convert bool value to string.
      *
      * @param  bool $value

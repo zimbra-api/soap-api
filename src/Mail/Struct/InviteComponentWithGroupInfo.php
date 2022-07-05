@@ -11,6 +11,18 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Struct\{
+    AlarmInfoInterface,
+    CalendarAttendeeInterface,
+    CalOrganizerInterface,
+    DtTimeInfoInterface,
+    DurationInfoInterface,
+    ExceptionRecurIdInfoInterface,
+    GeoInfoInterface,
+    InviteComponentInterface,
+    RecurrenceInfoInterface,
+    XPropInterface
+};
 
 /**
  * InviteComponentWithGroupInfo struct class
@@ -52,15 +64,15 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * for iCalendar GEO property
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
-     * @Type("App\Libraries\Zimbra\Mail\Type\GeoInfo")
+     * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?GeoInfo $geo = NULL;
+    private ?GeoInfoInterface $geo = NULL;
 
     /**
      * Attendees
      * @Accessor(getter="getAttendees", setter="setAttendees")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\CalendarAttendee>")
+     * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
      */
     private $attendees = [];
@@ -68,7 +80,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Alarm information
      * @Accessor(getter="getAlarms", setter="setAlarms")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\AlarmInfo>")
+     * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
      */
     private $alarms = [];
@@ -76,7 +88,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * XPROP properties
      * @Accessor(getter="getXProps", setter="setXProps")
-     * @Type("array<App\Libraries\Zimbra\Mail\Type\XProp>")
+     * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
      */
     private $xProps = [];
@@ -112,55 +124,55 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * Organizer
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
-     * @Type("App\Libraries\Zimbra\Mail\Type\CalOrganizer")
+     * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?CalOrganizer $organizer = NULL;
+    private ?CalOrganizerInterface $organizer = NULL;
 
     /**
      * Recurrence information
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
-     * @Type("App\Libraries\Zimbra\Mail\Type\RecurrenceInfo")
+     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?RecurrenceInfo $recurrence = NULL;
+    private ?RecurrenceInfoInterface $recurrence = NULL;
 
     /**
      * Recurrence id, if this is an exception
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
-     * @Type("App\Libraries\Zimbra\Mail\Type\ExceptionRecurIdInfo")
+     * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?ExceptionRecurIdInfo $exceptionId = NULL;
+    private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
 
     /**
      * Start date-time (required)
      * @Accessor(getter="getDtStart", setter="setDtStart")
      * @SerializedName("s")
-     * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?DtTimeInfo $dtStart = NULL;
+    private ?DtTimeInfoInterface $dtStart = NULL;
 
     /**
      * End date-time
      * @Accessor(getter="getDtEnd", setter="setDtEnd")
      * @SerializedName("e")
-     * @Type("App\Libraries\Zimbra\Mail\Type\DtTimeInfo")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?DtTimeInfo $dtEnd = NULL;
+    private ?DtTimeInfoInterface $dtEnd = NULL;
 
     /**
      * Duration
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
-     * @Type("App\Libraries\Zimbra\Mail\Type\DurationInfo")
+     * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?DurationInfo $duration = NULL;
+    private ?DurationInfoInterface $duration = NULL;
 
     /**
      * Constructor method
@@ -173,10 +185,118 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     public function __construct(
         ?string $method = NULL,
         ?int $componentNum = NULL,
-        ?bool $rsvp = NULL
+        ?bool $rsvp = NULL,
+        ?string $priority = NULL,
+        ?string $name = NULL,
+        ?string $location = NULL,
+        ?string $percentComplete = NULL,
+        ?string $completed = NULL,
+        ?bool $noBlob = NULL,
+        ?FreeBusyStatus $freeBusyActual = NULL,
+        ?FreeBusyStatus $freeBusy = NULL,
+        ?Transparency $transparency = NULL,
+        ?bool $isOrganizer = NULL,
+        ?string $xUid = NULL,
+        ?string $uid = NULL,
+        ?int $sequence = NULL,
+        ?int $dateTime = NULL,
+        ?string $calItemId = NULL,
+        ?string $deprecatedApptId = NULL,
+        ?string $calItemFolder = NULL,
+        ?InviteStatus $status = NULL,
+        ?InviteClass $calClass = NULL,
+        ?string $url = NULL,
+        ?bool $isException = NULL,
+        ?string $recurIdZ = NULL,
+        ?bool $isAllDay = NULL,
+        ?bool $isDraft = NULL,
+        ?bool $neverSent = NULL,
+        ?string $changes = NULL,
+        array $categories = [],
+        array $comments = [],
+        array $contacts = [],
+        ?GeoInfoInterface $geo = NULL,
+        array $attendees = [],
+        array $alarms = [],
+        array $xProps = [],
+        ?string $fragment = NULL,
+        ?string $description = NULL,
+        ?string $htmlDescription = NULL,
+        ?CalOrganizerInterface $organizer = NULL,
+        ?RecurrenceInfoInterface $recurrence = NULL,
+        ?ExceptionRecurIdInfoInterface $exceptionId = NULL,
+        ?DtTimeInfoInterface $dtStart = NULL,
+        ?DtTimeInfoInterface $dtEnd = NULL,
+        ?DurationInfoInterface $duration = NULL
     )
     {
-        parent::__construct($method, $componentNum, $rsvp);
+        parent::__construct(
+            $method,
+            $componentNum,
+            $rsvp,
+            $priority,
+            $name,
+            $location,
+            $percentComplete,
+            $completed,
+            $noBlob,
+            $freeBusyActual,
+            $freeBusy,
+            $transparency,
+            $isOrganizer,
+            $xUid,
+            $uid,
+            $sequence,
+            $dateTime,
+            $calItemId,
+            $deprecatedApptId,
+            $calItemFolder,
+            $status,
+            $calClass,
+            $url,
+            $isException,
+            $recurIdZ,
+            $isAllDay,
+            $isDraft,
+            $neverSent,
+            $changes
+        );
+        $this->setCategories($categories)
+             ->setComments($comments)
+             ->setContacts($contacts)
+             ->setAttendees($attendees)
+             ->setAlarms($alarms)
+             ->setXProps($xProps);
+        if ($geo instanceof GeoInfoInterface) {
+            $this->setGeo($geo);
+        }
+        if (NULL !== $fragment) {
+            $this->setFragment($fragment);
+        }
+        if (NULL !== $description) {
+            $this->setDescription($description);
+        }
+        if (NULL !== $htmlDescription) {
+            $this->setHtmlDescription($htmlDescription);
+        }
+        if ($organizer instanceof CalOrganizerInterface) {
+            $this->setOrganizer($organizer);
+        }
+        if ($recurrence instanceof RecurrenceInfoInterface) {
+            $this->setRecurrence($recurrence);
+        }
+        if ($exceptionId instanceof ExceptionRecurIdInfoInterface) {
+            $this->setExceptionId($exceptionId);
+        }
+        if ($dtStart instanceof DtTimeInfoInterface) {
+            $this->setDtStart($dtStart);
+        }
+        if ($dtEnd instanceof DtTimeInfoInterface) {
+            $this->setDtEnd($dtEnd);
+        }
+        if ($duration instanceof DurationInfoInterface) {
+            $this->setDuration($duration);
+        }
     }
 
     /**
@@ -370,7 +490,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return GeoInfo
      */
-    public function getGeo(): ?GeoInfo
+    public function getGeo(): ?GeoInfoInterface
     {
         return $this->geo;
     }
@@ -381,7 +501,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  GeoInfo $geo
      * @return self
      */
-    public function setGeo(GeoInfo $geo): self
+    public function setGeo(GeoInfoInterface $geo): self
     {
         $this->geo = $geo;
         return $this;
@@ -395,7 +515,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setAttendees(array $attendees): self
     {
-        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendee);
+        $this->attendees = array_filter($attendees, static fn ($attendee) => $attendee instanceof CalendarAttendeeInterface);
         return $this;
     }
 
@@ -415,7 +535,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  CalendarAttendee $attendee
      * @return self
      */
-    public function addAttendee(CalendarAttendee $attendee): self
+    public function addAttendee(CalendarAttendeeInterface $attendee): self
     {
         $this->attendees[] = $attendee;
         return $this;
@@ -429,7 +549,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setAlarms(array $alarms): self
     {
-        $this->alarms = array_filter($alarms, static fn ($alarm) => $alarm instanceof AlarmInfo);
+        $this->alarms = array_filter($alarms, static fn ($alarm) => $alarm instanceof AlarmInfoInterface);
         return $this;
     }
 
@@ -449,7 +569,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  AlarmInfo $alarm
      * @return self
      */
-    public function addAlarm(AlarmInfo $alarm): self
+    public function addAlarm(AlarmInfoInterface $alarm): self
     {
         $this->alarms[] = $alarm;
         return $this;
@@ -463,7 +583,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      */
     public function setXProps(array $xProps): self
     {
-        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XProp);
+        $this->xProps = array_filter($xProps, static fn ($xProp) => $xProp instanceof XPropInterface);
         return $this;
     }
 
@@ -483,7 +603,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  XProp $xProp
      * @return self
      */
-    public function addXProp(XProp $xProp): self
+    public function addXProp(XPropInterface $xProp): self
     {
         $this->xProps[] = $xProp;
         return $this;
@@ -494,7 +614,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return CalOrganizer
      */
-    public function getOrganizer(): ?CalOrganizer
+    public function getOrganizer(): ?CalOrganizerInterface
     {
         return $this->organizer;
     }
@@ -505,7 +625,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  CalOrganizer $organizer
      * @return self
      */
-    public function setOrganizer(CalOrganizer $organizer): self
+    public function setOrganizer(CalOrganizerInterface $organizer): self
     {
         $this->organizer = $organizer;
         return $this;
@@ -516,7 +636,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return RecurrenceInfo
      */
-    public function getRecurrence(): ?RecurrenceInfo
+    public function getRecurrence(): ?RecurrenceInfoInterface
     {
         return $this->recurrence;
     }
@@ -527,7 +647,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  RecurrenceInfo $recurrence
      * @return self
      */
-    public function setRecurrence(RecurrenceInfo $recurrence): self
+    public function setRecurrence(RecurrenceInfoInterface $recurrence): self
     {
         $this->recurrence = $recurrence;
         return $this;
@@ -538,7 +658,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return ExceptionRecurIdInfo
      */
-    public function getExceptionId(): ?ExceptionRecurIdInfo
+    public function getExceptionId(): ?ExceptionRecurIdInfoInterface
     {
         return $this->exceptionId;
     }
@@ -549,7 +669,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  ExceptionRecurIdInfo $exceptionId
      * @return self
      */
-    public function setExceptionId(ExceptionRecurIdInfo $exceptionId): self
+    public function setExceptionId(ExceptionRecurIdInfoInterface $exceptionId): self
     {
         $this->exceptionId = $exceptionId;
         return $this;
@@ -560,7 +680,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return DtTimeInfo
      */
-    public function getDtStart(): ?DtTimeInfo
+    public function getDtStart(): ?DtTimeInfoInterface
     {
         return $this->dtStart;
     }
@@ -571,7 +691,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  DtTimeInfo $dtStart
      * @return self
      */
-    public function setDtStart(DtTimeInfo $dtStart): self
+    public function setDtStart(DtTimeInfoInterface $dtStart): self
     {
         $this->dtStart = $dtStart;
         return $this;
@@ -582,7 +702,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return DtTimeInfo
      */
-    public function getDtEnd(): ?DtTimeInfo
+    public function getDtEnd(): ?DtTimeInfoInterface
     {
         return $this->dtEnd;
     }
@@ -593,7 +713,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  DtTimeInfo $dtEnd
      * @return self
      */
-    public function setDtEnd(DtTimeInfo $dtEnd): self
+    public function setDtEnd(DtTimeInfoInterface $dtEnd): self
     {
         $this->dtEnd = $dtEnd;
         return $this;
@@ -604,7 +724,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      *
      * @return DurationInfo
      */
-    public function getDuration(): ?DurationInfo
+    public function getDuration(): ?DurationInfoInterface
     {
         return $this->duration;
     }
@@ -615,7 +735,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @param  DurationInfo $duration
      * @return self
      */
-    public function setDuration(DurationInfo $duration): self
+    public function setDuration(DurationInfoInterface $duration): self
     {
         $this->duration = $duration;
         return $this;

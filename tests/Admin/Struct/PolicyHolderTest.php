@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Zimbra\Tests\Mail\Struct;
+namespace Zimbra\Tests\Admin\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
-use Zimbra\Mail\Struct\Policy;
-use Zimbra\Mail\Struct\PolicyHolder;
+use Zimbra\Admin\Struct\PolicyHolder;
 use Zimbra\Common\Enum\Type;
+use Zimbra\Mail\Struct\Policy;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
