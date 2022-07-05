@@ -5,7 +5,6 @@ namespace Zimbra\Tests\Common;
 use PHPUnit\Framework\TestCase;;
 use JMS\Serializer\SerializerInterface;
 use Zimbra\Common\SerializerFactory;
-use Zimbra\Common\Serializer\{JsonDeserializationVisitorFactory, JsonSerializationVisitorFactory, XmlDeserializationVisitorFactory};
 
 /**
  * Testcase class for SerializerFactory.
