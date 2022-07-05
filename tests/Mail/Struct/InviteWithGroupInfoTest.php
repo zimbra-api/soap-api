@@ -42,7 +42,7 @@ class InviteWithGroupInfoTest extends ZimbraTestCase
         );
         $this->assertSame($calItemType, $inv->getCalItemType());
         $this->assertSame([$timezone], $inv->getTimezones());
-        $this->assertSame([$inviteComponent], $inv->getInviteComponent());
+        $this->assertSame([$inviteComponent], $inv->getInviteComponents());
         $this->assertSame([$calendarReply], $inv->getCalendarReplies());
 
         $inv = new StubInviteWithGroupInfo();
@@ -55,7 +55,7 @@ class InviteWithGroupInfoTest extends ZimbraTestCase
             ->addCalendarReply($calendarReply);
         $this->assertSame($calItemType, $inv->getCalItemType());
         $this->assertSame([$timezone, $timezone], $inv->getTimezones());
-        $this->assertSame([$inviteComponent, $inviteComponent], $inv->getInviteComponent());
+        $this->assertSame([$inviteComponent, $inviteComponent], $inv->getInviteComponents());
         $this->assertSame([$calendarReply, $calendarReply], $inv->getCalendarReplies());
         $inv->setTimezones([$timezone])
             ->setInviteComponents([$inviteComponent])
