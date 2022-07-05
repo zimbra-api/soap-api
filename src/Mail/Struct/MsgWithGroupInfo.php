@@ -13,6 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{
     Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
 };
+use Zimbra\Common\Enum\ReplyType;
 use Zimbra\Common\Struct\{KeyValuePair, UrlAndValue};
 
 /**
@@ -67,10 +68,10 @@ class MsgWithGroupInfo extends MessageCommon
      * Reply type - <b>r|w</b>
      * @Accessor(getter="getDraftReplyType", setter="setDraftReplyType")
      * @SerializedName("rt")
-     * @Type("string")
+     * @Type("Zimbra\Common\Enum\ReplyType")
      * @XmlAttribute
      */
-    private $draftReplyType;
+    private ?ReplyType $draftReplyType = NULL;
 
     /**
      * If set, this specifies the identity being used to compose the message
@@ -191,7 +192,7 @@ class MsgWithGroupInfo extends MessageCommon
      * Mime part information
      * @Accessor(getter="getMimePart", setter="setMimePart")
      * @SerializedName("mp")
-     * @Type("Zimbra\Mail\Struct\PartInfo")
+     * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
     private ?MimePartInfo $mimePart = NULL;
@@ -207,7 +208,7 @@ class MsgWithGroupInfo extends MessageCommon
 
     /**
      * DL Subscription Notification information
-     * @Accessor(getter="getDLSubs", setter="setDLSubs")
+     * @Accessor(getter="getDLSubscription", setter="setDLSubscription")
      * @SerializedName("dlSubs")
      * @Type("Zimbra\Mail\Struct\DLSubscriptionNotification")
      * @XmlElement(namespace="urn:zimbraMail")
@@ -233,7 +234,7 @@ class MsgWithGroupInfo extends MessageCommon
         ?int $imapUid = NULL,
         ?string $calendarIntendedFor = NULL,
         ?string $origId = NULL,
-        ?string $draftReplyType = NULL,
+        ?ReplyType $draftReplyType = NULL,
         ?string $identityId = NULL,
         ?string $draftAccountId = NULL,
         ?int $draftAutoSendTime = NULL,
@@ -267,7 +268,7 @@ class MsgWithGroupInfo extends MessageCommon
         if (NULL !== $origId) {
             $this->setOrigId($origId);
         }
-        if (NULL !== $draftReplyType) {
+        if ($draftReplyType instanceof ReplyType) {
             $this->setDraftReplyType($draftReplyType);
         }
         if (NULL !== $identityId) {
@@ -310,7 +311,7 @@ class MsgWithGroupInfo extends MessageCommon
             $this->setShareNotification($shr);
         }
         if ($dlSubs instanceof DLSubscriptionNotification) {
-            $this->setDLSubs($dlSubs);
+            $this->setDLSubscription($dlSubs);
         }
         if ($content instanceof UrlAndValue) {
             $this->setContent($content);
@@ -408,9 +409,9 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Gets draftReplyType
      *
-     * @return string
+     * @return ReplyType
      */
-    public function getDraftReplyType(): ?string
+    public function getDraftReplyType(): ?ReplyType
     {
         return $this->draftReplyType;
     }
@@ -418,10 +419,10 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Sets draftReplyType
      *
-     * @param  string $draftReplyType
+     * @param  ReplyType $draftReplyType
      * @return self
      */
-    public function setDraftReplyType(string $draftReplyType): self
+    public function setDraftReplyType(ReplyType $draftReplyType): self
     {
         $this->draftReplyType = $draftReplyType;
         return $this;
@@ -809,7 +810,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @param  DLSubscriptionNotification $dlSubs
      * @return self
      */
-    public function setDLSubs(DLSubscriptionNotification $dlSubs): self
+    public function setDLSubscription(DLSubscriptionNotification $dlSubs): self
     {
         $this->dlSubs = $dlSubs;
         return $this;
@@ -820,7 +821,7 @@ class MsgWithGroupInfo extends MessageCommon
      *
      * @return DLSubscriptionNotification
      */
-    public function getDLSubs(): ?DLSubscriptionNotification
+    public function getDLSubscription(): ?DLSubscriptionNotification
     {
         return $this->dlSubs;
     }
