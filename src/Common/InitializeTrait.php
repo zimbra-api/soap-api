@@ -10,8 +10,6 @@
 
 namespace Zimbra\Common;
 
-use JMS\Serializer\Annotation\Exclude;
-
 /**
  * InitializeTrait trait
  *
@@ -22,9 +20,6 @@ use JMS\Serializer\Annotation\Exclude;
  */
 trait InitializeTrait
 {
-    /**
-     * @Exclude
-     */
     private $initialized = FALSE;
 
     public function init(bool $forceReinit = FALSE): self
