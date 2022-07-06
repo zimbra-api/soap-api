@@ -27,6 +27,7 @@ class AnnounceOrganizerChangeRequest extends Request
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -48,7 +49,7 @@ class AnnounceOrganizerChangeRequest extends Request
     /**
      * Gets id
      *
-     * @return AddedComment
+     * @return string
      */
     public function getId(): string
     {
