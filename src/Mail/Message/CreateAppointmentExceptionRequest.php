@@ -63,7 +63,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     private $revision;
 
     /**
-     * Constructor method for CounterAppointmentRequest
+     * Constructor method for CreateAppointmentExceptionRequest
      *
      * @param  string $id
      * @param  int $numComponents
