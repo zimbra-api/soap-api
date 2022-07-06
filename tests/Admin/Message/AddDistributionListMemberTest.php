@@ -16,14 +16,14 @@ class AddDistributionListMemberTest extends ZimbraTestCase
     public function testAddDistributionListMember()
     {
         $id = $this->faker->uuid;
-        $member1 = $this->faker->name;
-        $member2 = $this->faker->name;
+        $member1 = $this->faker->unique->email;
+        $member2 = $this->faker->unique->email;
 
         $request = new AddDistributionListMemberRequest($id, [$member1]);
         $this->assertSame($id, $request->getId());
         $this->assertSame([$member1], $request->getMembers());
 
-        $request = new AddDistributionListMemberRequest('');
+        $request = new AddDistributionListMemberRequest();
         $request->setId($id)
             ->setMembers([$member1])
             ->addMember($member2);
