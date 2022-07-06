@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Struct;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
- * IdEmailName struct class
+ * Grantor struct class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -21,10 +21,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class IdEmailName
+class Grantor
 {
     /**
-     * ID
+     * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,7 +34,8 @@ class IdEmailName
     private $id;
 
     /**
-     * Email
+     * Email address
+     * 
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -42,7 +44,8 @@ class IdEmailName
     private $email;
 
     /**
-     * The name
+     * Grantor display name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -59,20 +62,14 @@ class IdEmailName
      * @return self
      */
     public function __construct(
-        ?string $id = NULL,
-        ?string $email = NULL,
-        ?string $name = NULL
+        string $id = '',
+        string $email = '',
+        string $name = ''
     )
     {
-        if (NULL !== $id) {
-            $this->setId($id);
-        }
-        if (NULL !== $email) {
-            $this->setEmail($email);
-        }
-        if (NULL !== $name) {
-            $this->setName($name);
-        }
+        $this->setId($id)
+             ->setEmail($email)
+             ->setName($name);
     }
 
     /**
@@ -80,7 +77,7 @@ class IdEmailName
      *
      * @return string
      */
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -102,7 +99,7 @@ class IdEmailName
      *
      * @return string
      */
-    public function getId(): ?string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -124,7 +121,7 @@ class IdEmailName
      *
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }

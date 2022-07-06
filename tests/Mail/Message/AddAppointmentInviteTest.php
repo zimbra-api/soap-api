@@ -30,7 +30,7 @@ class AddAppointmentInviteTest extends ZimbraTestCase
     {
         $partStat = ParticipationStatus::ACCEPT();
 
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $origId = $this->faker->uuid;
         $replyType = ReplyType::REPLIED();
         $identityId = $this->faker->uuid;

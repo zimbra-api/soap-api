@@ -1,0 +1,225 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Mail\Struct;
+
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+
+/**
+ * ShareNotificationInfo struct class
+ *
+ * @package    Zimbra
+ * @subpackage Mail
+ * @category   Struct
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ */
+class ShareNotificationInfo
+{
+    /**
+     * Status - "new" if the message is unread or "seen" if the message is read.
+     * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $status;
+
+    /**
+     * The item ID of the share notification message.
+     * The message must be in the Inbox folder.
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $id;
+
+    /**
+     * Date
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $date;
+
+    /**
+     * Grantor information
+     * 
+     * @Accessor(getter="getGrantor", setter="setGrantor")
+     * @SerializedName("grantor")
+     * @Type("Zimbra\Mail\Struct\Grantor")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?Grantor $grantor = NULL;
+
+    /**
+     * Link information
+     * 
+     * @Accessor(getter="getLink", setter="setLink")
+     * @SerializedName("link")
+     * @Type("Zimbra\Mail\Struct\LinkInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?LinkInfo $link = NULL;
+
+    /**
+     * Constructor method
+     *
+     * @param string $status
+     * @param string $id
+     * @param int $date
+     * @param Grantor $grantor
+     * @param LinkInfo $link
+     * @return self
+     */
+    public function __construct(
+        string $status = '',
+        string $id = '',
+        int $date = 0,
+        ?Grantor $grantor = NULL,
+        ?LinkInfo $link = NULL
+    )
+    {
+        $this->setId($id)
+             ->setStatus($status)
+             ->setDate($date);
+        if ($grantor instanceof Grantor) {
+            $this->setGrantor($grantor);
+        }
+        if ($link instanceof LinkInfo) {
+            $this->setLink($link);
+        }
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * Sets id
+     *
+     * @param  string $id
+     * @return self
+     */
+    public function setId(string $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Gets addressType
+     *
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * Sets status
+     *
+     * @param  string $status
+     * @return self
+     */
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * Gets the date
+     *
+     * @return int
+     */
+    public function getDate(): int
+    {
+        return $this->date;
+    }
+
+    /**
+     * Sets the date
+     *
+     * @param  int $date
+     * @return self
+     */
+    public function setDate(int $date): self
+    {
+        $this->date = $date;
+        return $this;
+    }
+
+    /**
+     * Gets the grantor
+     *
+     * @return Grantor
+     */
+    public function getGrantor(): ?Grantor
+    {
+        return $this->grantor;
+    }
+
+    /**
+     * Sets the grantor
+     *
+     * @param  Grantor $grantor
+     * @return self
+     */
+    public function setGrantor(Grantor $grantor): self
+    {
+        $this->grantor = $grantor;
+        return $this;
+    }
+
+    /**
+     * Gets the link
+     *
+     * @return LinkInfo
+     */
+    public function getLink(): ?LinkInfo
+    {
+        return $this->link;
+    }
+
+    /**
+     * Sets the link
+     *
+     * @param  LinkInfo $link
+     * @return self
+     */
+    public function setLink(LinkInfo $link): self
+    {
+        $this->link = $link;
+        return $this;
+    }
+
+    /**
+     * Gets the standardTZName
+     *
+     * @return string
+     */
+    public function getStandardTZName(): ?string
+    {
+        return $this->standardTZName;
+    }
+}

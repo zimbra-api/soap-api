@@ -15,19 +15,19 @@ class CalTZInfoTest extends ZimbraTestCase
 {
     public function testCalTZInfo()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $standardTZName = $this->faker->word;
         $daylightTZName = $this->faker->word;
 
-        $mon = mt_rand(1, 12);
-        $hour = mt_rand(0, 23);
-        $min = mt_rand(0, 59);
-        $sec = mt_rand(0, 59);
-        $mday = mt_rand(1, 31);
-        $week = mt_rand(1, 4);
-        $wkday = mt_rand(1, 7);
+        $mon = $this->faker->numberBetween(1, 12);
+        $hour = $this->faker->numberBetween(0, 23);
+        $min = $this->faker->numberBetween(0, 59);
+        $sec = $this->faker->numberBetween(0, 59);
+        $mday = $this->faker->numberBetween(1, 31);
+        $week = $this->faker->numberBetween(1, 4);
+        $wkday = $this->faker->numberBetween(1, 7);
 
         $standardTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
         $daylightTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
