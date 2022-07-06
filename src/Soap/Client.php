@@ -12,7 +12,9 @@ namespace Zimbra\Soap;
 
 use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Message\{RequestFactoryInterface, RequestInterface, ResponseInterface, StreamFactoryInterface};
+use Psr\Http\Message\{
+    RequestFactoryInterface, RequestInterface, ResponseInterface, StreamFactoryInterface
+};
 
 /**
  * Client is a class which provides a http client for SOAP servers
