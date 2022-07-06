@@ -18,32 +18,32 @@ class LinkInfoTest extends ZimbraTestCase
         $defaultView = $this->faker->word;
         $rights = $this->faker->word;
 
-        $info = new LinkInfo(
+        $link = new LinkInfo(
             $id, $uuid, $name, $defaultView, $rights
         );
-        $this->assertSame($id, $info->getId());
-        $this->assertSame($uuid, $info->getUuid());
-        $this->assertSame($name, $info->getName());
-        $this->assertSame($defaultView, $info->getDefaultView());
-        $this->assertSame($rights, $info->getRights());
+        $this->assertSame($id, $link->getId());
+        $this->assertSame($uuid, $link->getUuid());
+        $this->assertSame($name, $link->getName());
+        $this->assertSame($defaultView, $link->getDefaultView());
+        $this->assertSame($rights, $link->getRights());
 
-        $info = new LinkInfo();
-        $info->setId($id)
+        $link = new LinkInfo();
+        $link->setId($id)
             ->setUuid($uuid)
             ->setName($name)
             ->setDefaultView($defaultView)
             ->setRights($rights);
-        $this->assertSame($id, $info->getId());
-        $this->assertSame($uuid, $info->getUuid());
-        $this->assertSame($name, $info->getName());
-        $this->assertSame($defaultView, $info->getDefaultView());
-        $this->assertSame($rights, $info->getRights());
+        $this->assertSame($id, $link->getId());
+        $this->assertSame($uuid, $link->getUuid());
+        $this->assertSame($name, $link->getName());
+        $this->assertSame($defaultView, $link->getDefaultView());
+        $this->assertSame($rights, $link->getRights());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
 <result id="$id" uuid="$uuid" name="$name" view="$defaultView" perm="$rights" />
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
-        $this->assertEquals($info, $this->serializer->deserialize($xml, LinkInfo::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($link, 'xml'));
+        $this->assertEquals($link, $this->serializer->deserialize($xml, LinkInfo::class, 'xml'));
     }
 }

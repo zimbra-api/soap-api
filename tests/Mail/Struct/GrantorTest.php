@@ -16,9 +16,7 @@ class GrantorTest extends ZimbraTestCase
         $email = $this->faker->email;
         $name = $this->faker->name;
 
-        $grantor = new Grantor(
-            $id, $email, $name
-        );
+        $grantor = new Grantor($id, $email, $name);
         $this->assertSame($id, $grantor->getId());
         $this->assertSame($email, $grantor->getEmail());
         $this->assertSame($name, $grantor->getName());

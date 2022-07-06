@@ -15,7 +15,7 @@ class CalTZInfoTest extends ZimbraTestCase
 {
     public function testCalTZInfo()
     {
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
         $tzStdOffset = $this->faker->randomNumber;
         $tzDayOffset = $this->faker->randomNumber;
         $standardTZName = $this->faker->word;
