@@ -37,8 +37,8 @@ class GetYahooAuthTokenResponse implements ResponseInterface
     /**
      * Constructor method for GetYahooAuthTokenRequest
      *
-     * @param  bool $user
-     * @return failed
+     * @param  bool $failed
+     * @return self
      */
     public function __construct(?bool $failed = NULL)
     {
