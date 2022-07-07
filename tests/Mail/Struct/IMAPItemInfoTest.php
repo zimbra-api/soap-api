@@ -12,14 +12,14 @@ class IMAPItemInfoTest extends ZimbraTestCase
 {
     public function testIMAPItemInfo()
     {
-        $id = mt_rand(1, 99);
-        $imapUid = mt_rand(1, 99);
+        $id = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
 
         $info = new IMAPItemInfo($id, $imapUid);
         $this->assertSame($id, $info->getId());
         $this->assertSame($imapUid, $info->getImapUid());
 
-        $info = new IMAPItemInfo(0, 0);
+        $info = new IMAPItemInfo();
         $info->setId($id)
            ->setImapUid($imapUid);
         $this->assertSame($id, $info->getId());
