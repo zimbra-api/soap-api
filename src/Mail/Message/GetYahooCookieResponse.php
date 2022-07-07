@@ -43,6 +43,7 @@ class GetYahooCookieResponse implements ResponseInterface
      * @XmlAttribute
      */
     private $crumb;
+
     /**
      * Y
      * 
@@ -73,7 +74,8 @@ class GetYahooCookieResponse implements ResponseInterface
      * @return self
      */
     public function __construct(
-        ?string $error = NULL, ?string $crumb = NULL, ?string $y = NULL, ?string $t = NULL)
+        ?string $error = NULL, ?string $crumb = NULL, ?string $y = NULL, ?string $t = NULL
+    )
     {
         if (NULL !== $error) {
             $this->setError($error);
