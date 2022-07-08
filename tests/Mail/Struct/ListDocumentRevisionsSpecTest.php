@@ -16,9 +16,7 @@ class ListDocumentRevisionsSpecTest extends ZimbraTestCase
         $version = $this->faker->randomNumber;
         $count = $this->faker->randomNumber;
 
-        $spec = new ListDocumentRevisionsSpec(
-            $id, $version, $count
-        );
+        $spec = new ListDocumentRevisionsSpec($id, $version, $count);
         $this->assertSame($id, $spec->getId());
         $this->assertSame($version, $spec->getVersion());
         $this->assertSame($count, $spec->getCount());
