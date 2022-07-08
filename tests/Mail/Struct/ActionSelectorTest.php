@@ -41,7 +41,7 @@ class ActionSelectorTest extends ZimbraTestCase
         $this->assertFalse($action->getNonExistentIds());
         $this->assertFalse($action->getNewlyCreatedIds());
 
-        $action = new ActionSelector('');
+        $action = new ActionSelector();
         $action->setIds($ids)
             ->setOperation($operation)
             ->setConstraint($constraint)

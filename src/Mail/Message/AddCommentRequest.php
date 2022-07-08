@@ -28,6 +28,7 @@ class AddCommentRequest extends Request
 {
     /**
      * Added comment
+     * 
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\AddedComment")

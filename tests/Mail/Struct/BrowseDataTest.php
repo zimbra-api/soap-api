@@ -21,7 +21,7 @@ class BrowseDataTest extends ZimbraTestCase
         $this->assertSame($frequency, $bd->getFrequency());
         $this->assertSame($data, $bd->getData());
 
-        $bd = new BrowseData('', 0);
+        $bd = new BrowseData();
         $bd->setBrowseDomainHeader($browseDomainHeader)
             ->setFrequency($frequency)
             ->setData($data);

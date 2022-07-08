@@ -21,7 +21,7 @@ class IdVersionTest extends ZimbraTestCase
         $this->assertSame($id, $doc->getId());
         $this->assertSame($version, $doc->getVersion());
 
-        $doc = new IdVersion('');
+        $doc = new IdVersion();
         $doc->setId($id)
             ->setVersion($version);
         $this->assertSame($id, $doc->getId());
