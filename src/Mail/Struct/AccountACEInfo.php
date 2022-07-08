@@ -143,7 +143,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets the right enum
+     * Gets the right
      *
      * @return string
      */
@@ -153,7 +153,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets the right enum
+     * Sets the right
      *
      * @param  string $right
      * @return self
