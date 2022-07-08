@@ -11,12 +11,12 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Mail\Struct\AddedComment;
+use Zimbra\Mail\Struct\ActionSelector;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
- * AddCommentRequest class
- * Add a comment to the specified item.  Currently comments can only be added to documents
+ * ItemActionRequest class
+ * Perform an action on an item
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -24,48 +24,48 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AddCommentRequest extends Request
+class ItemActionRequest extends Request
 {
     /**
-     * Added comment
+     * Specify the action to perform
      * 
-     * @Accessor(getter="getComment", setter="setComment")
-     * @SerializedName("comment")
-     * @Type("Zimbra\Mail\Struct\AddedComment")
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Mail\Struct\ActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private AddedComment $comment;
+    private ActionSelector $action;
 
     /**
-     * Constructor method for AddCommentRequest
+     * Constructor method for ItemActionRequest
      *
-     * @param  AddedComment $comment
+     * @param  ActionSelector $action
      * @return self
      */
-    public function __construct(AddedComment $comment)
+    public function __construct(ActionSelector $action)
     {
-        $this->setComment($comment);
+        $this->setAction($action);
     }
 
     /**
-     * Gets comment
+     * Gets action
      *
-     * @return AddedComment
+     * @return ActionSelector
      */
-    public function getComment(): AddedComment
+    public function getAction(): ActionSelector
     {
-        return $this->comment;
+        return $this->action;
     }
 
     /**
-     * Sets comment
+     * Sets action
      *
-     * @param  AddedComment $comment
+     * @param  ActionSelector $action
      * @return self
      */
-    public function setComment(AddedComment $comment): self
+    public function setAction(ActionSelector $action): self
     {
-        $this->comment = $comment;
+        $this->action = $action;
         return $this;
     }
 
@@ -76,8 +76,8 @@ class AddCommentRequest extends Request
      */
     protected function envelopeInit(): EnvelopeInterface
     {
-        return new AddCommentEnvelope(
-            new AddCommentBody($this)
+        return new ItemActionEnvelope(
+            new ItemActionBody($this)
         );
     }
 }

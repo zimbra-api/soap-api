@@ -23,7 +23,7 @@ class ActionResultTest extends ZimbraTestCase
         $this->assertSame($nonExistentIds, $action->getNonExistentIds());
         $this->assertSame($newlyCreatedIds, $action->getNewlyCreatedIds());
 
-        $action = new ActionResult('', '');
+        $action = new ActionResult();
         $action->setId($id)
             ->setOperation($operation)
             ->setNonExistentIds($nonExistentIds)

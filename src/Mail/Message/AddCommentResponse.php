@@ -27,6 +27,7 @@ class AddCommentResponse implements ResponseInterface
 {
     /**
      * Item ID for the comment
+     * 
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Common\Struct\Id")
