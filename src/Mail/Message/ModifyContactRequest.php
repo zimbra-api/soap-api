@@ -16,7 +16,9 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyContactRequest class
- * Create a contact
+ * Modify Contact
+ * When modifying tags, all specified tags are set and all others are unset.  If tn="{tag-names}" is NOT specified
+ * then any existing tags will remain set.
  * 
  * @package    Zimbra
  * @subpackage Mail
