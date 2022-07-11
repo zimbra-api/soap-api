@@ -35,7 +35,7 @@ class NewSearchFolderSpecTest extends ZimbraTestCase
         $this->assertSame($rgb, $folder->getRgb());
         $this->assertSame($parentFolderId, $folder->getParentFolderId());
 
-        $folder = new NewSearchFolderSpec('', '');
+        $folder = new NewSearchFolderSpec();
         $folder->setName($name)
             ->setQuery($query)
             ->setSearchTypes($searchTypes)
