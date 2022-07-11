@@ -22,7 +22,6 @@ class GetMailboxMetadataTest extends ZimbraTestCase
     public function testGetMailboxMetadata()
     {
         $section = $this->faker->word;
-        $section = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->text;
 
