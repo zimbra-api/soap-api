@@ -12,10 +12,10 @@ class ImapMessageInfoTest extends ZimbraTestCase
 {
     public function testImapMessageInfo()
     {
-        $id = mt_rand(1, 99);
-        $imapUid = mt_rand(1, 99);
+        $id = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
         $type = $this->faker->word;
-        $flags = mt_rand(1, 99);
+        $flags = $this->faker->randomNumber;
         $tags = $this->faker->word;
 
         $info = new ImapMessageInfo($id, $imapUid, $type, $flags, $tags);
@@ -23,7 +23,7 @@ class ImapMessageInfoTest extends ZimbraTestCase
         $this->assertSame($flags, $info->getFlags());
         $this->assertSame($tags, $info->getTags());
 
-        $info = new ImapMessageInfo($id, $imapUid, '', 0, '');
+        $info = new ImapMessageInfo($id, $imapUid);
         $info->setType($type)
            ->setFlags($flags)
            ->setTags($tags);
