@@ -93,7 +93,7 @@ class OpenIMAPFolderRequest extends Request
      *
      * @return int
      */
-    public function getLimit(): ?int
+    public function getLimit(): int
     {
         return $this->limit;
     }
@@ -103,7 +103,7 @@ class OpenIMAPFolderRequest extends Request
      *
      * @return string
      */
-    public function getFolderId(): ?string
+    public function getFolderId(): string
     {
         return $this->folderId;
     }
