@@ -148,4 +148,40 @@ class SearchSortBy extends Enum
      * @return string 'readDesc'
      */
     private const READ_DESC = 'readDesc';
+
+    /**
+     * Constant for value 'calTzAsc'
+     * @return string 'calTzAsc'
+     */
+    private const CAL_TZ_ASC = 'calTzAsc';
+
+    /**
+     * Constant for value 'calTzDesc'
+     * @return string 'calTzDesc'
+     */
+    private const CAL_TZ_DESC = 'calTzDesc';
+
+    /**
+     * Constant for value 'flagAsc'
+     * @return string 'flagAsc'
+     */
+    private const FLAG_ASC = 'flagAsc';
+
+    /**
+     * Constant for value 'flagDesc'
+     * @return string 'flagDesc'
+     */
+    private const FLAG_DESC = 'flagDesc';
+
+    /**
+     * Constant for value 'priorityAsc'
+     * @return string 'priorityAsc'
+     */
+    private const PRIORITY_ASC = 'priorityAsc';
+
+    /**
+     * Constant for value 'priorityDesc'
+     * @return string 'priorityDesc'
+     */
+    private const PRIORITY_DESC = 'priorityDesc';
 }
