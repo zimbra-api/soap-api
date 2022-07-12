@@ -10,11 +10,12 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Enum\ContactActionOp;
+use JMS\Serializer\Annotation\{
+    Accessor, SerializedName, Type, XmlAttribute
+};
 
 /**
- * ContactActionSelector class
+ * NoteActionSelector class
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -22,22 +23,35 @@ use Zimbra\Common\Enum\ContactActionOp;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ContactActionSelector extends ActionSelector
+class NoteActionSelector extends ActionSelector
 {
     /**
-     * New Contact attributes
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
-     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraMail")
+     * Content
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("string")
+     * @XmlAttribute
      */
-    private $attrs = [];
+    private $content;
 
     /**
-     * Constructor method for ContactActionSelector
+     * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * 
+     * @Accessor(getter="getBounds", setter="setBounds")
+     * @SerializedName("pos")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $bounds;
+
+    /**
+     * Constructor method for NoteActionSelector
      *
      * @param  string $operation
      * @param  string $ids
-     * @param  array $attrs
+     * @param  string $content
+     * @param  string $bounds
      * @param  string $constraint
      * @param  int $tag
      * @param  string $folder
@@ -54,7 +68,8 @@ class ContactActionSelector extends ActionSelector
     public function __construct(
         string $operation = '',
         ?string $ids = NULL,
-        array $attrs = [],
+        ?string $content = NULL,
+        ?string $bounds = NULL,
         ?string $constraint = NULL,
         ?int $tag = NULL,
         ?string $folder = NULL,
@@ -83,54 +98,55 @@ class ContactActionSelector extends ActionSelector
             $nonExistentIds,
             $newlyCreatedIds
         );
-        $this->setAttrs($attrs);
-    }
-
-    /**
-     * Sets operation
-     *
-     * @param  string $operation
-     * @return self
-     */
-    public function setOperation(string $operation): self
-    {
-        if (ContactActionOp::isValid($operation)) {
-            parent::setOperation($operation);
+        if (NULL !== $content) {
+            $this->setContent($content);
         }
-        return $this;
+        if (NULL !== $bounds) {
+            $this->setBounds($bounds);
+        }
     }
 
     /**
-     * Add attr
+     * Gets content
      *
-     * @param  NewContactAttr $attr
+     * @return string
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * Sets content
+     *
+     * @param  string $content
      * @return self
      */
-    public function addAttr(NewContactAttr $attr): self
+    public function setContent(string $content): self
     {
-        $this->attrs[] = $attr;
+        $this->content = $content;
         return $this;
     }
 
     /**
-     * Set attrs
+     * Gets bounds
      *
-     * @param  array $attrs
+     * @return string
+     */
+    public function getBounds(): ?string
+    {
+        return $this->bounds;
+    }
+
+    /**
+     * Sets bounds
+     *
+     * @param  string $id
      * @return self
      */
-    public function setAttrs(array $attrs): self
+    public function setBounds(string $bounds): self
     {
-        $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof NewContactAttr);
+        $this->bounds = $bounds;
         return $this;
-    }
-
-    /**
-     * Gets attrs
-     *
-     * @return array
-     */
-    public function getAttrs(): array
-    {
-        return $this->attrs;
     }
 }
