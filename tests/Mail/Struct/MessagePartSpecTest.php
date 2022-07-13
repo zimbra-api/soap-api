@@ -21,7 +21,7 @@ class MessagePartSpecTest extends ZimbraTestCase
         $this->assertSame($part, $spec->getPart());
         $this->assertSame($id, $spec->getId());
 
-        $spec = new MessagePartSpec('', '');
+        $spec = new MessagePartSpec();
         $spec->setPart($part)
             ->setId($id);
         $this->assertSame($part, $spec->getPart());

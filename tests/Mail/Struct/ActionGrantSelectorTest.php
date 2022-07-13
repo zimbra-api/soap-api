@@ -32,7 +32,7 @@ class ActionGrantSelectorTest extends ZimbraTestCase
         $this->assertSame($password, $grant->getPassword());
         $this->assertSame($accessKey, $grant->getAccessKey());
 
-        $grant = new ActionGrantSelector('', GranteeType::ALL());
+        $grant = new ActionGrantSelector();
         $grant->setRights($rights)
             ->setGrantType($grantType)
             ->setZimbraId($zimbraId)

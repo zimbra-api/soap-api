@@ -19,7 +19,7 @@ class AddedCommentTest extends ZimbraTestCase
         $this->assertSame($parentId, $comment->getParentId());
         $this->assertSame($text, $comment->getText());
 
-        $comment = new AddedComment('', '');
+        $comment = new AddedComment();
         $comment->setParentId($parentId)
             ->setText($text);
         $this->assertSame($parentId, $comment->getParentId());
