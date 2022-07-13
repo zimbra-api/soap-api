@@ -6,7 +6,7 @@ use Zimbra\Common\Enum\{
     AddressType, MsgContent, SearchSortBy, SearchType, TaskStatus, WantRecipsSetting
 };
 use Zimbra\Common\Struct\{
-    AttributeName, CursorInfo, SearchParameters, SimpleSearchHit, TzOnsetInfo, WildcardExpansionQueryInfo
+    AttributeName, CursorInfo, SimpleSearchHit, TzOnsetInfo, WildcardExpansionQueryInfo
 };
 
 use Zimbra\Mail\Message\SearchEnvelope;
