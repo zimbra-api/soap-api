@@ -17,7 +17,7 @@ use Zimbra\Common\Enum\InterestType;
  * WaitSetAddSpec class
  *
  * @package    Zimbra
- * @subpackage Mail
+ * @subpackage Common
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
