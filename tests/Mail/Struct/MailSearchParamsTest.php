@@ -30,7 +30,7 @@ class MailSearchParamsTest extends ZimbraTestCase
         $query = $this->faker->word;
         $inDumpster = TRUE;
         $searchTypes = implode(',', $this->faker->randomElements(SearchType::values(), 3));
-        $groupBy = $this->faker->word;
+        $groupBy = implode(',', $this->faker->randomElements(SearchType::values(), 3));
         $quick = TRUE;
         $sortBy = SearchSortBy::DATE_DESC();
         $fetch = $this->faker->word;
