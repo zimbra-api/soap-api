@@ -4,10 +4,11 @@ namespace Zimbra\Tests\Mail\Struct;
 
 use JMS\Serializer\Annotation\XmlNamespace;
 
+use Zimbra\Common\Struct\Id;
+
 use Zimbra\Mail\Struct\DocumentSpec;
 use Zimbra\Mail\Struct\MessagePartSpec;
 use Zimbra\Mail\Struct\IdVersion;
-use Zimbra\Common\Struct\Id;
 
 use Zimbra\Tests\ZimbraTestCase;
 
@@ -32,24 +33,24 @@ class DocumentSpecTest extends ZimbraTestCase
         $messagePart = new MessagePartSpec($part, $id);
         $docRevision = new IdVersion($id, $version);
 
-        $spec = new StubDocumentSpec(
+        $doc = new StubDocumentSpec(
             $name, $contentType, $description, $folderId, $id, $version, $content, FALSE, $flags, $upload, $messagePart, $docRevision
         );
-        $this->assertSame($name, $spec->getName());
-        $this->assertSame($contentType, $spec->getContentType());
-        $this->assertSame($description, $spec->getDescription());
-        $this->assertSame($folderId, $spec->getFolderId());
-        $this->assertSame($id, $spec->getId());
-        $this->assertSame($version, $spec->getVersion());
-        $this->assertSame($content, $spec->getContent());
-        $this->assertFalse($spec->getDescEnabled());
-        $this->assertSame($flags, $spec->getFlags());
-        $this->assertSame($upload, $spec->getUpload());
-        $this->assertSame($messagePart, $spec->getMessagePart());
-        $this->assertSame($docRevision, $spec->getDocRevision());
+        $this->assertSame($name, $doc->getName());
+        $this->assertSame($contentType, $doc->getContentType());
+        $this->assertSame($description, $doc->getDescription());
+        $this->assertSame($folderId, $doc->getFolderId());
+        $this->assertSame($id, $doc->getId());
+        $this->assertSame($version, $doc->getVersion());
+        $this->assertSame($content, $doc->getContent());
+        $this->assertFalse($doc->getDescEnabled());
+        $this->assertSame($flags, $doc->getFlags());
+        $this->assertSame($upload, $doc->getUpload());
+        $this->assertSame($messagePart, $doc->getMessagePart());
+        $this->assertSame($docRevision, $doc->getDocRevision());
 
-        $spec = new StubDocumentSpec();
-        $spec->setName($name)
+        $doc = new StubDocumentSpec();
+        $doc->setName($name)
             ->setContentType($contentType)
             ->setDescription($description)
             ->setFolderId($folderId)
@@ -61,18 +62,18 @@ class DocumentSpecTest extends ZimbraTestCase
             ->setUpload($upload)
             ->setMessagePart($messagePart)
             ->setDocRevision($docRevision);
-        $this->assertSame($name, $spec->getName());
-        $this->assertSame($contentType, $spec->getContentType());
-        $this->assertSame($description, $spec->getDescription());
-        $this->assertSame($folderId, $spec->getFolderId());
-        $this->assertSame($id, $spec->getId());
-        $this->assertSame($version, $spec->getVersion());
-        $this->assertSame($content, $spec->getContent());
-        $this->assertTrue($spec->getDescEnabled());
-        $this->assertSame($flags, $spec->getFlags());
-        $this->assertSame($upload, $spec->getUpload());
-        $this->assertSame($messagePart, $spec->getMessagePart());
-        $this->assertSame($docRevision, $spec->getDocRevision());
+        $this->assertSame($name, $doc->getName());
+        $this->assertSame($contentType, $doc->getContentType());
+        $this->assertSame($description, $doc->getDescription());
+        $this->assertSame($folderId, $doc->getFolderId());
+        $this->assertSame($id, $doc->getId());
+        $this->assertSame($version, $doc->getVersion());
+        $this->assertSame($content, $doc->getContent());
+        $this->assertTrue($doc->getDescEnabled());
+        $this->assertSame($flags, $doc->getFlags());
+        $this->assertSame($upload, $doc->getUpload());
+        $this->assertSame($messagePart, $doc->getMessagePart());
+        $this->assertSame($docRevision, $doc->getDocRevision());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -82,8 +83,8 @@ class DocumentSpecTest extends ZimbraTestCase
     <urn:doc id="$id" ver="$version" />
 </result>
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($spec, 'xml'));
-        $this->assertEquals($spec, $this->serializer->deserialize($xml, StubDocumentSpec::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($doc, 'xml'));
+        $this->assertEquals($doc, $this->serializer->deserialize($xml, StubDocumentSpec::class, 'xml'));
     }
 }
 

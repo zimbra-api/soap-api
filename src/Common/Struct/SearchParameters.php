@@ -10,7 +10,7 @@
 
 namespace Zimbra\Common\Struct;
 
-use Zimbra\Common\Enum\WantRecipsSetting;
+use Zimbra\Common\Enum\{SearchSortBy, WantRecipsSetting};
 
 /**
  * SearchParameters interface
@@ -33,7 +33,7 @@ interface SearchParameters
     function setSearchTypes(string $searchTypes): self;
     function setGroupBy(string $groupBy): self;
     function setQuick(bool $quick): self;
-    function setSortBy(string $sortBy): self;
+    function setSortBy(SearchSortBy $sortBy): self;
     function setFetch(string $fetch): self;
     function setMarkRead(bool $markRead): self;
     function setMaxInlinedLength(int $maxInlinedLength): self;
@@ -62,7 +62,7 @@ interface SearchParameters
     function getSearchTypes(): ?string;
     function getGroupBy(): ?string;
     function getQuick(): ?bool;
-    function getSortBy(): ?string;
+    function getSortBy(): ?SearchSortBy;
     function getFetch(): ?string;
     function getMarkRead(): ?bool;
     function getMaxInlinedLength(): ?int;
