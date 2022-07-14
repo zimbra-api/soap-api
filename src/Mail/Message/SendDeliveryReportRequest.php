@@ -30,7 +30,7 @@ class SendDeliveryReportRequest extends Request
      * 
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
-     * @Type("bool")
+     * @Type("string")
      * @XmlAttribute
      */
     private $messageId;
