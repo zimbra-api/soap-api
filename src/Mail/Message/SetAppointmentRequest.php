@@ -1,0 +1,462 @@
+<?php declare(strict_types=1);
+/**
+ * This file is part of the Zimbra API in PHP library.
+ *
+ * © Nguyen Van Nguyen <nguyennv1981@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Zimbra\Mail\Message;
+
+use JMS\Serializer\Annotation\{Accessor, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Mail\Struct\{CalReply, SetCalendarItemInfo};
+use Zimbra\Soap\{EnvelopeInterface, Request};
+
+/**
+ * SetAppointmentRequest class
+ * Directly set status of an entire appointment.  This API is intended for mailbox
+ * Migration (ie migrating a mailbox onto this server) and is not used by normal mail clients.
+ * Need to specify folder for appointment
+ * Need way to add message WITHOUT processing it for calendar parts.
+ * Need to generate and patch-in the iCalendar for the <inv> but w/o actually processing the
+ * <inv> as a new request
+ * 
+ * @package    Zimbra
+ * @subpackage Mail
+ * @category   Message
+ * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
+ * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ */
+class SetAppointmentRequest extends Request
+{
+    /**
+     * Flags
+     * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $flags;
+
+    /**
+     * Tags (Deprecated - use <b>{tag-names}</b> instead)
+     * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $tags;
+
+    /**
+     * Comma separated list of tag names
+     * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $tagNames;
+
+    /**
+     * ID of folder to create appointment in
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
+     */
+    private $folderId;
+
+    /**
+     * Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
+     * 
+     * @Accessor(getter="getNoNextAlarm", setter="setNoNextAlarm")
+     * @SerializedName("noNextAlarm")
+     * @Type("bool")
+     * @XmlAttribute
+     */
+    private $noNextAlarm;
+
+    /**
+     * If specified, time when next alarm should go off.
+     * If missing, two possibilities:
+     * - if noNextAlarm isn't set, keep current next alarm time (this is a backward compatibility case)
+     * - if noNextAlarm is set, indicates all alarms have been dismissed
+     * 
+     * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
+     * @SerializedName("nextAlarm")
+     * @Type("integer")
+     * @XmlAttribute
+     */
+    private $nextAlarm;
+
+    /**
+     * Default calendar item information
+     * 
+     * @Accessor(getter="getDefaultId", setter="setDefaultId")
+     * @SerializedName("default")
+     * @Type("Zimbra\Mail\Struct\SetCalendarItemInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     */
+    private ?SetCalendarItemInfo $defaultId = NULL;
+
+    /**
+     * Calendar item information for exceptions
+     * 
+     * @Accessor(getter="getExceptions", setter="setExceptions")
+     * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
+     * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
+     */
+    private $exceptions = [];
+
+    /**
+     * Calendar item information for cancellations
+     * 
+     * @Accessor(getter="getCancellations", setter="setCancellations")
+     * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
+     * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
+     */
+    private $cancellations = [];
+
+    /**
+     * List of replies received from attendees.  If SetAppointmenRequest doesn't contain
+     * a <replies> block, existing replies will be kept.  If <replies> element is provided with
+     * no <reply> elements inside, existing replies will be removed, replaced with an empty set.
+     * If <replies> contains one or more <reply> elements, existing replies are replaced with the
+     * ones provided.
+     * 
+     * @Accessor(getter="getReplies", setter="setReplies")
+     * @SerializedName("replies")
+     * @SkipWhenEmpty
+     * @Type("array<Zimbra\Mail\Struct\CalReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
+     */
+    private $replies = [];
+
+    /**
+     * Constructor method for SetAppointmentRequest
+     *
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $folderId
+     * @param  bool $noNextAlarm
+     * @param  int $nextAlarm
+     * @param  SetCalendarItemInfo $defaultId
+     * @param  array $exceptions
+     * @param  array $cancellations
+     * @param  array $replies
+     * @return self
+     */
+    public function __construct(
+        ?string $flags = NULL,
+        ?string $tags = NULL,
+        ?string $tagNames = NULL,
+        ?string $folderId = NULL,
+        ?bool $noNextAlarm = NULL,
+        ?int $nextAlarm = NULL,
+        ?SetCalendarItemInfo $defaultId = NULL,
+        array $exceptions = [],
+        array $cancellations = [],
+        array $replies = []
+    )
+    {
+        $this->setExceptions($exceptions)
+             ->setCancellations($cancellations)
+             ->setReplies($replies);
+        if (NULL !== $flags) {
+            $this->setFlags($flags);
+        }
+        if (NULL !== $tags) {
+            $this->setTags($tags);
+        }
+        if (NULL !== $tagNames) {
+            $this->setTagNames($tagNames);
+        }
+        if (NULL !== $folderId) {
+            $this->setFolderId($folderId);
+        }
+        if (NULL !== $noNextAlarm) {
+            $this->setNoNextAlarm($noNextAlarm);
+        }
+        if (NULL !== $nextAlarm) {
+            $this->setNextAlarm($nextAlarm);
+        }
+        if ($defaultId instanceof SetCalendarItemInfo) {
+            $this->setDefaultId($defaultId);
+        }
+    }
+
+    /**
+     * Gets flags
+     *
+     * @return int
+     */
+    public function getFlags(): ?string
+    {
+        return $this->flags;
+    }
+
+    /**
+     * Sets flags
+     *
+     * @param  string $flags
+     * @return self
+     */
+    public function setFlags(string $flags): self
+    {
+        $this->flags = $flags;
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string
+     */
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param  string $tags
+     * @return self
+     */
+    public function setTags(string $tags): self
+    {
+        $this->tags = $tags;
+        return $this;
+    }
+
+    /**
+     * Gets tagNames
+     *
+     * @return string
+     */
+    public function getTagNames(): ?string
+    {
+        return $this->tagNames;
+    }
+
+    /**
+     * Sets tagNames
+     *
+     * @param  string $tagNames
+     * @return self
+     */
+    public function setTagNames(string $tagNames): self
+    {
+        $this->tagNames = $tagNames;
+        return $this;
+    }
+
+    /**
+     * Gets folderId
+     *
+     * @return string
+     */
+    public function getFolderId(): ?string
+    {
+        return $this->folderId;
+    }
+
+    /**
+     * Sets folderId
+     *
+     * @param  string $folderId
+     * @return self
+     */
+    public function setFolderId(string $folderId): self
+    {
+        $this->folderId = $folderId;
+        return $this;
+    }
+
+    /**
+     * Gets noNextAlarm
+     *
+     * @return bool
+     */
+    public function getNoNextAlarm(): ?bool
+    {
+        return $this->noNextAlarm;
+    }
+
+    /**
+     * Sets noNextAlarm
+     *
+     * @param  bool $noNextAlarm
+     * @return self
+     */
+    public function setNoNextAlarm(bool $noNextAlarm): self
+    {
+        $this->noNextAlarm = $noNextAlarm;
+        return $this;
+    }
+
+    /**
+     * Gets nextAlarm
+     *
+     * @return int
+     */
+    public function getNextAlarm(): ?int
+    {
+        return $this->nextAlarm;
+    }
+
+    /**
+     * Sets nextAlarm
+     *
+     * @param  int $nextAlarm
+     * @return self
+     */
+    public function setNextAlarm(int $nextAlarm): self
+    {
+        $this->nextAlarm = $nextAlarm;
+        return $this;
+    }
+
+    /**
+     * Gets defaultId
+     *
+     * @return SetCalendarItemInfo
+     */
+    public function getDefaultId(): ?SetCalendarItemInfo
+    {
+        return $this->defaultId;
+    }
+
+    /**
+     * Sets defaultId
+     *
+     * @param  SetCalendarItemInfo $defaultId
+     * @return self
+     */
+    public function setDefaultId(SetCalendarItemInfo $defaultId): self
+    {
+        $this->defaultId = $defaultId;
+        return $this;
+    }
+
+    /**
+     * Add exception
+     *
+     * @param  SetCalendarItemInfo $except
+     * @return self
+     */
+    public function addException(SetCalendarItemInfo $except): self
+    {
+        $this->exceptions[] = $except;
+        return $this;
+    }
+
+    /**
+     * Sets exceptions
+     *
+     * @param  array $exceptions
+     * @return self
+     */
+    public function setExceptions(array $exceptions): self
+    {
+        $this->exceptions = array_filter($exceptions, static fn ($except) => $except instanceof SetCalendarItemInfo);
+        return $this;
+    }
+
+    /**
+     * Gets exceptions
+     *
+     * @return array
+     */
+    public function getExceptions(): array
+    {
+        return $this->exceptions;
+    }
+
+    /**
+     * Add cancellation
+     *
+     * @param  SetCalendarItemInfo $cancel
+     * @return self
+     */
+    public function addCancellation(SetCalendarItemInfo $cancel): self
+    {
+        $this->cancellations[] = $cancel;
+        return $this;
+    }
+
+    /**
+     * Sets cancellations
+     *
+     * @param  array $cancellations
+     * @return self
+     */
+    public function setCancellations(array $cancellations): self
+    {
+        $this->cancellations = array_filter($cancellations, static fn ($cancel) => $cancel instanceof SetCalendarItemInfo);
+        return $this;
+    }
+
+    /**
+     * Gets cancellations
+     *
+     * @return array
+     */
+    public function getCancellations(): array
+    {
+        return $this->cancellations;
+    }
+
+    /**
+     * Add reply
+     *
+     * @param  CalReply $reply
+     * @return self
+     */
+    public function addReply(CalReply $reply): self
+    {
+        $this->replies[] = $reply;
+        return $this;
+    }
+
+    /**
+     * Sets replies
+     *
+     * @param  array $replies
+     * @return self
+     */
+    public function setReplies(array $replies): self
+    {
+        $this->replies = array_filter($replies, static fn ($reply) => $reply instanceof CalReply);
+        return $this;
+    }
+
+    /**
+     * Gets replies
+     *
+     * @return array
+     */
+    public function getReplies(): array
+    {
+        return $this->replies;
+    }
+
+    /**
+     * Initialize the soap envelope
+     *
+     * @return EnvelopeInterface
+     */
+    protected function envelopeInit(): EnvelopeInterface
+    {
+        return new SetAppointmentEnvelope(
+            new SetAppointmentBody($this)
+        );
+    }
+}
