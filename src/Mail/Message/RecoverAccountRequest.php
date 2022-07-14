@@ -100,24 +100,24 @@ class RecoverAccountRequest extends Request
     }
 
     /**
-     * Gets type
+     * Gets op
      *
      * @return RecoverAccountOperation
      */
     public function getOp(): ?RecoverAccountOperation
     {
-        return $this->type;
+        return $this->op;
     }
 
     /**
-     * Sets type
+     * Sets op
      *
      * @param  RecoverAccountOperation $type
      * @return self
      */
-    public function setOp(RecoverAccountOperation $type): self
+    public function setOp(RecoverAccountOperation $op): self
     {
-        $this->type = $type;
+        $this->op = $op;
         return $this;
     }
 
