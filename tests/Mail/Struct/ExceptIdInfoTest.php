@@ -15,9 +15,7 @@ class ExceptIdInfoTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $recurrenceId = $this->faker->uuid;
 
-        $except = new ExceptIdInfo(
-            $recurrenceId, $id
-        );
+        $except = new ExceptIdInfo($recurrenceId, $id);
         $this->assertSame($id, $except->getId());
         $this->assertSame($recurrenceId, $except->getRecurrenceId());
 
