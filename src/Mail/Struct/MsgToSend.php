@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\ReplyType;
 
 /**
  * MsgToSend class
@@ -26,6 +27,7 @@ class MsgToSend extends Msg
 {
     /**
      * Saved draft ID
+     * 
      * @Accessor(getter="getDraftId", setter="setDraftId")
      * @SerializedName("did")
      * @Type("string")
@@ -35,6 +37,7 @@ class MsgToSend extends Msg
 
     /**
      * If set, message gets constructed based on the "did" (id of the draft).
+     * 
      * @Accessor(getter="getSendFromDraft", setter="setSendFromDraft")
      * @SerializedName("sfd")
      * @Type("bool")
@@ -44,6 +47,7 @@ class MsgToSend extends Msg
 
     /**
      * Id of the data source in case SMTP settings of that data source must be used for sending the message.
+     * 
      * @Accessor(getter="getDataSourceId", setter="setDataSourceId")
      * @SerializedName("dsId")
      * @Type("string")
@@ -148,9 +152,9 @@ class MsgToSend extends Msg
     /**
      * Gets sendFromDraft
      *
-     * @return int
+     * @return bool
      */
-    public function getSendFromDraft(): ?int
+    public function getSendFromDraft(): ?bool
     {
         return $this->sendFromDraft;
     }
@@ -158,14 +162,12 @@ class MsgToSend extends Msg
     /**
      * Sets sendFromDraft
      *
-     * @param  int $sendFromDraft
+     * @param  bool $sendFromDraft
      * @return self
      */
-    public function setSendFromDraft(int $sendFromDraft): self
+    public function setSendFromDraft(bool $sendFromDraft): self
     {
-        if($sendFromDraft != 0 && abs($sendFromDraft) < 54) {
-            $this->sendFromDraft = $sendFromDraft;
-        }
+        $this->sendFromDraft = $sendFromDraft;
         return $this;
     }
 

@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Mail\Struct\{CalTZInfo, InstanceRecurIdInfo, Msg};
+use Zimbra\Mail\Struct\Msg;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -29,6 +29,7 @@ class CounterAppointmentRequest extends Request
 {
     /**
      * Invite ID of default invite
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -38,6 +39,7 @@ class CounterAppointmentRequest extends Request
 
     /**
      * Component number of default component
+     * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("integer")
@@ -59,6 +61,7 @@ class CounterAppointmentRequest extends Request
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -68,6 +71,7 @@ class CounterAppointmentRequest extends Request
 
     /**
      * Details of counter proposal.
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")

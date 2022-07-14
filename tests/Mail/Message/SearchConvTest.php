@@ -6,27 +6,18 @@ use Zimbra\Common\Enum\{
     AddressType, MsgContent, SearchSortBy, SearchType, TaskStatus, WantRecipsSetting
 };
 use Zimbra\Common\Struct\{
-    AttributeName, CursorInfo, SimpleSearchHit, TzOnsetInfo, WildcardExpansionQueryInfo
+    AttributeName, CursorInfo, TzOnsetInfo, WildcardExpansionQueryInfo
 };
 
-use Zimbra\Mail\Message\SearchEnvelope;
-use Zimbra\Mail\Message\SearchBody;
-use Zimbra\Mail\Message\SearchRequest;
-use Zimbra\Mail\Message\SearchResponse;
+use Zimbra\Mail\Message\SearchConvEnvelope;
+use Zimbra\Mail\Message\SearchConvBody;
+use Zimbra\Mail\Message\SearchConvRequest;
+use Zimbra\Mail\Message\SearchConvResponse;
 
-use Zimbra\Mail\Struct\AppointmentHitInfo;
 use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Mail\Struct\ChatHitInfo;
-use Zimbra\Mail\Struct\ContactInfo;
-use Zimbra\Mail\Struct\ConversationHitInfo;
-use Zimbra\Mail\Struct\ConversationMsgHitInfo;
-use Zimbra\Mail\Struct\DocumentHitInfo;
 use Zimbra\Mail\Struct\MessageHitInfo;
-use Zimbra\Mail\Struct\MessagePartHitInfo;
-use Zimbra\Mail\Struct\NoteHitInfo;
 use Zimbra\Mail\Struct\Part;
-use Zimbra\Mail\Struct\TaskHitInfo;
-use Zimbra\Mail\Struct\WikiHitInfo;
+use Zimbra\Mail\Struct\NestedSearchConversation;
 
 use Zimbra\Mail\Struct\SearchQueryInfo;
 use Zimbra\Mail\Struct\SuggestedQueryString;
@@ -34,14 +25,15 @@ use Zimbra\Mail\Struct\SuggestedQueryString;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for Search.
+ * Testcase class for SearchConv.
  */
-class SearchTest extends ZimbraTestCase
+class SearchConvTest extends ZimbraTestCase
 {
-    public function testSearch()
+    public function testSearchConv()
     {
         $id = $this->faker->uuid;
         $name = $this->faker->word;
+        $conversationId = $this->faker->uuid;
 
         $taskStatus = implode(',', $this->faker->randomElements(TaskStatus::values(), 3));
         $calItemExpandStart = $this->faker->randomNumber;
@@ -81,6 +73,8 @@ class SearchTest extends ZimbraTestCase
         $wkday = $this->faker->numberBetween(1, 7);
 
         $flags = $this->faker->word;
+        $tags = $this->faker->word;
+        $tagNames = $this->faker->word;
         $date = $this->faker->unixTime;
 
         $size = $this->faker->randomNumber;
@@ -89,6 +83,7 @@ class SearchTest extends ZimbraTestCase
 
         $string = $this->faker->word;
         $numExpanded = $this->faker->randomNumber;
+        $num = $this->faker->randomNumber;
 
         $standardTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
         $daylightTzOnset = new TzOnsetInfo($mon, $hour, $min, $sec, $mday, $week, $wkday);
@@ -98,7 +93,8 @@ class SearchTest extends ZimbraTestCase
         $header = new AttributeName($name);
         $cursor = new CursorInfo($id, $sortVal, $endSortVal, TRUE);
 
-        $request = new SearchRequest(
+        $request = new SearchConvRequest(
+            $id,
             $query,
             TRUE,
             $searchTypes,
@@ -131,114 +127,63 @@ class SearchTest extends ZimbraTestCase
             TRUE,
             FALSE
         );
-        $this->assertFalse($request->getWarmup());
-        $request->setWarmup(TRUE);
-        $this->assertTrue($request->getWarmup());
+        $this->assertSame($id, $request->getConversationId());
+        $this->assertFalse($request->getNestMessages());
+        $request->setConversationId($conversationId)
+            ->setNestMessages(TRUE);
+        $this->assertSame($conversationId, $request->getConversationId());
+        $this->assertTrue($request->getNestMessages());
 
-        $hit = new SimpleSearchHit($id, $sortField);
-        $convHit = new ConversationHitInfo(
-            $id, $sortField, [new ConversationMsgHitInfo(
-                $id, $size, $folderId, $flags, $autoSendTime, $date
-            )]
-        );
         $msgHit = new MessageHitInfo(
             $id, $sortField, TRUE, [new Part($part)]
         );
-        $chatHit = new ChatHitInfo(
-            $id, $sortField, TRUE, [new Part($part)]
-        );
-        $mpHit = new MessagePartHitInfo($id, $sortField);
-        $cnHit = new ContactInfo($id, $sortField);
-        $noteHit = new NoteHitInfo($id, $sortField);
-        $docHit = new DocumentHitInfo($id, $sortField);
-        $wikiHit = new WikiHitInfo($id, $sortField);
-        $apptHit = new AppointmentHitInfo($id, $sortField);
-        $taskHit = new TaskHitInfo($id, $sortField);
-
         $queryInfo = new SearchQueryInfo(
             [new SuggestedQueryString($string)], [new WildcardExpansionQueryInfo($string, TRUE, $numExpanded)]
         );
+        $conversation = new NestedSearchConversation(
+            $id, $num, $totalSize, $flags, $tags, $tagNames, [$msgHit], $queryInfo
+        );
 
-        $response = new SearchResponse(
+        $response = new SearchConvResponse(
             $sortBy,
             $queryOffset,
             FALSE,
-            $totalSize,
-            [$hit],
-            [$convHit],
+            $conversation,
             [$msgHit],
-            [$chatHit],
-            [$mpHit],
-            [$cnHit],
-            [$noteHit],
-            [$docHit],
-            [$wikiHit],
-            [$apptHit],
-            [$taskHit],
             $queryInfo
         );
         $this->assertSame($sortBy, $response->getSortBy());
         $this->assertSame($queryOffset, $response->getQueryOffset());
         $this->assertFalse($response->getQueryMore());
-        $this->assertSame($totalSize, $response->getTotalSize());
-        $this->assertSame([$hit], $response->getSimpleHits());
-        $this->assertSame([$convHit], $response->getConversationHits());
-        $this->assertSame([$msgHit], $response->getMessageHits());
-        $this->assertSame([$chatHit], $response->getChatHits());
-        $this->assertSame([$mpHit], $response->getMessagePartHits());
-        $this->assertSame([$cnHit], $response->getContactHits());
-        $this->assertSame([$noteHit], $response->getNoteHits());
-        $this->assertSame([$docHit], $response->getDocumentHits());
-        $this->assertSame([$wikiHit], $response->getWikiHits());
-        $this->assertSame([$apptHit], $response->getAppointmentHits());
-        $this->assertSame([$taskHit], $response->getTaskHits());
+        $this->assertSame($conversation, $response->getConversation());
+        $this->assertSame([$msgHit], $response->getMessages());
         $this->assertSame($queryInfo, $response->getQueryInfo());
-        $response = new SearchResponse();
+        $response = new SearchConvResponse();
         $response->setSortBy($sortBy)
             ->setQueryOffset($queryOffset)
             ->setQueryMore(TRUE)
-            ->setTotalSize($totalSize)
-            ->setSimpleHits([$hit])
-            ->setConversationHits([$convHit])
-            ->setMessageHits([$msgHit])
-            ->setChatHits([$chatHit])
-            ->setMessagePartHits([$mpHit])
-            ->setContactHits([$cnHit])
-            ->setNoteHits([$noteHit])
-            ->setDocumentHits([$docHit])
-            ->setWikiHits([$wikiHit])
-            ->setAppointmentHits([$apptHit])
-            ->setTaskHits([$taskHit])
+            ->setConversation($conversation)
+            ->setMessages([$msgHit])
             ->setQueryInfo($queryInfo);
         $this->assertSame($sortBy, $response->getSortBy());
         $this->assertSame($queryOffset, $response->getQueryOffset());
         $this->assertTrue($response->getQueryMore());
-        $this->assertSame($totalSize, $response->getTotalSize());
-        $this->assertSame([$hit], $response->getSimpleHits());
-        $this->assertSame([$convHit], $response->getConversationHits());
-        $this->assertSame([$msgHit], $response->getMessageHits());
-        $this->assertSame([$chatHit], $response->getChatHits());
-        $this->assertSame([$mpHit], $response->getMessagePartHits());
-        $this->assertSame([$cnHit], $response->getContactHits());
-        $this->assertSame([$noteHit], $response->getNoteHits());
-        $this->assertSame([$docHit], $response->getDocumentHits());
-        $this->assertSame([$wikiHit], $response->getWikiHits());
-        $this->assertSame([$apptHit], $response->getAppointmentHits());
-        $this->assertSame([$taskHit], $response->getTaskHits());
+        $this->assertSame($conversation, $response->getConversation());
+        $this->assertSame([$msgHit], $response->getMessages());
         $this->assertSame($queryInfo, $response->getQueryInfo());
 
-        $body = new SearchBody($request, $response);
+        $body = new SearchConvBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
-        $body = new SearchBody();
+        $body = new SearchConvBody();
         $body->setRequest($request)
             ->setResponse($response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());
 
-        $envelope = new SearchEnvelope($body);
+        $envelope = new SearchConvEnvelope($body);
         $this->assertSame($body, $envelope->getBody());
-        $envelope = new SearchEnvelope();
+        $envelope = new SearchConvEnvelope();
         $envelope->setBody($body);
         $this->assertSame($body, $envelope->getBody());
 
@@ -246,7 +191,7 @@ class SearchTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
-        <urn:SearchRequest warmup="true" includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="$taskStatus" calExpandInstStart="$calItemExpandStart" calExpandInstEnd="$calItemExpandEnd" inDumpster="true" types="$searchTypes" groupBy="$groupBy" quick="true" sortBy="dateDesc" fetch="$fetch" read="true" max="$maxInlinedLength" html="true" needExp="true" neuter="true" recip="2" prefetch="true" resultMode="$resultMode" fullConversation="true" field="$field" limit="$limit" offset="$offset" wantContent="original" memberOf="true">
+        <urn:SearchConvRequest cid="$conversationId" nest="true" includeTagDeleted="true" includeTagMuted="true" allowableTaskStatus="$taskStatus" calExpandInstStart="$calItemExpandStart" calExpandInstEnd="$calItemExpandEnd" inDumpster="true" types="$searchTypes" groupBy="$groupBy" quick="true" sortBy="dateDesc" fetch="$fetch" read="true" max="$maxInlinedLength" html="true" needExp="true" neuter="true" recip="2" prefetch="true" resultMode="$resultMode" fullConversation="true" field="$field" limit="$limit" offset="$offset" wantContent="original" memberOf="true">
             <urn:query>$query</urn:query>
             <urn:header n="$name" />
             <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" stdname="$standardTZName" dayname="$daylightTZName">
@@ -255,34 +200,29 @@ class SearchTest extends ZimbraTestCase
             </urn:tz>
             <urn:locale>$locale</urn:locale>
             <urn:cursor id="$id" sortVal="$sortVal" endSortVal="$endSortVal" includeOffset="true" />
-        </urn:SearchRequest>
-        <urn:SearchResponse sortBy="dateDesc" offset="$queryOffset" more="true" total="$totalSize">
-            <urn:hit id="$id" sf="$sortField" />
-            <urn:c sf="$sortField" id="$id">
-                <urn:m id="$id" s="$size" l="$folderId" f="$flags" autoSendTime="$autoSendTime" d="$date" />
+        </urn:SearchConvRequest>
+        <urn:SearchConvResponse sortBy="dateDesc" offset="$queryOffset" more="true">
+            <urn:c id="$id" n="$num" total="$totalSize" f="$flags" t="$tags" tn="$tagNames">
+                <urn:m sf="$sortField" cm="true" id="$id">
+                    <urn:hp part="$part" />
+                </urn:m>
+                <urn:info>
+                    <urn:suggest>$string</urn:suggest>
+                    <urn:wildcard str="$string" expanded="true" numExpanded="$numExpanded" />
+                </urn:info>
             </urn:c>
             <urn:m sf="$sortField" cm="true" id="$id">
                 <urn:hp part="$part" />
             </urn:m>
-            <urn:chat sf="$sortField" cm="true" id="$id">
-                <urn:hp part="$part" />
-            </urn:chat>
-            <urn:mp sf="$sortField" id="$id" />
-            <urn:cn sf="$sortField" id="$id" />
-            <urn:note sf="$sortField" id="$id" />
-            <urn:doc sf="$sortField" id="$id" />
-            <urn:w sf="$sortField" id="$id" />
-            <urn:appt sf="$sortField" id="$id" />
-            <urn:task sf="$sortField" id="$id" />
             <urn:info>
                 <urn:suggest>$string</urn:suggest>
                 <urn:wildcard str="$string" expanded="true" numExpanded="$numExpanded" />
             </urn:info>
-        </urn:SearchResponse>
+        </urn:SearchConvResponse>
     </soap:Body>
 </soap:Envelope>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
-        $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchEnvelope::class, 'xml'));
+        $this->assertEquals($envelope, $this->serializer->deserialize($xml, SearchConvEnvelope::class, 'xml'));
     }
 }
