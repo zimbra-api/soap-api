@@ -31,27 +31,17 @@ class SyncFolderTest extends ZimbraTestCase
         $uuid = $this->faker->uuid;
         $ids = $this->faker->word;
 
-        $tag = new TagIdsAttr($ids);
-        $conv = new ConvIdsAttr($ids);
-        $chat = new ChatIdsAttr($ids);
-        $msg = new MsgIdsAttr($ids);
-        $contact = new ContactIdsAttr($ids);
-        $appt = new ApptIdsAttr($ids);
-        $task = new TaskIdsAttr($ids);
-        $note = new NoteIdsAttr($ids);
-        $wiki = new WikiIdsAttr($ids);
-        $doc = new DocIdsAttr($ids);
         $items = [
-            $tag,
-            $conv,
-            $chat,
-            $msg,
-            $contact,
-            $appt,
-            $task,
-            $note,
-            $wiki,
-            $doc,
+            new TagIdsAttr($ids),
+            new ConvIdsAttr($ids),
+            new ChatIdsAttr($ids),
+            new MsgIdsAttr($ids),
+            new ContactIdsAttr($ids),
+            new ApptIdsAttr($ids),
+            new TaskIdsAttr($ids),
+            new NoteIdsAttr($ids),
+            new WikiIdsAttr($ids),
+            new DocIdsAttr($ids),
         ];
 
         $folder = new StubSyncFolder($id, $uuid, $items);
