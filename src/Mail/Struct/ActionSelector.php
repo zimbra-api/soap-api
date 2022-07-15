@@ -244,24 +244,24 @@ class ActionSelector
     }
 
     /**
-     * Gets id
+     * Gets ids
      *
      * @return string
      */
-    public function getIds(): string
+    public function getIds(): ?string
     {
-        return $this->id;
+        return $this->ids;
     }
 
     /**
-     * Sets id
+     * Sets ids
      *
-     * @param  string $id
+     * @param  string $ids
      * @return self
      */
-    public function setIds(string $id): self
+    public function setIds(string $ids): self
     {
-        $this->id = $id;
+        $this->ids = $ids;
         return $this;
     }
 
