@@ -30,7 +30,7 @@ use Zimbra\Common\Struct\{
     DistributionListSelector,
     GranteeChooser
 };
-use Zimbra\Soap\{ApiInterface, ResponseInterface};
+use Zimbra\Soap\ApiInterface;
 
 /**
  * AccountApiInterface interface
