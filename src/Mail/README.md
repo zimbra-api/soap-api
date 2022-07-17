@@ -1,8 +1,8 @@
-Zimbra Account Component
+Zimbra Mail Component
 ========================
-Zimbra Account provides wrapper for the zimbra account client.
+Zimbra Mail provides wrapper for the zimbra mail client.
 
-## Basic usage of `zimbra` account client
+## Basic usage of `zimbra` mail client
 ```php
 <?php
 
@@ -10,7 +10,7 @@ Zimbra Account provides wrapper for the zimbra account client.
 require_once 'vendor/autoload.php';
 
 ```
-From `$api` object, you can access to all zimbra account api.
+From `$api` object, you can access to all zimbra mail api.
 
 
 ## Installation
@@ -21,7 +21,7 @@ Simply add the following to the composer.json file at the root of your project:
 ```javascript
 {
     "require": {
-        "zimbra-api/account": "*"
+        "zimbra-api/mail": "*"
     }
 }
 ```
