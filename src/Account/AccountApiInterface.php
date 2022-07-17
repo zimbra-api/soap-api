@@ -30,7 +30,7 @@ use Zimbra\Common\Struct\{
     DistributionListSelector,
     GranteeChooser
 };
-use Zimbra\Soap\{ApiInterface, ResponseInterface};
+use Zimbra\Soap\ApiInterface;
 
 /**
  * AccountApiInterface interface
@@ -69,7 +69,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  string    $deviceId
      * @param  bool      $generateDeviceId
      * @param  string    $tokenType
-     * @return ResponseInterface
+     * @return Message\AuthResponse
      */
     function auth(
         ?AccountSelector $account = NULL,
@@ -90,24 +90,24 @@ interface AccountApiInterface extends ApiInterface
         ?string $deviceId = NULL,
         ?bool $generateDeviceId = NULL,
         ?string $tokenType = NULL
-    ): ResponseInterface;
+    ): Message\AuthResponse;
 
     /**
      * Authenticate for an account
      *
      * @param  string $name
      * @param  string $password
-     * @return ResponseInterface
+     * @return Message\AuthResponse
      */
-    function authByName(string $name, string $password): ResponseInterface;
+    function authByName(string $name, string $password): Message\AuthResponse;
 
     /**
      * Authenticate for an account
      *
      * @param  string $authToken
-     * @return ResponseInterface
+     * @return Message\AuthResponse
      */
-    function authByToken(string $authToken): ResponseInterface;
+    function authByToken(string $authToken): Message\AuthResponse;
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -119,7 +119,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  bool $needCanExpand
      * @param  string $galAccountId
      * @param  int $limit
-     * @return ResponseInterface
+     * @return Message\AutoCompleteGalResponse
      */
     function autoCompleteGal(
         string $name,
@@ -127,7 +127,7 @@ interface AccountApiInterface extends ApiInterface
         ?bool $needCanExpand = NULL,
         ?string $galAccountId = NULL,
         ?int $limit = NULL
-    ): ResponseInterface;
+    ): Message\AutoCompleteGalResponse;
 
     /**
      * Change Password
@@ -137,7 +137,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $newPassword
      * @param  string $virtualHost
      * @param  bool   $dryRun
-     * @return ResponseInterface
+     * @return Message\ChangePasswordResponse
      */
     function changePassword(
         AccountSelector $account,
@@ -145,23 +145,23 @@ interface AccountApiInterface extends ApiInterface
         string $newPassword,
         ?string $virtualHost = NULL,
         ?bool $dryRun = NULL
-    ): ResponseInterface;
+    ): Message\ChangePasswordResponse;
 
     /**
      * Check if the authed user has the specified right(s) on a target.
      *
      * @param  array $targets
-     * @return ResponseInterface
+     * @return Message\CheckRightsResponse
      */
-    function checkRights(array $targets = []): ResponseInterface;
+    function checkRights(array $targets = []): Message\CheckRightsResponse;
 
     /**
      * clientInfo
      *
-     * @param  DomainSelector $domain
-     * @return ResponseInterface
+     * @param  DomainSelector $ClientInfoResponse
+     * @return Message\CheckRightsResponse
      */
-    function clientInfo(DomainSelector $domain): ResponseInterface;
+    function clientInfo(DomainSelector $domain): Message\ClientInfoResponse;
 
     /**
      * Create a Distribution List 
@@ -171,11 +171,11 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $name
      * @param  bool $dynamic
      * @param  array $attrs
-     * @return ResponseInterface
+     * @return Message\CreateDistributionListResponse
      */
     function createDistributionList(
         string $name, ?bool $dynamic = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\CreateDistributionListResponse;
 
     /**
      * Create an Identity
@@ -183,9 +183,9 @@ interface AccountApiInterface extends ApiInterface
      * Allowed attributes (see objectclass zimbraIdentity in zimbra.schema)
      *
      * @param  Identity $identity
-     * @return ResponseInterface
+     * @return Message\CreateIdentityResponse
      */
-    function createIdentity(Identity $identity): ResponseInterface;
+    function createIdentity(Identity $identity): Message\CreateIdentityResponse;
 
     /**
      * Create a signature.
@@ -195,27 +195,27 @@ interface AccountApiInterface extends ApiInterface
      * There can be at most one text/plain signatue and one text/html signature. 
      *
      * @param  Signature $signature
-     * @return ResponseInterface
+     * @return Message\CreateSignatureResponse
      */
-    function createSignature(Signature $signature): ResponseInterface;
+    function createSignature(Signature $signature): Message\CreateSignatureResponse;
 
     /**
      * Delete an Identity
      * must specify either {name} or {id} attribute to <identity>
      *
      * @param  NameId $identity
-     * @return ResponseInterface
+     * @return Message\DeleteIdentityResponse
      */
-    function deleteIdentity(NameId $identity): ResponseInterface;
+    function deleteIdentity(NameId $identity): Message\DeleteIdentityResponse;
 
     /**
      * Delete a signature
      * must specify either {name} or {id} attribute to <identity>
      *
      * @param  NameId $signature
-     * @return ResponseInterface
+     * @return Message\DeleteSignatureResponse
      */
-    function deleteSignature(NameId $signature): ResponseInterface;
+    function deleteSignature(NameId $signature): Message\DeleteSignatureResponse;
 
     /**
      * Return all targets of the specified rights applicable to the requested account.
@@ -233,9 +233,9 @@ interface AccountApiInterface extends ApiInterface
      *    no <e a="{email-address}"/> will be returned. name attribute contains the entry's primary name.
      *
      * @param  array $rights
-     * @return ResponseInterface
+     * @return Message\DiscoverRightsResponse
      */
-    function discoverRights(array $rights = []): ResponseInterface;
+    function discoverRights(array $rights = []): Message\DiscoverRightsResponse;
 
     /**
      * Perform an action on a Distribution List
@@ -248,11 +248,11 @@ interface AccountApiInterface extends ApiInterface
      *
      * @param  DistributionListSelector $dl
      * @param  DistributionListAction $action
-     * @return ResponseInterface
+     * @return Message\DistributionListActionResponse
      */
     function distributionListAction(
         DistributionListSelector $dl, DistributionListAction $action
-    ): ResponseInterface;
+    ): Message\DistributionListActionResponse;
 
     /**
      * End the current session, removing it from all caches.
@@ -263,14 +263,14 @@ interface AccountApiInterface extends ApiInterface
      * @param  bool $clearAllSoapSessions
      * @param  bool $excludeCurrentSession
      * @param  string $sessionId
-     * @return ResponseInterface
+     * @return Message\EndSessionResponse
      */
     function endSession(
         ?bool $logoff = NULL,
         ?bool $clearAllSoapSessions = NULL,
         ?bool $excludeCurrentSession = NULL,
         ?string $sessionId = NULL
-    ): ResponseInterface;
+    ): Message\EndSessionResponse;
 
     /**
      * Returns groups the user is either a member or an owner of. 
@@ -281,44 +281,44 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $ownerOf
      * @param  MemberOfSelector $memberOf
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetAccountDistributionListsResponse
      */
     function getAccountDistributionLists(
         ?bool $ownerOf = NULL,
         ?MemberOfSelector $memberOf = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetAccountDistributionListsResponse;
 
     /**
      * Get information about an account
      *
      * @param  AccountSelector $account
-     * @return ResponseInterface
+     * @return Message\GetAccountInfoResponse
      */
-    function getAccountInfo(AccountSelector $account): ResponseInterface;
+    function getAccountInfo(AccountSelector $account): Message\GetAccountInfoResponse;
 
     /**
      * Returns all locales defined in the system.  This is the same list returned by
      * java.util.Locale.getAvailableLocales(), sorted by display name (name attribute). 
      *
-     * @return ResponseInterface
+     * @return Message\GetAllLocalesResponse
      */
-    function getAllLocales(): ResponseInterface;
+    function getAllLocales(): Message\GetAllLocalesResponse;
 
     /**
      * Returns the known CSV formats that can be used for import and export of addressbook.
      *
-     * @return ResponseInterface
+     * @return Message\GetAvailableCsvFormatsResponse
      */
-    function getAvailableCsvFormats(): ResponseInterface;
+    function getAvailableCsvFormats(): Message\GetAvailableCsvFormatsResponse;
 
     /**
      * Get the intersection of all translated locales installed on the server and the list
      * specified in zimbraAvailableLocale. The locale list in the response is sorted by display name (name attribute).
      *
-     * @return ResponseInterface
+     * @return Message\GetAvailableLocalesResponse
      */
-    function getAvailableLocales(): ResponseInterface;
+    function getAvailableLocales(): Message\GetAvailableLocalesResponse;
 
     /**
      * Get the intersection of installed skins on the server and the list specified in the
@@ -326,9 +326,9 @@ interface AccountApiInterface extends ApiInterface
      * list of installed skins.  The installed skin list is obtained by a directory scan of the designated location of
      * skins on a server.
      *
-     * @return ResponseInterface
+     * @return Message\GetAvailableSkinsResponse
      */
-    function getAvailableSkins(): ResponseInterface;
+    function getAvailableSkins(): Message\GetAvailableSkinsResponse;
 
     /**
      * Get the list of members of a distribution list.
@@ -336,13 +336,13 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $dl
      * @param  int $limit
      * @param  int $offset
-     * @return ResponseInterface
+     * @return Message\GetDistributionListMembersResponse
      */
     function getDistributionListMembers(
         string $dl,
         ?int $limit = NULL,
         ?int $offset = NULL
-    ): ResponseInterface;
+    ): Message\GetDistributionListMembersResponse;
 
     /**
      * Get a distribution list, optionally with ownership information an granted rights.
@@ -351,21 +351,21 @@ interface AccountApiInterface extends ApiInterface
      * @param  bool $needOwners
      * @param  string $needRights
      * @param  array $attrs
-     * @return ResponseInterface
+     * @return Message\GetDistributionListResponse
      */
     function getDistributionList(
         DistributionListSelector $dl,
         ?bool $needOwners = NULL,
         ?string $needRights = NULL,
         array $attrs = []
-    ): ResponseInterface;
+    ): Message\GetDistributionListResponse;
 
     /**
      * Get the identities for the authed account.
      *
-     * @return ResponseInterface
+     * @return Message\GetIdentitiesResponse
      */
-    function getIdentities(): ResponseInterface;
+    function getIdentities(): Message\GetIdentitiesResponse;
 
     /**
      * Get information about an account.
@@ -374,18 +374,18 @@ interface AccountApiInterface extends ApiInterface
      *
      * @param  string $sections
      * @param  string $rights
-     * @return ResponseInterface
+     * @return Message\GetInfoResponse
      */
     function getInfo(
         string $sections = NULL, string $rights = NULL
-    ): ResponseInterface;
+    ): Message\GetInfoResponse;
 
     /**
      * Get OAuth consumers.
      *
-     * @return ResponseInterface
+     * @return Message\GetOAuthConsumersResponse
      */
-    function getOAuthConsumers(): ResponseInterface;
+    function getOAuthConsumers(): Message\GetOAuthConsumersResponse;
 
     /**
      * Get preferences for the authenticated account
@@ -393,9 +393,9 @@ interface AccountApiInterface extends ApiInterface
      * If <pref> elements are provided, only those prefs are returned in the response.
      *
      * @param  array $prefs
-     * @return ResponseInterface
+     * @return Message\GetPrefsResponse
      */
-    function getPrefs(array $prefs = []): ResponseInterface;
+    function getPrefs(array $prefs = []): Message\GetPrefsResponse;
 
     /**
      * Get account level rights.
@@ -403,9 +403,9 @@ interface AccountApiInterface extends ApiInterface
      * If <ace> elements are provided, only those ACEs with specified rights are returned in the response.
      *
      * @param  array $aces
-     * @return ResponseInterface
+     * @return Message\GetRightsResponse
      */
-    function getRights(array $aces = []): ResponseInterface;
+    function getRights(array $aces = []): Message\GetRightsResponse;
 
     /**
      * Get information about published shares
@@ -414,51 +414,51 @@ interface AccountApiInterface extends ApiInterface
      * @param  AccountSelector $owner
      * @param  bool $internal
      * @param  bool $includeSelf
-     * @return ResponseInterface
+     * @return Message\GetShareInfoResponse
      */
     function getShareInfo(
         ?GranteeChooser $grantee = NULL,
         ?AccountSelector $owner = NULL,
         ?bool $internal = NULL,
         ?bool $includeSelf = NULL
-    ): ResponseInterface;
+    ): Message\GetShareInfoResponse;
 
     /**
      * Get signatures associated with an account
      *
-     * @return ResponseInterface
+     * @return Message\GetSignaturesResponse
      */
-    function getSignatures(): ResponseInterface;
+    function getSignatures(): Message\GetSignaturesResponse;
 
     /**
      * Get version information
      *
-     * @return ResponseInterface
+     * @return Message\GetVersionInfoResponse
      */
-    function getVersionInfo(): ResponseInterface;
+    function getVersionInfo(): Message\GetVersionInfoResponse;
 
     /**
      * Get the anti-spam WhiteList and BlackList addresses
      *
-     * @return ResponseInterface
+     * @return Message\GetWhiteBlackListResponse
      */
-    function getWhiteBlackList(): ResponseInterface;
+    function getWhiteBlackList(): Message\GetWhiteBlackListResponse;
 
     /**
      * Grant account level rights
      *
      * @param  array $aces
-     * @return ResponseInterface
+     * @return Message\GrantRightsResponse
      */
-    function grantRights(array $aces = []): ResponseInterface;
+    function grantRights(array $aces = []): Message\GrantRightsResponse;
 
     /**
      * Modify an Identity
      *
      * @param  Identity $identity
-     * @return ResponseInterface
+     * @return Message\ModifyIdentityResponse
      */
-    function modifyIdentity(Identity $identity): ResponseInterface;
+    function modifyIdentity(Identity $identity): Message\ModifyIdentityResponse;
 
     /**
      * Modify Preferences
@@ -468,17 +468,17 @@ interface AccountApiInterface extends ApiInterface
      * the preference name with a '+' or '-', respectively in the same way you do when using zmprov.
      *
      * @param  array $prefs
-     * @return ResponseInterface
+     * @return Message\ModifyPrefsResponse
      */
-    function modifyPrefs(array $prefs = []): ResponseInterface;
+    function modifyPrefs(array $prefs = []): Message\ModifyPrefsResponse;
 
     /**
      * Modify properties related to zimlets
      *
      * @param  array $props
-     * @return ResponseInterface
+     * @return Message\ModifyPropertiesResponse
      */
-    function modifyProperties(array $props = []): ResponseInterface;
+    function modifyProperties(array $props = []): Message\ModifyPropertiesResponse;
 
     /**
      * Create a signature.
@@ -488,52 +488,52 @@ interface AccountApiInterface extends ApiInterface
      * There can be at most one text/plain signatue and one text/html signature. 
      *
      * @param  Signature $signature
-     * @return ResponseInterface
+     * @return Message\ModifySignatureResponse
      */
-    function modifySignature(Signature $signature): ResponseInterface;
+    function modifySignature(Signature $signature): Message\ModifySignatureResponse;
 
     /**
      * Modify the anti-spam WhiteList and BlackList addresses
      *
      * @param  array $whiteListEntries
      * @param  array $blackListEntries
-     * @return ResponseInterface
+     * @return Message\ModifyWhiteBlackListResponse
      */
     function modifyWhiteBlackList(
         array $whiteListEntries = [], array $blackListEntries = []
-    ): ResponseInterface;
+    ): Message\ModifyWhiteBlackListResponse;
 
     /**
      * Modify zimlet preferences
      *
      * @param  array $zimlets
-     * @return ResponseInterface
+     * @return Message\ModifyZimletPrefsResponse
      */
-    function modifyZimletPrefs(array $zimlets = []): ResponseInterface;
+    function modifyZimletPrefs(array $zimlets = []): Message\ModifyZimletPrefsResponse;
 
     /**
      * Reset password
      *
      * @param  string $password
-     * @return ResponseInterface
+     * @return Message\ResetPasswordResponse
      */
-    function resetPassword(string $password): ResponseInterface;
+    function resetPassword(string $password): Message\ResetPasswordResponse;
 
     /**
      * Revoke OAuth consumer
      *
      * @param  string $accessToken
-     * @return ResponseInterface
+     * @return Message\RevokeOAuthConsumerResponse
      */
-    function revokeOAuthConsumer(string $accessToken): ResponseInterface;
+    function revokeOAuthConsumer(string $accessToken): Message\RevokeOAuthConsumerResponse;
 
     /**
      * Revoke account level rights
      *
      * @param  array $aces
-     * @return ResponseInterface
+     * @return Message\RevokeRightsResponse
      */
-    function revokeRights(array $aces = []): ResponseInterface;
+    function revokeRights(array $aces = []): Message\RevokeRightsResponse;
 
     /**
      * Search Global Address List (GAL) for calendar resources
@@ -549,7 +549,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  string $galAccountId
      * @param  string $name
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\SearchCalendarResourcesResponse
      */
     function searchCalendarResources(
         ?CursorInfo $cursor = NULL,
@@ -562,7 +562,7 @@ interface AccountApiInterface extends ApiInterface
         ?string $galAccountId = NULL,
         ?string $name = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\SearchCalendarResourcesResponse;
 
     /**
      * Search Global Address List (GAL)
@@ -582,17 +582,17 @@ interface AccountApiInterface extends ApiInterface
      * @param  int $limit
      * @param  int $offset
      * @param  string $locale
-     * @return ResponseInterface
+     * @return Message\SearchGalResponse
      */
     function searchGal(
         ?CursorInfo $cursor = NULL,
         ?EntrySearchFilterInfo $searchFilter = NULL,
         ?string $ref = NULL,
         ?string $name = NULL,
-        GalSearchType $type = NULL,
+        ?GalSearchType $type = NULL,
         ?bool $needCanExpand = NULL,
         ?bool $needIsOwner = NULL,
-        MemberOfSelector $needIsMember = NULL,
+        ?MemberOfSelector $needIsMember = NULL,
         ?bool $needSMIMECerts = NULL,
         ?string $galAccountId = NULL,
         ?bool $quick = NULL,
@@ -600,18 +600,18 @@ interface AccountApiInterface extends ApiInterface
         ?int $limit = NULL,
         ?int $offset = NULL,
         ?string $locale = NULL
-    ): ResponseInterface;
+    ): Message\SearchGalResponse;
 
     /**
      * Subscribe to or unsubscribe from a distribution list 
      *
      * @param  DistributionListSelector $dl
      * @param  DistributionListSubscribeOp $op
-     * @return ResponseInterface
+     * @return Message\SubscribeDistributionListResponse
      */
     function subscribeDistributionList(
         DistributionListSelector $dl, DistributionListSubscribeOp $op
-    ): ResponseInterface;
+    ): Message\SubscribeDistributionListResponse;
 
     /**
      * Synchronize with the Global Address List
@@ -621,7 +621,7 @@ interface AccountApiInterface extends ApiInterface
      * @param  bool $idOnly
      * @param  bool $getCount
      * @param  int $limit
-     * @return ResponseInterface
+     * @return Message\SyncGalResponse
      */
     function syncGal(
         ?string $token = NULL,
@@ -629,5 +629,5 @@ interface AccountApiInterface extends ApiInterface
         ?bool $idOnly = NULL,
         ?bool $getCount = NULL,
         ?int $limit = NULL
-    ): ResponseInterface;
+    ): Message\SyncGalResponse;
 }
