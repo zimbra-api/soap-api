@@ -27,7 +27,6 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  */
 class GetShareInfoRequest extends Request
 {
-
     /**
      * Flags that have been proxied to this server because the specified "owner account" is
      * homed here.  Do not proxy in this case. (Used internally by ZCS)

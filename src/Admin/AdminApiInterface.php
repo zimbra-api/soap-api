@@ -49,12 +49,6 @@ use Zimbra\Admin\Struct\{
     XMPPComponentSpec,
     ZimletAclStatusPri
 };
-
-use Zimbra\Mail\Struct\{
-    Policy,
-    PolicyHolder
-};
-
 use Zimbra\Common\Enum\{
     AutoProvTaskAction,
     CompactIndexAction,
@@ -68,8 +62,6 @@ use Zimbra\Common\Enum\{
     ZimletDeployAction,
     ZimletExcludeType
 };
-
-use Zimbra\Soap\{ApiInterface, ResponseInterface};
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
@@ -82,6 +74,11 @@ use Zimbra\Common\Struct\{
     ReIndexAction,
     SessionType
 };
+use Zimbra\Mail\Struct\{
+    Policy,
+    PolicyHolder
+};
+use Zimbra\Soap\ApiInterface;
 
 /**
  * AdminApiInterface interface
@@ -97,36 +94,40 @@ interface AdminApiInterface extends ApiInterface
      * Add an alias for the account 
      * @param  string $id
      * @param  string $alias
-     * @return ResponseInterface
+     * @return Message\AddAccountAliasResponse
      */
-    function addAccountAlias(string $id, string $alias): ResponseInterface;
+    function addAccountAlias(string $id, string $alias): Message\AddAccountAliasResponse;
 
     /**
      * Changes logging settings on a per-account basis
      * @param  LoggerInfo $logger
      * @param  AccountSelector $account
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\AddAccountLoggerResponse
      */
     function addAccountLogger(
         LoggerInfo $logger, ?AccountSelector $account = NULL, ?string $id = NULL
-    ): ResponseInterface;
+    ): Message\AddAccountLoggerResponse;
 
     /**
      * Add an alias for a distribution list
      * @param  string $id
      * @param  string $alias
-     * @return ResponseInterface
+     * @return Message\AddDistributionListAliasResponse
      */
-    function addDistributionListAlias(string $id, string $alias): ResponseInterface;
+    function addDistributionListAlias(
+        string $id, string $alias
+    ): Message\AddDistributionListAliasResponse;
 
     /**
      * Adding members to a distribution list
      * @param  string $id
      * @param  array  $members
-     * @return ResponseInterface
+     * @return Message\AddDistributionListMemberResponse
      */
-    function addDistributionListMember(string $id, array $members): ResponseInterface;
+    function addDistributionListMember(
+        string $id, array $members
+    ): Message\AddDistributionListMemberResponse;
 
     /**
      * Add a GalSync data source
@@ -136,7 +137,7 @@ interface AdminApiInterface extends ApiInterface
      * @param string  $domain
      * @param GalMode  $type
      * @param string  $folder
-     * @return ResponseInterface
+     * @return Message\AddGalSyncDataSourceResponse
      */
     function addGalSyncDataSource(
         AccountSelector $account,
@@ -145,7 +146,7 @@ interface AdminApiInterface extends ApiInterface
         GalMode $type,
         ?string $folder = NULL,
         array $attrs = []
-    ): ResponseInterface;
+    ): Message\AddGalSyncDataSourceResponse;
 
     /**
      * Create a waitset to listen for changes on one or more accounts
@@ -155,20 +156,20 @@ interface AdminApiInterface extends ApiInterface
      * @param string $defaultInterests
      * @param bool $allAccounts
      * @param array $accounts
-     * @return ResponseInterface
+     * @return Message\AdminCreateWaitSetResponse
      */
     function adminCreateWaitSet(
         string $defaultInterests, ?bool $allAccounts = NULL, array $accounts = []
-    ): ResponseInterface;
+    ): Message\AdminCreateWaitSetResponse;
 
     /**
      * Use this to close out the waitset.
      * Note that the server will automatically time out a wait set if there is no reference to it for (default of) 20 minutes.
      * 
      * @param string  $waitSetId
-     * @return ResponseInterface
+     * @return Message\AdminDestroyWaitSetResponse
      */
-    function adminDestroyWaitSet(string $waitSetId): ResponseInterface;
+    function adminDestroyWaitSet(string $waitSetId): Message\AdminDestroyWaitSetResponse;
 
     /**
      * Modifies the wait set and checks for any notifications.
@@ -183,7 +184,7 @@ interface AdminApiInterface extends ApiInterface
      * @param array  $addAccounts
      * @param array  $updateAccounts
      * @param array  $removeAccounts
-     * @return ResponseInterface
+     * @return Message\AdminWaitSetResponse
      */
     function adminWaitSet(
         string $waitSetId,
@@ -195,7 +196,7 @@ interface AdminApiInterface extends ApiInterface
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
-    ): ResponseInterface;
+    ): Message\AdminWaitSetResponse;
 
     /**
      * Authenticate for administration
@@ -208,7 +209,7 @@ interface AdminApiInterface extends ApiInterface
      * @param bool    $persistAuthTokenCookie
      * @param bool    $csrfSupported
      * @param string  $twoFactorCode
-     * @return ResponseInterface
+     * @return Message\AuthResponse
      */
     function auth(
         ?string $name = NULL,
@@ -219,7 +220,7 @@ interface AdminApiInterface extends ApiInterface
         ?bool $persistAuthTokenCookie = NULL,
         ?bool $csrfSupported = NULL,
         ?string $twoFactorCode = NULL
-    ): ResponseInterface;
+    ): Message\AuthResponse;
 
     /**
      * Perform an autocomplete for a name against the Global Address List
@@ -229,7 +230,7 @@ interface AdminApiInterface extends ApiInterface
      * @param GalSearchType  $type
      * @param string  $galAccountId
      * @param int     $limit
-     * @return ResponseInterface
+     * @return Message\AutoCompleteGalResponse
      */
     function autoCompleteGal(
         string $domain,
@@ -237,7 +238,7 @@ interface AdminApiInterface extends ApiInterface
         ?GalSearchType $type = NULL,
         ?string $galAccountId = NULL,
         ?int $limit = NULL
-    ): ResponseInterface;
+    ): Message\AutoCompleteGalResponse;
 
     /**
      * Auto-provision an account
@@ -245,13 +246,13 @@ interface AdminApiInterface extends ApiInterface
      * @param DomainSelector $domain
      * @param PrincipalSelector $principal
      * @param string  $password
-     * @return ResponseInterface
+     * @return Message\AutoProvAccountResponse
      */
     function autoProvAccount(
         DomainSelector $domain,
         PrincipalSelector $principal,
         ?string $password = NULL
-    ): ResponseInterface;
+    ): Message\AutoProvAccountResponse;
 
     /**
      * Under normal situations, the EAGER auto provisioning task(thread) should be started/stopped automatically by the server when appropriate.
@@ -260,18 +261,20 @@ interface AdminApiInterface extends ApiInterface
      * It is only for diagnosis purpose and should not be used under normal situations.
      * 
      * @param AutoProvTaskAction $action
-     * @return ResponseInterface
+     * @return Message\AutoProvTaskControlResponse
      */
-    function autoProvTaskControl(AutoProvTaskAction $action): ResponseInterface;
+    function autoProvTaskControl(AutoProvTaskAction $action): Message\AutoProvTaskControlResponse;
 
     /**
      * Change Account
      * 
      * @param AccountSelector $account
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\ChangePrimaryEmailResponse
      */
-    function changePrimaryEmail(AccountSelector $account, string $newName): ResponseInterface;
+    function changePrimaryEmail(
+        AccountSelector $account, string $newName
+    ): Message\ChangePrimaryEmailResponse;
 
     /**
      * Check auth config
@@ -279,11 +282,11 @@ interface AdminApiInterface extends ApiInterface
      * @param string $name
      * @param string $password
      * @param array $attrs
-     * @return ResponseInterface
+     * @return Message\CheckAuthConfigResponse
      */
     function checkAuthConfig(
         string $name, string $password, array $attrs = []
-    ): ResponseInterface;
+    ): Message\CheckAuthConfigResponse;
 
     /**
      * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata
@@ -296,35 +299,35 @@ interface AdminApiInterface extends ApiInterface
      * @param  bool $reportUsedBlobs
      * @param  array $volumes
      * @param  array $mailboxes
-     * @return ResponseInterface
+     * @return Message\CheckBlobConsistencyResponse
      */
     function checkBlobConsistency(
         ?bool $checkSize = NULL, ?bool $reportUsedBlobs = NULL, array $volumes = [], array $mailboxes = []
-    ): ResponseInterface;
+    ): Message\CheckBlobConsistencyResponse;
 
     /**
      * Check existence of one or more directories and optionally create them.
      * 
      * @param  array  $paths
-     * @return ResponseInterface
+     * @return Message\CheckDirectoryResponse
      */
-    function checkDirectory(array $paths = []): ResponseInterface;
+    function checkDirectory(array $paths = []): Message\CheckDirectoryResponse;
 
     /**
      * Check Domain MX record
      * 
      * @param  DomainSelector $domain
-     * @return ResponseInterface
+     * @return Message\CheckDomainMXRecordResponse
      */
-    function checkDomainMXRecord(DomainSelector $domain = NULL): ResponseInterface;
+    function checkDomainMXRecord(DomainSelector $domain = NULL): Message\CheckDomainMXRecordResponse;
 
     /**
      * Check Exchange Authorisation
      * 
      * @param  ExchangeAuthSpec $auth
-     * @return ResponseInterface
+     * @return Message\CheckExchangeAuthResponse
      */
-    function checkExchangeAuth(?ExchangeAuthSpec $auth = NULL): ResponseInterface;
+    function checkExchangeAuth(?ExchangeAuthSpec $auth = NULL): Message\CheckExchangeAuthResponse;
 
     /**
      * Check Global Addressbook Configuration
@@ -332,35 +335,35 @@ interface AdminApiInterface extends ApiInterface
      * @param  LimitedQuery $query
      * @param  string $action
      * @param  array  $attrs
-     * @return ResponseInterface
+     * @return Message\CheckGalConfigResponse
      */
     function checkGalConfig(
         ?LimitedQuery $query = NULL, ?string $action = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\CheckGalConfigResponse;
 
     /**
      * Check Health
      * 
-     * @return ResponseInterface
+     * @return Message\CheckHealthResponse
      */
-    function checkHealth(): ResponseInterface;
+    function checkHealth(): Message\CheckHealthResponse;
 
     /**
      * Check whether a hostname can be resolved
      * 
      * @param  string $hostname
-     * @return ResponseInterface
+     * @return Message\CheckHostnameResolveResponse
      */
-    function checkHostnameResolve(?string $hostname = NULL): ResponseInterface;
+    function checkHostnameResolve(?string $hostname = NULL): Message\CheckHostnameResolveResponse;
 
     /**
      * Check password strength
      * 
      * @param  string $id
      * @param  string $password
-     * @return ResponseInterface
+     * @return Message\CheckPasswordStrengthResponse
      */
-    function checkPasswordStrength(string $id, string $password): ResponseInterface;
+    function checkPasswordStrength(string $id, string $password): Message\CheckPasswordStrengthResponse;
 
     /**
      * Check if a principal has the specified right on target.
@@ -369,72 +372,74 @@ interface AdminApiInterface extends ApiInterface
      * @param GranteeSelector $grantee
      * @param CheckedRight $right
      * @param array $attrs
-     * @return ResponseInterface
+     * @return Message\CheckRightResponse
      */
     function checkRight(
         EffectiveRightsTargetSelector $target,
         GranteeSelector $grantee,
         CheckedRight $right,
         array $attrs = []
-    ): ResponseInterface;
+    ): Message\CheckRightResponse;
 
     /**
      * Clear cookie
      * 
      * @param array $cookies
-     * @return ResponseInterface
+     * @return Message\ClearCookieResponse
      */
-    function clearCookie(array $cookies = []): ResponseInterface;
+    function clearCookie(array $cookies = []): Message\ClearCookieResponse;
 
     /**
      * Compact index
      * 
      * @param  MailboxByAccountIdSelector $mbox
      * @param  CompactIndexAction $action
-     * @return ResponseInterface
+     * @return Message\CompactIndexResponse
      */
-    function compactIndex(MailboxByAccountIdSelector $mbox, ?CompactIndexAction $action = NULL): ResponseInterface;
+    function compactIndex(
+        MailboxByAccountIdSelector $mbox, ?CompactIndexAction $action = NULL
+    ): Message\CompactIndexResponse;
 
     /**
      * Computes the aggregate quota usage for all domains in the system.
      * 
-     * @return ResponseInterface
+     * @return Message\ComputeAggregateQuotaUsageResponse
      */
-    function computeAggregateQuotaUsage(): ResponseInterface;
+    function computeAggregateQuotaUsage(): Message\ComputeAggregateQuotaUsageResponse;
 
     /**
      * Configure Zimlet
      * 
      * @param  AttachmentIdAttrib $content
-     * @return ResponseInterface
+     * @return Message\ConfigureZimletResponse
      */
-    function configureZimlet(AttachmentIdAttrib $content): ResponseInterface;
+    function configureZimlet(AttachmentIdAttrib $content): Message\ConfigureZimletResponse;
 
     /**
      * start/stop contact backup
      * 
      * @param  array $servers
      * @param  ContactBackupOp $op
-     * @return ResponseInterface
+     * @return Message\ContactBackupResponse
      */
-    function contactBackup(array $servers, ContactBackupOp $op): ResponseInterface;
+    function contactBackup(array $servers, ContactBackupOp $op): Message\ContactBackupResponse;
 
     /**
      * Copy Class of service (COS)
      * 
      * @param  CosSelector $cos
      * @param  string $newName
-     * @return ResponseInterface
+     * @return Message\CopyCosResponse
      */
-    function copyCos(?CosSelector $cos = NULL, ?string $newName = NULL): ResponseInterface;
+    function copyCos(?CosSelector $cos = NULL, ?string $newName = NULL): Message\CopyCosResponse;
 
     /**
      * Count number of accounts by cos in a domain
      * 
      * @param DomainSelector $domain
-     * @return ResponseInterface
+     * @return Message\CountAccountResponse
      */
-    function countAccount(DomainSelector $domain): ResponseInterface;
+    function countAccount(DomainSelector $domain): Message\CountAccountResponse;
 
     /**
      * Count number of objects.
@@ -443,14 +448,14 @@ interface AdminApiInterface extends ApiInterface
      * @param  array $domains
      * @param  UcServiceSelector $ucService
      * @param  bool $onlyRelated
-     * @return ResponseInterface
+     * @return Message\CountObjectsResponse
      */
     function countObjects(
         CountObjectsType $type,
         array $domains = [],
         ?UcServiceSelector $ucService = NULL,
         ?bool $onlyRelated = NULL
-    ): ResponseInterface;
+    ): Message\CountObjectsResponse;
 
     /**
      * Create account
@@ -458,20 +463,22 @@ interface AdminApiInterface extends ApiInterface
      * @param string $name
      * @param string $password
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateAccountResponse
      */
     function createAccount(
         string $name, ?string $password = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\CreateAccountResponse;
 
     /**
      * Create a AlwaysOnCluster 
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateAlwaysOnClusterResponse
      */
-    function createAlwaysOnCluster(string $name, array $attrs = []): ResponseInterface;
+    function createAlwaysOnCluster(
+        string $name, array $attrs = []
+    ): Message\CreateAlwaysOnClusterResponse;
 
     /**
      * Create a calendar resource
@@ -479,27 +486,29 @@ interface AdminApiInterface extends ApiInterface
      * @param string $name
      * @param string $password
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateCalendarResourceResponse
      */
-    function createCalendarResource(string $name, ?string $password = NULL, array $attrs = []): ResponseInterface;
+    function createCalendarResource(
+        string $name, ?string $password = NULL, array $attrs = []
+    ): Message\CreateCalendarResourceResponse;
 
     /**
      * Create a Class of Service (COS)
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateCosResponse
      */
-    function createCos(string $name, array $attrs = []): ResponseInterface;
+    function createCos(string $name, array $attrs = []): Message\CreateCosResponse;
 
     /**
      * Creates a data source that imports mail items into the specified folder. 
      * 
      * @param string $id
      * @param DataSourceSpecifier $dataSource
-     * @return ResponseInterface
+     * @return Message\CreateDataSourceResponse
      */
-    function createDataSource(string $id, DataSourceSpecifier $dataSource): ResponseInterface;
+    function createDataSource(string $id, DataSourceSpecifier $dataSource): Message\CreateDataSourceResponse;
 
     /**
      * Create a distribution list
@@ -507,20 +516,20 @@ interface AdminApiInterface extends ApiInterface
      * @param string $name
      * @param bool   $dynamic
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateDistributionListResponse
      */
     function createDistributionList(
         string $name, ?bool $dynamic = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\CreateDistributionListResponse;
 
     /**
      * Create a domain
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateDomainResponse
      */
-    function createDomain(string $name, array $attrs = []): ResponseInterface;
+    function createDomain(string $name, array $attrs = []): Message\CreateDomainResponse;
 
     /**
      * Create Global Address List (GAL) Synchronisation account
@@ -533,7 +542,7 @@ interface AdminApiInterface extends ApiInterface
      * @param string  $password
      * @param string  $folder
      * @param array   $attrs
-     * @return ResponseInterface
+     * @return Message\CreateGalSyncAccountResponse
      */
     function createGalSyncAccount(
         string $name,
@@ -544,25 +553,25 @@ interface AdminApiInterface extends ApiInterface
         ?string $password = NULL,
         ?string $folder = NULL,
         array $attrs = []
-    ): ResponseInterface;
+    ): Message\CreateGalSyncAccountResponse;
 
     /**
      * Create an LDAP entry
      * 
      * @param string $dn
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateLDAPEntryResponse
      */
-    function createLDAPEntry(string $dn, array $attrs = []): ResponseInterface;
+    function createLDAPEntry(string $dn, array $attrs = []): Message\CreateLDAPEntryResponse;
 
     /**
      * Create a Server
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateServerResponse
      */
-    function createServer(string $name, array $attrs = []): ResponseInterface;
+    function createServer(string $name, array $attrs = []): Message\CreateServerResponse;
 
     /**
      * Create a system retention policy.
@@ -570,54 +579,54 @@ interface AdminApiInterface extends ApiInterface
      * @param  CosSelector  $cos
      * @param  PolicyHolder $keep
      * @param  PolicyHolder $purge
-     * @return ResponseInterface
+     * @return Message\CreateSystemRetentionPolicyResponse
      */
     function createSystemRetentionPolicy(
         ?CosSelector $cos = NULL, ?PolicyHolder $keep = NULL, ?PolicyHolder $purge = NULL
-    ): ResponseInterface;
+    ): Message\CreateSystemRetentionPolicyResponse;
 
     /**
      * Create a UC service
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateUCServiceResponse
      */
-    function createUCService(string $name, array $attrs = []): ResponseInterface;
+    function createUCService(string $name, array $attrs = []): Message\CreateUCServiceResponse;
 
     /**
      * Create a volume
      * 
      * @param VolumeInfo $volume
-     * @return ResponseInterface
+     * @return Message\CreateVolumeResponse
      */
-    function createVolume(VolumeInfo $volume): ResponseInterface;
+    function createVolume(VolumeInfo $volume): Message\CreateVolumeResponse;
 
     /**
      * Create an XMPP component
      * 
      * @param XMPPComponentSpec $component
-     * @return ResponseInterface
+     * @return Message\CreateXMPPComponentResponse
      */
-    function createXMPPComponent(XMPPComponentSpec $component): ResponseInterface;
+    function createXMPPComponent(XMPPComponentSpec $component): Message\CreateXMPPComponentResponse;
 
     /**
      * Create a Zimlet
      * 
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\CreateZimletResponse
      */
-    function createZimlet(string $name, array $attrs = []): ResponseInterface;
+    function createZimlet(string $name, array $attrs = []): Message\CreateZimletResponse;
 
     /**
      * Dedupe the blobs having the same digest.
      * 
      * @param  DedupAction $action
      * @param  array $volumes
-     * @return ResponseInterface
+     * @return Message\DedupeBlobsResponse
      */
-    function dedupeBlobs(DedupAction $action, array $volumes = []): ResponseInterface;
+    function dedupeBlobs(DedupAction $action, array $volumes = []): Message\DedupeBlobsResponse;
 
     /**
      * Used to request a new auth token that is valid for the specified account.
@@ -626,41 +635,41 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  AccountSelector $account
      * @param  int $duration
-     * @return ResponseInterface
+     * @return Message\DelegateAuthResponse
      */
-    function delegateAuth(AccountSelector $account, ?int $duration = NULL): ResponseInterface;
+    function delegateAuth(AccountSelector $account, ?int $duration = NULL): Message\DelegateAuthResponse;
 
     /**
      * Deletes the account with the given id.
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteAccountResponse
      */
-    function deleteAccount(string $id): ResponseInterface;
+    function deleteAccount(string $id): Message\DeleteAccountResponse;
 
     /**
      * Delete a alwaysOnCluster
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteAlwaysOnClusterResponse
      */
-    function deleteAlwaysOnCluster(string $id): ResponseInterface;
+    function deleteAlwaysOnCluster(string $id): Message\DeleteAlwaysOnClusterResponse;
 
     /**
      * Deletes the calendar resource with the given id.
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteCalendarResourceResponse
      */
-    function deleteCalendarResource(string $id): ResponseInterface;
+    function deleteCalendarResource(string $id): Message\DeleteCalendarResourceResponse;
 
     /**
      * Delete a Class of Service (COS)
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteCosResponse
      */
-    function deleteCos(string $id): ResponseInterface;
+    function deleteCos(string $id): Message\DeleteCosResponse;
 
     /**
      * Deletes the given data source.
@@ -668,99 +677,107 @@ interface AdminApiInterface extends ApiInterface
      * @param string $id
      * @param Id     $dataSource
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\DeleteDataSourceResponse
      */
-    function deleteDataSource(string $id, Id $dataSource, array $attrs = []): ResponseInterface;
+    function deleteDataSource(
+        string $id, Id $dataSource, array $attrs = []
+    ): Message\DeleteDataSourceResponse;
 
     /**
      * Delete a distribution list
      * 
      * @param  string $id
      * @param  bool   $cascadeDelete
-     * @return ResponseInterface
+     * @return Message\DeleteDistributionListResponse
      */
-    function deleteDistributionList(string $id, ?bool $cascadeDelete = NULL): ResponseInterface;
+    function deleteDistributionList(
+        string $id, ?bool $cascadeDelete = NULL
+    ): Message\DeleteDistributionListResponse;
 
     /**
      * Delete a domain
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteDomainResponse
      */
-    function deleteDomain(string $id): ResponseInterface;
+    function deleteDomain(string $id): Message\DeleteDomainResponse;
 
     /**
      * Delete a Global Address List (GAL) Synchronisation account
      * 
      * @param  AccountSelector $account
-     * @return ResponseInterface
+     * @return Message\DeleteGalSyncAccountResponse
      */
-    function deleteGalSyncAccount(AccountSelector $account): ResponseInterface;
+    function deleteGalSyncAccount(AccountSelector $account): Message\DeleteGalSyncAccountResponse;
 
     /**
      * Delete a LDAP entry
      * 
      * @param  string $dn
-     * @return ResponseInterface
+     * @return Message\DeleteLDAPEntryResponse
      */
-    function deleteLDAPEntry(string $dn): ResponseInterface;
+    function deleteLDAPEntry(string $dn): Message\DeleteLDAPEntryResponse;
 
     /**
      * Delete a mailbox
      * 
      * @param  MailboxByAccountIdSelector $mbox
-     * @return ResponseInterface
+     * @return Message\DeleteMailboxResponse
      */
-    function deleteMailbox(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+    function deleteMailbox(
+        ?MailboxByAccountIdSelector $mbox = NULL
+    ): Message\DeleteMailboxResponse;
 
     /**
      * Delete a server
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteServerResponse
      */
-    function deleteServer(string $id): ResponseInterface;
+    function deleteServer(string $id): Message\DeleteServerResponse;
 
     /**
      * Delete a system retention policy.
      * 
      * @param  Policy $policy
      * @param  CosSelector $cos
-     * @return ResponseInterface
+     * @return Message\DeleteSystemRetentionPolicyResponse
      */
-    function deleteSystemRetentionPolicy(Policy $policy, ?CosSelector $cos = NULL): ResponseInterface;
+    function deleteSystemRetentionPolicy(
+        Policy $policy, ?CosSelector $cos = NULL
+    ): Message\DeleteSystemRetentionPolicyResponse;
 
     /**
      * Delete a UC service
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\DeleteUCServiceResponse
      */
-    function deleteUCService(string $id): ResponseInterface;
+    function deleteUCService(string $id): Message\DeleteUCServiceResponse;
 
     /**
      * Delete a volume
      * 
      * @param  int $id
-     * @return ResponseInterface
+     * @return Message\DeleteVolumeResponse
      */
-    function deleteVolume(int $id): ResponseInterface;
+    function deleteVolume(int $id): Message\DeleteVolumeResponse;
 
     /**
      * Delete an XMPP Component
      * 
      * @param  XMPPComponentSelector $component
-     * @return ResponseInterface
+     * @return Message\DeleteXMPPComponentResponse
      */
-    function deleteXMPPComponent(?XMPPComponentSelector $component = NULL): ResponseInterface;
+    function deleteXMPPComponent(?XMPPComponentSelector $component = NULL): Message\DeleteXMPPComponentResponse;
 
     /**
      * Delete a Zimlet
      * 
      * @param  NamedElement $zimlet
-     * @return ResponseInterface
+     * @return Message\DeleteZimletResponse
      */
-    function deleteZimlet(NamedElement $zimlet): ResponseInterface;
+    function deleteZimlet(NamedElement $zimlet): Message\DeleteZimletResponse;
 
     /**
      * Deploy Zimlet(s)
@@ -769,20 +786,22 @@ interface AdminApiInterface extends ApiInterface
      * @param  AttachmentIdAttrib $content
      * @param  bool $flushCache
      * @param  bool $synchronous
-     * @return ResponseInterface
+     * @return Message\DeployZimletResponse
      */
     function deployZimlet(
         ZimletDeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL
-    ): ResponseInterface;
+    ): Message\DeployZimletResponse;
 
     /**
      * Dump sessions
      * 
      * @param  bool $includeAccounts
      * @param  bool $groupByAccount
-     * @return ResponseInterface
+     * @return Message\DumpSessionsResponse
      */
-    function dumpSessions(?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL): ResponseInterface;
+    function dumpSessions(
+        ?bool $includeAccounts = NULL, ?bool $groupByAccount = NULL
+    ): Message\DumpSessionsResponse;
 
     /**
      * Exports the database data for the given items with SELECT INTO OUTFILE and deletes the items from the mailbox.
@@ -790,29 +809,29 @@ interface AdminApiInterface extends ApiInterface
      * @param  ExportAndDeleteMailboxSpec $mailbox
      * @param  string $exportDir
      * @param  string $exportFilenamePrefix
-     * @return ResponseInterface
+     * @return Message\ExportAndDeleteItemsResponse
      */
     function exportAndDeleteItems(
         ExportAndDeleteMailboxSpec $mailbox, ?string $exportDir = NULL, ?string $exportFilenamePrefix = NULL
-    ): ResponseInterface;
+    ): Message\ExportAndDeleteItemsResponse;
 
     /**
      * Fix Calendar End Times
      * 
      * @param  bool $sync
      * @param  array $accounts
-     * @return ResponseInterface
+     * @return Message\FixCalendarEndTimeResponse
      */
-    function fixCalendarEndTime(?bool $sync = NULL, array $accounts = []): ResponseInterface;
+    function fixCalendarEndTime(?bool $sync = NULL, array $accounts = []): Message\FixCalendarEndTimeResponse;
 
     /**
      * Fix Calendar priority 
      * 
      * @param  bool $sync
      * @param  array $accounts
-     * @return ResponseInterface
+     * @return Message\FixCalendarPriorityResponse
      */
-    function fixCalendarPriority(?bool $sync = NULL, array $accounts = []): ResponseInterface;
+    function fixCalendarPriority(?bool $sync = NULL, array $accounts = []): Message\FixCalendarPriorityResponse;
 
     /**
      * Fix timezone definitions in appointments and tasks to reflect changes in daylight savings time rules in various timezones.
@@ -821,19 +840,19 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $after
      * @param  array $accounts
      * @param  TzFixup $tzFixup
-     * @return ResponseInterface
+     * @return Message\FixCalendarTZResponse
      */
     function fixCalendarTZ(
         ?bool $sync = NULL, ?int $after = NULL, array $accounts = [], ?TzFixup $tzFixup = NULL
-    ): ResponseInterface;
+    ): Message\FixCalendarTZResponse;
 
     /**
      * Flush memory cache for specified LDAP or directory scan type/entries
      * 
      * @param  CacheSelector $cache
-     * @return ResponseInterface
+     * @return Message\FlushCacheResponse
      */
-    function flushCache(?CacheSelector $cache = NULL): ResponseInterface;
+    function flushCache(?CacheSelector $cache = NULL): Message\FlushCacheResponse;
 
     /**
      * Get attributes related to an account
@@ -841,19 +860,19 @@ interface AdminApiInterface extends ApiInterface
      * @param  AccountSelector $account
      * @param  bool $applyCos
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetAccountResponse
      */
     function getAccount(
         AccountSelector $account, ?bool $applyCos = NULL, ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetAccountResponse;
 
     /**
      * Get information about an account
      * 
      * @param  AccountSelector $account
-     * @return ResponseInterface
+     * @return Message\GetAccountInfoResponse
      */
-    function getAccountInfo(AccountSelector $account): ResponseInterface;
+    function getAccountInfo(AccountSelector $account): Message\GetAccountInfoResponse;
 
     /**
      * Returns custom loggers created for the given account since the last server start.
@@ -861,125 +880,135 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  string $id
      * @param  AccountSelector $account
-     * @return ResponseInterface
+     * @return Message\GetAccountLoggersResponse
      */
-    function getAccountLoggers(?string $id = NULL, ?AccountSelector $account = NULL): ResponseInterface;
+    function getAccountLoggers(
+        ?string $id = NULL, ?AccountSelector $account = NULL
+    ): Message\GetAccountLoggersResponse;
 
     /**
      * Get distribution lists an account is a member of
      * 
      * @param  AccountSelector $account
-     * @return ResponseInterface
+     * @return Message\GetAccountMembershipResponse
      */
-    function getAccountMembership(AccountSelector $account): ResponseInterface;
+    function getAccountMembership(AccountSelector $account): Message\GetAccountMembershipResponse;
 
     /**
      * Returns the union of the zimbraAdminConsoleUIComponents values on the specified account/dl entry and that on all admin groups the entry belongs to. 
      * 
      * @param  AccountSelector $account
      * @param  DistributionListSelector $dl
-     * @return ResponseInterface
+     * @return Message\GetAdminConsoleUIResponse
      */
-    function getAdminConsoleUI(?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL): ResponseInterface;
+    function getAdminConsoleUI(
+        ?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL
+    ): Message\GetAdminConsoleUIResponse;
 
     /**
      * Returns the admin extension addon Zimlets.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAdminExtensionZimletsResponse
      */
-    function getAdminExtensionZimlets(): ResponseInterface;
+    function getAdminExtensionZimlets(): Message\GetAdminExtensionZimletsResponse;
 
     /**
      * Returns admin saved searches.
      * 
      * @param array $searches
-     * @return ResponseInterface
+     * @return Message\GetAdminSavedSearchesResponse
      */
-    function getAdminSavedSearches(array $searches = []): ResponseInterface;
+    function getAdminSavedSearches(array $searches = []): Message\GetAdminSavedSearchesResponse;
 
     /**
      * Gets the aggregate quota usage for all domains on the server.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAggregateQuotaUsageOnServerResponse
      */
-    function getAggregateQuotaUsageOnServer(): ResponseInterface;
+    function getAggregateQuotaUsageOnServer(): Message\GetAggregateQuotaUsageOnServerResponse;
 
     /**
      * Returns all account loggers that have been created on the given server since the last server start.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllAccountLoggersResponse
      */
-    function getAllAccountLoggers(): ResponseInterface;
+    function getAllAccountLoggers(): Message\GetAllAccountLoggersResponse;
 
     /**
      * Get All accounts matching the selectin criteria
      * 
      * @param  ServerSelector $server
      * @param  DomainSelector $domain
-     * @return ResponseInterface
+     * @return Message\GetAllAccountsResponse
      */
-    function getAllAccounts(?ServerSelector $server = NULL, ?DomainSelector $domain = NULL): ResponseInterface;
+    function getAllAccounts(
+        ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
+    ): Message\GetAllAccountsResponse;
 
     /**
      * Returns all active servers.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllActiveServersResponse
      */
-    function getAllActiveServers(): ResponseInterface;
+    function getAllActiveServers(): Message\GetAllActiveServersResponse;
 
     /**
      * Get all Admin accounts
      * 
      * @param  bool $applyCos
-     * @return ResponseInterface
+     * @return Message\GetAllAdminAccountsResponse
      */
-    function getAllAdminAccounts(?bool $applyCos = NULL): ResponseInterface;
+    function getAllAdminAccounts(?bool $applyCos = NULL): Message\GetAllAdminAccountsResponse;
 
     /**
      * Get all alwaysOnClusters
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllAlwaysOnClustersResponse
      */
-    function getAllAlwaysOnClusters(): ResponseInterface;
+    function getAllAlwaysOnClusters(): Message\GetAllAlwaysOnClustersResponse;
 
     /**
      * Get all calendar resources that match the selection criteria
      * 
      * @param  ServerSelector $server
      * @param  DomainSelector $domain
-     * @return ResponseInterface
+     * @return Message\GetAllCalendarResourcesResponse
      */
-    function getAllCalendarResources(?ServerSelector $server = NULL, ?DomainSelector $domain = NULL): ResponseInterface;
+    function getAllCalendarResources(
+        ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
+    ): Message\GetAllCalendarResourcesResponse;
 
     /**
      * Get all config
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllConfigResponse
      */
-    function getAllConfig(): ResponseInterface;
+    function getAllConfig(): Message\GetAllConfigResponse;
 
     /**
      * Get all classes of service (COS)
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllCosResponse
      */
-    function getAllCos(): ResponseInterface;
+    function getAllCos(): Message\GetAllCosResponse;
 
     /**
      * Get all distribution lists that match the selection criteria
      * 
      * @param  DomainSelector $domain
-     * @return ResponseInterface
+     * @return Message\GetAllDistributionListsResponse
      */
-    function getAllDistributionLists(?DomainSelector $domain = NULL): ResponseInterface;
+    function getAllDistributionLists(
+        ?DomainSelector $domain = NULL
+    ): Message\GetAllDistributionListsResponse;
 
     /**
      * Get all domains
      * 
      * @param  bool $applyConfig
-     * @return ResponseInterface
+     * @return Message\GetAllDomainsResponse
      */
-    function getAllDomains(?bool $applyConfig = NULL): ResponseInterface;
+    function getAllDomains(?bool $applyConfig = NULL): Message\GetAllDomainsResponse;
 
     /**
      * Get all effective Admin rights
@@ -987,34 +1016,34 @@ interface AdminApiInterface extends ApiInterface
      * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
-     * @return ResponseInterface
+     * @return Message\GetAllEffectiveRightsResponse
      */
     function getAllEffectiveRights(
         ?GranteeSelector $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
-    ): ResponseInterface;
+    ): Message\GetAllEffectiveRightsResponse;
 
     /**
      * Get all free/busy providers
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllFreeBusyProvidersResponse
      */
-    function getAllFreeBusyProviders(): ResponseInterface;
+    function getAllFreeBusyProviders(): Message\GetAllFreeBusyProvidersResponse;
 
     /**
      * Returns all locales defined in the system.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllLocalesResponse
      */
-    function getAllLocales(): ResponseInterface;
+    function getAllLocales(): Message\GetAllLocalesResponse;
 
     /**
      * Return all mailboxes
      * 
      * @param  int $limit
      * @param  int $offset
-     * @return ResponseInterface
+     * @return Message\GetAllMailboxesResponse
      */
-    function getAllMailboxes(?int $limit = NULL, ?int $offset = NULL): ResponseInterface;
+    function getAllMailboxes(?int $limit = NULL, ?int $offset = NULL): Message\GetAllMailboxesResponse;
 
     /**
      * Get all system defined rights
@@ -1022,11 +1051,11 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $targetType
      * @param  bool $expandAllAttrs
      * @param  RightClass $rightClass
-     * @return ResponseInterface
+     * @return Message\GetAllRightsResponse
      */
     function getAllRights(
         ?string $targetType = NULL, ?bool $expandAllAttrs = NULL, ?RightClass $rightClass = NULL
-    ): ResponseInterface;
+    ): Message\GetAllRightsResponse;
 
     /**
      * Get all servers defined in the system or all servers that have a particular service enabled (eg, mta, antispam, spell).
@@ -1034,65 +1063,69 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $service
      * @param  string $alwaysOnClusterId
      * @param  bool $applyConfig
-     * @return ResponseInterface
+     * @return Message\GetAllServersResponse
      */
     function getAllServers(
         ?string $service = NULL, ?string $alwaysOnClusterId = NULL, ?bool $applyConfig = NULL
-    ): ResponseInterface;
+    ): Message\GetAllServersResponse;
 
     /**
      * Get all installed skins on the server.
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllSkinsResponse
      */
-    function getAllSkins(): ResponseInterface;
+    function getAllSkins(): Message\GetAllSkinsResponse;
 
     /**
      * Get all ucservices defined in the system
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllUCServicesResponse
      */
-    function getAllUCServices(): ResponseInterface;
+    function getAllUCServices(): Message\GetAllUCServicesResponse;
 
     /**
      * Get all volumes
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllVolumesResponse
      */
-    function getAllVolumes(): ResponseInterface;
+    function getAllVolumes(): Message\GetAllVolumesResponse;
 
     /**
      * Get all XMPP components
      * 
-     * @return ResponseInterface
+     * @return Message\GetAllXMPPComponentsResponse
      */
-    function getAllXMPPComponents(): ResponseInterface;
+    function getAllXMPPComponents(): Message\GetAllXMPPComponentsResponse;
 
     /**
      * Get all Zimlets
      * 
      * @param  ZimletExcludeType $exclude
-     * @return ResponseInterface
+     * @return Message\GetAllZimletsResponse
      */
-    function getAllZimlets(?ZimletExcludeType $exclude = NULL): ResponseInterface;
+    function getAllZimlets(?ZimletExcludeType $exclude = NULL): Message\GetAllZimletsResponse;
 
     /**
      * Get Always On Cluster
      * 
      * @param  AlwaysOnClusterSelector $cluster
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetAlwaysOnClusterResponse
      */
-    function getAlwaysOnCluster(?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL): ResponseInterface;
+    function getAlwaysOnCluster(
+        ?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL
+    ): Message\GetAlwaysOnClusterResponse;
 
     /**
      * Get attribute information 
      * 
      * @param  string $attrs
      * @param  string $entryTypes
-     * @return ResponseInterface
+     * @return Message\GetAttributeInfoResponse
      */
-    function getAttributeInfo(?string $attrs = NULL, ?string $entryTypes = NULL): ResponseInterface;
+    function getAttributeInfo(
+        ?string $attrs = NULL, ?string $entryTypes = NULL
+    ): Message\GetAttributeInfoResponse;
 
     /**
      * Get a calendar resource
@@ -1100,28 +1133,28 @@ interface AdminApiInterface extends ApiInterface
      * @param  CalendarResourceSelector $calResource
      * @param  bool $applyCos
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetCalendarResourceResponse
      */
     function getCalendarResource(
         ?CalendarResourceSelector $calResource = NULL, ?bool $applyCos = NULL, ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetCalendarResourceResponse;
 
     /**
      * Get Config
      * 
      * @param  Attr $attr
-     * @return ResponseInterface
+     * @return Message\GetConfigResponse
      */
-    function getConfig(Attr $attr = NULL): ResponseInterface;
+    function getConfig(Attr $attr = NULL): Message\GetConfigResponse;
 
     /**
      * Get Class Of Service (COS)
      * 
      * @param  CosSelector $cos
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetCosResponse
      */
-    function getCos(CosSelector $cos, ?string $attrs = NULL): ResponseInterface;
+    function getCos(CosSelector $cos, ?string $attrs = NULL): Message\GetCosResponse;
 
     /**
      * Returns attributes, with defaults and constraints if any,  that can be set by the admin when an object is created.
@@ -1129,27 +1162,27 @@ interface AdminApiInterface extends ApiInterface
      * @param  TargetWithType $target
      * @param  DomainSelector $domain
      * @param  CosSelector $cos
-     * @return ResponseInterface
+     * @return Message\GetCreateObjectAttrsResponse
      */
     function getCreateObjectAttrs(
         TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
-    ): ResponseInterface;
+    ): Message\GetCreateObjectAttrsResponse;
 
     /**
      * Get current volumes
      * 
-     * @return ResponseInterface
+     * @return Message\GetCurrentVolumesResponse
      */
-    function getCurrentVolumes(): ResponseInterface;
+    function getCurrentVolumes(): Message\GetCurrentVolumesResponse;
 
     /**
      * Returns all data sources defined for the given mailbox.
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\GetDataSourcesResponse
      */
-    function getDataSources(string $id, array $attrs = []): ResponseInterface;
+    function getDataSources(string $id, array $attrs = []): Message\GetDataSourcesResponse;
 
     /**
      * Get constraints (zimbraConstraint) for delegated admin on global config or a COS
@@ -1161,11 +1194,11 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $id
      * @param  string $name
      * @param  array $attrs
-     * @return ResponseInterface
+     * @return Message\GetDelegatedAdminConstraintsResponse
      */
     function getDelegatedAdminConstraints(
         TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\GetDelegatedAdminConstraintsResponse;
 
     /**
      * Get a Distribution List
@@ -1175,7 +1208,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $offset
      * @param  bool $sortAscending
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetDistributionListResponse
      */
     function getDistributionList(
         ?DistributionListSelector $dl = NULL,
@@ -1183,7 +1216,7 @@ interface AdminApiInterface extends ApiInterface
         ?int $offset = NULL,
         ?bool $sortAscending = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetDistributionListResponse;
 
     /**
      * Request a list of DLs that a particular DL is a member of
@@ -1191,13 +1224,13 @@ interface AdminApiInterface extends ApiInterface
      * @param  DistributionListSelector $dl
      * @param  int $limit
      * @param  int $offset
-     * @return ResponseInterface
+     * @return Message\GetDistributionListMembershipResponse
      */
     function getDistributionListMembership(
         ?DistributionListSelector $dl = NULL,
         ?int $limit = NULL,
         ?int $offset = NULL
-    ): ResponseInterface;
+    ): Message\GetDistributionListMembershipResponse;
 
     /**
      * Get information about a domain 
@@ -1205,13 +1238,13 @@ interface AdminApiInterface extends ApiInterface
      * @param  DomainSelector $domain
      * @param  bool $applyConfig
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetDomainResponse
      */
     function getDomain(
         ?DomainSelector $domain = NULL,
         ?bool $applyConfig = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetDomainResponse;
 
     /**
      * Get Domain information
@@ -1221,9 +1254,11 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  DomainSelector $domain
      * @param  bool $applyConfig
-     * @return ResponseInterface
+     * @return Message\GetDomainInfoResponse
      */
-    function getDomainInfo(?DomainSelector $domain = NULL, ?bool $applyConfig = NULL): ResponseInterface;
+    function getDomainInfo(
+        ?DomainSelector $domain = NULL, ?bool $applyConfig = NULL
+    ): Message\GetDomainInfoResponse;
 
     /**
      * Returns effective ADMIN rights the authenticated admin has on the specified target entry. 
@@ -1238,14 +1273,14 @@ interface AdminApiInterface extends ApiInterface
      * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
-     * @return ResponseInterface
+     * @return Message\GetEffectiveRightsResponse
      */
     function getEffectiveRights(
         EffectiveRightsTargetSelector $target,
         ?GranteeSelector $grantee = NULL,
         ?bool $expandSetAttrs = NULL,
         ?bool $expandGetAttrs = NULL
-    ): ResponseInterface;
+    ): Message\GetEffectiveRightsResponse;
 
     /**
      * Get filter rules
@@ -1255,7 +1290,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  DomainSelector $domain
      * @param  CosSelector $cos
      * @param  ServerSelector $server
-     * @return ResponseInterface
+     * @return Message\GetFilterRulesResponse
      */
     function getFilterRules(
         AdminFilterType $type,
@@ -1263,7 +1298,7 @@ interface AdminApiInterface extends ApiInterface
         ?DomainSelector $domain = NULL,
         ?CosSelector $cos = NULL,
         ?ServerSelector $server = NULL
-    ): ResponseInterface;
+    ): Message\GetFilterRulesResponse;
 
     /**
      * Get Free/Busy provider information
@@ -1271,9 +1306,9 @@ interface AdminApiInterface extends ApiInterface
      * if no provider is supplied in the request, the response contains all the providers.
      * 
      * @param  NamedElement $provider
-     * @return ResponseInterface
+     * @return Message\GetFreeBusyQueueInfoResponse
      */
-    function getFreeBusyQueueInfo(?NamedElement $provider = NULL): ResponseInterface;
+    function getFreeBusyQueueInfo(?NamedElement $provider = NULL): Message\GetFreeBusyQueueInfoResponse;
 
     /**
      * Returns all grants on the specified target entry, or all grants granted to the specified grantee entry.
@@ -1283,20 +1318,20 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  EffectiveRightsTargetSelector $target
      * @param  GranteeSelector $grantee
-     * @return ResponseInterface
+     * @return Message\GetGrantsResponse
      */
     function getGrants(
         ?EffectiveRightsTargetSelector $target = NULL,
         ?GranteeSelector $grantee = NULL
-    ): ResponseInterface;
+    ): Message\GetGrantsResponse;
 
     /**
      * Get index stats
      * 
      * @param  MailboxByAccountIdSelector $mbox
-     * @return ResponseInterface
+     * @return Message\GetIndexStatsResponse
      */
-    function getIndexStats(MailboxByAccountIdSelector $mbox): ResponseInterface;
+    function getIndexStats(MailboxByAccountIdSelector $mbox): Message\GetIndexStatsResponse;
 
     /**
      * Fetches ldap entry (or entries) by a search-base ({ldap-search-base}) and a search query ({query}).
@@ -1307,7 +1342,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $limit
      * @param  int $offset
      * @param  string $query
-     * @return ResponseInterface
+     * @return Message\GetLDAPEntriesResponse
      */
     function getLDAPEntries(
         string $ldapSearchBase,
@@ -1316,14 +1351,14 @@ interface AdminApiInterface extends ApiInterface
         ?int $limit = NULL,
         ?int $offset = NULL,
         ?string $query = NULL
-    ): ResponseInterface;
+    ): Message\GetLDAPEntriesResponse;
 
     /**
      * Get License information
      * 
-     * @return ResponseInterface
+     * @return Message\GetLicenseInfoResponse
      */
-    function getLicenseInfo(): ResponseInterface;
+    function getLicenseInfo(): Message\GetLicenseInfoResponse;
 
     /**
      * Query to retrieve Logger statistics in ZCS
@@ -1337,56 +1372,56 @@ interface AdminApiInterface extends ApiInterface
      * @param  StatsSpec $stats
      * @param  TimeAttr $startTime
      * @param  TimeAttr $endTime
-     * @return ResponseInterface
+     * @return Message\GetLoggerStatsResponse
      */
     function getLoggerStats(
         ?HostName $hostName = NULL, ?StatsSpec $stats = NULL, ?TimeAttr $startTime = NULL, ?TimeAttr $endTime = NULL
-    ): ResponseInterface;
+    ): Message\GetLoggerStatsResponse;
 
     /**
      * Get a Mailbox
      * 
      * @param  MailboxByAccountIdSelector $mbox
-     * @return ResponseInterface
+     * @return Message\GetMailboxResponse
      */
-    function getMailbox(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+    function getMailbox(?MailboxByAccountIdSelector $mbox = NULL): Message\GetMailboxResponse;
 
     /**
      * Get MailBox Statistics
      * 
-     * @return ResponseInterface
+     * @return Message\GetMailboxStatsResponse
      */
-    function getMailboxStats(): ResponseInterface;
+    function getMailboxStats(): Message\GetMailboxStatsResponse;
 
     /**
      * Summarize and/or search a particular mail queue on a particular server.
      * 
      * @param  ServerMailQueueQuery $server
-     * @return ResponseInterface
+     * @return Message\GetMailQueueResponse
      */
-    function getMailQueue(ServerMailQueueQuery $server): ResponseInterface;
+    function getMailQueue(ServerMailQueueQuery $server): Message\GetMailQueueResponse;
 
     /**
      * Get a count of all the mail queues by counting the number of files in the queue directories.
      * 
      * @param  NamedElement $server
-     * @return ResponseInterface
+     * @return Message\GetMailQueueInfoResponse
      */
-    function getMailQueueInfo(NamedElement $server): ResponseInterface;
+    function getMailQueueInfo(NamedElement $server): Message\GetMailQueueInfoResponse;
 
     /**
      * Returns the memcached client configuration on a mailbox server.
      * 
-     * @return ResponseInterface
+     * @return Message\GetMemcachedClientConfigResponse
      */
-    function getMemcachedClientConfig(): ResponseInterface;
+    function getMemcachedClientConfig(): Message\GetMemcachedClientConfigResponse;
 
     /**
      * Get filter rules
      * 
-     * @return ResponseInterface
+     * @return Message\GetOutgoingFilterRulesResponse
      */
-    function getOutgoingFilterRules(): ResponseInterface;
+    function getOutgoingFilterRules(): Message\GetOutgoingFilterRulesResponse;
 
     /**
      * Get Quota Usage
@@ -1398,7 +1433,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $sortBy
      * @param  bool $sortAscending
      * @param  bool $refresh
-     * @return ResponseInterface
+     * @return Message\GetQuotaUsageResponse
      */
     function getQuotaUsage(
         ?string $domain = NULL,
@@ -1408,24 +1443,24 @@ interface AdminApiInterface extends ApiInterface
         ?string $sortBy = NULL,
         ?bool $sortAscending = NULL,
         ?bool $refresh = NULL
-    ): ResponseInterface;
+    ): Message\GetQuotaUsageResponse;
 
     /**
      * Get definition of a right 
      * 
      * @param  string $right
      * @param  bool $expandAllAttrs
-     * @return ResponseInterface
+     * @return Message\GetRightResponse
      */
-    function getRight(string $right, ?bool $expandAllAttrs = NULL): ResponseInterface;
+    function getRight(string $right, ?bool $expandAllAttrs = NULL): Message\GetRightResponse;
 
     /**
      * Get Rights Document
      * 
      * @param array $pkgs
-     * @return ResponseInterface
+     * @return Message\GetRightsDocResponse
      */
-    function getRightsDoc(array $pkgs = []): ResponseInterface;
+    function getRightsDoc(array $pkgs = []): Message\GetRightsDocResponse;
 
     /**
      * Get Server
@@ -1433,22 +1468,22 @@ interface AdminApiInterface extends ApiInterface
      * @param  ServerSelector $server
      * @param  bool $applyConfig
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetServerResponse
      */
     function getServer(
         ?ServerSelector $server = NULL,
         ?bool $applyConfig = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetServerResponse;
 
     /**
      * Get Network Interface information for a server
      * 
      * @param  Server $server
      * @param  IpType $type
-     * @return ResponseInterface
+     * @return Message\GetServerNIfsResponse
      */
-    function getServerNIfs(ServerSelector $server, IpType $type = NULL): ResponseInterface;
+    function getServerNIfs(ServerSelector $server, IpType $type = NULL): Message\GetServerNIfsResponse;
 
     /**
      * Returns server monitoring stats.
@@ -1456,16 +1491,16 @@ interface AdminApiInterface extends ApiInterface
      * If no stat element is specified, all server stats are returned.
      * 
      * @param array $stats
-     * @return ResponseInterface
+     * @return Message\GetServerStatsResponse
      */
-    function getServerStats(array $stats = []): ResponseInterface;
+    function getServerStats(array $stats = []): Message\GetServerStatsResponse;
 
     /**
      * Get Service Status
      * 
-     * @return ResponseInterface
+     * @return Message\GetServiceStatusResponse
      */
-    function getServiceStatus(): ResponseInterface;
+    function getServiceStatus(): Message\GetServiceStatusResponse;
 
     /**
      * Get Sessions
@@ -1476,7 +1511,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $limit
      * @param  boo $sortAscending
      * @param  boo $refresh
-     * @return ResponseInterface
+     * @return Message\GetSessionsResponse
      */
     function getSessions(
         SessionType $type,
@@ -1484,16 +1519,18 @@ interface AdminApiInterface extends ApiInterface
         ?int $offset = NULL,
         ?int $limit = NULL,
         ?bool $refresh = NULL
-    ): ResponseInterface;
+    ): Message\GetSessionsResponse;
 
     /**
      * Iterate through all folders of the owner's mailbox and return shares that match grantees specified by the <grantee> specifier. 
      * 
      * @param  AccountSelector $owner
      * @param  GranteeChooser $grantee
-     * @return ResponseInterface
+     * @return Message\GetShareInfoResponse
      */
-    function getShareInfo(AccountSelector $owner, ?GranteeChooser $grantee = NULL): ResponseInterface;
+    function getShareInfo(
+        AccountSelector $owner, ?GranteeChooser $grantee = NULL
+    ): Message\GetShareInfoResponse;
 
     /**
      * Get System Retention Policy
@@ -1501,60 +1538,60 @@ interface AdminApiInterface extends ApiInterface
      * can apply to folders and tags.
      * 
      * @param  CosSelector $cos
-     * @return ResponseInterface
+     * @return Message\GetSystemRetentionPolicyResponse
      */
-    function getSystemRetentionPolicy(?CosSelector $cos = NULL): ResponseInterface;
+    function getSystemRetentionPolicy(?CosSelector $cos = NULL): Message\GetSystemRetentionPolicyResponse;
 
     /**
      * Get UC Service
      * 
      * @param  UcServiceSelector $ucService
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetUCServiceResponse
      */
-    function getUCService(UcServiceSelector $ucService, ?string $attrs = NULL): ResponseInterface;
+    function getUCService(UcServiceSelector $ucService, ?string $attrs = NULL): Message\GetUCServiceResponse;
 
     /**
-     * Get Version information
+     * Get version information
      * 
-     * @return ResponseInterface
+     * @return Message\GetVersionInfoResponse
      */
-    function getVersionInfo(): ResponseInterface;
+    function getVersionInfo(): Message\GetVersionInfoResponse;
 
     /**
      * Get Volume
      * 
      * @param  int $id
-     * @return ResponseInterface
+     * @return Message\GetVolumeResponse
      */
-    function getVolume(int $id): ResponseInterface;
+    function getVolume(int $id): Message\GetVolumeResponse;
 
     /**
      * Get XMPP Component
      * 
      * @param  XMPPComponentSelector $component
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetXMPPComponentResponse
      */
     function getXMPPComponent(
         XMPPComponentSelector $component, ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\GetXMPPComponentResponse;
 
     /**
      * Get Zimlet
      * 
      * @param  NamedElement $zimlet
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\GetZimletResponse
      */
-    function getZimlet(NamedElement $zimlet, ?string $attrs = NULL): ResponseInterface;
+    function getZimlet(NamedElement $zimlet, ?string $attrs = NULL): Message\GetZimletResponse;
 
     /**
      * Get status for Zimlets
      * 
-     * @return ResponseInterface
+     * @return Message\GetZimletStatusResponse
      */
-    function getZimletStatus(): ResponseInterface;
+    function getZimletStatus(): Message\GetZimletStatusResponse;
 
     /**
      * Grant a right on a target to an individual or group grantee.
@@ -1562,100 +1599,102 @@ interface AdminApiInterface extends ApiInterface
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
      * @param RightModifierInfo $right
-     * @return ResponseInterface
+     * @return Message\GrantRightResponse
      */
     function grantRight(
         EffectiveRightsTargetSelector $target,
         GranteeSelector $grantee,
         RightModifierInfo $right
-    ): ResponseInterface;
+    ): Message\GrantRightResponse;
 
     /**
      * Puts the mailbox of the specified account into maintenance lockout or removes it from maintenance lockout
      * 
      * @param  AccountNameSelector $account
      * @param  LockoutOperation $operation
-     * @return ResponseInterface
+     * @return Message\LockoutMailboxResponse
      */
-    function lockoutMailbox(AccountNameSelector $account, ?LockoutOperation $operation = NULL): ResponseInterface;
+    function lockoutMailbox(
+        AccountNameSelector $account, ?LockoutOperation $operation = NULL
+    ): Message\LockoutMailboxResponse;
 
     /**
      * Command to act on invidual queue files. This proxies through to postsuper.
      * 
      * @param  ServerWithQueueAction $server
-     * @return ResponseInterface
+     * @return Message\MailQueueActionResponse
      */
-    function mailQueueAction(ServerWithQueueAction $server): ResponseInterface;
+    function mailQueueAction(ServerWithQueueAction $server): Message\MailQueueActionResponse;
 
     /**
      * Command to invoke postqueue -f.
      * All queues cached in the server are stale after invoking this because this is a global operation to all the queues in a given server.
      * 
      * @param  NamedElement $server
-     * @return ResponseInterface
+     * @return Message\MailQueueFlushResponse
      */
-    function mailQueueFlush(NamedElement $server): ResponseInterface;
+    function mailQueueFlush(NamedElement $server): Message\MailQueueFlushResponse;
 
     /**
      * Migrate an account
      * 
      * @param  IdAndAction $migrate
-     * @return ResponseInterface
+     * @return Message\MigrateAccountResponse
      */
-    function migrateAccount(IdAndAction $migrate): ResponseInterface;
+    function migrateAccount(IdAndAction $migrate): Message\MigrateAccountResponse;
 
     /**
      * Modify an account
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyAccountResponse
      */
-    function modifyAccount(string $id, array $attrs = []): ResponseInterface;
+    function modifyAccount(string $id, array $attrs = []): Message\ModifyAccountResponse;
 
     /**
      * Modifies admin saved searches.
      * Returns the admin saved searches.
      * 
      * @param array $searches
-     * @return ResponseInterface
+     * @return Message\ModifyAdminSavedSearchesResponse
      */
-    function modifyAdminSavedSearches(array $searches = []): ResponseInterface;
+    function modifyAdminSavedSearches(array $searches = []): Message\ModifyAdminSavedSearchesResponse;
 
     /**
      * Modify attributes for a alwaysOnCluster 
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyAlwaysOnClusterResponse
      */
-    function modifyAlwaysOnCluster(string $id, array $attrs = []): ResponseInterface;
+    function modifyAlwaysOnCluster(string $id, array $attrs = []): Message\ModifyAlwaysOnClusterResponse;
 
     /**
      * Modify a calendar resource
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyCalendarResourceResponse
      */
-    function modifyCalendarResource(string $id, array $attrs = []): ResponseInterface;
+    function modifyCalendarResource(string $id, array $attrs = []): Message\ModifyCalendarResourceResponse;
 
     /**
      * Modify Configuration attributes
      * 
      * @param array $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyConfigResponse
      */
-    function modifyConfig(array $attrs = []): ResponseInterface;
+    function modifyConfig(array $attrs = []): Message\ModifyConfigResponse;
 
     /**
      * Modify Class of Service (COS) attributes
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyCosResponse
      */
-    function modifyCos(string $id, array $attrs = []): ResponseInterface;
+    function modifyCos(string $id, array $attrs = []): Message\ModifyCosResponse;
 
     /**
      * Changes attributes of the given data source.
@@ -1665,11 +1704,11 @@ interface AdminApiInterface extends ApiInterface
      * @param string $id
      * @param DataSourceInfo $dataSource
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyDataSourceResponse
      */
     function modifyDataSource(
         string $id, DataSourceInfo $dataSource, array $attrs = []
-    ): ResponseInterface;
+    ): Message\ModifyDataSourceResponse;
 
     /**
      * Modify constraint (zimbraConstraint) for delegated admin on global config or a COS
@@ -1680,29 +1719,29 @@ interface AdminApiInterface extends ApiInterface
      * @param string $id
      * @param string $name
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyDelegatedAdminConstraintsResponse
      */
     function modifyDelegatedAdminConstraints(
         TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
-    ): ResponseInterface;
+    ): Message\ModifyDelegatedAdminConstraintsResponse;
 
     /**
      * Modify attributes for a Distribution List
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyDistributionListResponse
      */
-    function modifyDistributionList(string $id, array $attrs = []): ResponseInterface;
+    function modifyDistributionList(string $id, array $attrs = []): Message\ModifyDistributionListResponse;
 
     /**
      * Modify attributes for a domain
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyDomainResponse
      */
-    function modifyDomain(string $id, array $attrs = []): ResponseInterface;
+    function modifyDomain(string $id, array $attrs = []): Message\ModifyDomainResponse;
 
     /**
      * Modify Filter rules
@@ -1713,7 +1752,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  CosSelector $cos
      * @param  ServerSelector $server
      * @param  array $filterRules
-     * @return ResponseInterface
+     * @return Message\ModifyFilterRulesResponse
      */
     function modifyFilterRules(
         AdminFilterType $type,
@@ -1722,16 +1761,16 @@ interface AdminApiInterface extends ApiInterface
         ?CosSelector $cos = NULL,
         ?ServerSelector $server = NULL,
         array $filterRules = []
-    ): ResponseInterface;
+    ): Message\ModifyFilterRulesResponse;
 
     /**
      * Modify a LDAP Entry
      * 
      * @param string $dn
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyLDAPEntryResponse
      */
-    function modifyLDAPEntry(string $dn, array $attrs = []): ResponseInterface;
+    function modifyLDAPEntry(string $dn, array $attrs = []): Message\ModifyLDAPEntryResponse;
 
     /**
      * Modify Filter rules
@@ -1742,7 +1781,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  CosSelector $cos
      * @param  ServerSelector $server
      * @param  array $filterRules
-     * @return ResponseInterface
+     * @return Message\ModifyOutgoingFilterRulesResponse
      */
     function modifyOutgoingFilterRules(
         AdminFilterType $type,
@@ -1751,90 +1790,90 @@ interface AdminApiInterface extends ApiInterface
         ?CosSelector $cos = NULL,
         ?ServerSelector $server = NULL,
         array $filterRules = []
-    ): ResponseInterface;
+    ): Message\ModifyOutgoingFilterRulesResponse;
 
     /**
      * Modify attributes for a server 
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyServerResponse
      */
-    function modifyServer(string $id, array $attrs = []): ResponseInterface;
+    function modifyServer(string $id, array $attrs = []): Message\ModifyServerResponse;
 
     /**
      * Modify system retention policy
      * 
      * @param  Policy $policy
      * @param  CosSelector $cos
-     * @return ResponseInterface
+     * @return Message\ModifySystemRetentionPolicyResponse
      */
     function modifySystemRetentionPolicy(
         Policy $policy, ?CosSelector $cos = NULL
-    ): ResponseInterface;
+    ): Message\ModifySystemRetentionPolicyResponse;
 
     /**
      * Modify attributes for a UC service
      * 
      * @param string $id
      * @param array  $attrs
-     * @return ResponseInterface
+     * @return Message\ModifyUCServiceResponse
      */
-    function modifyUCService(string $id, array $attrs = []): ResponseInterface;
+    function modifyUCService(string $id, array $attrs = []): Message\ModifyUCServiceResponse;
 
     /**
      * Modify volume 
      * 
      * @param int $id
      * @param VolumeInfo $volume
-     * @return ResponseInterface
+     * @return Message\ModifyVolumeResponse
      */
-    function modifyVolume(int $id, VolumeInfo $volume): ResponseInterface;
+    function modifyVolume(int $id, VolumeInfo $volume): Message\ModifyVolumeResponse;
 
     /**
      * Modify Zimlet
      * 
-     * @return ResponseInterface
+     * @return Message\ModifyZimletResponse
      */
-    function modifyZimlet(ZimletAclStatusPri $zimlet): ResponseInterface;
+    function modifyZimlet(ZimletAclStatusPri $zimlet): Message\ModifyZimletResponse;
 
     /**
      * A request that does nothing and always returns nothing. Used to keep an admin session alive.
      * 
-     * @return ResponseInterface
+     * @return Message\NoOpResponse
      */
-    function noOp(): ResponseInterface;
+    function noOp(): Message\NoOpResponse;
 
     /**
      * Ping
      * 
-     * @return ResponseInterface
+     * @return Message\PingResponse
      */
-    function ping(): ResponseInterface;
+    function ping(): Message\PingResponse;
 
     /**
      * Purge the calendar cache for an account 
      * 
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\PurgeAccountCalendarCacheResponse
      */
-    function purgeAccountCalendarCache(string $id): ResponseInterface;
+    function purgeAccountCalendarCache(string $id): Message\PurgeAccountCalendarCacheResponse;
 
     /**
      * Purges the queue for the given freebusy provider on the current host
      * 
      * @param  NamedElement $provider
-     * @return ResponseInterface
+     * @return Message\PurgeFreeBusyQueueResponse
      */
-    function purgeFreeBusyQueue(?NamedElement $provider = NULL): ResponseInterface;
+    function purgeFreeBusyQueue(?NamedElement $provider = NULL): Message\PurgeFreeBusyQueueResponse;
 
     /**
      * Purges aged messages out of trash, spam, and entire mailbox
      * 
      * @param  MailboxByAccountIdSelector $mbox
-     * @return ResponseInterface
+     * @return Message\PurgeMessagesResponse
      */
-    function purgeMessages(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+    function purgeMessages(?MailboxByAccountIdSelector $mbox = NULL): Message\PurgeMessagesResponse;
 
     /**
      * Push Free/Busy.
@@ -1842,69 +1881,73 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  Names $domains
      * @param  array $accounts
-     * @return ResponseInterface
+     * @return Message\PushFreeBusyResponse
      */
-    function pushFreeBusy(?Names $domains = NULL, array $accounts = []): ResponseInterface;
+    function pushFreeBusy(?Names $domains = NULL, array $accounts = []): Message\PushFreeBusyResponse;
 
     /**
      * Query WaitSet
      * 
      * @param  string $waitSetId
-     * @return ResponseInterface
+     * @return Message\QueryWaitSetResponse
      */
-    function queryWaitSet(?string $waitSetId = NULL): ResponseInterface;
+    function queryWaitSet(?string $waitSetId = NULL): Message\QueryWaitSetResponse;
 
     /**
      * Recalculate Mailbox counts.
      * 
      * @param  MailboxByAccountIdSelector $mbox
-     * @return ResponseInterface
+     * @return Message\RecalculateMailboxCountsResponse
      */
-    function recalculateMailboxCounts(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+    function recalculateMailboxCounts(
+        ?MailboxByAccountIdSelector $mbox = NULL
+    ): Message\RecalculateMailboxCountsResponse;
 
     /**
      * Deregister authtokens that have been deregistered on the sending server
      * 
      * @param  array $tokens
-     * @return ResponseInterface
+     * @return Message\RefreshRegisteredAuthTokensResponse
      */
-    function refreshRegisteredAuthTokens(array $tokens = []): ResponseInterface;
+    function refreshRegisteredAuthTokens(
+        array $tokens = []
+    ): Message\RefreshRegisteredAuthTokensResponse;
 
     /**
      * ReIndex
      * 
      * @param  ReindexMailboxInfo $mbox
      * @param  ReIndexAction $action
-     * @return ResponseInterface
+     * @return Message\ReIndexResponse
      */
     function reIndex(
         ReindexMailboxInfo $mbox, ?ReIndexAction $action = NULL
-    ): ResponseInterface;
+    ): Message\ReIndexResponse;
 
     /**
      * Reload LocalConfig
      * 
-     * @return ResponseInterface
+     * @return Message\ReloadLocalConfigResponse
      */
-    function reloadLocalConfig(): ResponseInterface;
+    function reloadLocalConfig(): Message\ReloadLocalConfigResponse;
 
     /**
      * Reloads the memcached client configuration on this server.
      * Memcached client layer is reinitialized accordingly.
      * Call this command after updating the memcached server list, for example. 
      * 
-     * @return ResponseInterface
+     * @return Message\ReloadMemcachedClientConfigResponse
      */
-    function reloadMemcachedClientConfig(): ResponseInterface;
+    function reloadMemcachedClientConfig(): Message\ReloadMemcachedClientConfigResponse;
 
     /**
      * Remove Account Alias
      * 
      * @param  string $id
      * @param  string $alias
-     * @return ResponseInterface
+     * @return Message\RemoveAccountAliasResponse
      */
-    function removeAccountAlias(string $id, string $alias): ResponseInterface;
+    function removeAccountAlias(string $id, string $alias): Message\RemoveAccountAliasResponse;
 
     /**
      * Removes one or more custom loggers.
@@ -1916,20 +1959,22 @@ interface AdminApiInterface extends ApiInterface
      * @param  LoggerInfo $logger
      * @param  AccountSelector $account
      * @param  string $id
-     * @return ResponseInterface
+     * @return Message\RemoveAccountLoggerResponse
      */
     function removeAccountLogger(
         ?LoggerInfo $logger = NULL, ?AccountSelector $account = NULL, ?string $id = NULL
-    ): ResponseInterface;
+    ): Message\RemoveAccountLoggerResponse;
 
     /**
      * Remove Distribution List Alias
      * 
      * @param  string $id
      * @param  string $alias
-     * @return ResponseInterface
+     * @return Message\RemoveDistributionListAliasResponse
      */
-    function removeDistributionListAlias(string $id, string $alias): ResponseInterface;
+    function removeDistributionListAlias(
+        string $id, string $alias
+    ): Message\RemoveDistributionListAliasResponse;
 
     /**
      * Remove Distribution List Member
@@ -1938,72 +1983,72 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $id
      * @param  array  $members
      * @param  array  $accounts
-     * @return ResponseInterface
+     * @return Message\RemoveDistributionListMemberResponse
      */
     function removeDistributionListMember(
         string $id, array $members = [], array $accounts = []
-    ): ResponseInterface;
+    ): Message\RemoveDistributionListMemberResponse;
 
     /**
      * Rename Account
      * 
      * @param string $id
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\RenameAccountResponse
      */
-    function renameAccount(string $id, string $newName): ResponseInterface;
+    function renameAccount(string $id, string $newName): Message\RenameAccountResponse;
 
     /**
      * Rename Calendar Resource
      * 
      * @param string $id
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\RenameCalendarResourceResponse
      */
-    function renameCalendarResource(string $id, string $newName): ResponseInterface;
+    function renameCalendarResource(string $id, string $newName): Message\RenameCalendarResourceResponse;
 
     /**
      * Rename Class of Service (COS)
      * 
      * @param string $id
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\RenameCosResponse
      */
-    function renameCos(string $id, string $newName): ResponseInterface;
+    function renameCos(string $id, string $newName): Message\RenameCosResponse;
 
     /**
      * Rename Distribution List
      * 
      * @param string $id
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\RenameDistributionListResponse
      */
-    function renameDistributionList(string $id, string $newName): ResponseInterface;
+    function renameDistributionList(string $id, string $newName): Message\RenameDistributionListResponse;
 
     /**
      * Rename LDAP Entry
      * 
      * @param string $dn
      * @param string $newDn
-     * @return ResponseInterface
+     * @return Message\RenameLDAPEntryResponse
      */
-    function renameLDAPEntry(string $dn, string $newDn): ResponseInterface;
+    function renameLDAPEntry(string $dn, string $newDn): Message\RenameLDAPEntryResponse;
 
     /**
      * Rename Unified Communication Service
      * 
      * @param string $id
      * @param string $newName
-     * @return ResponseInterface
+     * @return Message\RenameUCServiceResponse
      */
-    function renameUCService(string $id, string $newName): ResponseInterface;
+    function renameUCService(string $id, string $newName): Message\RenameUCServiceResponse;
 
     /**
      * Removes all account loggers and reloads /opt/zimbra/conf/log4j.properties.
      * 
-     * @return ResponseInterface
+     * @return Message\ResetAllLoggersResponse
      */
-    function resetAllLoggers(): ResponseInterface;
+    function resetAllLoggers(): Message\ResetAllLoggersResponse;
 
     /**
      * Revoke a right from a target that was previously granted to an individual or group grantee.
@@ -2011,21 +2056,21 @@ interface AdminApiInterface extends ApiInterface
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
      * @param RightModifierInfo $right
-     * @return ResponseInterface
+     * @return Message\RevokeRightResponse
      */
     function revokeRight(
         EffectiveRightsTargetSelector $target,
         GranteeSelector $grantee,
         RightModifierInfo $right
-    ): ResponseInterface;
+    ): Message\RevokeRightResponse;
 
     /**
      * Runs the server-side unit test suite.
      * 
      * @param  array  $tests
-     * @return ResponseInterface
+     * @return Message\RunUnitTestsResponse
      */
-    function runUnitTests(array $tests = []): ResponseInterface;
+    function runUnitTests(array $tests = []): Message\RunUnitTestsResponse;
 
     /**
      * Search Accounts
@@ -2040,7 +2085,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $sortBy
      * @param  string $types
      * @param  bool $sortAscending
-     * @return ResponseInterface
+     * @return Message\SearchAccountsResponse
      */
     function searchAccounts(
         string $query,
@@ -2052,7 +2097,7 @@ interface AdminApiInterface extends ApiInterface
         ?string $sortBy = NULL,
         ?string $types = NULL,
         ?bool $sortAscending = NULL
-    ): ResponseInterface;
+    ): Message\SearchAccountsResponse;
 
     /**
      * Search Auto Prov Directory
@@ -2066,7 +2111,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $offset
      * @param  bool $refresh
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\SearchAutoProvDirectoryResponse
      */
     function searchAutoProvDirectory(
         string $keyAttr,
@@ -2078,7 +2123,7 @@ interface AdminApiInterface extends ApiInterface
         ?int $offset = NULL,
         ?bool $refresh = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\SearchAutoProvDirectoryResponse;
 
     /**
      * Search for Calendar Resources
@@ -2091,7 +2136,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $sortBy
      * @param  int $sortAscending
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\SearchCalendarResourcesResponse
      */
     function searchCalendarResources(
         ?EntrySearchFilterInfo $searchFilter = NULL,
@@ -2102,7 +2147,7 @@ interface AdminApiInterface extends ApiInterface
         ?string $sortBy = NULL,
         ?bool $sortAscending = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\SearchCalendarResourcesResponse;
 
     /**
      * Search directory
@@ -2119,7 +2164,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  bool $sortAscending
      * @param  bool $isCountOnly
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\SearchDirectoryResponse
      */
     function searchDirectory(
         ?string $query = NULL,
@@ -2134,7 +2179,7 @@ interface AdminApiInterface extends ApiInterface
         ?bool $sortAscending = NULL,
         ?bool $isCountOnly = NULL,
         ?string $attrs = NULL
-    ): ResponseInterface;
+    ): Message\SearchDirectoryResponse;
 
     /**
      * Search Global Address Book (GAL)
@@ -2144,7 +2189,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $limit
      * @param  GalSearchType $type
      * @param  string $galAccountId
-     * @return ResponseInterface
+     * @return Message\SearchGalResponse
      */
     function searchGal(
         ?string $domain,
@@ -2152,41 +2197,43 @@ interface AdminApiInterface extends ApiInterface
         ?int $limit = NULL,
         ?GalSearchType $type = NULL,
         ?string $galAccountId = NULL
-    ): ResponseInterface;
+    ): Message\SearchGalResponse;
 
     /**
      * Set current volume.
      * 
      * @param  int $id
      * @param  int $type
-     * @return ResponseInterface
+     * @return Message\SetCurrentVolumeResponse
      */
-    function setCurrentVolume(int $id, int $type): ResponseInterface;
+    function setCurrentVolume(int $id, int $type): Message\SetCurrentVolumeResponse;
 
     /**
      * Set local server online
      * 
-     * @return ResponseInterface
+     * @return Message\SetLocalServerOnlineResponse
      */
-    function setLocalServerOnline(): ResponseInterface;
+    function setLocalServerOnline(): Message\SetLocalServerOnlineResponse;
 
     /**
      * Set Password
      * 
      * @param string $id
      * @param string $newPassword
-     * @return ResponseInterface
+     * @return Message\SetPasswordResponse
      */
-    function setPassword(string $id, string $newPassword): ResponseInterface;
+    function setPassword(string $id, string $newPassword): Message\SetPasswordResponse;
 
     /**
      * Set server offline
      * 
      * @param  ServerSelector $server
      * @param  string $attrs
-     * @return ResponseInterface
+     * @return Message\SetServerOfflineResponse
      */
-    function setServerOffline(?ServerSelector $server = NULL, ?string $attrs = NULL): ResponseInterface;
+    function setServerOffline(
+        ?ServerSelector $server = NULL, ?string $attrs = NULL
+    ): Message\SetServerOfflineResponse;
 
     /**
      * Sync GalAccount
@@ -2195,26 +2242,26 @@ interface AdminApiInterface extends ApiInterface
      * If reset attribute is set, then all the contacts will be populated again, regardless of the status since last sync. Reset needs to be done when there is a significant change in the configuration, such as filter, attribute map, or search base.
      * 
      * @param array $accounts
-     * @return ResponseInterface
+     * @return Message\SyncGalAccountResponse
      */
-    function syncGalAccount(array $accounts = []): ResponseInterface;
+    function syncGalAccount(array $accounts = []): Message\SyncGalAccountResponse;
 
     /**
      * Undeploy Zimlet
      * 
      * @param  string $name
      * @param  string $action
-     * @return ResponseInterface
+     * @return Message\UndeployZimletResponse
      */
-    function undeployZimlet(string $name, ?string $action = NULL): ResponseInterface;
+    function undeployZimlet(string $name, ?string $action = NULL): Message\UndeployZimletResponse;
 
     /**
      * Verify index
      * 
      * @param  MailboxByAccountIdSelector  $mbox
-     * @return ResponseInterface
+     * @return Message\VerifyIndexResponse
      */
-    function verifyIndex(?MailboxByAccountIdSelector $mbox = NULL): ResponseInterface;
+    function verifyIndex(?MailboxByAccountIdSelector $mbox = NULL): Message\VerifyIndexResponse;
 
     /**
      * Verify Store Manager
@@ -2222,11 +2269,11 @@ interface AdminApiInterface extends ApiInterface
      * @param int  $fileSize
      * @param int  $num
      * @param bool  $checkBlobs
-     * @return ResponseInterface
+     * @return Message\VerifyStoreManagerResponse
      */
     function verifyStoreManager(
         ?int $fileSize = NULL,
         ?int $num = NULL,
         ?bool $checkBlobs = NULL
-    ): ResponseInterface;
+    ): Message\VerifyStoreManagerResponse;
 }
