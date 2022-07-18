@@ -16,7 +16,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateMountpointRequest class
- * Create folder
+ * Create mountpoint
  * 
  * @package    Zimbra
  * @subpackage Mail

@@ -65,9 +65,7 @@ class CheckSpellingRequest extends Request
      * @return self
      */
     public function __construct(
-        ?string $dictionary = NULL,
-        ?string $ignoreList = NULL,
-        ?string $text = NULL
+        ?string $dictionary = NULL, ?string $ignoreList = NULL, ?string $text = NULL
     )
     {
         if (NULL !== $dictionary) {

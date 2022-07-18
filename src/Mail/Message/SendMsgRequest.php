@@ -18,8 +18,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  * SendMsgRequest class
  * Send message
  * 
- * - Supports (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification "type" on
- *      <e> elements.
+ * - Supports (f)rom, (t)o, (c)c, (b)cc, (r)eply-to, (s)ender, read-receipt (n)otification "type" on <e> elements.
  * - Only allowed one top-level <mp> but can nest <mp>s within if multipart/*
  * - A leaf <mp> can have inlined content (<mp ct="{content-type}"><content>...</content></mp>)
  * - A leaf <mp> can have referenced content (<mp><attach ...></mp>)
@@ -36,7 +35,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  *         </SendMsgRequest>
  *      </code>
  * - If the message is saved to the sent folder then the ID of the message is returned.  Otherwise, no ID is
- *      returned -- just a <m> is returned.
+ *   returned -- just a <m> is returned.
  *
  * @package    Zimbra
  * @subpackage Mail

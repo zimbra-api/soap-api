@@ -16,11 +16,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * BrowseRequest class
- * Applies one or more filter rules to messages specified by a comma-separated ID list,
- * or returned by a search query.  One or the other can be specified, but not both.  Returns the list of ids of
- * existing messages that were affected.
- *
- * Note that redirect actions are ignored when applying filter rules to existing messages.
+ * Browse
  * 
  * @package    Zimbra
  * @subpackage Mail
@@ -66,9 +62,7 @@ class BrowseRequest extends Request
      * @return self
      */
     public function __construct(
-        ?BrowseBy $browseBy = NULL,
-        ?string $regex = NULL,
-        ?int $max = NULL
+        ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
     )
     {
         $this->setBrowseBy($browseBy ?? BrowseBy::DOMAINS());

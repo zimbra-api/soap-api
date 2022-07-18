@@ -69,9 +69,7 @@ class ApplyOutgoingFilterRulesRequest extends Request
      * @return self
      */
     public function __construct(
-        array $filterRules = [],
-        ?IdsAttr $msgIds = NULL,
-        ?string $query = NULL
+        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
     )
     {
         $this->setFilterRules($filterRules);

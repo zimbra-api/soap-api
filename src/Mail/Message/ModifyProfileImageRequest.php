@@ -52,8 +52,7 @@ class ModifyProfileImageRequest extends Request
      * @return self
      */
     public function __construct(
-        ?string $uploadId = NULL,
-        ?string $imageB64Data = NULL
+        ?string $uploadId = NULL, ?string $imageB64Data = NULL
     )
     {
         if (NULL !== $uploadId) {

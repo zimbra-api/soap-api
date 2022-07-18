@@ -18,6 +18,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
  * CounterAppointmentRequest class
  * Propose a new time/location.  Sent by meeting attendee to organizer.
  * The syntax is very similar to CreateAppointmentRequest.
+ * Should include an <inv> element which encodes an iCalendar COUNTER object
  * 
  * @package    Zimbra
  * @subpackage Mail

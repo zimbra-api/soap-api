@@ -16,11 +16,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoCompleteRequest class
- * Applies one or more filter rules to messages specified by a comma-separated ID list,
- * or returned by a search query.  One or the other can be specified, but not both.  Returns the list of ids of
- * existing messages that were affected.
- *
- * Note that redirect actions are ignored when applying filter rules to existing messages.
+ * Auto complete
  * 
  * @package    Zimbra
  * @subpackage Mail

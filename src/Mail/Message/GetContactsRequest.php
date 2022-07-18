@@ -16,7 +16,18 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetContactsRequest class
- * Get contac
+ * Get contacts
+ * Contact group members are returned as <m> elements.
+ * If derefGroupMember is not set, group members are returned in the order they were inserted in the group.
+ * If derefGroupMember is set, group members are returned ordered by the "key" of member.
+ * Key is:
+ * - for contact ref (type="C"): the fileAs field of the Contact
+ * - for GAL ref (type="G"): email address of the GAL entry
+ * - for inlined member (type="I"): the value
+ * 
+ * Contact group members are returned as sub-elements of <m>.
+ * If for any(transient or permanent) reason a member cannot be dereferenced,
+ * then there will be no sub-element under <m>.
  *
  * @package    Zimbra
  * @subpackage Mail
@@ -152,6 +163,13 @@ class GetContactsRequest extends Request
      * @param  string $sortBy
      * @param  bool $derefGroupMember
      * @param  bool $includeMemberOf
+     * @param  bool $returnHiddenAttrs
+     * @param  bool $returnCertInfo
+     * @param  bool $wantImapUid
+     * @param  int $maxMembers
+     * @param  array $attributes
+     * @param  array $memberAttributes
+     * @param  array $contacts
      * @return self
      */
     public function __construct(

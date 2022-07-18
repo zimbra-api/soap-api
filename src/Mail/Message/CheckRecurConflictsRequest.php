@@ -37,6 +37,7 @@ class CheckRecurConflictsRequest extends Request
 {
     /**
      * Start time in millis.  If not specified, defaults to current time
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -46,6 +47,7 @@ class CheckRecurConflictsRequest extends Request
 
     /**
      * End time in millis.  If not specified, unlimited
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -56,6 +58,7 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Set this to get all instances, even those without conflicts.  By default only
      * instances that have conflicts are returned.
+     * 
      * @Accessor(getter="getAllInstances", setter="setAllInstances")
      * @SerializedName("all")
      * @Type("bool")
@@ -65,6 +68,7 @@ class CheckRecurConflictsRequest extends Request
 
     /**
      * UID of appointment to exclude from free/busy search
+     * 
      * @Accessor(getter="getExcludeUid", setter="setExcludeUid")
      * @SerializedName("excludeUid")
      * @Type("string")
@@ -74,6 +78,7 @@ class CheckRecurConflictsRequest extends Request
 
     /**
      * Timezones
+     * 
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")

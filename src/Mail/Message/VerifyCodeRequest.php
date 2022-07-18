@@ -54,8 +54,7 @@ class VerifyCodeRequest extends Request
      * @return self
      */
     public function __construct(
-        ?string $address = NULL,
-        ?string $verificationCode = NULL
+        ?string $address = NULL, ?string $verificationCode = NULL
     )
     {
         if (NULL !== $address) {
