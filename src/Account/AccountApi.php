@@ -10,6 +10,7 @@
 
 namespace Zimbra\Account;
 
+use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Account\Struct\{
     AuthAttrs,
     AuthPrefs,
