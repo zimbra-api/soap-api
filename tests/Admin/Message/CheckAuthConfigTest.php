@@ -31,7 +31,7 @@ class CheckAuthConfigTest extends ZimbraTestCase
         $this->assertSame($name, $request->getName());
         $this->assertSame($password, $request->getPassword());
 
-        $request = new CheckAuthConfigRequest('', '');
+        $request = new CheckAuthConfigRequest();
         $request->setName($name)
             ->setPassword($password)
             ->setAttrs([$attr]);
@@ -47,7 +47,7 @@ class CheckAuthConfigTest extends ZimbraTestCase
         $this->assertSame($bindDn, $response->getBindDn());
         $this->assertSame($message, $response->getMessage());
 
-        $response = new CheckAuthConfigResponse('', '');
+        $response = new CheckAuthConfigResponse();
         $response->setCode($code)
             ->setBindDn($bindDn)
             ->setMessage($message);

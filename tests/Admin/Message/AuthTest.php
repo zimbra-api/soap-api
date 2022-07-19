@@ -20,11 +20,11 @@ class AuthResponseTest extends ZimbraTestCase
         $name = $this->faker->word;
         $password = $this->faker->uuid;
         $value = $this->faker->word;
-        $authToken = $this->faker->uuid;
+        $authToken = $this->faker->sha256;
         $virtualHost = $this->faker->word;
         $twoFactorCode = $this->faker->uuid;
-        $csrfToken = $this->faker->uuid;
-        $lifetime = mt_rand(1, 100);
+        $csrfToken = $this->faker->sha256;
+        $lifetime = $this->faker->randomNumber;
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
 

@@ -209,7 +209,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?string $name = NULL,
         ?string $password = NULL,
         ?string $authToken = NULL,
-        ?Account $account = NULL,
+        ?AccountSelector $account = NULL,
         ?string $virtualHost = NULL,
         ?bool $persistAuthTokenCookie = NULL,
         ?bool $csrfSupported = NULL,

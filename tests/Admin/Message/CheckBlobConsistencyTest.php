@@ -24,18 +24,37 @@ class CheckBlobConsistencyTest extends ZimbraTestCase
 {
     public function testCheckBlobConsistency()
     {
-        $id = mt_rand(1, 100);
-        $revision = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
-        $volumeId = mt_rand(1, 100);
+        $id = $this->faker->randomNumber;
+        $revision = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
+        $volumeId = $this->faker->randomNumber;
         $blobPath = $this->faker->word;
-        $version = mt_rand(1, 100);
+        $version = $this->faker->randomNumber;
         $path = $this->faker->word;
-        $fileSize = mt_rand(1, 100);
-        $mboxId = mt_rand(1, 100);
+        $fileSize = $this->faker->randomNumber;
 
         $volume = new IntIdAttr($volumeId);
-        $reqMbox = new IntIdAttr($mboxId);
+        $mbox = new IntIdAttr($id);
+        $request = new CheckBlobConsistencyRequest(
+            FALSE, FALSE, [$volume], [$mbox]
+        );
+        $this->assertFalse($request->getCheckSize());
+        $this->assertFalse($request->getReportUsedBlobs());
+        $this->assertSame([$volume], $request->getVolumes());
+        $this->assertSame([$mbox], $request->getMailboxes());
+        $request = new CheckBlobConsistencyRequest();
+        $request->setCheckSize(TRUE)
+            ->setReportUsedBlobs(TRUE)
+            ->setVolumes([$volume])
+            ->addVolume($volume)
+            ->setMailboxes([$mbox])
+            ->addMailbox($mbox);
+        $this->assertTrue($request->getCheckSize());
+        $this->assertTrue($request->getReportUsedBlobs());
+        $this->assertSame([$volume, $volume], $request->getVolumes());
+        $this->assertSame([$mbox, $mbox], $request->getMailboxes());
+        $request->setVolumes([$volume])
+            ->setMailboxes([$mbox]);
 
         $missingBlobs = [
             new MissingBlobInfo(
@@ -68,40 +87,16 @@ class CheckBlobConsistencyTest extends ZimbraTestCase
                 )
             )
         ];
-        $resMbox = new MailboxBlobConsistency(
+        $mbox = new MailboxBlobConsistency(
             $id, $missingBlobs, $incorrectSizes, $unexpectedBlobs, $incorrectRevisions, $usedBlobs
         );
-
-        $request = new CheckBlobConsistencyRequest(
-            FALSE, FALSE, [$volume], [$reqMbox]
-        );
-        $this->assertFalse($request->getCheckSize());
-        $this->assertFalse($request->getReportUsedBlobs());
-        $this->assertEquals([$volume], $request->getVolumes());
-        $this->assertEquals([$reqMbox], $request->getMailboxes());
-
-        $request = new CheckBlobConsistencyRequest();
-        $request->setCheckSize(TRUE)
-            ->setReportUsedBlobs(TRUE)
-            ->setVolumes([$volume])
-            ->addVolume($volume)
-            ->setMailboxes([$reqMbox])
-            ->addMailbox($reqMbox);
-        $this->assertTrue($request->getCheckSize());
-        $this->assertTrue($request->getReportUsedBlobs());
-        $this->assertEquals([$volume, $volume], $request->getVolumes());
-        $this->assertEquals([$reqMbox, $reqMbox], $request->getMailboxes());
-        $request->setVolumes([$volume])
-            ->setMailboxes([$reqMbox]);
-
-        $response = new CheckBlobConsistencyResponse([$resMbox]);
-        $this->assertEquals([$resMbox], $response->getMailboxes());
-
+        $response = new CheckBlobConsistencyResponse([$mbox]);
+        $this->assertSame([$mbox], $response->getMailboxes());
         $response = new CheckBlobConsistencyResponse();
-        $response->setMailboxes([$resMbox])
-            ->addMailbox($resMbox);
-        $this->assertEquals([$resMbox, $resMbox], $response->getMailboxes());
-        $response->setMailboxes([$resMbox]);
+        $response->setMailboxes([$mbox])
+            ->addMailbox($mbox);
+        $this->assertSame([$mbox, $mbox], $response->getMailboxes());
+        $response->setMailboxes([$mbox]);
 
         $body = new CheckBlobConsistencyBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -126,7 +121,7 @@ class CheckBlobConsistencyTest extends ZimbraTestCase
     <soap:Body>
         <urn:CheckBlobConsistencyRequest checkSize="true" reportUsedBlobs="true">
             <urn:volume id="$volumeId" />
-            <urn:mbox id="$mboxId" />
+            <urn:mbox id="$id" />
         </urn:CheckBlobConsistencyRequest>
         <urn:CheckBlobConsistencyResponse>
             <urn:mbox id ="$id">

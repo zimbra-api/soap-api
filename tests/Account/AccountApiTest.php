@@ -1475,7 +1475,7 @@ EOT;
 
 class StubAccountApi extends AccountApi
 {
-    private $soapRespone = '';
+    private $soapRespone;
 
     public function __construct(string $soapRespone)
     {

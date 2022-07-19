@@ -22,13 +22,10 @@ class ChangePrimaryEmailTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $name = $this->faker->word;
-        $newName = $this->faker->word;
+        $name = $this->faker->email;
+        $newName = $this->faker->email;
 
         $account = new AccountSelector(AccountBy::NAME(), $name);
-        $attr = new Attr($key, $value);
-        $accInfo = new AccountInfo($name, $id, TRUE, [$attr]);
-
         $request = new ChangePrimaryEmailRequest(
             $account, $newName
         );
@@ -36,19 +33,19 @@ class ChangePrimaryEmailTest extends ZimbraTestCase
         $this->assertSame($newName, $request->getNewName());
 
         $request = new ChangePrimaryEmailRequest(
-            new AccountSelector(AccountBy::NAME(), ''), ''
+            new AccountSelector()
         );
         $request->setAccount($account)
             ->setNewName($newName);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($newName, $request->getNewName());
 
-        $response = new ChangePrimaryEmailResponse($accInfo);
-        $this->assertEquals($accInfo, $response->getAccount());
-
-        $response = new ChangePrimaryEmailResponse(new AccountInfo('', ''));
-        $response->setAccount($accInfo);
-        $this->assertEquals($accInfo, $response->getAccount());
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
+        $response = new ChangePrimaryEmailResponse($account);
+        $this->assertSame($account, $response->getAccount());
+        $response = new ChangePrimaryEmailResponse();
+        $response->setAccount($account);
+        $this->assertSame($account, $response->getAccount());
 
         $body = new ChangePrimaryEmailBody($request, $response);
         $this->assertSame($request, $body->getRequest());

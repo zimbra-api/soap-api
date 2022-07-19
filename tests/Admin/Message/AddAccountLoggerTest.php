@@ -22,8 +22,8 @@ class AddAccountLoggerTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $category = $this->faker->word;
         $value = $this->faker->word;
-        $category1 = $this->faker->word;
-        $category2 = $this->faker->word;
+        $category1 = $this->faker->unique->word;
+        $category2 = $this->faker->unique->word;
 
         $logger = new LoggerInfo($category, LoggingLevel::INFO());
         $account = new AccountSelector(AccountBy::NAME(), $value);

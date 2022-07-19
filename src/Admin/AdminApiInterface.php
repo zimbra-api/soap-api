@@ -203,7 +203,7 @@ interface AdminApiInterface extends ApiInterface
      * @param string  $name
      * @param string  $password
      * @param string  $authToken
-     * @param Account $account
+     * @param AccountSelector $account
      * @param string  $virtualHost
      * @param bool    $persistAuthTokenCookie
      * @param bool    $csrfSupported
@@ -214,7 +214,7 @@ interface AdminApiInterface extends ApiInterface
         ?string $name = NULL,
         ?string $password = NULL,
         ?string $authToken = NULL,
-        ?Account $account = NULL,
+        ?AccountSelector $account = NULL,
         ?string $virtualHost = NULL,
         ?bool $persistAuthTokenCookie = NULL,
         ?bool $csrfSupported = NULL,

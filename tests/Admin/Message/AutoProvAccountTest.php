@@ -13,16 +13,15 @@ class AutoProvAccountTest extends ZimbraTestCase
 {
     public function testAutoProvAccount()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->email;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value= $this->faker->word;
-        $password = $this->faker->uuid;
+        $password = $this->faker->word;
 
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $principal = new PrincipalSelector(AutoProvPrincipalBy::NAME(), $value);
-        $attr = new Attr($key, $value);
-        $account = new AccountInfo($name, $id, TRUE, [$attr]);
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new AutoProvAccountRequest(
             $domain,
@@ -45,7 +44,7 @@ class AutoProvAccountTest extends ZimbraTestCase
             $account
         );
         $this->assertSame($account, $response->getAccount());
-        $response = new AutoProvAccountResponse(new AccountInfo('', ''));
+        $response = new AutoProvAccountResponse();
         $response->setAccount($account);
         $this->assertSame($account, $response->getAccount());
 

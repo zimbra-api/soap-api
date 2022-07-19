@@ -24,7 +24,7 @@ class AdminCreateWaitSetTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $token = $this->faker->word;
         $type = $this->faker->word;
-        $sequence = mt_rand(1, 99);
+        $sequence = $this->faker->randomNumber;
 
         $interests = [
             InterestType::FOLDERS()->getValue(),
@@ -59,7 +59,7 @@ class AdminCreateWaitSetTest extends ZimbraTestCase
         $this->assertSame($sequence, $response->getSequence());
         $this->assertSame([$error], $response->getErrors());
 
-        $response = new AdminCreateWaitSetResponse('', '', 0);
+        $response = new AdminCreateWaitSetResponse();
         $response->setWaitSetId($waitSetId)
             ->setDefaultInterests($defaultInterests)
             ->setSequence($sequence)
