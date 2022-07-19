@@ -15,9 +15,10 @@ use Zimbra\Common\Enum\{
     Channel,
     GalSearchType,
     InterestType,
+    MailItemType,
+    MsgContent,
     ParticipationStatus,
     RecoverAccountOperation,
-    MsgContent,
     RestoreResolve,
     RecoveryAccountOperation,
     SearchSortBy,
@@ -33,8 +34,8 @@ use Zimbra\Common\Struct\{
 };
 
 use Zimbra\Mail\Struct\{
-    AddMsgSpec,
     AddedComment,
+    AddMsgSpec,
     ActionSelector,
     BounceMsgSpec,
     BulkAction,
@@ -1321,9 +1322,7 @@ interface MailApiInterface extends ApiInterface
      * @param  ListDocumentRevisionsSpec $doc
      * @return Message\ListDocumentRevisionsResponse
      */
-    function listDocumentRevisions(
-        ListDocumentRevisionsSpec $doc
-    ): Message\ListDocumentRevisionsResponse;
+    function listDocumentRevisions(ListDocumentRevisionsSpec $doc): Message\ListDocumentRevisionsResponse;
 
     /**
      * Return a list of subscribed folder names
@@ -1422,7 +1421,9 @@ interface MailApiInterface extends ApiInterface
      * @param  array $filterRules
      * @return Message\ModifyOutgoingFilterRulesResponse
      */
-    function modifyOutgoingFilterRules(array $filterRules = []): Message\ModifyOutgoingFilterRulesResponse;
+    function modifyOutgoingFilterRules(
+        array $filterRules = []
+    ): Message\ModifyOutgoingFilterRulesResponse;
 
     /**
      * Modify profile image
@@ -1441,7 +1442,9 @@ interface MailApiInterface extends ApiInterface
      * @param  ModifySearchFolderSpec $searchFolder
      * @return Message\ModifyProfileImageResponse
      */
-    function modifySearchFolder(ModifySearchFolderSpec $searchFolder): Message\ModifySearchFolderResponse;
+    function modifySearchFolder(
+        ModifySearchFolderSpec $searchFolder
+    ): Message\ModifySearchFolderResponse;
 
     /**
      * Modify Task
@@ -1571,14 +1574,14 @@ interface MailApiInterface extends ApiInterface
     /**
      * Recover account request
      *
-     * @param  RecoverAccountOperation $op
      * @param  string $email
+     * @param  RecoverAccountOperation $op
      * @param  Channel $channel
      * @return Message\RecoverAccountResponse
      */
     function recoverAccount(
+        string $email,
         ?RecoverAccountOperation $op = NULL,
-        string $email = '',
         ?Channel $channel = NULL
     ): Message\RecoverAccountResponse;
 
@@ -2075,12 +2078,11 @@ interface MailApiInterface extends ApiInterface
         string $waitSetId,
         string $lastKnownSeqNo,
         ?bool $block = NULL,
-        string $defaultInterests = '',
+        ?string $defaultInterests = NULL,
         ?int $timeout = NULL,
         ?bool $expand = NULL,
         array $addAccounts = [],
         array $updateAccounts = [],
         array $removeAccounts = []
     ): Message\WaitSetResponse;
-
 }

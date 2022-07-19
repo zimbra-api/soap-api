@@ -24,7 +24,7 @@ class RecoverAccountTest extends ZimbraTestCase
         $recoveryAccount = $this->faker->email;
         $recoveryAttemptsLeft = $this->faker->randomNumber;
 
-        $request = new RecoverAccountRequest($op, $email, $channel);
+        $request = new RecoverAccountRequest($email, $op, $channel);
         $this->assertSame($op, $request->getOp());
         $this->assertSame($email, $request->getEmail());
         $this->assertSame($channel, $request->getChannel());
