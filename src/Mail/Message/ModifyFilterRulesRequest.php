@@ -43,9 +43,7 @@ class ModifyFilterRulesRequest extends Request
      * @param  array $filterRules
      * @return self
      */
-    public function __construct(
-        array $filterRules = []
-    )
+    public function __construct(array $filterRules = [])
     {
         $this->setFilterRules($filterRules);
     }

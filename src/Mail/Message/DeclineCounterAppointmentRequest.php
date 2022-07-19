@@ -16,7 +16,8 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeclineCounterAppointmentRequest class
- * Add a message
+ * Decline a change proposal from an attendee.  Sent by organizer to an attendee who has
+ * previously sent a COUNTER message.  The syntax of the request is very similar to CreateAppointmentRequest.
  * 
  * @package    Zimbra
  * @subpackage Mail

@@ -14,7 +14,7 @@ use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetFilterRulesRequest class
- * Empty dumpster
+ * Get filter rules
  * 
  * @package    Zimbra
  * @subpackage Mail

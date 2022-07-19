@@ -102,7 +102,6 @@ class GetFolderRequest extends Request
      * @param  string $viewConstraint
      * @param  int $treeDepth
      * @param  bool $traverseMountpoints
-     * 
      * @return self
      */
     public function __construct(

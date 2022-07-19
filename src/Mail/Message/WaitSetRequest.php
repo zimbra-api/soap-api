@@ -167,7 +167,7 @@ class WaitSetRequest extends Request implements WaitSetReq
         string $waitSetId = '',
         string $lastKnownSeqNo = '',
         ?bool $block = NULL,
-        string $defaultInterests = '',
+        ?string $defaultInterests = NULL,
         ?int $timeout = NULL,
         ?bool $expand = NULL,
         array $addAccounts = [],

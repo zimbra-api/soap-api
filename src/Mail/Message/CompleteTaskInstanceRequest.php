@@ -62,9 +62,7 @@ class CompleteTaskInstanceRequest extends Request
      * @return self
      */
     public function __construct(
-        DtTimeInfo $exceptionId,
-        string $id = '',
-        ?CalTZInfo $timezone = NULL
+        DtTimeInfo $exceptionId, string $id = '', ?CalTZInfo $timezone = NULL
     )
     {
         $this->setId($id)

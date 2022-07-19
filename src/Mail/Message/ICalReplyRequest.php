@@ -35,7 +35,6 @@ class ICalReplyRequest extends Request
      */
     private $ical;
 
-
     /**
      * Constructor method for ICalReplyRequest
      *

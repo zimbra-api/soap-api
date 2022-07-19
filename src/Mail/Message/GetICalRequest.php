@@ -66,7 +66,7 @@ class GetICalRequest extends Request
     public function __construct(
         ?string $id = NULL,
         ?int $startTime = NULL,
-        ?int $endTime = NULL,
+        ?int $endTime = NULL
     )
     {
         if (NULL !== $id) {

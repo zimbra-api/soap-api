@@ -59,19 +59,19 @@ class RecoverAccountRequest extends Request
     /**
      * Constructor method for RecoverAccountRequest
      *
-     * @param  RecoverAccountOperation $op
      * @param  string $email
+     * @param  RecoverAccountOperation $op
      * @param  Channel $channel
      * @return self
      */
     public function __construct(
-        ?RecoverAccountOperation $op = NULL,
         string $email = '',
+        ?RecoverAccountOperation $op = NULL,
         ?Channel $channel = NULL
     )
     {
-        $this->setOp($op ?? RecoverAccountOperation::GET_RECOVERY_ACCOUNT())
-             ->setEmail($email);
+        $this->setEmail($email)
+             ->setOp($op ?? RecoverAccountOperation::GET_RECOVERY_ACCOUNT());
         if ($channel instanceof Channel) {
             $this->setChannel($channel);
         }
