@@ -16,13 +16,13 @@ class AddAccountAliasTest extends ZimbraTestCase
     public function testAddAccountAlias()
     {
         $id = $this->faker->uuid;
-        $alias = $this->faker->word;
+        $alias = $this->faker->email;
 
         $request = new AddAccountAliasRequest($id, $alias);
         $this->assertSame($id, $request->getId());
         $this->assertSame($alias, $request->getAlias());
 
-        $request = new AddAccountAliasRequest('', '');
+        $request = new AddAccountAliasRequest();
         $request->setId($id)
             ->setAlias($alias);
         $this->assertSame($id, $request->getId());

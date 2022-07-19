@@ -16,7 +16,7 @@ class AddDistributionListAliasTest extends ZimbraTestCase
     public function testAddDistributionListAlias()
     {
         $id = $this->faker->uuid;
-        $alias = $this->faker->word;
+        $alias = $this->faker->email;
 
         $request = new AddDistributionListAliasRequest($id, $alias);
         $this->assertSame($id, $request->getId());

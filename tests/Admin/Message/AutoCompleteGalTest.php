@@ -17,10 +17,10 @@ class AutoCompleteGalTest extends ZimbraTestCase
 {
     public function testAutoCompleteGal()
     {
-        $domain = $this->faker->word;
+        $domain = $this->faker->domainName;
         $name = $this->faker->word;
         $galAccountId = $this->faker->uuid;
-        $limit = mt_rand();
+        $limit = $this->faker->randomNumber;
 
         $request = new AutoCompleteGalRequest($domain, $name, GalSearchType::ALL(), $galAccountId, $limit);
         $this->assertSame($domain, $request->getDomain());
@@ -29,7 +29,7 @@ class AutoCompleteGalTest extends ZimbraTestCase
         $this->assertSame($galAccountId, $request->getGalAccountId());
         $this->assertSame($limit, $request->getLimit());
 
-        $request = new AutoCompleteGalRequest('', '');
+        $request = new AutoCompleteGalRequest();
         $request->setDomain($domain)
             ->setName($name)
             ->setType(GalSearchType::ACCOUNT())

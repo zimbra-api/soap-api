@@ -18,9 +18,9 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $waitSetId = $this->faker->uuid;
         $lastKnownSeqNo = $this->faker->word;
         $defaultInterests = $this->faker->word;
-        $timeout = mt_rand();
+        $timeout = $this->faker->randomNumber;
         $name = $this->faker->word;
-        $id = mt_rand(1, 99);
+        $id = $this->faker->randomNumber;
         $uid = $this->faker->uuid;
         $token = $this->faker->word;
         $interests = [
@@ -31,13 +31,13 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $seqNo = $this->faker->word;
         $type = $this->faker->word;
 
-        $folderId = mt_rand(1, 99);
-        $imapUid = mt_rand(1, 99);
-        $flags = mt_rand(1, 99);
+        $folderId = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
+        $flags = $this->faker->randomNumber;
         $tags = $this->faker->word;
         $path = $this->faker->word;
-        $changeBitmask = mt_rand(1, 99);
-        $lastChangeId = mt_rand(1, 99);
+        $changeBitmask = $this->faker->randomNumber;
+        $lastChangeId = $this->faker->randomNumber;
 
         $add = new WaitSetAddSpec($name, $uid, $token, implode(',', $interests));
         $update = new WaitSetAddSpec($name, $uid, $token, implode(',', $interests));
@@ -66,7 +66,7 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $this->assertSame([$update], $request->getUpdateAccounts());
         $this->assertSame([$remove], $request->getRemoveAccounts());
 
-        $request = new AdminWaitSetRequest('', '');
+        $request = new AdminWaitSetRequest();
         $request->setWaitSetId($waitSetId)
             ->setLastKnownSeqNo($lastKnownSeqNo)
             ->setBlock(TRUE)
@@ -98,7 +98,7 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $this->assertSame([$account], $response->getSignalledAccounts());
         $this->assertSame([$error], $response->getErrors());
 
-        $response = new AdminWaitSetResponse('');
+        $response = new AdminWaitSetResponse();
         $response->setWaitSetId($waitSetId)
             ->setCanceled(TRUE)
             ->setSeqNo($seqNo)

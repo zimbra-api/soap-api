@@ -20,11 +20,11 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
 {
     public function testAddGalSyncDataSource()
     {
+        $id = $this->faker->uuid;
+        $name = $this->faker->word;
         $key = $this->faker->word;
         $value= $this->faker->word;
-        $name = $this->faker->word;
-        $id = $this->faker->uuid;
-        $domain = $this->faker->word;
+        $domain = $this->faker->domainName;
         $folder = $this->faker->word;
 
         $attr = new Attr($key, $value);
@@ -39,7 +39,7 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
         $this->assertSame($folder, $request->getFolder());
 
         $request = new AddGalSyncDataSourceRequest(
-            new AccountSelector(AccountBy::NAME(), ''), '', '', GalMode::BOTH()
+            new AccountSelector(), '', '', GalMode::BOTH()
         );
         $request->setAccount($account)
             ->setName($name)
@@ -53,16 +53,14 @@ class AddGalSyncDataSourceTest extends ZimbraTestCase
         $this->assertEquals(GalMode::ZIMBRA(), $request->getType());
         $this->assertSame($folder, $request->getFolder());
 
-        $accInfo = new AccountInfo($name, $id, TRUE, [$attr]);
+        $account = new AccountInfo($name, $id, TRUE, [$attr]);
         $response = new AddGalSyncDataSourceResponse(
-            $accInfo
+            $account
         );
-        $this->assertSame($accInfo, $response->getAccount());
-        $response = new AddGalSyncDataSourceResponse(
-            new AccountInfo('', '', TRUE)
-        );
-        $response->setAccount($accInfo);
-        $this->assertSame($accInfo, $response->getAccount());
+        $this->assertSame($account, $response->getAccount());
+        $response = new AddGalSyncDataSourceResponse();
+        $response->setAccount($account);
+        $this->assertSame($account, $response->getAccount());
 
         $body = new AddGalSyncDataSourceBody($request, $response);
         $this->assertSame($request, $body->getRequest());
