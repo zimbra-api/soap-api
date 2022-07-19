@@ -33,7 +33,7 @@ class AutoCompleteGalTest extends ZimbraTestCase
         $this->assertSame($galAccountId, $request->getGalAccountId());
         $this->assertSame($limit, $request->getLimit());
 
-        $request = new AutoCompleteGalRequest('');
+        $request = new AutoCompleteGalRequest();
         $request->setName($name)
             ->setType(GalSearchType::ACCOUNT())
             ->setNeedCanExpand(TRUE)

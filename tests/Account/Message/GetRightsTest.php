@@ -23,7 +23,7 @@ class GetRightsTest extends ZimbraTestCase
         $zimbraId = $this->faker->uuid;
         $displayName = $this->faker->name;
         $accessKey = $this->faker->word;
-        $password = $this->faker->sha256;
+        $password = $this->faker->word;
 
         $right = new Right($name);
         $request = new GetRightsRequest([$right]);

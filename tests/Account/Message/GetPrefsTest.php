@@ -18,7 +18,7 @@ class GetPrefsTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $modified = mt_rand(1, 100);
+        $modified = $this->faker->randomNumber;
 
         $pref = new Pref($name, $value, $modified);
 

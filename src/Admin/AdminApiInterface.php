@@ -50,6 +50,7 @@ use Zimbra\Admin\Struct\{
     ZimletAclStatusPri
 };
 use Zimbra\Common\Enum\{
+    AdminFilterType,
     AutoProvTaskAction,
     CompactIndexAction,
     ContactBackupOp,
@@ -57,7 +58,12 @@ use Zimbra\Common\Enum\{
     DedupAction,
     GalMode,
     GalSearchType,
+    GetSessionsSortBy,
+    IpType,
+    LockoutOperation,
+    ReIndexAction,
     RightClass,
+    SessionType,
     TargetType,
     ZimletDeployAction,
     ZimletExcludeType
@@ -65,14 +71,7 @@ use Zimbra\Common\Enum\{
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
-    AdminFilterType,
-    GalSearchType,
-    GetSessionsSortBy,
-    IpType,
-    LockoutOperation,
-    NamedElement,
-    ReIndexAction,
-    SessionType
+    NamedElement
 };
 use Zimbra\Mail\Struct\{
     Policy,

@@ -11,10 +11,9 @@
 namespace Zimbra\Soap;
 
 use JMS\Serializer\SerializerInterface;
+use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
 use Zimbra\Common\SerializerFactory;
-use Zimbra\Enum\RequestFormat;
-use Zimbra\Soap\Header\AccountInfo;
-use Zimbra\Soap\Header\Context;
+use Zimbra\Soap\Header\{AccountInfo, Context};
 
 /**
  * API is a base class which allows to manage Zimbra api
@@ -24,7 +23,7 @@ use Zimbra\Soap\Header\Context;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-abstract class AbstractApi implements ApiInterface
+abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
 {
     const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
     const SERIALIZE_FORMAT  = 'xml';
@@ -42,6 +41,11 @@ abstract class AbstractApi implements ApiInterface
      * @var SerializerInterface
      */
     private SerializerInterface $serializer;
+
+    /**
+     * @var LoggerInterface
+     */
+    private ?LoggerInterface $logger = NULL;
 
     /**
      * Zimbra api request soap header
@@ -62,7 +66,7 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Get Zimbra api soap client.
+     * Get zimbra api soap client.
      *
      * @return ClientInterface
      */
@@ -79,6 +83,30 @@ abstract class AbstractApi implements ApiInterface
     public function setClient(ClientInterface $client): self
     {
         $this->client = $client;
+        return $this;
+    }
+
+    /**
+     * Get the logger.
+     *
+     * @return LoggerInterface
+     */
+    public function getLogger(): LoggerInterface
+    {
+        if (!($this->logger instanceof LoggerInterface)) {
+            $this->logger = new NullLogger();
+        }
+        return $this->logger;
+    }
+
+    /**
+     * Set the logger.
+     *
+     * @return self
+     */
+    public function setLogger(LoggerInterface $logger): self
+    {
+        $this->logger = $logger;
         return $this;
     }
 
@@ -114,21 +142,11 @@ abstract class AbstractApi implements ApiInterface
     }
 
     /**
-     * Gets request format
-     *
-     * @return string
-     */
-    public function getRequestFormat(): string
-    {
-        return $this->requestFormat;
-    }
-
-    /**
      * Invoke the request.
      *
      * @return  EnvelopeInterface
      */
-    protected function invoke(RequestInterface $request): ?ResponseInterface
+    public function invoke(RequestInterface $request): ?ResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
         if ($this->requestHeader instanceof Header) {
@@ -141,6 +159,7 @@ abstract class AbstractApi implements ApiInterface
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
             ]
         );
+        $this->getLogger()->debug('Soap response', ['response' => $response]);
         $responseEnvelope = $this->serializer->deserialize(
             $response->getBody()->getContents(),
             get_class($requestEnvelope), self::SERIALIZE_FORMAT

@@ -29,19 +29,19 @@ class AuthTest extends ZimbraTestCase
         $virtualHost = $this->faker->word;
         $requestedSkin = $this->faker->word;
         $twoFactorCode = $this->faker->uuid;
-        $trustedToken = $this->faker->uuid;
+        $trustedToken = $this->faker->sha256;
         $deviceId = $this->faker->uuid;
         $tokenType = $this->faker->word;
         $token = $this->faker->uuid;
         $refer = $this->faker->word;
         $skin = $this->faker->word;
-        $csrfToken = $this->faker->uuid;
+        $csrfToken = $this->faker->sha256;
         $id = $this->faker->uuid;
         $type = $this->faker->word;
 
-        $time = time();
-        $lifetime = mt_rand(1, 100);
-        $trustLifetime = mt_rand(1, 100);
+        $time = $this->faker->unixTime;
+        $lifetime = $this->faker->randomNumber;
+        $trustLifetime = $this->faker->randomNumber;
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $preauth = new PreAuth($time, $value, $time);

@@ -19,9 +19,9 @@ class SyncGalTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $token = $this->faker->uuid;
         $galAccountId = $this->faker->uuid;
-        $galDefinitionLastModified = $this->faker->text;
-        $limit = mt_rand(1, 100);
-        $remain = mt_rand(1, 100);
+        $galDefinitionLastModified = $this->faker->word;
+        $limit = $this->faker->randomNumber;
+        $remain = $this->faker->randomNumber;
         $email = $this->faker->email;
 
         $request = new SyncGalRequest($token, $galAccountId, FALSE, FALSE, $limit);

@@ -15,19 +15,19 @@ class CreateIdentityTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
 
         $identity = new Identity($name, $id, [new Attr($name, $value, TRUE)]);
 
         $request = new CreateIdentityRequest($identity);
         $this->assertSame($identity, $request->getIdentity());
-        $request = new CreateIdentityRequest(new Identity('', ''));
+        $request = new CreateIdentityRequest(new Identity());
         $request->setIdentity($identity);
         $this->assertSame($identity, $request->getIdentity());
 
         $response = new CreateIdentityResponse($identity);
         $this->assertSame($identity, $response->getIdentity());
-        $response = new CreateIdentityResponse(new Identity('', ''));
+        $response = new CreateIdentityResponse();
         $response->setIdentity($identity);
         $this->assertSame($identity, $response->getIdentity());
 

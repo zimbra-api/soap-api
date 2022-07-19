@@ -16,10 +16,10 @@ class GetOAuthConsumersTest extends ZimbraTestCase
 {
     public function testGetOAuthConsumers()
     {
-        $accessToken = $this->faker->uuid;
-        $approvedOn = $this->faker->text;
-        $applicationName = $this->faker->name;
-        $device = $this->faker->name;
+        $accessToken = $this->faker->sha256;
+        $approvedOn = $this->faker->word;
+        $applicationName = $this->faker->word;
+        $device = $this->faker->word;
 
         $request = new GetOAuthConsumersRequest();
 

@@ -25,8 +25,8 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
     public function testSearchCalendarResources()
     {
         $sortBy = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $locale = $this->faker->word;
         $galAccountId = $this->faker->uuid;
         $name = $this->faker->word;

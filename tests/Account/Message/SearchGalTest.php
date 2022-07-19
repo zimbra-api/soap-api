@@ -30,8 +30,8 @@ class SearchGalTest extends ZimbraTestCase
     public function testSearchGal()
     {
         $sortBy = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $locale = $this->faker->word;
         $galAccountId = $this->faker->uuid;
         $ref = $this->faker->word;
@@ -40,7 +40,7 @@ class SearchGalTest extends ZimbraTestCase
         $needIsMember = MemberOfSelector::ALL();
         $id = $this->faker->uuid;
         $key = $this->faker->word;
-        $value= $this->faker->word;
+        $value = $this->faker->word;
         $attr = $this->faker->word;
         $sortVal = $this->faker->word;
         $endSortVal = $this->faker->word;
@@ -50,22 +50,22 @@ class SearchGalTest extends ZimbraTestCase
         $flags = $this->faker->word;
         $tags = $this->faker->word;
         $tagNames = $this->faker->word;
-        $changeDate = mt_rand(1, 99);
-        $modifiedSequenceId = mt_rand(1, 99);
-        $date = mt_rand(1, 99);
-        $revisionId = mt_rand(1, 99);
+        $changeDate = $this->faker->unixTime;
+        $modifiedSequenceId = $this->faker->randomNumber;
+        $date = $this->faker->unixTime;
+        $revisionId = $this->faker->randomNumber;
         $fileAs = $this->faker->word;
-        $email = $this->faker->word;
-        $email2 = $this->faker->word;
-        $email3 = $this->faker->word;
+        $email = $this->faker->email;
+        $email2 = $this->faker->email;
+        $email3 = $this->faker->email;
         $type = $this->faker->word;
         $dlist = $this->faker->word;
         $reference = $this->faker->word;
 
         $section = $this->faker->word;
         $part = $this->faker->word;
-        $contentType = $this->faker->word;
-        $size = mt_rand(1, 99);
+        $contentType = $this->faker->mimeType;
+        $size = $this->faker->randomNumber;
         $contentFilename = $this->faker->word;
 
         $cursor = new CursorInfo($id, $sortVal, $endSortVal, TRUE);

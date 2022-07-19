@@ -14,8 +14,6 @@ class ClientInfoTest extends ZimbraTestCase
 {
     public function testClientInfo()
     {
-        $name = $this->faker->word;
-        $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
 
@@ -25,7 +23,7 @@ class ClientInfoTest extends ZimbraTestCase
         $request = new ClientInfoRequest($domain);
         $this->assertSame($domain, $request->getDomain());
 
-        $request = new ClientInfoRequest(new DomainSelector(DomainBy::NAME(), ''));
+        $request = new ClientInfoRequest(new DomainSelector());
         $request->setDomain($domain);
         $this->assertSame($domain, $request->getDomain());
 

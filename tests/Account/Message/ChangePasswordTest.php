@@ -18,10 +18,10 @@ class ChangePasswordTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
         $oldPassword = $this->faker->word;
-        $newPassword = $this->faker->uuid;
-        $virtualHost = $this->faker->word;
-        $authToken = $this->faker->word;
-        $lifetime = mt_rand(1, 100);
+        $newPassword = $this->faker->word;
+        $virtualHost = $this->faker->domainName;
+        $authToken = $this->faker->sha256;
+        $lifetime = $this->faker->randomNumber;
         $account = new AccountSelector(AccountBy::NAME(), $value);
 
         $request = new ChangePasswordRequest(

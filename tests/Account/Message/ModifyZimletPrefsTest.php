@@ -17,7 +17,7 @@ class ModifyZimletPrefsTest extends ZimbraTestCase
 {
     public function testModifyZimletPrefs()
     {
-        $name = $this->faker->name;
+        $name = $this->faker->word;
 
         $zimlet = new ModifyZimletPrefsSpec($name, ZimletStatus::ENABLED());
 

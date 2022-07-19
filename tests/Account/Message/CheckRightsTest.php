@@ -13,10 +13,10 @@ class CheckRightsTest extends ZimbraTestCase
 {
     public function testCheckRights()
     {
-        $key1 = $this->faker->word;
-        $key2 = $this->faker->word;
-        $right1 = $this->faker->word;
-        $right2 = $this->faker->word;
+        $key1 = $this->faker->unique->word;
+        $key2 = $this->faker->unique->word;
+        $right1 = $this->faker->unique->word;
+        $right2 = $this->faker->unique->word;
 
         $targetSpec = new CheckRightsTargetSpec(
             TargetType::ACCOUNT(), TargetBy::NAME(), $key1, [$right1]

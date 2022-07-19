@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{CreateSignatureEnvelope, CreateSignatureBody, CreateSignatureRequest, CreateSignatureResponse};
+use Zimbra\Account\Message\{
+    CreateSignatureEnvelope,
+    CreateSignatureBody,
+    CreateSignatureRequest,
+    CreateSignatureResponse
+};
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
@@ -17,8 +22,8 @@ class CreateSignatureTest extends ZimbraTestCase
     {
         $value = $this->faker->word;
         $name = $this->faker->word;
-        $id = $this->faker->word;
-        $cid = $this->faker->word;
+        $id = $this->faker->uuid;
+        $cid = $this->faker->uuid;
 
         $signature = new Signature($name, $id, $cid, [new SignatureContent($value, ContentType::TEXT_HTML())]);
 
@@ -31,7 +36,7 @@ class CreateSignatureTest extends ZimbraTestCase
         $signature = new NameId($name, $id);
         $response = new CreateSignatureResponse($signature);
         $this->assertSame($signature, $response->getSignature());
-        $response = new CreateSignatureResponse(new NameId('', ''));
+        $response = new CreateSignatureResponse();
         $response->setSignature($signature);
         $this->assertSame($signature, $response->getSignature());
 

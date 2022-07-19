@@ -10,10 +10,12 @@
 
 namespace Zimbra\Account;
 
+use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Account\Struct\{
+    AuthAttrs,
+    AuthPrefs,
     AuthToken,
     DistributionListAction,
-    EntrySearchFilterInfo,
     Identity,
     NameId,
     PreAuth,
@@ -28,6 +30,7 @@ use Zimbra\Common\Struct\{
     AccountSelector,
     CursorInfo,
     DistributionListSelector,
+    EntrySearchFilterInfo,
     GranteeChooser
 };
 use Zimbra\Soap\ApiInterface;

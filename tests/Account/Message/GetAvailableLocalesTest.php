@@ -16,8 +16,8 @@ class GetAvailableLocalesTest extends ZimbraTestCase
 {
     public function testGetAvailableLocales()
     {
-        $id = $this->faker->word;
-        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $name = $this->faker->locale;
         $localName = $this->faker->country;
 
         $request = new GetAvailableLocalesRequest();

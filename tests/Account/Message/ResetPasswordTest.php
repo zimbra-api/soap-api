@@ -11,7 +11,7 @@ class ResetPasswordTest extends ZimbraTestCase
 {
     public function testResetPassword()
     {
-        $password = $this->faker->sha256;
+        $password = $this->faker->word;
 
         $request = new ResetPasswordRequest($password);
         $this->assertSame($password, $request->getPassword());
