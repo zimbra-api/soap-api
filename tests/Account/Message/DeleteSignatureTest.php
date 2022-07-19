@@ -19,7 +19,7 @@ class DeleteSignatureTest extends ZimbraTestCase
 
         $request = new DeleteSignatureRequest($signature);
         $this->assertSame($signature, $request->getSignature());
-        $request = new DeleteSignatureRequest(new NameId('', ''));
+        $request = new DeleteSignatureRequest(new NameId());
         $request->setSignature($signature);
         $this->assertSame($signature, $request->getSignature());
 

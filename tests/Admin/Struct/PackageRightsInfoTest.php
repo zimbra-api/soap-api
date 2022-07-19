@@ -17,8 +17,8 @@ class PackageRightsInfoTest extends ZimbraTestCase
     public function testPackageRightsInfo()
     {
         $name = $this->faker->word;
-        $note1 = $this->faker->word;
-        $note2 = $this->faker->word;
+        $note1 = $this->faker->unique->word;
+        $note2 = $this->faker->unique->word;
 
         $cmd = new CmdRightsInfo($name, [new NamedElement($name)], [$note1, $note2]);
 

@@ -17,12 +17,12 @@ class DiscoverRightsTest extends ZimbraTestCase
     {
         $type = TargetType::ACCOUNT();
         $id = $this->faker->uuid;
-        $name = $this->faker->name;
-        $displayName = $this->faker->text;
-        $addr = $this->faker->text;
-        $right = $this->faker->name;
-        $right1 = $this->faker->name;
-        $right2 = $this->faker->name;
+        $name = $this->faker->email;
+        $displayName = $this->faker->name;
+        $addr = $this->faker->email;
+        $right = $this->faker->unique->word;
+        $right1 = $this->faker->unique->word;
+        $right2 = $this->faker->unique->word;
 
         $request = new DiscoverRightsRequest([$right1]);
         $this->assertSame([$right1], $request->getRights());

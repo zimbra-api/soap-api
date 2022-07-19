@@ -12,7 +12,7 @@ class MailApiTest extends ZimbraTestCase
 {
     public function testMailApi()
     {
-        $api = new MailApi('https://localhost');
+        $api = $this->createStub(MailApi::class);
         $this->assertTrue($api instanceof MailApiInterface);
     }
 }

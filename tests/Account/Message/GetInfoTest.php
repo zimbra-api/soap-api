@@ -59,11 +59,11 @@ class GetInfoTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $name = $this->faker->name;
         $value = $this->faker->word;
-        $modified = mt_rand(1, 100);
+        $modified = $this->faker->randomNumber;
         $sections = implode(',', $this->faker->randomElements(InfoSection::values(), 2));
         $rights = implode(',', [$this->faker->word, $this->faker->word]);
         $zimletName = $this->faker->word;
-        $cid = $this->faker->word;
+        $cid = $this->faker->uuid;
 
         $type = TargetType::ACCOUNT();
         $displayName = $this->faker->word;
@@ -71,7 +71,7 @@ class GetInfoTest extends ZimbraTestCase
         $right = $this->faker->word;
 
         $baseUrl = $this->faker->word;
-        $priority = mt_rand(1, 10);
+        $priority = $this->faker->randomNumber;
         $description = $this->faker->word;
         $extension = $this->faker->word;
         $target = $this->faker->word;
@@ -80,19 +80,19 @@ class GetInfoTest extends ZimbraTestCase
         $extensionClass = $this->faker->word;
         $regex = $this->faker->word;
 
-        $attachmentSizeLimit = mt_rand(1, 100);
-        $documentSizeLimit = mt_rand(1, 100);
+        $attachmentSizeLimit = $this->faker->randomNumber;
+        $documentSizeLimit = $this->faker->randomNumber;
         $version = $this->faker->word;
         $accountId = $this->faker->uuid;
-        $profileImageId = mt_rand(1, 100);
+        $profileImageId = $this->faker->randomNumber;
         $accountName = $this->faker->word;
         $crumb = $this->faker->word;
-        $lifetime = mt_rand(1, 100);
+        $lifetime = $this->faker->randomNumber;
         $restUrl = $this->faker->url;
-        $quotaUsed = mt_rand(1, 100);
-        $previousSessionTime = mt_rand(1, 100);
-        $lastWriteAccessTime = mt_rand(1, 100);
-        $recentMessageCount = mt_rand(1, 100);
+        $quotaUsed = $this->faker->randomNumber;
+        $previousSessionTime = $this->faker->unixTime;
+        $lastWriteAccessTime = $this->faker->unixTime;
+        $recentMessageCount = $this->faker->randomNumber;
         $soapURL = $this->faker->url;
         $publicURL = $this->faker->url;
         $changePasswordURL = $this->faker->url;
@@ -101,10 +101,10 @@ class GetInfoTest extends ZimbraTestCase
 
         $folderId = $this->faker->word;
         $host = $this->faker->ipv4;
-        $port = mt_rand(1, 100);
+        $port = $this->faker->randomNumber;
         $connectionType = ConnectionType::CLEAR_TEXT();
         $username = $this->faker->email;
-        $password = $this->faker->text;
+        $password = $this->faker->word;
         $pollingInterval = $this->faker->word;
         $emailAddress = $this->faker->email;
         $defaultSignature = $this->faker->word;
@@ -112,13 +112,13 @@ class GetInfoTest extends ZimbraTestCase
         $fromDisplay = $this->faker->name;
         $replyToAddress = $this->faker->email;
         $replyToDisplay = $this->faker->name;
-        $importClass = $this->faker->text;
-        $failingSince = mt_rand(1, 100);
-        $lastError = $this->faker->text;
-        $refreshToken = $this->faker->text;
+        $importClass = $this->faker->word;
+        $failingSince = $this->faker->randomNumber;
+        $lastError = $this->faker->word;
+        $refreshToken = $this->faker->sha256;
         $refreshTokenUrl = $this->faker->url;
-        $attribute1 = $this->faker->text;
-        $attribute2 = $this->faker->text;
+        $attribute1 = $this->faker->unique->word;
+        $attribute2 = $this->faker->unique->word;
         $attributes = [
             $attribute1,
             $attribute2,
@@ -221,6 +221,7 @@ class GetInfoTest extends ZimbraTestCase
         $this->assertSame([$pref], $response->getPrefs());
         $this->assertSame([$attr], $response->getAttrs());
         $this->assertSame([$zimlet], $response->getZimlets());
+        $this->assertSame([$prop], $response->getProps());
         $this->assertSame([$identity], $response->getIdentities());
         $this->assertSame([$signature], $response->getSignatures());
         $this->assertSame($dataSources, $response->getDataSources());
@@ -299,6 +300,7 @@ class GetInfoTest extends ZimbraTestCase
         $this->assertSame([$pref, $pref], $response->getPrefs());
         $this->assertSame([$attr, $attr], $response->getAttrs());
         $this->assertSame([$zimlet, $zimlet], $response->getZimlets());
+        $this->assertSame([$prop, $prop], $response->getProps());
         $this->assertSame([$identity, $identity], $response->getIdentities());
         $this->assertSame([$signature, $signature], $response->getSignatures());
         $this->assertEquals($dataSources, $response->getDataSources());

@@ -21,7 +21,7 @@ class GetSignaturesTest extends ZimbraTestCase
         $value = $this->faker->word;
         $name = $this->faker->name;
         $id = $this->faker->uuid;
-        $cid = $this->faker->word;
+        $cid = $this->faker->uuid;
 
         $request = new GetSignaturesRequest();
 

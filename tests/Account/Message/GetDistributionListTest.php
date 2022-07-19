@@ -30,9 +30,9 @@ class GetDistributionListTest extends ZimbraTestCase
         $name = $this->faker->name;
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $needRights = $this->faker->text;
-        $member1 = $this->faker->email;
-        $member2 = $this->faker->email;
+        $needRights = $this->faker->word;
+        $member1 = $this->faker->unique->email;
+        $member2 = $this->faker->unique->email;
 
         $dl = new DistributionListSelector(DLBy::NAME(), $value);
 

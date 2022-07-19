@@ -20,32 +20,29 @@ class GetDistributionListMembersTest extends ZimbraTestCase
     {
         $dl = $this->faker->email;
         $name = $this->faker->email;
-        $seniorityIndex = mt_rand(1, 100);
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
-        $total = mt_rand(1, 100);
+        $seniorityIndex = $this->faker->randomNumber;
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $total = $this->faker->randomNumber;
         $key = $this->faker->word;
         $value = $this->faker->text;
-        $member1 = $this->faker->email;
-        $member2 = $this->faker->email;
+        $member1 = $this->faker->unique->email;
+        $member2 = $this->faker->unique->email;
 
         $request = new GetDistributionListMembersRequest(
-            $dl,
-            $limit,
-            $offset
+            $dl, $limit, $offset
         );
         $this->assertSame($dl, $request->getDl());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
 
-        $request = new GetDistributionListMembersRequest('');
+        $request = new GetDistributionListMembersRequest();
         $request->setDl($dl)
             ->setLimit($limit)
             ->setOffset($offset);
         $this->assertSame($dl, $request->getDl());
         $this->assertSame($limit, $request->getLimit());
         $this->assertSame($offset, $request->getOffset());
-
 
         $groupMember = new HABGroupMember($name, $seniorityIndex, [new NamedValue($key, $value)]);
         $response = new GetDistributionListMembersResponse([$member1, $member2], [$groupMember], FALSE, $total);

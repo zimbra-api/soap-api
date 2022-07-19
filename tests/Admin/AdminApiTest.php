@@ -12,7 +12,7 @@ class AdminApiTest extends ZimbraTestCase
 {
     public function testAdminApi()
     {
-        $api = new AdminApi('https://localhost');
+        $api = $this->createStub(AdminApi::class);
         $this->assertTrue($api instanceof AdminApiInterface);
     }
 }

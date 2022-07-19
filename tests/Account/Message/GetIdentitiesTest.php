@@ -17,9 +17,9 @@ class GetIdentitiesTest extends ZimbraTestCase
 {
     public function testGetIdentities()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->name;
         $value = $this->faker->word;
-        $id = $this->faker->word;
+        $id = $this->faker->uuid;
 
         $request = new GetIdentitiesRequest();
 

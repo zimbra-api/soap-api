@@ -20,11 +20,10 @@ class CreateDistributionListTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $id = $this->faker->uuid;
-        $name = $this->faker->word;
-        $displayName = $this->faker->word;
+        $name = $this->faker->email;
+        $displayName = $this->faker->name;
         $ref = $this->faker->word;
         $via = $this->faker->word;
-        $member = $this->faker->word;
 
         $attr = new KeyValuePair($key, $value);
 
@@ -44,7 +43,7 @@ class CreateDistributionListTest extends ZimbraTestCase
         $response = new CreateDistributionListResponse($dl);
         $this->assertSame($dl, $response->getDl());
 
-        $response = new CreateDistributionListResponse(new DLInfo('', '', ''));
+        $response = new CreateDistributionListResponse();
         $response->setDl($dl);
         $this->assertSame($dl, $response->getDl());
 

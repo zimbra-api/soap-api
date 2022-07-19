@@ -15,10 +15,10 @@ class GetWhiteBlackListTest extends ZimbraTestCase
 {
     public function testGetWhiteBlackList()
     {
-        $white1 = $this->faker->ipv4;
-        $white2 = $this->faker->ipv4;
-        $black1 = $this->faker->ipv4;
-        $black2 = $this->faker->ipv4;
+        $white1 = $this->faker->unique->ipv4;
+        $white2 = $this->faker->unique->ipv4;
+        $black1 = $this->faker->unique->ipv4;
+        $black2 = $this->faker->unique->ipv4;
 
         $request = new GetWhiteBlackListRequest();
 

@@ -16,7 +16,7 @@ class GetAvailableCsvFormatsTest extends ZimbraTestCase
 {
     public function testGetAvailableCsvFormats()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->mimeType;
 
         $request = new GetAvailableCsvFormatsRequest();
 

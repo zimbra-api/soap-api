@@ -26,7 +26,7 @@ class GetVersionInfoTest extends ZimbraTestCase
         $info = new VersionInfo($fullVersion, $release, $date, $host);
         $response = new GetVersionInfoResponse($info);
         $this->assertSame($info, $response->getVersionInfo());
-        $response = new GetVersionInfoResponse(new VersionInfo('', '', '', ''));
+        $response = new GetVersionInfoResponse(new VersionInfo());
         $response->setVersionInfo($info);
         $this->assertSame($info, $response->getVersionInfo());
 
