@@ -128,7 +128,7 @@ abstract class AbstractApi implements ApiInterface
      *
      * @return  EnvelopeInterface
      */
-    protected function invoke(RequestInterface $request): ?ResponseInterface
+    public function invoke(RequestInterface $request): ?ResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
         if ($this->requestHeader instanceof Header) {

@@ -14,29 +14,25 @@ use Zimbra\Account\Struct\{
     AuthAttrs,
     AuthPrefs,
     AuthToken,
-    BlackList,
-    DistributionListSelector,
     DistributionListAction,
     Identity,
     NameId,
     PreAuth,
-    Signature,
-    WhiteList
-}
+    Signature
+};
 use Zimbra\Common\Enum\{
     AccountBy,
-    DistributionListBy,
     DistributionListSubscribeOp,
     GalSearchType,
-    MemberOfSelector,
-    SortBy
-}
+    MemberOfSelector
+};
 use Zimbra\Common\Struct\{
     AccountSelector,
     CursorInfo,
+    DistributionListSelector,
     EntrySearchFilterInfo,
     GranteeChooser
-}
+};
 use Zimbra\Soap\AbstractApi;
 
 /**
@@ -53,24 +49,24 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function auth(
-        AccountSelector $account = NULL,
-        $password = NULL,
-        $recoveryCode = NULL,
-        PreAuth $preauth = NULL,
-        AuthToken $authToken = NULL,
-        $jwtToken = NULL,
-        $virtualHost = NULL,
-        AuthPrefs $prefs = NULL,
-        AuthAttrs $attrs = NULL,
-        $requestedSkin = NULL,
-        $persistAuthTokenCookie = NULL,
-        $csrfSupported = NULL,
-        $twoFactorCode = NULL,
-        $deviceTrusted = NULL,
-        $trustedDeviceToken = NULL,
-        $deviceId = NULL,
-        $generateDeviceId = NULL,
-        $tokenType = NULL
+        ?AccountSelector $account = NULL,
+        ?string $password = NULL,
+        ?string $recoveryCode = NULL,
+        ?PreAuth $preauth = NULL,
+        ?AuthToken $authToken = NULL,
+        ?string $jwtToken = NULL,
+        ?string $virtualHost = NULL,
+        array $prefs = [],
+        array $attrs = [],
+        ?string $requestedSkin = NULL,
+        ?bool $persistAuthTokenCookie = NULL,
+        ?bool $csrfSupported = NULL,
+        ?string $twoFactorCode = NULL,
+        ?bool $deviceTrusted = NULL,
+        ?string $trustedDeviceToken = NULL,
+        ?string $deviceId = NULL,
+        ?bool $generateDeviceId = NULL,
+        ?string $tokenType = NULL
     ): Message\AuthResponse
     {
         return $this->invoke(new Message\AuthRequest(
@@ -98,7 +94,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function authByName($name, $password = NULL): Message\AuthResponse
+    public function authByName(string $name, string $password): Message\AuthResponse
     {
         $account = new AccountSelector(AccountBy::NAME()->getValue(), $name);
         return $this->auth($account, $password);
@@ -107,7 +103,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function authByToken($authToken): Message\AuthResponse
+    public function authByToken(string $authToken): Message\AuthResponse
     {
         $token = ($authToken instanceof AuthToken) ? $authToken : new AuthToken($authToken);
         return $this->auth(NULL, NULL, NULL, $token);

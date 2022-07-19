@@ -25,13 +25,5 @@ interface ApiInterface
      *
      * @return  ResponseInterface
      */
-    protected function invoke(RequestInterface $request): ?ResponseInterface;
-
-    /**
-     * Perform a batch request.
-     *
-     * @param  array $requests
-     * @return ResponseInterface
-     */
-    public function batch(array $requests = []): ?ResponseInterface;
+    function invoke(RequestInterface $request): ?ResponseInterface;
 }
