@@ -40,7 +40,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
      *
      * @var SerializerInterface
      */
-    private SerializerInterface $serializer;
+    private ?SerializerInterface $serializer = NULL;
 
     /**
      * @var LoggerInterface
@@ -66,7 +66,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     }
 
     /**
-     * Get zimbra api soap client.
+     * Get soap client.
      *
      * @return ClientInterface
      */
@@ -76,7 +76,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     }
 
     /**
-     * Set Zimbra api soap client.
+     * Set soap client.
      *
      * @return self
      */
@@ -108,6 +108,19 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     {
         $this->logger = $logger;
         return $this;
+    }
+
+    /**
+     * Get the serializer.
+     *
+     * @return SerializerInterface
+     */
+    public function getSerializer(): SerializerInterface
+    {
+        if (!($this->serializer instanceof SerializerInterface)) {
+            $this->serializer = SerializerFactory::create();
+        }
+        return $this->serializer;
     }
 
     /**
@@ -153,14 +166,14 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
             $requestEnvelope->setHeader($this->requestHeader);
         }
         $response = $this->client->sendRequest(
-            $this->serializer->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
+            $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
             [
                 'Content-Type' => static::SOAP_CONTENT_TYPE,
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
             ]
         );
         $this->getLogger()->debug('Soap response', ['response' => $response]);
-        $responseEnvelope = $this->serializer->deserialize(
+        $responseEnvelope = $this->getSerializer()->deserialize(
             $response->getBody()->getContents(),
             get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );

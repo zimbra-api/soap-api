@@ -3,8 +3,7 @@
 namespace Zimbra\Tests\Admin;
 
 use Zimbra\Admin\{AdminApi, AdminApiInterface};
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Soap\{RequestInterface, ResponseInterface};
+use Zimbra\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -12,6 +11,11 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class AdminApiTest extends ZimbraTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+    }
+
     public function testAdminApi()
     {
         $api = $this->createStub(AdminApi::class);
@@ -29,7 +33,7 @@ class AdminApiTest extends ZimbraTestCase
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addAccountAlias($this->faker->uuid, $this->faker->email);
         $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddAccountAliasResponse);
     }
@@ -49,7 +53,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addAccountLogger(new \Zimbra\Admin\Struct\LoggerInfo());
         $logger = new \Zimbra\Admin\Struct\LoggerInfo($category, \Zimbra\Common\Enum\LoggingLevel::INFO());
         $this->assertEquals([$logger], $response->getLoggers());
@@ -66,7 +70,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addDistributionListAlias($this->faker->uuid, $this->faker->email);
         $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddDistributionListAliasResponse);
     }
@@ -82,7 +86,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addDistributionListMember($this->faker->uuid, []);
         $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddDistributionListMemberResponse);
     }
@@ -108,7 +112,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addGalSyncDataSource(
             new \Zimbra\Common\Struct\AccountSelector(), $name, $domain, \Zimbra\Common\Enum\GalMode::BOTH()
         );
@@ -137,7 +141,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->adminCreateWaitSet(
             $defaultInterests
         );
@@ -161,7 +165,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->adminDestroyWaitSet(
             $waitSetId
         );
@@ -211,7 +215,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->adminWaitSet(
             $waitSetId, $this->faker->word
         );
@@ -252,7 +256,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->auth();
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($csrfToken, $response->getCsrfToken());
@@ -272,7 +276,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->autoCompleteGal($this->faker->domainName, $this->faker->word);
         $this->assertTrue($response->getMore());
         $this->assertTrue($response->getTokenizeKey());
@@ -300,7 +304,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->autoProvAccount(
             new \Zimbra\Admin\Struct\DomainSelector(), new \Zimbra\Admin\Struct\PrincipalSelector()
         );
@@ -321,7 +325,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->autoProvTaskControl(
             \Zimbra\Common\Enum\AutoProvTaskAction::START()
         );
@@ -348,7 +352,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->changePrimaryEmail(
             new \Zimbra\Common\Struct\AccountSelector(), $this->faker->email
         );
@@ -377,7 +381,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->checkAuthConfig(
             $this->faker->word, $this->faker->word
         );
@@ -430,7 +434,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAdminApi($xml);
+        $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->checkBlobConsistency();
 
         $missingBlobs = [
@@ -469,24 +473,33 @@ EOT;
         );
         $this->assertEquals([$mbox], $response->getMailboxes());
     }
+
+    public function testCheckDirectory()
+    {
+        $path = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:CheckDirectoryResponse>
+            <urn:directory path="$path" exists="true" isDirectory="true" readable="true" writable="true" />
+        </urn:CheckDirectoryResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->checkDirectory();
+        $dirInfo = new \Zimbra\Admin\Struct\DirPathInfo($path, TRUE, TRUE, TRUE, TRUE);
+        $this->assertEquals([$dirInfo], $response->getPaths());
+    }
 }
 
 class StubAdminApi extends AdminApi
 {
-    private $soapRespone;
-
-    public function __construct(string $soapRespone)
+    public function __construct(ClientInterface $client)
     {
-        $this->soapRespone = $soapRespone;
-    }
-
-    public function invoke(RequestInterface $request): ?ResponseInterface
-    {
-        $serializer = SerializerFactory::create();
-        $requestEnvelope = $request->getEnvelope();
-        $responseEnvelope = $serializer->deserialize(
-            $this->soapRespone, get_class($requestEnvelope), self::SERIALIZE_FORMAT
-        );
-        return $responseEnvelope->getBody()->getResponse();
+        $this->setClient($client);
     }
 }

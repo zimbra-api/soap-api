@@ -205,7 +205,7 @@ class AutoCompleteGalRequest extends Request
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): ?int
     {
         return $this->limit;
     }

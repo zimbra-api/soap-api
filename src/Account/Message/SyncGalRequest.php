@@ -110,7 +110,7 @@ class SyncGalRequest extends Request
      *
      * @return string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }
