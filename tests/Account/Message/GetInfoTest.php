@@ -61,7 +61,7 @@ class GetInfoTest extends ZimbraTestCase
         $value = $this->faker->word;
         $modified = $this->faker->randomNumber;
         $sections = implode(',', $this->faker->randomElements(InfoSection::values(), 2));
-        $rights = implode(',', [$this->faker->word, $this->faker->word]);
+        $rights = implode(',', [$this->faker->unique->word, $this->faker->unique->word]);
         $zimletName = $this->faker->word;
         $cid = $this->faker->uuid;
 
