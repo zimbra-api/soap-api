@@ -19,8 +19,8 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
     {
         $name = $this->faker->freeEmailDomain;
         $entry = $this->faker->word;
-        $entry1 = $this->faker->text;
-        $entry2 = $this->faker->text;
+        $entry1 = $this->faker->unique->word;
+        $entry2 = $this->faker->unique->word;
         $code = $this->faker->word;
         $message = $this->faker->word;
 
@@ -44,7 +44,7 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
         $this->assertSame($code, $response->getCode());
         $this->assertSame($message, $response->getMessage());
 
-        $response = new CheckDomainMXRecordResponse([], '');
+        $response = new CheckDomainMXRecordResponse();
         $response->setCode($code)
             ->setMessage($message)
             ->setEntries([$entry1])

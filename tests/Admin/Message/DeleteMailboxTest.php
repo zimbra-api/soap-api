@@ -18,23 +18,22 @@ class DeleteMailboxTest extends ZimbraTestCase
     public function testDeleteMailbox()
     {
         $id = $this->faker->uuid;
-        $mbxid = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
+        $mbxid = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
 
-        $accountId = new MailboxByAccountIdSelector($id);
-        $mboxId = new MailboxWithMailboxId($mbxid, $id, $size);
-
-        $request = new DeleteMailboxRequest($accountId);
-        $this->assertSame($accountId, $request->getMbox());
+        $mbox = new MailboxByAccountIdSelector($id);
+        $request = new DeleteMailboxRequest($mbox);
+        $this->assertSame($mbox, $request->getMbox());
         $request = new DeleteMailboxRequest();
-        $request->setMbox($accountId);
-        $this->assertSame($accountId, $request->getMbox());
+        $request->setMbox($mbox);
+        $this->assertSame($mbox, $request->getMbox());
 
-        $response = new DeleteMailboxResponse($mboxId);
-        $this->assertSame($mboxId, $response->getMbox());
-        $response = new DeleteMailboxResponse(new MailboxWithMailboxId(0, '', 0));
-        $response->setMbox($mboxId);
-        $this->assertSame($mboxId, $response->getMbox());
+        $mbox = new MailboxWithMailboxId($mbxid, $id, $size);
+        $response = new DeleteMailboxResponse($mbox);
+        $this->assertSame($mbox, $response->getMbox());
+        $response = new DeleteMailboxResponse();
+        $response->setMbox($mbox);
+        $this->assertSame($mbox, $response->getMbox());
 
         $body = new DeleteMailboxBody($request, $response);
         $this->assertSame($request, $body->getRequest());

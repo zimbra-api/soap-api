@@ -20,7 +20,7 @@ class CreateAccountTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $name = $this->faker->word;
+        $name = $this->faker->email;
         $password = $this->faker->word;
 
         $attr = new Attr($key, $value);
@@ -31,7 +31,7 @@ class CreateAccountTest extends ZimbraTestCase
         );
         $this->assertSame($name, $request->getName());
         $this->assertSame($password, $request->getPassword());
-        $request = new CreateAccountRequest('', '');
+        $request = new CreateAccountRequest();
         $request->setName($name)
             ->setPassword($password)
             ->setAttrs([$attr]);
@@ -39,10 +39,10 @@ class CreateAccountTest extends ZimbraTestCase
         $this->assertSame($password, $request->getPassword());
 
         $response = new CreateAccountResponse($account);
-        $this->assertEquals($account, $response->getAccount());
-        $response = new CreateAccountResponse(new AccountInfo('', ''));
+        $this->assertSame($account, $response->getAccount());
+        $response = new CreateAccountResponse();
         $response->setAccount($account);
-        $this->assertEquals($account, $response->getAccount());
+        $this->assertSame($account, $response->getAccount());
 
         $body = new CreateAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());

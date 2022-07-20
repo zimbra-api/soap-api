@@ -27,7 +27,7 @@ class CreateCosTest extends ZimbraTestCase
             $name, [new Attr($key, $value)]
         );
         $this->assertSame($name, $request->getName());
-        $request = new CreateCosRequest('');
+        $request = new CreateCosRequest();
         $request->setName($name)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
@@ -35,7 +35,7 @@ class CreateCosTest extends ZimbraTestCase
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, TRUE)]);
         $response = new CreateCosResponse($cos);
         $this->assertSame($cos, $response->getCos());
-        $response = new CreateCosResponse(new CosInfo('', ''));
+        $response = new CreateCosResponse();
         $response->setCos($cos);
         $this->assertSame($cos, $response->getCos());
 

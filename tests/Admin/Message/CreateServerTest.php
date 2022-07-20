@@ -25,7 +25,7 @@ class CreateServerTest extends ZimbraTestCase
         $request = new CreateServerRequest($name);
         $this->assertSame($name, $request->getName());
 
-        $request = new CreateServerRequest('');
+        $request = new CreateServerRequest();
         $request->setName($name)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($name, $request->getName());
@@ -33,7 +33,7 @@ class CreateServerTest extends ZimbraTestCase
         $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
         $response = new CreateServerResponse($server);
         $this->assertSame($server, $response->getServer());
-        $response = new CreateServerResponse(new ServerInfo('', ''));
+        $response = new CreateServerResponse();
         $response->setServer($server);
         $this->assertSame($server, $response->getServer());
 

@@ -18,7 +18,7 @@ class DeleteAlwaysOnClusterTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $request = new DeleteAlwaysOnClusterRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new DeleteAlwaysOnClusterRequest('');
+        $request = new DeleteAlwaysOnClusterRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

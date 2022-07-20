@@ -15,10 +15,10 @@ class DeleteVolumeTest extends ZimbraTestCase
 {
     public function testDeleteVolume()
     {
-        $id = mt_rand(1, 100);
+        $id = $this->faker->randomNumber;
         $request = new DeleteVolumeRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new DeleteVolumeRequest(0);
+        $request = new DeleteVolumeRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

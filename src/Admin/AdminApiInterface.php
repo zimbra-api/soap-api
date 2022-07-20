@@ -71,6 +71,7 @@ use Zimbra\Common\Enum\{
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
+    Id,
     NamedElement
 };
 use Zimbra\Mail\Struct\{
@@ -421,7 +422,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  ContactBackupOp $op
      * @return Message\ContactBackupResponse
      */
-    function contactBackup(array $servers, ContactBackupOp $op): Message\ContactBackupResponse;
+    function contactBackup(array $servers = [], ?ContactBackupOp $op = NULL): Message\ContactBackupResponse;
 
     /**
      * Copy Class of service (COS)
@@ -450,7 +451,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\CountObjectsResponse
      */
     function countObjects(
-        CountObjectsType $type,
+        ?CountObjectsType $type = NULL,
         array $domains = [],
         ?UcServiceSelector $ucService = NULL,
         ?bool $onlyRelated = NULL
@@ -503,11 +504,11 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Creates a data source that imports mail items into the specified folder. 
      * 
-     * @param string $id
      * @param DataSourceSpecifier $dataSource
+     * @param string $id
      * @return Message\CreateDataSourceResponse
      */
-    function createDataSource(string $id, DataSourceSpecifier $dataSource): Message\CreateDataSourceResponse;
+    function createDataSource(DataSourceSpecifier $dataSource, string $id = ''): Message\CreateDataSourceResponse;
 
     /**
      * Create a distribution list
@@ -533,22 +534,22 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Create Global Address List (GAL) Synchronisation account
      * 
+     * @param AccountSelector  $account
      * @param string  $name
      * @param string  $domain
-     * @param GalMode $type
-     * @param AccountSelector  $account
      * @param string  $mailHost
+     * @param GalMode $type
      * @param string  $password
      * @param string  $folder
      * @param array   $attrs
      * @return Message\CreateGalSyncAccountResponse
      */
     function createGalSyncAccount(
+        AccountSelector $account,
         string $name,
         string $domain,
-        GalMode $type,
-        AccountSelector $account,
         string $mailHost,
+        ?GalMode $type = NULL,
         ?string $password = NULL,
         ?string $folder = NULL,
         array $attrs = []
@@ -625,7 +626,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  array $volumes
      * @return Message\DedupeBlobsResponse
      */
-    function dedupeBlobs(DedupAction $action, array $volumes = []): Message\DedupeBlobsResponse;
+    function dedupeBlobs(?DedupAction $action = NULL, array $volumes = []): Message\DedupeBlobsResponse;
 
     /**
      * Used to request a new auth token that is valid for the specified account.
@@ -673,13 +674,13 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Deletes the given data source.
      * 
-     * @param string $id
      * @param Id     $dataSource
+     * @param string $id
      * @param array  $attrs
      * @return Message\DeleteDataSourceResponse
      */
     function deleteDataSource(
-        string $id, Id $dataSource, array $attrs = []
+        Id $dataSource, string $id, array $attrs = []
     ): Message\DeleteDataSourceResponse;
 
     /**
@@ -781,14 +782,17 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Deploy Zimlet(s)
      * 
-     * @param  ZimletDeployAction $action
      * @param  AttachmentIdAttrib $content
+     * @param  ZimletDeployAction $action
      * @param  bool $flushCache
      * @param  bool $synchronous
      * @return Message\DeployZimletResponse
      */
     function deployZimlet(
-        ZimletDeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL
+        AttachmentIdAttrib $content,
+        ?ZimletDeployAction $action = NULL,
+        ?bool $flushCache = NULL,
+        ?bool $synchronous = NULL
     ): Message\DeployZimletResponse;
 
     /**

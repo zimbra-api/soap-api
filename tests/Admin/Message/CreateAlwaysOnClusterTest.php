@@ -35,10 +35,10 @@ class CreateAlwaysOnClusterTest extends ZimbraTestCase
         $this->assertSame($name, $request->getName());
 
         $response = new CreateAlwaysOnClusterResponse($cluster);
-        $this->assertEquals($cluster, $response->getAlwaysOnCluster());
+        $this->assertSame($cluster, $response->getAlwaysOnCluster());
         $response = new CreateAlwaysOnClusterResponse();
         $response->setAlwaysOnCluster($cluster);
-        $this->assertEquals($cluster, $response->getAlwaysOnCluster());
+        $this->assertSame($cluster, $response->getAlwaysOnCluster());
 
         $body = new CreateAlwaysOnClusterBody($request, $response);
         $this->assertSame($request, $body->getRequest());

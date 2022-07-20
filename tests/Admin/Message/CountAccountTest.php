@@ -21,7 +21,7 @@ class CountAccountTest extends ZimbraTestCase
         $value = $this->faker->word;
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $count = mt_rand(1, 100);
+        $count = $this->faker->randomNumber;
 
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $request = new CountAccountRequest($domain);

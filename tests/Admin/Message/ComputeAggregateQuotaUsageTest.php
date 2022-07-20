@@ -18,7 +18,7 @@ class ComputeAggregateQuotaUsageTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $quotaUsed = mt_rand(1, 100);
+        $quotaUsed = $this->faker->randomNumber;
         $domain = new DomainAggregateQuotaInfo($name, $id, $quotaUsed);
 
         $request = new ComputeAggregateQuotaUsageRequest();

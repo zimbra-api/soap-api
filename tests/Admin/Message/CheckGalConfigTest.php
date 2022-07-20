@@ -18,7 +18,7 @@ class CheckGalConfigTest extends ZimbraTestCase
 {
     public function testCheckGalConfig()
     {
-        $limit = mt_rand(0, 10);
+        $limit = $this->faker->randomNumber;
         $id = $this->faker->uuid;
         $action = $this->faker->word;
         $key = $this->faker->word;
@@ -31,7 +31,7 @@ class CheckGalConfigTest extends ZimbraTestCase
         $this->assertSame($query, $request->getQuery());
         $this->assertSame($action, $request->getAction());
 
-        $request = new CheckGalConfigRequest(new LimitedQuery(0, ''), '', [new Attr($key, $value)]);
+        $request = new CheckGalConfigRequest(new LimitedQuery(), '', [new Attr($key, $value)]);
         $request->setQuery($query)
             ->setAction($action);
         $this->assertSame($query, $request->getQuery());
@@ -47,7 +47,7 @@ class CheckGalConfigTest extends ZimbraTestCase
         $this->assertSame($message, $response->getMessage());
         $this->assertSame([$cn], $response->getGalContacts());
 
-        $response = new CheckGalConfigResponse('', '');
+        $response = new CheckGalConfigResponse();
         $response->setCode($code)
             ->setMessage($message)
             ->setGalContacts([$cn])

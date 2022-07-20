@@ -71,6 +71,7 @@ use Zimbra\Common\Enum\{
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
+    Id,
     NamedElement
 };
 use Zimbra\Mail\Struct\{
@@ -432,7 +433,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function contactBackup(array $servers, ContactBackupOp $op): Message\ContactBackupResponse
+    public function contactBackup(array $servers = [], ?ContactBackupOp $op = NULL): Message\ContactBackupResponse
     {
         return $this->invoke(new Message\ContactBackupRequest(
             $servers, $op
@@ -463,7 +464,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function countObjects(
-        CountObjectsType $type,
+        ?CountObjectsType $type = NULL,
         array $domains = [],
         ?UcServiceSelector $ucService = NULL,
         ?bool $onlyRelated = NULL
@@ -523,10 +524,12 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function createDataSource(string $id, DataSourceSpecifier $dataSource): Message\CreateDataSourceResponse
+    public function createDataSource(
+        DataSourceSpecifier $dataSource, string $id = ''
+    ): Message\CreateDataSourceResponse
     {
         return $this->invoke(new Message\CreateDataSourceRequest(
-            $id, $dataSource
+            $dataSource, $id
         ));
     }
 
@@ -556,18 +559,18 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function createGalSyncAccount(
+        AccountSelector $account,
         string $name,
         string $domain,
-        GalMode $type,
-        AccountSelector $account,
         string $mailHost,
+        ?GalMode $type = NULL,
         ?string $password = NULL,
         ?string $folder = NULL,
         array $attrs = []
     ): Message\CreateGalSyncAccountResponse
     {
         return $this->invoke(new Message\CreateGalSyncAccountRequest(
-            $name, $domain, $type, $account, $mailHost, $password, $folder, $attrs
+            $account, $name, $domain, $mailHost, $type, $password, $folder, $attrs
         ));
     }
 
@@ -646,7 +649,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function dedupeBlobs(DedupAction $action, array $volumes = []): Message\DedupeBlobsResponse
+    public function dedupeBlobs(?DedupAction $action = NULL, array $volumes = []): Message\DedupeBlobsResponse
     {
         return $this->invoke(new Message\DedupeBlobsRequest(
             $action, $volumes
@@ -707,11 +710,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deleteDataSource(
-        string $id, Id $dataSource, array $attrs = []
+        Id $dataSource, string $id, array $attrs = []
     ): Message\DeleteDataSourceResponse
     {
         return $this->invoke(new Message\DeleteDataSourceRequest(
-            $id, $dataSource, $attrs
+            $dataSource, $id, $attrs
         ));
     }
 
@@ -837,11 +840,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function deployZimlet(
-        ZimletDeployAction $action, AttachmentIdAttrib $content, ?bool $flushCache = NULL, ?bool $synchronous = NULL
+        AttachmentIdAttrib $content,
+        ?ZimletDeployAction $action = NULL,
+        ?bool $flushCache = NULL,
+        ?bool $synchronous = NULL
     ): Message\DeployZimletResponse
     {
         return $this->invoke(new Message\DeployZimletRequest(
-            $action, $content, $flushCache, $synchronous
+            $content, $action, $flushCache, $synchronous
         ));
     }
 

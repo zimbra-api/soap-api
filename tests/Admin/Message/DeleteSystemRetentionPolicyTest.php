@@ -31,7 +31,7 @@ class DeleteSystemRetentionPolicyTest extends ZimbraTestCase
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($policy, $request->getPolicy());
         $request = new DeleteSystemRetentionPolicyRequest(
-            new Policy(Type::SYSTEM(), '', '', '')
+            new Policy()
         );
         $request->setCos($cos)
             ->setPolicy($policy);

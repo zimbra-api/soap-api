@@ -26,13 +26,13 @@ class DeployZimletTest extends ZimbraTestCase
         $content = new AttachmentIdAttrib($aid);
         $progress = new ZimletDeploymentStatus($server, ZimletDeployStatus::SUCCEEDED(), $error);
 
-        $request = new DeployZimletRequest(ZimletDeployAction::DEPLOY_ALL(), $content, FALSE, FALSE);
+        $request = new DeployZimletRequest($content, ZimletDeployAction::DEPLOY_ALL(), FALSE, FALSE);
         $this->assertEquals(ZimletDeployAction::DEPLOY_ALL(), $request->getAction());
         $this->assertSame($content, $request->getContent());
         $this->assertFalse($request->getFlushCache());
         $this->assertFalse($request->getSynchronous());
 
-        $request = new DeployZimletRequest(ZimletDeployAction::DEPLOY_ALL(), new AttachmentIdAttrib(''));
+        $request = new DeployZimletRequest(new AttachmentIdAttrib());
         $request->setAction(ZimletDeployAction::DEPLOY_LOCAL())
             ->setContent($content)
             ->setFlushCache(TRUE)

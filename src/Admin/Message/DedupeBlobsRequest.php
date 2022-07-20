@@ -51,9 +51,9 @@ class DedupeBlobsRequest extends Request
      * @param  array $volumes
      * @return self
      */
-    public function __construct(DedupAction $action, array $volumes = [])
+    public function __construct(?DedupAction $action = NULL, array $volumes = [])
     {
-        $this->setAction($action)
+        $this->setAction($action ?? DedupAction::STATUS())
              ->setVolumes($volumes);
     }
 

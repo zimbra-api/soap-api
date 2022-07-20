@@ -21,7 +21,7 @@ class DeleteZimletTest extends ZimbraTestCase
 
         $request = new DeleteZimletRequest($zimlet);
         $this->assertSame($zimlet, $request->getZimlet());
-        $request = new DeleteZimletRequest(new NamedElement(''));
+        $request = new DeleteZimletRequest(new NamedElement());
         $request->setZimlet($zimlet);
         $this->assertSame($zimlet, $request->getZimlet());
 

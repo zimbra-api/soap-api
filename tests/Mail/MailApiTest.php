@@ -3,6 +3,7 @@
 namespace Zimbra\Tests\Mail;
 
 use Zimbra\Mail\{MailApi, MailApiInterface};
+use Zimbra\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -14,5 +15,13 @@ class MailApiTest extends ZimbraTestCase
     {
         $api = $this->createStub(MailApi::class);
         $this->assertTrue($api instanceof MailApiInterface);
+    }
+}
+
+class StubMailApi extends MailApi
+{
+    public function __construct(ClientInterface $client)
+    {
+        $this->setClient($client);
     }
 }

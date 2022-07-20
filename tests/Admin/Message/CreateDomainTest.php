@@ -19,7 +19,7 @@ class CreateDomainTest extends ZimbraTestCase
     {
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $name = $this->faker->word;
+        $name = $this->faker->domainName;
         $id = $this->faker->uuid;
 
         $attr = new Attr($key, $value);
@@ -29,14 +29,14 @@ class CreateDomainTest extends ZimbraTestCase
             $name, [$attr]
         );
         $this->assertSame($name, $request->getName());
-        $request = new CreateDomainRequest('');
+        $request = new CreateDomainRequest();
         $request->setName($name)
             ->setAttrs([$attr]);
         $this->assertSame($name, $request->getName());
 
         $response = new CreateDomainResponse($domain);
         $this->assertSame($domain, $response->getDomain());
-        $response = new CreateDomainResponse(new DomainInfo('', ''));
+        $response = new CreateDomainResponse();
         $response->setDomain($domain);
         $this->assertSame($domain, $response->getDomain());
 

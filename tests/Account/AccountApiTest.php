@@ -441,7 +441,7 @@ EOT;
     {
         $id = $this->faker->uuid;
         $name = $this->faker->locale;
-        $localName = $this->faker->country;
+        $localName = $this->faker->countryCode;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -485,7 +485,7 @@ EOT;
     {
         $id = $this->faker->uuid;
         $name = $this->faker->locale;
-        $localName = $this->faker->country;
+        $localName = $this->faker->countryCode;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
