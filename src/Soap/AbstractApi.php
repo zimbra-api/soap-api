@@ -165,17 +165,20 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
         if ($this->requestHeader instanceof Header) {
             $requestEnvelope->setHeader($this->requestHeader);
         }
+
+        $requestMessage = $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT);
+        $this->getLogger()->debug('Soap request message', ['request' => $requestMessage]);
         $response = $this->client->sendRequest(
-            $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT),
-            [
-                'Content-Type' => static::SOAP_CONTENT_TYPE,
+            $requestMessage, [
+                'Content-Type' => self::SOAP_CONTENT_TYPE,
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
             ]
         );
-        $this->getLogger()->debug('Soap response', ['response' => $response]);
+
+        $responseMessage = $response->getBody()->getContents();
+        $this->getLogger()->debug('Soap response message', ['response' => $responseMessage]);
         $responseEnvelope = $this->getSerializer()->deserialize(
-            $response->getBody()->getContents(),
-            get_class($requestEnvelope), self::SERIALIZE_FORMAT
+            $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
         if ($responseEnvelope->getHeader() instanceof Header) {
             $this->responseHeader = $responseEnvelope->getHeader();
