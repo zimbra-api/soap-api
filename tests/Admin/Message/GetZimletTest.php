@@ -29,8 +29,6 @@ class GetZimletTest extends ZimbraTestCase
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
         $zimlet = new NamedElement($name);
-        $zimletInfo = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
-
         $request = new GetZimletRequest($zimlet, $attrs);
         $this->assertSame($zimlet, $request->getZimlet());
         $this->assertSame($attrs, $request->getAttrs());
@@ -42,11 +40,12 @@ class GetZimletTest extends ZimbraTestCase
         $this->assertSame($zimlet, $request->getZimlet());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $response = new GetZimletResponse($zimletInfo);
-        $this->assertSame($zimletInfo, $response->getZimlet());
-        $response = new GetZimletResponse(new ZimletInfo('', ''));
-        $response->setZimlet($zimletInfo);
-        $this->assertSame($zimletInfo, $response->getZimlet());
+        $zimlet = new ZimletInfo($name, $id, [new Attr($key, $value)], $hasKeyword);
+        $response = new GetZimletResponse($zimlet);
+        $this->assertSame($zimlet, $response->getZimlet());
+        $response = new GetZimletResponse();
+        $response->setZimlet($zimlet);
+        $this->assertSame($zimlet, $response->getZimlet());
 
         $body = new GetZimletBody($request, $response);
         $this->assertSame($request, $body->getRequest());

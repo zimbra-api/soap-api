@@ -23,22 +23,21 @@ class GetFreeBusyQueueInfoTest extends ZimbraTestCase
         $name = $this->faker->word;
         $id = $this->faker->uuid;
 
-        $providerName = new NamedElement($name);
-        $providerInfo = new FreeBusyQueueProvider($name, [new Id($id)]);
-
-        $request = new GetFreeBusyQueueInfoRequest($providerName);
-        $this->assertSame($providerName, $request->getProvider());
+        $provider = new NamedElement($name);
+        $request = new GetFreeBusyQueueInfoRequest($provider);
+        $this->assertSame($provider, $request->getProvider());
         $request = new GetFreeBusyQueueInfoRequest();
-        $request->setProvider($providerName);
-        $this->assertSame($providerName, $request->getProvider());
+        $request->setProvider($provider);
+        $this->assertSame($provider, $request->getProvider());
 
-        $response = new GetFreeBusyQueueInfoResponse([$providerInfo]);
-        $this->assertSame([$providerInfo], $response->getProviders());
+        $provider = new FreeBusyQueueProvider($name, [new Id($id)]);
+        $response = new GetFreeBusyQueueInfoResponse([$provider]);
+        $this->assertSame([$provider], $response->getProviders());
         $response = new GetFreeBusyQueueInfoResponse();
-        $response->setProviders([$providerInfo])
-            ->addProvider($providerInfo);
-        $this->assertSame([$providerInfo, $providerInfo], $response->getProviders());
-        $response->setProviders([$providerInfo]);
+        $response->setProviders([$provider])
+            ->addProvider($provider);
+        $this->assertSame([$provider, $provider], $response->getProviders());
+        $response->setProviders([$provider]);
 
         $body = new GetFreeBusyQueueInfoBody($request, $response);
         $this->assertSame($request, $body->getRequest());

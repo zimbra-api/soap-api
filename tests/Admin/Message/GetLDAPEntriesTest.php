@@ -20,14 +20,13 @@ class GetLDAPEntriesTest extends ZimbraTestCase
         $ldapSearchBase = $this->faker->word;
         $sortBy = $this->faker->word;
         $query = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $name = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($key, $value);
-        $LDAPEntry = new LDAPEntryInfo($name, [$attr]);
+        $LDAPEntry = new LDAPEntryInfo($name, [new Attr($key, $value)]);
 
         $request = new GetLDAPEntriesRequest(
             $ldapSearchBase, $sortBy, FALSE, $limit, $offset, $query
@@ -39,7 +38,7 @@ class GetLDAPEntriesTest extends ZimbraTestCase
         $this->assertSame($offset, $request->getOffset());
         $this->assertSame($query, $request->getQuery());
 
-        $request = new GetLDAPEntriesRequest('');
+        $request = new GetLDAPEntriesRequest();
         $request->setLdapSearchBase($ldapSearchBase)
             ->setSortBy($sortBy)
             ->setSortAscending(TRUE)

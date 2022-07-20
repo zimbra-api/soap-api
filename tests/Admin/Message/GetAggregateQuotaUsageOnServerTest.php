@@ -16,9 +16,9 @@ class GetAggregateQuotaUsageOnServerTest extends ZimbraTestCase
 {
     public function testGetAggregateQuotaUsageOnServer()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->domainName;
         $id = $this->faker->uuid;
-        $quotaUsed = mt_rand(1, 100);
+        $quotaUsed = $this->faker->randomNumber;
         $domain = new DomainAggregateQuotaInfo($name, $id, $quotaUsed);
 
         $request = new GetAggregateQuotaUsageOnServerRequest();

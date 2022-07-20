@@ -29,7 +29,7 @@ class GetShareInfoTest extends ZimbraTestCase
         $ownerId = $this->faker->uuid;
         $ownerEmail = $this->faker->email;
         $ownerDisplayName = $this->faker->name;
-        $folderId = mt_rand(1, 100);
+        $folderId = $this->faker->randomNumber;
         $folderUuid = $this->faker->uuid;
         $folderPath = $this->faker->word;
         $defaultView = $this->faker->word;
@@ -47,7 +47,7 @@ class GetShareInfoTest extends ZimbraTestCase
         $this->assertSame($grantee, $request->getGrantee());
         $this->assertSame($owner, $request->getOwner());
 
-        $request = new GetShareInfoRequest(new AccountSelector(AccountBy::NAME(), ''));
+        $request = new GetShareInfoRequest(new AccountSelector());
         $request->setGrantee($grantee)
             ->setOwner($owner);
         $this->assertSame($grantee, $request->getGrantee());

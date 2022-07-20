@@ -39,10 +39,10 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         $name = $this->faker->word;
         $value = $this->faker->word;
         $secret = $this->faker->word;
-        $value1= $this->faker->text;
-        $value2= $this->faker->text;
-        $min= $this->faker->word;
-        $max= $this->faker->word;
+        $value1 = $this->faker->unique->word;
+        $value2 = $this->faker->unique->word;
+        $min = $this->faker->word;
+        $max = $this->faker->word;
         $expandAttrs = [GetEffectiveRightsRequest::EXPAND_SET_ATTRS, GetEffectiveRightsRequest::EXPAND_GET_ATTRS];
 
         $granteeSelector = new GranteeSelector(
@@ -77,9 +77,7 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         );
         $this->assertSame($targetSelector, $request->getTarget());
         $this->assertSame($granteeSelector, $request->getGrantee());
-        $request = new GetEffectiveRightsRequest(new EffectiveRightsTargetSelector(
-            TargetType::ACCOUNT(), TargetBy::NAME(), ''
-        ));
+        $request = new GetEffectiveRightsRequest(new EffectiveRightsTargetSelector());
         $request->setTarget($targetSelector)
             ->setGrantee($granteeSelector)
              ->setExpandAllAttrs(GetEffectiveRightsRequest::EXPAND_SET_ATTRS);
@@ -93,9 +91,7 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         $response = new GetEffectiveRightsResponse($granteeInfo, $targetInfo);
         $this->assertSame($granteeInfo, $response->getGrantee());
         $this->assertSame($targetInfo, $response->getTarget());
-        $response = new GetEffectiveRightsResponse(new GranteeInfo(
-            $id, $name, GranteeType::ALL()
-        ), new EffectiveRightsTargetInfo(TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]));
+        $response = new GetEffectiveRightsResponse();
         $response->setGrantee($granteeInfo)
             ->setTarget($targetInfo);
         $this->assertSame($granteeInfo, $response->getGrantee());
@@ -127,7 +123,7 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         <urn:GetEffectiveRightsResponse>
             <urn:grantee id="$id" name="$name" type="all" />
             <urn:target type="account" id="$id" name="$name">
-            <urn:right n="$name" />
+                <urn:right n="$name" />
                 <urn:setAttrs all="true">
                     <urn:a n="$name">
                         <urn:constraint>

@@ -18,12 +18,12 @@ class GetMailQueueInfoTest extends ZimbraTestCase
     public function testGetMailQueueInfo()
     {
         $name = $this->faker->word;
-        $count = mt_rand(1, 100);
+        $count = $this->faker->randomNumber;
 
         $server = new NamedElement($name);
         $request = new GetMailQueueInfoRequest($server);
         $this->assertSame($server, $request->getServer());
-        $request = new GetMailQueueInfoRequest(new NamedElement(''));
+        $request = new GetMailQueueInfoRequest(new NamedElement());
         $request->setServer($server);
         $this->assertSame($server, $request->getServer());
 
@@ -31,7 +31,7 @@ class GetMailQueueInfoTest extends ZimbraTestCase
         $response = new GetMailQueueInfoResponse($server);
         $this->assertSame($server, $response->getServer());
 
-        $response = new GetMailQueueInfoResponse(new ServerQueues('', [new MailQueueCount('', 0)]));
+        $response = new GetMailQueueInfoResponse();
         $response->setServer($server);
         $this->assertSame($server, $response->getServer());
 

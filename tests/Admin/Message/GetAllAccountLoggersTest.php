@@ -22,18 +22,17 @@ class GetAllAccountLoggersTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $category = $this->faker->word;
 
-        $logger = new LoggerInfo($category, LoggingLevel::INFO());
-        $accountLogger = new AccountLoggerInfo($name, $id, [$logger]);
+        $logger = new AccountLoggerInfo($name, $id, [new LoggerInfo($category, LoggingLevel::INFO())]);
 
         $request = new GetAllAccountLoggersRequest();
 
-        $response = new GetAllAccountLoggersResponse([$accountLogger]);
-        $this->assertSame([$accountLogger], $response->getLoggers());
+        $response = new GetAllAccountLoggersResponse([$logger]);
+        $this->assertSame([$logger], $response->getLoggers());
         $response = new GetAllAccountLoggersResponse();
-        $response->setLoggers([$accountLogger])
-            ->addLogger($accountLogger);
-        $this->assertSame([$accountLogger, $accountLogger], $response->getLoggers());
-        $response->setLoggers([$accountLogger]);
+        $response->setLoggers([$logger])
+            ->addLogger($logger);
+        $this->assertSame([$logger, $logger], $response->getLoggers());
+        $response->setLoggers([$logger]);
 
         $body = new GetAllAccountLoggersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

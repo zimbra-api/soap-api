@@ -21,7 +21,7 @@ class GetDomainInfoTest extends ZimbraTestCase
 {
     public function testGetDomainInfo()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->domainName;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;

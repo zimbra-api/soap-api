@@ -27,11 +27,11 @@ class GetMailQueueTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $limit = mt_rand(0, 100);
-        $offset = mt_rand(0, 100);
-        $wait = mt_rand(0, 100);
-        $scanTime = time();
-        $total = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $wait = $this->faker->randomNumber;
+        $scanTime = $this->faker->unixTime;
+        $total = $this->faker->randomNumber;
         $id = $this->faker->word;
         $time = $this->faker->word;
         $fromdomain = $this->faker->word;
@@ -44,7 +44,7 @@ class GetMailQueueTest extends ZimbraTestCase
         $filter = $this->faker->word;
         $todomain = $this->faker->word;
         $received = $this->faker->word;
-        $count = mt_rand(1, 100);
+        $count = $this->faker->randomNumber;
         $term = $this->faker->word;
         $type = $this->faker->word;
 
@@ -58,7 +58,7 @@ class GetMailQueueTest extends ZimbraTestCase
 
         $request = new GetMailQueueRequest($server);
         $this->assertSame($server, $request->getServer());
-        $request = new GetMailQueueRequest(new ServerMailQueueQuery($queue, ''));
+        $request = new GetMailQueueRequest(new ServerMailQueueQuery($queue));
         $request->setServer($server);
         $this->assertSame($server, $request->getServer());
 
@@ -72,7 +72,7 @@ class GetMailQueueTest extends ZimbraTestCase
         $response = new GetMailQueueResponse($server);
         $this->assertSame($server, $response->getServer());
 
-        $response = new GetMailQueueResponse(new ServerMailQueueDetails($queue, ''));
+        $response = new GetMailQueueResponse(new ServerMailQueueDetails($queue));
         $response->setServer($server);
         $this->assertSame($server, $response->getServer());
 

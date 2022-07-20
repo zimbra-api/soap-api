@@ -46,12 +46,8 @@ class GrantRightTest extends ZimbraTestCase
         $this->assertSame($grantee, $request->getGrantee());
         $this->assertSame($right, $request->getRight());
         $request = new GrantRightRequest(
-            new EffectiveRightsTargetSelector(
-                TargetType::DOMAIN(), TargetBy::ID(), ''
-            ),
-            new GranteeSelector(
-                '', GranteeType::ALL(), GranteeBy::NAME(), '', FALSE
-            ),
+            new EffectiveRightsTargetSelector(),
+            new GranteeSelector(),
             new RightModifierInfo()
         );
         $request->setTarget($target)

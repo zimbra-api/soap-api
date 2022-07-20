@@ -964,11 +964,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAdminConsoleUI(
+    public function getAdminConsoleUIComp(
         ?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL
-    ): Message\GetAdminConsoleUIResponse
+    ): Message\GetAdminConsoleUICompResponse
     {
-        return $this->invoke(new Message\GetAdminConsoleUIRequest(
+        return $this->invoke(new Message\GetAdminConsoleUICompRequest(
             $account, $dl
         ));
     }
@@ -1238,7 +1238,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfig(Attr $attr = NULL): Message\GetConfigResponse
+    public function getConfig(?Attr $attr = NULL): Message\GetConfigResponse
     {
         return $this->invoke(new Message\GetConfigRequest(
             $attr
@@ -1563,7 +1563,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getServerNIfs(ServerSelector $server, IpType $type = NULL): Message\GetServerNIfsResponse
+    public function getServerNIfs(ServerSelector $server, ?IpType $type = NULL): Message\GetServerNIfsResponse
     {
         return $this->invoke(new Message\GetServerNIfsRequest(
             $server, $type
@@ -1585,9 +1585,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getServiceStatus(): Message\GetServiceStatusResponse
     {
-        return $this->invoke(new Message\GetServiceStatusRequest(
-            $stats
-        ));
+        return $this->invoke(new Message\GetServiceStatusRequest());
     }
 
     /**

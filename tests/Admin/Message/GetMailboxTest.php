@@ -20,8 +20,8 @@ class GetMailboxTest extends ZimbraTestCase
     public function testGetMailbox()
     {
         $id = $this->faker->uuid;
-        $mbxid = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
+        $mbxid = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
 
         $mbox = new MailboxByAccountIdSelector($id);
         $request = new GetMailboxRequest($mbox);
@@ -34,7 +34,7 @@ class GetMailboxTest extends ZimbraTestCase
         $mbox = new MailboxWithMailboxId($mbxid, $id, $size);
         $response = new GetMailboxResponse($mbox);
         $this->assertSame($mbox, $response->getMbox());
-        $response = new GetMailboxResponse(new MailboxWithMailboxId(0, $id, 0));
+        $response = new GetMailboxResponse();
         $response->setMbox($mbox);
         $this->assertSame($mbox, $response->getMbox());
 

@@ -16,20 +16,19 @@ class GetAccountMembershipTest extends ZimbraTestCase
 {
     public function testGetAccountMembership()
     {
-        $via = $this->faker->word;
-        $name = $this->faker->word;
+        $via = $this->faker->email;
+        $name = $this->faker->email;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($key, $value);
-        $dl = new DLInfo($via, $name, $id, TRUE, [$attr]);
+        $dl = new DLInfo($via, $name, $id, TRUE, [new Attr($key, $value)]);
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
 
         $request = new GetAccountMembershipRequest($account);
         $this->assertSame($account, $request->getAccount());
-        $request = new GetAccountMembershipRequest(new AccountSelector(AccountBy::NAME(), ''));
+        $request = new GetAccountMembershipRequest(new AccountSelector());
         $request->setAccount($account);
         $this->assertSame($account, $request->getAccount());
 

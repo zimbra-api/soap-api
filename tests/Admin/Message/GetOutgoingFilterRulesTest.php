@@ -90,13 +90,13 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
     public function testGetOutgoingFilterRules()
     {
         $type = AdminFilterType::BEFORE();
-        $index = mt_rand(1, 99);
+        $index = $this->faker->randomNumber;
         $header = $this->faker->word;
         $name = $this->faker->word;
         $value = $this->faker->word;
         $where = $this->faker->word;
-        $time = $this->faker->word;
-        $date = time();
+        $time = $this->faker->time;
+        $date = $this->faker->unixTime;
         $flag = $this->faker->word;
         $tag = $this->faker->word;
         $method = $this->faker->word;
@@ -105,7 +105,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
         $address = $this->faker->word;
         $content = $this->faker->word;
         $subject = $this->faker->word;
-        $maxBodySize = mt_rand(1, 99);
+        $maxBodySize = $this->faker->randomNumber;
         $origHeaders = $this->faker->word;
         $from = $this->faker->word;
         $importance = $this->faker->word;
@@ -113,7 +113,7 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
         $message = $this->faker->word;
         $headerName = $this->faker->word;
         $headerValue = $this->faker->word;
-        $offset = mt_rand(1, 99);
+        $offset = $this->faker->randomNumber;
         $newName = $this->faker->word;
         $newValue = $this->faker->word;
 

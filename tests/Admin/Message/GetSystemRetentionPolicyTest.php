@@ -38,7 +38,7 @@ class GetSystemRetentionPolicyTest extends ZimbraTestCase
 
         $response = new GetSystemRetentionPolicyResponse($retention);
         $this->assertSame($retention, $response->getRetentionPolicy());
-        $response = new GetSystemRetentionPolicyResponse(new RetentionPolicy());
+        $response = new GetSystemRetentionPolicyResponse();
         $response->setRetentionPolicy($retention);
         $this->assertSame($retention, $response->getRetentionPolicy());
 

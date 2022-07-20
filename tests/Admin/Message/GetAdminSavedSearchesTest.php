@@ -21,8 +21,6 @@ class GetAdminSavedSearchesTest extends ZimbraTestCase
         $value = $this->faker->word;
 
         $search = new NamedElement($name);
-        $savedSearch = new NamedValue($name, $value);
-
         $request = new GetAdminSavedSearchesRequest([$search]);
         $this->assertSame([$search], $request->getSearches());
         $request = new GetAdminSavedSearchesRequest();
@@ -31,13 +29,14 @@ class GetAdminSavedSearchesTest extends ZimbraTestCase
         $this->assertSame([$search, $search], $request->getSearches());
         $request->setSearches([$search]);
 
-        $response = new GetAdminSavedSearchesResponse([$savedSearch]);
-        $this->assertSame([$savedSearch], $response->getSearches());
+        $search = new NamedValue($name, $value);
+        $response = new GetAdminSavedSearchesResponse([$search]);
+        $this->assertSame([$search], $response->getSearches());
         $response = new GetAdminSavedSearchesResponse();
-        $response->setSearches([$savedSearch])
-            ->addSearch($savedSearch);
-        $this->assertSame([$savedSearch, $savedSearch], $response->getSearches());
-        $response->setSearches([$savedSearch]);
+        $response->setSearches([$search])
+            ->addSearch($search);
+        $this->assertSame([$search, $search], $response->getSearches());
+        $response->setSearches([$search]);
 
         $body = new GetAdminSavedSearchesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

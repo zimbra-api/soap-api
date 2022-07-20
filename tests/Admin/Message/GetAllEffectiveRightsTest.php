@@ -37,10 +37,10 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
         $name = $this->faker->name;
         $value = $this->faker->text;
         $secret = $this->faker->text;
-        $value1= $this->faker->text;
-        $value2= $this->faker->text;
-        $min= $this->faker->word;
-        $max= $this->faker->word;
+        $value1 = $this->faker->unique->text;
+        $value2 = $this->faker->unique->text;
+        $min = $this->faker->word;
+        $max = $this->faker->word;
 
         $granteeSelector = new GranteeSelector(
             $value, GranteeType::ALL(), GranteeBy::NAME(), $secret, TRUE

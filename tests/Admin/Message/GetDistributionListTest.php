@@ -27,9 +27,9 @@ class GetDistributionListTest extends ZimbraTestCase
         $value = $this->faker->word;
         $member = $this->faker->word;
         $attrs = $this->faker->word;
-        $limit = mt_rand(1, 10);
-        $offset = mt_rand(1, 10);
-        $total = mt_rand(1, 10);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $total = $this->faker->randomNumber;
 
         $owner = new GranteeInfo(
             $id, $name, GranteeType::ALL()

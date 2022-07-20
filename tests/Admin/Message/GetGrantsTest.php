@@ -50,7 +50,6 @@ class GetGrantsTest extends ZimbraTestCase
         $this->assertSame($target, $request->getTarget());
         $this->assertSame($grantee, $request->getGrantee());
 
-
         $grant = new GrantInfo(
             new TypeIdName($type, $id, $name),
             new GranteeInfo($id, $name, GranteeType::USR()),

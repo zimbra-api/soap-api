@@ -22,8 +22,7 @@ class GetAllAdminAccountsTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($key, $value);
-        $account = new AccountInfo($name, $id, TRUE, [$attr]);
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new GetAllAdminAccountsRequest(FALSE);
         $this->assertFalse($request->isApplyCos());

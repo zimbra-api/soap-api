@@ -17,13 +17,13 @@ class GetVolumeTest extends ZimbraTestCase
 {
     public function testGetVolume()
     {
-        $id = mt_rand(0, 10);
+        $id = $this->faker->randomNumber;
         $type = $this->faker->randomElement(VolumeType::toArray());
-        $threshold = mt_rand(0, 10);
-        $mgbits = mt_rand(0, 10);
-        $mbits = mt_rand(0, 10);
-        $fgbits = mt_rand(0, 10);
-        $fbits = mt_rand(0, 10);
+        $threshold = $this->faker->randomNumber;
+        $mgbits = $this->faker->randomNumber;
+        $mbits = $this->faker->randomNumber;
+        $fgbits = $this->faker->randomNumber;
+        $fbits = $this->faker->randomNumber;
         $name = $this->faker->word;
         $rootPath = $this->faker->word;
 
@@ -33,13 +33,13 @@ class GetVolumeTest extends ZimbraTestCase
 
         $request = new GetVolumeRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new GetVolumeRequest(0);
+        $request = new GetVolumeRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 
         $response = new GetVolumeResponse($volume);
         $this->assertSame($volume, $response->getVolume());
-        $response = new GetVolumeResponse(new VolumeInfo());
+        $response = new GetVolumeResponse();
         $response->setVolume($volume);
         $this->assertSame($volume, $response->getVolume());
 

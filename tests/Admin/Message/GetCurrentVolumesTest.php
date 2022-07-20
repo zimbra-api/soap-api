@@ -16,8 +16,8 @@ class GetCurrentVolumesTest extends ZimbraTestCase
 {
     public function testGetCurrentVolumes()
     {
-        $type = mt_rand(1, 10);
-        $id = mt_rand(1, 10);
+        $type = $this->faker->randomNumber;
+        $id = $this->faker->randomNumber;
 
         $volume = new CurrentVolumeInfo($type, $id);
 

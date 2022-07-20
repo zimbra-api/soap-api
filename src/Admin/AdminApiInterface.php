@@ -902,11 +902,11 @@ interface AdminApiInterface extends ApiInterface
      * 
      * @param  AccountSelector $account
      * @param  DistributionListSelector $dl
-     * @return Message\GetAdminConsoleUIResponse
+     * @return Message\GetAdminConsoleUICompResponse
      */
-    function getAdminConsoleUI(
+    function getAdminConsoleUIComp(
         ?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL
-    ): Message\GetAdminConsoleUIResponse;
+    ): Message\GetAdminConsoleUICompResponse;
 
     /**
      * Returns the admin extension addon Zimlets.
@@ -1143,12 +1143,12 @@ interface AdminApiInterface extends ApiInterface
     ): Message\GetCalendarResourceResponse;
 
     /**
-     * Get Config
+     * Get config
      * 
      * @param  Attr $attr
      * @return Message\GetConfigResponse
      */
-    function getConfig(Attr $attr = NULL): Message\GetConfigResponse;
+    function getConfig(?Attr $attr = NULL): Message\GetConfigResponse;
 
     /**
      * Get Class Of Service (COS)
@@ -1486,7 +1486,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  IpType $type
      * @return Message\GetServerNIfsResponse
      */
-    function getServerNIfs(ServerSelector $server, IpType $type = NULL): Message\GetServerNIfsResponse;
+    function getServerNIfs(ServerSelector $server, ?IpType $type = NULL): Message\GetServerNIfsResponse;
 
     /**
      * Returns server monitoring stats.

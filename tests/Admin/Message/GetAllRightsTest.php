@@ -32,7 +32,6 @@ class GetAllRightsTest extends ZimbraTestCase
         $rights = new ComboRights([new ComboRightInfo(
             $name, RightType::PRESET(), $targetType
         )]);
-
         $right = new RightInfo($name, RightType::PRESET(), RightClass::ALL(), $desc, $targetType, $attrs, $rights);
 
         $request = new GetAllRightsRequest($targetType, FALSE, RightClass::ALL());

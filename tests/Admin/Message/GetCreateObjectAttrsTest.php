@@ -23,9 +23,9 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
     {
         $type = $this->faker->word;
         $name = $this->faker->word;
-        $value= $this->faker->word;
-        $value1 = $this->faker->text;
-        $value2 = $this->faker->text;
+        $value = $this->faker->word;
+        $value1 = $this->faker->unique->word;
+        $value2 = $this->faker->unique->word;
         $max = $this->faker->word;
         $min = $this->faker->word;
 
@@ -42,7 +42,7 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
         $this->assertSame($domain, $request->getDomain());
         $this->assertSame($cos, $request->getCos());
 
-        $request = new GetCreateObjectAttrsRequest(new TargetWithType('', ''));
+        $request = new GetCreateObjectAttrsRequest(new TargetWithType());
         $request->setTarget($target)
             ->setDomain($domain)
             ->setCos($cos);
@@ -52,7 +52,7 @@ class GetCreateObjectAttrsTest extends ZimbraTestCase
 
         $response = new GetCreateObjectAttrsResponse($setAttrs);
         $this->assertSame($setAttrs, $response->getSetAttrs());
-        $response = new GetCreateObjectAttrsResponse(new EffectiveAttrsInfo(FALSE));
+        $response = new GetCreateObjectAttrsResponse();
         $response->setSetAttrs($setAttrs);
         $this->assertSame($setAttrs, $response->getSetAttrs());
 

@@ -27,12 +27,11 @@ class GetAccountInfoTest extends ZimbraTestCase
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $attr = new Attr($key, $value);
-        $cosAttr = new CosInfoAttr($key, $value, TRUE, TRUE);
-        $cos = new CosInfo($name, $id, TRUE, [$cosAttr]);
+        $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, TRUE)]);
 
         $request = new GetAccountInfoRequest($account);
         $this->assertSame($account, $request->getAccount());
-        $request = new GetAccountInfoRequest(new AccountSelector(AccountBy::ID(), ''));
+        $request = new GetAccountInfoRequest(new AccountSelector());
         $request->setAccount($account);
         $this->assertSame($account, $request->getAccount());
 
@@ -46,7 +45,7 @@ class GetAccountInfoTest extends ZimbraTestCase
         $this->assertSame($adminSoapURL, $response->getAdminSoapURL());
         $this->assertSame($publicMailURL, $response->getPublicMailURL());
 
-        $response = new GetAccountInfoResponse('');
+        $response = new GetAccountInfoResponse();
         $response->setName($name)
             ->setAttrList([$attr])
             ->setCos($cos)

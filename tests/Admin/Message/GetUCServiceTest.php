@@ -25,25 +25,24 @@ class GetUCServiceTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $ucs = new UcServiceSelector(UcServiceBy::NAME(), $value);
-        $uci = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
-
-        $request = new GetUCServiceRequest($ucs, $attrs);
-        $this->assertSame($ucs, $request->getUCService());
+        $ucservice = new UcServiceSelector(UcServiceBy::NAME(), $value);
+        $request = new GetUCServiceRequest($ucservice, $attrs);
+        $this->assertSame($ucservice, $request->getUCService());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $request = new GetUCServiceRequest(new UcServiceSelector(UcServiceBy::ID(), ''));
-        $request->setUCService($ucs)
+        $request = new GetUCServiceRequest(new UcServiceSelector());
+        $request->setUCService($ucservice)
             ->setAttrs($attr1)
             ->addAttrs($attr2, $attr3);
-        $this->assertSame($ucs, $request->getUCService());
+        $this->assertSame($ucservice, $request->getUCService());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $response = new GetUCServiceResponse($uci);
-        $this->assertSame($uci, $response->getUCService());
-        $response = new GetUCServiceResponse(new UCServiceInfo('', ''));
-        $response->setUCService($uci);
-        $this->assertSame($uci, $response->getUCService());
+        $ucservice = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
+        $response = new GetUCServiceResponse($ucservice);
+        $this->assertSame($ucservice, $response->getUCService());
+        $response = new GetUCServiceResponse();
+        $response->setUCService($ucservice);
+        $this->assertSame($ucservice, $response->getUCService());
 
         $body = new GetUCServiceBody($request, $response);
         $this->assertSame($request, $body->getRequest());

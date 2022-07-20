@@ -20,11 +20,11 @@ class GetServiceStatusTest extends ZimbraTestCase
 {
     public function testGetServiceStatus()
     {
-        $id = $this->faker->word;
-        $displayName = $this->faker->word;
+        $id = $this->faker->uuid;
+        $displayName = $this->faker->name;
         $server = $this->faker->word;
         $service = $this->faker->word;
-        $time = time();
+        $time = $this->faker->unixTime;
 
         $request = new GetServiceStatusRequest();
 
@@ -33,7 +33,7 @@ class GetServiceStatusTest extends ZimbraTestCase
         $response = new GetServiceStatusResponse($timezone, [$status]);
         $this->assertSame($timezone, $response->getTimezone());
         $this->assertSame([$status], $response->getServiceStatuses());
-        $response = new GetServiceStatusResponse(new TimeZoneInfo('', ''));
+        $response = new GetServiceStatusResponse();
         $response->setTimezone($timezone)
             ->setServiceStatuses([$status])
             ->addServiceStatus($status);

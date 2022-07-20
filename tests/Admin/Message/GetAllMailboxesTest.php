@@ -16,21 +16,21 @@ class GetAllMailboxesTest extends ZimbraTestCase
 {
     public function testGetAllMailboxes()
     {
-        $id = mt_rand(1, 100);
-        $groupId = mt_rand(1, 100);
+        $id = $this->faker->randomNumber;
+        $groupId = $this->faker->randomNumber;
         $accountId = $this->faker->uuid;
-        $indexVolumeId = mt_rand(1, 100);
-        $itemIdCheckPoint = mt_rand(1, 100);
-        $contactCount = mt_rand(1, 100);
-        $sizeCheckPoint = mt_rand(1, 100);
-        $changeCheckPoint = mt_rand(1, 100);
-        $trackingSync = mt_rand(1, 100);
-        $lastBackupAt = mt_rand(1, 100);
-        $lastSoapAccess = mt_rand(1, 100);
-        $newMessages = mt_rand(1, 100);
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
-        $searchTotal = mt_rand(1, 100);
+        $indexVolumeId = $this->faker->randomNumber;
+        $itemIdCheckPoint = $this->faker->randomNumber;
+        $contactCount = $this->faker->randomNumber;
+        $sizeCheckPoint = $this->faker->randomNumber;
+        $changeCheckPoint = $this->faker->randomNumber;
+        $trackingSync = $this->faker->randomNumber;
+        $lastBackupAt = $this->faker->randomNumber;
+        $lastSoapAccess = $this->faker->randomNumber;
+        $newMessages = $this->faker->randomNumber;
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $searchTotal = $this->faker->randomNumber;
 
         $mbox = new MailboxInfo(
             $id, $groupId, $accountId, $indexVolumeId, $itemIdCheckPoint,
@@ -52,7 +52,7 @@ class GetAllMailboxesTest extends ZimbraTestCase
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$mbox], $response->getMboxes());
 
-        $response = new GetAllMailboxesResponse(FALSE, 0);
+        $response = new GetAllMailboxesResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
             ->setMboxes([$mbox])

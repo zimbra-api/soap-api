@@ -22,7 +22,7 @@ class GetZimletStatusTest extends ZimbraTestCase
     public function testGetZimletStatus()
     {
         $name = $this->faker->name;
-        $priority = mt_rand(1, 100);
+        $priority = $this->faker->randomNumber;
 
         $zimlet = new ZimletStatus($name, ZimletStatusSetting::ENABLED(), TRUE, $priority);
         $zimlets = new ZimletStatusParent([$zimlet]);
@@ -33,7 +33,7 @@ class GetZimletStatusTest extends ZimbraTestCase
         $response = new GetZimletStatusResponse($zimlets, [$cos]);
         $this->assertSame($zimlets, $response->getZimlets());
         $this->assertSame([$cos], $response->getCoses());
-        $response = new GetZimletStatusResponse(new ZimletStatusParent());
+        $response = new GetZimletStatusResponse();
         $response->setZimlets($zimlets)
             ->setCoses([$cos])
             ->addCos($cos);
