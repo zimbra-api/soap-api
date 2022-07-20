@@ -88,7 +88,7 @@ class GetAllRightsRequest extends Request
      *
      * @return string
      */
-    public function getTargetType(): string
+    public function getTargetType(): ?string
     {
         return $this->targetType;
     }
@@ -110,7 +110,7 @@ class GetAllRightsRequest extends Request
      *
      * @return bool
      */
-    public function isExpandAllAttrs(): bool
+    public function isExpandAllAttrs(): ?bool
     {
         return $this->expandAllAttrs;
     }
@@ -132,7 +132,7 @@ class GetAllRightsRequest extends Request
      *
      * @return RightClass
      */
-    public function getRightClass(): RightClass
+    public function getRightClass(): ?RightClass
     {
         return $this->rightClass;
     }

@@ -20,11 +20,11 @@ class GetQuotaUsageTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $domain = $this->faker->word;
         $sortBy = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
-        $quotaUsed = mt_rand(1, 100);
-        $quotaLimit = mt_rand(1, 100);
-        $searchTotal = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $quotaUsed = $this->faker->randomNumber;
+        $quotaLimit = $this->faker->randomNumber;
+        $searchTotal = $this->faker->randomNumber;
 
         $request = new GetQuotaUsageRequest($domain, FALSE, $limit, $offset, $sortBy, FALSE, FALSE);
         $this->assertSame($domain, $request->getDomain());
@@ -59,7 +59,7 @@ class GetQuotaUsageTest extends ZimbraTestCase
         $this->assertFalse($response->isMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$account], $response->getAccountQuotas());
-        $response = new GetQuotaUsageResponse(FALSE, 0);
+        $response = new GetQuotaUsageResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
             ->setAccountQuotas([$account])

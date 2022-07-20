@@ -18,7 +18,7 @@ class GetLicenseInfoTest extends ZimbraTestCase
 {
     public function testGetLicenseInfo()
     {
-        $date = date('Ymd');
+        $date = $this->faker->date;
         $expiration = new LicenseExpirationInfo($date);
 
         $request = new GetLicenseInfoRequest();

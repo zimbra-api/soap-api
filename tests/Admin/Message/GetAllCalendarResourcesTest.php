@@ -30,8 +30,7 @@ class GetAllCalendarResourcesTest extends ZimbraTestCase
 
         $server = new ServerSelector(ServerBy::NAME(), $value);
         $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $attr = new Attr($key, $value);
-        $resource = new CalendarResourceInfo($name, $id, [$attr]);
+        $resource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
 
         $request = new GetAllCalendarResourcesRequest($server, $domain);
         $this->assertSame($server, $request->getServer());

@@ -100,7 +100,7 @@ class GetEffectiveRightsRequest extends Request
      *
      * @return string
      */
-    public function getExpandAllAttrs(): string
+    public function getExpandAllAttrs(): ?string
     {
         return $this->expandAllAttrs;
     }

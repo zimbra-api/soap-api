@@ -16,8 +16,8 @@ class CmdRightsInfoTest extends ZimbraTestCase
     public function testCmdRightsInfo()
     {
         $name = $this->faker->word;
-        $note1 = $this->faker->word;
-        $note2 = $this->faker->word;
+        $note1 = $this->faker->unique->text;
+        $note2 = $this->faker->unique->text;
 
         $right = new NamedElement($name);
 

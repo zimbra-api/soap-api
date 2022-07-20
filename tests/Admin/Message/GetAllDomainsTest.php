@@ -17,7 +17,7 @@ class GetAllDomainsTest extends ZimbraTestCase
 {
     public function testGetAllDomains()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->domainName;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;

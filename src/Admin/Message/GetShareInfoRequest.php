@@ -65,7 +65,7 @@ class GetShareInfoRequest extends Request
      *
      * @return Grantee
      */
-    public function getGrantee(): Grantee
+    public function getGrantee(): ?Grantee
     {
         return $this->grantee;
     }

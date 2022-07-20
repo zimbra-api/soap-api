@@ -32,7 +32,7 @@ class GetServerNIfsTest extends ZimbraTestCase
         $request = new GetServerNIfsRequest($server, IpType::BOTH());
         $this->assertSame($server, $request->getServer());
         $this->assertEquals(IpType::BOTH(), $request->getType());
-        $request = new GetServerNIfsRequest(new ServerSelector(ServerBy::NAME(), ''));
+        $request = new GetServerNIfsRequest(new ServerSelector());
         $request->setServer($server)
             ->setType(IpType::BOTH());
         $this->assertSame($server, $request->getServer());

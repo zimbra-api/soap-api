@@ -27,7 +27,7 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
     public function testGetAdminExtensionZimlets()
     {
         $baseUrl = $this->faker->word;
-        $priority = mt_rand(1, 10);
+        $priority = $this->faker->randomNumber;
         $name = $this->faker->word;
         $version = $this->faker->word;
         $description = $this->faker->word;
@@ -42,7 +42,6 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
         $zimletContext = new AdminZimletContext(
             $baseUrl, ZimletPresence::ENABLED(), $priority
         );
-
         $serverExtension = new ZimletServerExtension(
             $hasKeyword, $extensionClass, $regex
         );
@@ -54,7 +53,6 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
         $zimletDesc->setServerExtension($serverExtension)
             ->setZimletInclude($include)
             ->setZimletIncludeCSS($includeCSS);
-
         $property = new AdminZimletProperty($name, $value);
         $global = new AdminZimletGlobalConfigInfo([$property]);
         $host = new AdminZimletHostConfigInfo($name, [$property]);
@@ -63,7 +61,6 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
         );
         $zimletConfig->setGlobal($global)
             ->setHost($host);
-
         $zimlet = new AdminZimletInfo(
             $zimletContext, $zimletDesc, $zimletConfig
         );

@@ -21,7 +21,7 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $dl = new DistributionListSelector(DLBy::NAME(), $value);
-        $flag = new InheritedFlaggedValue(TRUE, $value);
+        $val = new InheritedFlaggedValue(TRUE, $value);
 
         $request = new GetAdminConsoleUICompRequest($account, $dl);
         $this->assertSame($account, $request->getAccount());
@@ -32,14 +32,13 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($dl, $request->getDl());
 
-        $response = new GetAdminConsoleUICompResponse([$flag]);
-        $this->assertSame([$flag], $response->getValues());
-
+        $response = new GetAdminConsoleUICompResponse([$val]);
+        $this->assertSame([$val], $response->getValues());
         $response = new GetAdminConsoleUICompResponse();
-        $response->setValues([$flag])
-            ->addValue($flag);
-        $this->assertSame([$flag, $flag], $response->getValues());
-        $response->setValues([$flag]);
+        $response->setValues([$val])
+            ->addValue($val);
+        $this->assertSame([$val, $val], $response->getValues());
+        $response->setValues([$val]);
 
         $body = new GetAdminConsoleUICompBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -22,7 +22,7 @@ class GetRightTest extends ZimbraTestCase
 {
     public function testGetRight()
     {
-        $right = $this->faker->uuid;
+        $right = $this->faker->word;
         $name = $this->faker->word;
         $targetType = $this->faker->word;
         $desc = $this->faker->word;
@@ -33,7 +33,7 @@ class GetRightTest extends ZimbraTestCase
         $this->assertSame($right, $request->getRight());
         $this->assertFalse($request->getExpandAllAttrs());
 
-        $request = new GetRightRequest('');
+        $request = new GetRightRequest();
         $request->setRight($right)
             ->setExpandAllAttrs(TRUE);
         $this->assertSame($right, $request->getRight());

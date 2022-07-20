@@ -72,7 +72,7 @@ class GetAttributeInfoRequest extends Request
      *
      * @return string
      */
-    public function getAttrs(): string
+    public function getAttrs(): ?string
     {
         return $this->attrs;
     }
@@ -94,7 +94,7 @@ class GetAttributeInfoRequest extends Request
      *
      * @return string
      */
-    public function getEntryTypes(): string
+    public function getEntryTypes(): ?string
     {
         return $this->entryTypes;
     }

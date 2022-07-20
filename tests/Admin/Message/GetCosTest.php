@@ -25,28 +25,25 @@ class GetCosTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $attr = new CosInfoAttr($key, $value, TRUE, FALSE);
         $cos = new CosSelector(CosBy::NAME(), $value);
-        $cosInfo = new CosInfo($name, $id, TRUE, [$attr]);
-
         $request = new GetCosRequest($cos, $attrs);
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($attrs, $request->getAttrs());
-
-        $request = new GetCosRequest(new CosSelector(CosBy::ID(), ''));
+        $request = new GetCosRequest(new CosSelector());
         $request->setCos($cos)
             ->setAttrs($attr1)
             ->addAttrs($attr2, $attr3);
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($attrs, $request->getAttrs());
 
+        $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, FALSE)]);
         $response = new GetCosResponse(
-            $cosInfo
+            $cos
         );
-        $this->assertSame($cosInfo, $response->getCos());
-        $response = new GetCosResponse(new CosInfo('', ''));
-        $response->setCos($cosInfo);
-        $this->assertSame($cosInfo, $response->getCos());
+        $this->assertSame($cos, $response->getCos());
+        $response = new GetCosResponse();
+        $response->setCos($cos);
+        $this->assertSame($cos, $response->getCos());
 
         $body = new GetCosBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -17,8 +17,8 @@ class GetAllFreeBusyProvidersTest extends ZimbraTestCase
     public function testGetAllFreeBusyProviders()
     {
         $name = $this->faker->word;
-        $start = mt_rand(1, 100);
-        $end = mt_rand(1, 100);
+        $start = $this->faker->randomNumber;
+        $end = $this->faker->randomNumber;
         $queue = $this->faker->word;
         $prefix = $this->faker->word;
 

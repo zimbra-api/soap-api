@@ -23,15 +23,14 @@ class GetAllAccountsTest extends ZimbraTestCase
 {
     public function testGetAllAccounts()
     {
-        $name = $this->faker->word;
+        $name = $this->faker->email;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value= $this->faker->word;
 
         $server = new ServerSelector(ServerBy::NAME(), $value);
         $domain = new DomainSelector(DomainBy::NAME(), $value);
-        $attr = new Attr($key, $value);
-        $account = new AccountInfo($name, $id, TRUE, [$attr]);
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new GetAllAccountsRequest($server, $domain);
         $this->assertSame($server, $request->getServer());

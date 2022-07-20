@@ -17,9 +17,9 @@ class GetVersionInfoTest extends ZimbraTestCase
     public function testGetVersionInfo()
     {
         $type = $this->faker->word;
-        $version = $this->faker->word;
+        $version = $this->faker->semver;
         $release = $this->faker->word;
-        $buildDate = date('Ymd-Hi');
+        $buildDate = $this->faker->date;
         $host = $this->faker->ipv4;
         $majorVersion = $this->faker->word;
         $minorVersion = $this->faker->word;
@@ -33,7 +33,7 @@ class GetVersionInfoTest extends ZimbraTestCase
         $request = new GetVersionInfoRequest();
         $response = new GetVersionInfoResponse($info);
         $this->assertSame($info, $response->getInfo());
-        $response = new GetVersionInfoResponse(new VersionInfo());
+        $response = new GetVersionInfoResponse();
         $response->setInfo($info);
         $this->assertSame($info, $response->getInfo());
 

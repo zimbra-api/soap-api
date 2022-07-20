@@ -26,28 +26,26 @@ class GetCalendarResourceTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $calendarSel = new CalendarResourceSelector(CalResBy::NAME(), $value);
-        $calendarInfo = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
-
-        $request = new GetCalendarResourceRequest($calendarSel, FALSE, $attrs);
-        $this->assertSame($calendarSel, $request->getCalResource());
+        $calResource = new CalendarResourceSelector(CalResBy::NAME(), $value);
+        $request = new GetCalendarResourceRequest($calResource, FALSE, $attrs);
+        $this->assertSame($calResource, $request->getCalResource());
         $this->assertFalse($request->getApplyCos());
         $this->assertSame($attrs, $request->getAttrs());
-
         $request = new GetCalendarResourceRequest();
-        $request->setCalResource($calendarSel)
+        $request->setCalResource($calResource)
             ->setApplyCos(TRUE)
             ->setAttrs($attr1)
             ->addAttrs($attr2, $attr3);
-        $this->assertSame($calendarSel, $request->getCalResource());
+        $this->assertSame($calResource, $request->getCalResource());
         $this->assertTrue($request->getApplyCos());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $response = new GetCalendarResourceResponse($calendarInfo);
-        $this->assertSame($calendarInfo, $response->getCalResource());
-        $response = new GetCalendarResourceResponse(new CalendarResourceInfo(',', ''));
-        $response->setCalResource($calendarInfo);
-        $this->assertSame($calendarInfo, $response->getCalResource());
+        $calResource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
+        $response = new GetCalendarResourceResponse($calResource);
+        $this->assertSame($calResource, $response->getCalResource());
+        $response = new GetCalendarResourceResponse();
+        $response->setCalResource($calResource);
+        $this->assertSame($calResource, $response->getCalResource());
 
         $body = new GetCalendarResourceBody($request, $response);
         $this->assertSame($request, $body->getRequest());

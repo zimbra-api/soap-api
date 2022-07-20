@@ -20,8 +20,8 @@ class GetIndexStatsTest extends ZimbraTestCase
     public function testGetIndexStats()
     {
         $id = $this->faker->uuid;
-        $maxDocs = mt_rand(1, 100);
-        $numDeletedDocs = mt_rand(1, 100);
+        $maxDocs = $this->faker->randomNumber;
+        $numDeletedDocs = $this->faker->randomNumber;
 
         $mbox = new MailboxByAccountIdSelector($id);
         $stats = new IndexStats($maxDocs, $numDeletedDocs);
@@ -34,7 +34,7 @@ class GetIndexStatsTest extends ZimbraTestCase
 
         $response = new GetIndexStatsResponse($stats);
         $this->assertSame($stats, $response->getStats());
-        $response = new GetIndexStatsResponse(new IndexStats($maxDocs, $numDeletedDocs));
+        $response = new GetIndexStatsResponse();
         $response->setStats($stats);
         $this->assertSame($stats, $response->getStats());
 

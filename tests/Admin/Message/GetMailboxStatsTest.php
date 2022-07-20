@@ -18,15 +18,15 @@ class GetMailboxStatsTest extends ZimbraTestCase
 {
     public function testGetMailboxStats()
     {
-        $numMboxes = mt_rand(1, 100);
-        $totalSize = mt_rand(1, 100);
+        $numMboxes = $this->faker->randomNumber;
+        $totalSize = $this->faker->randomNumber;
 
         $request = new GetMailboxStatsRequest();
 
         $stats = new MailboxStats($numMboxes, $totalSize);
         $response = new GetMailboxStatsResponse($stats);
         $this->assertSame($stats, $response->getStats());
-        $response = new GetMailboxStatsResponse(new MailboxStats(0, 0));
+        $response = new GetMailboxStatsResponse();
         $response->setStats($stats);
         $this->assertSame($stats, $response->getStats());
 

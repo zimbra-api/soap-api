@@ -116,7 +116,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -138,7 +138,7 @@ class GetDelegatedAdminConstraintsRequest extends Request
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }

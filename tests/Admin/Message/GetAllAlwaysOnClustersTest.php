@@ -22,8 +22,7 @@ class GetAllAlwaysOnClustersTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new Attr($key, $value);
-        $cluster = new AlwaysOnClusterInfo($name, $id, [$attr]);
+        $cluster = new AlwaysOnClusterInfo($name, $id, [new Attr($key, $value)]);
 
         $request = new GetAllAlwaysOnClustersRequest();
 

@@ -17,8 +17,8 @@ class GetAllLocalesTest extends ZimbraTestCase
     public function testGetAllLocales()
     {
         $id = $this->faker->word;
-        $name = $this->faker->word;
-        $localName = $this->faker->word;
+        $name = $this->faker->locale;
+        $localName = $this->faker->countryCode;
 
         $locale = new LocaleInfo($id, $name, $localName);
 

@@ -17,8 +17,8 @@ class GetMemcachedClientConfigTest extends ZimbraTestCase
     {
         $serverList = $this->faker->word;
         $hashAlgorithm = $this->faker->word;
-        $defaultExpirySeconds = mt_rand(1, 100);
-        $defaultTimeoutMillis = mt_rand(1, 100);
+        $defaultExpirySeconds = $this->faker->randomNumber;
+        $defaultTimeoutMillis = $this->faker->randomNumber;
 
         $request = new GetMemcachedClientConfigRequest();
         $response = new GetMemcachedClientConfigResponse(

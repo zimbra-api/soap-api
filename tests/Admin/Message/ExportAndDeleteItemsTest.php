@@ -17,8 +17,8 @@ class ExportAndDeleteItemsTest extends ZimbraTestCase
 {
     public function testExportAndDeleteItems()
     {
-        $id = mt_rand(1, 100);
-        $version = mt_rand(1, 100);
+        $id = $this->faker->randomNumber;
+        $version = $this->faker->randomNumber;
         $exportDir = $this->faker->word;
         $exportFilenamePrefix = $this->faker->word;
 
@@ -29,7 +29,7 @@ class ExportAndDeleteItemsTest extends ZimbraTestCase
         $this->assertSame($mbox, $request->getMailbox());
         $this->assertSame($exportDir, $request->getExportDir());
         $this->assertSame($exportFilenamePrefix, $request->getExportFilenamePrefix());
-        $request = new ExportAndDeleteItemsRequest(new ExportAndDeleteMailboxSpec(0));
+        $request = new ExportAndDeleteItemsRequest(new ExportAndDeleteMailboxSpec());
         $request->setMailbox($mbox)
             ->setExportDir($exportDir)
             ->setExportFilenamePrefix($exportFilenamePrefix);

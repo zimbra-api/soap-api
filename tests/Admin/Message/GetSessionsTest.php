@@ -23,11 +23,11 @@ class GetSessionsTest extends ZimbraTestCase
         $zimbraId = $this->faker->uuid;
         $name = $this->faker->word;
         $sessionId = $this->faker->uuid;
-        $createdDate = mt_rand(1, 1000);
-        $lastAccessedDate = mt_rand(1, 1000);
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
-        $total = mt_rand(1, 100);
+        $createdDate = $this->faker->unixTime;
+        $lastAccessedDate = $this->faker->unixTime;
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $total = $this->faker->randomNumber;
 
         $request = new GetSessionsRequest(SessionType::IMAP(), GetSessionsSortBy::NAME_DESC(), $offset, $limit, FALSE);
         $this->assertEquals(SessionType::IMAP(), $request->getType());
@@ -36,7 +36,7 @@ class GetSessionsTest extends ZimbraTestCase
         $this->assertSame($offset, $request->getOffset());
         $this->assertFalse($request->getRefresh());
 
-        $request = new GetSessionsRequest(SessionType::IMAP());
+        $request = new GetSessionsRequest();
         $request->setType(SessionType::SOAP())
             ->setSortBy(GetSessionsSortBy::NAME_ASC())
             ->setLimit($limit)

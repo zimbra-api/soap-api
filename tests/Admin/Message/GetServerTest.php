@@ -27,27 +27,26 @@ class GetServerTest extends ZimbraTestCase
         $value = $this->faker->word;
         $attrs = $this->faker->word;
 
-        $serverSel = new ServerSelector(ServerBy::NAME(), $value);
-        $serverInfo = new ServerInfo($name, $id, [new Attr($key, $value)]);
-
-        $request = new GetServerRequest($serverSel, FALSE, $attrs);
-        $this->assertSame($serverSel, $request->getServer());
+        $server = new ServerSelector(ServerBy::NAME(), $value);
+        $request = new GetServerRequest($server, FALSE, $attrs);
+        $this->assertSame($server, $request->getServer());
         $this->assertFalse($request->isApplyConfig());
         $this->assertSame($attrs, $request->getAttrs());
 
         $request = new GetServerRequest();
-        $request->setServer($serverSel)
+        $request->setServer($server)
             ->setApplyConfig(TRUE)
             ->setAttrs($attrs);
-        $this->assertSame($serverSel, $request->getServer());
+        $this->assertSame($server, $request->getServer());
         $this->assertTrue($request->isApplyConfig());
         $this->assertSame($attrs, $request->getAttrs());
 
-        $response = new GetServerResponse($serverInfo);
-        $this->assertSame($serverInfo, $response->getServer());
+        $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
+        $response = new GetServerResponse($server);
+        $this->assertSame($server, $response->getServer());
         $response = new GetServerResponse();
-        $response->setServer($serverInfo);
-        $this->assertSame($serverInfo, $response->getServer());
+        $response->setServer($server);
+        $this->assertSame($server, $response->getServer());
 
         $body = new GetServerBody($request, $response);
         $this->assertSame($request, $body->getRequest());

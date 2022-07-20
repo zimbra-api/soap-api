@@ -25,16 +25,12 @@ class GetAccountTest extends ZimbraTestCase
         $attr3 = $this->faker->word;
         $attrs = implode(',', [$attr1, $attr2, $attr3]);
 
-        $attr = new Attr($key, $value);
         $account = new AccountSelector(AccountBy::NAME(), $value);
-        $accountInfo = new AccountInfo($name, $id, TRUE, [$attr]);
-
         $request = new GetAccountRequest($account, FALSE, $attrs);
         $this->assertSame($account, $request->getAccount());
         $this->assertFalse($request->isApplyCos());
         $this->assertSame($attrs, $request->getAttrs());
-
-        $request = new GetAccountRequest(new AccountSelector(AccountBy::ID(), ''));
+        $request = new GetAccountRequest(new AccountSelector());
         $request->setAccount($account)
             ->setApplyCos(TRUE)
             ->setAttrs($attr1)
@@ -43,13 +39,14 @@ class GetAccountTest extends ZimbraTestCase
         $this->assertTrue($request->isApplyCos());
         $this->assertSame($attrs, $request->getAttrs());
 
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
         $response = new GetAccountResponse(
-            $accountInfo
+            $account
         );
-        $this->assertSame($accountInfo, $response->getAccount());
-        $response = new GetAccountResponse(new AccountInfo('', ''));
-        $response->setAccount($accountInfo);
-        $this->assertSame($accountInfo, $response->getAccount());
+        $this->assertSame($account, $response->getAccount());
+        $response = new GetAccountResponse();
+        $response->setAccount($account);
+        $this->assertSame($account, $response->getAccount());
 
         $body = new GetAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -201,7 +201,7 @@ class GetFilterRulesRequest extends Request
      *
      * @return Cos
      */
-    public function getCos(): Cos
+    public function getCos(): ?Cos
     {
         return $this->cos;
     }

@@ -22,8 +22,7 @@ class GetAllCosTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
 
-        $attr = new CosInfoAttr($key, $value, TRUE, FALSE);
-        $cos = new CosInfo($name, $id, TRUE, [$attr]);
+        $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, FALSE)]);
 
         $request = new GetAllCosRequest();
 
