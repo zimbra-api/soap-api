@@ -19,9 +19,9 @@ class DedupeBlobsTest extends ZimbraTestCase
 {
     public function testDedupeBlobs()
     {
-        $id = mt_rand(0, 100);
-        $totalSize = mt_rand(0, 100);
-        $totalCount = mt_rand(0, 100);
+        $id = $this->faker->randomNumber;
+        $totalSize = $this->faker->randomNumber;
+        $totalCount = $this->faker->randomNumber;
         $volumeId = $this->faker->word;
         $progress = $this->faker->word;
 
@@ -32,7 +32,7 @@ class DedupeBlobsTest extends ZimbraTestCase
         $request = new DedupeBlobsRequest(DedupAction::START(), [$idAttr]);
         $this->assertEquals(DedupAction::START(), $request->getAction());
         $this->assertSame([$idAttr], $request->getVolumes());
-        $request = new DedupeBlobsRequest(DedupAction::START());
+        $request = new DedupeBlobsRequest();
         $request->setAction(DedupAction::STATUS())
             ->setVolumes([$idAttr])
             ->addVolume($idAttr);
@@ -46,7 +46,7 @@ class DedupeBlobsTest extends ZimbraTestCase
         $this->assertSame($totalCount, $response->getTotalCount());
         $this->assertSame([$blobsProgress], $response->getVolumeBlobsProgress());
         $this->assertSame([$digestsProgress], $response->getBlobDigestsProgress());
-        $response = new DedupeBlobsResponse(DedupStatus::RUNNING(), 0, 0);
+        $response = new DedupeBlobsResponse();
         $response->setStatus(DedupStatus::STOPPED())
             ->setTotalSize($totalSize)
             ->setTotalCount($totalCount)

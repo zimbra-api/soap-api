@@ -45,7 +45,7 @@ class CreateSystemRetentionPolicyTest extends ZimbraTestCase
 
         $response = new CreateSystemRetentionPolicyResponse($policy);
         $this->assertSame($policy, $response->getPolicy());
-        $response = new CreateSystemRetentionPolicyResponse(new Policy(Type::SYSTEM(), '', '', ''));
+        $response = new CreateSystemRetentionPolicyResponse();
         $response->setPolicy($policy);
         $this->assertSame($policy, $response->getPolicy());
 

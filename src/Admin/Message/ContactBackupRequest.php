@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\ServerSelector;
-use Zimbra\Common\Enum\ContactBackupOp  as Operation;
+use Zimbra\Common\Enum\ContactBackupOp;
 use Zimbra\Soap\{EnvelopeInterface, Request};
 
 /**
@@ -44,19 +44,19 @@ class ContactBackupRequest extends Request
      * @Type("Zimbra\Common\Enum\ContactBackupOp")
      * @XmlAttribute
      */
-    private Operation $op;
+    private ContactBackupOp $op;
 
     /**
      * Constructor method for ContactBackupRequest
      * 
      * @param  array $servers
-     * @param  Operation $op
+     * @param  ContactBackupOp $op
      * @return self
      */
-    public function __construct(array $servers = [], ?Operation $op = NULL)
+    public function __construct(array $servers = [], ?ContactBackupOp $op = NULL)
     {
         $this->setServers($servers)
-             ->setOp($op ?? Operation::START());
+             ->setOp($op ?? ContactBackupOp::START());
     }
 
     /**
@@ -96,9 +96,9 @@ class ContactBackupRequest extends Request
     /**
      * Gets operation
      *
-     * @return Operation
+     * @return ContactBackupOp
      */
-    public function getOp(): Operation
+    public function getOp(): ContactBackupOp
     {
         return $this->op;
     }
@@ -106,10 +106,10 @@ class ContactBackupRequest extends Request
     /**
      * Sets operation
      *
-     * @param  Operation $op
+     * @param  ContactBackupOp $op
      * @return self
      */
-    public function setOp(Operation $op): self
+    public function setOp(ContactBackupOp $op): self
     {
         $this->op = $op;
         return $this;

@@ -73,7 +73,7 @@ class CheckRightTest extends ZimbraTestCase
         $this->assertFalse($response->getAllow());
         $this->assertSame($via, $response->getVia());
 
-        $response = new CheckRightResponse(FALSE);
+        $response = new CheckRightResponse();
         $response->setAllow(TRUE)
             ->setVia($via);
         $this->assertTrue($response->getAllow());

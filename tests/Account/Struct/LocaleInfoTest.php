@@ -12,9 +12,9 @@ class LocaleInfoTest extends ZimbraTestCase
 {
     public function testLocaleInfo()
     {
-        $id = $this->faker->word;
-        $name = $this->faker->word;
-        $localName = $this->faker->country;
+        $id = $this->faker->uuid;
+        $name = $this->faker->locale;
+        $localName = $this->faker->countryCode;
 
         $locale = new LocaleInfo($id, $name, $localName);
         $this->assertSame($id, $locale->getId());

@@ -24,8 +24,8 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $value= $this->faker->word;
         $id = $this->faker->uuid;
         $key = $this->faker->word;
-        $domain = $this->faker->word;
-        $mailHost = $this->faker->word;
+        $domain = $this->faker->domainName;
+        $mailHost = $this->faker->domainName;
         $password = $this->faker->uuid;
         $folder = $this->faker->word;
 
@@ -35,8 +35,8 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
             $account,
             $name,
             $domain,
-            GalMode::BOTH(),
             $mailHost,
+            GalMode::BOTH(),
             $password,
             $folder
         );
@@ -49,11 +49,7 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $this->assertSame($folder, $request->getFolder());
 
         $request = new CreateGalSyncAccountRequest(
-            new AccountSelector(),
-            '',
-            '',
-            GalMode::BOTH(),
-            ''
+            new AccountSelector()
         );
         $request->setName($name)
             ->setDomain($domain)
@@ -74,7 +70,7 @@ class CreateGalSyncAccountTest extends ZimbraTestCase
         $accInfo = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
         $response = new CreateGalSyncAccountResponse($accInfo);
         $this->assertSame($accInfo, $response->getAccount());
-        $response = new CreateGalSyncAccountResponse(new AccountInfo('', '', TRUE));
+        $response = new CreateGalSyncAccountResponse();
         $response->setAccount($accInfo);
         $this->assertSame($accInfo, $response->getAccount());
 

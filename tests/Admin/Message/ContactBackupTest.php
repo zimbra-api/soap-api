@@ -24,24 +24,23 @@ class ContactBackupTest extends ZimbraTestCase
 
         $server = new ServerSelector(ServerBy::NAME(), $value);
         $request = new ContactBackupRequest([$server], ContactBackupOp::START());
-        $this->assertEquals([$server], $request->getServers());
+        $this->assertSame([$server], $request->getServers());
         $this->assertEquals(ContactBackupOp::START(), $request->getOp());
         $request = new ContactBackupRequest([], ContactBackupOp::STOP());
         $request->setServers([$server])
             ->addServer($server)
             ->setOp(ContactBackupOp::START());
-        $this->assertEquals([$server, $server], $request->getServers());
+        $this->assertSame([$server, $server], $request->getServers());
         $this->assertEquals(ContactBackupOp::START(), $request->getOp());
         $request->setServers([$server]);
 
-        $backupServer = new ContactBackupServer($name, ContactBackupStatus::STOPPED());
-        $response = new ContactBackupResponse([$backupServer]);
-        $this->assertEquals([$backupServer], $response->getServers());
+        $server = new ContactBackupServer($name, ContactBackupStatus::STOPPED());
+        $response = new ContactBackupResponse([$server]);
+        $this->assertSame([$server], $response->getServers());
         $response = new ContactBackupResponse([]);
-        $response->setServers([$backupServer])
-            ->addServer($backupServer);
-        $this->assertEquals([$backupServer, $backupServer], $response->getServers());
-        $response->setServers([$backupServer]);
+        $response->setServers([$server])->addServer($server);
+        $this->assertSame([$server, $server], $response->getServers());
+        $response->setServers([$server]);
 
         $body = new ContactBackupBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -22,7 +22,7 @@ class CreateDistributionListTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $id = $this->faker->uuid;
-        $name = $this->faker->word;
+        $name = $this->faker->email;
         $member = $this->faker->word;
 
         $attr = new Attr($key, $value);

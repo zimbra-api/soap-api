@@ -18,16 +18,16 @@ class DelegateAuthTest extends ZimbraTestCase
     public function testDelegateAuth()
     {
         $value = $this->faker->word;
-        $authToken = $this->faker->uuid;
-        $duration = mt_rand(1, 100);
-        $lifetime = mt_rand(1, 100);
+        $authToken = $this->faker->sha256;
+        $duration = $this->faker->randomNumber;
+        $lifetime = $this->faker->randomNumber;
 
         $account = new AccountSelector(AccountBy::NAME(), $value);
 
         $request = new DelegateAuthRequest($account, $duration);
         $this->assertSame($account, $request->getAccount());
         $this->assertSame($duration, $request->getDuration());
-        $request = new DelegateAuthRequest(new AccountSelector(AccountBy::NAME(), ''));
+        $request = new DelegateAuthRequest(new AccountSelector());
         $request->setAccount($account)
             ->setDuration($duration);
         $this->assertSame($account, $request->getAccount());
@@ -36,7 +36,7 @@ class DelegateAuthTest extends ZimbraTestCase
         $response = new DelegateAuthResponse($authToken, $lifetime);
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
-        $response = new DelegateAuthResponse('', 0);
+        $response = new DelegateAuthResponse();
         $response->setAuthToken($authToken)
             ->setLifetime($lifetime);
         $this->assertSame($authToken, $response->getAuthToken());

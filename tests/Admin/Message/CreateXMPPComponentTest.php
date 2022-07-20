@@ -21,7 +21,7 @@ class CreateXMPPComponentTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $key = $this->faker->word;
         $value = $this->faker->word;
-        $domainName = $this->faker->word;
+        $domainName = $this->faker->domainName;
         $serverName = $this->faker->word;
 
         $attr = new Attr($key, $value);
@@ -31,7 +31,7 @@ class CreateXMPPComponentTest extends ZimbraTestCase
         $xmppSpec = new XMPPComponentSpec($name, $domain, $server, [$attr]);
         $request = new CreateXMPPComponentRequest($xmppSpec);
         $this->assertSame($xmppSpec, $request->getComponent());
-        $request = new CreateXMPPComponentRequest(new XMPPComponentSpec('', $domain, $server));
+        $request = new CreateXMPPComponentRequest(new XMPPComponentSpec($name, $domain, $server));
         $request->setComponent($xmppSpec);
         $this->assertSame($xmppSpec, $request->getComponent());
 
@@ -39,7 +39,7 @@ class CreateXMPPComponentTest extends ZimbraTestCase
         $xmppInfo = new XMPPComponentInfo($name, $id, $domainName, $serverName, [$attr]);
         $response = new CreateXMPPComponentResponse($xmppInfo);
         $this->assertSame($xmppInfo, $response->getComponent());
-        $response = new CreateXMPPComponentResponse(new XMPPComponentInfo('', ''));
+        $response = new CreateXMPPComponentResponse();
         $response->setComponent($xmppInfo);
         $this->assertSame($xmppInfo, $response->getComponent());
 

@@ -20,7 +20,7 @@ class CreateLDAPEntryTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $name = $this->faker->word;
-        $dn = $this->faker->uuid;
+        $dn = $this->faker->word;
 
         $attr = new Attr($key, $value);
         $ldap = new LDAPEntryInfo($name, [$attr]);

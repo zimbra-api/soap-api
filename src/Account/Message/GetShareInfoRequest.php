@@ -157,7 +157,7 @@ class GetShareInfoRequest extends Request
      *
      * @return GranteeChooser
      */
-    public function getGrantee(): GranteeChooser
+    public function getGrantee(): ?GranteeChooser
     {
         return $this->grantee;
     }
@@ -179,7 +179,7 @@ class GetShareInfoRequest extends Request
      *
      * @return AccountSelector
      */
-    public function getOwner(): AccountSelector
+    public function getOwner(): ?AccountSelector
     {
         return $this->owner;
     }

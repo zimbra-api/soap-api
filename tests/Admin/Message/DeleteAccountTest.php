@@ -18,7 +18,7 @@ class DeleteAccountTest extends ZimbraTestCase
         $id = $this->faker->uuid;
         $request = new DeleteAccountRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new DeleteAccountRequest('');
+        $request = new DeleteAccountRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

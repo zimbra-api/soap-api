@@ -19,14 +19,14 @@ class DumpSessionsTest extends ZimbraTestCase
     public function testDumpSessions()
     {
         $sessionId = $this->faker->uuid;
-        $createdDate = mt_rand(1, 1000);
-        $lastAccessedDate = mt_rand(1, 1000);
+        $createdDate = $this->faker->unixTime;
+        $lastAccessedDate = $this->faker->unixTime;
         $zimbraId = $this->faker->uuid;
         $name = $this->faker->word;
         $id = $this->faker->uuid;
-        $activeAccounts = mt_rand(1, 1000);
-        $activeSessions = mt_rand(1, 1000);
-        $totalActiveSessions = mt_rand(1, 1000);
+        $activeAccounts = $this->faker->randomNumber;
+        $activeSessions = $this->faker->randomNumber;
+        $totalActiveSessions = $this->faker->randomNumber;
 
         $session = new SessionInfo(
             $sessionId, $createdDate, $lastAccessedDate, $zimbraId, $name
@@ -55,7 +55,7 @@ class DumpSessionsTest extends ZimbraTestCase
         $this->assertSame($wiki, $response->getWikiSessions());
         $this->assertSame($synclistener, $response->getSynclistenerSessions());
         $this->assertSame($waitset, $response->getWaitsetSessions());
-        $response = new DumpSessionsResponse(0);
+        $response = new DumpSessionsResponse();
         $response->setTotalActiveSessions($totalActiveSessions)
             ->setSoapSessions($soap)
             ->setImapSessions($imap)

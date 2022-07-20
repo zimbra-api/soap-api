@@ -17,7 +17,7 @@ class CheckHostnameResolveTest extends ZimbraTestCase
     {
         $code = $this->faker->word;
         $message = $this->faker->word;
-        $hostname = $this->faker->word;
+        $hostname = $this->faker->domainName;
 
         $request = new CheckHostnameResolveRequest($hostname);
         $this->assertSame($hostname, $request->getHostname());

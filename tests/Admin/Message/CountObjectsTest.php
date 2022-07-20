@@ -52,7 +52,7 @@ class CountObjectsTest extends ZimbraTestCase
         $response = new CountObjectsResponse($num, $type);
         $this->assertSame($num, $response->getNum());
         $this->assertSame($type, $response->getType());
-        $response = new CountObjectsResponse(0, '');
+        $response = new CountObjectsResponse();
         $response->setNum($num)
             ->setType($type);
         $this->assertSame($num, $response->getNum());

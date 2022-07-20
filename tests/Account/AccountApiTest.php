@@ -3,8 +3,7 @@
 namespace Zimbra\Tests\Account;
 
 use Zimbra\Account\{AccountApi, AccountApiInterface};
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Soap\{RequestInterface, ResponseInterface};
+use Zimbra\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -61,7 +60,7 @@ class AccountApiTest extends ZimbraTestCase
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->auth();
         $this->assertSame($token, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
@@ -99,7 +98,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->autoCompleteGal($name);
         $this->assertTrue($response->getMore());
         $this->assertFalse($response->getTokenizeKey());
@@ -129,7 +128,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->changePassword(
             new \Zimbra\Common\Struct\AccountSelector(), $oldPassword, $newPassword
         );
@@ -155,7 +154,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->checkRights();
         $rightInfo = new \Zimbra\Account\Struct\CheckRightsRightInfo($right, TRUE);
         $targetInfo = new \Zimbra\Account\Struct\CheckRightsTargetInfo(
@@ -180,7 +179,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->clientInfo(new \Zimbra\Admin\Struct\DomainSelector());
         $attr = new \Zimbra\Admin\Struct\Attr($key, $value);
         $this->assertEquals([$attr], $response->getAttrList());
@@ -209,7 +208,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->createDistributionList($name);
         $attr = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
         $dl = new \Zimbra\Account\Struct\DLInfo($id, $ref, $name, $displayName, TRUE, $via, TRUE, TRUE, [$attr]);
@@ -235,7 +234,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->createIdentity(new \Zimbra\Account\Struct\Identity());
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, [
             new \Zimbra\Account\Struct\Attr($name, $value, TRUE)
@@ -259,7 +258,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->createSignature(new \Zimbra\Account\Struct\Signature());
         $signature = new \Zimbra\Account\Struct\NameId($name, $id);
         $this->assertEquals($signature, $response->getSignature());
@@ -276,7 +275,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->deleteIdentity(new \Zimbra\Account\Struct\NameId());
         $this->assertTrue($response instanceof \Zimbra\Account\Message\DeleteIdentityResponse);
     }
@@ -292,7 +291,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->deleteSignature(new \Zimbra\Account\Struct\NameId());
         $this->assertTrue($response instanceof \Zimbra\Account\Message\DeleteSignatureResponse);
     }
@@ -321,7 +320,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->discoverRights();
         $target = new \Zimbra\Account\Struct\DiscoverRightsTarget($type, $id, $name, $displayName, [
             new \Zimbra\Account\Struct\DiscoverRightsEmail($addr)
@@ -341,7 +340,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->distributionListAction(
             new \Zimbra\Common\Struct\DistributionListSelector(), new \Zimbra\Account\Struct\DistributionListAction()
         );
@@ -359,7 +358,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->endSession();
         $this->assertTrue($response instanceof \Zimbra\Account\Message\EndSessionResponse);
     }
@@ -387,7 +386,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAccountDistributionLists();
         $dl = new \Zimbra\Account\Struct\DLInfo($id, $ref, $name, $displayName, TRUE, $via, TRUE, TRUE, [
             new \Zimbra\Common\Struct\KeyValuePair($key, $value)
@@ -424,7 +423,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAccountInfo(new \Zimbra\Common\Struct\AccountSelector());
 
         $attr = new \Zimbra\Common\Struct\NamedValue($name, $value);
@@ -442,7 +441,7 @@ EOT;
     {
         $id = $this->faker->uuid;
         $name = $this->faker->locale;
-        $localName = $this->faker->country;
+        $localName = $this->faker->countryCode;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -455,7 +454,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAllLocales();
         $locale = new \Zimbra\Account\Struct\LocaleInfo($id, $name, $localName);
         $this->assertEquals([$locale], $response->getLocales());
@@ -476,7 +475,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAvailableCsvFormats();
         $csv = new \Zimbra\Common\Struct\NamedElement($name);
         $this->assertEquals([$csv], $response->getCsvFormats());
@@ -486,7 +485,7 @@ EOT;
     {
         $id = $this->faker->uuid;
         $name = $this->faker->locale;
-        $localName = $this->faker->country;
+        $localName = $this->faker->countryCode;
 
         $xml = <<<EOT
 <?xml version="1.0"?>
@@ -499,7 +498,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAvailableLocales();
         $locale = new \Zimbra\Account\Struct\LocaleInfo($id, $name, $localName);
         $this->assertEquals([$locale], $response->getLocales());
@@ -520,7 +519,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getAvailableSkins();
         $skin = new \Zimbra\Common\Struct\NamedElement($name);
         $this->assertEquals([$skin], $response->getSkins());
@@ -555,7 +554,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getDistributionListMembers($dl);
         $groupMember = new \Zimbra\Account\Struct\HABGroupMember($name, $seniorityIndex, [
             new \Zimbra\Common\Struct\NamedValue($key, $value)]
@@ -598,7 +597,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getDistributionList(new \Zimbra\Common\Struct\DistributionListSelector());
 
         $owner = new \Zimbra\Account\Struct\DistributionListGranteeInfo(
@@ -632,7 +631,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getIdentities();
         $identity = new \Zimbra\Account\Struct\Identity($name, $id, [
             new \Zimbra\Account\Struct\Attr($name, $value, TRUE)
@@ -831,7 +830,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getInfo();
         $this->assertSame($attachmentSizeLimit, $response->getAttachmentSizeLimit());
         $this->assertSame($documentSizeLimit, $response->getDocumentSizeLimit());
@@ -954,7 +953,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getOAuthConsumers();
         $consumer = new \Zimbra\Account\Struct\OAuthConsumer(
             $accessToken, $approvedOn, $applicationName, $device
@@ -979,7 +978,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getPrefs();
         $pref = new \Zimbra\Account\Struct\Pref($name, $value, $modified);
         $this->assertEquals([$pref], $response->getPrefs());
@@ -1003,7 +1002,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
             \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
@@ -1038,7 +1037,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getShareInfo();
         $share = new \Zimbra\Common\Struct\ShareInfo(
             $ownerId, $ownerEmail, $ownerDisplayName,
@@ -1071,7 +1070,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getSignatures();
         $signature = new \Zimbra\Account\Struct\Signature($name, $id, $cid, [
             new \Zimbra\Account\Struct\SignatureContent($value, \Zimbra\Common\Enum\ContentType::TEXT_HTML())
@@ -1097,7 +1096,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getVersionInfo();
         $info = new \Zimbra\Account\Struct\VersionInfo($fullVersion, $release, $date, $host);
         $this->assertEquals($info, $response->getVersionInfo());
@@ -1128,7 +1127,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->getWhiteBlackList();
         $this->assertSame([$white1, $white2], $response->getWhiteListEntries());
         $this->assertSame([$black1, $black2], $response->getBlackListEntries());
@@ -1152,7 +1151,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->grantRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
             \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
@@ -1171,7 +1170,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyIdentity(new \Zimbra\Account\Struct\Identity());
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyIdentityResponse);
     }
@@ -1187,7 +1186,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyPrefs();
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyPrefsResponse);
     }
@@ -1203,7 +1202,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyProperties();
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyPropertiesResponse);
     }
@@ -1219,7 +1218,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifySignature(new \Zimbra\Account\Struct\Signature());
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifySignatureResponse);
     }
@@ -1235,7 +1234,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyWhiteBlackList();
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyWhiteBlackListResponse);
     }
@@ -1255,7 +1254,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyZimletPrefs();
         $this->assertSame([$name], $response->getZimlets());
     }
@@ -1271,7 +1270,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->resetPassword($this->faker->word);
         $this->assertTrue($response instanceof \Zimbra\Account\Message\ResetPasswordResponse);
     }
@@ -1287,7 +1286,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->revokeOAuthConsumer($this->faker->word);
         $this->assertTrue($response instanceof \Zimbra\Account\Message\RevokeOAuthConsumerResponse);
     }
@@ -1310,7 +1309,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->revokeRights();
         $ace = new \Zimbra\Account\Struct\AccountACEInfo(
             \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE, TRUE
@@ -1340,7 +1339,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->searchCalendarResources();
         $calResource = new \Zimbra\Account\Struct\CalendarResourceInfo($name, $id, [
             new \Zimbra\Common\Struct\KeyValuePair($key, $value)
@@ -1399,7 +1398,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->searchGal();
 
         $metadata = new \Zimbra\Account\Struct\AccountCustomMetadata($section);
@@ -1427,7 +1426,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->subscribeDistributionList(
             new \Zimbra\Common\Struct\DistributionListSelector(),
             \Zimbra\Common\Enum\DistributionListSubscribeOp::SUBSCRIBE()
@@ -1455,7 +1454,7 @@ EOT;
 </soap:Envelope>
 EOT;
 
-        $api = new StubAccountApi($xml);
+        $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->syncGal();
 
         $contact = new \Zimbra\Account\Struct\ContactInfo;
@@ -1475,20 +1474,8 @@ EOT;
 
 class StubAccountApi extends AccountApi
 {
-    private $soapRespone;
-
-    public function __construct(string $soapRespone)
+    public function __construct(ClientInterface $client)
     {
-        $this->soapRespone = $soapRespone;
-    }
-
-    public function invoke(RequestInterface $request): ?ResponseInterface
-    {
-        $serializer = SerializerFactory::create();
-        $requestEnvelope = $request->getEnvelope();
-        $responseEnvelope = $serializer->deserialize(
-            $this->soapRespone, get_class($requestEnvelope), self::SERIALIZE_FORMAT
-        );
-        return $responseEnvelope->getBody()->getResponse();
+        $this->setClient($client);
     }
 }

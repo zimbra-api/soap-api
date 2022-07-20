@@ -31,7 +31,7 @@ class CreateCalendarResourceTest extends ZimbraTestCase
         );
         $this->assertSame($name, $request->getName());
         $this->assertSame($password, $request->getPassword());
-        $request = new CreateCalendarResourceRequest('', '');
+        $request = new CreateCalendarResourceRequest();
         $request->setName($name)
             ->setPassword($password)
             ->setAttrs([$attr]);
@@ -40,7 +40,7 @@ class CreateCalendarResourceTest extends ZimbraTestCase
 
         $response = new CreateCalendarResourceResponse($calResource);
         $this->assertSame($calResource, $response->getCalResource());
-        $response = new CreateCalendarResourceResponse(new CalendarResourceInfo('', ''));
+        $response = new CreateCalendarResourceResponse();
         $response->setCalResource($calResource);
         $this->assertSame($calResource, $response->getCalResource());
 
