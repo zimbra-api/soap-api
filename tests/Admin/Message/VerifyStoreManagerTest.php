@@ -15,14 +15,14 @@ class VerifyStoreManagerTest extends ZimbraTestCase
 {
     public function testVerifyStoreManager()
     {
-        $fileSize = mt_rand(1, 100);
-        $num = mt_rand(1, 100);
+        $fileSize = $this->faker->randomNumber;
+        $num = $this->faker->randomNumber;
         $storeManagerClass = $this->faker->word;
-        $incomingTime = mt_rand(1, time());
-        $stageTime = mt_rand(1, time());
-        $linkTime = mt_rand(1, time());
-        $fetchTime = mt_rand(1, time());
-        $deleteTime = mt_rand(1, time());
+        $incomingTime = $this->faker->unixTime;
+        $stageTime = $this->faker->unixTime;
+        $linkTime = $this->faker->unixTime;
+        $fetchTime = $this->faker->unixTime;
+        $deleteTime = $this->faker->unixTime;
 
         $request = new VerifyStoreManagerRequest(
             $fileSize, $num, FALSE

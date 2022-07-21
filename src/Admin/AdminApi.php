@@ -2314,7 +2314,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function searchGal(
-        ?string $domain,
+        string $domain,
         ?string $name = NULL,
         ?int $limit = NULL,
         ?GalSearchType $type = NULL,
@@ -2329,7 +2329,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function setCurrentVolume(int $id, int $type): Message\SetCurrentVolumeResponse
+    public function setCurrentVolume(int $id = 0, int $type = 0): Message\SetCurrentVolumeResponse
     {
         return $this->invoke(new Message\SetCurrentVolumeRequest(
             $id, $type

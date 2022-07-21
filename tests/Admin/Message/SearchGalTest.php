@@ -25,8 +25,8 @@ class SearchGalTest extends ZimbraTestCase
         $domain = $this->faker->domainName;
         $name = $this->faker->word;
         $sortBy = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $type = GalSearchType::ACCOUNT();
         $galAccountId = $this->faker->uuid;
 
@@ -55,10 +55,10 @@ class SearchGalTest extends ZimbraTestCase
         $flags = $this->faker->word;
         $tags = $this->faker->word;
         $tagNames = $this->faker->word;
-        $changeDate = mt_rand(1, 99);
-        $modifiedSequenceId = mt_rand(1, 99);
-        $date = mt_rand(1, 99);
-        $revisionId = mt_rand(1, 99);
+        $changeDate = $this->faker->randomNumber;
+        $modifiedSequenceId = $this->faker->randomNumber;
+        $date = $this->faker->randomNumber;
+        $revisionId = $this->faker->randomNumber;
         $fileAs = $this->faker->word;
         $email = $this->faker->word;
         $email2 = $this->faker->word;
@@ -72,7 +72,7 @@ class SearchGalTest extends ZimbraTestCase
         $value = $this->faker->word;
         $part = $this->faker->word;
         $contentType = $this->faker->word;
-        $size = mt_rand(1, 99);
+        $size = $this->faker->randomNumber;
         $contentFilename = $this->faker->word;
 
         $meta = new AdminCustomMetadata($section);

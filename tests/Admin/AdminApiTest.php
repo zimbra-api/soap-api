@@ -5956,6 +5956,219 @@ EOT;
         $this->assertEquals([$domainInfo], $response->getDomains());
         $this->assertEquals([$cos], $response->getCOSes());
     }
+
+    public function testSearchGal()
+    {
+        $sortField = $this->faker->word;
+        $id = $this->faker->word;
+        $folder = $this->faker->word;
+        $flags = $this->faker->word;
+        $tags = $this->faker->word;
+        $tagNames = $this->faker->word;
+        $changeDate = $this->faker->randomNumber;
+        $modifiedSequenceId = $this->faker->randomNumber;
+        $date = $this->faker->randomNumber;
+        $revisionId = $this->faker->randomNumber;
+        $fileAs = $this->faker->word;
+        $email = $this->faker->word;
+        $email2 = $this->faker->word;
+        $email3 = $this->faker->word;
+        $type = $this->faker->word;
+        $dlist = $this->faker->word;
+        $reference = $this->faker->word;
+
+        $sortBy = $this->faker->word;
+        $offset = $this->faker->randomNumber;
+
+        $section = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $part = $this->faker->word;
+        $contentType = $this->faker->word;
+        $size = $this->faker->randomNumber;
+        $contentFilename = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SearchGalResponse sortBy="$sortBy" offset="$offset" more="true" tokenizeKey="true">
+            <urn:cn sf="$sortField" exp="true" id="$id" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="true">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="$type" value="$value" />
+            </urn:cn>
+        </urn:SearchGalResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->searchGal($this->faker->domainName);
+
+        $meta = new \Zimbra\Admin\Struct\AdminCustomMetadata($section);
+        $attr = new \Zimbra\Common\Struct\ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
+        $member = new \Zimbra\Admin\Struct\ContactGroupMember($type, $value);
+        $contact = new \Zimbra\Admin\Struct\ContactInfo(
+            $sortField, TRUE, $id, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, TRUE, [$meta], [$attr], [$member]
+        );
+
+        $this->assertSame($sortBy, $response->getSortBy());
+        $this->assertSame($offset, $response->getOffset());
+        $this->assertTrue($response->getMore());
+        $this->assertTrue($response->getTokenizeKey());
+        $this->assertEquals([$contact], $response->getContacts());
+    }
+
+    public function testSetCurrentVolume()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SetCurrentVolumeResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->setCurrentVolume();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetCurrentVolumeResponse);
+    }
+
+    public function testSetLocalServerOnline()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SetLocalServerOnlineResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->setLocalServerOnline();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetLocalServerOnlineResponse);
+    }
+
+    public function testSetPassword()
+    {
+        $message = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SetPasswordResponse>
+            <urn:message>$message</urn:message>
+        </urn:SetPasswordResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->setPassword($this->faker->uuid, $this->faker->word);
+        $this->assertSame($message, $response->getMessage());
+    }
+
+    public function testSetServerOffline()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SetServerOfflineResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->setServerOffline();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetServerOfflineResponse);
+    }
+
+    public function testSyncGalAccount()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SyncGalAccountResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->syncGalAccount();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SyncGalAccountResponse);
+    }
+
+    public function testUndeployZimlet()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:UndeployZimletResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->undeployZimlet($this->faker->word);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\UndeployZimletResponse);
+    }
+
+    public function testVerifyIndex()
+    {
+        $message = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:VerifyIndexResponse>
+            <urn:status>true</urn:status>
+            <urn:message>$message</urn:message>
+        </urn:VerifyIndexResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->verifyIndex();
+        $this->assertTrue($response->isStatus());
+        $this->assertSame($message, $response->getMessage());
+    }
+
+    public function testVerifyStoreManager()
+    {
+        $storeManagerClass = $this->faker->word;
+        $incomingTime = $this->faker->unixTime;
+        $stageTime = $this->faker->unixTime;
+        $linkTime = $this->faker->unixTime;
+        $fetchTime = $this->faker->unixTime;
+        $deleteTime = $this->faker->unixTime;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:VerifyStoreManagerResponse storeManagerClass="$storeManagerClass" incomingTime="$incomingTime" stageTime="$stageTime" linkTime="$linkTime" fetchTime="$fetchTime" deleteTime="$deleteTime" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->verifyStoreManager();
+        $this->assertSame($storeManagerClass, $response->getStoreManagerClass());
+        $this->assertSame($incomingTime, $response->getIncomingTime());
+        $this->assertSame($stageTime, $response->getStageTime());
+        $this->assertSame($linkTime, $response->getLinkTime());
+        $this->assertSame($fetchTime, $response->getFetchTime());
+        $this->assertSame($deleteTime, $response->getDeleteTime());
+    }
 }
 
 class StubAdminApi extends AdminApi

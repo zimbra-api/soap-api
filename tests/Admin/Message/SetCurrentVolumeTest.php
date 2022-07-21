@@ -16,14 +16,14 @@ class SetCurrentVolumeTest extends ZimbraTestCase
 {
     public function testSetCurrentVolume()
     {
-        $id = mt_rand(1, 10);
+        $id = $this->faker->randomNumber;
         $type = VolumeType::PRIMARY()->getValue();
 
         $request = new SetCurrentVolumeRequest($id, $type);
         $this->assertSame($id, $request->getId());
         $this->assertSame($type, $request->getType());
 
-        $request = new SetCurrentVolumeRequest(0, VolumeType::SECONDARY()->getValue());
+        $request = new SetCurrentVolumeRequest();
         $request->setId($id)
             ->setType($type);
         $this->assertSame($id, $request->getId());

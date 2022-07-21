@@ -83,7 +83,7 @@ class SearchGalRequest extends Request
      * @return self
      */
     public function __construct(
-        ?string $domain,
+        string $domain = '',
         ?string $name = NULL,
         ?int $limit = NULL,
         ?GalSearchType $type = NULL,

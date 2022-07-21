@@ -30,7 +30,7 @@ class VerifyIndexTest extends ZimbraTestCase
         $this->assertFalse($response->isStatus());
         $this->assertSame($message, $response->getMessage());
 
-        $response = new VerifyIndexResponse(FALSE, '');
+        $response = new VerifyIndexResponse();
         $response->setStatus(TRUE)
             ->setMessage($message);
         $this->assertTrue($response->isStatus());

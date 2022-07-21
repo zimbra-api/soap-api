@@ -2195,7 +2195,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\SearchGalResponse
      */
     function searchGal(
-        ?string $domain,
+        string $domain,
         ?string $name = NULL,
         ?int $limit = NULL,
         ?GalSearchType $type = NULL,
@@ -2209,7 +2209,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $type
      * @return Message\SetCurrentVolumeResponse
      */
-    function setCurrentVolume(int $id, int $type): Message\SetCurrentVolumeResponse;
+    function setCurrentVolume(int $id = 0, int $type = 0): Message\SetCurrentVolumeResponse;
 
     /**
      * Set local server online
