@@ -32,8 +32,6 @@ class CreateWaitSetTest extends ZimbraTestCase
         ]);
 
         $waitSet = new WaitSetAddSpec($name, $id, $token, $interests);
-        $error = new IdAndType($id, $type);
-
         $request = new CreateWaitSetRequest($interests, FALSE, [$waitSet]);
         $this->assertSame($interests, $request->getDefaultInterests());
         $this->assertFalse($request->getAllAccounts());
@@ -48,6 +46,7 @@ class CreateWaitSetTest extends ZimbraTestCase
         $this->assertTrue($request->getAllAccounts());
         $request->setAccounts([$waitSet]);
 
+        $error = new IdAndType($id, $type);
         $response = new CreateWaitSetResponse($id, $interests, $sequence, [$error]);
         $this->assertSame($id, $response->getWaitSetId());
         $this->assertSame($interests, $response->getDefaultInterests());

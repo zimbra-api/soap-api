@@ -29,7 +29,7 @@ class AddMsgTest extends ZimbraTestCase
         $tags = $this->faker->word;
         $tagNames = $this->faker->word;
         $folder = $this->faker->word;
-        $dateReceived = time();
+        $dateReceived = $this->faker->unixTime;
         $attachmentId = $this->faker->uuid;
         $content = $this->faker->text;
 

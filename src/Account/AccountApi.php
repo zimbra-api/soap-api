@@ -147,9 +147,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function checkRights(array $targets = []): Message\CheckRightsResponse
     {
-        return $this->invoke(new Message\CheckRightsRequest(
-            $targets
-        ));
+        return $this->invoke(new Message\CheckRightsRequest($targets));
     }
 
     /**
@@ -157,9 +155,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function clientInfo(DomainSelector $domain): Message\ClientInfoResponse
     {
-        return $this->invoke(new Message\ClientInfoRequest(
-            $domain
-        ));
+        return $this->invoke(new Message\ClientInfoRequest($domain));
     }
 
     /**
@@ -179,9 +175,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function createIdentity(Identity $identity): Message\CreateIdentityResponse
     {
-        return $this->invoke(new Message\CreateIdentityRequest(
-            $identity
-        ));
+        return $this->invoke(new Message\CreateIdentityRequest($identity));
     }
 
     /**
@@ -189,9 +183,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function createSignature(Signature $signature): Message\CreateSignatureResponse
     {
-        return $this->invoke(new Message\CreateSignatureRequest(
-            $signature
-        ));
+        return $this->invoke(new Message\CreateSignatureRequest($signature));
     }
 
     /**
@@ -199,9 +191,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function deleteIdentity(NameId $identity): Message\DeleteIdentityResponse
     {
-        return $this->invoke(new Message\DeleteIdentityRequest(
-            $identity
-        ));
+        return $this->invoke(new Message\DeleteIdentityRequest($identity));
     }
 
     /**
@@ -209,9 +199,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function deleteSignature(NameId $signature): Message\DeleteSignatureResponse
     {
-        return $this->invoke(new Message\DeleteSignatureRequest(
-            $signature
-        ));
+        return $this->invoke(new Message\DeleteSignatureRequest($signature));
     }
 
     /**
@@ -219,9 +207,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function discoverRights(array $rights = []): Message\DiscoverRightsResponse
     {
-        return $this->invoke(new Message\DiscoverRightsRequest(
-            $rights
-        ));
+        return $this->invoke(new Message\DiscoverRightsRequest($rights));
     }
 
     /**
@@ -231,9 +217,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         DistributionListSelector $dl, DistributionListAction $action
     ): Message\DistributionListActionResponse
     {
-        return $this->invoke(new Message\DistributionListActionRequest(
-            $dl, $action
-        ));
+        return $this->invoke(new Message\DistributionListActionRequest($dl, $action));
     }
 
     /**
@@ -270,9 +254,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getAccountInfo(AccountSelector $account): Message\GetAccountInfoResponse
     {
-        return $this->invoke(new Message\GetAccountInfoRequest(
-            $account
-        ));
+        return $this->invoke(new Message\GetAccountInfoRequest($account));
     }
 
     /**
@@ -369,9 +351,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getPrefs(array $prefs = []): Message\GetPrefsResponse
     {
-        return $this->invoke(new Message\GetPrefsRequest(
-            $prefs
-        ));
+        return $this->invoke(new Message\GetPrefsRequest($prefs));
     }
 
     /**
@@ -379,9 +359,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getRights(array $aces = []): Message\GetRightsResponse
     {
-        return $this->invoke(new Message\GetRightsRequest(
-            $aces
-        ));
+        return $this->invoke(new Message\GetRightsRequest($aces));
     }
 
     /**

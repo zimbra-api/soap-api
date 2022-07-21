@@ -568,7 +568,7 @@ interface MailApiInterface extends ApiInterface
      * @param  array $dataSources
      * @return Message\DeleteDataSourceResponse
      */
-    function deleteDataSource(array $dataSources): Message\DeleteDataSourceResponse;
+    function deleteDataSource(array $dataSources = []): Message\DeleteDataSourceResponse;
 
     /**
      * Use this to close out the waitset.  Note that the server will automatically time out
@@ -588,7 +588,7 @@ interface MailApiInterface extends ApiInterface
      * @param  DiffDocumentVersionSpec $doc
      * @return Message\DiffDocumentResponse
      */
-    function diffDocument(DiffDocumentVersionSpec $doc = NULL): Message\DiffDocumentResponse;
+    function diffDocument(?DiffDocumentVersionSpec $doc = NULL): Message\DiffDocumentResponse;
 
     /**
      * Dismiss calendar item alarm

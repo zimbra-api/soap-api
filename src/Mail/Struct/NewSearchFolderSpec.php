@@ -243,7 +243,7 @@ class NewSearchFolderSpec
      *
      * @return string
      */
-    public function getParentFolderId(): string
+    public function getParentFolderId(): ?string
     {
         return $this->parentFolderId;
     }

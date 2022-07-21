@@ -95,9 +95,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function addAccountAlias(string $id, string $alias): Message\AddAccountAliasResponse
     {
-        return $this->invoke(new Message\AddAccountAliasRequest(
-            $id, $alias
-        ));
+        return $this->invoke(new Message\AddAccountAliasRequest($id, $alias));
     }
 
     /**
@@ -119,9 +117,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $id, string $alias
     ): Message\AddDistributionListAliasResponse
     {
-        return $this->invoke(new Message\AddDistributionListAliasRequest(
-            $id, $alias
-        ));
+        return $this->invoke(new Message\AddDistributionListAliasRequest($id, $alias));
     }
 
     /**
@@ -131,9 +127,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $id, array $members
     ): Message\AddDistributionListMemberResponse
     {
-        return $this->invoke(new Message\AddDistributionListMemberRequest(
-            $id, $members
-        ));
+        return $this->invoke(new Message\AddDistributionListMemberRequest($id, $members));
     }
 
     /**
@@ -170,9 +164,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function adminDestroyWaitSet(string $waitSetId): Message\AdminDestroyWaitSetResponse
     {
-        return $this->invoke(new Message\AdminDestroyWaitSetRequest(
-            $waitSetId
-        ));
+        return $this->invoke(new Message\AdminDestroyWaitSetRequest($waitSetId));
     }
 
     /**
@@ -264,9 +256,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function autoProvTaskControl(AutoProvTaskAction $action): Message\AutoProvTaskControlResponse
     {
-        return $this->invoke(new Message\AutoProvTaskControlRequest(
-            $action
-        ));
+        return $this->invoke(new Message\AutoProvTaskControlRequest($action));
     }
 
     /**
@@ -310,9 +300,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function checkDirectory(array $paths = []): Message\CheckDirectoryResponse
     {
-        return $this->invoke(new Message\CheckDirectoryRequest(
-            $paths
-        ));
+        return $this->invoke(new Message\CheckDirectoryRequest($paths));
     }
 
     /**
@@ -320,9 +308,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function checkDomainMXRecord(DomainSelector $domain = NULL): Message\CheckDomainMXRecordResponse
     {
-        return $this->invoke(new Message\CheckDomainMXRecordRequest(
-            $domain
-        ));
+        return $this->invoke(new Message\CheckDomainMXRecordRequest($domain));
     }
 
     /**
@@ -330,9 +316,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function checkExchangeAuth(?ExchangeAuthSpec $auth = NULL): Message\CheckExchangeAuthResponse
     {
-        return $this->invoke(new Message\CheckExchangeAuthRequest(
-            $auth
-        ));
+        return $this->invoke(new Message\CheckExchangeAuthRequest($auth));
     }
 
     /**
@@ -360,9 +344,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function checkHostnameResolve(?string $hostname = NULL): Message\CheckHostnameResolveResponse
     {
-        return $this->invoke(new Message\CheckHostnameResolveRequest(
-            $hostname
-        ));
+        return $this->invoke(new Message\CheckHostnameResolveRequest($hostname));
     }
 
     /**
@@ -370,9 +352,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function checkPasswordStrength(string $id, string $password): Message\CheckPasswordStrengthResponse
     {
-        return $this->invoke(new Message\CheckPasswordStrengthRequest(
-            $id, $password
-        ));
+        return $this->invoke(new Message\CheckPasswordStrengthRequest($id, $password));
     }
 
     /**
@@ -395,9 +375,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function clearCookie(array $cookies = []): Message\ClearCookieResponse
     {
-        return $this->invoke(new Message\ClearCookieRequest(
-            $cookies
-        ));
+        return $this->invoke(new Message\ClearCookieRequest($cookies));
     }
 
     /**
@@ -407,9 +385,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         MailboxByAccountIdSelector $mbox, ?CompactIndexAction $action = NULL
     ): Message\CompactIndexResponse
     {
-        return $this->invoke(new Message\CompactIndexRequest(
-            $mbox, $action
-        ));
+        return $this->invoke(new Message\CompactIndexRequest($mbox, $action));
     }
 
     /**
@@ -425,9 +401,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function configureZimlet(AttachmentIdAttrib $content): Message\ConfigureZimletResponse
     {
-        return $this->invoke(new Message\ConfigureZimletRequest(
-            $content
-        ));
+        return $this->invoke(new Message\ConfigureZimletRequest($content));
     }
 
     /**
@@ -435,9 +409,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function contactBackup(array $servers = [], ?ContactBackupOp $op = NULL): Message\ContactBackupResponse
     {
-        return $this->invoke(new Message\ContactBackupRequest(
-            $servers, $op
-        ));
+        return $this->invoke(new Message\ContactBackupRequest($servers, $op));
     }
 
     /**
@@ -445,9 +417,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function copyCos(?CosSelector $cos = NULL, ?string $newName = NULL): Message\CopyCosResponse
     {
-        return $this->invoke(new Message\CopyCosRequest(
-            $cos, $newName
-        ));
+        return $this->invoke(new Message\CopyCosRequest($cos, $newName));
     }
 
     /**
@@ -455,9 +425,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function countAccount(DomainSelector $domain): Message\CountAccountResponse
     {
-        return $this->invoke(new Message\CountAccountRequest(
-            $domain
-        ));
+        return $this->invoke(new Message\CountAccountRequest($domain));
     }
 
     /**
@@ -494,9 +462,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $name, array $attrs = []
     ): Message\CreateAlwaysOnClusterResponse
     {
-        return $this->invoke(new Message\CreateAlwaysOnClusterRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateAlwaysOnClusterRequest($name, $attrs));
     }
 
     /**
@@ -516,9 +482,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createCos(string $name, array $attrs = []): Message\CreateCosResponse
     {
-        return $this->invoke(new Message\CreateCosRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateCosRequest($name, $attrs));
     }
 
     /**
@@ -528,9 +492,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         DataSourceSpecifier $dataSource, string $id = ''
     ): Message\CreateDataSourceResponse
     {
-        return $this->invoke(new Message\CreateDataSourceRequest(
-            $dataSource, $id
-        ));
+        return $this->invoke(new Message\CreateDataSourceRequest($dataSource, $id));
     }
 
     /**
@@ -550,9 +512,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createDomain(string $name, array $attrs = []): Message\CreateDomainResponse
     {
-        return $this->invoke(new Message\CreateDomainRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateDomainRequest($name, $attrs));
     }
 
     /**
@@ -579,9 +539,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createLDAPEntry(string $dn, array $attrs = []): Message\CreateLDAPEntryResponse
     {
-        return $this->invoke(new Message\CreateLDAPEntryRequest(
-            $dn, $attrs
-        ));
+        return $this->invoke(new Message\CreateLDAPEntryRequest($dn, $attrs));
     }
 
     /**
@@ -589,9 +547,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createServer(string $name, array $attrs = []): Message\CreateServerResponse
     {
-        return $this->invoke(new Message\CreateServerRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateServerRequest($name, $attrs));
     }
 
     /**
@@ -611,9 +567,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createUCService(string $name, array $attrs = []): Message\CreateUCServiceResponse
     {
-        return $this->invoke(new Message\CreateUCServiceRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateUCServiceRequest($name, $attrs));
     }
 
     /**
@@ -621,9 +575,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createVolume(VolumeInfo $volume): Message\CreateVolumeResponse
     {
-        return $this->invoke(new Message\CreateVolumeRequest(
-            $volume
-        ));
+        return $this->invoke(new Message\CreateVolumeRequest($volume));
     }
 
     /**
@@ -631,9 +583,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createXMPPComponent(XMPPComponentSpec $component): Message\CreateXMPPComponentResponse
     {
-        return $this->invoke(new Message\CreateXMPPComponentRequest(
-            $component
-        ));
+        return $this->invoke(new Message\CreateXMPPComponentRequest($component));
     }
 
     /**
@@ -641,9 +591,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function createZimlet(string $name, array $attrs = []): Message\CreateZimletResponse
     {
-        return $this->invoke(new Message\CreateZimletRequest(
-            $name, $attrs
-        ));
+        return $this->invoke(new Message\CreateZimletRequest($name, $attrs));
     }
 
     /**
@@ -651,9 +599,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function dedupeBlobs(?DedupAction $action = NULL, array $volumes = []): Message\DedupeBlobsResponse
     {
-        return $this->invoke(new Message\DedupeBlobsRequest(
-            $action, $volumes
-        ));
+        return $this->invoke(new Message\DedupeBlobsRequest($action, $volumes));
     }
 
     /**
@@ -661,9 +607,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function delegateAuth(AccountSelector $account, ?int $duration = NULL): Message\DelegateAuthResponse
     {
-        return $this->invoke(new Message\DelegateAuthRequest(
-            $account, $duration
-        ));
+        return $this->invoke(new Message\DelegateAuthRequest($account, $duration));
     }
 
     /**
@@ -671,9 +615,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteAccount(string $id): Message\DeleteAccountResponse
     {
-        return $this->invoke(new Message\DeleteAccountRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteAccountRequest($id));
     }
 
     /**
@@ -681,9 +623,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteAlwaysOnCluster(string $id): Message\DeleteAlwaysOnClusterResponse
     {
-        return $this->invoke(new Message\DeleteAlwaysOnClusterRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteAlwaysOnClusterRequest($id));
     }
 
     /**
@@ -691,9 +631,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteCalendarResource(string $id): Message\DeleteCalendarResourceResponse
     {
-        return $this->invoke(new Message\DeleteCalendarResourceRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteCalendarResourceRequest($id));
     }
 
     /**
@@ -701,9 +639,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteCos(string $id): Message\DeleteCosResponse
     {
-        return $this->invoke(new Message\DeleteCosRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteCosRequest($id));
     }
 
     /**
@@ -725,9 +661,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $id, ?bool $cascadeDelete = NULL
     ): Message\DeleteDistributionListResponse
     {
-        return $this->invoke(new Message\DeleteDistributionListRequest(
-            $id, $cascadeDelete
-        ));
+        return $this->invoke(new Message\DeleteDistributionListRequest($id, $cascadeDelete));
     }
 
     /**
@@ -735,9 +669,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteDomain(string $id): Message\DeleteDomainResponse
     {
-        return $this->invoke(new Message\DeleteDomainRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteDomainRequest($id));
     }
 
     /**
@@ -745,9 +677,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteGalSyncAccount(AccountSelector $account): Message\DeleteGalSyncAccountResponse
     {
-        return $this->invoke(new Message\DeleteGalSyncAccountRequest(
-            $account
-        ));
+        return $this->invoke(new Message\DeleteGalSyncAccountRequest($account));
     }
 
     /**
@@ -755,9 +685,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteLDAPEntry(string $dn): Message\DeleteLDAPEntryResponse
     {
-        return $this->invoke(new Message\DeleteLDAPEntryRequest(
-            $dn
-        ));
+        return $this->invoke(new Message\DeleteLDAPEntryRequest($dn));
     }
 
     /**
@@ -767,9 +695,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?MailboxByAccountIdSelector $mbox = NULL
     ): Message\DeleteMailboxResponse
     {
-        return $this->invoke(new Message\DeleteMailboxRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\DeleteMailboxRequest($mbox));
     }
 
     /**
@@ -777,9 +703,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteServer(string $id): Message\DeleteServerResponse
     {
-        return $this->invoke(new Message\DeleteServerRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteServerRequest($id));
     }
 
     /**
@@ -799,9 +723,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteUCService(string $id): Message\DeleteUCServiceResponse
     {
-        return $this->invoke(new Message\DeleteUCServiceRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteUCServiceRequest($id));
     }
 
     /**
@@ -809,9 +731,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteVolume(int $id): Message\DeleteVolumeResponse
     {
-        return $this->invoke(new Message\DeleteVolumeRequest(
-            $id
-        ));
+        return $this->invoke(new Message\DeleteVolumeRequest($id));
     }
 
     /**
@@ -821,9 +741,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?XMPPComponentSelector $component = NULL
     ): Message\DeleteXMPPComponentResponse
     {
-        return $this->invoke(new Message\DeleteXMPPComponentRequest(
-            $component
-        ));
+        return $this->invoke(new Message\DeleteXMPPComponentRequest($component));
     }
 
     /**
@@ -831,9 +749,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function deleteZimlet(NamedElement $zimlet): Message\DeleteZimletResponse
     {
-        return $this->invoke(new Message\DeleteZimletRequest(
-            $zimlet
-        ));
+        return $this->invoke(new Message\DeleteZimletRequest($zimlet));
     }
 
     /**
@@ -880,9 +796,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function fixCalendarEndTime(?bool $sync = NULL, array $accounts = []): Message\FixCalendarEndTimeResponse
     {
-        return $this->invoke(new Message\FixCalendarEndTimeRequest(
-            $sync, $accounts
-        ));
+        return $this->invoke(new Message\FixCalendarEndTimeRequest($sync, $accounts));
     }
 
     /**
@@ -890,9 +804,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function fixCalendarPriority(?bool $sync = NULL, array $accounts = []): Message\FixCalendarPriorityResponse
     {
-        return $this->invoke(new Message\FixCalendarPriorityRequest(
-            $sync, $accounts
-        ));
+        return $this->invoke(new Message\FixCalendarPriorityRequest($sync, $accounts));
     }
 
     /**
@@ -912,9 +824,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function flushCache(?CacheSelector $cache = NULL): Message\FlushCacheResponse
     {
-        return $this->invoke(new Message\FlushCacheRequest(
-            $cache
-        ));
+        return $this->invoke(new Message\FlushCacheRequest($cache));
     }
 
     /**
@@ -934,9 +844,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAccountInfo(AccountSelector $account): Message\GetAccountInfoResponse
     {
-        return $this->invoke(new Message\GetAccountInfoRequest(
-            $account
-        ));
+        return $this->invoke(new Message\GetAccountInfoRequest($account));
     }
 
     /**
@@ -946,9 +854,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?string $id = NULL, ?AccountSelector $account = NULL
     ): Message\GetAccountLoggersResponse
     {
-        return $this->invoke(new Message\GetAccountLoggersRequest(
-            $id, $account
-        ));
+        return $this->invoke(new Message\GetAccountLoggersRequest($id, $account));
     }
 
     /**
@@ -956,9 +862,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAccountMembership(AccountSelector $account): Message\GetAccountMembershipResponse
     {
-        return $this->invoke(new Message\GetAccountMembershipRequest(
-            $account
-        ));
+        return $this->invoke(new Message\GetAccountMembershipRequest($account));
     }
 
     /**
@@ -968,9 +872,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?AccountSelector $account = NULL, ?DistributionListSelector $dl = NULL
     ): Message\GetAdminConsoleUICompResponse
     {
-        return $this->invoke(new Message\GetAdminConsoleUICompRequest(
-            $account, $dl
-        ));
+        return $this->invoke(new Message\GetAdminConsoleUICompRequest($account, $dl));
     }
 
     /**
@@ -986,9 +888,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAdminSavedSearches(array $searches = []): Message\GetAdminSavedSearchesResponse
     {
-        return $this->invoke(new Message\GetAdminSavedSearchesRequest(
-            $searches
-        ));
+        return $this->invoke(new Message\GetAdminSavedSearchesRequest($searches));
     }
 
     /**
@@ -1014,9 +914,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
     ): Message\GetAllAccountsResponse
     {
-        return $this->invoke(new Message\GetAllAccountsRequest(
-            $server, $domain
-        ));
+        return $this->invoke(new Message\GetAllAccountsRequest($server, $domain));
     }
 
     /**
@@ -1032,9 +930,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAllAdminAccounts(?bool $applyCos = NULL): Message\GetAllAdminAccountsResponse
     {
-        return $this->invoke(new Message\GetAllAdminAccountsRequest(
-            $applyCos
-        ));
+        return $this->invoke(new Message\GetAllAdminAccountsRequest($applyCos));
     }
 
     /**
@@ -1052,9 +948,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?ServerSelector $server = NULL, ?DomainSelector $domain = NULL
     ): Message\GetAllCalendarResourcesResponse
     {
-        return $this->invoke(new Message\GetAllCalendarResourcesRequest(
-            $server, $domain
-        ));
+        return $this->invoke(new Message\GetAllCalendarResourcesRequest($server, $domain));
     }
 
     /**
@@ -1080,9 +974,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?DomainSelector $domain = NULL
     ): Message\GetAllDistributionListsResponse
     {
-        return $this->invoke(new Message\GetAllDistributionListsRequest(
-            $domain
-        ));
+        return $this->invoke(new Message\GetAllDistributionListsRequest($domain));
     }
 
     /**
@@ -1090,9 +982,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAllDomains(?bool $applyConfig = NULL): Message\GetAllDomainsResponse
     {
-        return $this->invoke(new Message\GetAllDomainsRequest(
-            $applyConfig
-        ));
+        return $this->invoke(new Message\GetAllDomainsRequest($applyConfig));
     }
 
     /**
@@ -1128,9 +1018,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAllMailboxes(?int $limit = NULL, ?int $offset = NULL): Message\GetAllMailboxesResponse
     {
-        return $this->invoke(new Message\GetAllMailboxesRequest(
-            $limit, $offset
-        ));
+        return $this->invoke(new Message\GetAllMailboxesRequest($limit, $offset));
     }
 
     /**
@@ -1194,9 +1082,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getAllZimlets(?ZimletExcludeType $exclude = NULL): Message\GetAllZimletsResponse
     {
-        return $this->invoke(new Message\GetAllZimletsRequest(
-            $exclude
-        ));
+        return $this->invoke(new Message\GetAllZimletsRequest($exclude));
     }
 
     /**
@@ -1206,9 +1092,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?AlwaysOnClusterSelector $cluster = NULL, ?string $attrs = NULL
     ): Message\GetAlwaysOnClusterResponse
     {
-        return $this->invoke(new Message\GetAlwaysOnClusterRequest(
-            $cluster, $attrs
-        ));
+        return $this->invoke(new Message\GetAlwaysOnClusterRequest($cluster, $attrs));
     }
 
     /**
@@ -1218,9 +1102,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?string $attrs = NULL, ?string $entryTypes = NULL
     ): Message\GetAttributeInfoResponse
     {
-        return $this->invoke(new Message\GetAttributeInfoRequest(
-            $attrs, $entryTypes
-        ));
+        return $this->invoke(new Message\GetAttributeInfoRequest($attrs, $entryTypes));
     }
 
     /**
@@ -1240,9 +1122,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getConfig(?Attr $attr = NULL): Message\GetConfigResponse
     {
-        return $this->invoke(new Message\GetConfigRequest(
-            $attr
-        ));
+        return $this->invoke(new Message\GetConfigRequest($attr));
     }
 
     /**
@@ -1250,9 +1130,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getCos(CosSelector $cos, ?string $attrs = NULL): Message\GetCosResponse
     {
-        return $this->invoke(new Message\GetCosRequest(
-            $cos, $attrs
-        ));
+        return $this->invoke(new Message\GetCosRequest($cos, $attrs));
     }
 
     /**
@@ -1280,9 +1158,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getDataSources(string $id, array $attrs = []): Message\GetDataSourcesResponse
     {
-        return $this->invoke(new Message\GetDataSourcesRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\GetDataSourcesRequest($id, $attrs));
     }
 
     /**
@@ -1348,9 +1224,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?DomainSelector $domain = NULL, ?bool $applyConfig = NULL
     ): Message\GetDomainInfoResponse
     {
-        return $this->invoke(new Message\GetDomainInfoRequest(
-            $domain, $applyConfig
-        ));
+        return $this->invoke(new Message\GetDomainInfoRequest($domain, $applyConfig));
     }
 
     /**
@@ -1389,9 +1263,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getFreeBusyQueueInfo(?NamedElement $provider = NULL): Message\GetFreeBusyQueueInfoResponse
     {
-        return $this->invoke(new Message\GetFreeBusyQueueInfoRequest(
-            $provider
-        ));
+        return $this->invoke(new Message\GetFreeBusyQueueInfoRequest($provider));
     }
 
     /**
@@ -1402,9 +1274,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?GranteeSelector $grantee = NULL
     ): Message\GetGrantsResponse
     {
-        return $this->invoke(new Message\GetGrantsRequest(
-            $target, $grantee
-        ));
+        return $this->invoke(new Message\GetGrantsRequest($target, $grantee));
     }
 
     /**
@@ -1412,9 +1282,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getIndexStats(MailboxByAccountIdSelector $mbox): Message\GetIndexStatsResponse
     {
-        return $this->invoke(new Message\GetIndexStatsRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\GetIndexStatsRequest($mbox));
     }
 
     /**
@@ -1459,9 +1327,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getMailbox(?MailboxByAccountIdSelector $mbox = NULL): Message\GetMailboxResponse
     {
-        return $this->invoke(new Message\GetMailboxRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\GetMailboxRequest($mbox));
     }
 
     /**
@@ -1477,9 +1343,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getMailQueue(ServerMailQueueQuery $server): Message\GetMailQueueResponse
     {
-        return $this->invoke(new Message\GetMailQueueRequest(
-            $server
-        ));
+        return $this->invoke(new Message\GetMailQueueRequest($server));
     }
 
     /**
@@ -1487,9 +1351,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getMailQueueInfo(NamedElement $server): Message\GetMailQueueInfoResponse
     {
-        return $this->invoke(new Message\GetMailQueueInfoRequest(
-            $server
-        ));
+        return $this->invoke(new Message\GetMailQueueInfoRequest($server));
     }
 
     /**
@@ -1531,9 +1393,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getRight(string $right, ?bool $expandAllAttrs = NULL): Message\GetRightResponse
     {
-        return $this->invoke(new Message\GetRightRequest(
-            $right, $expandAllAttrs
-        ));
+        return $this->invoke(new Message\GetRightRequest($right, $expandAllAttrs));
     }
 
     /**
@@ -1541,9 +1401,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getRightsDoc(array $pkgs = []): Message\GetRightsDocResponse
     {
-        return $this->invoke(new Message\GetRightsDocRequest(
-            $pkgs
-        ));
+        return $this->invoke(new Message\GetRightsDocRequest($pkgs));
     }
 
     /**
@@ -1565,9 +1423,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getServerNIfs(ServerSelector $server, ?IpType $type = NULL): Message\GetServerNIfsResponse
     {
-        return $this->invoke(new Message\GetServerNIfsRequest(
-            $server, $type
-        ));
+        return $this->invoke(new Message\GetServerNIfsRequest($server, $type));
     }
 
     /**
@@ -1575,9 +1431,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getServerStats(array $stats = []): Message\GetServerStatsResponse
     {
-        return $this->invoke(new Message\GetServerStatsRequest(
-            $stats
-        ));
+        return $this->invoke(new Message\GetServerStatsRequest($stats));
     }
 
     /**
@@ -1611,9 +1465,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         AccountSelector $owner, ?GranteeChooser $grantee = NULL
     ): Message\GetShareInfoResponse
     {
-        return $this->invoke(new Message\GetShareInfoRequest(
-            $owner, $grantee
-        ));
+        return $this->invoke(new Message\GetShareInfoRequest($owner, $grantee));
     }
 
     /**
@@ -1621,9 +1473,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getSystemRetentionPolicy(?CosSelector $cos = NULL): Message\GetSystemRetentionPolicyResponse
     {
-        return $this->invoke(new Message\GetSystemRetentionPolicyRequest(
-            $cos
-        ));
+        return $this->invoke(new Message\GetSystemRetentionPolicyRequest($cos));
     }
 
     /**
@@ -1631,9 +1481,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getUCService(UcServiceSelector $ucService, ?string $attrs = NULL): Message\GetUCServiceResponse
     {
-        return $this->invoke(new Message\GetUCServiceRequest(
-            $ucService, $attrs
-        ));
+        return $this->invoke(new Message\GetUCServiceRequest($ucService, $attrs));
     }
 
     /**
@@ -1649,9 +1497,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getVolume(int $id): Message\GetVolumeResponse
     {
-        return $this->invoke(new Message\GetVolumeRequest(
-            $id
-        ));
+        return $this->invoke(new Message\GetVolumeRequest($id));
     }
 
     /**
@@ -1661,9 +1507,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         XMPPComponentSelector $component, ?string $attrs = NULL
     ): Message\GetXMPPComponentResponse
     {
-        return $this->invoke(new Message\GetXMPPComponentRequest(
-            $component, $attrs
-        ));
+        return $this->invoke(new Message\GetXMPPComponentRequest($component, $attrs));
     }
 
     /**
@@ -1671,9 +1515,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function getZimlet(NamedElement $zimlet, ?string $attrs = NULL): Message\GetZimletResponse
     {
-        return $this->invoke(new Message\GetZimletRequest(
-            $zimlet, $attrs
-        ));
+        return $this->invoke(new Message\GetZimletRequest($zimlet, $attrs));
     }
 
     /**
@@ -1705,9 +1547,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         AccountNameSelector $account, ?LockoutOperation $operation = NULL
     ): Message\LockoutMailboxResponse
     {
-        return $this->invoke(new Message\LockoutMailboxRequest(
-            $account, $operation
-        ));
+        return $this->invoke(new Message\LockoutMailboxRequest($account, $operation));
     }
 
     /**
@@ -1715,9 +1555,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function mailQueueAction(ServerWithQueueAction $server): Message\MailQueueActionResponse
     {
-        return $this->invoke(new Message\MailQueueActionRequest(
-            $server
-        ));
+        return $this->invoke(new Message\MailQueueActionRequest($server));
     }
 
     /**
@@ -1725,9 +1563,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function mailQueueFlush(NamedElement $server): Message\MailQueueFlushResponse
     {
-        return $this->invoke(new Message\MailQueueFlushRequest(
-            $server
-        ));
+        return $this->invoke(new Message\MailQueueFlushRequest($server));
     }
 
     /**
@@ -1735,9 +1571,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function migrateAccount(IdAndAction $migrate): Message\MigrateAccountResponse
     {
-        return $this->invoke(new Message\MigrateAccountRequest(
-            $migrate
-        ));
+        return $this->invoke(new Message\MigrateAccountRequest($migrate));
     }
 
     /**
@@ -1745,9 +1579,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyAccount(string $id, array $attrs = []): Message\ModifyAccountResponse
     {
-        return $this->invoke(new Message\ModifyAccountRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyAccountRequest($id, $attrs));
     }
 
     /**
@@ -1755,9 +1587,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyAdminSavedSearches(array $searches = []): Message\ModifyAdminSavedSearchesResponse
     {
-        return $this->invoke(new Message\ModifyAdminSavedSearchesRequest(
-            $searches
-        ));
+        return $this->invoke(new Message\ModifyAdminSavedSearchesRequest($searches));
     }
 
     /**
@@ -1765,9 +1595,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyAlwaysOnCluster(string $id, array $attrs = []): Message\ModifyAlwaysOnClusterResponse
     {
-        return $this->invoke(new Message\ModifyAlwaysOnClusterRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyAlwaysOnClusterRequest($id, $attrs));
     }
 
     /**
@@ -1775,9 +1603,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyCalendarResource(string $id, array $attrs = []): Message\ModifyCalendarResourceResponse
     {
-        return $this->invoke(new Message\ModifyCalendarResourceRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyCalendarResourceRequest($id, $attrs));
     }
 
     /**
@@ -1785,9 +1611,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyConfig(array $attrs = []): Message\ModifyConfigResponse
     {
-        return $this->invoke(new Message\ModifyConfigRequest(
-            $attrs
-        ));
+        return $this->invoke(new Message\ModifyConfigRequest($attrs));
     }
 
     /**
@@ -1795,9 +1619,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyCos(string $id, array $attrs = []): Message\ModifyCosResponse
     {
-        return $this->invoke(new Message\ModifyCosRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyCosRequest($id, $attrs));
     }
 
     /**
@@ -1829,9 +1651,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyDistributionList(string $id, array $attrs = []): Message\ModifyDistributionListResponse
     {
-        return $this->invoke(new Message\ModifyDistributionListRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyDistributionListRequest($id, $attrs));
     }
 
     /**
@@ -1839,9 +1659,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyDomain(string $id, array $attrs = []): Message\ModifyDomainResponse
     {
-        return $this->invoke(new Message\ModifyDomainRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyDomainRequest($id, $attrs));
     }
 
     /**
@@ -1866,9 +1684,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyLDAPEntry(string $dn, array $attrs = []): Message\ModifyLDAPEntryResponse
     {
-        return $this->invoke(new Message\ModifyLDAPEntryRequest(
-            $dn, $attrs
-        ));
+        return $this->invoke(new Message\ModifyLDAPEntryRequest($dn, $attrs));
     }
 
     /**
@@ -1893,9 +1709,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyServer(string $id, array $attrs = []): Message\ModifyServerResponse
     {
-        return $this->invoke(new Message\ModifyServerRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyServerRequest($id, $attrs));
     }
 
     /**
@@ -1905,9 +1719,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         Policy $policy, ?CosSelector $cos = NULL
     ): Message\ModifySystemRetentionPolicyResponse
     {
-        return $this->invoke(new Message\ModifySystemRetentionPolicyRequest(
-            $policy, $cos
-        ));
+        return $this->invoke(new Message\ModifySystemRetentionPolicyRequest($policy, $cos));
     }
 
     /**
@@ -1915,9 +1727,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyUCService(string $id, array $attrs = []): Message\ModifyUCServiceResponse
     {
-        return $this->invoke(new Message\ModifyUCServiceRequest(
-            $id, $attrs
-        ));
+        return $this->invoke(new Message\ModifyUCServiceRequest($id, $attrs));
     }
 
     /**
@@ -1925,9 +1735,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyVolume(VolumeInfo $volume, int $id = 0): Message\ModifyVolumeResponse
     {
-        return $this->invoke(new Message\ModifyVolumeRequest(
-            $volume, $id
-        ));
+        return $this->invoke(new Message\ModifyVolumeRequest($volume, $id));
     }
 
     /**
@@ -1935,9 +1743,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function modifyZimlet(ZimletAclStatusPri $zimlet): Message\ModifyZimletResponse
     {
-        return $this->invoke(new Message\ModifyZimletRequest(
-            $zimlet
-        ));
+        return $this->invoke(new Message\ModifyZimletRequest($zimlet));
     }
 
     /**
@@ -1961,9 +1767,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function purgeAccountCalendarCache(string $id): Message\PurgeAccountCalendarCacheResponse
     {
-        return $this->invoke(new Message\PurgeAccountCalendarCacheRequest(
-            $id
-        ));
+        return $this->invoke(new Message\PurgeAccountCalendarCacheRequest($id));
     }
 
     /**
@@ -1971,9 +1775,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function purgeFreeBusyQueue(?NamedElement $provider = NULL): Message\PurgeFreeBusyQueueResponse
     {
-        return $this->invoke(new Message\PurgeFreeBusyQueueRequest(
-            $provider
-        ));
+        return $this->invoke(new Message\PurgeFreeBusyQueueRequest($provider));
     }
 
     /**
@@ -1981,9 +1783,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function purgeMessages(?MailboxByAccountIdSelector $mbox = NULL): Message\PurgeMessagesResponse
     {
-        return $this->invoke(new Message\PurgeMessagesRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\PurgeMessagesRequest($mbox));
     }
 
     /**
@@ -1991,9 +1791,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function pushFreeBusy(?Names $domains = NULL, array $accounts = []): Message\PushFreeBusyResponse
     {
-        return $this->invoke(new Message\PushFreeBusyRequest(
-            $domains, $accounts
-        ));
+        return $this->invoke(new Message\PushFreeBusyRequest($domains, $accounts));
     }
 
     /**
@@ -2001,9 +1799,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function queryWaitSet(?string $waitSetId = NULL): Message\QueryWaitSetResponse
     {
-        return $this->invoke(new Message\QueryWaitSetRequest(
-            $waitSetId
-        ));
+        return $this->invoke(new Message\QueryWaitSetRequest($waitSetId));
     }
 
     /**
@@ -2013,9 +1809,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?MailboxByAccountIdSelector $mbox = NULL
     ): Message\RecalculateMailboxCountsResponse
     {
-        return $this->invoke(new Message\RecalculateMailboxCountsRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\RecalculateMailboxCountsRequest($mbox));
     }
 
     /**
@@ -2025,9 +1819,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         array $tokens = []
     ): Message\RefreshRegisteredAuthTokensResponse
     {
-        return $this->invoke(new Message\RefreshRegisteredAuthTokensRequest(
-            $tokens
-        ));
+        return $this->invoke(new Message\RefreshRegisteredAuthTokensRequest($tokens));
     }
 
     /**
@@ -2037,9 +1829,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ReindexMailboxInfo $mbox, ?ReIndexAction $action = NULL
     ): Message\ReIndexResponse
     {
-        return $this->invoke(new Message\ReIndexRequest(
-            $mbox, $action
-        ));
+        return $this->invoke(new Message\ReIndexRequest($mbox, $action));
     }
 
     /**
@@ -2063,9 +1853,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function removeAccountAlias(string $id, string $alias): Message\RemoveAccountAliasResponse
     {
-        return $this->invoke(new Message\RemoveAccountAliasRequest(
-            $id, $alias
-        ));
+        return $this->invoke(new Message\RemoveAccountAliasRequest($id, $alias));
     }
 
     /**
@@ -2087,9 +1875,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         string $id, string $alias
     ): Message\RemoveDistributionListAliasResponse
     {
-        return $this->invoke(new Message\RemoveDistributionListAliasRequest(
-            $id, $alias
-        ));
+        return $this->invoke(new Message\RemoveDistributionListAliasRequest($id, $alias));
     }
 
     /**
@@ -2109,9 +1895,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameAccount(string $id, string $newName): Message\RenameAccountResponse
     {
-        return $this->invoke(new Message\RenameAccountRequest(
-            $id, $newName
-        ));
+        return $this->invoke(new Message\RenameAccountRequest($id, $newName));
     }
 
     /**
@@ -2119,9 +1903,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameCalendarResource(string $id, string $newName): Message\RenameCalendarResourceResponse
     {
-        return $this->invoke(new Message\RenameCalendarResourceRequest(
-            $id, $newName
-        ));
+        return $this->invoke(new Message\RenameCalendarResourceRequest($id, $newName));
     }
 
     /**
@@ -2129,9 +1911,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameCos(string $id, string $newName): Message\RenameCosResponse
     {
-        return $this->invoke(new Message\RenameCosRequest(
-            $id, $newName
-        ));
+        return $this->invoke(new Message\RenameCosRequest($id, $newName));
     }
 
     /**
@@ -2139,9 +1919,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameDistributionList(string $id, string $newName): Message\RenameDistributionListResponse
     {
-        return $this->invoke(new Message\RenameDistributionListRequest(
-            $id, $newName
-        ));
+        return $this->invoke(new Message\RenameDistributionListRequest($id, $newName));
     }
 
     /**
@@ -2149,9 +1927,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameLDAPEntry(string $dn, string $newDn): Message\RenameLDAPEntryResponse
     {
-        return $this->invoke(new Message\RenameLDAPEntryRequest(
-            $dn, $newDn
-        ));
+        return $this->invoke(new Message\RenameLDAPEntryRequest($dn, $newDn));
     }
 
     /**
@@ -2159,9 +1935,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameUCService(string $id, string $newName): Message\RenameUCServiceResponse
     {
-        return $this->invoke(new Message\RenameUCServiceRequest(
-            $id, $newName
-        ));
+        return $this->invoke(new Message\RenameUCServiceRequest($id, $newName));
     }
 
     /**
@@ -2331,9 +2105,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function setCurrentVolume(int $id = 0, int $type = 0): Message\SetCurrentVolumeResponse
     {
-        return $this->invoke(new Message\SetCurrentVolumeRequest(
-            $id, $type
-        ));
+        return $this->invoke(new Message\SetCurrentVolumeRequest($id, $type));
     }
 
     /**
@@ -2349,9 +2121,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function setPassword(string $id, string $newPassword): Message\SetPasswordResponse
     {
-        return $this->invoke(new Message\SetPasswordRequest(
-            $id, $newPassword
-        ));
+        return $this->invoke(new Message\SetPasswordRequest($id, $newPassword));
     }
 
     /**
@@ -2361,9 +2131,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
         ?ServerSelector $server = NULL, ?string $attrs = NULL
     ): Message\SetServerOfflineResponse
     {
-        return $this->invoke(new Message\SetServerOfflineRequest(
-            $server, $attrs
-        ));
+        return $this->invoke(new Message\SetServerOfflineRequest($server, $attrs));
     }
 
     /**
@@ -2371,9 +2139,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function syncGalAccount(array $accounts = []): Message\SyncGalAccountResponse
     {
-        return $this->invoke(new Message\SyncGalAccountRequest(
-            $accounts
-        ));
+        return $this->invoke(new Message\SyncGalAccountRequest($accounts));
     }
 
     /**
@@ -2381,9 +2147,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function undeployZimlet(string $name, ?string $action = NULL): Message\UndeployZimletResponse
     {
-        return $this->invoke(new Message\UndeployZimletRequest(
-            $name, $action
-        ));
+        return $this->invoke(new Message\UndeployZimletRequest($name, $action));
     }
 
     /**
@@ -2391,9 +2155,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function verifyIndex(?MailboxByAccountIdSelector $mbox = NULL): Message\VerifyIndexResponse
     {
-        return $this->invoke(new Message\VerifyIndexRequest(
-            $mbox
-        ));
+        return $this->invoke(new Message\VerifyIndexRequest($mbox));
     }
 
     /**

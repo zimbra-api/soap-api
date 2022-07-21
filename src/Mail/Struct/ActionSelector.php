@@ -270,7 +270,7 @@ class ActionSelector
      *
      * @return string
      */
-    public function getOperation(): string
+    public function getOperation(): ?string
     {
         return $this->operation;
     }
