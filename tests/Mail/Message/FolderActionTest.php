@@ -56,9 +56,6 @@ class FolderActionTest extends ZimbraTestCase
         $action = new FolderActionSelector(
             $operation, $ids, TRUE, $url, TRUE, $zimbraId, $grantType, $view, $grant, [$grant], $retentionPolicy, $numDays
         );
-        $result = new FolderActionResult(
-            $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
-        );
 
         $request = new FolderActionRequest($action);
         $this->assertSame($action, $request->getAction());
@@ -66,11 +63,14 @@ class FolderActionTest extends ZimbraTestCase
         $request->setAction($action);
         $this->assertSame($action, $request->getAction());
 
-        $response = new FolderActionResponse($result);
-        $this->assertSame($result, $response->getAction());
+        $action = new FolderActionResult(
+            $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
+        );
+        $response = new FolderActionResponse($action);
+        $this->assertSame($action, $response->getAction());
         $response = new FolderActionResponse();
-        $response->setAction($result);
-        $this->assertSame($result, $response->getAction());
+        $response->setAction($action);
+        $this->assertSame($action, $response->getAction());
 
         $body = new FolderActionBody($request, $response);
         $this->assertSame($request, $body->getRequest());

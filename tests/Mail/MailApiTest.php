@@ -1518,6 +1518,86 @@ EOT;
         $response = $api->exportContacts($contentType);
         $this->assertSame($content, $response->getContent());
     }
+
+    public function testFolderAction()
+    {
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\ContactActionOp::values())->getValue();
+        $id = $this->faker->uuid;
+        $zimbraId = $this->faker->uuid;
+        $nonExistentIds = $this->faker->uuid;
+        $newlyCreatedIds = $this->faker->uuid;
+        $displayName = $this->faker->name;
+        $accessKey = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:FolderActionResponse>
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" zid="$zimbraId" d="$displayName" key="$accessKey" />
+        </urn:FolderActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->folderAction(new \Zimbra\Mail\Message\FolderActionSelector($operation, $id));
+
+        $action = new \Zimbra\Mail\Message\FolderActionResult(
+            $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
+        );
+        $this->assertEquals($action, $response->getAction());
+    }
+
+    public function testForwardAppointmentInvite()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ForwardAppointmentInviteResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->forwardAppointmentInvite();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ForwardAppointmentInviteResponse);
+    }
+
+    public function testForwardAppointment()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ForwardAppointmentResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->forwardAppointment();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ForwardAppointmentResponse);
+    }
+
+    public function testGenerateUUID()
+    {
+        $uuid = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:GenerateUUIDResponse>$uuid</urn:GenerateUUIDResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->generateUUID();
+        $this->assertSame($uuid, $response->getUuid());
+    }
 }
 
 class StubMailApi extends MailApi
