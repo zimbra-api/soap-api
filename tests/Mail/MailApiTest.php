@@ -1541,9 +1541,9 @@ EOT;
 EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
-        $response = $api->folderAction(new \Zimbra\Mail\Message\FolderActionSelector($operation, $id));
+        $response = $api->folderAction(new \Zimbra\Mail\Struct\FolderActionSelector($operation, $id));
 
-        $action = new \Zimbra\Mail\Message\FolderActionResult(
+        $action = new \Zimbra\Mail\Struct\FolderActionResult(
             $id, $operation, $nonExistentIds, $newlyCreatedIds, $zimbraId, $displayName, $accessKey
         );
         $this->assertEquals($action, $response->getAction());

@@ -592,7 +592,7 @@ class MailApi extends AbstractApi implements MailApiInterface
     public function folderAction(FolderActionSelector $action): Message\FolderActionResponse
     {
         return $this->invoke(new Message\FolderActionRequest(
-            $contentType, $folderId, $csvFormat, $csvLocale, $csvDelimiteraction
+            $action
         ));
     }
 
