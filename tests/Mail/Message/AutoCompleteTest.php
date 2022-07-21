@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\Enum\AutoCompleteMatchType as MatchType;
+use Zimbra\Common\Enum\AutoCompleteMatchType;
 use Zimbra\Common\Enum\GalSearchType;
 use Zimbra\Mail\Struct\AutoCompleteMatch;
 
@@ -43,7 +43,7 @@ class AutoCompleteTest extends ZimbraTestCase
         $this->assertTrue($request->getIncludeGal());
 
         $email = $this->faker->email;
-        $matchType = MatchType::GAL();
+        $matchType = AutoCompleteMatchType::GAL();
         $ranking = $this->faker->randomNumber;
         $id = $this->faker->uuid;
         $folder = $this->faker->word;

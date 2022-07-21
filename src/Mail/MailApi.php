@@ -105,9 +105,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
     ): Message\AddAppointmentInviteResponse
     {
-        return $this->invoke(new Message\AddAppointmentInviteRequest(
-            $partStat, $msg
-        ));
+        return $this->invoke(new Message\AddAppointmentInviteRequest($partStat, $msg));
     }
 
     /**
@@ -115,9 +113,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function addComment(AddedComment $comment): Message\AddCommentResponse
     {
-        return $this->invoke(new Message\AddCommentRequest(
-            $comment
-        ));
+        return $this->invoke(new Message\AddCommentRequest($comment));
     }
 
     /**
@@ -125,9 +121,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function addMsg(AddMsgSpec $msg, ?bool $filterSent = NULL): Message\AddMsgResponse
     {
-        return $this->invoke(new Message\AddCommentRequest(
-            $msg, $filterSent
-        ));
+        return $this->invoke(new Message\AddMsgRequest($msg, $filterSent));
     }
 
     /**
@@ -137,9 +131,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?ParticipationStatus $partStat = NULL, ?Msg $msg = NULL
     ): Message\AddTaskInviteResponse
     {
-        return $this->invoke(new Message\AddTaskInviteRequest(
-            $partStat, $msg
-        ));
+        return $this->invoke(new Message\AddTaskInviteRequest($partStat, $msg));
     }
 
     /**
@@ -147,9 +139,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function announceOrganizerChange(string $id): Message\AnnounceOrganizerChangeResponse
     {
-        return $this->invoke(new Message\AnnounceOrganizerChangeRequest(
-            $id
-        ));
+        return $this->invoke(new Message\AnnounceOrganizerChangeRequest($id));
     }
 
     /**
@@ -205,9 +195,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function bounceMsg(BounceMsgSpec $msg): Message\BounceMsgResponse
     {
-        return $this->invoke(new Message\BounceMsgRequest(
-            $msg
-        ));
+        return $this->invoke(new Message\BounceMsgRequest($msg));
     }
 
     /**
@@ -265,9 +253,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?TargetSpec $target = NULL, array $rights = []
     ): Message\CheckPermissionResponse
     {
-        return $this->invoke(new Message\CheckPermissionRequest(
-            $target, $rights
-        ));
+        return $this->invoke(new Message\CheckPermissionRequest($target, $rights));
     }
 
     /**
@@ -317,9 +303,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function contactAction(ContactActionSelector $action): Message\ContactActionResponse
     {
-        return $this->invoke(new Message\ContactActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\ContactActionRequest($action));
     }
 
     /**
@@ -327,9 +311,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function convAction(ConvActionSelector $action): Message\ConvActionResponse
     {
-        return $this->invoke(new Message\ConvActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\ConvActionRequest($action));
     }
 
     /**
@@ -415,9 +397,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createDataSource(?MailDataSource $dataSource = NULL): Message\CreateDataSourceResponse
     {
-        return $this->invoke(new Message\CreateDataSourceRequest(
-            $dataSource
-        ));
+        return $this->invoke(new Message\CreateDataSourceRequest($dataSource));
     }
 
     /**
@@ -425,9 +405,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createFolder(NewFolderSpec $folder): Message\CreateFolderResponse
     {
-        return $this->invoke(new Message\CreateFolderRequest(
-            $folder
-        ));
+        return $this->invoke(new Message\CreateFolderRequest($folder));
     }
 
     /**
@@ -435,9 +413,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createMountpoint(NewMountpointSpec $folder): Message\CreateMountpointResponse
     {
-        return $this->invoke(new Message\CreateMountpointRequest(
-            $folder
-        ));
+        return $this->invoke(new Message\CreateMountpointRequest($folder));
     }
 
     /**
@@ -445,9 +421,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createNote(NewNoteSpec $note): Message\CreateNoteResponse
     {
-        return $this->invoke(new Message\CreateNoteRequest(
-            $note
-        ));
+        return $this->invoke(new Message\CreateNoteRequest($note));
     }
 
     /**
@@ -455,9 +429,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createSearchFolder(NewSearchFolderSpec $searchFolder): Message\CreateSearchFolderResponse
     {
-        return $this->invoke(new Message\CreateSearchFolderRequest(
-            $searchFolder
-        ));
+        return $this->invoke(new Message\CreateSearchFolderRequest($searchFolder));
     }
 
     /**
@@ -465,9 +437,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function createTag(?TagSpec $tag = NULL): Message\CreateTagResponse
     {
-        return $this->invoke(new Message\CreateTagRequest(
-            $tag
-        ));
+        return $this->invoke(new Message\CreateTagRequest($tag));
     }
 
     /**
@@ -524,7 +494,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         string $defaultInterests, ?bool $allAccounts = NULL, array $accounts = []
     ): Message\CreateWaitSetResponse
     {
-        return $this->invoke(new Message\CreateTaskRequest(
+        return $this->invoke(new Message\CreateWaitSetRequest(
             $defaultInterests, $allAccounts, $accounts
         ));
     }

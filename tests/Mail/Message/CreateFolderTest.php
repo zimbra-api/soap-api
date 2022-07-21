@@ -40,7 +40,6 @@ class CreateFolderTest extends ZimbraTestCase
         $flags = $this->faker->word;
         $color = $this->faker->numberBetween(0, 127);
         $rgb = $this->faker->hexcolor;
-        $url = $this->faker->word;
 
         $rights = implode(',', [ActionGrantRight::READ(), ActionGrantRight::WRITE()]);
         $grantType = GranteeType::USR();
