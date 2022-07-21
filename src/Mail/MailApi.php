@@ -603,9 +603,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?string $id = NULL, ?Msg $msg = NULL
     ): Message\ForwardAppointmentInviteResponse
     {
-        return $this->invoke(new Message\ForwardAppointmentInviteRequest(
-            $id, $msg
-        ));
+        return $this->invoke(new Message\ForwardAppointmentInviteRequest($id, $msg));
     }
 
     /**
@@ -676,9 +674,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getComments(ParentId $comment): Message\GetCommentsResponse
     {
-        return $this->invoke(new Message\GetCommentsRequest(
-            $comment
-        ));
+        return $this->invoke(new Message\GetCommentsRequest($comment));
     }
 
     /**
@@ -728,9 +724,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getConv(ConversationSpec $conversation): Message\GetConvResponse
     {
-        return $this->invoke(new Message\GetConvRequest(
-            $conversation
-        ));
+        return $this->invoke(new Message\GetConvRequest($conversation));
     }
 
     /**
@@ -740,9 +734,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?string $id = NULL, ?SectionAttr $metadata = NULL
     ): Message\GetCustomMetadataResponse
     {
-        return $this->invoke(new Message\GetCustomMetadataRequest(
-            $id, $metadata
-        ));
+        return $this->invoke(new Message\GetCustomMetadataRequest($id, $metadata));
     }
 
     /**
@@ -766,9 +758,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getEffectiveFolderPerms(FolderSpec $folder): Message\GetEffectiveFolderPermsResponse
     {
-        return $this->invoke(new Message\GetEffectiveFolderPermsRequest(
-            $folder
-        ));
+        return $this->invoke(new Message\GetEffectiveFolderPermsRequest($folder));
     }
 
     /**
@@ -842,9 +832,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getIMAPRecentCutoff(string $id): Message\GetIMAPRecentCutoffResponse
     {
-        return $this->invoke(new Message\GetIMAPRecentCutoffRequest(
-            $id
-        ));
+        return $this->invoke(new Message\GetIMAPRecentCutoffRequest($id));
     }
 
     /**
@@ -852,9 +840,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getIMAPRecent(string $id): Message\GetIMAPRecentResponse
     {
-        return $this->invoke(new Message\GetIMAPRecentRequest(
-            $id
-        ));
+        return $this->invoke(new Message\GetIMAPRecentRequest($id));
     }
 
     /**
@@ -870,9 +856,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getItem(ItemSpec $item): Message\GetItemResponse
     {
-        return $this->invoke(new Message\GetItemRequest(
-            $item
-        ));
+        return $this->invoke(new Message\GetItemRequest($item));
     }
 
     /**
@@ -888,9 +872,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getMailboxMetadata(?SectionAttr $metadata = NULL): Message\GetMailboxMetadataResponse
     {
-        return $this->invoke(new Message\GetMailboxMetadataRequest(
-            $metadata
-        ));
+        return $this->invoke(new Message\GetMailboxMetadataRequest($metadata));
     }
 
     /**
@@ -913,9 +895,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getModifiedItemsIDs(int $folderId, int $modSeq): Message\GetModifiedItemsIDsResponse
     {
-        return $this->invoke(new Message\GetModifiedItemsIDsRequest(
-            $folderId, $modSeq
-        ));
+        return $this->invoke(new Message\GetModifiedItemsIDsRequest($folderId, $modSeq));
     }
 
     /**
@@ -923,9 +903,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getMsgMetadata(IdsAttr $msgIds): Message\GetMsgMetadataResponse
     {
-        return $this->invoke(new Message\GetMsgMetadataRequest(
-            $msgIds
-        ));
+        return $this->invoke(new Message\GetMsgMetadataRequest($msgIds));
     }
 
     /**
@@ -933,9 +911,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getMsg(MsgSpec $msg): Message\GetMsgResponse
     {
-        return $this->invoke(new Message\GetMsgRequest(
-            $msg
-        ));
+        return $this->invoke(new Message\GetMsgRequest($msg));
     }
 
     /**
@@ -943,9 +919,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getNote(Id $note): Message\GetNoteResponse
     {
-        return $this->invoke(new Message\GetNoteRequest(
-            $note
-        ));
+        return $this->invoke(new Message\GetNoteRequest($note));
     }
 
     /**
@@ -961,9 +935,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getPermission(array $aces = []): Message\GetPermissionResponse
     {
-        return $this->invoke(new Message\GetPermissionRequest(
-            $aces
-        ));
+        return $this->invoke(new Message\GetPermissionRequest($aces));
     }
 
     /**
@@ -971,7 +943,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getRecur(string $id): Message\GetRecurResponse
     {
-        return $this->invoke(new Message\GetRecurRequest());
+        return $this->invoke(new Message\GetRecurRequest($id));
     }
 
     /**
@@ -1059,9 +1031,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getYahooAuthToken(string $user, string $password): Message\GetYahooAuthTokenResponse
     {
-        return $this->invoke(new Message\GetYahooAuthTokenRequest(
-            $user, $password
-        ));
+        return $this->invoke(new Message\GetYahooAuthTokenRequest($user, $password));
     }
 
     /**
@@ -1069,9 +1039,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function getYahooCookie(string $user): Message\GetYahooCookieResponse
     {
-        return $this->invoke(new Message\GetYahooCookieRequest(
-            $user
-        ));
+        return $this->invoke(new Message\GetYahooCookieRequest($user));
     }
 
     /**
@@ -1079,9 +1047,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function grantPermission(array $aces = []): Message\GrantPermissionResponse
     {
-        return $this->invoke(new Message\GrantPermissionRequest(
-            $aces
-        ));
+        return $this->invoke(new Message\GrantPermissionRequest($aces));
     }
 
     /**
@@ -1089,9 +1055,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function iCalReply(string $ical): Message\ICalReplyResponse
     {
-        return $this->invoke(new Message\ICalReplyRequest(
-            $ical
-        ));
+        return $this->invoke(new Message\ICalReplyRequest($ical));
     }
 
     /**
@@ -1139,9 +1103,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function importData(array $dataSources = []): Message\ImportDataResponse
     {
-        return $this->invoke(new Message\ImportDataRequest(
-            $dataSources
-        ));
+        return $this->invoke(new Message\ImportDataRequest($dataSources));
     }
 
     /**
@@ -1149,9 +1111,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function invalidateReminderDevice(string $address): Message\InvalidateReminderDeviceResponse
     {
-        return $this->invoke(new Message\InvalidateReminderDeviceRequest(
-            $address
-        ));
+        return $this->invoke(new Message\InvalidateReminderDeviceRequest($address));
     }
 
     /**
@@ -1159,9 +1119,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function itemAction(ActionSelector $action): Message\ItemActionResponse
     {
-        return $this->invoke(new Message\ItemActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\ItemActionRequest($action));
     }
 
     /**
@@ -1171,9 +1129,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ListDocumentRevisionsSpec $doc
     ): Message\ListDocumentRevisionsResponse
     {
-        return $this->invoke(new Message\ListDocumentRevisionsRequest(
-            $doc
-        ));
+        return $this->invoke(new Message\ListDocumentRevisionsRequest($doc));
     }
 
     /**
@@ -1235,9 +1191,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function modifyDataSource(?MailDataSource $dataSource = NULL): Message\ModifyDataSourceResponse
     {
-        return $this->invoke(new Message\ModifyDataSourceRequest(
-            $dataSource
-        ));
+        return $this->invoke(new Message\ModifyDataSourceRequest($dataSource));
     }
 
     /**
@@ -1245,9 +1199,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function modifyFilterRules(array $filterRules = []): Message\ModifyFilterRulesResponse
     {
-        return $this->invoke(new Message\ModifyFilterRulesRequest(
-            $filterRules
-        ));
+        return $this->invoke(new Message\ModifyFilterRulesRequest($filterRules));
     }
 
     /**
@@ -1257,9 +1209,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?MailCustomMetadata $metadata = NULL
     ): Message\ModifyMailboxMetadataResponse
     {
-        return $this->invoke(new Message\ModifyMailboxMetadataRequest(
-            $metadata
-        ));
+        return $this->invoke(new Message\ModifyMailboxMetadataRequest($metadata));
     }
 
     /**
@@ -1269,9 +1219,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         array $filterRules = []
     ): Message\ModifyOutgoingFilterRulesResponse
     {
-        return $this->invoke(new Message\ModifyOutgoingFilterRulesRequest(
-            $filterRules
-        ));
+        return $this->invoke(new Message\ModifyOutgoingFilterRulesRequest($filterRules));
     }
 
     /**
@@ -1293,9 +1241,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ModifySearchFolderSpec $searchFolder
     ): Message\ModifySearchFolderResponse
     {
-        return $this->invoke(new Message\ModifySearchFolderRequest(
-            $searchFolder
-        ));
+        return $this->invoke(new Message\ModifySearchFolderRequest($searchFolder));
     }
 
     /**
@@ -1333,9 +1279,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function msgAction(ActionSelector $action): Message\MsgActionResponse
     {
-        return $this->invoke(new Message\MsgActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\MsgActionRequest($action));
     }
 
     /**
@@ -1358,9 +1302,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function noteAction(NoteActionSelector $action): Message\NoteActionResponse
     {
-        return $this->invoke(new Message\NoteActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\NoteActionRequest($action));
     }
 
     /**
@@ -1380,9 +1322,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function purgeRevision(PurgeRevisionSpec $revision): Message\PurgeRevisionResponse
     {
-        return $this->invoke(new Message\PurgeRevisionRequest(
-            $revision
-        ));
+        return $this->invoke(new Message\PurgeRevisionRequest($revision));
     }
 
     /**
@@ -1390,9 +1330,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function rankingAction(RankingActionSpec $action): Message\RankingActionResponse
     {
-        return $this->invoke(new Message\RankingActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\RankingActionRequest($action));
     }
 
     /**
@@ -1400,9 +1338,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function recordIMAPSession(string $folderId): Message\RecordIMAPSessionResponse
     {
-        return $this->invoke(new Message\RecordIMAPSessionRequest(
-            $folderId
-        ));
+        return $this->invoke(new Message\RecordIMAPSessionRequest($folderId));
     }
 
     /**
@@ -1424,9 +1360,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function removeAttachments(MsgPartIds $msg): Message\RemoveAttachmentsResponse
     {
-        return $this->invoke(new Message\RemoveAttachmentsRequest(
-            $msg
-        ));
+        return $this->invoke(new Message\RemoveAttachmentsRequest($msg));
     }
 
     /**
@@ -1454,9 +1388,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function revokePermission(array $aces = []): Message\RevokePermissionResponse
     {
-        return $this->invoke(new Message\RevokePermissionRequest(
-            $aces
-        ));
+        return $this->invoke(new Message\RevokePermissionRequest($aces));
     }
 
     /**
@@ -1464,9 +1396,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function saveDocument(DocumentSpec $doc): Message\SaveDocumentResponse
     {
-        return $this->invoke(new Message\SaveDocumentRequest(
-            $doc
-        ));
+        return $this->invoke(new Message\SaveDocumentRequest($doc));
     }
 
     /**
@@ -1488,9 +1418,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function saveIMAPSubscriptions(array $subscriptions = []): Message\SaveIMAPSubscriptionsResponse
     {
-        return $this->invoke(new Message\SaveIMAPSubscriptionsRequest(
-            $subscriptions
-        ));
+        return $this->invoke(new Message\SaveIMAPSubscriptionsRequest($subscriptions));
     }
 
     /**
@@ -1582,9 +1510,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function sendDeliveryReport(string $messageId): Message\SendDeliveryReportResponse
     {
-        return $this->invoke(new Message\SendDeliveryReportRequest(
-            $messageId
-        ));
+        return $this->invoke(new Message\SendDeliveryReportRequest($messageId));
     }
 
     /**
@@ -1656,9 +1582,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?string $address = NULL
     ): Message\SendVerificationCodeResponse
     {
-        return $this->invoke(new Message\SendVerificationCodeRequest(
-            $address
-        ));
+        return $this->invoke(new Message\SendVerificationCodeRequest($address));
     }
 
     /**
@@ -1698,9 +1622,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         string $id, ?MailCustomMetadata $metadata = NULL
     ): Message\SetCustomMetadataResponse
     {
-        return $this->invoke(new Message\SetCustomMetadataRequest(
-            $id, $metadata
-        ));
+        return $this->invoke(new Message\SetCustomMetadataRequest($id, $metadata));
     }
 
     /**
@@ -1710,9 +1632,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?MailCustomMetadata $metadata = NULL
     ): Message\SetMailboxMetadataResponse
     {
-        return $this->invoke(new Message\SetMailboxMetadataRequest(
-            $metadata
-        ));
+        return $this->invoke(new Message\SetMailboxMetadataRequest($metadata));
     }
 
     /**
@@ -1765,9 +1685,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function snoozeCalendarItemAlarm(array $alarms = []): Message\SnoozeCalendarItemAlarmResponse
     {
-        return $this->invoke(new Message\SnoozeCalendarItemAlarmRequest(
-            $alarms
-        ));
+        return $this->invoke(new Message\SnoozeCalendarItemAlarmRequest($alarms));
     }
 
     /**
@@ -1799,9 +1717,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function tagAction(TagActionSelector $action): Message\TagActionResponse
     {
-        return $this->invoke(new Message\TagActionRequest(
-            $action
-        ));
+        return $this->invoke(new Message\TagActionRequest($action));
     }
 
     /**
@@ -1809,9 +1725,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function testDataSource(?MailDataSource $dataSource = NULL): Message\TestDataSourceResponse
     {
-        return $this->invoke(new Message\TestDataSourceRequest(
-            $dataSource
-        ));
+        return $this->invoke(new Message\TestDataSourceRequest($dataSource));
     }
 
     /**
