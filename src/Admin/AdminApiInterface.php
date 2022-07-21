@@ -2105,8 +2105,8 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Search Auto Prov Directory
      * 
-     * @param  string $keyAttr
      * @param  DomainSelector $domain
+     * @param  string $keyAttr
      * @param  string $query
      * @param  string $name
      * @param  int $maxResults
@@ -2117,8 +2117,8 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\SearchAutoProvDirectoryResponse
      */
     function searchAutoProvDirectory(
-        string $keyAttr,
         DomainSelector $domain,
+        string $keyAttr = '',
         ?string $query = NULL,
         ?string $name = NULL,
         ?int $maxResults = NULL,

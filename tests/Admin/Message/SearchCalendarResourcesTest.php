@@ -29,9 +29,9 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
         $domain = $this->faker->domainName;
         $sortBy = $this->faker->word;
         $attrs = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
-        $searchTotal = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
+        $searchTotal = $this->faker->randomNumber;
 
         $cond = new EntrySearchFilterSingleCond($attr, CondOp::EQ(), $value, TRUE);
         $singleCond = new EntrySearchFilterSingleCond($attr, CondOp::GE(), $value, FALSE);
@@ -77,7 +77,7 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
         $this->assertFalse($response->getMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
         $this->assertSame([$calResources], $response->getCalResources());
-        $response = new SearchCalendarResourcesResponse(FALSE, 0);
+        $response = new SearchCalendarResourcesResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
             ->setCalResources([$calResources]);

@@ -5697,6 +5697,265 @@ EOT;
         $response = $api->resetAllLoggers($this->faker->uuid);
         $this->assertTrue($response instanceof \Zimbra\Admin\Message\ResetAllLoggersResponse);
     }
+
+    public function testRevokeRight()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RevokeRightResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->revokeRight(
+            new \Zimbra\Admin\Struct\EffectiveRightsTargetSelector(),
+            new \Zimbra\Admin\Struct\GranteeSelector(),
+            new \Zimbra\Admin\Struct\RightModifierInfo()
+        );
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RevokeRightResponse);
+    }
+
+    public function testRunUnitTests()
+    {
+        $name = $this->faker->word;
+        $execSeconds = $this->faker->randomNumber;
+        $className = $this->faker->word;
+        $throwable = $this->faker->word;
+        $numExecuted = $this->faker->randomNumber;
+        $numFailed = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body xmlns:urn="urn:zimbraAdmin">
+        <urn:RunUnitTestsResponse numExecuted="$numExecuted" numFailed="$numFailed">
+            <urn:results>
+                <urn:completed name="$name" execSeconds="$execSeconds" class="$className"/>
+                <urn:failure name="$name" execSeconds="$execSeconds" class="$className">$throwable</urn:failure>
+            </urn:results>
+        </urn:RunUnitTestsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->runUnitTests();
+
+        $completed = new \Zimbra\Admin\Struct\CompletedTestInfo($name, $execSeconds, $className);
+        $failure = new \Zimbra\Admin\Struct\FailedTestInfo($name, $execSeconds, $className, $throwable);
+        $results = new \Zimbra\Admin\Struct\TestResultInfo([$completed], [$failure]);
+        $this->assertEquals($results, $response->getResults());
+        $this->assertSame($numExecuted, $response->getNumExecuted());
+        $this->assertSame($numFailed, $response->getNumFailed());
+    }
+
+    public function testSearchAccounts()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value= $this->faker->word;
+        $member = $this->faker->word;
+        $targetName = $this->faker->word;
+        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $searchTotal = $this->faker->randomNumber;
+        $query = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SearchAccountsResponse more="true" searchTotal="$searchTotal">
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alias>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
+        </urn:SearchAccountsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->searchAccounts($query);
+
+        $calResource = new \Zimbra\Admin\Struct\CalendarResourceInfo($name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
+        $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
+            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL())], TRUE
+        );
+        $alias = new \Zimbra\Admin\Struct\AliasInfo($name, $id, $targetName, $targetType, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
+        $account = new \Zimbra\Admin\Struct\AccountInfo($name, $id, TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
+        $domainInfo = new \Zimbra\Admin\Struct\DomainInfo($name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]);
+        $cos = new \Zimbra\Admin\Struct\CosInfo($name, $id, TRUE, [new \Zimbra\Admin\Struct\CosInfoAttr($key, $value, TRUE, FALSE)]);
+
+        $this->assertTrue($response->getMore());
+        $this->assertSame($searchTotal, $response->getSearchTotal());
+        $this->assertEquals([$calResource], $response->getCalendarResources());
+        $this->assertEquals([$dl], $response->getDistributionLists());
+        $this->assertEquals([$alias], $response->getAliases());
+        $this->assertEquals([$account], $response->getAccounts());
+        $this->assertEquals([$domainInfo], $response->getDomains());
+        $this->assertEquals([$cos], $response->getCOSes());
+    }
+
+    public function testSearchAutoProvDirectory()
+    {
+        $dn = $this->faker->word;
+        $key = $this->faker->word;
+        $value= $this->faker->word;
+        $searchTotal = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SearchAutoProvDirectoryResponse more="true" searchTotal="$searchTotal">
+            <urn:entry dn="$dn">
+                <urn:a n="$key">$value</urn:a>
+                <urn:key>$key</urn:key>
+            </urn:entry>
+        </urn:SearchAutoProvDirectoryResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->searchAutoProvDirectory(new \Zimbra\Admin\Struct\DomainSelector());
+        $entry = new \Zimbra\Admin\Struct\AutoProvDirectoryEntry(
+            $dn, [$key], [new \Zimbra\Common\Struct\KeyValuePair($key, $value)]
+        );
+        $this->assertTrue($response->getMore());
+        $this->assertSame($searchTotal, $response->getSearchTotal());
+        $this->assertEquals([$entry], $response->getEntries());
+    }
+
+    public function testSearchCalendarResources()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value= $this->faker->word;
+        $searchTotal = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SearchCalendarResourcesResponse more="true" searchTotal="$searchTotal">
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+        </urn:SearchCalendarResourcesResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->searchCalendarResources();
+        $calResources = new \Zimbra\Admin\Struct\CalendarResourceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertTrue($response->getMore());
+        $this->assertSame($searchTotal, $response->getSearchTotal());
+        $this->assertEquals([$calResources], $response->getCalResources());
+    }
+
+    public function testSearchDirectory()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value= $this->faker->word;
+        $member = $this->faker->word;
+        $targetName = $this->faker->word;
+        $targetType = \Zimbra\Common\Enum\TargetType::ACCOUNT();
+        $searchTotal = $this->faker->randomNumber;
+        $num = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:SearchDirectoryResponse num="$num" more="true" searchTotal="$searchTotal">
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
+            <urn:alias name="$name" id="$id" targetName="$targetName" type="$targetType">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alias>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="false">$value</urn:a>
+            </urn:cos>
+        </urn:SearchDirectoryResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->searchDirectory();
+
+        $calResource = new \Zimbra\Admin\Struct\CalendarResourceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
+            $name, $id, [$member], [new \Zimbra\Admin\Struct\Attr($key, $value)], [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::ALL())], TRUE
+        );
+        $alias = new \Zimbra\Admin\Struct\AliasInfo(
+            $name, $id, $targetName, $targetType, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $account = new \Zimbra\Admin\Struct\AccountInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $domainInfo = new \Zimbra\Admin\Struct\DomainInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $cos = new \Zimbra\Admin\Struct\CosInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\CosInfoAttr($key, $value, TRUE, FALSE)]
+        );
+
+        $this->assertSame($num, $response->getNum());
+        $this->assertTrue($response->isMore());
+        $this->assertEquals($searchTotal, $response->getSearchTotal());
+        $this->assertEquals([$calResource], $response->getCalendarResources());
+        $this->assertEquals([$dl], $response->getDistributionLists());
+        $this->assertEquals([$alias], $response->getAliases());
+        $this->assertEquals([$account], $response->getAccounts());
+        $this->assertEquals([$domainInfo], $response->getDomains());
+        $this->assertEquals([$cos], $response->getCOSes());
+    }
 }
 
 class StubAdminApi extends AdminApi

@@ -2191,9 +2191,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function runUnitTests(array $tests = []): Message\RunUnitTestsResponse
     {
-        return $this->invoke(new Message\RunUnitTestsRequest(
-            $target, $grantee, $right
-        ));
+        return $this->invoke(new Message\RunUnitTestsRequest($tests));
     }
 
     /**
@@ -2228,8 +2226,8 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function searchAutoProvDirectory(
-        string $keyAttr,
         DomainSelector $domain,
+        string $keyAttr = '',
         ?string $query = NULL,
         ?string $name = NULL,
         ?int $maxResults = NULL,
@@ -2240,8 +2238,8 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     ): Message\SearchAutoProvDirectoryResponse
     {
         return $this->invoke(new Message\SearchAutoProvDirectoryRequest(
-            $keyAttr,
             $domain,
+            $keyAttr,
             $query,
             $name,
             $maxResults,

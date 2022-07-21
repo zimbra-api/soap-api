@@ -42,7 +42,7 @@ class RunUnitTestsTest extends ZimbraTestCase
         $this->assertSame($results, $response->getResults());
         $this->assertSame($numExecuted, $response->getNumExecuted());
         $this->assertSame($numFailed, $response->getNumFailed());
-        $response = new RunUnitTestsResponse(new TestResultInfo(), 0, 0);
+        $response = new RunUnitTestsResponse();
         $response->setResults($results)
             ->setNumExecuted($numExecuted)
             ->setNumFailed($numFailed);
