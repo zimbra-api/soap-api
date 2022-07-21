@@ -504,19 +504,15 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function declineCounterAppointment(?Msg $msg = NULL): Message\DeclineCounterAppointmentResponse
     {
-        return $this->invoke(new Message\DeclineCounterAppointmentRequest(
-            $msg
-        ));
+        return $this->invoke(new Message\DeclineCounterAppointmentRequest($msg));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function deleteDataSource(array $dataSources): Message\DeleteDataSourceResponse
+    public function deleteDataSource(array $dataSources = []): Message\DeleteDataSourceResponse
     {
-        return $this->invoke(new Message\DeleteDataSourceRequest(
-            $dataSources
-        ));
+        return $this->invoke(new Message\DeleteDataSourceRequest($dataSources));
     }
 
     /**
@@ -524,19 +520,15 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function destroyWaitSet(string $waitSetId): Message\DestroyWaitSetResponse
     {
-        return $this->invoke(new Message\DestroyWaitSetRequest(
-            $waitSetId
-        ));
+        return $this->invoke(new Message\DestroyWaitSetRequest($waitSetId));
     }
 
     /**
      * {@inheritdoc}
      */
-    public function diffDocument(DiffDocumentVersionSpec $doc = NULL): Message\DiffDocumentResponse
+    public function diffDocument(?DiffDocumentVersionSpec $doc = NULL): Message\DiffDocumentResponse
     {
-        return $this->invoke(new Message\DiffDocumentRequest(
-            $doc
-        ));
+        return $this->invoke(new Message\DiffDocumentRequest($doc));
     }
 
     /**
@@ -544,9 +536,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function dismissCalendarItemAlarm(array $alarms = []): Message\DismissCalendarItemAlarmResponse
     {
-        return $this->invoke(new Message\DismissCalendarItemAlarmRequest(
-            $alarms
-        ));
+        return $this->invoke(new Message\DismissCalendarItemAlarmRequest($alarms));
     }
 
     /**
@@ -562,9 +552,7 @@ class MailApi extends AbstractApi implements MailApiInterface
      */
     public function enableSharedReminder(SharedReminderMount $mount): Message\EnableSharedReminderResponse
     {
-        return $this->invoke(new Message\EnableSharedReminderRequest(
-            $mount
-        ));
+        return $this->invoke(new Message\EnableSharedReminderRequest($mount));
     }
 
     /**
