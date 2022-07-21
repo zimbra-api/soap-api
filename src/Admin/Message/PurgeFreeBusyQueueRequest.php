@@ -53,7 +53,7 @@ class PurgeFreeBusyQueueRequest extends Request
      *
      * @return NamedElement
      */
-    public function getProvider(): NamedElement
+    public function getProvider(): ?NamedElement
     {
         return $this->provider;
     }

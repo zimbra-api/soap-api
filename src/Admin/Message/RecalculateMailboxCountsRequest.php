@@ -54,7 +54,7 @@ class RecalculateMailboxCountsRequest extends Request
      *
      * @return MailboxByAccountIdSelector
      */
-    public function getMbox(): Mailbox
+    public function getMbox(): ?Mailbox
     {
         return $this->mbox;
     }

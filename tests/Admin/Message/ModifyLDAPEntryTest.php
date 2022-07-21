@@ -31,10 +31,10 @@ class ModifyLDAPEntryTest extends ZimbraTestCase
 
         $LDAPEntry = new LDAPEntryInfo($name, [new Attr($key, $value)]);
         $response = new ModifyLDAPEntryResponse($LDAPEntry);
-        $this->assertEquals($LDAPEntry, $response->getLDAPEntry());
+        $this->assertSame($LDAPEntry, $response->getLDAPEntry());
         $response = new ModifyLDAPEntryResponse();
         $response->setLDAPEntry($LDAPEntry);
-        $this->assertEquals($LDAPEntry, $response->getLDAPEntry());
+        $this->assertSame($LDAPEntry, $response->getLDAPEntry());
 
         $body = new ModifyLDAPEntryBody($request, $response);
         $this->assertSame($request, $body->getRequest());

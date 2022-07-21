@@ -6,7 +6,6 @@ use Zimbra\Admin\Message\RenameCosBody;
 use Zimbra\Admin\Message\RenameCosEnvelope;
 use Zimbra\Admin\Message\RenameCosRequest;
 use Zimbra\Admin\Message\RenameCosResponse;
-use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\CosInfo;
 use Zimbra\Admin\Struct\CosInfoAttr;
 use Zimbra\Tests\ZimbraTestCase;
@@ -28,7 +27,7 @@ class RenameCosTest extends ZimbraTestCase
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($name, $request->getNewName());
-        $request = new RenameCosRequest('', '');
+        $request = new RenameCosRequest();
         $request->setId($id)
             ->setNewName($name);
         $this->assertSame($id, $request->getId());
@@ -37,7 +36,7 @@ class RenameCosTest extends ZimbraTestCase
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, TRUE)]);
         $response = new RenameCosResponse($cos);
         $this->assertSame($cos, $response->getCos());
-        $response = new RenameCosResponse(new CosInfo('', ''));
+        $response = new RenameCosResponse();
         $response->setCos($cos);
         $this->assertSame($cos, $response->getCos());
 

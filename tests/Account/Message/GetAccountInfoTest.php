@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{GetAccountInfoEnvelope, GetAccountInfoBody, GetAccountInfoRequest, GetAccountInfoResponse};
+use Zimbra\Account\Message\{
+    GetAccountInfoEnvelope,
+    GetAccountInfoBody,
+    GetAccountInfoRequest,
+    GetAccountInfoResponse
+};
 use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Common\Struct\NamedValue;
@@ -26,7 +31,7 @@ class GetAccountInfoTest extends ZimbraTestCase
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $request = new GetAccountInfoRequest($account);
         $this->assertSame($account, $request->getAccount());
-        $request = new GetAccountInfoRequest(new AccountSelector(AccountBy::NAME(), ''));
+        $request = new GetAccountInfoRequest(new AccountSelector());
         $request->setAccount($account);
         $this->assertSame($account, $request->getAccount());
 
@@ -42,7 +47,7 @@ class GetAccountInfoTest extends ZimbraTestCase
         $this->assertSame($communityURL, $response->getCommunityURL());
         $this->assertSame($adminURL, $response->getAdminURL());
         $this->assertSame($boshURL, $response->getBoshURL());
-        $response = new GetAccountInfoResponse('');
+        $response = new GetAccountInfoResponse();
         $response->setName($name)
             ->setAttrs([$attr])
             ->addAttr($attr)

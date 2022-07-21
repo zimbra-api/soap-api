@@ -30,7 +30,7 @@ class SubscribeDistributionListTest extends ZimbraTestCase
         $this->assertSame($dl, $request->getDl());
         $this->assertSame($op, $request->getOp());
 
-        $request = new SubscribeDistributionListRequest(new DistributionListSelector(), SubscribeOp::UNSUBSCRIBE());
+        $request = new SubscribeDistributionListRequest(new DistributionListSelector());
         $request->setDl($dl)
             ->setOp($op);
         $this->assertSame($dl, $request->getDl());
@@ -38,7 +38,7 @@ class SubscribeDistributionListTest extends ZimbraTestCase
 
         $response = new SubscribeDistributionListResponse($status);
         $this->assertSame($status, $response->getStatus());
-        $response = new SubscribeDistributionListResponse(SubscribeStatus::UNSUBSCRIBED());
+        $response = new SubscribeDistributionListResponse();
         $response->setStatus($status);
         $this->assertEquals($status, $response->getStatus());
 

@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{DeleteSignatureEnvelope, DeleteSignatureBody, DeleteSignatureRequest, DeleteSignatureResponse};
+use Zimbra\Account\Message\{
+    DeleteSignatureEnvelope,
+    DeleteSignatureBody,
+    DeleteSignatureRequest,
+    DeleteSignatureResponse
+};
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Tests\ZimbraTestCase;
 /**

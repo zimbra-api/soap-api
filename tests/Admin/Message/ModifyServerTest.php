@@ -24,17 +24,17 @@ class ModifyServerTest extends ZimbraTestCase
 
         $request = new ModifyServerRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyServerRequest('');
+        $request = new ModifyServerRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
 
         $server = new ServerInfo($name, $id, [new Attr($key, $value)]);
         $response = new ModifyServerResponse($server);
-        $this->assertEquals($server, $response->getServer());
+        $this->assertSame($server, $response->getServer());
         $response = new ModifyServerResponse();
         $response->setServer($server);
-        $this->assertEquals($server, $response->getServer());
+        $this->assertSame($server, $response->getServer());
 
         $body = new ModifyServerBody($request, $response);
         $this->assertSame($request, $body->getRequest());

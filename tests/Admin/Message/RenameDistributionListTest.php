@@ -27,7 +27,7 @@ class RenameDistributionListTest extends ZimbraTestCase
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($name, $request->getNewName());
-        $request = new RenameDistributionListRequest('', '');
+        $request = new RenameDistributionListRequest();
         $request->setId($id)
             ->setNewName($name);
         $this->assertSame($id, $request->getId());
@@ -38,10 +38,10 @@ class RenameDistributionListTest extends ZimbraTestCase
         );
         $dl = new DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
         $response = new RenameDistributionListResponse($dl);
-        $this->assertEquals($dl, $response->getDl());
-        $response = new RenameDistributionListResponse(new DistributionListInfo('', ''));
+        $this->assertSame($dl, $response->getDl());
+        $response = new RenameDistributionListResponse();
         $response->setDl($dl);
-        $this->assertEquals($dl, $response->getDl());
+        $this->assertSame($dl, $response->getDl());
 
         $body = new RenameDistributionListBody($request, $response);
         $this->assertSame($request, $body->getRequest());

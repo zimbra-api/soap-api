@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{ModifySignatureEnvelope, ModifySignatureBody, ModifySignatureRequest, ModifySignatureResponse};
+use Zimbra\Account\Message\{
+    ModifySignatureEnvelope,
+    ModifySignatureBody,
+    ModifySignatureRequest,
+    ModifySignatureResponse
+};
 use Zimbra\Account\Struct\Signature;
 use Zimbra\Account\Struct\SignatureContent;
 use Zimbra\Common\Enum\ContentType;

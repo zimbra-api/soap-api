@@ -20,8 +20,8 @@ class PurgeMessagesTest extends ZimbraTestCase
     public function testPurgeMessages()
     {
         $id = $this->faker->uuid;
-        $mbxid = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
+        $mbxid = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
 
         $mbox = new MailboxByAccountIdSelector($id);
         $request = new PurgeMessagesRequest($mbox);

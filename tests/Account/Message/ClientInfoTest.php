@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{ClientInfoEnvelope, ClientInfoBody, ClientInfoRequest, ClientInfoResponse};
+use Zimbra\Account\Message\{
+    ClientInfoEnvelope,
+    ClientInfoBody,
+    ClientInfoRequest,
+    ClientInfoResponse
+};
 use Zimbra\Admin\Struct\Attr;
 use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Common\Enum\DomainBy;

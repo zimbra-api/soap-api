@@ -18,14 +18,14 @@ class RunUnitTestsTest extends ZimbraTestCase
 {
     public function testRunUnitTests()
     {
-        $test1 = $this->faker->word;
-        $test2 = $this->faker->word;
+        $test1 = $this->faker->unique->word;
+        $test2 = $this->faker->unique->word;
         $name = $this->faker->word;
-        $execSeconds = time();
+        $execSeconds = $this->faker->randomNumber;
         $className = $this->faker->word;
         $throwable = $this->faker->word;
-        $numExecuted = mt_rand(1, 100);
-        $numFailed = mt_rand(1, 100);
+        $numExecuted = $this->faker->randomNumber;
+        $numFailed = $this->faker->randomNumber;
 
         $request = new RunUnitTestsRequest([$test1]);
         $this->assertSame([$test1], $request->getTests());

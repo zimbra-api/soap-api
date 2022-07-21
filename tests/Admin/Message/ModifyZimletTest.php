@@ -23,7 +23,7 @@ class ModifyZimletTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $cos = $this->faker->word;
-        $value = mt_rand(0, 10);
+        $value = $this->faker->randomNumber;
 
         $zimlet = new ZimletAclStatusPri(
             $name,
@@ -34,7 +34,7 @@ class ModifyZimletTest extends ZimbraTestCase
 
         $request = new ModifyZimletRequest($zimlet);
         $this->assertEquals($zimlet, $request->getZimlet());
-        $request = new ModifyZimletRequest(new ZimletAclStatusPri(''));
+        $request = new ModifyZimletRequest(new ZimletAclStatusPri());
         $request->setZimlet($zimlet);
         $this->assertEquals($zimlet, $request->getZimlet());
 

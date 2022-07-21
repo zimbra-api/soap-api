@@ -16,13 +16,13 @@ class RemoveDistributionListAliasTest extends ZimbraTestCase
     public function testRemoveDistributionListAlias()
     {
         $id = $this->faker->uuid;
-        $alias = $this->faker->word;
+        $alias = $this->faker->email;
 
         $request = new RemoveDistributionListAliasRequest($id, $alias);
         $this->assertSame($id, $request->getId());
         $this->assertSame($alias, $request->getAlias());
 
-        $request = new RemoveDistributionListAliasRequest('', '');
+        $request = new RemoveDistributionListAliasRequest();
         $request->setId($id)
             ->setAlias($alias);
         $this->assertSame($id, $request->getId());

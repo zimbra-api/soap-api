@@ -2,8 +2,16 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{CheckRightsEnvelope, CheckRightsBody, CheckRightsRequest, CheckRightsResponse};
-use Zimbra\Account\Struct\{CheckRightsRightInfo, CheckRightsTargetInfo, CheckRightsTargetSpec};
+use Zimbra\Account\Message\{
+    CheckRightsEnvelope,
+    CheckRightsBody,
+    CheckRightsRequest,
+    CheckRightsResponse};
+use Zimbra\Account\Struct\{
+    CheckRightsRightInfo,
+    CheckRightsTargetInfo,
+    CheckRightsTargetSpec
+};
 use Zimbra\Common\Enum\{TargetType, TargetBy};
 use Zimbra\Tests\ZimbraTestCase;
 /**

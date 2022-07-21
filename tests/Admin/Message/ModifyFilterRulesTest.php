@@ -291,7 +291,7 @@ class ModifyFilterRulesTest extends ZimbraTestCase
         $this->assertSame($server, $request->getServer());
         $this->assertSame([$filterRule], $request->getFilterRules());
 
-        $request = new ModifyFilterRulesRequest(AdminFilterType::AFTER());
+        $request = new ModifyFilterRulesRequest();
         $request->setType($type)
             ->setAccount($account)
             ->setDomain($domain)

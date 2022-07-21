@@ -16,13 +16,13 @@ class RemoveAccountAliasTest extends ZimbraTestCase
     public function testRemoveAccountAlias()
     {
         $id = $this->faker->uuid;
-        $alias = $this->faker->word;
+        $alias = $this->faker->email;
 
         $request = new RemoveAccountAliasRequest($id, $alias);
         $this->assertSame($id, $request->getId());
         $this->assertSame($alias, $request->getAlias());
 
-        $request = new RemoveAccountAliasRequest('', '');
+        $request = new RemoveAccountAliasRequest();
         $request->setId($id)
             ->setAlias($alias);
         $this->assertSame($id, $request->getId());

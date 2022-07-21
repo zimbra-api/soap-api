@@ -28,7 +28,7 @@ class RenameLDAPEntryTest extends ZimbraTestCase
         );
         $this->assertSame($dn, $request->getDn());
         $this->assertSame($newDn, $request->getNewDn());
-        $request = new RenameLDAPEntryRequest('', '');
+        $request = new RenameLDAPEntryRequest();
         $request->setDn($dn)
             ->setNewDn($newDn);
         $this->assertSame($dn, $request->getDn());
@@ -36,10 +36,10 @@ class RenameLDAPEntryTest extends ZimbraTestCase
 
         $LDAPEntry = new LDAPEntryInfo($name, [new Attr($key, $value)]);
         $response = new RenameLDAPEntryResponse($LDAPEntry);
-        $this->assertEquals($LDAPEntry, $response->getLDAPentry());
-        $response = new RenameLDAPEntryResponse(new LDAPEntryInfo(''));
+        $this->assertSame($LDAPEntry, $response->getLDAPentry());
+        $response = new RenameLDAPEntryResponse();
         $response->setLDAPentry($LDAPEntry);
-        $this->assertEquals($LDAPEntry, $response->getLDAPentry());
+        $this->assertSame($LDAPEntry, $response->getLDAPentry());
 
         $body = new RenameLDAPEntryBody($request, $response);
         $this->assertSame($request, $body->getRequest());

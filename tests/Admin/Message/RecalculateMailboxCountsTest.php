@@ -18,21 +18,21 @@ class RecalculateMailboxCountsTest extends ZimbraTestCase
     public function testRecalculateMailboxCounts()
     {
         $id = $this->faker->uuid;
-        $mbxid = mt_rand(1, 100);
-        $size = mt_rand(1, 100);
-        $quotaUsed = mt_rand(1, 100);
+        $mbxid = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
+        $quotaUsed = $this->faker->randomNumber;
 
         $mbox = new MailboxByAccountIdSelector($id);
         $request = new RecalculateMailboxCountsRequest($mbox);
         $this->assertSame($mbox, $request->getMbox());
-        $request = new RecalculateMailboxCountsRequest(new MailboxByAccountIdSelector(''));
+        $request = new RecalculateMailboxCountsRequest(new MailboxByAccountIdSelector());
         $request->setMbox($mbox);
         $this->assertSame($mbox, $request->getMbox());
 
         $mbox = new MailboxQuotaInfo($id, $quotaUsed);
         $response = new RecalculateMailboxCountsResponse($mbox);
         $this->assertSame($mbox, $response->getMailbox());
-        $response = new RecalculateMailboxCountsResponse(new MailboxQuotaInfo('', 0));
+        $response = new RecalculateMailboxCountsResponse();
         $response->setMailbox($mbox);
         $this->assertSame($mbox, $response->getMailbox());
 

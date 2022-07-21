@@ -32,7 +32,7 @@ class CreateDistributionListTest extends ZimbraTestCase
         );
         $this->assertSame($name, $request->getName());
         $this->assertFalse($request->getDynamic());
-        $request = new CreateDistributionListRequest('');
+        $request = new CreateDistributionListRequest();
         $request->setName($name)
             ->setDynamic(TRUE)
             ->setKeyValuePairs([$attr]);

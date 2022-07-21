@@ -26,16 +26,16 @@ class ModifyAlwaysOnClusterTest extends ZimbraTestCase
 
         $request = new ModifyAlwaysOnClusterRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyAlwaysOnClusterRequest('');
+        $request = new ModifyAlwaysOnClusterRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
 
         $response = new ModifyAlwaysOnClusterResponse($cluster);
-        $this->assertEquals($cluster, $response->getAlwaysOnCluster());
-        $response = new ModifyAlwaysOnClusterResponse(new AlwaysOnClusterInfo('', ''));
+        $this->assertSame($cluster, $response->getAlwaysOnCluster());
+        $response = new ModifyAlwaysOnClusterResponse();
         $response->setAlwaysOnCluster($cluster);
-        $this->assertEquals($cluster, $response->getAlwaysOnCluster());
+        $this->assertSame($cluster, $response->getAlwaysOnCluster());
 
         $body = new ModifyAlwaysOnClusterBody($request, $response);
         $this->assertSame($request, $body->getRequest());

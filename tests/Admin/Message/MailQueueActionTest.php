@@ -27,8 +27,8 @@ class MailQueueActionTest extends ZimbraTestCase
     {
         $name = $this->faker->word;
         $value = $this->faker->word;
-        $limit = mt_rand(0, 100);
-        $offset = mt_rand(0, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
 
         $query = new QueueQuery(
             [new QueueQueryField($name, [new ValueAttrib($value)])], $limit, $offset
@@ -39,7 +39,7 @@ class MailQueueActionTest extends ZimbraTestCase
         $request = new MailQueueActionRequest($server);
         $this->assertSame($server, $request->getServer());
         $request = new MailQueueActionRequest(
-            new ServerWithQueueAction(new MailQueueWithAction($action, ''), '')
+            new ServerWithQueueAction(new MailQueueWithAction($action))
         );
         $request->setServer($server);
         $this->assertSame($server, $request->getServer());

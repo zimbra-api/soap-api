@@ -26,16 +26,16 @@ class ModifyCalendarResourceTest extends ZimbraTestCase
 
         $request = new ModifyCalendarResourceRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyCalendarResourceRequest('');
+        $request = new ModifyCalendarResourceRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
 
         $response = new ModifyCalendarResourceResponse($calResource);
-        $this->assertEquals($calResource, $response->getCalResource());
-        $response = new ModifyCalendarResourceResponse(new CalendarResourceInfo('', ''));
+        $this->assertSame($calResource, $response->getCalResource());
+        $response = new ModifyCalendarResourceResponse();
         $response->setCalResource($calResource);
-        $this->assertEquals($calResource, $response->getCalResource());
+        $this->assertSame($calResource, $response->getCalResource());
 
         $body = new ModifyCalendarResourceBody($request, $response);
         $this->assertSame($request, $body->getRequest());

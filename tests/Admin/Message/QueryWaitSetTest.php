@@ -26,7 +26,7 @@ class QueryWaitSetTest extends ZimbraTestCase
         $waitSetId = $this->faker->uuid;
         $owner = $this->faker->uuid;
         $defaultInterests = $this->faker->word;
-        $lastAccessDate = mt_rand(1, 100);
+        $lastAccessDate = $this->faker->randomNumber;
         $accounts = $this->faker->word;
         $cbSeqNo = $this->faker->word;
         $currentSeqNo = $this->faker->word;
@@ -36,14 +36,14 @@ class QueryWaitSetTest extends ZimbraTestCase
 
         $account = $this->faker->uuid;
         $interests = $this->faker->word;
-        $mboxSyncToken = mt_rand(1, 100);
-        $mboxSyncTokenDiff = mt_rand(1, 100);
+        $mboxSyncToken = $this->faker->randomNumber;
+        $mboxSyncTokenDiff = $this->faker->randomNumber;
         $acctIdError = $this->faker->uuid;
 
         $interestMask = $this->faker->word;
-        $highestChangeId = mt_rand(1, 100);
-        $lastAccessTime = mt_rand(1, 100);
-        $creationTime = mt_rand(1, 100);
+        $highestChangeId = $this->faker->randomNumber;
+        $lastAccessTime = $this->faker->randomNumber;
+        $creationTime = $this->faker->randomNumber;
         $sessionId = $this->faker->uuid;
         $token = $this->faker->uuid;
         $folderInterests = $this->faker->word;

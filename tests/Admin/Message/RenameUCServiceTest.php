@@ -27,7 +27,7 @@ class RenameUCServiceTest extends ZimbraTestCase
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($name, $request->getNewName());
-        $request = new RenameUCServiceRequest('', '');
+        $request = new RenameUCServiceRequest();
         $request->setId($id)
             ->setNewName($name);
         $this->assertSame($id, $request->getId());
@@ -36,7 +36,7 @@ class RenameUCServiceTest extends ZimbraTestCase
         $ucService = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
         $response = new RenameUCServiceResponse($ucService);
         $this->assertSame($ucService, $response->getUCService());
-        $response = new RenameUCServiceResponse(new UCServiceInfo('', ''));
+        $response = new RenameUCServiceResponse();
         $response->setUCService($ucService);
         $this->assertSame($ucService, $response->getUCService());
 

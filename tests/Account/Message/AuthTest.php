@@ -6,14 +6,18 @@ use Zimbra\Account\Message\AuthEnvelope;
 use Zimbra\Account\Message\AuthBody;
 use Zimbra\Account\Message\AuthRequest;
 use Zimbra\Account\Message\AuthResponse;
+
 use Zimbra\Account\Struct\PreAuth;
 use Zimbra\Account\Struct\AuthToken;
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Pref;
 use Zimbra\Account\Struct\Session;
+
 use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Struct\AccountSelector;
+
 use Zimbra\Tests\ZimbraTestCase;
+
 /**
  * Testcase class for Auth.
  */
