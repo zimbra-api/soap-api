@@ -22,7 +22,7 @@ class UndeployZimletTest extends ZimbraTestCase
         $this->assertSame($name, $request->getName());
         $this->assertSame($action, $request->getAction());
 
-        $request = new UndeployZimletRequest('');
+        $request = new UndeployZimletRequest();
         $request->setName($name)
             ->setAction($action);
         $this->assertSame($name, $request->getName());

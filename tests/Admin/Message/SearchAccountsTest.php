@@ -38,13 +38,13 @@ class SearchAccountsTest extends ZimbraTestCase
         $targetType = TargetType::ACCOUNT();
 
         $query = $this->faker->word;
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $domain = $this->faker->word;
         $attrs = $this->faker->word;
         $sortBy = $this->faker->word;
         $types = $this->faker->word;
-        $searchTotal = mt_rand(1, 100);
+        $searchTotal = $this->faker->randomNumber;
 
         $request = new SearchAccountsRequest(
             $query, $limit, $offset, $domain, FALSE, $attrs, $sortBy, $types, FALSE
@@ -59,7 +59,7 @@ class SearchAccountsTest extends ZimbraTestCase
         $this->assertSame($types, $request->getTypes());
         $this->assertFalse($request->getSortAscending());
 
-        $request = new SearchAccountsRequest('');
+        $request = new SearchAccountsRequest();
         $request->setQuery($query)
             ->setLimit($limit)
             ->setOffset($offset)
@@ -79,7 +79,7 @@ class SearchAccountsTest extends ZimbraTestCase
         $this->assertSame($types, $request->getTypes());
         $this->assertTrue($request->getSortAscending());
 
-        $calResources = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
+        $calResource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
         $dl = new DistributionListInfo(
             $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::ALL())], TRUE
         );
@@ -89,20 +89,20 @@ class SearchAccountsTest extends ZimbraTestCase
         $cos = new CosInfo($name, $id, TRUE, [new CosInfoAttr($key, $value, TRUE, FALSE)]);
 
         $response = new SearchAccountsResponse(
-            FALSE, $searchTotal, [$calResources], [$dl], [$alias], [$account], [$domainInfo], [$cos]
+            FALSE, $searchTotal, [$calResource], [$dl], [$alias], [$account], [$domainInfo], [$cos]
         );
         $this->assertFalse($response->getMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
-        $this->assertSame([$calResources], $response->getCalendarResources());
+        $this->assertSame([$calResource], $response->getCalendarResources());
         $this->assertSame([$dl], $response->getDistributionLists());
         $this->assertSame([$alias], $response->getAliases());
         $this->assertSame([$account], $response->getAccounts());
         $this->assertSame([$domainInfo], $response->getDomains());
         $this->assertSame([$cos], $response->getCOSes());
-        $response = new SearchAccountsResponse(FALSE, 0);
+        $response = new SearchAccountsResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
-            ->setCalendarResources([$calResources])
+            ->setCalendarResources([$calResource])
             ->setDistributionLists([$dl])
             ->setAliases([$alias])
             ->setAccounts([$account])
@@ -110,7 +110,7 @@ class SearchAccountsTest extends ZimbraTestCase
             ->setCOSes([$cos]);
         $this->assertTrue($response->getMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
-        $this->assertSame([$calResources], $response->getCalendarResources());
+        $this->assertSame([$calResource], $response->getCalendarResources());
         $this->assertSame([$dl], $response->getDistributionLists());
         $this->assertSame([$alias], $response->getAliases());
         $this->assertSame([$account], $response->getAccounts());

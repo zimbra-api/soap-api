@@ -2105,8 +2105,8 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Search Auto Prov Directory
      * 
-     * @param  string $keyAttr
      * @param  DomainSelector $domain
+     * @param  string $keyAttr
      * @param  string $query
      * @param  string $name
      * @param  int $maxResults
@@ -2117,8 +2117,8 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\SearchAutoProvDirectoryResponse
      */
     function searchAutoProvDirectory(
-        string $keyAttr,
         DomainSelector $domain,
+        string $keyAttr = '',
         ?string $query = NULL,
         ?string $name = NULL,
         ?int $maxResults = NULL,
@@ -2195,7 +2195,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\SearchGalResponse
      */
     function searchGal(
-        ?string $domain,
+        string $domain,
         ?string $name = NULL,
         ?int $limit = NULL,
         ?GalSearchType $type = NULL,
@@ -2209,7 +2209,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  int $type
      * @return Message\SetCurrentVolumeResponse
      */
-    function setCurrentVolume(int $id, int $type): Message\SetCurrentVolumeResponse;
+    function setCurrentVolume(int $id = 0, int $type = 0): Message\SetCurrentVolumeResponse;
 
     /**
      * Set local server online

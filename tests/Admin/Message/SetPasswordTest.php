@@ -24,17 +24,17 @@ class SetPasswordTest extends ZimbraTestCase
         );
         $this->assertSame($id, $request->getId());
         $this->assertSame($newPassword, $request->getNewPassword());
-        $request = new SetPasswordRequest('', '');
+        $request = new SetPasswordRequest();
         $request->setId($id)
             ->setNewPassword($newPassword);
         $this->assertSame($id, $request->getId());
         $this->assertSame($newPassword, $request->getNewPassword());
 
         $response = new SetPasswordResponse($message);
-        $this->assertEquals($message, $response->getMessage());
+        $this->assertSame($message, $response->getMessage());
         $response = new SetPasswordResponse();
         $response->setMessage($message);
-        $this->assertEquals($message, $response->getMessage());
+        $this->assertSame($message, $response->getMessage());
 
         $body = new SetPasswordBody($request, $response);
         $this->assertSame($request, $body->getRequest());

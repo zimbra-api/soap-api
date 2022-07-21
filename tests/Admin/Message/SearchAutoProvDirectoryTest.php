@@ -28,11 +28,11 @@ class SearchAutoProvDirectoryTest extends ZimbraTestCase
         $keyAttr = $this->faker->word;
 
         $query = $this->faker->word;
-        $maxResults = mt_rand(1, 100);
-        $limit = mt_rand(1, 100);
-        $offset = mt_rand(1, 100);
+        $maxResults = $this->faker->randomNumber;
+        $limit = $this->faker->randomNumber;
+        $offset = $this->faker->randomNumber;
         $attrs = $this->faker->word;
-        $searchTotal = mt_rand(1, 100);
+        $searchTotal = $this->faker->randomNumber;
         $domain = new DomainSelector(DomainBy::NAME(), $value);
 
         $request = new SearchAutoProvDirectoryRequest(
