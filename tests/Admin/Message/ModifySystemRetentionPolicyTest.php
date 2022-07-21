@@ -31,7 +31,7 @@ class ModifySystemRetentionPolicyTest extends ZimbraTestCase
         $this->assertSame($cos, $request->getCos());
         $this->assertSame($policy, $request->getPolicy());
 
-        $request = new ModifySystemRetentionPolicyRequest(new Policy(Type::SYSTEM(), '', '', ''));
+        $request = new ModifySystemRetentionPolicyRequest(new Policy());
         $request->setCos($cos)
             ->setPolicy($policy);
         $this->assertSame($cos, $request->getCos());
@@ -39,7 +39,7 @@ class ModifySystemRetentionPolicyTest extends ZimbraTestCase
 
         $response = new ModifySystemRetentionPolicyResponse($policy);
         $this->assertSame($policy, $response->getPolicy());
-        $response = new ModifySystemRetentionPolicyResponse(new Policy(Type::SYSTEM(), '', '', ''));
+        $response = new ModifySystemRetentionPolicyResponse();
         $response->setPolicy($policy);
         $this->assertSame($policy, $response->getPolicy());
 

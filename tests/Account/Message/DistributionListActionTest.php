@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{DistributionListActionEnvelope, DistributionListActionBody, DistributionListActionRequest, DistributionListActionResponse};
+use Zimbra\Account\Message\{
+    DistributionListActionEnvelope,
+    DistributionListActionBody,
+    DistributionListActionRequest,
+    DistributionListActionResponse
+};
 
 use Zimbra\Common\Enum\DistributionListBy as DLBy;
 use Zimbra\Common\Enum\DistributionListGranteeBy as DLGranteeBy;
@@ -46,8 +51,8 @@ class DistributionListActionTest extends ZimbraTestCase
         $this->assertSame($action, $request->getAction());
 
         $request = new DistributionListActionRequest(
-            new DistributionListSelector(DLBy::ID(), ''),
-            new DistributionListAction(Operation::DELETE())
+            new DistributionListSelector(),
+            new DistributionListAction()
         );
         $request->setDl($dl)
             ->setAction($action);

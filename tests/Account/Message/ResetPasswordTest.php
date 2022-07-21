@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{ResetPasswordEnvelope, ResetPasswordBody, ResetPasswordRequest, ResetPasswordResponse};
+use Zimbra\Account\Message\{
+    ResetPasswordEnvelope,
+    ResetPasswordBody,
+    ResetPasswordRequest,
+    ResetPasswordResponse
+};
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for ResetPassword.
@@ -15,7 +20,7 @@ class ResetPasswordTest extends ZimbraTestCase
 
         $request = new ResetPasswordRequest($password);
         $this->assertSame($password, $request->getPassword());
-        $request = new ResetPasswordRequest('');
+        $request = new ResetPasswordRequest();
         $request->setPassword($password);
         $this->assertSame($password, $request->getPassword());
 

@@ -1725,7 +1725,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\ModifyDelegatedAdminConstraintsResponse
      */
     function modifyDelegatedAdminConstraints(
-        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
     ): Message\ModifyDelegatedAdminConstraintsResponse;
 
     /**
@@ -1758,7 +1758,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\ModifyFilterRulesResponse
      */
     function modifyFilterRules(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?AccountSelector $account = NULL,
         ?DomainSelector $domain = NULL,
         ?CosSelector $cos = NULL,
@@ -1787,7 +1787,7 @@ interface AdminApiInterface extends ApiInterface
      * @return Message\ModifyOutgoingFilterRulesResponse
      */
     function modifyOutgoingFilterRules(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?AccountSelector $account = NULL,
         ?DomainSelector $domain = NULL,
         ?CosSelector $cos = NULL,
@@ -1831,7 +1831,7 @@ interface AdminApiInterface extends ApiInterface
      * @param VolumeInfo $volume
      * @return Message\ModifyVolumeResponse
      */
-    function modifyVolume(int $id, VolumeInfo $volume): Message\ModifyVolumeResponse;
+    function modifyVolume(VolumeInfo $volume, int $id = 0): Message\ModifyVolumeResponse;
 
     /**
      * Modify Zimlet

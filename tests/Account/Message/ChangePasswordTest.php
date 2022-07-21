@@ -37,7 +37,7 @@ class ChangePasswordTest extends ZimbraTestCase
         $this->assertSame($virtualHost, $request->getVirtualHost());
         $this->assertFalse($request->isDryRun());
 
-        $request = new ChangePasswordRequest(new AccountSelector(AccountBy::ID(), ''), '', '');
+        $request = new ChangePasswordRequest(new AccountSelector());
         $request->setAccount($account)
             ->setOldPassword($oldPassword)
             ->setPassword($newPassword)
@@ -56,7 +56,7 @@ class ChangePasswordTest extends ZimbraTestCase
         $this->assertSame($authToken, $response->getAuthToken());
         $this->assertSame($lifetime, $response->getLifetime());
 
-        $response = new ChangePasswordResponse('', 0);
+        $response = new ChangePasswordResponse();
         $response->setAuthToken($authToken)
             ->setLifetime($lifetime);
         $this->assertSame($authToken, $response->getAuthToken());

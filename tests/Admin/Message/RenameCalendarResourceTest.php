@@ -21,26 +21,24 @@ class RenameCalendarResourceTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $name = $this->faker->word;
-        $newName = $this->faker->word;
-
-        $calResource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
 
         $request = new RenameCalendarResourceRequest(
-            $id, $newName
+            $id, $name
         );
         $this->assertSame($id, $request->getId());
-        $this->assertSame($newName, $request->getNewName());
-        $request = new RenameCalendarResourceRequest('', '');
+        $this->assertSame($name, $request->getNewName());
+        $request = new RenameCalendarResourceRequest();
         $request->setId($id)
-            ->setNewName($newName);
+            ->setNewName($name);
         $this->assertSame($id, $request->getId());
-        $this->assertSame($newName, $request->getNewName());
+        $this->assertSame($name, $request->getNewName());
 
+        $calResource = new CalendarResourceInfo($name, $id, [new Attr($key, $value)]);
         $response = new RenameCalendarResourceResponse($calResource);
-        $this->assertEquals($calResource, $response->getCalResource());
-        $response = new RenameCalendarResourceResponse(new CalendarResourceInfo('', ''));
+        $this->assertSame($calResource, $response->getCalResource());
+        $response = new RenameCalendarResourceResponse();
         $response->setCalResource($calResource);
-        $this->assertEquals($calResource, $response->getCalResource());
+        $this->assertSame($calResource, $response->getCalResource());
 
         $body = new RenameCalendarResourceBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -62,7 +60,7 @@ class RenameCalendarResourceTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:RenameCalendarResourceRequest id="$id" newName="$newName" />
+        <urn:RenameCalendarResourceRequest id="$id" newName="$name" />
         <urn:RenameCalendarResourceResponse>
             <urn:calresource name="$name" id="$id">
                 <urn:a n="$key">$value</urn:a>

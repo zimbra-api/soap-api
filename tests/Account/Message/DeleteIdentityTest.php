@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{DeleteIdentityEnvelope, DeleteIdentityBody, DeleteIdentityRequest, DeleteIdentityResponse};
+use Zimbra\Account\Message\{
+    DeleteIdentityEnvelope,
+    DeleteIdentityBody,
+    DeleteIdentityRequest,
+    DeleteIdentityResponse
+};
 use Zimbra\Account\Struct\NameId;
 use Zimbra\Tests\ZimbraTestCase;
 /**
@@ -19,7 +24,7 @@ class DeleteIdentityTest extends ZimbraTestCase
 
         $request = new DeleteIdentityRequest($identity);
         $this->assertSame($identity, $request->getIdentity());
-        $request = new DeleteIdentityRequest(new NameId('', ''));
+        $request = new DeleteIdentityRequest(new NameId());
         $request->setIdentity($identity);
         $this->assertSame($identity, $request->getIdentity());
 

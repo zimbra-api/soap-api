@@ -32,10 +32,10 @@ class ModifyAccountTest extends ZimbraTestCase
         $this->assertSame($id, $request->getId());
 
         $response = new ModifyAccountResponse($account);
-        $this->assertEquals($account, $response->getAccount());
-        $response = new ModifyAccountResponse(new AccountInfo('', ''));
+        $this->assertSame($account, $response->getAccount());
+        $response = new ModifyAccountResponse();
         $response->setAccount($account);
-        $this->assertEquals($account, $response->getAccount());
+        $this->assertSame($account, $response->getAccount());
 
         $body = new ModifyAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -21,26 +21,24 @@ class RenameAccountTest extends ZimbraTestCase
         $key = $this->faker->word;
         $value = $this->faker->word;
         $name = $this->faker->word;
-        $newName = $this->faker->word;
-
-        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
 
         $request = new RenameAccountRequest(
-            $id, $newName
+            $id, $name
         );
         $this->assertSame($id, $request->getId());
-        $this->assertSame($newName, $request->getNewName());
-        $request = new RenameAccountRequest('', '');
+        $this->assertSame($name, $request->getNewName());
+        $request = new RenameAccountRequest();
         $request->setId($id)
-            ->setNewName($newName);
+            ->setNewName($name);
         $this->assertSame($id, $request->getId());
-        $this->assertSame($newName, $request->getNewName());
+        $this->assertSame($name, $request->getNewName());
 
+        $account = new AccountInfo($name, $id, TRUE, [new Attr($key, $value)]);
         $response = new RenameAccountResponse($account);
-        $this->assertEquals($account, $response->getAccount());
-        $response = new RenameAccountResponse(new AccountInfo('', ''));
+        $this->assertSame($account, $response->getAccount());
+        $response = new RenameAccountResponse();
         $response->setAccount($account);
-        $this->assertEquals($account, $response->getAccount());
+        $this->assertSame($account, $response->getAccount());
 
         $body = new RenameAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -62,7 +60,7 @@ class RenameAccountTest extends ZimbraTestCase
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
     <soap:Body>
-        <urn:RenameAccountRequest id="$id" newName="$newName" />
+        <urn:RenameAccountRequest id="$id" newName="$name" />
         <urn:RenameAccountResponse>
             <urn:account name="$name" id="$id" isExternal="true">
                 <urn:a n="$key">$value</urn:a>

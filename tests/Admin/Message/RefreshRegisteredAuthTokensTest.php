@@ -15,8 +15,8 @@ class RefreshRegisteredAuthTokensTest extends ZimbraTestCase
 {
     public function testRefreshRegisteredAuthTokens()
     {
-        $token1 = $this->faker->text;
-        $token2 = $this->faker->text;
+        $token1 = $this->faker->unique->text;
+        $token2 = $this->faker->unique->text;
 
         $request = new RefreshRegisteredAuthTokensRequest([$token1]);
         $this->assertSame([$token1], $request->getTokens());

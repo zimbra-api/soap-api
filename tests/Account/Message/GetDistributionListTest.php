@@ -40,7 +40,7 @@ class GetDistributionListTest extends ZimbraTestCase
         $this->assertSame($dl, $request->getDl());
         $this->assertFalse($request->getNeedOwners());
         $this->assertSame($needRights, $request->getNeedRights());
-        $request = new GetDistributionListRequest(new DistributionListSelector(DLBy::NAME(), ''));
+        $request = new GetDistributionListRequest(new DistributionListSelector());
         $request->setDl($dl)
             ->setNeedOwners(TRUE)
             ->setNeedRights($needRights)

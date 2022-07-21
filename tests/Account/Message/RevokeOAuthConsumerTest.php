@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{RevokeOAuthConsumerEnvelope, RevokeOAuthConsumerBody, RevokeOAuthConsumerRequest, RevokeOAuthConsumerResponse};
+use Zimbra\Account\Message\{
+    RevokeOAuthConsumerEnvelope,
+    RevokeOAuthConsumerBody,
+    RevokeOAuthConsumerRequest,
+    RevokeOAuthConsumerResponse
+};
 use Zimbra\Tests\ZimbraTestCase;
 /**
  * Testcase class for RevokeOAuthConsumer.
@@ -15,7 +20,7 @@ class RevokeOAuthConsumerTest extends ZimbraTestCase
 
         $request = new RevokeOAuthConsumerRequest($accessToken);
         $this->assertSame($accessToken, $request->getAccessToken());
-        $request = new RevokeOAuthConsumerRequest('');
+        $request = new RevokeOAuthConsumerRequest();
         $request->setAccessToken($accessToken);
         $this->assertSame($accessToken, $request->getAccessToken());
 

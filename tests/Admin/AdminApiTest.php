@@ -4695,6 +4695,1008 @@ EOT;
         );
         $this->assertTrue($response instanceof \Zimbra\Admin\Message\GrantRightResponse);
     }
+
+    public function testLockoutMailbox()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:LockoutMailboxResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->lockoutMailbox(
+            new \Zimbra\Common\Struct\AccountNameSelector()
+        );
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\LockoutMailboxResponse);
+    }
+
+    public function testMailQueueAction()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:MailQueueActionResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $action = new \Zimbra\Admin\Struct\MailQueueAction(
+            new \Zimbra\Admin\Struct\QueueQuery()
+        );
+        $server = new \Zimbra\Admin\Struct\ServerWithQueueAction(
+            new \Zimbra\Admin\Struct\MailQueueWithAction($action)
+        );
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->mailQueueAction($server);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MailQueueActionResponse);
+    }
+
+    public function testMailQueueFlush()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:MailQueueFlushResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->mailQueueFlush(new \Zimbra\Common\Struct\NamedElement());
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MailQueueFlushResponse);
+    }
+
+    public function testMigrateAccount()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:MigrateAccountResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->migrateAccount(new \Zimbra\Admin\Struct\IdAndAction());
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MigrateAccountResponse);
+    }
+
+    public function testModifyAccount()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->name;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyAccountResponse>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
+        </urn:ModifyAccountResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyAccount($id);
+        $account = new \Zimbra\Admin\Struct\AccountInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($account, $response->getAccount());
+    }
+
+    public function testModifyAdminSavedSearches()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyAdminSavedSearchesResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyAdminSavedSearches();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyAdminSavedSearchesResponse);
+    }
+
+    public function testModifyAlwaysOnCluster()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->name;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyAlwaysOnClusterResponse>
+            <urn:alwaysOnCluster name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:alwaysOnCluster>
+        </urn:ModifyAlwaysOnClusterResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyAlwaysOnCluster($id);
+        $cluster = new \Zimbra\Admin\Struct\AlwaysOnClusterInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($cluster, $response->getAlwaysOnCluster());
+    }
+
+    public function testModifyCalendarResource()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->name;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyCalendarResourceResponse>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+        </urn:ModifyCalendarResourceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyCalendarResource($id);
+        $calResource = new \Zimbra\Admin\Struct\CalendarResourceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($calResource, $response->getCalResource());
+    }
+
+    public function testModifyConfig()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyConfigResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyConfig();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyConfigResponse);
+    }
+
+    public function testModifyCos()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyCosResponse>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
+        </urn:ModifyCosResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyCos($id);
+        $cos = new \Zimbra\Admin\Struct\CosInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\CosInfoAttr($key, $value, TRUE, TRUE)]
+        );
+        $this->assertEquals($cos, $response->getCos());
+    }
+
+    public function testModifyDataSource()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyDataSourceResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyDataSource($this->faker->uuid, new \Zimbra\Admin\Struct\DataSourceInfo());
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyDataSourceResponse);
+    }
+
+    public function testModifyDelegatedAdminConstraints()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyDelegatedAdminConstraintsResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyDelegatedAdminConstraints();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse);
+    }
+
+    public function testModifyDistributionList()
+    {
+        $name = $this->faker->name;
+        $id = $this->faker->uuid;
+        $member = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyDistributionListResponse>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:a n="$key">$value</urn:a>
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="usr" />
+                </urn:owners>
+            </urn:dl>
+        </urn:ModifyDistributionListResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyDistributionList($id);
+        $dl = new \Zimbra\Admin\Struct\DistributionListInfo(
+            $name, $id, [$member],
+            [new \Zimbra\Admin\Struct\Attr($key, $value)],
+            [new \Zimbra\Admin\Struct\GranteeInfo($id, $name, \Zimbra\Common\Enum\GranteeType::USR())],
+            TRUE
+        );
+        $this->assertEquals($dl, $response->getDl());
+    }
+
+    public function testModifyDomain()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyDomainResponse>
+            <urn:domain name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:domain>
+        </urn:ModifyDomainResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyDomain($id);
+        $domain = new \Zimbra\Admin\Struct\DomainInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($domain, $response->getDomain());
+    }
+
+    public function testModifyFilterRules()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyFilterRulesResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyFilterRules();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyFilterRulesResponse);
+    }
+
+    public function testModifyLDAPEntry()
+    {
+        $dn = $this->faker->word;
+        $name = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyLDAPEntryResponse>
+            <urn:LDAPEntry name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:LDAPEntry>
+        </urn:ModifyLDAPEntryResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyLDAPEntry($dn);
+        $LDAPEntry = new \Zimbra\Admin\Struct\LDAPEntryInfo(
+            $name, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($LDAPEntry, $response->getLDAPEntry());
+    }
+
+    public function testModifyOutgoingFilterRules()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyOutgoingFilterRulesResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyOutgoingFilterRules();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyOutgoingFilterRulesResponse);
+    }
+
+    public function testModifyServer()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyServerResponse>
+            <urn:server name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:server>
+        </urn:ModifyServerResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyServer($id);
+        $server = new \Zimbra\Admin\Struct\ServerInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($server, $response->getServer());
+    }
+
+    public function testModifySystemRetentionPolicy()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $lifetime = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin" xmlns:urn1="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifySystemRetentionPolicyResponse>
+            <urn1:policy type="system" id="$id" name="$name" lifetime="$lifetime" />
+        </urn:ModifySystemRetentionPolicyResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $policy = new \Zimbra\Mail\Struct\Policy(
+            \Zimbra\Common\Enum\Type::SYSTEM(), $id, $name, $lifetime
+        );
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifySystemRetentionPolicy($policy);
+        $this->assertEquals($policy, $response->getPolicy());
+    }
+
+    public function testModifyUCService()
+    {
+        $name = $this->faker->word;
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyUCServiceResponse>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
+        </urn:ModifyUCServiceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyUCService($id);
+        $ucservice = new \Zimbra\Admin\Struct\UCServiceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($ucservice, $response->getUCService());
+    }
+
+    public function testModifyVolume()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyVolumeResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyVolume(new \Zimbra\Admin\Struct\VolumeInfo());
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyVolumeResponse);
+    }
+
+    public function testModifyZimlet()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ModifyZimletResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->modifyZimlet(new \Zimbra\Admin\Struct\ZimletAclStatusPri());
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyZimletResponse);
+    }
+
+    public function testNoOp()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:NoOpResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->noOp();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\NoOpResponse);
+    }
+
+    public function testPing()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:PingResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->ping();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PingResponse);
+    }
+
+    public function testPurgeAccountCalendarCache()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:PurgeAccountCalendarCacheResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->purgeAccountCalendarCache($this->faker->uuid);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse);
+    }
+
+    public function testPurgeFreeBusyQueue()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:PurgeFreeBusyQueueResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->purgeFreeBusyQueue();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PurgeFreeBusyQueueResponse);
+    }
+
+    public function testPurgeMessages()
+    {
+        $id = $this->faker->uuid;
+        $mbxid = $this->faker->randomNumber;
+        $size = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:PurgeMessagesResponse>
+            <urn:mbox mbxid="$mbxid" id="$id" s="$size" />
+        </urn:PurgeMessagesResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->purgeMessages();
+        $mbox = new \Zimbra\Admin\Struct\MailboxWithMailboxId($mbxid, $id, $size);
+        $this->assertEquals([$mbox], $response->getMailboxes());
+    }
+
+    public function testPushFreeBusy()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:PushFreeBusyResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->pushFreeBusy();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PushFreeBusyResponse);
+    }
+
+    public function testQueryWaitSet()
+    {
+        $id = $this->faker->uuid;
+        $type = $this->faker->word;
+        $waitSetId = $this->faker->uuid;
+        $owner = $this->faker->uuid;
+        $defaultInterests = $this->faker->word;
+        $lastAccessDate = $this->faker->randomNumber;
+        $accounts = $this->faker->word;
+        $cbSeqNo = $this->faker->word;
+        $currentSeqNo = $this->faker->word;
+        $nextSeqNo = $this->faker->word;
+        $aid = $this->faker->uuid;
+        $cid = $this->faker->uuid;
+
+        $account = $this->faker->uuid;
+        $interests = $this->faker->word;
+        $mboxSyncToken = $this->faker->randomNumber;
+        $mboxSyncTokenDiff = $this->faker->randomNumber;
+        $acctIdError = $this->faker->uuid;
+
+        $interestMask = $this->faker->word;
+        $highestChangeId = $this->faker->randomNumber;
+        $lastAccessTime = $this->faker->randomNumber;
+        $creationTime = $this->faker->randomNumber;
+        $sessionId = $this->faker->uuid;
+        $token = $this->faker->uuid;
+        $folderInterests = $this->faker->word;
+        $changedFolders = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:QueryWaitSetResponse>
+            <urn:waitSet id="$waitSetId" owner="$owner" defTypes="$defaultInterests" ld="$lastAccessDate" cbSeqNo="$cbSeqNo" currentSeqNo="$currentSeqNo" nextSeqNo="$nextSeqNo">
+                <urn:errors>
+                    <urn:error id="$id" type="$type" />
+                </urn:errors>
+                <urn:ready accounts="$accounts" />
+                <urn:buffered>
+                    <urn:commit aid="$aid" cid="$cid" />
+                </urn:buffered>
+                <urn:session account="$account" types="$interests" token="$token" mboxSyncToken="$mboxSyncToken" mboxSyncTokenDiff="$mboxSyncTokenDiff" acctIdError="$acctIdError">
+                    <urn:WaitSetSession interestMask="$interestMask" highestChangeId="$highestChangeId" lastAccessTime="$lastAccessTime" creationTime="$creationTime" sessionId="$sessionId" token="$token" folderInterests="$folderInterests" changedFolders="$changedFolders" />
+                </urn:session>
+            </urn:waitSet>
+        </urn:QueryWaitSetResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->queryWaitSet();
+
+        $error = new \Zimbra\Common\Struct\IdAndType($id, $type);
+        $signalledAccounts = new \Zimbra\Admin\Struct\AccountsAttrib($accounts);
+        $commit = new \Zimbra\Admin\Struct\BufferedCommitInfo($aid, $cid);
+        $WaitSetSession = new \Zimbra\Admin\Struct\WaitSetSessionInfo(
+            $interestMask, $highestChangeId, $lastAccessTime, $creationTime, $sessionId, $token, $folderInterests, $changedFolders
+        );
+        $session = new \Zimbra\Admin\Struct\SessionForWaitSet(
+            $account, $interests, $token, $mboxSyncToken, $mboxSyncTokenDiff, $acctIdError, $WaitSetSession
+        );
+        $waitSet = new \Zimbra\Admin\Struct\WaitSetInfo(
+            $waitSetId, $owner, $defaultInterests, $lastAccessDate, [$error], $signalledAccounts, $cbSeqNo, $currentSeqNo, $nextSeqNo, [$commit], [$session]
+        );
+        $this->assertEquals([$waitSet], $response->getWaitsets());
+    }
+
+    public function testRecalculateMailboxCounts()
+    {
+        $id = $this->faker->uuid;
+        $quotaUsed = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RecalculateMailboxCountsResponse>
+            <urn:mbox id="$id" used="$quotaUsed" />
+        </urn:RecalculateMailboxCountsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->recalculateMailboxCounts();
+        $mbox = new \Zimbra\Admin\Struct\MailboxQuotaInfo($id, $quotaUsed);
+        $this->assertEquals($mbox, $response->getMailbox());
+    }
+
+    public function testRefreshRegisteredAuthTokens()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body xmlns:urn="urn:zimbraAdmin">
+        <urn:RefreshRegisteredAuthTokensResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->refreshRegisteredAuthTokens();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RefreshRegisteredAuthTokensResponse);
+    }
+
+    public function testReIndexEnvelope()
+    {
+        $numSucceeded = $this->faker->randomNumber;
+        $numFailed = $this->faker->randomNumber;
+        $numRemaining = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ReIndexResponse status="running">
+            <urn:progress numSucceeded="$numSucceeded" numFailed="$numFailed" numRemaining="$numRemaining" />
+        </urn:ReIndexResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->reIndex(new \Zimbra\Admin\Struct\ReindexMailboxInfo());
+        $progress = new \Zimbra\Admin\Struct\ReindexProgressInfo($numSucceeded, $numFailed, $numRemaining);
+        $this->assertEquals(\Zimbra\Common\Enum\ReIndexStatus::RUNNING(), $response->getStatus());
+        $this->assertEquals($progress, $response->getProgress());
+    }
+
+    public function testReloadLocalConfig()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ReloadLocalConfigResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->reloadLocalConfig();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ReloadLocalConfigResponse);
+    }
+
+    public function testReloadMemcachedClientConfig()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ReloadMemcachedClientConfigResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->reloadMemcachedClientConfig();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ReloadMemcachedClientConfigResponse);
+    }
+
+    public function testRemoveAccountAlias()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RemoveAccountAliasResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->removeAccountAlias($this->faker->uuid, $this->faker->email);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveAccountAliasResponse);
+    }
+
+    public function testRemoveAccountLogger()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RemoveAccountLoggerResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->removeAccountLogger();
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveAccountLoggerResponse);
+    }
+
+    public function testRemoveDistributionListAlias()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RemoveDistributionListAliasResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->removeDistributionListAlias($this->faker->uuid, $this->faker->email);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveDistributionListAliasResponse);
+    }
+
+    public function testRemoveDistributionListMember()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body xmlns:urn="urn:zimbraAdmin">
+        <urn:RemoveDistributionListMemberResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->removeDistributionListMember($this->faker->uuid);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveDistributionListMemberResponse);
+    }
+
+    public function testRenameAccount()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameAccountResponse>
+            <urn:account name="$name" id="$id" isExternal="true">
+                <urn:a n="$key">$value</urn:a>
+            </urn:account>
+        </urn:RenameAccountResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameAccount($id, $name);
+        $account = new \Zimbra\Admin\Struct\AccountInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($account, $response->getAccount());
+    }
+
+    public function testRenameCalendarResource()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameCalendarResourceResponse>
+            <urn:calresource name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:calresource>
+        </urn:RenameCalendarResourceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameCalendarResource($id, $name);
+        $calResource = new \Zimbra\Admin\Struct\CalendarResourceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($calResource, $response->getCalResource());
+    }
+
+    public function testRenameCos()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameCosResponse>
+            <urn:cos name="$name" id="$id" isDefaultCos="true">
+                <urn:a n="$key" c="true" pd="true">$value</urn:a>
+            </urn:cos>
+        </urn:RenameCosResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameCos($id, $name);
+        $cos = new \Zimbra\Admin\Struct\CosInfo(
+            $name, $id, TRUE, [new \Zimbra\Admin\Struct\CosInfoAttr($key, $value, TRUE, TRUE)]
+        );
+        $this->assertEquals($cos, $response->getCos());
+    }
+
+    public function testRenameDistributionList()
+    {
+        $id = $this->faker->uuid;
+        $name = $this->faker->word;
+        $member = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameDistributionListResponse>
+            <urn:dl name="$name" id="$id" dynamic="true">
+                <urn:dlm>$member</urn:dlm>
+                <urn:owners>
+                    <urn:owner id="$id" name="$name" type="all" />
+                </urn:owners>
+            </urn:dl>
+        </urn:RenameDistributionListResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameDistributionList($id, $name);
+
+        $owner = new \Zimbra\Admin\Struct\GranteeInfo(
+            $id, $name, \Zimbra\Common\Enum\GranteeType::ALL()
+        );
+        $dl = new \Zimbra\Admin\Struct\DistributionListInfo($name, $id, [$member], [], [$owner], TRUE);
+        $this->assertEquals($dl, $response->getDl());
+    }
+
+    public function testRenameLDAPEntry()
+    {
+        $name = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameLDAPEntryResponse>
+            <urn:LDAPEntry name="$name">
+                <urn:a n="$key">$value</urn:a>
+            </urn:LDAPEntry>
+        </urn:RenameLDAPEntryResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameLDAPEntry($name, $name);
+        $LDAPEntry = new \Zimbra\Admin\Struct\LDAPEntryInfo(
+            $name, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($LDAPEntry, $response->getLDAPentry());
+    }
+
+    public function testRenameUCService()
+    {
+        $id = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $name = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:RenameUCServiceResponse>
+            <urn:ucservice name="$name" id="$id">
+                <urn:a n="$key">$value</urn:a>
+            </urn:ucservice>
+        </urn:RenameUCServiceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->renameUCService($id, $name);
+        $ucService = new \Zimbra\Admin\Struct\UCServiceInfo(
+            $name, $id, [new \Zimbra\Admin\Struct\Attr($key, $value)]
+        );
+        $this->assertEquals($ucService, $response->getUCService());
+    }
+
+    public function testResetAllLoggers()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:ResetAllLoggersResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->resetAllLoggers($this->faker->uuid);
+        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ResetAllLoggersResponse);
+    }
 }
 
 class StubAdminApi extends AdminApi

@@ -24,17 +24,17 @@ class ModifyDomainTest extends ZimbraTestCase
 
         $request = new ModifyDomainRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyDomainRequest('');
+        $request = new ModifyDomainRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
 
         $domain = new DomainInfo($name, $id, [new Attr($key, $value)]);
         $response = new ModifyDomainResponse($domain);
-        $this->assertEquals($domain, $response->getDomain());
+        $this->assertSame($domain, $response->getDomain());
         $response = new ModifyDomainResponse();
         $response->setDomain($domain);
-        $this->assertEquals($domain, $response->getDomain());
+        $this->assertSame($domain, $response->getDomain());
 
         $body = new ModifyDomainBody($request, $response);
         $this->assertSame($request, $body->getRequest());

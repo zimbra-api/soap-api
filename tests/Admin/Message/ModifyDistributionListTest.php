@@ -27,7 +27,7 @@ class ModifyDistributionListTest extends ZimbraTestCase
 
         $request = new ModifyDistributionListRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyDistributionListRequest('');
+        $request = new ModifyDistributionListRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
@@ -36,10 +36,10 @@ class ModifyDistributionListTest extends ZimbraTestCase
             $name, $id, [$member], [new Attr($key, $value)], [new GranteeInfo($id, $name, GranteeType::USR())], TRUE
         );
         $response = new ModifyDistributionListResponse($dl);
-        $this->assertEquals($dl, $response->getDl());
+        $this->assertSame($dl, $response->getDl());
         $response = new ModifyDistributionListResponse();
         $response->setDl($dl);
-        $this->assertEquals($dl, $response->getDl());
+        $this->assertSame($dl, $response->getDl());
 
         $body = new ModifyDistributionListBody($request, $response);
         $this->assertSame($request, $body->getRequest());

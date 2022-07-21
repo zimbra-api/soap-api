@@ -24,7 +24,7 @@ class MigrateAccountTest extends ZimbraTestCase
         $request = new MigrateAccountRequest($migrate);
         $this->assertSame($migrate, $request->getMigrate());
         $request = new MigrateAccountRequest(
-            new IdAndAction('', '')
+            new IdAndAction()
         );
         $request->setMigrate($migrate);
         $this->assertSame($migrate, $request->getMigrate());

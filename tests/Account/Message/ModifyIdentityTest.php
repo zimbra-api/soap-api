@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{ModifyIdentityEnvelope, ModifyIdentityBody, ModifyIdentityRequest, ModifyIdentityResponse};
+use Zimbra\Account\Message\{
+    ModifyIdentityEnvelope,
+    ModifyIdentityBody,
+    ModifyIdentityRequest,
+    ModifyIdentityResponse
+};
 use Zimbra\Account\Struct\Attr;
 use Zimbra\Account\Struct\Identity;
 use Zimbra\Tests\ZimbraTestCase;
@@ -21,7 +26,7 @@ class ModifyIdentityTest extends ZimbraTestCase
 
         $request = new ModifyIdentityRequest($identity);
         $this->assertSame($identity, $request->getIdentity());
-        $request = new ModifyIdentityRequest(new Identity('', ''));
+        $request = new ModifyIdentityRequest(new Identity());
         $request->setIdentity($identity);
         $this->assertSame($identity, $request->getIdentity());
 

@@ -24,28 +24,28 @@ class ReIndexTest extends ZimbraTestCase
         $ids = $this->faker->word;
         $enums = $this->faker->randomElements(ReindexType::toArray(), mt_rand(1, count(ReindexType::toArray())));
         $types = implode(',', $enums);
-        $numSucceeded = mt_rand(1, 100);
-        $numFailed = mt_rand(1, 100);
-        $numRemaining = mt_rand(1, 100);
+        $numSucceeded = $this->faker->randomNumber;
+        $numFailed = $this->faker->randomNumber;
+        $numRemaining = $this->faker->randomNumber;
 
         $mbox = new ReindexMailboxInfo($id, $types, $ids);
         $request = new ReIndexRequest($mbox, ReIndexAction::STATUS());
-        $this->assertEquals($mbox, $request->getMbox());
+        $this->assertSame($mbox, $request->getMbox());
         $this->assertEquals(ReIndexAction::STATUS(), $request->getAction());
-        $request = new ReIndexRequest(new ReindexMailboxInfo(''));
+        $request = new ReIndexRequest(new ReindexMailboxInfo());
         $request->setMbox($mbox)
             ->setAction(ReIndexAction::START());
-        $this->assertEquals($mbox, $request->getMbox());
+        $this->assertSame($mbox, $request->getMbox());
         $this->assertEquals(ReIndexAction::START(), $request->getAction());
 
         $progress = new ReindexProgressInfo($numSucceeded, $numFailed, $numRemaining);
         $response = new ReIndexResponse(ReIndexStatus::STARTED(), $progress);
-        $this->assertEquals($progress, $response->getProgress());
+        $this->assertSame($progress, $response->getProgress());
         $this->assertEquals(ReIndexStatus::STARTED(), $response->getStatus());
-        $response = new ReIndexResponse(ReIndexStatus::STARTED());
+        $response = new ReIndexResponse();
         $response->setProgress($progress)
             ->setStatus(ReIndexStatus::RUNNING());
-        $this->assertEquals($progress, $response->getProgress());
+        $this->assertSame($progress, $response->getProgress());
         $this->assertEquals(ReIndexStatus::RUNNING(), $response->getStatus());
 
         $body = new ReIndexBody($request, $response);

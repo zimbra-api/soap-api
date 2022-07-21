@@ -24,17 +24,17 @@ class ModifyUCServiceTest extends ZimbraTestCase
 
         $request = new ModifyUCServiceRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new ModifyUCServiceRequest('');
+        $request = new ModifyUCServiceRequest();
         $request->setId($id)
             ->setAttrs([new Attr($key, $value)]);
         $this->assertSame($id, $request->getId());
 
         $ucservice = new UCServiceInfo($name, $id, [new Attr($key, $value)]);
         $response = new ModifyUCServiceResponse($ucservice);
-        $this->assertEquals($ucservice, $response->getUCService());
+        $this->assertSame($ucservice, $response->getUCService());
         $response = new ModifyUCServiceResponse();
         $response->setUCService($ucservice);
-        $this->assertEquals($ucservice, $response->getUCService());
+        $this->assertSame($ucservice, $response->getUCService());
 
         $body = new ModifyUCServiceBody($request, $response);
         $this->assertSame($request, $body->getRequest());

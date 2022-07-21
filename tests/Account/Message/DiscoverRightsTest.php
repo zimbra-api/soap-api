@@ -2,7 +2,12 @@
 
 namespace Zimbra\Tests\Account\Message;
 
-use Zimbra\Account\Message\{DiscoverRightsEnvelope, DiscoverRightsBody, DiscoverRightsRequest, DiscoverRightsResponse};
+use Zimbra\Account\Message\{
+    DiscoverRightsEnvelope,
+    DiscoverRightsBody,
+    DiscoverRightsRequest,
+    DiscoverRightsResponse
+};
 use Zimbra\Account\Struct\DiscoverRightsEmail;
 use Zimbra\Account\Struct\DiscoverRightsInfo;
 use Zimbra\Account\Struct\DiscoverRightsTarget;

@@ -27,7 +27,7 @@ class LockoutMailboxTest extends ZimbraTestCase
         $this->assertSame($account, $request->getAccount());
         $this->assertEquals(LockoutOperation::START(), $request->getOperation());
         $request = new LockoutMailboxRequest(
-            new AccountNameSelector(AccountBy::NAME(), '', '')
+            new AccountNameSelector()
         );
         $request->setAccount($account)
             ->setOperation(LockoutOperation::START());

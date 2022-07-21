@@ -1816,7 +1816,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyDelegatedAdminConstraints(
-        TargetType $type, ?string $id = NULL, ?string $name = NULL, array $attrs = []
+        ?TargetType $type = NULL, ?string $id = NULL, ?string $name = NULL, array $attrs = []
     ): Message\ModifyDelegatedAdminConstraintsResponse
     {
         return $this->invoke(new Message\ModifyDelegatedAdminConstraintsRequest(
@@ -1848,7 +1848,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyFilterRules(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?AccountSelector $account = NULL,
         ?DomainSelector $domain = NULL,
         ?CosSelector $cos = NULL,
@@ -1875,7 +1875,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyOutgoingFilterRules(
-        AdminFilterType $type,
+        ?AdminFilterType $type = NULL,
         ?AccountSelector $account = NULL,
         ?DomainSelector $domain = NULL,
         ?CosSelector $cos = NULL,
@@ -1923,10 +1923,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyVolume(int $id, VolumeInfo $volume): Message\ModifyVolumeResponse
+    public function modifyVolume(VolumeInfo $volume, int $id = 0): Message\ModifyVolumeResponse
     {
         return $this->invoke(new Message\ModifyVolumeRequest(
-            $id, $volume
+            $volume, $id
         ));
     }
 
@@ -2159,7 +2159,7 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      */
     public function renameUCService(string $id, string $newName): Message\RenameUCServiceResponse
     {
-        return $this->invoke(new Message\RenameUCServiceyRequest(
+        return $this->invoke(new Message\RenameUCServiceRequest(
             $id, $newName
         ));
     }

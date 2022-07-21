@@ -68,7 +68,7 @@ class PushFreeBusyRequest extends Request
      *
      * @return Names
      */
-    public function getDomains(): Names
+    public function getDomains(): ?Names
     {
         return $this->domains;
     }
