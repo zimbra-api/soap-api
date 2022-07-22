@@ -34,4 +34,11 @@ interface BodyInterface
      * @return  ResponseInterface
      */
     function getResponse(): ?ResponseInterface;
+
+    /**
+     * Get the response.
+     *
+     * @return  Fault
+     */
+    function getFault(): ?Fault;
 }
