@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\ServerWithQueueAction as Server;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * MailQueueActionRequest request class

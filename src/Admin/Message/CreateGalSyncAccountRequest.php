@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Enum\GalMode;
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * CreateGalSyncAccountRequest class

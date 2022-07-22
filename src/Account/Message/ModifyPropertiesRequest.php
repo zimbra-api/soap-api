@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Prop;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyPropertiesRequest class

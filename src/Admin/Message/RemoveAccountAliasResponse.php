@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * RemoveAccountAliasResponse class

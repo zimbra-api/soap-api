@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\ExchangeAuthSpec;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckExchangeAuthRequest request class

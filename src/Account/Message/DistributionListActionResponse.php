@@ -10,7 +10,7 @@
 
 namespace Zimbra\Account\Message;
 
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * DistributionListActionResponse class

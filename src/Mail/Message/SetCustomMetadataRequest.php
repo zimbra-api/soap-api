@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\MailCustomMetadata;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * SetCustomMetadataRequest class

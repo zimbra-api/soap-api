@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ICalReplyRequest class

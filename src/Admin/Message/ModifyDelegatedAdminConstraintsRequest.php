@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\ConstraintAttr;
 use Zimbra\Common\Enum\TargetType;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyDelegatedAdminConstraintsRequest class

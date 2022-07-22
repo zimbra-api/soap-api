@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, SkipWhenEmpty, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Mail\Struct\{CalReply, SetCalendarItemInfo};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * SetAppointmentRequest class

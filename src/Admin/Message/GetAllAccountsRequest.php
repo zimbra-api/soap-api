@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\ServerSelector as Server;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetAllAccountsRequest request class

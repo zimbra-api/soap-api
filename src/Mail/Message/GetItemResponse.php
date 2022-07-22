@@ -26,7 +26,7 @@ use Zimbra\Mail\Struct\{
     ChatSummary
 };
 
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetItemResponse class

@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
 use Zimbra\Common\Enum\ZimletDeployAction as DeployAction;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeployZimletRequest class

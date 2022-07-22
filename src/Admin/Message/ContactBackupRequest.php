@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\ServerSelector;
 use Zimbra\Common\Enum\ContactBackupOp;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ContactBackupRequest request class

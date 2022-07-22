@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{DomainSelector, PrincipalSelector};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * AutoProvAccountRequest class

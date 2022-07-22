@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * CountObjectsResponse class

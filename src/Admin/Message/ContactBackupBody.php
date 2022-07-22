@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Soap\{Body, RequestInterface, ResponseInterface};
+use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
 
 /**
  * ContactBackupBody class

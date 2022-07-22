@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Text;
 
 /**
  * CommentInfo class
@@ -346,9 +345,7 @@ class CommentInfo
      */
     public function setRgb(string $rgb): self
     {
-        if (Text::isRgb($rgb)) {
-            $this->rgb = $rgb;
-        }
+        $this->rgb = $rgb;
         return $this;
     }
 

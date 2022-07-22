@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Account\Struct\Signature;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetSignaturesResponse class

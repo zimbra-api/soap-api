@@ -33,7 +33,7 @@ use Zimbra\Common\Struct\{
     EntrySearchFilterInfo,
     GranteeChooser
 };
-use Zimbra\Soap\ApiInterface;
+use Zimbra\Common\Soap\ApiInterface;
 
 /**
  * AccountApiInterface interface

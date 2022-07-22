@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{SnoozeAppointmentAlarm, SnoozeTaskAlarm};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * SnoozeCalendarItemAlarmRequest class

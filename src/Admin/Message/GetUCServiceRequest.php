@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\UcServiceSelector;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetUCServiceRequest class

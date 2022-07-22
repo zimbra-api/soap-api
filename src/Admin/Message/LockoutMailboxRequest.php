@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\LockoutOperation;
 use Zimbra\Common\Struct\AccountNameSelector as Account;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * LockoutMailboxRequest request class

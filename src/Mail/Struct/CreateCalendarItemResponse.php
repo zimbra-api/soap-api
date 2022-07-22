@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\Id;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * CreateCalendarItemResponse class

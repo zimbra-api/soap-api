@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Mail\Struct\{CalItemRequestBase, Msg};
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 
 /**
  * ModifyAppointmentRequest class

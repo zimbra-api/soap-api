@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetZimletStatusRequest request class

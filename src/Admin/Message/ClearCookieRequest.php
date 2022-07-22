@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CookieSpec;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ClearCookie request class

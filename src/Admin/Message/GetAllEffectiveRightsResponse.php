@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\EffectiveRightsTarget;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetAllEffectiveRightsResponse class

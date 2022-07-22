@@ -12,7 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\InfoSection;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetInfoRequest class

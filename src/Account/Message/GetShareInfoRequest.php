@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Common\Struct\GranteeChooser;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetShareInfoRequest class

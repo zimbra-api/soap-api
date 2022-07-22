@@ -17,7 +17,7 @@ use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * ModifyFilterRulesRequest request class

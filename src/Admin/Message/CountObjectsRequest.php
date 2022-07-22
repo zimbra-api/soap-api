@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\{DomainSelector, UcServiceSelector};
 use Zimbra\Common\Enum\CountObjectsType;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * CountObjectsRequest class

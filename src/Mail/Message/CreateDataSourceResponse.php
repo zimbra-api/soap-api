@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     CalDataSourceId,
     UnknownDataSourceId
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * CreateDataSourceResponse class

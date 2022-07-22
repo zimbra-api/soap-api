@@ -86,7 +86,7 @@ use Zimbra\Mail\Struct\{
     TargetSpec
 };
 
-use Zimbra\Soap\ApiInterface;
+use Zimbra\Common\Soap\ApiInterface;
 
 /**
  * MailApiInterface interface

@@ -15,7 +15,7 @@ use Zimbra\Account\Struct\{
     AccountDataSource, AccountDataSources, AccountZimletInfo, Attr,
     ChildAccount, Cos, DiscoverRightsInfo, Identity, Pref, Prop, Signature
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetInfoResponse class

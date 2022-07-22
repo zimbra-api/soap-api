@@ -78,7 +78,7 @@ use Zimbra\Mail\Struct\{
     Policy,
     PolicyHolder
 };
-use Zimbra\Soap\ApiInterface;
+use Zimbra\Common\Soap\ApiInterface;
 
 /**
  * AdminApiInterface interface

@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\CalendarItemInfo;
 use Zimbra\Mail\Struct\TaskItemInfo;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetAppointmentResponse class

@@ -25,7 +25,7 @@ use Zimbra\Mail\Struct\{
     MessageSummary,
     ChatSummary
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * SyncResponse class

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 
 /**
  * ModifyTaskRequest class

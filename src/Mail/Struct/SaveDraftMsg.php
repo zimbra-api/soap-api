@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\ReplyType;
-use Zimbra\Common\Text;
 
 /**
  * SaveDraftMsg class
@@ -307,9 +306,7 @@ class SaveDraftMsg extends Msg
      */
     public function setRgb(string $rgb): self
     {
-        if (Text::isRgb($rgb)) {
-            $this->rgb = $rgb;
-        }
+        $this->rgb = $rgb;
         return $this;
     }
 

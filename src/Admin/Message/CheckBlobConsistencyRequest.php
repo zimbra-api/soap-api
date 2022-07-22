@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata

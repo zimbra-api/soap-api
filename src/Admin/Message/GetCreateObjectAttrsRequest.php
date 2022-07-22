@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\CosSelector as Cos;
 use Zimbra\Admin\Struct\DomainSelector as Domain;
 use Zimbra\Admin\Struct\TargetWithType as Target;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * GetCreateObjectAttrsRequest request class

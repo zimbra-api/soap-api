@@ -12,7 +12,6 @@ namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Enum\ViewType;
-use Zimbra\Common\Text;
 
 /**
  * NewFolderSpec class
@@ -300,9 +299,7 @@ class NewFolderSpec
      */
     public function setRgb(string $rgb): self
     {
-        if (Text::isRgb($rgb)) {
-            $this->rgb = $rgb;
-        }
+        $this->rgb = $rgb;
         return $this;
     }
 

@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * AddAppointmentInviteRequest class

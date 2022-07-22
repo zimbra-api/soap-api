@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 
 /**
  * GetAllCalendarResourcesRequest class

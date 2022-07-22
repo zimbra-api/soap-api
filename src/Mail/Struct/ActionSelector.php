@@ -11,7 +11,6 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Text;
 
 /**
  * ActionSelector class
@@ -415,9 +414,7 @@ class ActionSelector
      */
     public function setRgb(string $rgb): self
     {
-        if (Text::isRgb($rgb)) {
-            $this->rgb = $rgb;
-        }
+        $this->rgb = $rgb;
         return $this;
     }
 
