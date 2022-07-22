@@ -146,12 +146,6 @@ EOT;
 }
 
 /**
- * Header context class
- *
- * @package   Zimbra
- * @category  Soap
- * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
 class MockContext extends Context

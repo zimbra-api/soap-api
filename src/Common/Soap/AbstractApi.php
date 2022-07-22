@@ -14,6 +14,7 @@ use JMS\Serializer\SerializerInterface;
 use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
 use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Serializer\SerializerFactory;
+use Zimbra\Common\Soap\Fault\Envelope as FaultEnvelope;
 use Zimbra\Common\Soap\Header\{AccountInfo, Context};
 
 /**
@@ -202,13 +203,22 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
 
         $responseMessage = $response->getBody()->getContents();
         $this->getLogger()->debug('Soap response message', ['response' => $responseMessage]);
-        $responseEnvelope = $this->getSerializer()->deserialize(
-            $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
-        );
-        if ($responseEnvelope->getHeader() instanceof Header) {
-            $this->responseHeader = $responseEnvelope->getHeader();
+
+        if ($response->getStatusCode() === 200) {
+            $responseEnvelope = $this->getSerializer()->deserialize(
+                $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
+            );
+            if ($responseEnvelope->getHeader() instanceof Header) {
+                $this->responseHeader = $responseEnvelope->getHeader();
+            }
+            return $responseEnvelope->getBody()->getResponse();
         }
-        return $responseEnvelope->getBody()->getResponse();
+        else {
+            $faultEnvelope = $this->getSerializer()->deserialize(
+                $responseMessage, FaultEnvelope::class, self::SERIALIZE_FORMAT
+            );
+            return $faultEnvelope->getBody()->getSoapFault();
+        }
     }
 
     /**
