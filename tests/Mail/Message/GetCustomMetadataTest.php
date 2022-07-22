@@ -23,7 +23,6 @@ class GetCustomMetadataTest extends ZimbraTestCase
     {
         $id = $this->faker->uuid;
         $section = $this->faker->word;
-        $section = $this->faker->word;
         $key = $this->faker->word;
         $value = $this->faker->text;
 

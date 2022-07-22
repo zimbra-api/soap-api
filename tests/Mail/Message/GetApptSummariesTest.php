@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Message;
 
 use Zimbra\Common\Enum\AlarmAction;
-use Zimbra\Common\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\ParticipationStatus;
 
 use Zimbra\Mail\Struct\AlarmDataInfo;
 use Zimbra\Mail\Struct\AlarmInfo;
@@ -41,8 +41,8 @@ class GetApptSummariesTest extends ZimbraTestCase
 
         $xUid = $this->faker->uuid;
         $uid = $this->faker->uuid;
-        $category1 = $this->faker->unique()->word;
-        $category2 = $this->faker->unique()->word;
+        $category1 = $this->faker->unique->word;
+        $category2 = $this->faker->unique->word;
         $latitude = (string) $this->faker->latitude;
         $longitude = (string) $this->faker->longitude;
         $fragment = $this->faker->text;
@@ -75,7 +75,7 @@ class GetApptSummariesTest extends ZimbraTestCase
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = PartStat::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT();
 
         $trigger = new AlarmTriggerInfo(
             new DateAttr($date), new DurationInfo($weeks, $days, $hours, $minutes, $seconds)

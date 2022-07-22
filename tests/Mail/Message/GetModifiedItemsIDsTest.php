@@ -16,7 +16,7 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
 {
     public function testGetModifiedItemsIDs()
     {
-        $folderId = $this->faker->unixTime;
+        $folderId = $this->faker->randomNumber;
         $modSeq = $this->faker->unixTime;
         $id1 = $this->faker->unique->randomNumber;
         $id2 = $this->faker->unique->randomNumber;

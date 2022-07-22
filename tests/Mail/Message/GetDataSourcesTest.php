@@ -52,9 +52,9 @@ class GetDataSourcesTest extends ZimbraTestCase
         $lastError = $this->faker->text;
         $refreshToken = $this->faker->text;
         $refreshTokenUrl = $this->faker->url;
-        $attribute = $this->faker->unique()->text;
-        $attribute1 = $this->faker->unique()->text;
-        $attribute2 = $this->faker->unique()->text;
+        $attribute = $this->faker->unique->text;
+        $attribute1 = $this->faker->unique->text;
+        $attribute2 = $this->faker->unique->text;
         $attributes = [
             $attribute1,
             $attribute2,

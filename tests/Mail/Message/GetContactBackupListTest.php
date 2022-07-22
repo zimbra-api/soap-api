@@ -16,8 +16,8 @@ class GetContactBackupListTest extends ZimbraTestCase
 {
     public function testGetContactBackupList()
     {
-        $backup1 = $this->faker->email;
-        $backup2 = $this->faker->email;
+        $backup1 = $this->faker->unique->word;
+        $backup2 = $this->faker->unique->word;
 
         $request = new GetContactBackupListRequest();
         $response = new GetContactBackupListResponse([$backup1, $backup2]);

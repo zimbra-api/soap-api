@@ -42,7 +42,7 @@ class GetCustomMetadataRequest extends Request
      * @Type("Zimbra\Common\Struct\SectionAttr")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private SectionAttr $metadata;
+    private ?SectionAttr $metadata = NULL;
 
     /**
      * Constructor method for GetCustomMetadataRequest

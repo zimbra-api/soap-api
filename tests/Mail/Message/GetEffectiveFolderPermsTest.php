@@ -17,24 +17,24 @@ use Zimbra\Tests\ZimbraTestCase;
  */
 class GetEffectiveFolderPermsTest extends ZimbraTestCase
 {
-    public function testFolder()
+    public function testGetEffectiveFolderPerms()
     {
+        $folderId = $this->faker->uuid;
         $effectivePermissions = $this->faker->word;
-        $folder = $this->faker->uuid;
 
-        $spec = new FolderSpec($folder);
-        $request = new GetEffectiveFolderPermsRequest($spec);
-        $this->assertSame($spec, $request->getFolder());
-        $request = new GetEffectiveFolderPermsRequest(new FolderSpec(''));
-        $request->setFolder($spec);
-        $this->assertSame($spec, $request->getFolder());
+        $folder = new FolderSpec($folderId);
+        $request = new GetEffectiveFolderPermsRequest($folder);
+        $this->assertSame($folder, $request->getFolder());
+        $request = new GetEffectiveFolderPermsRequest(new FolderSpec());
+        $request->setFolder($folder);
+        $this->assertSame($folder, $request->getFolder());
 
-        $rights = new Rights($effectivePermissions);
-        $response = new GetEffectiveFolderPermsResponse($rights);
-        $this->assertSame($rights, $response->getFolder());
+        $folder = new Rights($effectivePermissions);
+        $response = new GetEffectiveFolderPermsResponse($folder);
+        $this->assertSame($folder, $response->getFolder());
         $response = new GetEffectiveFolderPermsResponse();
-        $response->setFolder($rights);
-        $this->assertSame($rights, $response->getFolder());
+        $response->setFolder($folder);
+        $this->assertSame($folder, $response->getFolder());
 
         $body = new GetEffectiveFolderPermsBody($request, $response);
         $this->assertSame($request, $body->getRequest());
@@ -56,7 +56,7 @@ class GetEffectiveFolderPermsTest extends ZimbraTestCase
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
     <soap:Body>
         <urn:GetEffectiveFolderPermsRequest>
-            <urn:folder l="$folder" />
+            <urn:folder l="$folderId" />
         </urn:GetEffectiveFolderPermsRequest>
         <urn:GetEffectiveFolderPermsResponse>
             <urn:folder perm="$effectivePermissions" />
