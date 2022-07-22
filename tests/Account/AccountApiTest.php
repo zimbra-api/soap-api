@@ -82,6 +82,136 @@ EOT;
         $this->assertEquals([$attr], $response->getAttrs());
     }
 
+    public function testAuthByName()
+    {
+        $id = $this->faker->uuid;
+        $name = $this->faker->word;
+        $value = $this->faker->word;
+        $type = $this->faker->word;
+        $token = $this->faker->uuid;
+        $refer = $this->faker->word;
+        $skin = $this->faker->word;
+        $csrfToken = $this->faker->sha256;
+        $deviceId = $this->faker->uuid;
+        $trustedToken = $this->faker->sha256;
+        $time = $this->faker->unixTime;
+        $lifetime = $this->faker->randomNumber;
+        $trustLifetime = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:AuthResponse zmgProxy="true">
+            <urn:authToken>$token</urn:authToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
+            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:refer>$refer</urn:refer>
+            <urn:skin>$skin</urn:skin>
+            <urn:csrfToken>$csrfToken</urn:csrfToken>
+            <urn:deviceId>$deviceId</urn:deviceId>
+            <urn:trustedToken>$trustedToken</urn:trustedToken>
+            <urn:prefs>
+                <urn:pref name="$name" modified="$time">$value</urn:pref>
+            </urn:prefs>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
+            <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>
+        </urn:AuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAccountApi($this->mockSoapClient($xml));
+        $response = $api->authByName($this->faker->email, $this->faker->word);
+        $this->assertSame($token, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertSame($refer, $response->getRefer());
+        $this->assertSame($skin, $response->getSkin());
+        $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertSame($deviceId, $response->getDeviceId());
+        $this->assertSame($trustedToken, $response->getTrustedToken());
+        $this->assertSame($trustLifetime, $response->getTrustLifetime());
+        $this->assertTrue($response->getZmgProxy());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
+        $this->assertTrue($response->getTrustedDevicesEnabled());
+
+        $session = new \Zimbra\Account\Struct\Session($id, $type);
+        $attr = new \Zimbra\Account\Struct\Attr($name, $value, TRUE);
+        $pref = new \Zimbra\Account\Struct\Pref($name, $value, $time);
+        $this->assertEquals($session, $response->getSession());
+        $this->assertEquals([$pref], $response->getPrefs());
+        $this->assertEquals([$attr], $response->getAttrs());
+    }
+
+    public function testAuthByToken()
+    {
+        $id = $this->faker->uuid;
+        $name = $this->faker->word;
+        $value = $this->faker->word;
+        $type = $this->faker->word;
+        $token = $this->faker->uuid;
+        $refer = $this->faker->word;
+        $skin = $this->faker->word;
+        $csrfToken = $this->faker->sha256;
+        $deviceId = $this->faker->uuid;
+        $trustedToken = $this->faker->sha256;
+        $time = $this->faker->unixTime;
+        $lifetime = $this->faker->randomNumber;
+        $trustLifetime = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAccount">
+    <soap:Body>
+        <urn:AuthResponse zmgProxy="true">
+            <urn:authToken>$token</urn:authToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
+            <urn:trustLifetime>$trustLifetime</urn:trustLifetime>
+            <urn:session type="$type" id="$id">$id</urn:session>
+            <urn:refer>$refer</urn:refer>
+            <urn:skin>$skin</urn:skin>
+            <urn:csrfToken>$csrfToken</urn:csrfToken>
+            <urn:deviceId>$deviceId</urn:deviceId>
+            <urn:trustedToken>$trustedToken</urn:trustedToken>
+            <urn:prefs>
+                <urn:pref name="$name" modified="$time">$value</urn:pref>
+            </urn:prefs>
+            <urn:attrs>
+                <urn:attr name="$name" pd="true">$value</urn:attr>
+            </urn:attrs>
+            <urn:twoFactorAuthRequired>true</urn:twoFactorAuthRequired>
+            <urn:trustedDevicesEnabled>true</urn:trustedDevicesEnabled>
+        </urn:AuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAccountApi($this->mockSoapClient($xml));
+        $response = $api->authByToken($this->faker->sha256);
+        $this->assertSame($token, $response->getAuthToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+        $this->assertSame($refer, $response->getRefer());
+        $this->assertSame($skin, $response->getSkin());
+        $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertSame($deviceId, $response->getDeviceId());
+        $this->assertSame($trustedToken, $response->getTrustedToken());
+        $this->assertSame($trustLifetime, $response->getTrustLifetime());
+        $this->assertTrue($response->getZmgProxy());
+        $this->assertTrue($response->getTwoFactorAuthRequired());
+        $this->assertTrue($response->getTrustedDevicesEnabled());
+
+        $session = new \Zimbra\Account\Struct\Session($id, $type);
+        $attr = new \Zimbra\Account\Struct\Attr($name, $value, TRUE);
+        $pref = new \Zimbra\Account\Struct\Pref($name, $value, $time);
+        $this->assertEquals($session, $response->getSession());
+        $this->assertEquals([$pref], $response->getPrefs());
+        $this->assertEquals([$attr], $response->getAttrs());
+    }
+
     public function testAutoCompleteGal()
     {
         $name = $this->faker->word;
