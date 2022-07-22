@@ -5,8 +5,8 @@ namespace Zimbra\Tests;
 use Faker\Factory as FakerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use Zimbra\Common\SerializerFactory;
-use Zimbra\Soap\ClientInterface;
+use Zimbra\Common\Serializer\SerializerFactory;
+use Zimbra\Common\Soap\ClientInterface;
 
 /**
  * Base testcase class for all Zimbra testcases.

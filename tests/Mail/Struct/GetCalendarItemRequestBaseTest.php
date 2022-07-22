@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\GetCalendarItemRequestBase;
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

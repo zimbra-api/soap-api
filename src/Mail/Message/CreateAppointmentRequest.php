@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use Zimbra\Mail\Struct\CalItemRequestBase;
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 
 /**
  * CreateAppointmentRequest class

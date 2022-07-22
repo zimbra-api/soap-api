@@ -34,7 +34,7 @@ use Zimbra\Common\Struct\{
     EntrySearchFilterInfo,
     GranteeChooser
 };
-use Zimbra\Soap\AbstractApi;
+use Zimbra\Common\Soap\AbstractApi;
 
 /**
  * Account api class

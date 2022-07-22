@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
 use Zimbra\Common\Struct\CursorInfo;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchGalRequest class

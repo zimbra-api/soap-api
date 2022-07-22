@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
-use Zimbra\Soap\{BodyInterface, Envelope, Header};
+use Zimbra\Common\Soap\{BodyInterface, Envelope, Header};
 
 /**
  * GetAllEffectiveRightsEnvelope class

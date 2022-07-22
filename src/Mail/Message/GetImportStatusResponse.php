@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     UnknownImportStatusInfo,
     ImportStatusInfo
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetImportStatusResponse class

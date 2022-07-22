@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail;
 
 use Zimbra\Mail\{MailApi, MailApiInterface};
-use Zimbra\Soap\ClientInterface;
+use Zimbra\Common\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

@@ -27,7 +27,7 @@ use Zimbra\Mail\Struct\{
     TaskHitInfo,
     SearchQueryInfo
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * SearchResponse class

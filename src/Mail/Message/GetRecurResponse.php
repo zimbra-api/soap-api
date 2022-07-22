@@ -17,7 +17,7 @@ use Zimbra\Mail\Struct\{
     ExceptionItemRecur,
     InviteItemRecur,
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetRecurResponse class

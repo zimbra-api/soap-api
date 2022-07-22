@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{
     AdminAttrs, AdminAttrsImplTrait, CheckedRight, EffectiveRightsTargetSelector, GranteeSelector
 };
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * CheckRight request class

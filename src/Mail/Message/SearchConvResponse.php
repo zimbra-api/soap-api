@@ -18,7 +18,7 @@ use Zimbra\Mail\Struct\{
     MessageHitInfo,
     SearchQueryInfo
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * SearchConvResponse class

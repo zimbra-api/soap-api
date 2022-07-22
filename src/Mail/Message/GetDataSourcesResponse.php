@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     MailUnknownDataSource,
     MailDataSource
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetDataSourcesResponse class

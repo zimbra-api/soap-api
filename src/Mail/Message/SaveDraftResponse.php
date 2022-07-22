@@ -17,7 +17,7 @@ use Zimbra\Mail\Struct\{
     ChatMessageInfo
 };
 
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * SaveDraftResponse class

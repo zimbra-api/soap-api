@@ -20,7 +20,7 @@ use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
 use Zimbra\Mail\Struct\RssDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 use Zimbra\Mail\Struct\YabDataSourceNameOrId;
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * DeleteDataSourceRequest class

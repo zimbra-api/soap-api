@@ -19,10 +19,11 @@ use MyCLabs\Enum\Enum;
 /**
  * XmlSerializationVisitor class.
  *
- * @package   Zimbra
- * @category  Common
- * @author    Johannes M. Schmitt <schmittjoh@gmail.com>
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
+ * @package    Zimbra
+ * @subpackage Common
+ * @category   Serializer
+ * @author     Johannes M. Schmitt <schmittjoh@gmail.com>
+ * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
 final class XmlSerializationVisitor extends AbstractVisitor implements SerializationVisitorInterface
 {

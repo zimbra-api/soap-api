@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     MailUnknownDataSource,
     MailDataSource
 };
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * TestDataSourceRequest class

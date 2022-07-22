@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlElement, XmlList};
 use Zimbra\Admin\Struct\DomainAdminRight as Right;
 use Zimbra\Admin\Struct\PackageRightsInfo as Package;
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * GetRightsDocResponse class

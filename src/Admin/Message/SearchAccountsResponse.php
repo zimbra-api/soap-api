@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Admin\Struct\{
     AccountInfo, AliasInfo, CalendarResourceInfo, CosInfo, DistributionListInfo, DomainInfo
 };
-use Zimbra\Soap\ResponseInterface;
+use Zimbra\Common\Soap\ResponseInterface;
 
 /**
  * SearchAccountsResponse class

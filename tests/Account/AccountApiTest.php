@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Account;
 
 use Zimbra\Account\{AccountApi, AccountApiInterface};
-use Zimbra\Soap\ClientInterface;
+use Zimbra\Common\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

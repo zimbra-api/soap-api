@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Admin;
 
 use Zimbra\Admin\{AdminApi, AdminApiInterface};
-use Zimbra\Soap\ClientInterface;
+use Zimbra\Common\Soap\ClientInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

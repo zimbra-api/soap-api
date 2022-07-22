@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\InstanceRecurIdInfo;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\Msg;
-use Zimbra\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\EnvelopeInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**

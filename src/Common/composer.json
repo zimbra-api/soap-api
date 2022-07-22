@@ -13,9 +13,10 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "jms/serializer": "^3.0",
         "myclabs/php-enum": "^1.0",
+        "php-http/discovery": "^1.14",
         "psr/http-client": "^1.0",
         "psr/http-factory": "^1.0"
     },

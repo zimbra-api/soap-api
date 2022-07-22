@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, CursorInfo};
-use Zimbra\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{EnvelopeInterface, Request};
 
 /**
  * SearchCalendarResourcesRequest class
