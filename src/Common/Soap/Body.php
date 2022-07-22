@@ -10,6 +10,8 @@
 
 namespace Zimbra\Common\Soap;
 
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+
 /**
  * Soap body class
  *
@@ -22,10 +24,24 @@ namespace Zimbra\Common\Soap;
 abstract class Body implements BodyInterface
 {
     /**
-     * Constructor method for Body
+     * @Accessor(getter="getFault", setter="setFault")
+     * @SerializedName("Fault")
+     * @Type("Zimbra\Common\Soap\Fault")
+     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     */
+    private ?Fault $fault = NULL;
+
+    /**
+     * Constructor
+     * 
+     * @param  RequestInterface $request
+     * @param  ResponseInterface $response
+     * @param  Fault $fault
      * @return self
      */
-    public function __construct(?RequestInterface $request = NULL, ?ResponseInterface $response = NULL)
+    public function __construct(
+        ?RequestInterface $request = NULL, ?ResponseInterface $response = NULL, ?Fault $fault = NULL
+    )
     {
         if ($request instanceof RequestInterface) {
             $this->setRequest($request);
@@ -33,6 +49,31 @@ abstract class Body implements BodyInterface
         if ($response instanceof ResponseInterface) {
             $this->setResponse($response);
         }
+        if ($fault instanceof Fault) {
+            $this->setFault($fault);
+        }
+    }
+
+    /**
+     * Set the soap fault
+     *
+     * @param  Response $fault
+     * @return self
+     */
+    public function setFault(Fault $fault): self
+    {
+        $this->fault = $fault;
+        return $this;
+    }
+
+    /**
+     * Get the soap fault
+     *
+     * @return Fault
+     */
+    public function getFault(): ?Fault
+    {
+        return $this->fault;
     }
 
     /**

@@ -68,7 +68,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?string $deviceId = NULL,
         ?bool $generateDeviceId = NULL,
         ?string $tokenType = NULL
-    ): Message\AuthResponse
+    ): ?Message\AuthResponse
     {
         return $this->invoke(new Message\AuthRequest(
             $account,
@@ -95,7 +95,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function authByName(string $name, string $password): Message\AuthResponse
+    public function authByName(string $name, string $password): ?Message\AuthResponse
     {
         $account = new AccountSelector(AccountBy::NAME(), $name);
         return $this->auth($account, $password);
@@ -104,7 +104,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function authByToken(string $authToken): Message\AuthResponse
+    public function authByToken(string $authToken): ?Message\AuthResponse
     {
         $token = ($authToken instanceof AuthToken) ? $authToken : new AuthToken($authToken);
         return $this->auth(NULL, NULL, NULL, NULL, $token);
@@ -119,7 +119,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?bool $needCanExpand = NULL,
         ?string $galAccountId = NULL,
         ?int $limit = NULL
-    ): Message\AutoCompleteGalResponse
+    ): ?Message\AutoCompleteGalResponse
     {
         return $this->invoke(new Message\AutoCompleteGalRequest(
             $name, $type, $needCanExpand, $galAccountId, $limit
@@ -135,7 +135,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         string $newPassword,
         ?string $virtualHost = NULL,
         ?bool $dryRun = NULL
-    ): Message\ChangePasswordResponse
+    ): ?Message\ChangePasswordResponse
     {
         return $this->invoke(new Message\ChangePasswordRequest(
             $account, $oldPassword, $newPassword, $virtualHost, $dryRun
@@ -145,7 +145,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function checkRights(array $targets = []): Message\CheckRightsResponse
+    public function checkRights(array $targets = []): ?Message\CheckRightsResponse
     {
         return $this->invoke(new Message\CheckRightsRequest($targets));
     }
@@ -153,7 +153,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function clientInfo(DomainSelector $domain): Message\ClientInfoResponse
+    public function clientInfo(DomainSelector $domain): ?Message\ClientInfoResponse
     {
         return $this->invoke(new Message\ClientInfoRequest($domain));
     }
@@ -163,7 +163,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function createDistributionList(
         string $name, ?bool $dynamic = NULL, array $attrs = []
-    ): Message\CreateDistributionListResponse
+    ): ?Message\CreateDistributionListResponse
     {
         return $this->invoke(new Message\CreateDistributionListRequest(
             $name, $dynamic, $attrs
@@ -173,7 +173,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function createIdentity(Identity $identity): Message\CreateIdentityResponse
+    public function createIdentity(Identity $identity): ?Message\CreateIdentityResponse
     {
         return $this->invoke(new Message\CreateIdentityRequest($identity));
     }
@@ -181,7 +181,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function createSignature(Signature $signature): Message\CreateSignatureResponse
+    public function createSignature(Signature $signature): ?Message\CreateSignatureResponse
     {
         return $this->invoke(new Message\CreateSignatureRequest($signature));
     }
@@ -189,7 +189,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function deleteIdentity(NameId $identity): Message\DeleteIdentityResponse
+    public function deleteIdentity(NameId $identity): ?Message\DeleteIdentityResponse
     {
         return $this->invoke(new Message\DeleteIdentityRequest($identity));
     }
@@ -197,7 +197,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function deleteSignature(NameId $signature): Message\DeleteSignatureResponse
+    public function deleteSignature(NameId $signature): ?Message\DeleteSignatureResponse
     {
         return $this->invoke(new Message\DeleteSignatureRequest($signature));
     }
@@ -205,7 +205,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function discoverRights(array $rights = []): Message\DiscoverRightsResponse
+    public function discoverRights(array $rights = []): ?Message\DiscoverRightsResponse
     {
         return $this->invoke(new Message\DiscoverRightsRequest($rights));
     }
@@ -215,7 +215,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function distributionListAction(
         DistributionListSelector $dl, DistributionListAction $action
-    ): Message\DistributionListActionResponse
+    ): ?Message\DistributionListActionResponse
     {
         return $this->invoke(new Message\DistributionListActionRequest($dl, $action));
     }
@@ -228,7 +228,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?bool $clearAllSoapSessions = NULL,
         ?bool $excludeCurrentSession = NULL,
         ?string $sessionId = NULL
-    ): Message\EndSessionResponse
+    ): ?Message\EndSessionResponse
     {
         return $this->invoke(new Message\EndSessionRequest(
             $logoff, $clearAllSoapSessions, $excludeCurrentSession, $sessionId
@@ -242,7 +242,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?bool $ownerOf = NULL,
         ?MemberOfSelector $memberOf = NULL,
         ?string $attrs = NULL
-    ): Message\GetAccountDistributionListsResponse
+    ): ?Message\GetAccountDistributionListsResponse
     {
         return $this->invoke(new Message\GetAccountDistributionListsRequest(
             $ownerOf, $memberOf, $attrs
@@ -252,7 +252,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAccountInfo(AccountSelector $account): Message\GetAccountInfoResponse
+    public function getAccountInfo(AccountSelector $account): ?Message\GetAccountInfoResponse
     {
         return $this->invoke(new Message\GetAccountInfoRequest($account));
     }
@@ -260,7 +260,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAllLocales(): Message\GetAllLocalesResponse
+    public function getAllLocales(): ?Message\GetAllLocalesResponse
     {
         return $this->invoke(new Message\GetAllLocalesRequest());
     }
@@ -268,7 +268,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAvailableCsvFormats(): Message\GetAvailableCsvFormatsResponse
+    public function getAvailableCsvFormats(): ?Message\GetAvailableCsvFormatsResponse
     {
         return $this->invoke(new Message\GetAvailableCsvFormatsRequest());
     }
@@ -276,7 +276,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAvailableLocales(): Message\GetAvailableLocalesResponse
+    public function getAvailableLocales(): ?Message\GetAvailableLocalesResponse
     {
         return $this->invoke(new Message\GetAvailableLocalesRequest());
     }
@@ -284,7 +284,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getAvailableSkins(): Message\GetAvailableSkinsResponse
+    public function getAvailableSkins(): ?Message\GetAvailableSkinsResponse
     {
         return $this->invoke(new Message\GetAvailableSkinsRequest());
     }
@@ -296,7 +296,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         string $dl,
         ?int $limit = NULL,
         ?int $offset = NULL
-    ): Message\GetDistributionListMembersResponse
+    ): ?Message\GetDistributionListMembersResponse
     {
         return $this->invoke(new Message\GetDistributionListMembersRequest(
             $dl, $limit, $offset
@@ -311,7 +311,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?bool $needOwners = NULL,
         ?string $needRights = NULL,
         array $attrs = []
-    ): Message\GetDistributionListResponse
+    ): ?Message\GetDistributionListResponse
     {
         return $this->invoke(new Message\GetDistributionListRequest(
             $dl, $needOwners, $needRights, $attrs
@@ -321,7 +321,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdentities(): Message\GetIdentitiesResponse
+    public function getIdentities(): ?Message\GetIdentitiesResponse
     {
         return $this->invoke(new Message\GetIdentitiesRequest());
     }
@@ -331,7 +331,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function getInfo(
         string $sections = NULL, string $rights = NULL
-    ): Message\GetInfoResponse
+    ): ?Message\GetInfoResponse
     {
         return $this->invoke(new Message\GetInfoRequest(
             $sections, $rights
@@ -341,7 +341,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getOAuthConsumers(): Message\GetOAuthConsumersResponse
+    public function getOAuthConsumers(): ?Message\GetOAuthConsumersResponse
     {
         return $this->invoke(new Message\GetOAuthConsumersRequest());
     }
@@ -349,7 +349,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getPrefs(array $prefs = []): Message\GetPrefsResponse
+    public function getPrefs(array $prefs = []): ?Message\GetPrefsResponse
     {
         return $this->invoke(new Message\GetPrefsRequest($prefs));
     }
@@ -357,7 +357,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getRights(array $aces = []): Message\GetRightsResponse
+    public function getRights(array $aces = []): ?Message\GetRightsResponse
     {
         return $this->invoke(new Message\GetRightsRequest($aces));
     }
@@ -370,7 +370,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?AccountSelector $owner = NULL,
         ?bool $internal = NULL,
         ?bool $includeSelf = NULL
-    ): Message\GetShareInfoResponse
+    ): ?Message\GetShareInfoResponse
     {
         return $this->invoke(new Message\GetShareInfoRequest(
             $grantee, $owner, $internal, $includeSelf
@@ -380,7 +380,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getSignatures(): Message\GetSignaturesResponse
+    public function getSignatures(): ?Message\GetSignaturesResponse
     {
         return $this->invoke(new Message\GetSignaturesRequest());
     }
@@ -388,7 +388,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getVersionInfo(): Message\GetVersionInfoResponse
+    public function getVersionInfo(): ?Message\GetVersionInfoResponse
     {
         return $this->invoke(new Message\GetVersionInfoRequest());
     }
@@ -396,7 +396,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getWhiteBlackList(): Message\GetWhiteBlackListResponse
+    public function getWhiteBlackList(): ?Message\GetWhiteBlackListResponse
     {
         return $this->invoke(new Message\GetWhiteBlackListRequest());
     }
@@ -404,7 +404,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function grantRights(array $aces = []): Message\GrantRightsResponse
+    public function grantRights(array $aces = []): ?Message\GrantRightsResponse
     {
         return $this->invoke(new Message\GrantRightsRequest($aces));
     }
@@ -412,7 +412,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyIdentity(Identity $identity): Message\ModifyIdentityResponse
+    public function modifyIdentity(Identity $identity): ?Message\ModifyIdentityResponse
     {
         return $this->invoke(new Message\ModifyIdentityRequest($identity));
     }
@@ -420,7 +420,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyPrefs(array $prefs = []): Message\ModifyPrefsResponse
+    public function modifyPrefs(array $prefs = []): ?Message\ModifyPrefsResponse
     {
         return $this->invoke(new Message\ModifyPrefsRequest($prefs));
     }
@@ -428,7 +428,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyProperties(array $props = []): Message\ModifyPropertiesResponse
+    public function modifyProperties(array $props = []): ?Message\ModifyPropertiesResponse
     {
         return $this->invoke(new Message\ModifyPropertiesRequest($props));
     }
@@ -436,7 +436,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifySignature(Signature $signature): Message\ModifySignatureResponse
+    public function modifySignature(Signature $signature): ?Message\ModifySignatureResponse
     {
         return $this->invoke(new Message\ModifySignatureRequest($signature));
     }
@@ -446,7 +446,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function modifyWhiteBlackList(
         array $whiteListEntries = [], array $blackListEntries = []
-    ): Message\ModifyWhiteBlackListResponse
+    ): ?Message\ModifyWhiteBlackListResponse
     {
         return $this->invoke(new Message\ModifyWhiteBlackListRequest(
             $whiteListEntries, $blackListEntries
@@ -456,7 +456,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function modifyZimletPrefs(array $zimlets = []): Message\ModifyZimletPrefsResponse
+    public function modifyZimletPrefs(array $zimlets = []): ?Message\ModifyZimletPrefsResponse
     {
         return $this->invoke(new Message\ModifyZimletPrefsRequest($zimlets));
     }
@@ -464,7 +464,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function resetPassword(string $password): Message\ResetPasswordResponse
+    public function resetPassword(string $password): ?Message\ResetPasswordResponse
     {
         return $this->invoke(new Message\ResetPasswordRequest($password));
     }
@@ -472,7 +472,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function revokeOAuthConsumer(string $accessToken): Message\RevokeOAuthConsumerResponse
+    public function revokeOAuthConsumer(string $accessToken): ?Message\RevokeOAuthConsumerResponse
     {
         return $this->invoke(new Message\RevokeOAuthConsumerRequest($accessToken));
     }
@@ -480,7 +480,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     /**
      * {@inheritdoc}
      */
-    public function revokeRights(array $aces = []): Message\RevokeRightsResponse
+    public function revokeRights(array $aces = []): ?Message\RevokeRightsResponse
     {
         return $this->invoke(new Message\RevokeRightsRequest($aces));
     }
@@ -499,7 +499,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?string $galAccountId = NULL,
         ?string $name = NULL,
         ?string $attrs = NULL
-    ): Message\SearchCalendarResourcesResponse
+    ): ?Message\SearchCalendarResourcesResponse
     {
         return $this->invoke(new Message\SearchCalendarResourcesRequest(
             $cursor,
@@ -534,7 +534,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?int $limit = NULL,
         ?int $offset = NULL,
         ?string $locale = NULL
-    ): Message\SearchGalResponse
+    ): ?Message\SearchGalResponse
     {
         return $this->invoke(new Message\SearchGalRequest(
             $cursor,
@@ -560,7 +560,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function subscribeDistributionList(
         DistributionListSelector $dl, DistributionListSubscribeOp $op
-    ): Message\SubscribeDistributionListResponse
+    ): ?Message\SubscribeDistributionListResponse
     {
         return $this->invoke(new Message\SubscribeDistributionListRequest($dl, $op));
     }
@@ -574,7 +574,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
         ?bool $idOnly = NULL,
         ?bool $getCount = NULL,
         ?int $limit = NULL
-    ): Message\SyncGalResponse
+    ): ?Message\SyncGalResponse
     {
         return $this->invoke(new Message\SyncGalRequest(
             $token, $galAccountId, $idOnly, $getCount, $limit
