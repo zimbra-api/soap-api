@@ -78,9 +78,7 @@ class RemoveAttachmentsTest extends ZimbraTestCase
         $rangeType = $this->faker->numberBetween(1, 3);
         $recurId = $this->faker->uuid;
 
-        $msg = new MsgPartIds(
-            $id, $partIds
-        );
+        $msg = new MsgPartIds($id, $partIds);
 
         $request = new RemoveAttachmentsRequest($msg);
         $this->assertSame($msg, $request->getMsg());

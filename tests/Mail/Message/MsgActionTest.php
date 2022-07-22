@@ -19,7 +19,6 @@ class MsgActionTest extends ZimbraTestCase
 {
     public function testMsgAction()
     {
-        $operation = $this->faker->word;
         $ids = $this->faker->uuid;
         $constraint = $this->faker->word;
         $tag = $this->faker->numberBetween(1, 100);

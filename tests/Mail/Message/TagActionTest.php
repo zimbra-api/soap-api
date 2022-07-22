@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Mail\Message;
 
-use Zimbra\Common\Enum\{ContactActionOp, Type};
+use Zimbra\Common\Enum\{TagActionOp, Type};
 
 use Zimbra\Mail\Message\TagActionEnvelope;
 use Zimbra\Mail\Message\TagActionBody;
@@ -23,7 +23,7 @@ class TagActionTest extends ZimbraTestCase
 {
     public function testTagAction()
     {
-        $operation = $this->faker->randomElement(ContactActionOp::values())->getValue();
+        $operation = $this->faker->randomElement(TagActionOp::values())->getValue();
         $id = $this->faker->uuid;
         $name = $this->faker->word;
         $lifetime = $this->faker->word;

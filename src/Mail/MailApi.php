@@ -1292,7 +1292,7 @@ class MailApi extends AbstractApi implements MailApiInterface
         ?int $timeout = NULL
     ): Message\NoOpResponse
     {
-        return $this->invoke(new Message\MsgActionRequest(
+        return $this->invoke(new Message\NoOpRequest(
             $wait, $includeDelegates, $enforceLimit, $timeout
         ));
     }
@@ -1351,7 +1351,7 @@ class MailApi extends AbstractApi implements MailApiInterface
     ): Message\RecoverAccountResponse
     {
         return $this->invoke(new Message\RecoverAccountRequest(
-            $op, $email, $channel
+            $email, $op, $channel
         ));
     }
 
@@ -1578,9 +1578,7 @@ class MailApi extends AbstractApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function sendVerificationCode(
-        ?string $address = NULL
-    ): Message\SendVerificationCodeResponse
+    public function sendVerificationCode(?string $address = NULL): Message\SendVerificationCodeResponse
     {
         return $this->invoke(new Message\SendVerificationCodeRequest($address));
     }

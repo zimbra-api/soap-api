@@ -196,16 +196,16 @@ class SyncTest extends ZimbraTestCase
                 <urn:w ids="$ids" />
                 <urn:doc ids="$ids" />
             </urn:folder>
-             <urn:tag id="$id" />
-             <urn:note id="$id" />
-             <urn:cn id="$id" />
-             <urn:appt />
-             <urn:task />
-             <urn:c id="$id" />
-             <urn:w id="$id" />
-             <urn:doc id="$id" />
-             <urn:m id="$id" />
-             <urn:chat id="$id" />
+            <urn:tag id="$id" />
+            <urn:note id="$id" />
+            <urn:cn id="$id" />
+            <urn:appt />
+            <urn:task />
+            <urn:c id="$id" />
+            <urn:w id="$id" />
+            <urn:doc id="$id" />
+            <urn:m id="$id" />
+            <urn:chat id="$id" />
         </urn:SyncResponse>
     </soap:Body>
 </soap:Envelope>
