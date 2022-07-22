@@ -20,5 +20,5 @@ namespace Zimbra\Soap;
  */
 abstract class Response implements ResponseInterface
 {
-    use WithRequestId;
+    use WithRequestIdTrait;
 }

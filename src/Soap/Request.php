@@ -22,7 +22,7 @@ use JMS\Serializer\Annotation\Exclude;
  */
 abstract class Request implements RequestInterface
 {
-    use WithRequestId;
+    use WithRequestIdTrait;
 
     /**
      * @var EnvelopeInterface

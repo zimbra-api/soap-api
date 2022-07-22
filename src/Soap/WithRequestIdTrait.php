@@ -13,14 +13,14 @@ namespace Zimbra\Soap;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
- * WithRequestId trait.
+ * With request id trait.
  * 
  * @package   Zimbra
  * @category  Soap
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020-present by Nguyen Van Nguyen.
  */
-trait WithRequestId
+trait WithRequestIdTrait
 {
     /**
      * Request id. Used with BatchRequestInterface & BatchResponseInterface
