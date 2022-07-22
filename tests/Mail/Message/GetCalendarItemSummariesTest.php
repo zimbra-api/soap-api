@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Message;
 
 use Zimbra\Common\Enum\AlarmAction;
-use Zimbra\Common\Enum\ParticipationStatus as PartStat;
+use Zimbra\Common\Enum\ParticipationStatus;
 
 use Zimbra\Mail\Struct\AlarmDataInfo;
 use Zimbra\Mail\Struct\AlarmInfo;
@@ -41,8 +41,8 @@ class GetCalendarItemSummariesTest extends ZimbraTestCase
 
         $xUid = $this->faker->uuid;
         $uid = $this->faker->uuid;
-        $category1 = $this->faker->unique()->word;
-        $category2 = $this->faker->unique()->word;
+        $category1 = $this->faker->unique->word;
+        $category2 = $this->faker->unique->word;
         $latitude = (string) $this->faker->latitude;
         $longitude = (string) $this->faker->longitude;
         $fragment = $this->faker->text;
@@ -75,7 +75,7 @@ class GetCalendarItemSummariesTest extends ZimbraTestCase
         $summary = $this->faker->text;
         $location = $this->faker->text;
         $role = $this->faker->word;
-        $partStat = PartStat::ACCEPT();
+        $partStat = ParticipationStatus::ACCEPT();
 
         $trigger = new AlarmTriggerInfo(
             new DateAttr($date), new DurationInfo($weeks, $days, $hours, $minutes, $seconds)
@@ -106,7 +106,7 @@ class GetCalendarItemSummariesTest extends ZimbraTestCase
         $this->assertSame($startTime, $request->getStartTime());
         $this->assertSame($endTime, $request->getEndTime());
         $this->assertSame($folderId, $request->getFolderId());
-        $request = new GetCalendarItemSummariesRequest(0, 0);
+        $request = new GetCalendarItemSummariesRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setFolderId($folderId);

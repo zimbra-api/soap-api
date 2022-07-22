@@ -59,12 +59,6 @@ class GetContactsTest extends ZimbraTestCase
         $size = $this->faker->randomNumber;
         $contentFilename = $this->faker->word;
 
-        $meta = new MailCustomMetadata($section);
-        $attr = new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
-        $member = new ContactGroupMember(MemberType::CONTACT(), $value);
-        $contact = new ContactInfo(
-            $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
-        );
         $attr = new AttributeName($name);
         $cn = new Id($value);
 
@@ -114,6 +108,13 @@ class GetContactsTest extends ZimbraTestCase
         $request->setAttributes([$attr])
             ->setMemberAttributes([$attr])
             ->setContacts([$cn]);
+
+        $meta = new MailCustomMetadata($section);
+        $attr = new ContactAttr($key, $value, $part, $contentType, $size, $contentFilename);
+        $member = new ContactGroupMember(MemberType::CONTACT(), $value);
+        $contact = new ContactInfo(
+            $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
+        );
 
         $response = new GetContactsResponse([$contact]);
         $this->assertSame([$contact], $response->getContacts());

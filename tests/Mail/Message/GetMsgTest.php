@@ -37,7 +37,6 @@ class GetMsgTest extends ZimbraTestCase
     public function testGetMsg()
     {
         $id = $this->faker->uuid;
-        $part = $this->faker->word;
         $recurIdZ = $this->faker->uuid;
         $name = $this->faker->word;
         $maxInlinedLength = $this->faker->randomNumber;

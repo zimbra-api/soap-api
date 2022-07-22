@@ -21,7 +21,7 @@ class GetIMAPRecentTest extends ZimbraTestCase
 
         $request = new GetIMAPRecentRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new GetIMAPRecentRequest('');
+        $request = new GetIMAPRecentRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

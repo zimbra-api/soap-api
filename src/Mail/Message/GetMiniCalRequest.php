@@ -65,7 +65,7 @@ class GetMiniCalRequest extends Request
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private $timezone = [];
+    private ?CalTZInfo $timezone = NULL;
 
     /**
      * Constructor method for GetMiniCalRequest

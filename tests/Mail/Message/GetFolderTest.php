@@ -32,7 +32,6 @@ class GetFolderTest extends ZimbraTestCase
 {
     public function testGetFolder()
     {
-        $uuid = $this->faker->uuid;
         $folderId = $this->faker->uuid;
         $path = $this->faker->word;
         $viewConstraint = $this->faker->word;

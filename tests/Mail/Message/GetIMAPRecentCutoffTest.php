@@ -21,7 +21,7 @@ class GetIMAPRecentCutoffTest extends ZimbraTestCase
 
         $request = new GetIMAPRecentCutoffRequest($id);
         $this->assertSame($id, $request->getId());
-        $request = new GetIMAPRecentCutoffRequest('');
+        $request = new GetIMAPRecentCutoffRequest();
         $request->setId($id);
         $this->assertSame($id, $request->getId());
 

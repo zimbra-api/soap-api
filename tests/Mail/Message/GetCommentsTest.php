@@ -40,10 +40,16 @@ class GetCommentsTest extends ZimbraTestCase
         $value = $this->faker->text;
 
         $comment = new ParentId($parentId);
+        $request = new GetCommentsRequest($comment);
+        $this->assertSame($comment, $request->getComment());
+        $request = new GetCommentsRequest(new ParentId(''));
+        $request->setComment($comment);
+        $this->assertSame($comment, $request->getComment());
+
         $user = new IdEmailName(
             $id, $email, $name
         );
-        $info = new CommentInfo(
+        $comment = new CommentInfo(
             $parentId,
             $id,
             $uuid,
@@ -56,24 +62,17 @@ class GetCommentsTest extends ZimbraTestCase
             $date,
             [new MailCustomMetadata($section, [new KeyValuePair($key, $value)])]
         );
-
-        $request = new GetCommentsRequest($comment);
-        $this->assertSame($comment, $request->getComment());
-        $request = new GetCommentsRequest(new ParentId(''));
-        $request->setComment($comment);
-        $this->assertSame($comment, $request->getComment());
-
-        $response = new GetCommentsResponse([$user], [$info]);
+        $response = new GetCommentsResponse([$user], [$comment]);
         $this->assertSame([$user], $response->getUsers());
-        $this->assertSame([$info], $response->getComments());
+        $this->assertSame([$comment], $response->getComments());
         $response = new GetCommentsResponse();
         $response->setUsers([$user])
             ->addUser($user)
-            ->setComments([$info])
-            ->addComment($info);
+            ->setComments([$comment])
+            ->addComment($comment);
         $this->assertSame([$user, $user], $response->getUsers());
-        $this->assertSame([$info, $info], $response->getComments());
-        $response = new GetCommentsResponse([$user], [$info]);
+        $this->assertSame([$comment, $comment], $response->getComments());
+        $response = new GetCommentsResponse([$user], [$comment]);
 
         $body = new GetCommentsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

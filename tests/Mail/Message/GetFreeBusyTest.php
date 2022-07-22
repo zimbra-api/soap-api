@@ -45,7 +45,7 @@ class GetFreeBusyTest extends ZimbraTestCase
         $this->assertSame($name, $request->getName());
         $this->assertSame($excludeUid, $request->getExcludeUid());
         $this->assertSame([$usr], $request->getFreebusyUsers());
-        $request = new GetFreeBusyRequest(0, 0);
+        $request = new GetFreeBusyRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setUid($uid)

@@ -138,7 +138,7 @@ class GetFolderRequest extends Request
      *
      * @return GetFolderSpec
      */
-    public function getFolder(): GetFolderSpec
+    public function getFolder(): ?GetFolderSpec
     {
         return $this->folder;
     }

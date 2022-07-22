@@ -38,7 +38,7 @@ class GetMiniCalTest extends ZimbraTestCase
         $this->assertSame($endTime, $request->getEndTime());
         $this->assertSame([$folder], $request->getFolders());
         $this->assertSame($timezone, $request->getTimezone());
-        $request = new GetMiniCalRequest(0, 0);
+        $request = new GetMiniCalRequest();
         $request->setStartTime($startTime)
             ->setEndTime($endTime)
             ->setFolders([$folder])
