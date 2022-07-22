@@ -22,58 +22,58 @@ use Zimbra\Common\Soap\Fault\{Code, Reason};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Fault
+class Fault extends \Exception 
 {
     /**
      * Fault code
      * 
-     * @Accessor(getter="getCode", setter="setCode")
+     * @Accessor(getter="getFaultCode", setter="setFaultCode")
      * @SerializedName("Code")
      * @Type("Zimbra\Common\Soap\Fault\Code")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * @var Code
      */
-    private ?Code $code = NULL;
+    private ?Code $faultCode = NULL;
 
     /**
      * Fault reason
      * 
-     * @Accessor(getter="getReason", setter="setReason")
+     * @Accessor(getter="getFaultReason", setter="setFaultReason")
      * @SerializedName("Reason")
      * @Type("Zimbra\Common\Soap\Fault\Reason")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * @var Reason
      */
-    private ?Reason $reason = NULL;
+    private ?Reason $faultReason = NULL;
 
     /**
      * Constructor
      * 
-     * @param  Code $code
-     * @param  Reason $reason
+     * @param  Code $faultCode
+     * @param  Reason $faultReason
      * @return self
      */
     public function __construct(
-        ?Code $code = NULL, ?Reason $reason = NULL
+        ?Code $faultCode = NULL, ?Reason $faultReason = NULL
     )
     {
-        if ($code instanceof Code) {
-            $this->setCode($code);
+        if ($faultCode instanceof Code) {
+            $this->setFaultCode($faultCode);
         }
-        if ($reason instanceof Reason) {
-            $this->setReason($reason);
+        if ($faultReason instanceof Reason) {
+            $this->setFaultReason($faultReason);
         }
     }
 
     /**
      * Set the fault code.
      *
-     * @param Code $code
+     * @param Code $faultCode
      * @return self
      */
-    public function setCode(Code $code): self
+    public function setFaultCode(Code $faultCode): self
     {
-        $this->code = $code;
+        $this->faultCode = $faultCode;
         return $this;
     }
 
@@ -82,20 +82,20 @@ class Fault
      *
      * @return Code
      */
-    public function getCode(): ?Code
+    public function getFaultCode(): ?Code
     {
-        return $this->code;
+        return $this->faultCode;
     }
 
     /**
      * Set the fault reason.
      *
-     * @param Reason $reason
+     * @param Reason $faultReason
      * @return self
      */
-    public function setReason(Reason $reason): self
+    public function setFaultReason(Reason $faultReason): self
     {
-        $this->reason = $reason;
+        $this->faultReason = $faultReason;
         return $this;
     }
 
@@ -104,8 +104,8 @@ class Fault
      *
      * @return Code
      */
-    public function getReason(): ?Reason
+    public function getFaultReason(): ?Reason
     {
-        return $this->reason;
+        return $this->faultReason;
     }
 }
