@@ -11,6 +11,7 @@
 namespace Zimbra\Common\Soap;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
+use Zimbra\Common\Soap\Fault\{Code, Reason};
 
 /**
  * Soap fault class
@@ -56,8 +57,8 @@ class Fault
         ?Code $code = NULL, ?Reason $reason = NULL
     )
     {
-        if ($code instanceof RequestInterface) {
-            $this->setCode($Code);
+        if ($code instanceof Code) {
+            $this->setCode($code);
         }
         if ($reason instanceof Reason) {
             $this->setReason($reason);
