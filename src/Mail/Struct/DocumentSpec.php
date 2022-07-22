@@ -323,7 +323,7 @@ class DocumentSpec
      */
     public function setVersion(int $version): self
     {
-        $this->version = in_array($version, range(0, 127)) ? $version : 0;
+        $this->version = $version;
         return $this;
     }
 

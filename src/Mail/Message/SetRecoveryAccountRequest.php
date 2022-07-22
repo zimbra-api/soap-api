@@ -99,7 +99,7 @@ class SetRecoveryAccountRequest extends Request
      *
      * @return string
      */
-    public function getRecoveryAccount(): string
+    public function getRecoveryAccount(): ?string
     {
         return $this->recoveryAccount;
     }

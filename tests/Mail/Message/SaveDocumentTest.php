@@ -28,7 +28,7 @@ class SaveDocumentTest extends ZimbraTestCase
         $description = $this->faker->word;
         $folderId = $this->faker->word;
         $id = $this->faker->uuid;
-        $version = mt_rand(1, 100);
+        $version = $this->faker->randomNumber;
         $content = $this->faker->word;
         $flags = $this->faker->word;
         $part = $this->faker->uuid;

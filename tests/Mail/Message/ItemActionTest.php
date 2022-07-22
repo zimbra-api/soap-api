@@ -19,7 +19,6 @@ class ItemActionTest extends ZimbraTestCase
 {
     public function testItemAction()
     {
-        $operation = $this->faker->word;
         $ids = $this->faker->uuid;
         $constraint = $this->faker->word;
         $tag = $this->faker->numberBetween(1, 100);

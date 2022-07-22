@@ -651,7 +651,6 @@ EOT;
 
     public function testCreateContact()
     {
-        $id = $this->faker->randomNumber;
         $folder = $this->faker->word;
         $tags = $this->faker->word;
         $tagNames = $this->faker->word;
@@ -4534,6 +4533,1812 @@ EOT;
             \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
         );
         $this->assertEquals([$ace], $response->getAces());
+    }
+
+    public function testICalReply()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ICalReplyResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->iCalReply($this->faker->text);
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ICalReplyResponse);
+    }
+
+    public function testIMAPCopy()
+    {
+        $id = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:IMAPCopyResponse>
+            <urn:item id="$id" i4uid="$imapUid" />
+        </urn:IMAPCopyResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->imapCopy($this->faker->uuid);
+        $item = new \Zimbra\Mail\Struct\IMAPItemInfo($id, $imapUid);
+        $this->assertEquals([$item], $response->getItems());
+    }
+
+    public function testImportAppointments()
+    {
+        $ids = $this->faker->word;
+        $num = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ImportAppointmentsResponse ids="$ids" n="$num" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->importAppointments(new \Zimbra\Mail\Struct\ContentSpec());
+        $this->assertSame($ids, $response->getIds());
+        $this->assertSame($num, $response->getNum());
+    }
+
+    public function testImportContacts()
+    {
+        $listOfCreatedIds = $this->faker->word;
+        $numImported = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ImportContactsResponse>
+            <urn:cn ids="$listOfCreatedIds" n="$numImported" />
+        </urn:ImportContactsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->importContacts(new \Zimbra\Mail\Struct\Content());
+        $contact = new \Zimbra\Mail\Struct\ImportContact($listOfCreatedIds, $numImported);
+        $this->assertEquals($contact, $response->getContact());
+    }
+
+    public function testImportData()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ImportDataResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->importData();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ImportDataResponse);
+    }
+
+    public function testInvalidateReminderDevice()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:InvalidateReminderDeviceResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->invalidateReminderDevice($this->faker->email);
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\InvalidateReminderDeviceResponse);
+    }
+
+    public function testItemAction()
+    {
+        $id = $this->faker->uuid;
+        $operation = $this->faker->word;
+        $nonExistentIds = $this->faker->uuid;
+        $newlyCreatedIds = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ItemActionResponse>
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
+        </urn:ItemActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->itemAction(new \Zimbra\Mail\Struct\ActionSelector($operation));
+
+        $action = new \Zimbra\Mail\Struct\ActionResult($id, $operation, $nonExistentIds, $newlyCreatedIds);
+        $this->assertEquals($action, $response->getAction());
+    }
+
+    public function testListDocumentRevisions()
+    {
+        $id = $this->faker->uuid;
+        $lockOwnerId = $this->faker->uuid;
+        $lockOwnerEmail = $this->faker->email;
+        $lockOwnerTimestamp = (string) $this->faker->unixTime;
+        $email = $this->faker->email;
+        $name = $this->faker->name;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ListDocumentRevisionsResponse>
+            <urn:doc id="$id" loid="$lockOwnerId" loe="$lockOwnerEmail" lt="$lockOwnerTimestamp" />
+            <urn:user id="$id" email="$email" name="$name" />
+        </urn:ListDocumentRevisionsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->listDocumentRevisions(new \Zimbra\Mail\Struct\ListDocumentRevisionsSpec());
+
+        $revision = new \Zimbra\Mail\Struct\DocumentInfo(
+            $id, $lockOwnerId, $lockOwnerEmail, $lockOwnerTimestamp
+        );
+        $user = new \Zimbra\Mail\Struct\IdEmailName(
+            $id, $email, $name
+        );
+        $this->assertEquals([$revision], $response->getRevisions());
+        $this->assertEquals([$user], $response->getUsers());
+    }
+
+    public function testListIMAPSubscriptions()
+    {
+        $subscription1 = $this->faker->unique->word;
+        $subscription2 = $this->faker->unique->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ListIMAPSubscriptionsResponse>
+            <urn:sub>$subscription1</urn:sub>
+            <urn:sub>$subscription2</urn:sub>
+        </urn:ListIMAPSubscriptionsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->listIMAPSubscriptions();
+        $this->assertSame([$subscription1, $subscription2], $response->getSubscriptions());
+    }
+
+    public function testModifyAppointment()
+    {
+        $id = $this->faker->uuid;
+        $modifiedSequence = $this->faker->randomNumber;
+        $revision = $this->faker->randomNumber;
+
+        $subject = $this->faker->text;
+        $content = $this->faker->text;
+        $contentType = $this->faker->word;
+        $contentId = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $address = $this->faker->email;
+        $personal = $this->faker->word;
+
+        $calItemId = $this->faker->uuid;
+        $deprecatedApptId = $this->faker->uuid;
+        $calInvId = $this->faker->uuid;
+
+        $part = $this->faker->word;
+        $sentDate = $this->faker->unixTime;
+        $messageIdHeader = $this->faker->uuid;
+
+        $display = $this->faker->name;
+        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
+        $location = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyAppointmentResponse calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
+            <urn:m id="$id" />
+            <urn:echo>
+                <urn:m id="$id" part="$part" sd="$sentDate">
+                    <urn:e a="$address" d="$display" p="$personal" t="t" />
+                    <urn:su>$subject</urn:su>
+                    <urn:mid>$messageIdHeader</urn:mid>
+                    <urn:inv type="task" />
+                    <urn:header n="$key">$value</urn:header>
+                    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:mp>
+                    <urn:shr truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:shr>
+                    <urn:dlSubs truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:dlSubs>
+                </urn:m>
+            </urn:echo>
+        </urn:ModifyAppointmentResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyAppointment();
+
+        $contentElems = [
+            new \Zimbra\Mail\Struct\PartInfo(
+                $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+            ),
+            new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content),
+            new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content),
+        ];
+        $invite = new \Zimbra\Mail\Struct\InviteAsMP(
+            $id, $part, $sentDate,
+            [new \Zimbra\Mail\Struct\EmailInfo($address, $display, $personal, $addressType)],
+            $subject, $messageIdHeader,
+            new \Zimbra\Mail\Struct\MPInviteInfo($calItemType), [new \Zimbra\Common\Struct\KeyValuePair($key, $value)],
+            $contentElems
+        );
+        $msg = new \Zimbra\Common\Struct\Id($id);
+        $echo = new \Zimbra\Mail\Struct\CalEcho($invite);
+
+        $this->assertSame($calItemId, $response->getCalItemId());
+        $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
+        $this->assertSame($calInvId, $response->getCalInvId());
+        $this->assertSame($modifiedSequence, $response->getModifiedSequence());
+        $this->assertSame($revision, $response->getRevision());
+        $this->assertEquals($msg, $response->getMsg());
+        $this->assertEquals($echo, $response->getEcho());
+    }
+
+    public function testModifyContact()
+    {
+        $folder = $this->faker->word;
+        $tags = $this->faker->word;
+        $tagNames = $this->faker->word;
+        $section = $this->faker->word;
+        $key = $this->faker->word;
+        $value = $this->faker->text;
+        $part = $this->faker->word;
+
+        $sortField = $this->faker->word;
+        $uuid = $this->faker->uuid;
+        $imapUid = $this->faker->randomNumber;
+        $flags = $this->faker->word;
+        $changeDate = $this->faker->randomNumber;
+        $modifiedSequenceId = $this->faker->randomNumber;
+        $date = $this->faker->randomNumber;
+        $revisionId = $this->faker->randomNumber;
+        $fileAs = $this->faker->word;
+        $email = $this->faker->email;
+        $email2 = $this->faker->email;
+        $email3 = $this->faker->email;
+        $type = $this->faker->word;
+        $dlist = $this->faker->word;
+        $reference = $this->faker->word;
+        $memberOf = $this->faker->word;
+
+        $contentType = $this->faker->word;
+        $size = $this->faker->randomNumber;
+        $contentFilename = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyContactResponse>
+            <urn:cn sf="$sortField" exp="true" id="$uuid" i4uid="$imapUid" l="$folder" f="$flags" t="$tags" tn="$tagNames" md="$changeDate" ms="$modifiedSequenceId" d="$date" rev="$revisionId" fileAsStr="$fileAs" email="$email" email2="$email2" email3="$email3" type="$type" dlist="$dlist" ref="$reference" tooManyMembers="false">
+                <urn:meta section="$section" />
+                <urn:a n="$key" part="$part" ct="$contentType" s="$size" filename="$contentFilename">$value</urn:a>
+                <urn:m type="C" value="$value" />
+                <urn:memberOf>$memberOf</urn:memberOf>
+            </urn:cn>
+        </urn:ModifyContactResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyContact(new \Zimbra\Mail\Struct\ModifyContactSpec());
+
+        $contact = new \Zimbra\Mail\Struct\ContactInfo(
+            $uuid, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate,
+            $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE,
+            [new \Zimbra\Mail\Struct\MailCustomMetadata($section)],
+            [new \Zimbra\Common\Struct\ContactAttr($key, $value, $part, $contentType, $size, $contentFilename)],
+            [new \Zimbra\Mail\Struct\ContactGroupMember(\Zimbra\Common\Enum\MemberType::CONTACT(), $value)],
+            $memberOf
+        );
+        $this->assertEquals($contact, $response->getContact());
+    }
+
+    public function testModifyDataSource()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyDataSourceResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyDataSource(new \Zimbra\Mail\Struct\MailImapDataSource($this->faker->uuid));
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyDataSourceResponse);
+    }
+
+    public function testModifyFilterRules()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyFilterRulesResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyFilterRules();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyFilterRulesResponse);
+    }
+
+    public function testModifyMailboxMetadata()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyMailboxMetadataResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyMailboxMetadata(new \Zimbra\Mail\Struct\MailCustomMetadata());
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyMailboxMetadataResponse);
+    }
+
+    public function testModifyOutgoingFilterRules()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyOutgoingFilterRulesResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyOutgoingFilterRules();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyOutgoingFilterRulesResponse);
+    }
+
+    public function testModifyProfileImage()
+    {
+        $itemId = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyProfileImageResponse itemId="$itemId" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyProfileImage();
+        $this->assertSame($itemId, $response->getItemId());
+    }
+
+    public function testModifySearchFolder()
+    {
+        $id = $this->faker->uuid;
+        $uuid = $this->faker->uuid;
+        $query = $this->faker->word;
+        $searchTypes = implode(',', [\Zimbra\Common\Enum\ItemType::MESSAGE(), \Zimbra\Common\Enum\ItemType::CONVERSATION()]);
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifySearchFolderResponse>
+            <urn:search id="$id" uuid="$uuid" query="$query" sortBy="dateDesc" types="$searchTypes" />
+        </urn:ModifySearchFolderResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifySearchFolder(new \Zimbra\Mail\Struct\ModifySearchFolderSpec());
+
+        $search = new \Zimbra\Mail\Struct\SearchFolder(
+            $id,
+            $uuid,
+            $query,
+            $sortBy,
+            $searchTypes
+        );
+        $this->assertEquals($search, $response->getSearchFolder());
+    }
+
+    public function testModifyTask()
+    {
+        $id = $this->faker->uuid;
+        $modifiedSequence = $this->faker->randomNumber;
+        $revision = $this->faker->randomNumber;
+
+        $subject = $this->faker->text;
+        $content = $this->faker->text;
+        $contentType = $this->faker->word;
+        $contentId = $this->faker->uuid;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+        $address = $this->faker->email;
+        $personal = $this->faker->word;
+
+        $calItemId = $this->faker->uuid;
+        $deprecatedApptId = $this->faker->uuid;
+        $calInvId = $this->faker->uuid;
+
+        $part = $this->faker->word;
+        $sentDate = $this->faker->unixTime;
+        $messageIdHeader = $this->faker->uuid;
+
+        $display = $this->faker->name;
+        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
+        $location = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ModifyTaskResponse calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
+            <urn:m id="$id" />
+            <urn:echo>
+                <urn:m id="$id" part="$part" sd="$sentDate">
+                    <urn:e a="$address" d="$display" p="$personal" t="t" />
+                    <urn:su>$subject</urn:su>
+                    <urn:mid>$messageIdHeader</urn:mid>
+                    <urn:inv type="task" />
+                    <urn:header n="$key">$value</urn:header>
+                    <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:mp>
+                    <urn:shr truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:shr>
+                    <urn:dlSubs truncated="true">
+                        <urn:content>$content</urn:content>
+                    </urn:dlSubs>
+                </urn:m>
+            </urn:echo>
+        </urn:ModifyTaskResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->modifyTask();
+
+        $contentElems = [
+            new \Zimbra\Mail\Struct\PartInfo(
+                $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content
+            ),
+            new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content),
+            new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content),
+        ];
+        $invite = new \Zimbra\Mail\Struct\InviteAsMP(
+            $id, $part, $sentDate,
+            [new \Zimbra\Mail\Struct\EmailInfo($address, $display, $personal, $addressType)],
+            $subject, $messageIdHeader,
+            new \Zimbra\Mail\Struct\MPInviteInfo($calItemType), [new \Zimbra\Common\Struct\KeyValuePair($key, $value)],
+            $contentElems
+        );
+        $msg = new \Zimbra\Common\Struct\Id($id);
+        $echo = new \Zimbra\Mail\Struct\CalEcho($invite);
+
+        $this->assertSame($calItemId, $response->getCalItemId());
+        $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
+        $this->assertSame($calInvId, $response->getCalInvId());
+        $this->assertSame($modifiedSequence, $response->getModifiedSequence());
+        $this->assertSame($revision, $response->getRevision());
+        $this->assertEquals($msg, $response->getMsg());
+        $this->assertEquals($echo, $response->getEcho());
+    }
+
+    public function testMsgAction()
+    {
+        $id = $this->faker->uuid;
+        $operation = $this->faker->word;
+        $nonExistentIds = $this->faker->uuid;
+        $newlyCreatedIds = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:MsgActionResponse>
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
+        </urn:MsgActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->msgAction(new \Zimbra\Mail\Struct\ActionSelector($operation));
+
+        $action = new \Zimbra\Mail\Struct\ActionResult($id, $operation, $nonExistentIds, $newlyCreatedIds);
+        $this->assertEquals($action, $response->getAction());
+    }
+
+    public function testNoOp()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:NoOpResponse waitDisallowed="true" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->noOp();
+        $this->assertTrue($response->getWaitDisallowed());
+    }
+
+    public function testNoteAction()
+    {
+        $operation = $this->faker->word;
+        $id = $this->faker->uuid;
+        $nonExistentIds = $this->faker->uuid;
+        $newlyCreatedIds = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:NoteActionResponse>
+            <urn:action id="$id" op="$operation" nei="$nonExistentIds" nci="$newlyCreatedIds" />
+        </urn:NoteActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->noteAction(new \Zimbra\Mail\Struct\NoteActionSelector($operation));
+
+        $action = new \Zimbra\Mail\Struct\ActionResult($id, $operation, $nonExistentIds, $newlyCreatedIds);
+        $this->assertEquals($action, $response->getAction());
+    }
+
+    public function testOpenIMAPFolder()
+    {
+        $id = $this->faker->word;
+        $imapId = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
+        $type = $this->faker->word;
+        $flags = $this->faker->randomNumber;
+        $tags = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:OpenIMAPFolderResponse more="true">
+            <urn:folder>
+                <urn:m id="$imapId" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+            </urn:folder>
+            <urn:cursor id="$id" />
+        </urn:OpenIMAPFolderResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->openIMAPFolder($this->faker->word, $this->faker->randomNumber);
+
+        $cursor = new \Zimbra\Mail\Struct\ImapCursorInfo($id);
+        $message = new \Zimbra\Mail\Struct\ImapMessageInfo($imapId, $imapUid, $type, $flags, $tags);
+        $this->assertEquals([$message], $response->getMessages());
+        $this->assertTrue($response->getHasMore());
+        $this->assertEquals($cursor, $response->getCursor());
+    }
+
+    public function testPurgeRevision()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:PurgeRevisionResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->purgeRevision(new \Zimbra\Mail\Struct\PurgeRevisionSpec());
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\PurgeRevisionResponse);
+    }
+
+    public function testRankingAction()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RankingActionResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->rankingAction(new \Zimbra\Mail\Struct\RankingActionSpec());
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\RankingActionResponse);
+    }
+
+    public function testRecordIMAPSession()
+    {
+        $lastItemId = $this->faker->randomNumber;
+        $folderUuid = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RecordIMAPSessionResponse id="$lastItemId" luuid="$folderUuid" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->recordIMAPSession($this->faker->uuid);
+        $this->assertSame($lastItemId, $response->getLastItemId());
+        $this->assertSame($folderUuid, $response->getFolderUuid());
+    }
+
+    public function testRecoverAccount()
+    {
+        $recoveryAccount = $this->faker->email;
+        $recoveryAttemptsLeft = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RecoverAccountResponse recoveryAccount="$recoveryAccount" recoveryAttemptsLeft="$recoveryAttemptsLeft" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->recoverAccount($this->faker->email);
+        $this->assertSame($recoveryAccount, $response->getRecoveryAccount());
+        $this->assertSame($recoveryAttemptsLeft, $response->getRecoveryAttemptsLeft());
+    }
+
+    public function testRemoveAttachments()
+    {
+        $id = $this->faker->uuid;
+        $imapUid = $this->faker->randomNumber;
+        $calendarIntendedFor = $this->faker->word;
+        $origId = $this->faker->uuid;
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $identityId = $this->faker->uuid;
+        $draftAccountId = $this->faker->uuid;
+        $draftAutoSendTime = $this->faker->randomNumber;
+        $sentDate = $this->faker->randomNumber;
+        $resentDate = $this->faker->randomNumber;
+        $part = $this->faker->word;
+        $fragment = $this->faker->word;
+        $subject = $this->faker->word;
+        $messageIdHeader = $this->faker->word;
+        $inReplyTo = $this->faker->word;
+
+        $address = $this->faker->email;
+        $display = $this->faker->name;
+        $personal = $this->faker->word;
+        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+
+        $contentType = $this->faker->mimeType;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
+        $contentId = $this->faker->word;
+        $location = $this->faker->word;
+        $content = $this->faker->text;
+
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $tzStdOffset = $this->faker->randomNumber;
+        $tzDayOffset = $this->faker->randomNumber;
+        $method = $this->faker->word;
+        $componentNum = $this->faker->randomNumber;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $seq = $this->faker->randomNumber;
+        $date = $this->faker->unixTime;
+        $attendee = $this->faker->email;
+        $rangeType = $this->faker->numberBetween(1, 3);
+        $recurId = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RemoveAttachmentsResponse>
+            <urn:m id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part" xmlns:urn="urn:zimbraMail">
+                <urn:fr>$fragment</urn:fr>
+                <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+                <urn:su>$subject</urn:su>
+                <urn:mid>$messageIdHeader</urn:mid>
+                <urn:irt>$inReplyTo</urn:irt>
+                <urn:inv type="task">
+                    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+                    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+                    <urn:replies>
+                        <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+                    </urn:replies>
+                </urn:inv>
+                <urn:header n="$key">$value</urn:header>
+                <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                    <urn:content>$content</urn:content>
+                    <urn:mp part="$part" ct="$contentType" />
+                </urn:mp>
+                <urn:shr truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:shr>
+                <urn:dlSubs truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:dlSubs>
+            </urn:m>
+        </urn:RemoveAttachmentsResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->removeAttachments(new \Zimbra\Mail\Struct\MsgPartIds());
+
+        $timezone = new \Zimbra\Mail\Struct\CalTZInfo($id, $tzStdOffset, $tzDayOffset);
+        $inviteComponent = new \Zimbra\Mail\Struct\InviteComponent($method, $componentNum, TRUE);
+        $calendarReply = new \Zimbra\Mail\Struct\CalendarReply($rangeType, $recurId, $seq, $date, $attendee);
+        $invite = new \Zimbra\Mail\Struct\InviteInfo($calItemType, [$timezone], $inviteComponent, [$calendarReply]);
+        $header = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
+        $email = new \Zimbra\Mail\Struct\EmailInfo($address, $display, $personal, $addressType, TRUE, TRUE);
+        $mimePart = new \Zimbra\Mail\Struct\PartInfo($part, $contentType);
+        $mp = new \Zimbra\Mail\Struct\PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content, [$mimePart]
+        );
+        $shr = new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content);
+        $dlSubs = new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content);
+        $msgInfo = new \Zimbra\Mail\Struct\MessageInfo(
+            $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], [$mp], [$shr], [$dlSubs]
+        );
+        $this->assertEquals($msgInfo, $response->getMsgMessage());
+    }
+
+    public function testResetRecentMessageCount()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:ResetRecentMessageCountResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->resetRecentMessageCount();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ResetRecentMessageCountResponse);
+    }
+
+    public function testRestoreContacts()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RestoreContactsResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->restoreContacts($this->faker->word);
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\RestoreContactsResponse);
+    }
+
+    public function testRevokePermission()
+    {
+        $zimbraId = $this->faker->uuid;
+        $displayName = $this->faker->name;
+        $accessKey = $this->faker->word;
+        $password = $this->faker->sha256;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:RevokePermissionResponse>
+            <urn:ace gt="usr" right="invite" zid="$zimbraId" d="$displayName" key="$accessKey" pw="$password" deny="true" />
+        </urn:RevokePermissionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->revokePermission();
+
+        $ace = new \Zimbra\Mail\Struct\AccountACEInfo(
+            \Zimbra\Common\Enum\GranteeType::USR(), \Zimbra\Common\Enum\AceRightType::INVITE()->getValue(), $zimbraId, $displayName, $accessKey, $password, TRUE
+        );
+        $this->assertEquals([$ace], $response->getAces());
+    }
+
+    public function testSaveDocument()
+    {
+        $name = $this->faker->name;
+        $id = $this->faker->uuid;
+        $version = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SaveDocumentResponse>
+            <urn:doc id="$id" ver="$version" name="$name" />
+        </urn:SaveDocumentResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->saveDocument(new \Zimbra\Mail\Struct\DocumentSpec());
+
+        $doc = new \Zimbra\Mail\Struct\IdVersionName(
+            $id, $version, $name
+        );
+        $this->assertEquals($doc, $response->getDoc());
+    }
+
+    public function testSaveDraft()
+    {
+        $id = $this->faker->uuid;
+        $imapUid = $this->faker->randomNumber;
+        $calendarIntendedFor = $this->faker->word;
+        $origId = $this->faker->uuid;
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $identityId = $this->faker->uuid;
+        $draftAccountId = $this->faker->uuid;
+        $draftAutoSendTime = $this->faker->randomNumber;
+        $sentDate = $this->faker->randomNumber;
+        $resentDate = $this->faker->randomNumber;
+        $part = $this->faker->word;
+        $fragment = $this->faker->word;
+        $subject = $this->faker->word;
+        $messageIdHeader = $this->faker->word;
+        $inReplyTo = $this->faker->word;
+
+        $address = $this->faker->email;
+        $display = $this->faker->name;
+        $personal = $this->faker->word;
+        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+
+        $contentType = $this->faker->mimeType;
+        $size = $this->faker->randomNumber;
+        $contentDisposition = $this->faker->word;
+        $contentFilename = $this->faker->word;
+        $contentId = $this->faker->word;
+        $location = $this->faker->word;
+        $content = $this->faker->text;
+
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+        $tzStdOffset = $this->faker->randomNumber;
+        $tzDayOffset = $this->faker->randomNumber;
+        $method = $this->faker->word;
+        $componentNum = $this->faker->randomNumber;
+        $key = $this->faker->word;
+        $value = $this->faker->word;
+
+        $seq = $this->faker->randomNumber;
+        $date = $this->faker->unixTime;
+        $attendee = $this->faker->email;
+        $rangeType = $this->faker->numberBetween(1, 3);
+        $recurId = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SaveDraftResponse>
+            <urn:m id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part" xmlns:urn="urn:zimbraMail">
+                <urn:fr>$fragment</urn:fr>
+                <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+                <urn:su>$subject</urn:su>
+                <urn:mid>$messageIdHeader</urn:mid>
+                <urn:irt>$inReplyTo</urn:irt>
+                <urn:inv type="task">
+                    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+                    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+                    <urn:replies>
+                        <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+                    </urn:replies>
+                </urn:inv>
+                <urn:header n="$key">$value</urn:header>
+                <urn:mp part="$part" ct="$contentType" s="$size" cd="$contentDisposition" filename="$contentFilename" ci="$contentId" cl="$location" body="true" truncated="true">
+                    <urn:content>$content</urn:content>
+                    <urn:mp part="$part" ct="$contentType" />
+                </urn:mp>
+                <urn:shr truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:shr>
+                <urn:dlSubs truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:dlSubs>
+            </urn:m>
+        </urn:SaveDraftResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->saveDraft(new \Zimbra\Mail\Struct\SaveDraftMsg());
+
+        $timezone = new \Zimbra\Mail\Struct\CalTZInfo($id, $tzStdOffset, $tzDayOffset);
+        $inviteComponent = new \Zimbra\Mail\Struct\InviteComponent($method, $componentNum, TRUE);
+        $calendarReply = new \Zimbra\Mail\Struct\CalendarReply($rangeType, $recurId, $seq, $date, $attendee);
+        $invite = new \Zimbra\Mail\Struct\InviteInfo($calItemType, [$timezone], $inviteComponent, [$calendarReply]);
+        $header = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
+        $email = new \Zimbra\Mail\Struct\EmailInfo($address, $display, $personal, $addressType, TRUE, TRUE);
+        $mimePart = new \Zimbra\Mail\Struct\PartInfo($part, $contentType);
+        $mp = new \Zimbra\Mail\Struct\PartInfo(
+            $part, $contentType, $size, $contentDisposition, $contentFilename, $contentId, $location, TRUE, TRUE, $content, [$mimePart]
+        );
+        $shr = new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content);
+        $dlSubs = new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content);
+        $msgInfo = new \Zimbra\Mail\Struct\MessageInfo(
+            $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], [$mp], [$shr], [$dlSubs]
+        );
+        $this->assertEquals($msgInfo, $response->getMsgMessage());
+    }
+
+    public function testSaveIMAPSubscriptions()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SaveIMAPSubscriptionsResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->saveIMAPSubscriptions();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SaveIMAPSubscriptionsResponse);
+    }
+
+    public function testSearchAction()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SearchActionResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->searchAction(
+            new \Zimbra\Mail\Message\SearchRequest(), new \Zimbra\Mail\Struct\BulkAction()
+        );
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SearchActionResponse);
+    }
+
+    public function testSearch()
+    {
+        $id = $this->faker->uuid;
+        $query = $this->faker->word;
+        $sortBy = \Zimbra\Common\Enum\SearchSortBy::DATE_DESC();
+
+        $queryOffset = $this->faker->randomNumber;
+        $totalSize = $this->faker->randomNumber;
+        $sortField = $this->faker->word;
+        $part = $this->faker->word;
+
+        $flags = $this->faker->word;
+        $date = $this->faker->unixTime;
+
+        $size = $this->faker->randomNumber;
+        $folderId = $this->faker->uuid;
+        $autoSendTime = $this->faker->unixTime;
+
+        $string = $this->faker->word;
+        $numExpanded = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SearchResponse sortBy="dateDesc" offset="$queryOffset" more="true" total="$totalSize">
+            <urn:hit id="$id" sf="$sortField" />
+            <urn:c sf="$sortField" id="$id">
+                <urn:m id="$id" s="$size" l="$folderId" f="$flags" autoSendTime="$autoSendTime" d="$date" />
+            </urn:c>
+            <urn:m sf="$sortField" cm="true" id="$id">
+                <urn:hp part="$part" />
+            </urn:m>
+            <urn:chat sf="$sortField" cm="true" id="$id">
+                <urn:hp part="$part" />
+            </urn:chat>
+            <urn:mp sf="$sortField" id="$id" />
+            <urn:cn sf="$sortField" id="$id" />
+            <urn:note sf="$sortField" id="$id" />
+            <urn:doc sf="$sortField" id="$id" />
+            <urn:w sf="$sortField" id="$id" />
+            <urn:appt sf="$sortField" id="$id" />
+            <urn:task sf="$sortField" id="$id" />
+            <urn:info>
+                <urn:suggest>$string</urn:suggest>
+                <urn:wildcard str="$string" expanded="true" numExpanded="$numExpanded" />
+            </urn:info>
+        </urn:SearchResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->search($query);
+
+        $hit = new \Zimbra\Common\Struct\SimpleSearchHit($id, $sortField);
+        $convHit = new \Zimbra\Mail\Struct\ConversationHitInfo(
+            $id, $sortField, [new \Zimbra\Mail\Struct\ConversationMsgHitInfo(
+                $id, $size, $folderId, $flags, $autoSendTime, $date
+            )]
+        );
+        $msgHit = new \Zimbra\Mail\Struct\MessageHitInfo(
+            $id, $sortField, TRUE, [new \Zimbra\Mail\Struct\Part($part)]
+        );
+        $chatHit = new \Zimbra\Mail\Struct\ChatHitInfo(
+            $id, $sortField, TRUE, [new \Zimbra\Mail\Struct\Part($part)]
+        );
+        $mpHit = new \Zimbra\Mail\Struct\MessagePartHitInfo($id, $sortField);
+        $cnHit = new \Zimbra\Mail\Struct\ContactInfo($id, $sortField);
+        $noteHit = new \Zimbra\Mail\Struct\NoteHitInfo($id, $sortField);
+        $docHit = new \Zimbra\Mail\Struct\DocumentHitInfo($id, $sortField);
+        $wikiHit = new \Zimbra\Mail\Struct\WikiHitInfo($id, $sortField);
+        $apptHit = new \Zimbra\Mail\Struct\AppointmentHitInfo($id, $sortField);
+        $taskHit = new \Zimbra\Mail\Struct\TaskHitInfo($id, $sortField);
+
+        $queryInfo = new \Zimbra\Mail\Struct\SearchQueryInfo(
+            [new \Zimbra\Mail\Struct\SuggestedQueryString($string)],
+            [new \Zimbra\Common\Struct\WildcardExpansionQueryInfo($string, TRUE, $numExpanded)]
+        );
+
+        $this->assertEquals($sortBy, $response->getSortBy());
+        $this->assertSame($queryOffset, $response->getQueryOffset());
+        $this->assertTrue($response->getQueryMore());
+        $this->assertSame($totalSize, $response->getTotalSize());
+        $this->assertEquals([$hit], $response->getSimpleHits());
+        $this->assertEquals([$convHit], $response->getConversationHits());
+        $this->assertEquals([$msgHit], $response->getMessageHits());
+        $this->assertEquals([$chatHit], $response->getChatHits());
+        $this->assertEquals([$mpHit], $response->getMessagePartHits());
+        $this->assertEquals([$cnHit], $response->getContactHits());
+        $this->assertEquals([$noteHit], $response->getNoteHits());
+        $this->assertEquals([$docHit], $response->getDocumentHits());
+        $this->assertEquals([$wikiHit], $response->getWikiHits());
+        $this->assertEquals([$apptHit], $response->getAppointmentHits());
+        $this->assertEquals([$taskHit], $response->getTaskHits());
+        $this->assertEquals($queryInfo, $response->getQueryInfo());
+    }
+
+    public function testSendDeliveryReport()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SendDeliveryReportResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sendDeliveryReport($this->faker->uuid);
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendDeliveryReportResponse);
+    }
+
+    public function testSendInviteReply()
+    {
+        $id = $this->faker->uuid;
+        $calItemId = $this->faker->uuid;
+        $deprecatedApptId = $this->faker->uuid;
+        $calInvId = $this->faker->uuid;
+        $modifiedSequence = $this->faker->randomNumber;
+        $revision = $this->faker->randomNumber;
+        $part = $this->faker->word;
+        $sentDate = $this->faker->unixTime;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SendInviteReplyResponse calItemId="$calItemId" apptId="$deprecatedApptId" invId="$calInvId" ms="$modifiedSequence" rev="$revision">
+            <urn:m id="$id" />
+            <urn:echo>
+                <urn:m id="$id" part="$part" sd="$sentDate" />
+            </urn:echo>
+        </urn:SendInviteReplyResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sendInviteReply($this->faker->uuid, $this->faker->randomNumber);
+
+        $this->assertSame($calItemId, $response->getCalItemId());
+        $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
+        $this->assertSame($calInvId, $response->getCalInvId());
+        $this->assertSame($modifiedSequence, $response->getModifiedSequence());
+        $this->assertSame($revision, $response->getRevision());
+        $this->assertEquals(new \Zimbra\Common\Struct\Id($id), $response->getMsg());
+        $this->assertEquals(
+            new \Zimbra\Mail\Struct\CalEcho(new \Zimbra\Mail\Struct\InviteAsMP($id, $part, $sentDate)),
+            $response->getEcho()
+        );
+    }
+
+    public function testSendMsg()
+    {
+        $id = $this->faker->word;
+        $origId = $this->faker->uuid;
+        $identityId = $this->faker->uuid;
+        $subject = $this->faker->text;
+        $inReplyTo = $this->faker->uuid;
+        $content = $this->faker->text;
+        $fragment = $this->faker->text;
+        $contentType = $this->faker->word;
+        $contentId = $this->faker->uuid;
+        $key = $this->faker->name;
+        $value = $this->faker->word;
+        $method = $this->faker->word;
+        $componentNum = $this->faker->randomNumber;
+        $address = $this->faker->email;
+        $personal = $this->faker->word;
+        $tzStdOffset = $this->faker->randomNumber;
+        $tzDayOffset = $this->faker->randomNumber;
+
+        $imapUid = $this->faker->randomNumber;
+        $calendarIntendedFor = $this->faker->word;
+        $draftReplyType = \Zimbra\Common\Enum\ReplyType::REPLIED();
+        $draftAccountId = $this->faker->email;
+        $draftAutoSendTime = $this->faker->unixTime;
+        $sentDate = $this->faker->unixTime;
+        $resentDate = $this->faker->unixTime;
+        $part = $this->faker->word;
+        $messageIdHeader = $this->faker->uuid;
+
+        $display = $this->faker->name;
+        $addressType = \Zimbra\Common\Enum\AddressType::TO();
+        $calItemType = \Zimbra\Common\Enum\InviteType::TASK();
+
+        $seq = $this->faker->randomNumber;
+        $date = $this->faker->unixTime;
+        $attendee = $this->faker->email;
+        $rangeType = $this->faker->numberBetween(1, 3);
+        $recurId = $this->faker->uuid;
+        $url = $this->faker->url;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SendMsgResponse>
+            <urn:m id="$id" i4uid="$imapUid" cif="$calendarIntendedFor" origid="$origId" rt="r" idnt="$identityId" forAcct="$draftAccountId" autoSendTime="$draftAutoSendTime" sd="$sentDate" rd="$resentDate" part="$part">
+                <urn:fr>$fragment</urn:fr>
+                <urn:e a="$address" d="$display" p="$personal" t="t" isGroup="true" exp="true" />
+                <urn:su>$subject</urn:su>
+                <urn:mid>$messageIdHeader</urn:mid>
+                <urn:irt>$inReplyTo</urn:irt>
+                <urn:inv type="task">
+                    <urn:tz id="$id" stdoff="$tzStdOffset" dayoff="$tzDayOffset" />
+                    <urn:comp method="$method" compNum="$componentNum" rsvp="true" />
+                    <urn:replies>
+                        <urn:reply rangeType="$rangeType" recurId="$recurId" seq="$seq" d="$date" at="$attendee" />
+                    </urn:replies>
+                </urn:inv>
+                <urn:header n="$key">$value</urn:header>
+                <urn:mp ct="$contentType" content="$content" ci="$contentId" />
+                <urn:shr truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:shr>
+                <urn:dlSubs truncated="true">
+                    <urn:content>$content</urn:content>
+                </urn:dlSubs>
+                <urn:content url="$url">$value</urn:content>
+            </urn:m>
+        </urn:SendMsgResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sendMsg(new \Zimbra\Mail\Struct\MsgToSend());
+
+        $timezone = new \Zimbra\Mail\Struct\CalTZInfo($id, $tzStdOffset, $tzDayOffset);
+        $inviteComponent = new \Zimbra\Mail\Struct\InviteComponentWithGroupInfo($method, $componentNum, TRUE);
+        $calendarReply = new \Zimbra\Mail\Struct\CalendarReply($rangeType, $recurId, $seq, $date, $attendee);
+        $email = new \Zimbra\Mail\Struct\EmailInfo($address, $display, $personal, $addressType, TRUE, TRUE);
+        $invite = new \Zimbra\Mail\Struct\InviteWithGroupInfo(
+            $calItemType, [$timezone], [$inviteComponent], [$calendarReply]
+        );
+        $header = new \Zimbra\Common\Struct\KeyValuePair($key, $value);
+        $mimePart = new \Zimbra\Mail\Struct\MimePartInfo($contentType, $content, $contentId);
+        $shr = new \Zimbra\Mail\Struct\ShareNotification(TRUE, $content);
+        $dlSubs = new \Zimbra\Mail\Struct\DLSubscriptionNotification(TRUE, $content);
+        $urlValue = new \Zimbra\Common\Struct\UrlAndValue($url, $value);
+        $msg = new \Zimbra\Mail\Struct\MsgWithGroupInfo(
+            $id, $imapUid, $calendarIntendedFor, $origId, $draftReplyType, $identityId, $draftAccountId, $draftAutoSendTime, $sentDate, $resentDate, $part, $fragment, [$email], $subject, $messageIdHeader, $inReplyTo, $invite, [$header], $mimePart, $shr, $dlSubs, $urlValue
+        );
+        $this->assertEquals($msg, $response->getMsg());
+    }
+
+    public function testSendShareNotification()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SendShareNotificationResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sendShareNotification(new \Zimbra\Common\Struct\Id());
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendShareNotificationResponse);
+    }
+
+    public function testSendVerificationCode()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SendVerificationCodeResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sendVerificationCode($this->faker->email);
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendVerificationCodeResponse);
+    }
+
+    public function testSetAppointment()
+    {
+        $id = $this->faker->word;
+        $calItemId = $this->faker->uuid;
+        $deprecatedApptId = $this->faker->uuid;
+        $recurrenceId = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SetAppointmentResponse calItemId="$calItemId" apptId="$deprecatedApptId">
+            <urn:default id="$id" />
+            <urn:except recurId="$recurrenceId" id="$id" />
+        </urn:SetAppointmentResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->setAppointment();
+
+        $default = new \Zimbra\Common\Struct\Id($id);
+        $except = new \Zimbra\Mail\Struct\ExceptIdInfo($recurrenceId, $id);
+
+        $this->assertSame($calItemId, $response->getCalItemId());
+        $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
+        $this->assertEquals($default, $response->getDefaultId());
+        $this->assertEquals([$except], $response->getExceptions());
+    }
+
+    public function testSetCustomMetadata()
+    {
+        $id = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SetCustomMetadataResponse id="$id" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->setCustomMetadata($id);
+        $this->assertSame($id, $response->getId());
+    }
+
+    public function testSetMailboxMetadata()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SetMailboxMetadataResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->setMailboxMetadata();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SetMailboxMetadataResponse);
+    }
+
+    public function testSetRecoveryAccount()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SetRecoveryAccountResponse />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->setRecoveryAccount();
+        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SetRecoveryAccountResponse);
+    }
+
+    public function testSetTask()
+    {
+        $id = $this->faker->word;
+        $calItemId = $this->faker->uuid;
+        $deprecatedApptId = $this->faker->uuid;
+        $recurrenceId = $this->faker->uuid;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SetTaskResponse calItemId="$calItemId" apptId="$deprecatedApptId">
+            <urn:default id="$id" />
+            <urn:except recurId="$recurrenceId" id="$id" />
+        </urn:SetTaskResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->setTask();
+
+        $default = new \Zimbra\Common\Struct\Id($id);
+        $except = new \Zimbra\Mail\Struct\ExceptIdInfo($recurrenceId, $id);
+
+        $this->assertSame($calItemId, $response->getCalItemId());
+        $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
+        $this->assertEquals($default, $response->getDefaultId());
+        $this->assertEquals([$except], $response->getExceptions());
+    }
+
+
+    public function testSnoozeCalendarItemAlarm()
+    {
+        $calItemId = $this->faker->uuid;
+        $nextAlarm = $this->faker->randomNumber;
+        $alarmInstanceStart = $this->faker->randomNumber;
+        $invId = $this->faker->randomNumber;
+        $componentNum = $this->faker->randomNumber;
+
+        $action = \Zimbra\Common\Enum\AlarmAction::DISPLAY();
+        $name = $this->faker->name;
+        $value = $this->faker->word;
+        $date = $this->faker->date;
+        $weeks = mt_rand(1, 100);
+        $days = mt_rand(1, 30);
+        $hours = mt_rand(0, 23);
+        $minutes = mt_rand(0, 59);
+        $seconds = mt_rand(0, 59);
+        $uri = $this->faker->url;
+        $contentType = $this->faker->mimeType;
+        $binaryB64Data = base64_encode($this->faker->text);
+        $description = $this->faker->text;
+        $summary = $this->faker->text;
+        $location = $this->faker->text;
+
+        $address = $this->faker->email;
+        $displayName = $this->faker->name;
+        $role = $this->faker->word;
+        $partStat = \Zimbra\Common\Enum\ParticipationStatus::ACCEPT();
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SnoozeCalendarItemAlarmResponse>
+            <urn:appt calItemId="$calItemId">
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+                        <urn:summary>$summary</urn:summary>
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:appt>
+            <urn:task calItemId="$calItemId">
+                <urn:alarmData nextAlarm="$nextAlarm" alarmInstStart="$alarmInstanceStart" invId="$invId" compNum="$componentNum" name="$name" loc="$location">
+                    <urn:alarm action="DISPLAY">
+                        <urn:trigger>
+                            <urn:abs d="$date" />
+                            <urn:rel w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        </urn:trigger>
+                        <urn:repeat w="$weeks" d="$days" h="$hours" m="$minutes" s="$seconds" />
+                        <urn:desc>$description</urn:desc>
+                        <urn:attach uri="$uri" ct="$contentType">$binaryB64Data</urn:attach>
+                        <urn:summary>$summary</urn:summary>
+                        <urn:at a="$address" d="$displayName" role="$role" ptst="AC" rsvp="true">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:at>
+                        <urn:xprop name="$name" value="$value">
+                            <urn:xparam name="$name" value="$value" />
+                        </urn:xprop>
+                    </urn:alarm>
+                </urn:alarmData>
+            </urn:task>
+        </urn:SnoozeCalendarItemAlarmResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->snoozeCalendarItemAlarm();
+
+        $trigger = new \Zimbra\Mail\Struct\AlarmTriggerInfo(
+            new \Zimbra\Mail\Struct\DateAttr($date), new \Zimbra\Mail\Struct\DurationInfo($weeks, $days, $hours, $minutes, $seconds)
+        );
+        $repeat = new \Zimbra\Mail\Struct\DurationInfo($weeks, $days, $hours, $minutes, $seconds);
+        $attach = new \Zimbra\Mail\Struct\CalendarAttach($uri, $contentType, $binaryB64Data);
+        $at = new \Zimbra\Mail\Struct\CalendarAttendee($address, $displayName, $role, $partStat, TRUE, [new \Zimbra\Mail\Struct\XParam($name, $value)]);
+        $xprop = new \Zimbra\Mail\Struct\XProp($name, $value, [new \Zimbra\Mail\Struct\XParam($name, $value)]);
+        $alarm = new \Zimbra\Mail\Struct\AlarmInfo($action, $trigger, $repeat, $description, $attach, $summary, [$at], [$xprop]);
+        $alarmData = new \Zimbra\Mail\Struct\AlarmDataInfo(
+            $nextAlarm, $alarmInstanceStart, $invId, $componentNum, $name, $location, $alarm
+        );
+        $appt = new \Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo(
+            $calItemId, $alarmData
+        );
+        $task = new \Zimbra\Mail\Struct\UpdatedTaskAlarmInfo(
+            $calItemId, $alarmData
+        );
+
+        $this->assertEquals([$appt], $response->getApptUpdatedAlarms());
+        $this->assertEquals([$task], $response->getTaskUpdatedAlarms());
+    }
+
+    public function testSync()
+    {
+        $id = $this->faker->uuid;
+        $uuid = $this->faker->uuid;
+        $ids = $this->faker->word;
+        $token = $this->faker->text;
+        $changeDate = $this->faker->unixTime;
+        $size = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:SyncResponse md="$changeDate" token="$token" s="$size" more="true">
+            <urn:deleted ids="$ids">
+                <urn:folder ids="$ids" />
+                <urn:search ids="$ids" />
+                <urn:link ids="$ids" />
+                <urn:tag ids="$ids" />
+                <urn:c ids="$ids" />
+                <urn:chat ids="$ids" />
+                <urn:m ids="$ids" />
+                <urn:cn ids="$ids" />
+                <urn:appt ids="$ids" />
+                <urn:task ids="$ids" />
+                <urn:notes ids="$ids" />
+                <urn:w ids="$ids" />
+                <urn:doc ids="$ids" />
+            </urn:deleted>
+            <urn:folder id="$id" uuid="$uuid">
+                <urn:tag ids="$ids" />
+                <urn:c ids="$ids" />
+                <urn:chat ids="$ids" />
+                <urn:m ids="$ids" />
+                <urn:cn ids="$ids" />
+                <urn:appt ids="$ids" />
+                <urn:task ids="$ids" />
+                <urn:notes ids="$ids" />
+                <urn:w ids="$ids" />
+                <urn:doc ids="$ids" />
+            </urn:folder>
+            <urn:tag id="$id" />
+            <urn:note id="$id" />
+            <urn:cn id="$id" />
+            <urn:appt />
+            <urn:task />
+            <urn:c id="$id" />
+            <urn:w id="$id" />
+            <urn:doc id="$id" />
+            <urn:m id="$id" />
+            <urn:chat id="$id" />
+        </urn:SyncResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->sync();
+
+        $deleted = new \Zimbra\Mail\Struct\SyncDeletedInfo($ids, [
+            new \Zimbra\Mail\Struct\FolderIdsAttr($ids),
+            new \Zimbra\Mail\Struct\SearchFolderIdsAttr($ids),
+            new \Zimbra\Mail\Struct\MountIdsAttr($ids),
+            new \Zimbra\Mail\Struct\TagIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ConvIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ChatIdsAttr($ids),
+            new \Zimbra\Mail\Struct\MsgIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ContactIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ApptIdsAttr($ids),
+            new \Zimbra\Mail\Struct\TaskIdsAttr($ids),
+            new \Zimbra\Mail\Struct\NoteIdsAttr($ids),
+            new \Zimbra\Mail\Struct\WikiIdsAttr($ids),
+            new \Zimbra\Mail\Struct\DocIdsAttr($ids),
+        ]);
+        $folder = new \Zimbra\Mail\Struct\SyncFolder($id, $uuid, [
+            new \Zimbra\Mail\Struct\TagIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ConvIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ChatIdsAttr($ids),
+            new \Zimbra\Mail\Struct\MsgIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ContactIdsAttr($ids),
+            new \Zimbra\Mail\Struct\ApptIdsAttr($ids),
+            new \Zimbra\Mail\Struct\TaskIdsAttr($ids),
+            new \Zimbra\Mail\Struct\NoteIdsAttr($ids),
+            new \Zimbra\Mail\Struct\WikiIdsAttr($ids),
+            new \Zimbra\Mail\Struct\DocIdsAttr($ids),
+        ]);
+        $items = [
+            $folder,
+            new \Zimbra\Mail\Struct\TagInfo($id),
+            new \Zimbra\Mail\Struct\NoteInfo($id),
+            new \Zimbra\Mail\Struct\ContactInfo($id),
+            new \Zimbra\Mail\Struct\CalendarItemInfo(),
+            new \Zimbra\Mail\Struct\TaskItemInfo(),
+            new \Zimbra\Mail\Struct\ConversationSummary($id),
+            new \Zimbra\Mail\Struct\CommonDocumentInfo($id),
+            new \Zimbra\Mail\Struct\DocumentInfo($id),
+            new \Zimbra\Mail\Struct\MessageSummary($id),
+            new \Zimbra\Mail\Struct\ChatSummary($id),
+        ];
+
+        $this->assertSame($changeDate, $response->getChangeDate());
+        $this->assertSame($token, $response->getToken());
+        $this->assertSame($size, $response->getSize());
+        $this->assertTrue($response->getMore());
+        $this->assertEquals($deleted, $response->getDeleted());
+        $this->assertEquals($items, array_values($response->getItems()));
+    }
+
+    public function testTagAction()
+    {
+        $operation = $this->faker->randomElement(\Zimbra\Common\Enum\TagActionOp::values())->getValue();
+        $id = $this->faker->uuid;
+        $successes = $this->faker->uuid;
+        $successNames = $this->faker->word;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:TagActionResponse>
+            <urn:action id="$successes" tn="$successNames" op="$operation" />
+        </urn:TagActionResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->tagAction(new \Zimbra\Mail\Struct\TagActionSelector($operation));
+
+        $action = new \Zimbra\Mail\Struct\TagActionInfo(
+            $successes, $successNames, $operation
+        );
+        $this->assertEquals($action, $response->getAction());
+    }
+
+    public function testTestDataSource()
+    {
+        $error = $this->faker->text;
+        $success = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:TestDataSourceResponse>
+            <urn:imap success="$success" error="$error" />
+            <urn:pop3 success="$success" error="$error" />
+            <urn:caldav success="$success" error="$error" />
+            <urn:yab success="$success" error="$error" />
+            <urn:rss success="$success" error="$error" />
+            <urn:gal success="$success" error="$error" />
+            <urn:cal success="$success" error="$error" />
+            <urn:unknown success="$success" error="$error" />
+        </urn:TestDataSourceResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->testDataSource(new \Zimbra\Mail\Struct\MailImapDataSource($this->faker->uuid));
+
+        $test = new \Zimbra\Mail\Struct\TestDataSource(
+            $success, $error
+        );
+        $this->assertEquals([$test], $response->getImapDataSources());
+        $this->assertEquals([$test], $response->getPop3DataSources());
+        $this->assertEquals([$test], $response->getCaldavDataSources());
+        $this->assertEquals([$test], $response->getYabDataSources());
+        $this->assertEquals([$test], $response->getRssDataSources());
+        $this->assertEquals([$test], $response->getGalDataSources());
+        $this->assertEquals([$test], $response->getCalDataSources());
+        $this->assertEquals([$test], $response->getUnknownDataSources());
+        $this->assertEquals([
+            $test,
+            $test,
+            $test,
+            $test,
+            $test,
+            $test,
+            $test,
+            $test,
+        ], array_values($response->getDataSources()));
+    }
+
+    public function testVerifyCode()
+    {
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:VerifyCodeResponse success="true" />
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->verifyCode();
+        $this->assertTrue($response->getSuccess());
+    }
+
+    public function testWaitSet()
+    {
+        $waitSetId = $this->faker->uuid;
+        $lastKnownSeqNo = $this->faker->word;
+        $name = $this->faker->word;
+        $id = $this->faker->randomNumber;
+        $uid = $this->faker->uuid;
+
+        $seqNo = $this->faker->word;
+        $type = $this->faker->word;
+
+        $folderId = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
+        $flags = $this->faker->randomNumber;
+        $tags = $this->faker->word;
+        $path = $this->faker->word;
+        $changeBitmask = $this->faker->randomNumber;
+        $lastChangeId = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraMail">
+    <soap:Body>
+        <urn:WaitSetResponse waitSet="$waitSetId" canceled="true" seq="$seqNo">
+            <urn:a id="$id" changeid="$lastChangeId">
+                <urn:mods id="$folderId">
+                    <urn:created>
+                        <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+                    </urn:created>
+                    <urn:deleted id="$id" t="$type" />
+                    <urn:modMsgs change="$changeBitmask">
+                        <urn:m id="$id" i4uid="$imapUid" t="$type" f="$flags" tn="$tags" />
+                    </urn:modMsgs>
+                    <urn:modTags change="$changeBitmask">
+                        <urn:id>$id</urn:id>
+                        <urn:name>$name</urn:name>
+                    </urn:modTags>
+                    <urn:modFolders id="$folderId" path="$path" change="$changeBitmask" />
+                </urn:mods>
+            </urn:a>
+            <urn:error id="$uid" type="$type" />
+        </urn:WaitSetResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubMailApi($this->mockSoapClient($xml));
+        $response = $api->waitSet($waitSetId, $lastKnownSeqNo);
+
+        $msgInfo = new \Zimbra\Mail\Struct\ImapMessageInfo($id, $imapUid, $type, $flags, $tags);
+        $created = new \Zimbra\Mail\Struct\CreateItemNotification($msgInfo);
+        $deleted = new \Zimbra\Mail\Struct\DeleteItemNotification($id, $type);
+        $modMsg = new \Zimbra\Mail\Struct\ModifyItemNotification($msgInfo, $changeBitmask);
+        $modTag = new \Zimbra\Mail\Struct\ModifyTagNotification($id, $name, $changeBitmask);
+        $modFolder = new \Zimbra\Mail\Struct\RenameFolderNotification($folderId, $path, $changeBitmask);
+        $mod = new \Zimbra\Mail\Struct\PendingFolderModifications(
+            $folderId, [$created], [$deleted], [$modMsg], [$modTag], [$modFolder]
+        );
+        $account = new \Zimbra\Mail\Struct\AccountWithModifications($id, [$mod], $lastChangeId);
+        $error = new \Zimbra\Common\Struct\IdAndType($uid, $type);
+
+        $this->assertSame($waitSetId, $response->getWaitSetId());
+        $this->assertTrue($response->getCanceled());
+        $this->assertSame($seqNo, $response->getSeqNo());
+        $this->assertEquals([$account], $response->getSignalledAccounts());
+        $this->assertEquals([$error], $response->getErrors());
     }
 }
 

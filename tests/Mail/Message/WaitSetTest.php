@@ -26,9 +26,9 @@ class WaitSetResponseTest extends ZimbraTestCase
             InterestType::MESSAGES()->getValue(),
             InterestType::CONTACTS()->getValue(),
         ]);
-        $timeout = mt_rand();
+        $timeout = $this->faker->randomNumber;
         $name = $this->faker->word;
-        $id = mt_rand(1, 99);
+        $id = $this->faker->randomNumber;
         $uid = $this->faker->uuid;
         $token = $this->faker->word;
         $interests = [
@@ -39,13 +39,13 @@ class WaitSetResponseTest extends ZimbraTestCase
         $seqNo = $this->faker->word;
         $type = $this->faker->word;
 
-        $folderId = mt_rand(1, 99);
-        $imapUid = mt_rand(1, 99);
-        $flags = mt_rand(1, 99);
+        $folderId = $this->faker->randomNumber;
+        $imapUid = $this->faker->randomNumber;
+        $flags = $this->faker->randomNumber;
         $tags = $this->faker->word;
         $path = $this->faker->word;
-        $changeBitmask = mt_rand(1, 99);
-        $lastChangeId = mt_rand(1, 99);
+        $changeBitmask = $this->faker->randomNumber;
+        $lastChangeId = $this->faker->randomNumber;
 
         $add = new WaitSetAddSpec($name, $uid, $token, implode(',', $interests));
         $update = new WaitSetAddSpec($name, $uid, $token, implode(',', $interests));

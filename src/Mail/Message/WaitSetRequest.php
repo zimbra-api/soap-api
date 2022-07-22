@@ -265,7 +265,7 @@ class WaitSetRequest extends Request implements WaitSetReq
      *
      * @return string
      */
-    public function getDefaultInterests(): string
+    public function getDefaultInterests(): ?string
     {
         return $this->defaultInterests;
     }
