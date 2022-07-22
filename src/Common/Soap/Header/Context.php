@@ -161,7 +161,25 @@ class Context
     private $csrfToken;
 
     /**
-     * Constructor method for Context
+     * Constructor
+     * 
+     * @param int $hopCount
+     * @param string $authToken
+     * @param SessionInfo $session
+     * @param SessionInfo $legacySessionId
+     * @param string $noSession
+     * @param AccountInfo $account
+     * @param ChangeInfo $change
+     * @param string $targetServer
+     * @param UserAgentInfo $userAgent
+     * @param AuthTokenControl $authTokenControl
+     * @param FormatInfo $format
+     * @param NotifyInfo $notify
+     * @param string $noNotify
+     * @param string $noQualify
+     * @param string $via
+     * @param string $soapRequestId
+     * @param string $csrfToken
      * @return self
      */
     public function __construct(

@@ -16,7 +16,7 @@ use Zimbra\Common\Serializer\SerializerFactory;
 use Zimbra\Common\Soap\Header\{AccountInfo, Context};
 
 /**
- * API is a base class which allows to manage Zimbra api
+ * Base class which allows to manage Zimbra soap api
  * 
  * @package    Zimbra
  * @subpackage Common
@@ -28,42 +28,51 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
 {
     const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
     const SERIALIZE_FORMAT  = 'xml';
-    const HTTP_USER_AGENT   = 'PHP-Zimbra-Soap-API';
+    const HTTP_USER_AGENT   = 'Zimbra-Soap-Client';
 
     /**
-     * Zimbra api soap client
+     * Soap client
+     * 
      * @var ClientInterface
      */
     private ClientInterface $client;
 
     /**
-     * Instance serializer.
+     * Serializer.
      *
      * @var SerializerInterface
      */
     private ?SerializerInterface $serializer = NULL;
 
     /**
+     * Logger
+     * 
      * @var LoggerInterface
      */
     private ?LoggerInterface $logger = NULL;
 
     /**
-     * Zimbra api request soap header
+     * Request soap header
+     * 
      * @var Header
      */
     private ?Header $requestHeader = NULL;
 
     /**
-     * Zimbra api response soap header
+     * Response soap header
+     * 
      * @var Header
      */
     private ?Header $responseHeader = NULL;
 
+    /**
+     * Constructor
+     * 
+     * @param string $serviceUrl
+     */
     public function __construct(string $serviceUrl = '')
     {
         $this->client = ClientFactory::create($serviceUrl);
-        $this->serializer = SerializerFactory::create();
     }
 
     /**
@@ -79,6 +88,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     /**
      * Set soap client.
      *
+     * @param ClientInterface $client
      * @return self
      */
     public function setClient(ClientInterface $client): self
@@ -103,6 +113,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     /**
      * Set the logger.
      *
+     * @param LoggerInterface $logger
      * @return self
      */
     public function setLogger(LoggerInterface $logger): self
@@ -112,22 +123,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     }
 
     /**
-     * Get the serializer.
-     *
-     * @return SerializerInterface
-     */
-    public function getSerializer(): SerializerInterface
-    {
-        if (!($this->serializer instanceof SerializerInterface)) {
-            $this->serializer = SerializerFactory::create();
-        }
-        return $this->serializer;
-    }
-
-    /**
-     * Get Zimbra api soap request header.
-     *
-     * @return Header
+     * {@inheritdoc}
      */
     public function getRequestHeader(): ?Header
     {
@@ -135,20 +131,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     }
 
     /**
-     * Set Zimbra api soap request header.
-     *
-     * @return self
-     */
-    public function setRequestHeader(Header $requestHeader): self
-    {
-        $this->requestHeader = $requestHeader;
-        return $this;
-    }
-
-    /**
-     * Get Zimbra api response soap header.
-     *
-     * @return Header
+     * {@inheritdoc}
      */
     public function getResponseHeader(): ?Header
     {
@@ -156,9 +139,37 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
     }
 
     /**
-     * Invoke the request.
+     * Set auth token to soap request header.
      *
-     * @return  EnvelopeInterface
+     * @param string $token
+     * @return self
+     */
+    public function setAuthToken(string $token): self
+    {
+        $this->initRequestHeader()
+             ->getRequestHeader()
+             ->getContext()
+             ->setAuthToken($token);
+        return $this;
+    }
+
+    /**
+     * Set target account to soap request header.
+     *
+     * @param AccountInfo $account
+     * @return self
+     */
+    public function setTargetAccount(AccountInfo $account): self
+    {
+        $this->initRequestHeader()
+             ->getRequestHeader()
+             ->getContext()
+             ->setAccount($account);
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function invoke(RequestInterface $request): ?ResponseInterface
     {
@@ -187,9 +198,27 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
         return $responseEnvelope->getBody()->getResponse();
     }
 
+    /**
+     * Get the serializer.
+     *
+     * @return SerializerInterface
+     */
+    protected function getSerializer(): SerializerInterface
+    {
+        if (!($this->serializer instanceof SerializerInterface)) {
+            $this->serializer = SerializerFactory::create();
+        }
+        return $this->serializer;
+    }
+
+    /**
+     * Init soap request header.
+     *
+     * @return self
+     */
     protected function initRequestHeader(): self
     {
-        if (empty($this->requestHeader)) {
+        if (!($this->requestHeader instanceof Header)) {
             $this->requestHeader = new Header(new Context());
         }
         return $this;
