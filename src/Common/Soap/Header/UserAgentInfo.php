@@ -45,10 +45,7 @@ class UserAgentInfo
      * @param string $version
      * @return self
      */
-    public function __construct(
-        ?string $name = NULL,
-        ?string $version = NULL
-    )
+    public function __construct(?string $name = NULL, ?string $version = NULL)
     {
         if (NULL !== $name) {
             $this->setName($name);

@@ -28,6 +28,7 @@ abstract class ZimbraTestCase extends TestCase
         $stream->method('getContents')->willReturn($contents);
         $response = $this->createStub(ResponseInterface::class);
         $response->method('getBody')->willReturn($stream);
+        $response->method('getStatusCode')->willReturn(200);
         $client = $this->createStub(ClientInterface::class);
         $client->method('sendRequest')->willReturn($response);
         return $client;

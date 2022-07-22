@@ -64,7 +64,7 @@ class Client implements ClientInterface
     private ?ResponseInterface $response = NULL;
 
     /**
-     * Http constructor
+     * Constructor
      *
      * @param string $serviceUrl  The URL to request.
      * @param HttpClient $httpClient  The http client.
@@ -85,16 +85,17 @@ class Client implements ClientInterface
     }
 
     /**
-     * Performs a SOAP request
+     * Performs a soap request
      *
      * @param  string $soapMessage Soap message
-     * @param  array $headers Request headers
+     * @param  array $headers Http headers
      * @return ResponseInterface
      */
     public function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface
     {
-        $request = $this->requestFactory->createRequest('POST', $this->serviceUrl);
-        $request = $request->withBody($this->streamFactory->createStream($soapMessage));
+        $request = $this->requestFactory
+            ->createRequest('POST', $this->serviceUrl)
+            ->withBody($this->streamFactory->createStream($soapMessage));
         foreach ($headers as $name => $value) {
             $request = $request->withHeader($name, $value);
         }
@@ -109,7 +110,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * Returns last request.
+     * Returns last http request.
      *
      * @return RequestInterface
      */
@@ -119,7 +120,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * Returns last SOAP response.
+     * Returns last http response.
      *
      * @return ResponseInterface.
      */

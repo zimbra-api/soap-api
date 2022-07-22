@@ -40,7 +40,7 @@ class FormatInfo
      */
     public function __construct(?RequestFormat $format = NULL)
     {
-        if (NULL !== $format) {
+        if ($format instanceof RequestFormat) {
             $this->setFormat($format);
         }
     }

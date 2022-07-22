@@ -42,7 +42,6 @@ class AccountInfo
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
      */
@@ -51,18 +50,20 @@ class AccountInfo
     /**
      * Constructor method for AccountInfo
      * @param  AccountBy $by
-     * @param  bool $mountpointTraversed
      * @param  string $value
+     * @param  bool $mountpointTraversed
      * @return self
      */
-    public function __construct(AccountBy $by, ?bool $mountpointTraversed = NULL, ?string $value = NULL)
+    public function __construct(
+        ?AccountBy $by = NULL, ?string $value = NULL, ?bool $mountpointTraversed = NULL
+    )
     {
-        $this->setBy($by);
-        if (NULL !== $mountpointTraversed) {
-            $this->setMountpointTraversed($mountpointTraversed);
-        }
+        $this->setBy($by ?? AccountBy::NAME());
         if (NULL !== $value) {
             $this->setValue($value);
+        }
+        if (NULL !== $mountpointTraversed) {
+            $this->setMountpointTraversed($mountpointTraversed);
         }
     }
 

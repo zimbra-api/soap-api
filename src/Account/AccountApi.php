@@ -97,7 +97,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByName(string $name, string $password): Message\AuthResponse
     {
-        $account = new AccountSelector(AccountBy::NAME()->getValue(), $name);
+        $account = new AccountSelector(AccountBy::NAME(), $name);
         return $this->auth($account, $password);
     }
 
@@ -107,7 +107,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
     public function authByToken(string $authToken): Message\AuthResponse
     {
         $token = ($authToken instanceof AuthToken) ? $authToken : new AuthToken($authToken);
-        return $this->auth(NULL, NULL, NULL, $token);
+        return $this->auth(NULL, NULL, NULL, NULL, $token);
     }
 
     /**

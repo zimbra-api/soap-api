@@ -22,9 +22,24 @@ namespace Zimbra\Common\Soap;
 interface ApiInterface
 {
     /**
-     * Invoke the request.
+     * Invoke the soap request.
      *
-     * @return  ResponseInterface
+     * @param  RequestInterface $request
+     * @return ResponseInterface
      */
     function invoke(RequestInterface $request): ?ResponseInterface;
+
+    /**
+     * Get the soap request header.
+     *
+     * @return Header
+     */
+    function getRequestHeader(): ?Header;
+
+    /**
+     * Get the soap response header.
+     *
+     * @return Header
+     */
+    function getResponseHeader(): ?Header;
 }

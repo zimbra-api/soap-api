@@ -45,10 +45,7 @@ class ChangeInfo
      * @param string $changeType
      * @return self
      */
-    public function __construct(
-        ?string $changeId = NULL,
-        ?string $changeType = NULL
-    )
+    public function __construct(?string $changeId = NULL, ?string $changeType = NULL)
     {
         if (NULL !== $changeId) {
             $this->setChangeId($changeId);

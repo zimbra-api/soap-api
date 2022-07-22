@@ -37,7 +37,7 @@ class ContextTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), TRUE, $value);
+        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
@@ -146,12 +146,6 @@ EOT;
 }
 
 /**
- * Header context class
- *
- * @package   Zimbra
- * @category  Soap
- * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
 class MockContext extends Context
