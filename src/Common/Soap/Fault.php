@@ -108,4 +108,14 @@ class Fault
     {
         return $this->faultReason;
     }
+
+    public function faultCode(): ?string
+    {
+        return ($this->faultCode instanceof Code) ? $this->faultCode->getValue() : NULL;
+    }
+
+    public function faultString(): ?string
+    {
+        return ($this->faultReason instanceof Reason) ? $this->faultReason->getText() : NULL;
+    }
 }

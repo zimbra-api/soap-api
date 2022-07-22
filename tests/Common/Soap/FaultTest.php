@@ -34,6 +34,8 @@ class FaultTest extends ZimbraTestCase
         $fault->setFaultCode($code)->setFaultReason($reason);
         $this->assertSame($code, $fault->getFaultCode());
         $this->assertSame($reason, $fault->getFaultReason());
+        $this->assertSame($value, $fault->faultCode());
+        $this->assertSame($text, $fault->faultString());
 
         $body = new FaultBody();
         $body->setFault($fault);
