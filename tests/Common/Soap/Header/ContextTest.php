@@ -37,7 +37,7 @@ class ContextTest extends ZimbraTestCase
 
         $session = new SessionInfo(TRUE, $id, $sequence, $value);
         $legacySessionId = new SessionInfo(FALSE, $id, $sequence, $value);
-        $account = new AccountInfo(AccountBy::ID(), TRUE, $value);
+        $account = new AccountInfo(AccountBy::ID(), $value, TRUE);
         $change = new ChangeInfo($changeId, $changeType);
         $userAgent = new UserAgentInfo($name, $version);
         $authTokenControl = new AuthTokenControl(TRUE);
