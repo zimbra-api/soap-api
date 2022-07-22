@@ -14,12 +14,12 @@ class AccountInfoTest extends ZimbraTestCase
     public function testHeaderAccountInfo()
     {
         $value = $this->faker->word;
-        $info = new AccountInfo(AccountBy::ID(), FALSE, $value);
+        $info = new AccountInfo(AccountBy::ID(), $value, FALSE);
         $this->assertEquals(AccountBy::ID(), $info->getBy());
         $this->assertFalse($info->getMountpointTraversed());
         $this->assertSame($value, $info->getValue());
 
-        $info = new AccountInfo(AccountBy::ID());
+        $info = new AccountInfo();
         $info->setBy(AccountBy::NAME())
              ->setMountpointTraversed(TRUE)
              ->setValue($value);
@@ -27,10 +27,9 @@ class AccountInfoTest extends ZimbraTestCase
         $this->assertTrue($info->getMountpointTraversed());
         $this->assertSame($value, $info->getValue());
 
-        $byName = AccountBy::NAME()->getValue();
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result by="$byName" link="true">$value</result>
+<result by="name" link="true">$value</result>
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($info, 'xml'));
         $this->assertEquals($info, $this->serializer->deserialize($xml, AccountInfo::class, 'xml'));

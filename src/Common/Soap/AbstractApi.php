@@ -12,6 +12,7 @@ namespace Zimbra\Common\Soap;
 
 use JMS\Serializer\SerializerInterface;
 use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
+use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Serializer\SerializerFactory;
 use Zimbra\Common\Soap\Header\{AccountInfo, Context};
 
@@ -166,6 +167,18 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
              ->getContext()
              ->setAccount($account);
         return $this;
+    }
+
+    /**
+     * Set target account to soap request header.
+     *
+     * @param string $account
+     * @return self
+     */
+    public function setTargetAccountByNameOrId(string $account)
+    {
+        $by = filter_var($account, FILTER_VALIDATE_EMAIL) ? AccountBy::NAME() : AccountBy::ID();
+        return $this->setTargetAccount(new AccountInfo($by, $account));
     }
 
     /**
