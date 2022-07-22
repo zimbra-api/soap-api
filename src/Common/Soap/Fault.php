@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\Fault\{Code, Reason};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class Fault extends \Exception 
+class Fault
 {
     /**
      * Fault code
