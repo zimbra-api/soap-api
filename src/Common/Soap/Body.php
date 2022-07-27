@@ -65,7 +65,7 @@ abstract class Body implements BodyInterface
     /**
      * Set the soap fault
      *
-     * @param  Response $fault
+     * @param  Fault $fault
      * @return self
      */
     public function setFault(Fault $fault): self
