@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\extends SoapEnvelopeInterface;
 
 /**
  * GetOutgoingFilterRulesRequest request class
@@ -27,9 +27,9 @@ class GetOutgoingFilterRulesRequest extends GetFilterRulesRequest
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetOutgoingFilterRulesEnvelope(
             new GetOutgoingFilterRulesBody($this)

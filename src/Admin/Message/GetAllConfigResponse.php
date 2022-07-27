@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetAllConfigResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetAllConfigResponse implements AdminAttrs, ResponseInterface
+class GetAllConfigResponse implements AdminAttrs, SoapResponseInterface
 {
 	use AdminAttrsImplTrait;
 

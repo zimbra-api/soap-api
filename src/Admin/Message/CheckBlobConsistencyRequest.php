@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Admin\Struct\IntIdAttr;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * Checks for items that have no blob, blobs that have no item, and items that have an incorrect blob size stored in their metadata
@@ -27,7 +27,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CheckBlobConsistencyRequest extends Request
+class CheckBlobConsistencyRequest extends SoapRequest
 {
     /**
      * Set checkSize to 0 (false) to avoid the CPU overhead of uncompressing
@@ -204,9 +204,9 @@ class CheckBlobConsistencyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new CheckBlobConsistencyEnvelope(
             new CheckBlobConsistencyBody($this)

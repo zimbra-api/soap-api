@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\ZimletStatusCos;
 use Zimbra\Admin\Struct\ZimletStatusParent;
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetZimletStatusResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetZimletStatusResponse implements ResponseInterface
+class GetZimletStatusResponse implements SoapResponseInterface
 {
     /**
      * Zimlet information
