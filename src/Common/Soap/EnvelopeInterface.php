@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Soap;
 
 /**
- * BodyInterface is a interface which define soap envelope struct
+ * EnvelopeInterface is a interface which define soap envelope struct
  *
  * @package    Zimbra
  * @subpackage Common
@@ -24,9 +24,9 @@ interface EnvelopeInterface
     /**
      * Gets soap message header
      *
-     * @return Header
+     * @return HeaderInterface
      */
-    function getHeader(): ?Header;
+    function getHeader(): ?HeaderInterface;
 
     /**
      * Gets soap message body

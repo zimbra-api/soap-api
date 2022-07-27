@@ -29,21 +29,21 @@ abstract class Envelope implements EnvelopeInterface
      * @Type("Zimbra\Common\Soap\Header")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private ?Header $header = NULL;
+    private ?HeaderInterface $header = NULL;
 
     /**
      * Constructor
      * 
      * @param  BodyInterface $body
-     * @param  Header $header
+     * @param  HeaderInterface $header
      * @return self
      */
-    public function __construct(?BodyInterface $body = NULL, ?Header $header = NULL)
+    public function __construct(?BodyInterface $body = NULL, ?HeaderInterface $header = NULL)
     {
         if ($body instanceof BodyInterface) {
             $this->setBody($body);
         }
-        if ($header instanceof Header) {
+        if ($header instanceof HeaderInterface) {
             $this->setHeader($header);
         }
     }
@@ -51,7 +51,7 @@ abstract class Envelope implements EnvelopeInterface
     /**
      * {@inheritdoc}
      */
-    public function getHeader(): ?Header
+    public function getHeader(): ?HeaderInterface
     {
         return $this->header;
     }
@@ -59,10 +59,10 @@ abstract class Envelope implements EnvelopeInterface
     /**
      * Set soap message header
      *
-     * @param  Header $header
+     * @param  HeaderInterface $header
      * @return self
      */
-    public function setHeader(Header $header): self
+    public function setHeader(HeaderInterface $header): self
     {
         $this->header = $header;
         return $this;
