@@ -19,7 +19,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
  * @subpackage Common
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
 trait KeyValuePairsTrait
 {
