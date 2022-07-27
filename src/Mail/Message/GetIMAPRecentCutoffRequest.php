@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetIMAPRecentCutoffRequest class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetIMAPRecentCutoffRequest extends Request
+class GetIMAPRecentCutoffRequest extends SoapRequest
 {
     /**
      * Folder ID
@@ -70,9 +70,9 @@ class GetIMAPRecentCutoffRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetIMAPRecentCutoffEnvelope(
             new GetIMAPRecentCutoffBody($this)

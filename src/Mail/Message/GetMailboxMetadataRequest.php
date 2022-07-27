@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\SectionAttr;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetMailboxMetadataRequest class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetMailboxMetadataRequest extends Request
+class GetMailboxMetadataRequest extends SoapRequest
 {
     /**
      * Metadata section specification
@@ -71,9 +71,9 @@ class GetMailboxMetadataRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetMailboxMetadataEnvelope(
             new GetMailboxMetadataBody($this)

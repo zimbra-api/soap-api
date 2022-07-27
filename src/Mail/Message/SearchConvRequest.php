@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\{MsgContent, SearchSortBy, WantRecipsSetting};
 use Zimbra\Common\Struct\{CursorInfo, SearchParameters};
 use Zimbra\Mail\Struct\{CalTZInfo, MailSearchParams};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchConvRequest class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SearchConvRequest extends Request implements SearchParameters
+class SearchConvRequest extends SoapRequest implements SearchParameters
 {
     use MailSearchParams;
 
@@ -265,9 +265,9 @@ class SearchConvRequest extends Request implements SearchParameters
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SearchConvEnvelope(
             new SearchConvBody($this)

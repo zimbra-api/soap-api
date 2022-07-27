@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use Zimbra\Mail\Struct\GetCalendarItemRequestBase;
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Soap\SoapEnvelopeInterface;
 
 /**
  * GetAppointmentRequest class
@@ -41,9 +41,9 @@ class GetAppointmentRequest extends GetCalendarItemRequestBase
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetAppointmentEnvelope(
             new GetAppointmentBody($this)

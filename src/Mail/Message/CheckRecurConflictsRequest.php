@@ -19,7 +19,7 @@ use Zimbra\Mail\Struct\{
     ExpandedRecurrenceInvite,
     FreeBusyUserSpec
 };
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CheckRecurConflictsRequest class
@@ -33,7 +33,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CheckRecurConflictsRequest extends Request
+class CheckRecurConflictsRequest extends SoapRequest
 {
     /**
      * Start time in millis.  If not specified, defaults to current time
@@ -432,9 +432,9 @@ class CheckRecurConflictsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new CheckRecurConflictsEnvelope(
             new CheckRecurConflictsBody($this)

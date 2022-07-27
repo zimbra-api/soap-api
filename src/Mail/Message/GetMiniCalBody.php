@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
+use Zimbra\Common\Soap\{SoapBody, SoapRequestInterface, SoapResponseInterface};
 
 /**
  * GetMiniCalBody class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetMiniCalBody extends Body
+class GetMiniCalBody extends SoapBody
 {
     /**
      * @Accessor(getter="getRequest", setter="setRequest")
@@ -30,7 +30,7 @@ class GetMiniCalBody extends Body
      * @Type("Zimbra\Mail\Message\GetMiniCalRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?RequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetMiniCalBody extends Body
      * @Type("Zimbra\Mail\Message\GetMiniCalResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?ResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetMiniCalBody
@@ -52,7 +52,7 @@ class GetMiniCalBody extends Body
         parent::__construct($request, $response);
     }
 
-    public function setRequest(RequestInterface $request): self
+    public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetMiniCalRequest) {
             $this->request = $request;
@@ -60,12 +60,12 @@ class GetMiniCalBody extends Body
         return $this;
     }
 
-    public function getRequest(): ?RequestInterface
+    public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
-    public function setResponse(ResponseInterface $response): self
+    public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetMiniCalResponse) {
             $this->response = $response;
@@ -73,7 +73,7 @@ class GetMiniCalBody extends Body
         return $this;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;
     }

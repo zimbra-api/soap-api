@@ -20,7 +20,7 @@ use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
 use Zimbra\Mail\Struct\RssDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 use Zimbra\Mail\Struct\YabDataSourceNameOrId;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * DeleteDataSourceRequest class
@@ -33,7 +33,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DeleteDataSourceRequest extends Request
+class DeleteDataSourceRequest extends SoapRequest
 {
     /**
      * Imap data sources
@@ -378,9 +378,9 @@ class DeleteDataSourceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new DeleteDataSourceEnvelope(
             new DeleteDataSourceBody($this)

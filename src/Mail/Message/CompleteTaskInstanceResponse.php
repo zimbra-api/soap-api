@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * CompleteTaskInstanceResponse class
@@ -21,6 +21,6 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  CopymisspelledWord © 2013-present by Nguyen Van Nguyen.
  */
-class CompleteTaskInstanceResponse implements ResponseInterface
+class CompleteTaskInstanceResponse implements SoapResponseInterface
 {
 }

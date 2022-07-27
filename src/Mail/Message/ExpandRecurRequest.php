@@ -18,7 +18,7 @@ use Zimbra\Mail\Struct\{
     ExpandedRecurrenceException,
     ExpandedRecurrenceInvite
 };
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ExpandRecurRequest class
@@ -30,7 +30,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ExpandRecurRequest extends Request
+class ExpandRecurRequest extends SoapRequest
 {
     /**
      * Start time in milliseconds
@@ -301,9 +301,9 @@ class ExpandRecurRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ExpandRecurEnvelope(
             new ExpandRecurBody($this)

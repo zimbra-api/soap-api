@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\MiniCalError;
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetMiniCalResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyinstance © 2013-present by Nguyen Van Nguyen.
  */
-class GetMiniCalResponse implements ResponseInterface
+class GetMiniCalResponse implements SoapResponseInterface
 {
     /**
      * Matching busy dates in format : yyyymmdd

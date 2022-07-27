@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{DismissAppointmentAlarm, DismissTaskAlarm};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * DismissCalendarItemAlarmRequest class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DismissCalendarItemAlarmRequest extends Request
+class DismissCalendarItemAlarmRequest extends SoapRequest
 {
     /**
      * Details of appt alarms to dismiss
@@ -131,9 +131,9 @@ class DismissCalendarItemAlarmRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new DismissCalendarItemAlarmEnvelope(
             new DismissCalendarItemAlarmBody($this)
