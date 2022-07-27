@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\InstanceRecurIdInfo;
 use Zimbra\Mail\Struct\InvitationInfo;
 use Zimbra\Mail\Struct\MimePartInfo;
 use Zimbra\Mail\Struct\Msg;
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -108,7 +108,7 @@ EOT;
  */
 class CalItemRequest extends CalItemRequestBase
 {
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
     }
 }

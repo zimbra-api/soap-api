@@ -10,7 +10,11 @@
 
 namespace Zimbra\Common\Soap;
 
-use Zimbra\Common\Struct\{SoapHeaderInterface, SoapRequestInterface, SoapResponseInterface};
+use Zimbra\Common\Struct\{
+    SoapHeaderInterface,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * Api interface

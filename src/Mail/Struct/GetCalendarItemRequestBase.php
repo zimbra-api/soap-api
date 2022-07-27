@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Soap\Request;
+use Zimbra\Common\Struct\SoapRequest;
 
 /**
  * GetCalendarItemRequestBase class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\Request;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-abstract class GetCalendarItemRequestBase extends Request
+abstract class GetCalendarItemRequestBase extends SoapRequest
 {
     /**
      * Set this to return the modified date (md) on the appointment.

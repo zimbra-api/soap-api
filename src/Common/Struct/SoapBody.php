@@ -35,20 +35,20 @@ abstract class SoapBody implements SoapBodyInterface
      * Constructor
      * 
      * @param  SoapRequestInterface $request
-     * @param  ResponseInterface $response
+     * @param  SoapResponseInterface $response
      * @param  SoapFaultInterface $soapFault
      * @return self
      */
     public function __construct(
         ?SoapRequestInterface $request = NULL,
-        ?ResponseInterface $response = NULL,
+        ?SoapResponseInterface $response = NULL,
         ?SoapFaultInterface $soapFault = NULL
     )
     {
         if ($request instanceof SoapRequestInterface) {
             $this->setRequest($request);
         }
-        if ($response instanceof ResponseInterface) {
+        if ($response instanceof SoapResponseInterface) {
             $this->setResponse($response);
         }
         if ($soapFault instanceof SoapFaultInterface) {

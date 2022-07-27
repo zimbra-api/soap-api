@@ -60,7 +60,7 @@ class CreateGalSyncAccountEnvelope extends SoapEnvelope
      * @param  SoapBodyInterface $body
      * @return self
      */
-    public function setBody(SoapBodyInterface $body): Envelope
+    public function setBody(SoapBodyInterface $body): self
     {
         if ($body instanceof CreateGalSyncAccountBody) {
             $this->body = $body;
