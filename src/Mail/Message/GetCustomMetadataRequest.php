@@ -42,24 +42,22 @@ class GetCustomMetadataRequest extends Request
      * @Type("Zimbra\Common\Struct\SectionAttr")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SectionAttr $metadata = NULL;
+    private SectionAttr $metadata;
 
     /**
      * Constructor method for GetCustomMetadataRequest
      *
-     * @param  string $id
      * @param  SectionAttr $metadata
+     * @param  string $id
      * @return self
      */
     public function __construct(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     )
     {
+        $this->setMetadata($metadata);
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if ($metadata instanceof SectionAttr) {
-            $this->setMetadata($metadata);
         }
     }
 
@@ -90,7 +88,7 @@ class GetCustomMetadataRequest extends Request
      *
      * @return SectionAttr
      */
-    public function getMetadata(): ?SectionAttr
+    public function getMetadata(): SectionAttr
     {
         return $this->metadata;
     }

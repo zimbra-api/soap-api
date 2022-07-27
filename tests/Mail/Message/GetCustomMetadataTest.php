@@ -27,10 +27,10 @@ class GetCustomMetadataTest extends ZimbraTestCase
         $value = $this->faker->text;
 
         $meta = new SectionAttr($section);
-        $request = new GetCustomMetadataRequest($id, $meta);
+        $request = new GetCustomMetadataRequest($meta, $id);
         $this->assertSame($id, $request->getId());
         $this->assertSame($meta, $request->getMetadata());
-        $request = new GetCustomMetadataRequest();
+        $request = new GetCustomMetadataRequest(new SectionAttr());
         $request->setId($id)
             ->setMetadata($meta);
         $this->assertSame($id, $request->getId());

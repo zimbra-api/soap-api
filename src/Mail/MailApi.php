@@ -728,10 +728,10 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getCustomMetadata(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     ): ?Message\GetCustomMetadataResponse
     {
-        return $this->invoke(new Message\GetCustomMetadataRequest($id, $metadata));
+        return $this->invoke(new Message\GetCustomMetadataRequest($metadata, $id));
     }
 
     /**

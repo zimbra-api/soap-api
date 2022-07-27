@@ -2373,7 +2373,7 @@ EOT;
 EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
-        $response = $api->getCustomMetadata();
+        $response = $api->getCustomMetadata(new \Zimbra\Common\Struct\SectionAttr());
 
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata(
             $section, [new \Zimbra\Common\Struct\KeyValuePair($key, $value)]

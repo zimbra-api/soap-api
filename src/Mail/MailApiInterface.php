@@ -899,7 +899,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\GetCustomMetadataResponse
      */
     function getCustomMetadata(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     ): ?Message\GetCustomMetadataResponse;
 
     /**
