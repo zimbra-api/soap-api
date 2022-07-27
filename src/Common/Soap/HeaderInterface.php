@@ -10,8 +10,10 @@
 
 namespace Zimbra\Common\Soap;
 
+use Zimbra\Common\Soap\Header\Context;
+
 /**
- * BatchResponseInterface interface
+ * Soap header interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,20 +21,12 @@ namespace Zimbra\Common\Soap;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface BatchResponseInterface extends ResponseInterface
+interface HeaderInterface
 {
     /**
-     * Add soap response.
+     * Get the header context
      *
-     * @param ResponseInterface $response
-     * @return EnvelopeInterface
+     * @return Context
      */
-    function addResponse(ResponseInterface $response): self;
-
-    /**
-     * Get soap responses.
-     *
-     * @return array
-     */
-    function getResponses(): array;
+    function getContext(): ?Context;
 }

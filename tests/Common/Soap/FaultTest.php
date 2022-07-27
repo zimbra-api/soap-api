@@ -56,6 +56,12 @@ class FaultTest extends ZimbraTestCase
             <soap:Reason>
                 <soap:Text>$text</soap:Text>
             </soap:Reason>
+            <soap:Detail>
+                <Error xmlns="urn:zimbra">
+                    <Code>$value</Code>
+                    <Trace>$text</Trace>
+                </Error>
+            </soap:Detail>
         </soap:Fault>
     </soap:Body>
 </soap:Envelope>

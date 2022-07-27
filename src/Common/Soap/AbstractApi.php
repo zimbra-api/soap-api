@@ -200,15 +200,21 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
             ]
         );
 
+        $soapResponse = NULL;
         $responseMessage = $response->getBody()->getContents();
         $this->getLogger()->debug('Soap response message', ['response' => $responseMessage]);
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
-        if ($responseEnvelope->getHeader() instanceof Header) {
-            $this->responseHeader = $responseEnvelope->getHeader();
+        if ($responseEnvelope instanceof EnvelopeInterface) {
+            if ($responseEnvelope->getHeader() instanceof HeaderInterface) {
+                $this->responseHeader = $responseEnvelope->getHeader();
+            }
+            if ($responseEnvelope->getBody() instanceof BodyInterface) {
+                $soapResponse = $responseEnvelope->getBody()->getResponse();
+            }
         }
-        return $responseEnvelope->getBody()->getResponse();
+        return $soapResponse;
     }
 
     /**
