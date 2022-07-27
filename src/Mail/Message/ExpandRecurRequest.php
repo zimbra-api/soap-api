@@ -18,7 +18,7 @@ use Zimbra\Mail\Struct\{
     ExpandedRecurrenceException,
     ExpandedRecurrenceInvite
 };
-use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ExpandRecurRequest class

@@ -10,6 +10,8 @@
 
 namespace Zimbra\Common\Soap;
 
+use Zimbra\Common\Struct\SoapFaultInterface;
+
 /**
  * Exception interface
  *
@@ -24,7 +26,7 @@ interface ExceptionInterface
     /**
      * Get the soap false.
      *
-     * @return  Fault
+     * @return  SoapFaultInterface
      */
-    function getSoapFault(): Fault;
+    function getSoapFault(): SoapFaultInterface;
 }

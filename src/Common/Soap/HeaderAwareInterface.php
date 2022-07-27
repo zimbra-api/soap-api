@@ -10,7 +10,7 @@
 
 namespace Zimbra\Common\Soap;
 
-use Zimbra\Common\Soap\Header\AccountInfo;
+use Zimbra\Common\Struct\Header\AccountInfo;
 
 /**
  * Header aware interface

@@ -19,7 +19,7 @@ use Zimbra\Mail\Struct\{
     ExpandedRecurrenceInvite,
     FreeBusyUserSpec
 };
-use Zimbra\Common\Soap\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CheckRecurConflictsRequest class
