@@ -15,7 +15,7 @@ use Zimbra\Account\Struct\{
     AccountDataSource, AccountDataSources, AccountZimletInfo, Attr,
     ChildAccount, Cos, DiscoverRightsInfo, Identity, Pref, Prop, Signature
 };
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetInfoResponse class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetInfoResponse implements ResponseInterface
+class GetInfoResponse implements SoapResponseInterface
 {
     /**
      * The size limit for attachments - Use "-1" to mean unlimited

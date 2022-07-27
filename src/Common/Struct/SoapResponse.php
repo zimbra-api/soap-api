@@ -19,7 +19,7 @@ namespace Zimbra\Common\Struct;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-abstract class SoapResponse implements ResponseInterface
+abstract class SoapResponse implements SoapResponseInterface
 {
     use WithRequestIdTrait;
 }

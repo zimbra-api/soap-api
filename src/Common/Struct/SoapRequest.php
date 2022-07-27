@@ -21,7 +21,7 @@ use JMS\Serializer\Annotation\Exclude;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-abstract class SoapRequest implements RequestInterface
+abstract class SoapRequest implements SoapRequestInterface
 {
     use WithRequestIdTrait;
 
