@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\Header\{AccountInfo, Context};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
+abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
     const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
     const SERIALIZE_FORMAT  = 'xml';
@@ -200,15 +200,25 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
             ]
         );
 
+        $soapResponse = NULL;
         $responseMessage = $response->getBody()->getContents();
         $this->getLogger()->debug('Soap response message', ['response' => $responseMessage]);
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
-        if ($responseEnvelope->getHeader() instanceof Header) {
-            $this->responseHeader = $responseEnvelope->getHeader();
+        if ($responseEnvelope instanceof EnvelopeInterface) {
+            if ($responseEnvelope->getHeader() instanceof HeaderInterface) {
+                $this->responseHeader = $responseEnvelope->getHeader();
+            }
+            if ($responseEnvelope->getBody() instanceof BodyInterface) {
+                if ($responseEnvelope->getBody()->getFault() instanceof Fault) {
+                    throw new Exception($responseEnvelope->getBody()->getFault());
+                    
+                }
+                $soapResponse = $responseEnvelope->getBody()->getResponse();
+            }
         }
-        return $responseEnvelope->getBody()->getResponse();
+        return $soapResponse;
     }
 
     /**
@@ -231,7 +241,7 @@ abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
      */
     protected function initRequestHeader(): self
     {
-        if (!($this->requestHeader instanceof Header)) {
+        if (!($this->requestHeader instanceof HeaderInterface)) {
             $this->requestHeader = new Header(new Context());
         }
         return $this;

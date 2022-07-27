@@ -11,35 +11,39 @@
 namespace Zimbra\Common\Soap;
 
 /**
- * Api interface
- *
+ * Exception class.
+ * 
  * @package    Zimbra
  * @subpackage Common
  * @category   Soap
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ApiInterface
+class Exception extends \RuntimeException implements ExceptionInterface
 {
     /**
-     * Invoke the soap request.
-     *
-     * @param  RequestInterface $request
-     * @return ResponseInterface
+     * Soap fault
+     * 
+     * @var Fault
      */
-    function invoke(RequestInterface $request): ?ResponseInterface;
+    private Fault $soapFault;
 
     /**
-     * Get the soap request header.
-     *
-     * @return Header
+     * Constructor
+     * 
+     * @param string $serviceUrl
      */
-    function getRequestHeader(): ?Header;
+    public function __construct(Fault $soapFault)
+    {
+        parent::__construct($soapFault->faultString());
+        $this->getSoapFault = $soapFault;
+    }
 
     /**
-     * Get the soap response header.
-     *
-     * @return Header
+     * {@inheritdoc}
      */
-    function getResponseHeader(): ?Header;
+    public function getSoapFault(): Fault
+    {
+        return $this->getSoapFault;
+    }
 }

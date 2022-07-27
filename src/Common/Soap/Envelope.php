@@ -32,7 +32,8 @@ abstract class Envelope implements EnvelopeInterface
     private ?Header $header = NULL;
 
     /**
-     * Constructor method for Envelope
+     * Constructor
+     * 
      * @param  BodyInterface $body
      * @param  Header $header
      * @return self
@@ -48,9 +49,7 @@ abstract class Envelope implements EnvelopeInterface
     }
 
     /**
-     * Gets soap message header
-     *
-     * @return Header
+     * {@inheritdoc}
      */
     public function getHeader(): ?Header
     {
@@ -58,7 +57,7 @@ abstract class Envelope implements EnvelopeInterface
     }
 
     /**
-     * Sets soap message header
+     * Set soap message header
      *
      * @param  Header $header
      * @return self
@@ -70,7 +69,7 @@ abstract class Envelope implements EnvelopeInterface
     }
 
     /**
-     * Sets soap message body
+     * Set soap message body
      *
      * @param  BodyInterface $body
      * @return self

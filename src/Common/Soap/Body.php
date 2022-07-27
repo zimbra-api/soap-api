@@ -55,6 +55,14 @@ abstract class Body implements BodyInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getFault(): ?Fault
+    {
+        return $this->fault;
+    }
+
+    /**
      * Set the soap fault
      *
      * @param  Response $fault
@@ -67,23 +75,12 @@ abstract class Body implements BodyInterface
     }
 
     /**
-     * Get the soap fault
-     *
-     * @return Fault
-     */
-    public function getFault(): ?Fault
-    {
-        return $this->fault;
-    }
-
-    /**
      * Set the request.
      *
      * @param  RequestInterface $request
      * @return self
      */
     abstract public function setRequest(RequestInterface $request): self;
-
 
     /**
      * Set the response.

@@ -10,8 +10,10 @@
 
 namespace Zimbra\Common\Soap;
 
+use Zimbra\Common\Soap\Header\Context;
+
 /**
- * Api interface
+ * Soap header interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,27 +21,12 @@ namespace Zimbra\Common\Soap;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ApiInterface
+interface HeaderInterface
 {
     /**
-     * Invoke the soap request.
+     * Get the header context
      *
-     * @param  RequestInterface $request
-     * @return ResponseInterface
+     * @return Context
      */
-    function invoke(RequestInterface $request): ?ResponseInterface;
-
-    /**
-     * Get the soap request header.
-     *
-     * @return Header
-     */
-    function getRequestHeader(): ?Header;
-
-    /**
-     * Get the soap response header.
-     *
-     * @return Header
-     */
-    function getResponseHeader(): ?Header;
+    function getContext(): ?Context;
 }

@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Soap;
 
 /**
- * Api interface
+ * Exception interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,27 +19,12 @@ namespace Zimbra\Common\Soap;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ApiInterface
+interface ExceptionInterface
 {
     /**
-     * Invoke the soap request.
+     * Get the soap false.
      *
-     * @param  RequestInterface $request
-     * @return ResponseInterface
+     * @return  Fault
      */
-    function invoke(RequestInterface $request): ?ResponseInterface;
-
-    /**
-     * Get the soap request header.
-     *
-     * @return Header
-     */
-    function getRequestHeader(): ?Header;
-
-    /**
-     * Get the soap response header.
-     *
-     * @return Header
-     */
-    function getResponseHeader(): ?Header;
+    function getSoapFault(): Fault;
 }

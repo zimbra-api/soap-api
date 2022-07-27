@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\Header\Context;
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
-class Header
+class Header implements HeaderInterface
 {
     /**
      * @Accessor(getter="getContext", setter="setContext")
@@ -34,7 +34,9 @@ class Header
     private ?Context $context = NULL;
 
     /**
-     * Constructor method for Header
+     * Constructor
+     * 
+     * @param  Context $context
      * @return self
      */
     public function __construct(?Context $context = NULL)
@@ -45,9 +47,7 @@ class Header
     }
 
     /**
-     * Gets header context
-     *
-     * @return Context
+     * {@inheritdoc}
      */
     public function getContext(): ?Context
     {

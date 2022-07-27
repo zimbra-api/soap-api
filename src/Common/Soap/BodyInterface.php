@@ -36,7 +36,7 @@ interface BodyInterface
     function getResponse(): ?ResponseInterface;
 
     /**
-     * Get the response.
+     * Get the soap false.
      *
      * @return  Fault
      */
