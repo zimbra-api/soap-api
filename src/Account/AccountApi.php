@@ -330,7 +330,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      * {@inheritdoc}
      */
     public function getInfo(
-        string $sections = NULL, string $rights = NULL
+        ?string $sections = NULL, ?string $rights = NULL
     ): ?Message\GetInfoResponse
     {
         return $this->invoke(new Message\GetInfoRequest(
