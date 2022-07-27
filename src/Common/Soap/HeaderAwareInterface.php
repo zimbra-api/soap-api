@@ -10,8 +10,10 @@
 
 namespace Zimbra\Common\Soap;
 
+use Zimbra\Common\Soap\Header\AccountInfo;
+
 /**
- * Api interface
+ * Header aware interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,27 +21,21 @@ namespace Zimbra\Common\Soap;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ApiInterface
+interface HeaderAwareInterface
 {
     /**
-     * Invoke the soap request.
+     * Set auth token to soap request header.
      *
-     * @param  RequestInterface $request
-     * @return ResponseInterface
+     * @param  string $token
+     * @return self
      */
-    function invoke(RequestInterface $request): ?ResponseInterface;
+    function setAuthToken(string $token): self;
 
     /**
-     * Get the soap request header.
+     * Set target account to soap request header.
      *
-     * @return Header
+     * @param  AccountInfo $account
+     * @return self
      */
-    function getRequestHeader(): ?Header;
-
-    /**
-     * Get the soap response header.
-     *
-     * @return Header
-     */
-    function getResponseHeader(): ?Header;
+    function setTargetAccount(AccountInfo $account): self;
 }

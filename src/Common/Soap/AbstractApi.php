@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\Header\{AccountInfo, Context};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-abstract class AbstractApi implements ApiInterface, LoggerAwareInterface
+abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
     const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
     const SERIALIZE_FORMAT  = 'xml';
