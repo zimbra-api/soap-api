@@ -211,6 +211,10 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
                 $this->responseHeader = $responseEnvelope->getHeader();
             }
             if ($responseEnvelope->getBody() instanceof BodyInterface) {
+                if ($responseEnvelope->getBody()->getFault() instanceof Fault) {
+                    throw new Exception($responseEnvelope->getBody()->getFault());
+                    
+                }
                 $soapResponse = $responseEnvelope->getBody()->getResponse();
             }
         }

@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Soap;
 
 /**
- * BodyInterface is a interface which define soap body struct
+ * Exception interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,26 +19,12 @@ namespace Zimbra\Common\Soap;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface BodyInterface
+interface ExceptionInterface
 {
-    /**
-     * Get the request.
-     *
-     * @return  RequestInterface
-     */
-    function getRequest(): ?RequestInterface;
-
-    /**
-     * Get the response.
-     *
-     * @return  ResponseInterface
-     */
-    function getResponse(): ?ResponseInterface;
-
     /**
      * Get the soap false.
      *
      * @return  Fault
      */
-    function getFault(): ?Fault;
+    function getSoapFault(): Fault;
 }
