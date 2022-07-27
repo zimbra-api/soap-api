@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use Zimbra\Common\Enum\ParticipationStatus;
 use Zimbra\Mail\Struct\{Msg, SetCalendarItemInfoTrait};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AddAppointmentInviteRequest class
@@ -28,7 +28,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AddAppointmentInviteRequest extends Request
+class AddAppointmentInviteRequest extends SoapRequest
 {
     use SetCalendarItemInfoTrait {
         SetCalendarItemInfoTrait::__construct as private __traitConstruct;
@@ -51,9 +51,9 @@ class AddAppointmentInviteRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new AddAppointmentInviteEnvelope(
             new AddAppointmentInviteBody($this)

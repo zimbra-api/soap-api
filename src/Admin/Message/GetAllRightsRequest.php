@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\RightClass;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAllRightsRequest class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetAllRightsRequest extends Request
+class GetAllRightsRequest extends SoapRequest
 {
     /**
      * Target type on which a right is grantable
@@ -152,9 +152,9 @@ class GetAllRightsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetAllRightsEnvelope(
             new GetAllRightsBody($this)

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetRightRequest class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetRightRequest extends Request
+class GetRightRequest extends SoapRequest
 {
     /**
      * whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes 
@@ -107,9 +107,9 @@ class GetRightRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetRightEnvelope(
             new GetRightBody($this)

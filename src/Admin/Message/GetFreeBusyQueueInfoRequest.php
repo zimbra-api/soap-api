@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetFreeBusyQueueInfoRequest request class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetFreeBusyQueueInfoRequest extends Request
+class GetFreeBusyQueueInfoRequest extends SoapRequest
 {
     /**
      * Provider
@@ -75,9 +75,9 @@ class GetFreeBusyQueueInfoRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetFreeBusyQueueInfoEnvelope(
             new GetFreeBusyQueueInfoBody($this)

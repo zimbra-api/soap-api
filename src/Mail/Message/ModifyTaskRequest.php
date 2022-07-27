@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * ModifyTaskRequest class
@@ -27,9 +27,9 @@ class ModifyTaskRequest extends ModifyAppointmentRequest
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ModifyTaskEnvelope(
             new ModifyTaskBody($this)

@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Enum\TargetType;
 use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetDelegatedAdminConstraintsRequest class
@@ -28,7 +28,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetDelegatedAdminConstraintsRequest extends Request
+class GetDelegatedAdminConstraintsRequest extends SoapRequest
 {
     /**
      * Target Type
@@ -192,9 +192,9 @@ class GetDelegatedAdminConstraintsRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetDelegatedAdminConstraintsEnvelope(
             new GetDelegatedAdminConstraintsBody($this)

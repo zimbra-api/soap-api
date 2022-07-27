@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     MailUnknownDataSource,
     MailDataSource
 };
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyDataSourceRequest class
@@ -37,7 +37,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ModifyDataSourceRequest extends Request
+class ModifyDataSourceRequest extends SoapRequest
 {
     /**
      * Specification of imap data source changes
@@ -258,9 +258,9 @@ class ModifyDataSourceRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ModifyDataSourceEnvelope(
             new ModifyDataSourceBody($this)

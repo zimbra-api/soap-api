@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Admin\Struct\CosCountInfo;
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * CountAccountResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CountAccountResponse implements ResponseInterface
+class CountAccountResponse implements SoapResponseInterface
 {
     /**
      * Account count information by Class Of Service (COS)

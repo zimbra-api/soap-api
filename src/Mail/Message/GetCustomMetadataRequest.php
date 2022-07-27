@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Struct\SectionAttr;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetCustomMetadataRequest class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetCustomMetadataRequest extends Request
+class GetCustomMetadataRequest extends SoapRequest
 {
     /**
      * Item ID
@@ -42,24 +42,22 @@ class GetCustomMetadataRequest extends Request
      * @Type("Zimbra\Common\Struct\SectionAttr")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SectionAttr $metadata = NULL;
+    private SectionAttr $metadata;
 
     /**
      * Constructor method for GetCustomMetadataRequest
      *
-     * @param  string $id
      * @param  SectionAttr $metadata
+     * @param  string $id
      * @return self
      */
     public function __construct(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     )
     {
+        $this->setMetadata($metadata);
         if (NULL !== $id) {
             $this->setId($id);
-        }
-        if ($metadata instanceof SectionAttr) {
-            $this->setMetadata($metadata);
         }
     }
 
@@ -90,7 +88,7 @@ class GetCustomMetadataRequest extends Request
      *
      * @return SectionAttr
      */
-    public function getMetadata(): ?SectionAttr
+    public function getMetadata(): SectionAttr
     {
         return $this->metadata;
     }
@@ -110,9 +108,9 @@ class GetCustomMetadataRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetCustomMetadataEnvelope(
             new GetCustomMetadataBody($this)

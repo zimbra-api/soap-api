@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
+use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
 
 /**
  * GetAllServersBody class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetAllServersBody extends Body
+class GetAllServersBody extends SoapBody
 {
     /**
      * @Accessor(getter="getRequest", setter="setRequest")
@@ -30,7 +30,7 @@ class GetAllServersBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllServersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?RequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAllServersBody extends Body
      * @Type("Zimbra\Admin\Message\GetAllServersResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?ResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor method for GetAllServersBody
@@ -50,7 +50,7 @@ class GetAllServersBody extends Body
         parent::__construct($request, $response);
     }
 
-    public function setRequest(RequestInterface $request): self
+    public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllServersRequest) {
             $this->request = $request;
@@ -58,12 +58,12 @@ class GetAllServersBody extends Body
         return $this;
     }
 
-    public function getRequest(): ?RequestInterface
+    public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
-    public function setResponse(ResponseInterface $response): self
+    public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllServersResponse) {
             $this->response = $response;
@@ -71,7 +71,7 @@ class GetAllServersBody extends Body
         return $this;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;
     }

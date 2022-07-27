@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail;
 
+use Zimbra\Account\AccountApiInterface;
 use Zimbra\Common\Enum\{
     BrowseBy,
     Channel,
@@ -26,13 +27,11 @@ use Zimbra\Common\Enum\{
     VerbType,
     WantRecipsSetting
 };
-
 use Zimbra\Common\Struct\{
     CursorInfo,
     Id,
     SectionAttr
 };
-
 use Zimbra\Mail\Struct\{
     AddedComment,
     AddMsgSpec,
@@ -86,8 +85,6 @@ use Zimbra\Mail\Struct\{
     TargetSpec
 };
 
-use Zimbra\Common\Soap\ApiInterface;
-
 /**
  * MailApiInterface interface
  *
@@ -96,7 +93,7 @@ use Zimbra\Common\Soap\ApiInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface MailApiInterface extends ApiInterface
+interface MailApiInterface extends AccountApiInterface
 {
     /**
      * Add an invite to an appointment.
@@ -902,7 +899,7 @@ interface MailApiInterface extends ApiInterface
      * @return Message\GetCustomMetadataResponse
      */
     function getCustomMetadata(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     ): ?Message\GetCustomMetadataResponse;
 
     /**
@@ -1049,7 +1046,7 @@ interface MailApiInterface extends ApiInterface
      * @param  SectionAttr $metadata
      * @return Message\GetMailboxMetadataResponse
      */
-    function getMailboxMetadata(?SectionAttr $metadata = NULL): ?Message\GetMailboxMetadataResponse;
+    function getMailboxMetadata(SectionAttr $metadata): ?Message\GetMailboxMetadataResponse;
 
     /**
      * Get information needed for Mini Calendar.
@@ -1905,12 +1902,12 @@ interface MailApiInterface extends ApiInterface
      * Set Custom Metadata
      * Setting a custom metadata section but providing no key/value pairs will remove the sction from the item
      *
-     * @param  string $id
      * @param  MailCustomMetadata $metadata
+     * @param  string $id
      * @return Message\SetCustomMetadataResponse
      */
     function setCustomMetadata(
-        string $id, ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id
     ): ?Message\SetCustomMetadataResponse;
 
     /**
@@ -1924,7 +1921,7 @@ interface MailApiInterface extends ApiInterface
      * @return Message\SetMailboxMetadataResponse
      */
     function setMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata
     ): ?Message\SetMailboxMetadataResponse;
 
     /**

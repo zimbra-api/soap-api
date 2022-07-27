@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetSpellDictionariesResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetSpellDictionariesResponse implements ResponseInterface
+class GetSpellDictionariesResponse implements SoapResponseInterface
 {
     /**
      * Dictionaries

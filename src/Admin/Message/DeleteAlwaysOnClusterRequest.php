@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * DeleteAlwaysOnClusterRequest class
@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class DeleteAlwaysOnClusterRequest extends Request
+class DeleteAlwaysOnClusterRequest extends SoapRequest
 {
     /**
      * Zimbra ID
@@ -72,9 +72,9 @@ class DeleteAlwaysOnClusterRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new DeleteAlwaysOnClusterEnvelope(
             new DeleteAlwaysOnClusterBody($this)

@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, AccessType, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\{ServiceStatus, TimeZoneInfo};
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetServiceStatusResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetServiceStatusResponse implements ResponseInterface
+class GetServiceStatusResponse implements SoapResponseInterface
 {
     /**
      * TimeZone information

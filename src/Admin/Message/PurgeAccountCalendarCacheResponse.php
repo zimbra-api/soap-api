@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * PurgeAccountCalendarCacheResponse class
@@ -21,6 +21,6 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class PurgeAccountCalendarCacheResponse implements ResponseInterface
+class PurgeAccountCalendarCacheResponse implements SoapResponseInterface
 {
 }

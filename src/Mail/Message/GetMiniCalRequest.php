@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\CalTZInfo;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetMiniCalRequest class
@@ -27,7 +27,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetMiniCalRequest extends Request
+class GetMiniCalRequest extends SoapRequest
 {
     /**
      * Range start time in milliseconds
@@ -194,9 +194,9 @@ class GetMiniCalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetMiniCalEnvelope(
             new GetMiniCalBody($this)

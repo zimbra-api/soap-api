@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateCosRequest class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CreateCosRequest extends Request implements AdminAttrs
+class CreateCosRequest extends SoapRequest implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -79,9 +79,9 @@ class CreateCosRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new CreateCosEnvelope(
             new CreateCosBody($this)

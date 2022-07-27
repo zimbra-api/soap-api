@@ -16,7 +16,7 @@ use JMS\Serializer\Annotation\{
 use Zimbra\Common\Enum\ShareAction;
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\EmailAddrInfo;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SendShareNotificationRequest class
@@ -29,7 +29,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SendShareNotificationRequest extends Request
+class SendShareNotificationRequest extends SoapRequest
 {
     /**
      * Item ID
@@ -197,9 +197,9 @@ class SendShareNotificationRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SendShareNotificationEnvelope(
             new SendShareNotificationBody($this)

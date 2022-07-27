@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
+use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
 
 /**
  * ModifyIdentityBody class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ModifyIdentityBody extends Body
+class ModifyIdentityBody extends SoapBody
 {
     /**
      * @Accessor(getter="getRequest", setter="setRequest")
@@ -30,7 +30,7 @@ class ModifyIdentityBody extends Body
      * @Type("Zimbra\Account\Message\ModifyIdentityRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?RequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifyIdentityBody extends Body
      * @Type("Zimbra\Account\Message\ModifyIdentityResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?ResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor method for ModifyIdentityBody
@@ -52,7 +52,7 @@ class ModifyIdentityBody extends Body
         parent::__construct($request, $response);
     }
 
-    public function setRequest(RequestInterface $request): self
+    public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyIdentityRequest) {
             $this->request = $request;
@@ -60,12 +60,12 @@ class ModifyIdentityBody extends Body
         return $this;
     }
 
-    public function getRequest(): ?RequestInterface
+    public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
-    public function setResponse(ResponseInterface $response): self
+    public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyIdentityResponse) {
             $this->response = $response;
@@ -73,7 +73,7 @@ class ModifyIdentityBody extends Body
         return $this;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;
     }

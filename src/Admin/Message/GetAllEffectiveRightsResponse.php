@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Admin\Struct\EffectiveRightsTarget;
 use Zimbra\Admin\Struct\GranteeInfo;
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * GetAllEffectiveRightsResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class GetAllEffectiveRightsResponse implements ResponseInterface
+class GetAllEffectiveRightsResponse implements SoapResponseInterface
 {
     /**
      * Grantee information

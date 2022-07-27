@@ -20,7 +20,7 @@ use Zimbra\Mail\Struct\Pop3DataSourceNameOrId;
 use Zimbra\Mail\Struct\RssDataSourceNameOrId;
 use Zimbra\Mail\Struct\UnknownDataSourceNameOrId;
 use Zimbra\Mail\Struct\YabDataSourceNameOrId;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ImportDataRequest class
@@ -35,7 +35,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ImportDataRequest extends Request
+class ImportDataRequest extends SoapRequest
 {
     /**
      * Imap data sources
@@ -380,9 +380,9 @@ class ImportDataRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ImportDataEnvelope(
             new ImportDataBody($this)

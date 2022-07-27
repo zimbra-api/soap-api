@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
+use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface};
 
 /**
  * RenameLDAPEntryBody class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\{Body, RequestInterface, ResponseInterface};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class RenameLDAPEntryBody extends Body
+class RenameLDAPEntryBody extends SoapBody
 {
     /**
      * @Accessor(getter="getRequest", setter="setRequest")
@@ -30,7 +30,7 @@ class RenameLDAPEntryBody extends Body
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?RequestInterface $request = NULL;
+    private ?SoapRequestInterface $request = NULL;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class RenameLDAPEntryBody extends Body
      * @Type("Zimbra\Admin\Message\RenameLDAPEntryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?ResponseInterface $response = NULL;
+    private ?SoapResponseInterface $response = NULL;
 
     /**
      * Constructor method for RenameLDAPEntryBody
@@ -52,7 +52,7 @@ class RenameLDAPEntryBody extends Body
         parent::__construct($request, $response);
     }
 
-    public function setRequest(RequestInterface $request): self
+    public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RenameLDAPEntryRequest) {
             $this->request = $request;
@@ -60,12 +60,12 @@ class RenameLDAPEntryBody extends Body
         return $this;
     }
 
-    public function getRequest(): ?RequestInterface
+    public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
-    public function setResponse(ResponseInterface $response): self
+    public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RenameLDAPEntryResponse) {
             $this->response = $response;
@@ -73,7 +73,7 @@ class RenameLDAPEntryBody extends Body
         return $this;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;
     }

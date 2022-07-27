@@ -380,7 +380,7 @@ interface AccountApiInterface extends ApiInterface
      * @return Message\GetInfoResponse
      */
     function getInfo(
-        string $sections = NULL, string $rights = NULL
+        ?string $sections = NULL, ?string $rights = NULL
     ): ?Message\GetInfoResponse;
 
     /**

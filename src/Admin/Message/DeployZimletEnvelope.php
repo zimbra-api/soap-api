@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
-use Zimbra\Common\Soap\{BodyInterface, Envelope, Header};
+use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * DeployZimletEnvelope class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{BodyInterface, Envelope, Header};
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
-class DeployZimletEnvelope extends Envelope
+class DeployZimletEnvelope extends SoapEnvelope
 {
     /**
      * @Accessor(getter="getBody", setter="setBody")
@@ -32,14 +32,14 @@ class DeployZimletEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\DeployZimletBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private ?BodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor method for DeployZimletEnvelope
      *
      * @return self
      */
-    public function __construct(?DeployZimletBody $body = NULL, ?Header $header = NULL)
+    public function __construct(?DeployZimletBody $body = NULL, ?SoapHeaderInterface $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -47,9 +47,9 @@ class DeployZimletEnvelope extends Envelope
     /**
      * Gets soap message body
      *
-     * @return BodyInterface
+     * @return SoapBodyInterface
      */
-    public function getBody(): ?BodyInterface
+    public function getBody(): ?SoapBodyInterface
     {
         return $this->body;
     }
@@ -57,10 +57,10 @@ class DeployZimletEnvelope extends Envelope
     /**
      * Sets soap message body
      *
-     * @param  BodyInterface $body
+     * @param  SoapBodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): self
+    public function setBody(SoapBodyInterface $body): self
     {
         if ($body instanceof DeployZimletBody) {
             $this->body = $body;

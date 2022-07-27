@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Enum\{GalSearchType, MemberOfSelector};
 use Zimbra\Common\Struct\CursorInfo;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchGalRequest class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SearchGalRequest extends Request
+class SearchGalRequest extends SoapRequest
 {
     /**
      * If set then search GAL by this ref, which is a dn.  If specified then "name" attribute is ignored.
@@ -588,9 +588,9 @@ class SearchGalRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SearchGalEnvelope(
             new SearchGalBody($this)

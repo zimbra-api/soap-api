@@ -12,9 +12,17 @@ namespace Zimbra\Common\Soap;
 
 use JMS\Serializer\SerializerInterface;
 use Psr\Log\{LoggerAwareInterface, LoggerInterface, NullLogger};
-use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Serializer\SerializerFactory;
-use Zimbra\Common\Soap\Header\{AccountInfo, Context};
+use Zimbra\Common\Struct\Header\{AccountInfo, Context};
+use Zimbra\Common\Struct\{
+    SoapBodyInterface,
+    SoapEnvelopeInterface,
+    SoapFaultInterface,
+    SoapHeader,
+    SoapHeaderInterface,
+    SoapRequestInterface,
+    SoapResponseInterface
+};
 
 /**
  * Base class which allows to manage Zimbra soap api
@@ -55,16 +63,16 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     /**
      * Request soap header
      * 
-     * @var Header
+     * @var SoapHeaderInterface
      */
-    private ?Header $requestHeader = NULL;
+    private ?SoapHeaderInterface $requestHeader = NULL;
 
     /**
      * Response soap header
      * 
-     * @var Header
+     * @var SoapHeaderInterface
      */
-    private ?Header $responseHeader = NULL;
+    private ?SoapHeaderInterface $responseHeader = NULL;
 
     /**
      * Constructor
@@ -126,7 +134,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     /**
      * {@inheritdoc}
      */
-    public function getRequestHeader(): ?Header
+    public function getRequestHeader(): ?SoapHeaderInterface
     {
         return $this->requestHeader;
     }
@@ -134,7 +142,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     /**
      * {@inheritdoc}
      */
-    public function getResponseHeader(): ?Header
+    public function getResponseHeader(): ?SoapHeaderInterface
     {
         return $this->responseHeader;
     }
@@ -170,24 +178,12 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     }
 
     /**
-     * Set target account to soap request header.
-     *
-     * @param string $account
-     * @return self
-     */
-    public function setTargetAccountByNameOrId(string $account)
-    {
-        $by = filter_var($account, FILTER_VALIDATE_EMAIL) ? AccountBy::NAME() : AccountBy::ID();
-        return $this->setTargetAccount(new AccountInfo($by, $account));
-    }
-
-    /**
      * {@inheritdoc}
      */
-    public function invoke(RequestInterface $request): ?ResponseInterface
+    public function invoke(SoapRequestInterface $request): ?SoapResponseInterface
     {
         $requestEnvelope = $request->getEnvelope();
-        if ($this->requestHeader instanceof Header) {
+        if ($this->requestHeader instanceof SoapHeaderInterface) {
             $requestEnvelope->setHeader($this->requestHeader);
         }
 
@@ -206,13 +202,13 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
-        if ($responseEnvelope instanceof EnvelopeInterface) {
-            if ($responseEnvelope->getHeader() instanceof HeaderInterface) {
+        if ($responseEnvelope instanceof SoapEnvelopeInterface) {
+            if ($responseEnvelope->getHeader() instanceof SoapHeaderInterface) {
                 $this->responseHeader = $responseEnvelope->getHeader();
             }
-            if ($responseEnvelope->getBody() instanceof BodyInterface) {
-                if ($responseEnvelope->getBody()->getFault() instanceof Fault) {
-                    throw new Exception($responseEnvelope->getBody()->getFault());
+            if ($responseEnvelope->getBody() instanceof SoapBodyInterface) {
+                if ($responseEnvelope->getBody()->getSoapFault() instanceof SoapFaultInterface) {
+                    throw new Exception($responseEnvelope->getBody()->getSoapFault());
                     
                 }
                 $soapResponse = $responseEnvelope->getBody()->getResponse();
@@ -241,8 +237,8 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
      */
     protected function initRequestHeader(): self
     {
-        if (!($this->requestHeader instanceof HeaderInterface)) {
-            $this->requestHeader = new Header(new Context());
+        if (!($this->requestHeader instanceof SoapHeaderInterface)) {
+            $this->requestHeader = new SoapHeader(new Context());
         }
         return $this;
     }

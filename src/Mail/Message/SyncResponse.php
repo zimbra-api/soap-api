@@ -25,7 +25,7 @@ use Zimbra\Mail\Struct\{
     MessageSummary,
     ChatSummary
 };
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * SyncResponse class
@@ -36,7 +36,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SyncResponse implements ResponseInterface
+class SyncResponse implements SoapResponseInterface
 {
     /**
      * Change date

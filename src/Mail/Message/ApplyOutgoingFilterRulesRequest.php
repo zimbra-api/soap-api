@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
 use Zimbra\Common\Struct\NamedElement;
 use Zimbra\Mail\Struct\IdsAttr;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ApplyOutgoingFilterRulesRequest class
@@ -29,7 +29,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ApplyOutgoingFilterRulesRequest extends Request
+class ApplyOutgoingFilterRulesRequest extends SoapRequest
 {
     /**
      * Filter rules
@@ -162,9 +162,9 @@ class ApplyOutgoingFilterRulesRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ApplyOutgoingFilterRulesEnvelope(
             new ApplyOutgoingFilterRulesBody($this)

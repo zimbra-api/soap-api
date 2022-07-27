@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Account\Struct\EntrySearchFilterInfo;
 use Zimbra\Common\Struct\{AttributeSelector, AttributeSelectorTrait, CursorInfo};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SearchCalendarResourcesRequest class
@@ -26,7 +26,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SearchCalendarResourcesRequest extends Request implements AttributeSelector
+class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSelector
 {
     use AttributeSelectorTrait;
 
@@ -377,9 +377,9 @@ class SearchCalendarResourcesRequest extends Request implements AttributeSelecto
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SearchCalendarResourcesEnvelope(
             new SearchCalendarResourcesBody($this)

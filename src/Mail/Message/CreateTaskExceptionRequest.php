@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * CreateTaskExceptionRequest class
@@ -28,9 +28,9 @@ class CreateTaskExceptionRequest extends CreateAppointmentExceptionRequest
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new CreateTaskExceptionEnvelope(
             new CreateTaskExceptionBody($this)

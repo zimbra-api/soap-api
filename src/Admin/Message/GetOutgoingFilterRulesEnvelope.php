@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
-use Zimbra\Common\Soap\{BodyInterface, Envelope, Header};
+use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 
 /**
  * GetOutgoingFilterRulesEnvelope class
@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\{BodyInterface, Envelope, Header};
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn1")
  * @XmlRoot(name="soap:Envelope")
  */
-class GetOutgoingFilterRulesEnvelope extends Envelope
+class GetOutgoingFilterRulesEnvelope extends SoapEnvelope
 {
     /**
      * @Accessor(getter="getBody", setter="setBody")
@@ -33,14 +33,14 @@ class GetOutgoingFilterRulesEnvelope extends Envelope
      * @Type("Zimbra\Admin\Message\GetOutgoingFilterRulesBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private ?BodyInterface $body = NULL;
+    private ?SoapBodyInterface $body = NULL;
 
     /**
      * Constructor method for GetOutgoingFilterRulesEnvelope
      *
      * @return self
      */
-    public function __construct(?GetOutgoingFilterRulesBody $body = NULL, ?Header $header = NULL)
+    public function __construct(?GetOutgoingFilterRulesBody $body = NULL, ?SoapHeaderInterface $header = NULL)
     {
         parent::__construct($body, $header);
     }
@@ -48,9 +48,9 @@ class GetOutgoingFilterRulesEnvelope extends Envelope
     /**
      * Gets soap message body
      *
-     * @return BodyInterface
+     * @return SoapBodyInterface
      */
-    public function getBody(): ?BodyInterface
+    public function getBody(): ?SoapBodyInterface
     {
         return $this->body;
     }
@@ -58,10 +58,10 @@ class GetOutgoingFilterRulesEnvelope extends Envelope
     /**
      * Sets soap message body
      *
-     * @param  BodyInterface $body
+     * @param  SoapBodyInterface $body
      * @return self
      */
-    public function setBody(BodyInterface $body): self
+    public function setBody(SoapBodyInterface $body): self
     {
         if ($body instanceof GetOutgoingFilterRulesBody) {
             $this->body = $body;

@@ -27,7 +27,7 @@ use Zimbra\Mail\Struct\{
     TaskHitInfo,
     SearchQueryInfo
 };
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * SearchResponse class
@@ -38,7 +38,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SearchResponse implements ResponseInterface
+class SearchResponse implements SoapResponseInterface
 {
     /**
      * What to sort by.  Default is "dateDesc"

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * RenameLDAPEntryRequest class
@@ -23,7 +23,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class RenameLDAPEntryRequest extends Request
+class RenameLDAPEntryRequest extends SoapRequest
 {
     /**
      * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
@@ -103,9 +103,9 @@ class RenameLDAPEntryRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new RenameLDAPEntryEnvelope(
             new RenameLDAPEntryBody($this)

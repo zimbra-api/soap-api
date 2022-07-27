@@ -10,6 +10,8 @@
 
 namespace Zimbra\Common\Soap;
 
+use Zimbra\Common\Struct\SoapFaultInterface;
+
 /**
  * Exception class.
  * 
@@ -24,16 +26,16 @@ class Exception extends \RuntimeException implements ExceptionInterface
     /**
      * Soap fault
      * 
-     * @var Fault
+     * @var SoapFaultInterface
      */
-    private Fault $soapFault;
+    private SoapFaultInterface $soapFault;
 
     /**
      * Constructor
      * 
      * @param string $serviceUrl
      */
-    public function __construct(Fault $soapFault)
+    public function __construct(SoapFaultInterface $soapFault)
     {
         parent::__construct($soapFault->faultString());
         $this->getSoapFault = $soapFault;
@@ -42,7 +44,7 @@ class Exception extends \RuntimeException implements ExceptionInterface
     /**
      * {@inheritdoc}
      */
-    public function getSoapFault(): Fault
+    public function getSoapFault(): SoapFaultInterface
     {
         return $this->getSoapFault;
     }

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * GetAllCalendarResourcesRequest class
@@ -27,9 +27,9 @@ class GetAllCalendarResourcesRequest extends GetAllAccountsRequest
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new GetAllCalendarResourcesEnvelope(
             new GetAllCalendarResourcesBody($this)

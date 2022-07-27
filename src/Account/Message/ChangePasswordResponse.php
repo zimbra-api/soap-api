@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * ChangePasswordResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ChangePasswordResponse implements ResponseInterface
+class ChangePasswordResponse implements SoapResponseInterface
 {
     /**
      * New authToken, as old authToken is invalidated on password change.

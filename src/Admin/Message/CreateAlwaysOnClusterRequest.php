@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * CreateAlwaysOnClusterRequest class
@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
+class CreateAlwaysOnClusterRequest extends SoapRequest implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -78,9 +78,9 @@ class CreateAlwaysOnClusterRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new CreateAlwaysOnClusterEnvelope(
             new CreateAlwaysOnClusterBody($this)

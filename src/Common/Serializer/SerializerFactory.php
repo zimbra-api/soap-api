@@ -20,7 +20,7 @@ use Zimbra\Common\Serializer\{
 };
 
 /**
- * SerializerFactory class.
+ * Serializer factory class.
  * 
  * @package    Zimbra
  * @subpackage Common
@@ -30,24 +30,72 @@ use Zimbra\Common\Serializer\{
  */
 final class SerializerFactory
 {
+    /**
+     * Serializer builder
+     *
+     * @var SerializerBuilder
+     */
     private static $builder;
 
+    /**
+     * Debug mode
+     *
+     * @var bool
+     */
+    private static $debug = FALSE;
+
+    /**
+     * Cache dir
+     * 
+     * @var string
+     */
+    private static $cacheDir = NULL;
+
+    /**
+     * List of serializer handlers.
+     *
+     * @var array
+     */
     private static $serializerHandlers = [];
+
+    public static function setDebugMode(bool $debug)
+    {
+        self::$debug = $debug;
+    }
+
+    public static function setCacheDir(string $cacheDir)
+    {
+        self::$cacheDir = $cacheDir;
+    }
 
     public static function addSerializerHandler(SubscribingHandlerInterface $handler)
     {
         self::$serializerHandlers[] = $handler;
     }
 
+    public static function setSerializerHandler(array $handlers = [])
+    {
+        self::$serializerHandlers = array_filter(
+            $handlers, static fn ($handler) => $handler instanceof SubscribingHandlerInterface
+        );
+    }
+
     public static function create(): SerializerInterface
     {
-        if (NULL === self::$builder) {
+        if (!(self::$builder instanceof SerializerBuilder)) {
             AnnotationRegistry::registerLoader('class_exists');
 
             self::$builder = SerializerBuilder::create()
                 ->addDefaultHandlers()
                 ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory())
                 ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory());
+        }
+
+        if (self::$debug) {
+            self::$builder->setDebug(self::$debug);
+        }
+        if (NULL !== self::$cacheDir) {
+            self::$builder->setCacheDir(self::$cacheDir);
         }
 
         return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {

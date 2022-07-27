@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Soap\ResponseInterface;
+use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
  * SetPasswordResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Soap\ResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SetPasswordResponse implements ResponseInterface
+class SetPasswordResponse implements SoapResponseInterface
 {
     /**
      * If the password had violated any policy, it is returned in this> element, and the password is still set successfully.

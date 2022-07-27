@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyConfigRequest class
@@ -24,7 +24,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class ModifyConfigRequest extends Request implements AdminAttrs
+class ModifyConfigRequest extends SoapRequest implements AdminAttrs
 {
     use AdminAttrsImplTrait;
 
@@ -42,9 +42,9 @@ class ModifyConfigRequest extends Request implements AdminAttrs
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new ModifyConfigEnvelope(
             new ModifyConfigBody($this)

@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Mail\Struct\MailCustomMetadata;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SetCustomMetadataRequest class
@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SetCustomMetadataRequest extends Request
+class SetCustomMetadataRequest extends SoapRequest
 {
     /**
      * Item ID
@@ -45,23 +45,21 @@ class SetCustomMetadataRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?MailCustomMetadata $metadata = NULL;
+    private MailCustomMetadata $metadata;
 
     /**
      * Constructor method for SetCustomMetadataRequest
      *
-     * @param  string $id
      * @param  MailCustomMetadata $metadata
+     * @param  string $id
      * @return self
      */
     public function __construct(
-        string $id = '', ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id = ''
     )
     {
-        $this->setId($id);
-        if ($metadata instanceof MailCustomMetadata) {
-            $this->setMetadata($metadata);
-        }
+        $this->setId($id)
+             ->setMetadata($metadata);
     }
 
     /**
@@ -91,7 +89,7 @@ class SetCustomMetadataRequest extends Request
      *
      * @return MailCustomMetadata
      */
-    public function getMetadata(): ?MailCustomMetadata
+    public function getMetadata(): MailCustomMetadata
     {
         return $this->metadata;
     }
@@ -111,9 +109,9 @@ class SetCustomMetadataRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SetCustomMetadataEnvelope(
             new SetCustomMetadataBody($this)

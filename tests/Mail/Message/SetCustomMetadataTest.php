@@ -27,10 +27,10 @@ class SetCustomMetadataTest extends ZimbraTestCase
 
         $meta = new MailCustomMetadata($section, [new KeyValuePair($key, $value)]);
 
-        $request = new SetCustomMetadataRequest($id, $meta);
+        $request = new SetCustomMetadataRequest($meta, $id);
         $this->assertSame($id, $request->getId());
         $this->assertSame($meta, $request->getMetadata());
-        $request = new SetCustomMetadataRequest();
+        $request = new SetCustomMetadataRequest(new MailCustomMetadata());
         $request->setId($id)->setMetadata($meta);
         $this->assertSame($id, $request->getId());
         $this->assertSame($meta, $request->getMetadata());

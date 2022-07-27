@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail;
 
-use Zimbra\Common\Soap\AbstractApi;
-
+use Zimbra\Account\AccountApi;
 use Zimbra\Common\Enum\{
     BrowseBy,
     Channel,
@@ -28,13 +27,11 @@ use Zimbra\Common\Enum\{
     VerbType,
     WantRecipsSetting
 };
-
 use Zimbra\Common\Struct\{
     CursorInfo,
     Id,
     SectionAttr
 };
-
 use Zimbra\Mail\Struct\{
     AddedComment,
     AddMsgSpec,
@@ -96,7 +93,7 @@ use Zimbra\Mail\Struct\{
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-class MailApi extends AbstractApi implements MailApiInterface
+class MailApi extends AccountApi implements MailApiInterface
 {
     /**
      * {@inheritdoc}
@@ -731,10 +728,10 @@ class MailApi extends AbstractApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function getCustomMetadata(
-        ?string $id = NULL, ?SectionAttr $metadata = NULL
+        SectionAttr $metadata, ?string $id = NULL
     ): ?Message\GetCustomMetadataResponse
     {
-        return $this->invoke(new Message\GetCustomMetadataRequest($id, $metadata));
+        return $this->invoke(new Message\GetCustomMetadataRequest($metadata, $id));
     }
 
     /**
@@ -870,7 +867,7 @@ class MailApi extends AbstractApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getMailboxMetadata(?SectionAttr $metadata = NULL): ?Message\GetMailboxMetadataResponse
+    public function getMailboxMetadata(SectionAttr $metadata): ?Message\GetMailboxMetadataResponse
     {
         return $this->invoke(new Message\GetMailboxMetadataRequest($metadata));
     }
@@ -1617,17 +1614,17 @@ class MailApi extends AbstractApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function setCustomMetadata(
-        string $id, ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id
     ): ?Message\SetCustomMetadataResponse
     {
-        return $this->invoke(new Message\SetCustomMetadataRequest($id, $metadata));
+        return $this->invoke(new Message\SetCustomMetadataRequest($metadata, $id));
     }
 
     /**
      * {@inheritdoc}
      */
     public function setMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata
     ): ?Message\SetMailboxMetadataResponse
     {
         return $this->invoke(new Message\SetMailboxMetadataRequest($metadata));

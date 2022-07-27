@@ -3,7 +3,7 @@
 namespace Zimbra\Tests\Mail\Struct;
 
 use Zimbra\Mail\Struct\GetCalendarItemRequestBase;
-use Zimbra\Common\Soap\EnvelopeInterface;
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -46,7 +46,7 @@ EOT;
 
 class GetCalendarRequest extends GetCalendarItemRequestBase
 {
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
     }
 }

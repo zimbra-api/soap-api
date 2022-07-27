@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\VerbType;
 use Zimbra\Mail\Struct\{CalTZInfo, DtTimeInfo, Msg};
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SendInviteReplyRequest class
@@ -25,7 +25,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class SendInviteReplyRequest extends Request
+class SendInviteReplyRequest extends SoapRequest
 {
     /**
      * Unique ID of the invite (and component therein) you are replying to
@@ -334,9 +334,9 @@ class SendInviteReplyRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new SendInviteReplyEnvelope(
             new SendInviteReplyBody($this)

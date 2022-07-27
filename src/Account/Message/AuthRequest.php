@@ -13,10 +13,11 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{Attr, AuthToken, PreAuth, Pref};
 use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Common\Soap\{EnvelopeInterface, Request};
+use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AuthRequest class
+ * 
  * Authenticate for an account
  * when specifying an account, one of <password> or <preauth> or <recoveryCode> must be specified. See preauth.txt for a discussion of preauth.
  * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
@@ -31,7 +32,7 @@ use Zimbra\Common\Soap\{EnvelopeInterface, Request};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
  */
-class AuthRequest extends Request
+class AuthRequest extends SoapRequest
 {
     /**
      * Controls whether the auth token cookie in the response should be persisted when the browser exits.
@@ -719,9 +720,9 @@ class AuthRequest extends Request
     /**
      * Initialize the soap envelope
      *
-     * @return EnvelopeInterface
+     * @return SoapEnvelopeInterface
      */
-    protected function envelopeInit(): EnvelopeInterface
+    protected function envelopeInit(): SoapEnvelopeInterface
     {
         return new AuthEnvelope(
             new AuthBody($this)
