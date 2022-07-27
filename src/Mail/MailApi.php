@@ -10,8 +10,7 @@
 
 namespace Zimbra\Mail;
 
-use Zimbra\Common\Soap\AbstractApi;
-
+use Zimbra\Account\AccountApi;
 use Zimbra\Common\Enum\{
     BrowseBy,
     Channel,
@@ -28,13 +27,11 @@ use Zimbra\Common\Enum\{
     VerbType,
     WantRecipsSetting
 };
-
 use Zimbra\Common\Struct\{
     CursorInfo,
     Id,
     SectionAttr
 };
-
 use Zimbra\Mail\Struct\{
     AddedComment,
     AddMsgSpec,
@@ -96,7 +93,7 @@ use Zimbra\Mail\Struct\{
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2020 by Nguyen Van Nguyen.
  */
-class MailApi extends AbstractApi implements MailApiInterface
+class MailApi extends AccountApi implements MailApiInterface
 {
     /**
      * {@inheritdoc}

@@ -10,6 +10,7 @@
 
 namespace Zimbra\Mail;
 
+use Zimbra\Account\AccountApiInterface;
 use Zimbra\Common\Enum\{
     BrowseBy,
     Channel,
@@ -26,13 +27,11 @@ use Zimbra\Common\Enum\{
     VerbType,
     WantRecipsSetting
 };
-
 use Zimbra\Common\Struct\{
     CursorInfo,
     Id,
     SectionAttr
 };
-
 use Zimbra\Mail\Struct\{
     AddedComment,
     AddMsgSpec,
@@ -86,8 +85,6 @@ use Zimbra\Mail\Struct\{
     TargetSpec
 };
 
-use Zimbra\Common\Soap\ApiInterface;
-
 /**
  * MailApiInterface interface
  *
@@ -96,7 +93,7 @@ use Zimbra\Common\Soap\ApiInterface;
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
  */
-interface MailApiInterface extends ApiInterface
+interface MailApiInterface extends AccountApiInterface
 {
     /**
      * Add an invite to an appointment.

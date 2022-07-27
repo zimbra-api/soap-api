@@ -34,6 +34,12 @@ class Client implements ClientInterface
     private $serviceUrl;
 
     /**
+     * Http cookie
+     * @var string
+     */
+    private $cookie;
+
+    /**
      * Http client
      * @var HttpClient
      */
@@ -99,9 +105,15 @@ class Client implements ClientInterface
         foreach ($headers as $name => $value) {
             $request = $request->withHeader($name, $value);
         }
+        if (!empty($this->cookie)) {
+            $request = $request->withHeader('Cookie', $this->cookie);
+        }
         $this->request = $request;
         try {
             $this->response = $this->httpClient->sendRequest($this->request);
+            if ($this->response->hasHeader('Set-Cookie')) {
+                $this->cookie = implode(', ', $this->response->getHeader('Set-Cookie'));
+            }
         }
         catch (ClientExceptionInterface $ex) {
             throw $ex;
