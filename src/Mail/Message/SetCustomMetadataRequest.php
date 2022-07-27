@@ -45,23 +45,21 @@ class SetCustomMetadataRequest extends Request
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?MailCustomMetadata $metadata = NULL;
+    private MailCustomMetadata $metadata;
 
     /**
      * Constructor method for SetCustomMetadataRequest
      *
-     * @param  string $id
      * @param  MailCustomMetadata $metadata
+     * @param  string $id
      * @return self
      */
     public function __construct(
-        string $id = '', ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id = ''
     )
     {
-        $this->setId($id);
-        if ($metadata instanceof MailCustomMetadata) {
-            $this->setMetadata($metadata);
-        }
+        $this->setId($id)
+             ->setMetadata($metadata);
     }
 
     /**
@@ -91,7 +89,7 @@ class SetCustomMetadataRequest extends Request
      *
      * @return MailCustomMetadata
      */
-    public function getMetadata(): ?MailCustomMetadata
+    public function getMetadata(): MailCustomMetadata
     {
         return $this->metadata;
     }

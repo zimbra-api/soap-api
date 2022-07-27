@@ -33,7 +33,7 @@ class GetMailboxMetadataRequest extends Request
      * @Type("Zimbra\Common\Struct\SectionAttr")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SectionAttr $metadata = NULL;
+    private SectionAttr $metadata;
 
     /**
      * Constructor method for GetMailboxMetadataRequest
@@ -41,25 +41,23 @@ class GetMailboxMetadataRequest extends Request
      * @param  SectionAttr $metadata
      * @return self
      */
-    public function __construct(?SectionAttr $metadata = NULL)
+    public function __construct(SectionAttr $metadata)
     {
-        if ($metadata instanceof SectionAttr) {
-            $this->setMetadata($metadata);
-        }
+        $this->setMetadata($metadata);
     }
 
     /**
-     * Gets metadata
+     * Get metadata
      *
      * @return SectionAttr
      */
-    public function getMetadata(): ?SectionAttr
+    public function getMetadata(): SectionAttr
     {
         return $this->metadata;
     }
 
     /**
-     * Sets metadata
+     * Set metadata
      *
      * @param  SectionAttr $metadata
      * @return self

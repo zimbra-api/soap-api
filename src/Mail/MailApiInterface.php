@@ -1046,7 +1046,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  SectionAttr $metadata
      * @return Message\GetMailboxMetadataResponse
      */
-    function getMailboxMetadata(?SectionAttr $metadata = NULL): ?Message\GetMailboxMetadataResponse;
+    function getMailboxMetadata(SectionAttr $metadata): ?Message\GetMailboxMetadataResponse;
 
     /**
      * Get information needed for Mini Calendar.
@@ -1902,12 +1902,12 @@ interface MailApiInterface extends AccountApiInterface
      * Set Custom Metadata
      * Setting a custom metadata section but providing no key/value pairs will remove the sction from the item
      *
-     * @param  string $id
      * @param  MailCustomMetadata $metadata
+     * @param  string $id
      * @return Message\SetCustomMetadataResponse
      */
     function setCustomMetadata(
-        string $id, ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id
     ): ?Message\SetCustomMetadataResponse;
 
     /**
@@ -1921,7 +1921,7 @@ interface MailApiInterface extends AccountApiInterface
      * @return Message\SetMailboxMetadataResponse
      */
     function setMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata
     ): ?Message\SetMailboxMetadataResponse;
 
     /**

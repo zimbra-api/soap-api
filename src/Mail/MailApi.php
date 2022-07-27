@@ -867,7 +867,7 @@ class MailApi extends AccountApi implements MailApiInterface
     /**
      * {@inheritdoc}
      */
-    public function getMailboxMetadata(?SectionAttr $metadata = NULL): ?Message\GetMailboxMetadataResponse
+    public function getMailboxMetadata(SectionAttr $metadata): ?Message\GetMailboxMetadataResponse
     {
         return $this->invoke(new Message\GetMailboxMetadataRequest($metadata));
     }
@@ -1614,17 +1614,17 @@ class MailApi extends AccountApi implements MailApiInterface
      * {@inheritdoc}
      */
     public function setCustomMetadata(
-        string $id, ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata, string $id
     ): ?Message\SetCustomMetadataResponse
     {
-        return $this->invoke(new Message\SetCustomMetadataRequest($id, $metadata));
+        return $this->invoke(new Message\SetCustomMetadataRequest($metadata, $id));
     }
 
     /**
      * {@inheritdoc}
      */
     public function setMailboxMetadata(
-        ?MailCustomMetadata $metadata = NULL
+        MailCustomMetadata $metadata
     ): ?Message\SetMailboxMetadataResponse
     {
         return $this->invoke(new Message\SetMailboxMetadataRequest($metadata));

@@ -28,7 +28,7 @@ class GetMailboxMetadataTest extends ZimbraTestCase
         $meta = new SectionAttr($section);
         $request = new GetMailboxMetadataRequest($meta);
         $this->assertSame($meta, $request->getMetadata());
-        $request = new GetMailboxMetadataRequest();
+        $request = new GetMailboxMetadataRequest(new SectionAttr());
         $request->setMetadata($meta);
         $this->assertSame($meta, $request->getMetadata());
 

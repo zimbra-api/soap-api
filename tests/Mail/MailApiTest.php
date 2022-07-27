@@ -3242,7 +3242,7 @@ EOT;
 EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
-        $response = $api->getMailboxMetadata();
+        $response = $api->getMailboxMetadata(new \Zimbra\Common\Struct\SectionAttr());
         $meta = new \Zimbra\Mail\Struct\MailCustomMetadata(
             $section, [new \Zimbra\Common\Struct\KeyValuePair($key, $value)]
         );
@@ -5901,7 +5901,7 @@ EOT;
 EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
-        $response = $api->setCustomMetadata($id);
+        $response = $api->setCustomMetadata(new \Zimbra\Mail\Struct\MailCustomMetadata(), $id);
         $this->assertSame($id, $response->getId());
     }
 
@@ -5917,7 +5917,7 @@ EOT;
 EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
-        $response = $api->setMailboxMetadata();
+        $response = $api->setMailboxMetadata(new \Zimbra\Mail\Struct\MailCustomMetadata());
         $this->assertTrue($response instanceof \Zimbra\Mail\Message\SetMailboxMetadataResponse);
     }
 
