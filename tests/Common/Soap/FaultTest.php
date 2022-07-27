@@ -66,7 +66,6 @@ class FaultTest extends ZimbraTestCase
     </soap:Body>
 </soap:Envelope>
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, FaultEnvelope::class, 'xml'));
     }
 }

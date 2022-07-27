@@ -237,7 +237,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
      */
     protected function initRequestHeader(): self
     {
-        if (!($this->requestHeader instanceof Header)) {
+        if (!($this->requestHeader instanceof HeaderInterface)) {
             $this->requestHeader = new Header(new Context());
         }
         return $this;
