@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "zimbra-api/struct": "self.version"
+        "php": ">=7.4",
+        "zimbra-api/common": "self.version"
     },
     "autoload": {
         "psr-4": { "Zimbra\\Account\\": "" }
