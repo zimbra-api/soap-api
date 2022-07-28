@@ -14,7 +14,7 @@ class MailApiTest extends ZimbraTestCase
     public function testMailApi()
     {
         $api = $this->createStub(MailApi::class);
-        $this->assertTrue($api instanceof MailApiInterface);
+        $this->assertInstanceOf(MailApiInterface::class, $api);
     }
 
     public function testAddAppointmentInvite()
@@ -135,7 +135,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->announceOrganizerChange($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\AnnounceOrganizerChangeResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\AnnounceOrganizerChangeResponse::class, $response);
     }
 
     public function testApplyFilterRules()
@@ -236,7 +236,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->beginTrackingIMAP();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\BeginTrackingIMAPResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\BeginTrackingIMAPResponse::class, $response);
     }
 
     public function testBounceMsg()
@@ -252,7 +252,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->bounceMsg(new \Zimbra\Mail\Struct\BounceMsgSpec());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\BounceMsgResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\BounceMsgResponse::class, $response);
     }
 
     public function testBrowse()
@@ -291,7 +291,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->cancelAppointment();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\CancelAppointmentResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\CancelAppointmentResponse::class, $response);
     }
 
     public function testCancelTask()
@@ -307,7 +307,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->cancelTask();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\CancelTaskResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\CancelTaskResponse::class, $response);
     }
 
     public function testCheckPermission()
@@ -395,7 +395,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->completeTaskInstance(new \Zimbra\Mail\Struct\DtTimeInfo(), $this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\CompleteTaskInstanceResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\CompleteTaskInstanceResponse::class, $response);
     }
 
     public function testContactAction()
@@ -466,7 +466,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->counterAppointment();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\CounterAppointmentResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\CounterAppointmentResponse::class, $response);
     }
 
     public function testCreateAppointmentException()
@@ -1273,7 +1273,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->declineCounterAppointment();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\DeclineCounterAppointmentResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\DeclineCounterAppointmentResponse::class, $response);
     }
 
     public function testDeleteDataSource()
@@ -1289,7 +1289,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->deleteDataSource();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\DeleteDataSourceResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\DeleteDataSourceResponse::class, $response);
     }
 
     public function testDestroyWaitSet()
@@ -1450,7 +1450,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->emptyDumpster();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\EmptyDumpsterResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\EmptyDumpsterResponse::class, $response);
     }
 
     public function testEnableSharedReminder()
@@ -1466,7 +1466,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->enableSharedReminder(new \Zimbra\Mail\Struct\SharedReminderMount());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\EnableSharedReminderResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\EnableSharedReminderResponse::class, $response);
     }
 
     public function testExpandRecur()
@@ -1561,7 +1561,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->forwardAppointmentInvite();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ForwardAppointmentInviteResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ForwardAppointmentInviteResponse::class, $response);
     }
 
     public function testForwardAppointment()
@@ -1577,7 +1577,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->forwardAppointment();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ForwardAppointmentResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ForwardAppointmentResponse::class, $response);
     }
 
     public function testGenerateUUID()
@@ -4548,7 +4548,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->iCalReply($this->faker->text);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ICalReplyResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ICalReplyResponse::class, $response);
     }
 
     public function testIMAPCopy()
@@ -4628,7 +4628,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->importData();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ImportDataResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ImportDataResponse::class, $response);
     }
 
     public function testInvalidateReminderDevice()
@@ -4644,7 +4644,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->invalidateReminderDevice($this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\InvalidateReminderDeviceResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\InvalidateReminderDeviceResponse::class, $response);
     }
 
     public function testItemAction()
@@ -4892,7 +4892,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->modifyDataSource(new \Zimbra\Mail\Struct\MailImapDataSource($this->faker->uuid));
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyDataSourceResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ModifyDataSourceResponse::class, $response);
     }
 
     public function testModifyFilterRules()
@@ -4908,7 +4908,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->modifyFilterRules();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyFilterRulesResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ModifyFilterRulesResponse::class, $response);
     }
 
     public function testModifyMailboxMetadata()
@@ -4924,7 +4924,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->modifyMailboxMetadata(new \Zimbra\Mail\Struct\MailCustomMetadata());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyMailboxMetadataResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ModifyMailboxMetadataResponse::class, $response);
     }
 
     public function testModifyOutgoingFilterRules()
@@ -4940,7 +4940,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->modifyOutgoingFilterRules();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ModifyOutgoingFilterRulesResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ModifyOutgoingFilterRulesResponse::class, $response);
     }
 
     public function testModifyProfileImage()
@@ -5195,7 +5195,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->purgeRevision(new \Zimbra\Mail\Struct\PurgeRevisionSpec());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\PurgeRevisionResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\PurgeRevisionResponse::class, $response);
     }
 
     public function testRankingAction()
@@ -5211,7 +5211,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->rankingAction(new \Zimbra\Mail\Struct\RankingActionSpec());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\RankingActionResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\RankingActionResponse::class, $response);
     }
 
     public function testRecordIMAPSession()
@@ -5368,7 +5368,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->resetRecentMessageCount();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\ResetRecentMessageCountResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\ResetRecentMessageCountResponse::class, $response);
     }
 
     public function testRestoreContacts()
@@ -5384,7 +5384,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->restoreContacts($this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\RestoreContactsResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\RestoreContactsResponse::class, $response);
     }
 
     public function testRevokePermission()
@@ -5554,7 +5554,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->saveIMAPSubscriptions();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SaveIMAPSubscriptionsResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SaveIMAPSubscriptionsResponse::class, $response);
     }
 
     public function testSearchAction()
@@ -5572,7 +5572,7 @@ EOT;
         $response = $api->searchAction(
             new \Zimbra\Mail\Message\SearchRequest(), new \Zimbra\Mail\Struct\BulkAction()
         );
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SearchActionResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SearchActionResponse::class, $response);
     }
 
     public function testSearch()
@@ -5686,7 +5686,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->sendDeliveryReport($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendDeliveryReportResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SendDeliveryReportResponse::class, $response);
     }
 
     public function testSendInviteReply()
@@ -5837,7 +5837,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->sendShareNotification(new \Zimbra\Common\Struct\Id());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendShareNotificationResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SendShareNotificationResponse::class, $response);
     }
 
     public function testSendVerificationCode()
@@ -5853,7 +5853,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->sendVerificationCode($this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SendVerificationCodeResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SendVerificationCodeResponse::class, $response);
     }
 
     public function testSetAppointment()
@@ -5918,7 +5918,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->setMailboxMetadata(new \Zimbra\Mail\Struct\MailCustomMetadata());
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SetMailboxMetadataResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SetMailboxMetadataResponse::class, $response);
     }
 
     public function testSetRecoveryAccount()
@@ -5934,7 +5934,7 @@ EOT;
 
         $api = new StubMailApi($this->mockSoapClient($xml));
         $response = $api->setRecoveryAccount();
-        $this->assertTrue($response instanceof \Zimbra\Mail\Message\SetRecoveryAccountResponse);
+        $this->assertInstanceOf(\Zimbra\Mail\Message\SetRecoveryAccountResponse::class, $response);
     }
 
     public function testSetTask()

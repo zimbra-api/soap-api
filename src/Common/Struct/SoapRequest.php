@@ -26,17 +26,15 @@ abstract class SoapRequest implements SoapRequestInterface
     use WithRequestIdTrait;
 
     /**
-     * @var SoapEnvelopeInterface
      * @Exclude
+     * @var SoapEnvelopeInterface
      */
     private ?SoapEnvelopeInterface $soapEnvelope = NULL;
 
     /**
-     * Get soap envelope.
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
-    public function getEnvelope(): ?SoapEnvelopeInterface
+    public function getEnvelope(): SoapEnvelopeInterface
     {
         if (!($this->soapEnvelope instanceof SoapEnvelopeInterface)) {
             $this->soapEnvelope = $this->envelopeInit();

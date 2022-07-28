@@ -34,7 +34,7 @@ trait WithRequestIdTrait
     private $requestId;
 
     /**
-     * Gets request id
+     * Get the request id
      *
      * @return string
      */
@@ -44,7 +44,7 @@ trait WithRequestIdTrait
     }
 
     /**
-     * Sets request id
+     * Set the request id
      *
      * @param  string $requestId
      * @return self

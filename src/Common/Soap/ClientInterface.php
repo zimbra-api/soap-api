@@ -24,25 +24,25 @@ use Psr\Http\Message\{RequestInterface, ResponseInterface};
 interface ClientInterface
 {
     /**
-     * Performs a SOAP request
+     * Performs a soap request
      *
-     * @param  string $soapMessage Soap message
-     * @param  array $headers Request headers
+     * @param  string $soapMessage
+     * @param  array $headers
      * @return ResponseInterface
      */
     function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface;
 
     /**
-     * Returns last request.
+     * Returns last http request.
      *
      * @return RequestInterface
      */
     function getLastRequest(): ?RequestInterface;
 
     /**
-     * Returns last response.
+     * Returns last http response.
      *
-     * @return ResponseInterface
+     * @return ResponseInterface.
      */
     function getLastResponse(): ?ResponseInterface;
 }

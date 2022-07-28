@@ -19,7 +19,7 @@ class AdminApiTest extends ZimbraTestCase
     public function testAdminApi()
     {
         $api = $this->createStub(AdminApi::class);
-        $this->assertTrue($api instanceof AdminApiInterface);
+        $this->assertInstanceOf(AdminApiInterface::class, $api);
     }
 
     public function testAddAccountAlias()
@@ -35,7 +35,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addAccountAlias($this->faker->uuid, $this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddAccountAliasResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\AddAccountAliasResponse::class, $response);
     }
 
     public function testAddAccountLogger()
@@ -72,7 +72,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addDistributionListAlias($this->faker->uuid, $this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddDistributionListAliasResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\AddDistributionListAliasResponse::class, $response);
     }
 
     public function testAddDistributionListMember()
@@ -88,7 +88,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->addDistributionListMember($this->faker->uuid, []);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\AddDistributionListMemberResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\AddDistributionListMemberResponse::class, $response);
     }
 
     public function testAddGalSyncDataSource()
@@ -629,7 +629,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->checkPasswordStrength($this->faker->uuid, $this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\CheckPasswordStrengthResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\CheckPasswordStrengthResponse::class, $response);
     }
 
     public function testCheckRight()
@@ -681,7 +681,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->clearCookie();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ClearCookieResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ClearCookieResponse::class, $response);
     }
 
     public function testCompactIndexEnvelope()
@@ -736,7 +736,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->configureZimlet(new \Zimbra\Admin\Struct\AttachmentIdAttrib());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ConfigureZimletResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ConfigureZimletResponse::class, $response);
     }
 
     public function testContactBackup()
@@ -1324,7 +1324,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteAccount($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteAccountResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteAccountResponse::class, $response);
     }
 
     public function testDeleteAlwaysOnCluster()
@@ -1340,7 +1340,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteAlwaysOnCluster($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse::class, $response);
     }
 
     public function testDeleteCalendarResource()
@@ -1356,7 +1356,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteCalendarResource($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteCalendarResourceResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteCalendarResourceResponse::class, $response);
     }
 
     public function testDeleteCos()
@@ -1372,7 +1372,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteCos($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteCosResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteCosResponse::class, $response);
     }
 
     public function testDeleteDataSource()
@@ -1388,7 +1388,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteDataSource(new \Zimbra\Common\Struct\Id(), $this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteDataSourceResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteDataSourceResponse::class, $response);
     }
 
     public function testDeleteDistributionList()
@@ -1404,7 +1404,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteDistributionList($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteDistributionListResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteDistributionListResponse::class, $response);
     }
 
     public function testDeleteDomain()
@@ -1420,7 +1420,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteDomain($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteDomainResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteDomainResponse::class, $response);
     }
 
     public function testDeleteGalSyncAccount()
@@ -1436,7 +1436,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteGalSyncAccount(new \Zimbra\Common\Struct\AccountSelector());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteGalSyncAccountResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteGalSyncAccountResponse::class, $response);
     }
 
     public function testDeleteLDAPEntry()
@@ -1452,7 +1452,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteLDAPEntry($this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteLDAPEntryResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteLDAPEntryResponse::class, $response);
     }
 
     public function testDeleteMailbox()
@@ -1491,7 +1491,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteServer($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteServerResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteServerResponse::class, $response);
     }
 
     public function testDeleteSystemRetentionPolicy()
@@ -1507,7 +1507,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteSystemRetentionPolicy(new \Zimbra\Mail\Struct\Policy());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteSystemRetentionPolicyResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteSystemRetentionPolicyResponse::class, $response);
     }
 
     public function testDeleteUCService()
@@ -1523,7 +1523,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteUCService($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteUCServiceResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteUCServiceResponse::class, $response);
     }
 
     public function testDeleteVolume()
@@ -1539,7 +1539,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteVolume($this->faker->randomNumber);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteVolumeResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteVolumeResponse::class, $response);
     }
 
     public function testDeleteXMPPComponent()
@@ -1555,7 +1555,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteXMPPComponent();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteXMPPComponentResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteXMPPComponentResponse::class, $response);
     }
 
     public function testDeleteZimlet()
@@ -1571,7 +1571,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->deleteZimlet(new \Zimbra\Common\Struct\NamedElement());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\DeleteZimletResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\DeleteZimletResponse::class, $response);
     }
 
     public function testDeployZimlet()
@@ -1693,7 +1693,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->exportAndDeleteItems(new \Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ExportAndDeleteItemsResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ExportAndDeleteItemsResponse::class, $response);
     }
 
     public function testFixCalendarEndTime()
@@ -1709,7 +1709,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->fixCalendarEndTime();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\FixCalendarEndTimeResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\FixCalendarEndTimeResponse::class, $response);
     }
 
     public function testFixCalendarPriority()
@@ -1725,7 +1725,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->fixCalendarPriority();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\FixCalendarPriorityResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\FixCalendarPriorityResponse::class, $response);
     }
 
     public function testFixCalendarTZ()
@@ -1741,7 +1741,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->fixCalendarTZ();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\FixCalendarTZResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\FixCalendarTZResponse::class, $response);
     }
 
     public function testFlushCache()
@@ -1757,7 +1757,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->flushCache();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\FlushCacheResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\FlushCacheResponse::class, $response);
     }
 
     public function testGetAccount()
@@ -4693,7 +4693,7 @@ EOT;
             new \Zimbra\Admin\Struct\GranteeSelector(),
             new \Zimbra\Admin\Struct\RightModifierInfo()
         );
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\GrantRightResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\GrantRightResponse::class, $response);
     }
 
     public function testLockoutMailbox()
@@ -4711,7 +4711,7 @@ EOT;
         $response = $api->lockoutMailbox(
             new \Zimbra\Common\Struct\AccountNameSelector()
         );
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\LockoutMailboxResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\LockoutMailboxResponse::class, $response);
     }
 
     public function testMailQueueAction()
@@ -4733,7 +4733,7 @@ EOT;
         );
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->mailQueueAction($server);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MailQueueActionResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\MailQueueActionResponse::class, $response);
     }
 
     public function testMailQueueFlush()
@@ -4749,7 +4749,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->mailQueueFlush(new \Zimbra\Common\Struct\NamedElement());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MailQueueFlushResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\MailQueueFlushResponse::class, $response);
     }
 
     public function testMigrateAccount()
@@ -4765,7 +4765,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->migrateAccount(new \Zimbra\Admin\Struct\IdAndAction());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\MigrateAccountResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\MigrateAccountResponse::class, $response);
     }
 
     public function testModifyAccount()
@@ -4809,7 +4809,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyAdminSavedSearches();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyAdminSavedSearchesResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyAdminSavedSearchesResponse::class, $response);
     }
 
     public function testModifyAlwaysOnCluster()
@@ -4881,7 +4881,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyConfig();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyConfigResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyConfigResponse::class, $response);
     }
 
     public function testModifyCos()
@@ -4925,7 +4925,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyDataSource($this->faker->uuid, new \Zimbra\Admin\Struct\DataSourceInfo());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyDataSourceResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyDataSourceResponse::class, $response);
     }
 
     public function testModifyDelegatedAdminConstraints()
@@ -4941,7 +4941,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyDelegatedAdminConstraints();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse::class, $response);
     }
 
     public function testModifyDistributionList()
@@ -5021,7 +5021,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyFilterRules();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyFilterRulesResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyFilterRulesResponse::class, $response);
     }
 
     public function testModifyLDAPEntry()
@@ -5065,7 +5065,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyOutgoingFilterRules();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyOutgoingFilterRulesResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyOutgoingFilterRulesResponse::class, $response);
     }
 
     public function testModifyServer()
@@ -5161,7 +5161,7 @@ EOT;
 EOT;
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyVolume(new \Zimbra\Admin\Struct\VolumeInfo());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyVolumeResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyVolumeResponse::class, $response);
     }
 
     public function testModifyZimlet()
@@ -5177,7 +5177,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->modifyZimlet(new \Zimbra\Admin\Struct\ZimletAclStatusPri());
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ModifyZimletResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyZimletResponse::class, $response);
     }
 
     public function testNoOp()
@@ -5193,7 +5193,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->noOp();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\NoOpResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\NoOpResponse::class, $response);
     }
 
     public function testPing()
@@ -5209,7 +5209,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->ping();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PingResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\PingResponse::class, $response);
     }
 
     public function testPurgeAccountCalendarCache()
@@ -5225,7 +5225,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->purgeAccountCalendarCache($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse::class, $response);
     }
 
     public function testPurgeFreeBusyQueue()
@@ -5241,7 +5241,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->purgeFreeBusyQueue();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PurgeFreeBusyQueueResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\PurgeFreeBusyQueueResponse::class, $response);
     }
 
     public function testPurgeMessages()
@@ -5280,7 +5280,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->pushFreeBusy();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\PushFreeBusyResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\PushFreeBusyResponse::class, $response);
     }
 
     public function testQueryWaitSet()
@@ -5388,7 +5388,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->refreshRegisteredAuthTokens();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RefreshRegisteredAuthTokensResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RefreshRegisteredAuthTokensResponse::class, $response);
     }
 
     public function testReIndexEnvelope()
@@ -5428,7 +5428,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->reloadLocalConfig();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ReloadLocalConfigResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ReloadLocalConfigResponse::class, $response);
     }
 
     public function testReloadMemcachedClientConfig()
@@ -5444,7 +5444,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->reloadMemcachedClientConfig();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ReloadMemcachedClientConfigResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ReloadMemcachedClientConfigResponse::class, $response);
     }
 
     public function testRemoveAccountAlias()
@@ -5460,7 +5460,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->removeAccountAlias($this->faker->uuid, $this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveAccountAliasResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RemoveAccountAliasResponse::class, $response);
     }
 
     public function testRemoveAccountLogger()
@@ -5476,7 +5476,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->removeAccountLogger();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveAccountLoggerResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RemoveAccountLoggerResponse::class, $response);
     }
 
     public function testRemoveDistributionListAlias()
@@ -5492,7 +5492,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->removeDistributionListAlias($this->faker->uuid, $this->faker->email);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveDistributionListAliasResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RemoveDistributionListAliasResponse::class, $response);
     }
 
     public function testRemoveDistributionListMember()
@@ -5508,7 +5508,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->removeDistributionListMember($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RemoveDistributionListMemberResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RemoveDistributionListMemberResponse::class, $response);
     }
 
     public function testRenameAccount()
@@ -5695,7 +5695,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->resetAllLoggers($this->faker->uuid);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\ResetAllLoggersResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\ResetAllLoggersResponse::class, $response);
     }
 
     public function testRevokeRight()
@@ -5715,7 +5715,7 @@ EOT;
             new \Zimbra\Admin\Struct\GranteeSelector(),
             new \Zimbra\Admin\Struct\RightModifierInfo()
         );
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\RevokeRightResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\RevokeRightResponse::class, $response);
     }
 
     public function testRunUnitTests()
@@ -6033,7 +6033,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->setCurrentVolume();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetCurrentVolumeResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\SetCurrentVolumeResponse::class, $response);
     }
 
     public function testSetLocalServerOnline()
@@ -6049,7 +6049,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->setLocalServerOnline();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetLocalServerOnlineResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\SetLocalServerOnlineResponse::class, $response);
     }
 
     public function testSetPassword()
@@ -6085,7 +6085,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->setServerOffline();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SetServerOfflineResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\SetServerOfflineResponse::class, $response);
     }
 
     public function testSyncGalAccount()
@@ -6101,7 +6101,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->syncGalAccount();
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\SyncGalAccountResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\SyncGalAccountResponse::class, $response);
     }
 
     public function testUndeployZimlet()
@@ -6117,7 +6117,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->undeployZimlet($this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Admin\Message\UndeployZimletResponse);
+        $this->assertInstanceOf(\Zimbra\Admin\Message\UndeployZimletResponse::class, $response);
     }
 
     public function testVerifyIndex()

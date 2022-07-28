@@ -10,14 +10,14 @@
 
 namespace Zimbra\Common\Soap;
 
-use Psr\Http\Client\ClientInterface as HttpClient;
+use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\{
     RequestFactoryInterface, RequestInterface, ResponseInterface, StreamFactoryInterface
 };
 
 /**
- * Client is a class which provides a http client for SOAP servers
+ * Client is a class which provides a http client for SOAP services
  * 
  * @package    Zimbra
  * @subpackage Common
@@ -27,44 +27,53 @@ use Psr\Http\Message\{
  */
 class Client implements ClientInterface
 {
+    const REQUEST_METHOD  = 'POST';
+
     /**
      * Soap service url
+     * 
      * @var string
      */
     private $serviceUrl;
 
     /**
      * Http cookie
+     * 
      * @var string
      */
     private $cookie;
 
     /**
      * Http client
-     * @var HttpClient
+     * 
+     * @var HttpClientInterface
      */
-    private HttpClient $httpClient;
+    private HttpClientInterface $httpClient;
 
     /**
      * Request factory
+     * 
      * @var RequestFactoryInterface
      */
     private RequestFactoryInterface $requestFactory;
 
     /**
      * Stream factory
+     * 
      * @var StreamFactoryInterface
      */
     private StreamFactoryInterface $streamFactory;
 
     /**
      * Last request message
+     * 
      * @var RequestInterface
      */
     private ?RequestInterface $request = NULL;
 
     /**
      * Last response message
+     * 
      * @var ResponseInterface
      */
     private ?ResponseInterface $response = NULL;
@@ -72,14 +81,14 @@ class Client implements ClientInterface
     /**
      * Constructor
      *
-     * @param string $serviceUrl  The URL to request.
-     * @param HttpClient $httpClient  The http client.
-     * @param RequestFactoryInterface $requestFactory  The http request factory.
-     * @param StreamFactoryInterface $streamFactory  The http stream factory.
+     * @param string $serviceUrl
+     * @param HttpClientInterface $httpClient
+     * @param RequestFactoryInterface $requestFactory
+     * @param StreamFactoryInterface $streamFactory
      */
     public function __construct(
         string $serviceUrl,
-        HttpClient $httpClient,
+        HttpClientInterface $httpClient,
         RequestFactoryInterface $requestFactory,
         StreamFactoryInterface $streamFactory
     )
@@ -91,16 +100,12 @@ class Client implements ClientInterface
     }
 
     /**
-     * Performs a soap request
-     *
-     * @param  string $soapMessage Soap message
-     * @param  array $headers Http headers
-     * @return ResponseInterface
+     * {@inheritdoc}
      */
     public function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface
     {
         $request = $this->requestFactory
-            ->createRequest('POST', $this->serviceUrl)
+            ->createRequest(self::REQUEST_METHOD, $this->serviceUrl)
             ->withBody($this->streamFactory->createStream($soapMessage));
         foreach ($headers as $name => $value) {
             $request = $request->withHeader($name, $value);
@@ -122,9 +127,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * Returns last http request.
-     *
-     * @return RequestInterface
+     * {@inheritdoc}
      */
     public function getLastRequest(): ?RequestInterface
     {
@@ -132,9 +135,7 @@ class Client implements ClientInterface
     }
 
     /**
-     * Returns last http response.
-     *
-     * @return ResponseInterface.
+     * {@inheritdoc}
      */
     public function getLastResponse(): ?ResponseInterface
     {

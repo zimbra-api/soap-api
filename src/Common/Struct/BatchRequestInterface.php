@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Struct;
 
 /**
- * SoapRequestInterface is a interface which define soap request struct
+ * BatchRequestInterface interface
  *
  * @package    Zimbra
  * @subpackage Common
@@ -19,12 +19,20 @@ namespace Zimbra\Common\Struct;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface SoapRequestInterface
+interface BatchRequestInterface extends SoapRequestInterface
 {
     /**
-     * Get the soap envelope.
+     * Add a soap request
      *
-     * @return SoapEnvelopeInterface
+     * @param  SoapRequestInterface $request
+     * @return self
      */
-    function getEnvelope(): SoapEnvelopeInterface;
+    function addRequest(SoapRequestInterface $request): self;
+
+    /**
+     * Get soap requests
+     *
+     * @return array
+     */
+    function getRequests(): array;
 }
