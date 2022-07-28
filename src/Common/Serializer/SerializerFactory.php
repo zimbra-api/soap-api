@@ -58,22 +58,22 @@ final class SerializerFactory
      */
     private static $serializerHandlers = [];
 
-    public static function setDebugMode(bool $debug)
+    public static function setDebugMode(bool $debug): void
     {
         self::$debug = $debug;
     }
 
-    public static function setCacheDir(string $cacheDir)
+    public static function setCacheDir(string $cacheDir): void
     {
         self::$cacheDir = $cacheDir;
     }
 
-    public static function addSerializerHandler(SubscribingHandlerInterface $handler)
+    public static function addSerializerHandler(SubscribingHandlerInterface $handler): void
     {
         self::$serializerHandlers[] = $handler;
     }
 
-    public static function setSerializerHandler(array $handlers = [])
+    public static function setSerializerHandler(array $handlers = []): void
     {
         self::$serializerHandlers = array_filter(
             $handlers, static fn ($handler) => $handler instanceof SubscribingHandlerInterface

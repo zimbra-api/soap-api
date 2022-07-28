@@ -21,10 +21,10 @@ use Zimbra\Common\Struct\SoapFaultInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ExceptionInterface
+interface ExceptionInterface extends \Throwable
 {
     /**
-     * Get the soap false.
+     * Get the soap fault.
      *
      * @return  SoapFaultInterface
      */
