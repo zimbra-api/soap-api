@@ -1,8 +1,8 @@
 {
     "name": "zimbra-api/soap-api",
     "type": "library",
-    "description": "PHP wrapper library around the Zimbra Soap API (web service)",
-    "keywords": ["library", "soap", "web service", "client", "Zimbra API"],
+    "description": "PHP wrapper library around the Zimbra Soap API",
+    "keywords": ["library", "soap client", "web service", "Zimbra API"],
     "license": "BSD-3-Clause",
     "authors": [
         {

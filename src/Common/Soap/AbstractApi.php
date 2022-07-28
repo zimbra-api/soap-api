@@ -202,17 +202,17 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
-        if ($responseEnvelope instanceof SoapEnvelopeInterface) {
-            if ($responseEnvelope->getHeader() instanceof SoapHeaderInterface) {
-                $this->responseHeader = $responseEnvelope->getHeader();
+        if ($responseEnvelope->getHeader() instanceof SoapHeaderInterface) {
+            $this->responseHeader = $responseEnvelope->getHeader();
+        }
+        if ($responseEnvelope->getBody() instanceof SoapBodyInterface) {
+            if ($responseEnvelope->getBody()->getSoapFault() instanceof SoapFaultInterface) {
+                throw new Exception($responseEnvelope->getBody()->getSoapFault());
             }
-            if ($responseEnvelope->getBody() instanceof SoapBodyInterface) {
-                if ($responseEnvelope->getBody()->getSoapFault() instanceof SoapFaultInterface) {
-                    throw new Exception($responseEnvelope->getBody()->getSoapFault());
-                    
-                }
-                $soapResponse = $responseEnvelope->getBody()->getResponse();
-            }
+            $soapResponse = $responseEnvelope->getBody()->getResponse();
+        }
+        else {
+            throw new \RuntimeException($responseMessage, $response->getStatusCode());
         }
         return $soapResponse;
     }
