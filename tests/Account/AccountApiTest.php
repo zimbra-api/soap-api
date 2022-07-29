@@ -14,7 +14,7 @@ class AccountApiTest extends ZimbraTestCase
     public function testAccountApi()
     {
         $api = $this->createStub(AccountApi::class);
-        $this->assertTrue($api instanceof AccountApiInterface);
+        $this->assertInstanceOf(AccountApiInterface::class, $api);
     }
 
     public function testAuth()
@@ -407,7 +407,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->deleteIdentity(new \Zimbra\Account\Struct\NameId());
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\DeleteIdentityResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\DeleteIdentityResponse::class, $response);
     }
 
     public function testDeleteSignature()
@@ -423,7 +423,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->deleteSignature(new \Zimbra\Account\Struct\NameId());
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\DeleteSignatureResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\DeleteSignatureResponse::class, $response);
     }
 
     public function testDiscoverRights()
@@ -474,7 +474,7 @@ EOT;
         $response = $api->distributionListAction(
             new \Zimbra\Common\Struct\DistributionListSelector(), new \Zimbra\Account\Struct\DistributionListAction()
         );
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\DistributionListActionResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\DistributionListActionResponse::class, $response);
     }
 
     public function testEndSession()
@@ -490,7 +490,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->endSession();
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\EndSessionResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\EndSessionResponse::class, $response);
     }
 
     public function testGetAccountDistributionLists()
@@ -1302,7 +1302,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyIdentity(new \Zimbra\Account\Struct\Identity());
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyIdentityResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ModifyIdentityResponse::class, $response);
     }
 
     public function testModifyPrefs()
@@ -1318,7 +1318,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyPrefs();
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyPrefsResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ModifyPrefsResponse::class, $response);
     }
 
     public function testModifyProperties()
@@ -1334,7 +1334,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyProperties();
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyPropertiesResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ModifyPropertiesResponse::class, $response);
     }
 
     public function testModifySignature()
@@ -1350,7 +1350,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifySignature(new \Zimbra\Account\Struct\Signature());
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifySignatureResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ModifySignatureResponse::class, $response);
     }
 
     public function testModifyWhiteBlackList()
@@ -1366,7 +1366,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->modifyWhiteBlackList();
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ModifyWhiteBlackListResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ModifyWhiteBlackListResponse::class, $response);
     }
 
     public function testModifyZimletPrefs()
@@ -1402,7 +1402,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->resetPassword($this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\ResetPasswordResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\ResetPasswordResponse::class, $response);
     }
 
     public function testRevokeOAuthConsumer()
@@ -1418,7 +1418,7 @@ EOT;
 
         $api = new StubAccountApi($this->mockSoapClient($xml));
         $response = $api->revokeOAuthConsumer($this->faker->word);
-        $this->assertTrue($response instanceof \Zimbra\Account\Message\RevokeOAuthConsumerResponse);
+        $this->assertInstanceOf(\Zimbra\Account\Message\RevokeOAuthConsumerResponse::class, $response);
     }
 
     public function testRevokeRights()

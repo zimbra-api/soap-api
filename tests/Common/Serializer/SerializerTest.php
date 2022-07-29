@@ -14,6 +14,6 @@ class SerializerTest extends TestCase
     public function testSerializerFactory()
     {
         $serializer = SerializerFactory::create();
-        $this->assertTrue($serializer instanceof SerializerInterface);
+        $this->assertInstanceOf(SerializerInterface::class, $serializer);
     }
 }

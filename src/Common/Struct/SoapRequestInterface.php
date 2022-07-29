@@ -26,5 +26,5 @@ interface SoapRequestInterface
      *
      * @return SoapEnvelopeInterface
      */
-    function getEnvelope(): ?SoapEnvelopeInterface;
+    function getEnvelope(): SoapEnvelopeInterface;
 }

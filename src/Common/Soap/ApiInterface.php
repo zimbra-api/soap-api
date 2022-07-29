@@ -48,4 +48,11 @@ interface ApiInterface
      * @return SoapHeaderInterface
      */
     function getResponseHeader(): ?SoapHeaderInterface;
+
+    /**
+     * Get soap client.
+     *
+     * @return ClientInterface
+     */
+    function getClient(): ClientInterface;
 }

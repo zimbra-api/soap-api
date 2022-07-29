@@ -8,25 +8,31 @@
  * file that was distributed with this source code.
  */
 
-namespace Zimbra\Common\Soap;
-
-use Zimbra\Common\Struct\SoapFaultInterface;
+namespace Zimbra\Common\Struct;
 
 /**
- * Exception interface
+ * BatchRequestInterface interface
  *
  * @package    Zimbra
  * @subpackage Common
- * @category   Soap
+ * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-interface ExceptionInterface extends \Throwable
+interface BatchRequestInterface extends SoapRequestInterface
 {
     /**
-     * Get the soap fault.
+     * Add a soap request
      *
-     * @return  SoapFaultInterface
+     * @param  SoapRequestInterface $request
+     * @return self
      */
-    function getSoapFault(): SoapFaultInterface;
+    function addRequest(SoapRequestInterface $request): self;
+
+    /**
+     * Get soap requests
+     *
+     * @return array
+     */
+    function getRequests(): array;
 }

@@ -81,13 +81,11 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
      */
     public function __construct(string $serviceUrl = '')
     {
-        $this->client = ClientFactory::create($serviceUrl);
+        $this->setClient(ClientFactory::create($serviceUrl));
     }
 
     /**
-     * Get soap client.
-     *
-     * @return ClientInterface
+     * {@inheritdoc}
      */
     public function getClient(): ClientInterface
     {
@@ -148,10 +146,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     }
 
     /**
-     * Set auth token to soap request header.
-     *
-     * @param string $token
-     * @return self
+     * {@inheritdoc}
      */
     public function setAuthToken(string $token): self
     {
@@ -163,10 +158,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
     }
 
     /**
-     * Set target account to soap request header.
-     *
-     * @param AccountInfo $account
-     * @return self
+     * {@inheritdoc}
      */
     public function setTargetAccount(AccountInfo $account): self
     {
@@ -189,7 +181,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
 
         $requestMessage = $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT);
         $this->getLogger()->debug('Soap request message', ['request' => $requestMessage]);
-        $response = $this->client->sendRequest(
+        $response = $this->getClient()->sendRequest(
             $requestMessage, [
                 'Content-Type' => self::SOAP_CONTENT_TYPE,
                 'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
@@ -202,17 +194,17 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
         $responseEnvelope = $this->getSerializer()->deserialize(
             $responseMessage, get_class($requestEnvelope), self::SERIALIZE_FORMAT
         );
-        if ($responseEnvelope instanceof SoapEnvelopeInterface) {
-            if ($responseEnvelope->getHeader() instanceof SoapHeaderInterface) {
-                $this->responseHeader = $responseEnvelope->getHeader();
+        if ($responseEnvelope->getHeader() instanceof SoapHeaderInterface) {
+            $this->responseHeader = $responseEnvelope->getHeader();
+        }
+        if ($responseEnvelope->getBody() instanceof SoapBodyInterface) {
+            if ($responseEnvelope->getBody()->getSoapFault() instanceof SoapFaultInterface) {
+                throw new Exception($responseEnvelope->getBody()->getSoapFault(), $response->getStatusCode());
             }
-            if ($responseEnvelope->getBody() instanceof SoapBodyInterface) {
-                if ($responseEnvelope->getBody()->getSoapFault() instanceof SoapFaultInterface) {
-                    throw new Exception($responseEnvelope->getBody()->getSoapFault());
-                    
-                }
-                $soapResponse = $responseEnvelope->getBody()->getResponse();
-            }
+            $soapResponse = $responseEnvelope->getBody()->getResponse();
+        }
+        else {
+            throw new \RuntimeException($responseMessage, $response->getStatusCode());
         }
         return $soapResponse;
     }

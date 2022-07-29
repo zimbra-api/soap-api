@@ -33,7 +33,7 @@ class Exception extends \RuntimeException implements ExceptionInterface
     /**
      * Constructor
      * 
-     * @param string $serviceUrl
+     * @param SoapFaultInterface $soapFault
      */
     public function __construct(SoapFaultInterface $soapFault)
     {
