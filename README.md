@@ -5,9 +5,9 @@ It allows you to manage easily zimbra accounts, zimbra domains and zimbra server
 
 ## Requirement
 * PHP >= 7.4.x,
-* [Http Discovery](https://github.com/php-http/discovery) library,
-* [Evenement](https://github.com/myclabs/php-enum) library,
-* [Serializer](https://github.com/schmittjoh/serializer) library,
+* [Http Discovery](https://docs.php-http.org/en/latest/discovery.html) library for finding installed clients and message factories,
+* [Serializer](https://jmsyst.com/libs/serializer) library for (de-)serializing XML,
+* [PHP Enum](https://github.com/myclabs/php-enum) library,
 * (optional) PHPUnit to run tests,
 
 ## Install
@@ -15,10 +15,10 @@ Via Composer
 ```bash
 $ composer require zimbra-api/soap-api
 ```
-
+or just add it to your `composer.json` file directly.
 > `zimbra-api` follows the PSR-4 convention names for its classes, which means you can easily integrate `zimbra-api` classes loading in your own autoloader.
 
-## Basic usage of `zimbra-api` admin client
+## Basic usage of admin api
 
 ```php
 <?php
