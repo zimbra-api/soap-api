@@ -33,16 +33,16 @@ interface ClientInterface
     function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface;
 
     /**
-     * Returns last http request.
+     * Get http request.
      *
      * @return RequestInterface
      */
-    function getLastRequest(): ?RequestInterface;
+    function getHttpRequest(): ?RequestInterface;
 
     /**
-     * Returns last http response.
+     * Get http response.
      *
      * @return ResponseInterface.
      */
-    function getLastResponse(): ?ResponseInterface;
+    function getHttpResponse(): ?ResponseInterface;
 }

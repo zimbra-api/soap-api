@@ -65,18 +65,18 @@ class Client implements ClientInterface
     private StreamFactoryInterface $streamFactory;
 
     /**
-     * Last request message
+     * Http request message
      * 
      * @var RequestInterface
      */
-    private ?RequestInterface $request = NULL;
+    private ?RequestInterface $httpRequest = NULL;
 
     /**
-     * Last response message
+     * Http response message
      * 
      * @var ResponseInterface
      */
-    private ?ResponseInterface $response = NULL;
+    private ?ResponseInterface $httpResponse = NULL;
 
     /**
      * Constructor
@@ -104,41 +104,41 @@ class Client implements ClientInterface
      */
     public function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface
     {
-        $request = $this->requestFactory
+        $httpRequest = $this->requestFactory
             ->createRequest(self::REQUEST_METHOD, $this->serviceUrl)
             ->withBody($this->streamFactory->createStream($soapMessage));
         foreach ($headers as $name => $value) {
-            $request = $request->withHeader($name, $value);
+            $httpRequest = $httpRequest->withHeader($name, $value);
         }
         if (!empty($this->cookie)) {
-            $request = $request->withHeader('Cookie', $this->cookie);
+            $httpRequest = $httpRequest->withHeader('Cookie', $this->cookie);
         }
-        $this->request = $request;
+        $this->httpRequest = $httpRequest;
         try {
-            $this->response = $this->httpClient->sendRequest($this->request);
-            if ($this->response->hasHeader('Set-Cookie')) {
-                $this->cookie = implode(', ', $this->response->getHeader('Set-Cookie'));
+            $this->httpResponse = $this->httpClient->sendRequest($this->httpRequest);
+            if ($this->httpResponse->hasHeader('Set-Cookie')) {
+                $this->cookie = implode(', ', $this->httpResponse->getHeader('Set-Cookie'));
             }
         }
         catch (ClientExceptionInterface $ex) {
             throw $ex;
         }
-        return $this->response;
+        return $this->httpResponse;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getLastRequest(): ?RequestInterface
+    public function getHttpRequest(): ?RequestInterface
     {
-        return $this->request;
+        return $this->httpRequest;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getLastResponse(): ?ResponseInterface
+    public function getHttpResponse(): ?ResponseInterface
     {
-        return $this->response;
+        return $this->httpResponse;
     }
 }
