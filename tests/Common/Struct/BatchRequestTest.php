@@ -71,7 +71,6 @@ class BatchRequestTest extends ZimbraTestCase
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
         $this->assertEquals($envelope, $this->serializer->deserialize($xml, BatchEnvelope::class, 'xml'));
-
     }
 }
 
@@ -81,30 +80,13 @@ EOT;
  */
 class BatchEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Tests\Common\Struct\BatchBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
     private $body;
 
-    /**
-     * Gets soap message body
-     *
-     * @return SoapBodyInterface
-     */
     public function getBody() : SoapBodyInterface
     {
         return $this->body;
     }
 
-    /**
-     * Sets soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
-     */
     public function setBody(SoapBodyInterface $body): self
     {
         $this->body = $body;
@@ -130,11 +112,6 @@ class BatchBody extends SoapBody
      */
     private ?SoapResponseInterface $response = NULL;
 
-    /**
-     * Constructor method for BatchGetAccountInfosBody
-     *
-     * @return self
-     */
     public function __construct(?FooBatchRequest $request = NULL, ?FooBatchResponse $response = NULL)
     {
         parent::__construct($request, $response);
