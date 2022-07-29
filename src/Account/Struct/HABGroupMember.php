@@ -64,7 +64,7 @@ class HABGroupMember extends HABMember
     }
 
     /**
-     * Sets attribute sequence
+     * Set attribute sequence
      *
      * @param array $attrs
      * @return self
@@ -76,7 +76,7 @@ class HABGroupMember extends HABMember
     }
 
     /**
-     * Gets attribute sequence
+     * Get attribute sequence
      *
      * @return array
      */

@@ -61,7 +61,7 @@ class GetRightRequest extends SoapRequest
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class GetRightRequest extends SoapRequest
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  string $right
      * @return self
@@ -83,7 +83,7 @@ class GetRightRequest extends SoapRequest
     }
 
     /**
-     * Gets expandAllAttrs
+     * Get expandAllAttrs
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class GetRightRequest extends SoapRequest
     }
 
     /**
-     * Sets expandAllAttrs
+     * Set expandAllAttrs
      *
      * @param  bool $expandAllAttrs
      * @return self

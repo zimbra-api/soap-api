@@ -74,7 +74,7 @@ class RawInvite
     }
 
     /**
-     * Gets uid
+     * Get uid
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class RawInvite
     }
 
     /**
-     * Sets uid
+     * Set uid
      *
      * @param  string $uid
      * @return self
@@ -96,7 +96,7 @@ class RawInvite
     }
 
     /**
-     * Gets summary
+     * Get summary
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class RawInvite
     }
 
     /**
-     * Sets summary
+     * Set summary
      *
      * @param  string $summary
      * @return self
@@ -118,7 +118,7 @@ class RawInvite
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class RawInvite
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

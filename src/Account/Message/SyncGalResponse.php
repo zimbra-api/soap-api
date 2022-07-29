@@ -144,7 +144,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more flag
+     * Get more flag
      *
      * @return bool
      */
@@ -154,7 +154,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more flag
+     * Set more flag
      *
      * @param  bool $more
      * @return self
@@ -166,7 +166,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -176,7 +176,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -188,7 +188,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets galDefinitionLastModified
+     * Get galDefinitionLastModified
      *
      * @return string
      */
@@ -198,7 +198,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets galDefinitionLastModified
+     * Set galDefinitionLastModified
      *
      * @param  string $galDefinitionLastModified
      * @return self
@@ -210,7 +210,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets throttled
+     * Get throttled
      *
      * @return bool
      */
@@ -220,7 +220,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets throttled
+     * Set throttled
      *
      * @param  bool $throttled
      * @return self
@@ -232,7 +232,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets fullSyncRecommended
+     * Get fullSyncRecommended
      *
      * @return bool
      */
@@ -242,7 +242,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets fullSyncRecommended
+     * Set fullSyncRecommended
      *
      * @param  bool $fullSyncRecommended
      * @return self
@@ -254,7 +254,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets remain
+     * Get remain
      *
      * @return int
      */
@@ -264,7 +264,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets remain
+     * Set remain
      *
      * @param  int $remain
      * @return self
@@ -276,7 +276,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contacts matching the autocomplete request
+     * Get contacts matching the autocomplete request
      *
      * @return array
      */
@@ -286,7 +286,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contacts matching the autocomplete request
+     * Set contacts matching the autocomplete request
      *
      * @param  array $contacts 
      * @return self
@@ -310,7 +310,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets deleted
+     * Get deleted
      *
      * @return array
      */
@@ -320,7 +320,7 @@ class SyncGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets deleted
+     * Set deleted
      *
      * @param  array $contacts 
      * @return self

@@ -93,7 +93,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -115,7 +115,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets free slots
+     * Get free slots
      *
      * @return array
      */
@@ -125,7 +125,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets free slots
+     * Set free slots
      *
      * @return self
      */
@@ -138,7 +138,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets busy slots
+     * Get busy slots
      *
      * @return array
      */
@@ -148,7 +148,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets busy slots
+     * Set busy slots
      *
      * @return self
      */
@@ -161,7 +161,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets tentative slots
+     * Get tentative slots
      *
      * @return array
      */
@@ -171,7 +171,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets tentative slots
+     * Set tentative slots
      *
      * @return self
      */
@@ -184,7 +184,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets unavailable slots
+     * Get unavailable slots
      *
      * @return array
      */
@@ -194,7 +194,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets unavailable slots
+     * Set unavailable slots
      *
      *
      * @return self
@@ -208,7 +208,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets no data slots
+     * Get no data slots
      *
      * @return array
      */
@@ -218,7 +218,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Sets no data slots
+     * Set no data slots
      *
      * @return self
      */
@@ -273,7 +273,7 @@ class FreeBusyUserInfo
     }
 
     /**
-     * Gets free busy slots
+     * Get free busy slots
      *
      * @return array
      */

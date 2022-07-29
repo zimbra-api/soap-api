@@ -67,7 +67,7 @@ class TestResultInfo
     }
 
     /**
-     * Sets completedTests
+     * Set completedTests
      *
      * @param  array $tests
      * @return self
@@ -79,7 +79,7 @@ class TestResultInfo
     }
 
     /**
-     * Gets completedTests
+     * Get completedTests
      *
      * @return array
      */
@@ -101,7 +101,7 @@ class TestResultInfo
     }
 
     /**
-     * Sets failedTests
+     * Set failedTests
      *
      * @param  array $tests
      * @return self
@@ -113,7 +113,7 @@ class TestResultInfo
     }
 
     /**
-     * Gets failedTests
+     * Get failedTests
      *
      * @return array
      */

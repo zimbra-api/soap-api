@@ -54,7 +54,7 @@ class DeleteItemNotification
     }
 
     /**
-     * Gets an id
+     * Get an id
      *
      * @return int
      */
@@ -64,7 +64,7 @@ class DeleteItemNotification
     }
 
     /**
-     * Sets an id
+     * Set an id
      *
      * @param  int $id
      * @return self
@@ -76,7 +76,7 @@ class DeleteItemNotification
     }
 
     /**
-     * Gets a type
+     * Get a type
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class DeleteItemNotification
     }
 
     /**
-     * Sets a type
+     * Set a type
      *
      * @param  string $type
      * @return self

@@ -45,7 +45,7 @@ class FilterVariables extends FilterAction
     }
 
     /**
-     * Gets variables
+     * Get variables
      *
      * @return array
      */
@@ -55,7 +55,7 @@ class FilterVariables extends FilterAction
     }
 
     /**
-     * Sets variables
+     * Set variables
      *
      * @param  array $variables
      * @return self

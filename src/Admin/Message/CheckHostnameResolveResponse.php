@@ -61,7 +61,7 @@ class CheckHostnameResolveResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets code
+     * Get code
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class CheckHostnameResolveResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets code
+     * Set code
      *
      * @param  string $code
      * @return self
@@ -83,7 +83,7 @@ class CheckHostnameResolveResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class CheckHostnameResolveResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self

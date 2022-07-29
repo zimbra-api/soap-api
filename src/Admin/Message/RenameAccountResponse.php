@@ -48,7 +48,7 @@ class RenameAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountInfo
      */
@@ -58,7 +58,7 @@ class RenameAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountInfo $account
      * @return self

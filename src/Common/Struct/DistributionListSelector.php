@@ -56,7 +56,7 @@ class DistributionListSelector
     }
 
     /**
-     * Gets by selector
+     * Get by selector
      *
      * @return DLBy
      */
@@ -66,7 +66,7 @@ class DistributionListSelector
     }
 
     /**
-     * Sets by selector
+     * Set by selector
      *
      * @param  DLBy $by
      * @return self
@@ -78,7 +78,7 @@ class DistributionListSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class DistributionListSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

@@ -43,7 +43,7 @@ class CreateItemNotification
     }
 
     /**
-     * Gets message info
+     * Get message info
      *
      * @return ImapMessageInfo
      */
@@ -53,7 +53,7 @@ class CreateItemNotification
     }
 
     /**
-     * Sets message info
+     * Set message info
      *
      * @param  ImapMessageInfo $msgInfo
      * @return self

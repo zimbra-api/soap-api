@@ -300,7 +300,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets categories
+     * Get categories
      *
      * @return array
      */
@@ -310,7 +310,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets categories
+     * Set categories
      *
      * @param  array $categories
      * @return self
@@ -340,7 +340,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets comments
+     * Get comments
      *
      * @return array
      */
@@ -350,7 +350,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets comments
+     * Set comments
      *
      * @param  array $comments
      * @return self
@@ -380,7 +380,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */
@@ -390,7 +390,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param  array $contacts
      * @return self
@@ -420,7 +420,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -430,7 +430,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -442,7 +442,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return string
      */
@@ -452,7 +452,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param  string $description
      * @return self
@@ -464,7 +464,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets htmlDescription
+     * Get htmlDescription
      *
      * @return string
      */
@@ -474,7 +474,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets htmlDescription
+     * Set htmlDescription
      *
      * @param  string $htmlDescription
      * @return self
@@ -486,7 +486,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets geo
+     * Get geo
      *
      * @return GeoInfoInterface
      */
@@ -496,7 +496,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets geo
+     * Set geo
      *
      * @param  GeoInfoInterface $geo
      * @return self
@@ -508,7 +508,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets attendees
+     * Set attendees
      *
      * @param  array $attendees
      * @return self
@@ -520,7 +520,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets attendees
+     * Get attendees
      *
      * @return array
      */
@@ -542,7 +542,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets alarms
+     * Set alarms
      *
      * @param  array $alarms
      * @return self
@@ -554,7 +554,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets alarms
+     * Get alarms
      *
      * @return array
      */
@@ -576,7 +576,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets xProps
+     * Set xProps
      *
      * @param  array $xProps
      * @return self
@@ -588,7 +588,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets xProps
+     * Get xProps
      *
      * @return array
      */
@@ -610,7 +610,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets organizer
+     * Get organizer
      *
      * @return CalOrganizerInterface
      */
@@ -620,7 +620,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets organizer
+     * Set organizer
      *
      * @param  CalOrganizerInterface $organizer
      * @return self
@@ -632,7 +632,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets recurrence
+     * Get recurrence
      *
      * @return RecurrenceInfoInterface
      */
@@ -642,7 +642,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets recurrence
+     * Set recurrence
      *
      * @param  RecurrenceInfoInterface $recurrence
      * @return self
@@ -654,7 +654,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return ExceptionRecurIdInfoInterface
      */
@@ -664,7 +664,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  ExceptionRecurIdInfoInterface $exceptionId
      * @return self
@@ -676,7 +676,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets dtStart
+     * Get dtStart
      *
      * @return DtTimeInfoInterface
      */
@@ -686,7 +686,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets dtStart
+     * Set dtStart
      *
      * @param  DtTimeInfoInterface $dtStart
      * @return self
@@ -698,7 +698,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets dtEnd
+     * Get dtEnd
      *
      * @return DtTimeInfoInterface
      */
@@ -708,7 +708,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets dtEnd
+     * Set dtEnd
      *
      * @param  DtTimeInfoInterface $dtEnd
      * @return self
@@ -720,7 +720,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return DurationInfoInterface
      */
@@ -730,7 +730,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  DurationInfoInterface $duration
      * @return self

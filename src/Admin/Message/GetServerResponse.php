@@ -48,7 +48,7 @@ class GetServerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return ServerInfo
      */
@@ -58,7 +58,7 @@ class GetServerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  ServerInfo $server
      * @return self

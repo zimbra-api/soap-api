@@ -48,7 +48,7 @@ class GetRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the right.
+     * Get the right.
      *
      * @return RightInfo
      */
@@ -58,7 +58,7 @@ class GetRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the right.
+     * Set the right.
      *
      * @param  RightInfo $right
      * @return self

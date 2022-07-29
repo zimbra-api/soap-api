@@ -43,7 +43,7 @@ class ModifyNotification
     }
 
     /**
-     * Gets bitmask of modification change
+     * Get bitmask of modification change
      *
      * @return int
      */
@@ -53,7 +53,7 @@ class ModifyNotification
     }
 
     /**
-     * Sets bitmask of modification change
+     * Set bitmask of modification change
      *
      * @param  int $changeBitmask
      * @return self

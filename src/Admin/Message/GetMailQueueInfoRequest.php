@@ -48,7 +48,7 @@ class GetMailQueueInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -58,7 +58,7 @@ class GetMailQueueInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self

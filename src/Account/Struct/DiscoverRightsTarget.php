@@ -100,7 +100,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Gets target type
+     * Get target type
      *
      * @return TargetType
      */
@@ -110,7 +110,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Sets target type
+     * Set target type
      *
      * @param  string $type
      * @return self
@@ -122,7 +122,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return TargetBy
      */
@@ -132,7 +132,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -144,7 +144,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -166,7 +166,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Gets displayName
+     * Get displayName
      *
      * @return string
      */
@@ -176,7 +176,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Sets displayName
+     * Set displayName
      *
      * @param  string $displayName
      * @return self
@@ -200,7 +200,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -212,7 +212,7 @@ class DiscoverRightsTarget
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */

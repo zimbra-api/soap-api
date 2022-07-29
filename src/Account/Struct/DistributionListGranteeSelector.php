@@ -68,7 +68,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Gets grantee type
+     * Get grantee type
      *
      * @return GranteeType
      */
@@ -78,7 +78,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Sets grantee type
+     * Set grantee type
      *
      * @param  GranteeType $type
      * @return self
@@ -90,7 +90,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Gets grantee by
+     * Get grantee by
      *
      * @return GranteeBy
      */
@@ -100,7 +100,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Sets grantee by
+     * Set grantee by
      *
      * @param  GranteeBy $by
      * @return self
@@ -112,7 +112,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class DistributionListGranteeSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

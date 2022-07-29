@@ -57,7 +57,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Gets dn
+     * Get dn
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Sets dn
+     * Set dn
      *
      * @param  string $dn
      * @return self
@@ -79,7 +79,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Gets newDn
+     * Get newDn
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Sets newDn
+     * Set newDn
      *
      * @param  string $newDn
      * @return self

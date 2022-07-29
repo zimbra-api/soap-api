@@ -264,7 +264,7 @@ class MsgSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -274,7 +274,7 @@ class MsgSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -286,7 +286,7 @@ class MsgSpec
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -296,7 +296,7 @@ class MsgSpec
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -308,7 +308,7 @@ class MsgSpec
     }
 
     /**
-     * Gets raw
+     * Get raw
      *
      * @return bool
      */
@@ -318,7 +318,7 @@ class MsgSpec
     }
 
     /**
-     * Sets raw
+     * Set raw
      *
      * @param  bool $raw
      * @return self
@@ -330,7 +330,7 @@ class MsgSpec
     }
 
     /**
-     * Gets markRead
+     * Get markRead
      *
      * @return bool
      */
@@ -340,7 +340,7 @@ class MsgSpec
     }
 
     /**
-     * Sets markRead
+     * Set markRead
      *
      * @param  bool $markRead
      * @return self
@@ -352,7 +352,7 @@ class MsgSpec
     }
 
     /**
-     * Gets wantHtml
+     * Get wantHtml
      *
      * @return bool
      */
@@ -362,7 +362,7 @@ class MsgSpec
     }
 
     /**
-     * Sets wantHtml
+     * Set wantHtml
      *
      * @param  bool $wantHtml
      * @return self
@@ -374,7 +374,7 @@ class MsgSpec
     }
 
     /**
-     * Gets wantImapUid
+     * Get wantImapUid
      *
      * @return bool
      */
@@ -384,7 +384,7 @@ class MsgSpec
     }
 
     /**
-     * Sets wantImapUid
+     * Set wantImapUid
      *
      * @param  bool $wantImapUid
      * @return self
@@ -396,7 +396,7 @@ class MsgSpec
     }
 
     /**
-     * Gets wantModifiedSequence
+     * Get wantModifiedSequence
      *
      * @return bool
      */
@@ -406,7 +406,7 @@ class MsgSpec
     }
 
     /**
-     * Sets wantModifiedSequence
+     * Set wantModifiedSequence
      *
      * @param  bool $wantModifiedSequence
      * @return self
@@ -418,7 +418,7 @@ class MsgSpec
     }
 
     /**
-     * Gets neuter
+     * Get neuter
      *
      * @return bool
      */
@@ -428,7 +428,7 @@ class MsgSpec
     }
 
     /**
-     * Sets neuter
+     * Set neuter
      *
      * @param  bool $neuter
      * @return self
@@ -440,7 +440,7 @@ class MsgSpec
     }
 
     /**
-     * Gets recurIdZ
+     * Get recurIdZ
      *
      * @return string
      */
@@ -450,7 +450,7 @@ class MsgSpec
     }
 
     /**
-     * Sets recurIdZ
+     * Set recurIdZ
      *
      * @param  string $recurIdZ
      * @return self
@@ -462,7 +462,7 @@ class MsgSpec
     }
 
     /**
-     * Gets maxInlinedLength
+     * Get maxInlinedLength
      *
      * @return int
      */
@@ -472,7 +472,7 @@ class MsgSpec
     }
 
     /**
-     * Sets maxInlinedLength
+     * Set maxInlinedLength
      *
      * @param  int $maxInlinedLength
      * @return self
@@ -484,7 +484,7 @@ class MsgSpec
     }
 
     /**
-     * Gets useContentUrl
+     * Get useContentUrl
      *
      * @return bool
      */
@@ -494,7 +494,7 @@ class MsgSpec
     }
 
     /**
-     * Sets useContentUrl
+     * Set useContentUrl
      *
      * @param  bool $useContentUrl
      * @return self
@@ -506,7 +506,7 @@ class MsgSpec
     }
 
     /**
-     * Gets needCanExpand
+     * Get needCanExpand
      *
      * @return bool
      */
@@ -516,7 +516,7 @@ class MsgSpec
     }
 
     /**
-     * Sets needCanExpand
+     * Set needCanExpand
      *
      * @param  bool $needCanExpand
      * @return self
@@ -528,7 +528,7 @@ class MsgSpec
     }
 
     /**
-     * Gets wantContent
+     * Get wantContent
      *
      * @return MsgContent
      */
@@ -538,7 +538,7 @@ class MsgSpec
     }
 
     /**
-     * Sets wantContent
+     * Set wantContent
      *
      * @param  MsgContent $wantContent
      * @return self
@@ -550,7 +550,7 @@ class MsgSpec
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -562,7 +562,7 @@ class MsgSpec
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */

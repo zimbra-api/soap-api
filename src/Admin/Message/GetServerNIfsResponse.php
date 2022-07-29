@@ -58,7 +58,7 @@ class GetServerNIfsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets network informations
+     * Set network informations
      *
      * @param  array $interfaces
      * @return self
@@ -70,7 +70,7 @@ class GetServerNIfsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets network informations
+     * Get network informations
      *
      * @return array
      */

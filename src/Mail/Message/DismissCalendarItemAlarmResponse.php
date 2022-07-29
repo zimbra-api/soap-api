@@ -68,7 +68,7 @@ class DismissCalendarItemAlarmResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets apptUpdatedAlarms
+     * Set apptUpdatedAlarms
      *
      * @param  array $apptUpdatedAlarms
      * @return self
@@ -82,7 +82,7 @@ class DismissCalendarItemAlarmResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets apptUpdatedAlarms
+     * Get apptUpdatedAlarms
      *
      * @return array
      */
@@ -104,7 +104,7 @@ class DismissCalendarItemAlarmResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets taskUpdatedAlarms
+     * Set taskUpdatedAlarms
      *
      * @param  array $taskUpdatedAlarms
      * @return self
@@ -118,7 +118,7 @@ class DismissCalendarItemAlarmResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets taskUpdatedAlarms
+     * Get taskUpdatedAlarms
      *
      * @return array
      */

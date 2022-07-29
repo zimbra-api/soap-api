@@ -60,7 +60,7 @@ class ImportAppointmentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -70,7 +70,7 @@ class ImportAppointmentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -82,7 +82,7 @@ class ImportAppointmentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class ImportAppointmentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self

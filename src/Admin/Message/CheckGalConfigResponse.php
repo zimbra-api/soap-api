@@ -73,7 +73,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets code
+     * Get code
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets code
+     * Set code
      *
      * @param  string $code
      * @return self
@@ -95,7 +95,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self
@@ -129,7 +129,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets GAL contacts
+     * Set GAL contacts
      *
      * @param  array $contacts
      * @return self
@@ -141,7 +141,7 @@ class CheckGalConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets GAL contacts
+     * Get GAL contacts
      *
      * @return array
      */

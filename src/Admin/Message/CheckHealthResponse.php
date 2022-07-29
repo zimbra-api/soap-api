@@ -45,7 +45,7 @@ class CheckHealthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets healthy
+     * Get healthy
      *
      * @return bool
      */
@@ -55,7 +55,7 @@ class CheckHealthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets healthy
+     * Set healthy
      *
      * @param  bool $healthy
      * @return self

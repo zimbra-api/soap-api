@@ -63,7 +63,7 @@ class RunUnitTestsRequest extends SoapRequest
     }
 
     /**
-     * Sets test sequence
+     * Set test sequence
      *
      * @param  array $tests Tests
      * @return self
@@ -75,7 +75,7 @@ class RunUnitTestsRequest extends SoapRequest
     }
 
     /**
-     * Gets test sequence
+     * Get test sequence
      *
      * @return array
      */

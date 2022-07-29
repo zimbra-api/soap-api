@@ -101,7 +101,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -111,7 +111,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  CalTZInfo $timezone
      * @return self
@@ -123,7 +123,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cancelComponent
+     * Get cancelComponent
      *
      * @return CancelItemRecur
      */
@@ -133,7 +133,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cancelComponent
+     * Set cancelComponent
      *
      * @param  CancelItemRecur $cancelComponent
      * @return self
@@ -145,7 +145,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets exceptComponent
+     * Get exceptComponent
      *
      * @return ExceptionItemRecur
      */
@@ -155,7 +155,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets exceptComponent
+     * Set exceptComponent
      *
      * @param  ExceptionItemRecur $exceptComponent
      * @return self
@@ -167,7 +167,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets inviteComponent
+     * Get inviteComponent
      *
      * @return InviteItemRecur
      */
@@ -177,7 +177,7 @@ class GetRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets inviteComponent
+     * Set inviteComponent
      *
      * @param  InviteItemRecur $inviteComponent
      * @return self

@@ -215,7 +215,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -225,7 +225,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -237,7 +237,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets parentFolderId
+     * Get parentFolderId
      *
      * @return string
      */
@@ -247,7 +247,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets parentFolderId
+     * Set parentFolderId
      *
      * @param  string $parentFolderId
      * @return self
@@ -259,7 +259,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets defaultView
+     * Get defaultView
      *
      * @return ViewType
      */
@@ -269,7 +269,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets defaultView
+     * Set defaultView
      *
      * @param  ViewType $defaultView
      * @return self
@@ -281,7 +281,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -291,7 +291,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -303,7 +303,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -313,7 +313,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -325,7 +325,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -335,7 +335,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -347,7 +347,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets url
+     * Get url
      *
      * @return string
      */
@@ -357,7 +357,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets url
+     * Set url
      *
      * @param  string $url
      * @return self
@@ -369,7 +369,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets fetchIfExists
+     * Get fetchIfExists
      *
      * @return bool
      */
@@ -379,7 +379,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets fetchIfExists
+     * Set fetchIfExists
      *
      * @param  bool $fetchIfExists
      * @return self
@@ -391,7 +391,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets reminderEnabled
+     * Get reminderEnabled
      *
      * @return bool
      */
@@ -401,7 +401,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets reminderEnabled
+     * Set reminderEnabled
      *
      * @param  bool $reminderEnabled
      * @return self
@@ -413,7 +413,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets ownerId
+     * Get ownerId
      *
      * @return string
      */
@@ -423,7 +423,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets ownerId
+     * Set ownerId
      *
      * @param  string $ownerId
      * @return self
@@ -435,7 +435,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets ownerName
+     * Get ownerName
      *
      * @return string
      */
@@ -445,7 +445,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets ownerName
+     * Set ownerName
      *
      * @param  string $ownerName
      * @return self
@@ -457,7 +457,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets remoteId
+     * Get remoteId
      *
      * @return int
      */
@@ -467,7 +467,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets remoteId
+     * Set remoteId
      *
      * @param  int $remoteId
      * @return self
@@ -479,7 +479,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -489,7 +489,7 @@ class NewMountpointSpec
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $path
      * @return self

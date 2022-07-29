@@ -58,7 +58,7 @@ class QueueSummaryItem
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return int
      */
@@ -68,7 +68,7 @@ class QueueSummaryItem
     }
 
     /**
-     * Sets count
+     * Set count
      *
      * @param  int $target
      * @return self
@@ -80,7 +80,7 @@ class QueueSummaryItem
     }
 
     /**
-     * Gets term
+     * Get term
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class QueueSummaryItem
     }
 
     /**
-     * Sets term
+     * Set term
      *
      * @param  string $term
      * @return self

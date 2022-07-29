@@ -28,6 +28,7 @@ class IdStatus
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * @var string
      */
     private $id;
 
@@ -36,11 +37,13 @@ class IdStatus
      * @SerializedName("status")
      * @Type("string")
      * @XmlAttribute
+     * @var string
      */
     private $status;
 
     /**
-     * Constructor method for IdStatus
+     * Constructor
+     * 
      * @param  string $id
      * @param  string $status
      * @return self
@@ -56,7 +59,7 @@ class IdStatus
     }
 
     /**
-     * Gets Zimbra ID
+     * Get Zimbra ID
      *
      * @return string
      */
@@ -66,7 +69,7 @@ class IdStatus
     }
 
     /**
-     * Sets Zimbra ID
+     * Set Zimbra ID
      *
      * @param  string $id
      * @return self
@@ -78,7 +81,7 @@ class IdStatus
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return string
      */
@@ -88,7 +91,7 @@ class IdStatus
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  string $status
      * @return self

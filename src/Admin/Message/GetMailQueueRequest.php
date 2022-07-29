@@ -60,7 +60,7 @@ class GetMailQueueRequest extends SoapRequest
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -70,7 +70,7 @@ class GetMailQueueRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self

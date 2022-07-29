@@ -136,7 +136,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets durationNegative
+     * Get durationNegative
      *
      * @return bool
      */
@@ -146,7 +146,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets durationNegative
+     * Set durationNegative
      *
      * @param  bool $durationNegative
      * @return self
@@ -158,7 +158,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets weeks
+     * Get weeks
      *
      * @return int
      */
@@ -168,7 +168,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets weeks
+     * Set weeks
      *
      * @param  int $weeks
      * @return self
@@ -180,7 +180,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets days
+     * Get days
      *
      * @return int
      */
@@ -190,7 +190,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets days
+     * Set days
      *
      * @param  int $days
      * @return self
@@ -202,7 +202,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets hours
+     * Get hours
      *
      * @return int
      */
@@ -212,7 +212,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets hours
+     * Set hours
      *
      * @param  int $hours
      * @return self
@@ -224,7 +224,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets minutes
+     * Get minutes
      *
      * @return int
      */
@@ -234,7 +234,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets minutes
+     * Set minutes
      *
      * @param  int $minutes
      * @return self
@@ -246,7 +246,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets seconds
+     * Get seconds
      *
      * @return int
      */
@@ -256,7 +256,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets seconds
+     * Set seconds
      *
      * @param  int $seconds
      * @return self
@@ -268,7 +268,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets related
+     * Get related
      *
      * @return AlarmRelated
      */
@@ -278,7 +278,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets related
+     * Set related
      *
      * @param  AlarmRelated $related
      * @return self
@@ -290,7 +290,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Gets repeatCount
+     * Get repeatCount
      *
      * @return int
      */
@@ -300,7 +300,7 @@ class DurationInfo implements DurationInfoInterface
     }
 
     /**
-     * Sets repeatCount
+     * Set repeatCount
      *
      * @param  int $repeatCount
      * @return self

@@ -182,7 +182,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets organizer
+     * Get organizer
      *
      * @return CalOrganizer
      */
@@ -192,7 +192,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets organizer
+     * Set organizer
      *
      * @param  CalOrganizer $organizer
      * @return self
@@ -204,7 +204,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets categories
+     * Get categories
      *
      * @return array
      */
@@ -214,7 +214,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets categories
+     * Set categories
      *
      * @param  array $categories
      * @return self
@@ -244,7 +244,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets geo
+     * Get geo
      *
      * @return GeoInfo
      */
@@ -254,7 +254,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets geo
+     * Set geo
      *
      * @param  GeoInfo $geo
      * @return self
@@ -266,7 +266,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -276,7 +276,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -288,7 +288,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets instances
+     * Set instances
      *
      * @param  array $instances
      * @return self
@@ -300,7 +300,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets instances
+     * Get instances
      *
      * @return array
      */
@@ -322,7 +322,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Gets alarmData
+     * Get alarmData
      *
      * @return AlarmDataInfo
      */
@@ -332,7 +332,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     }
 
     /**
-     * Sets alarmData
+     * Set alarmData
      *
      * @param  AlarmDataInfo $alarmData
      * @return self

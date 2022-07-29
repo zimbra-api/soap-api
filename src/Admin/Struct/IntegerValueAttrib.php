@@ -44,7 +44,7 @@ class IntegerValueAttrib
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return int
      */
@@ -54,7 +54,7 @@ class IntegerValueAttrib
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  int $value
      * @return self

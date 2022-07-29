@@ -47,7 +47,7 @@ class GetCommentsRequest extends SoapRequest
     }
 
     /**
-     * Gets comment
+     * Get comment
      *
      * @return ParentId
      */
@@ -57,7 +57,7 @@ class GetCommentsRequest extends SoapRequest
     }
 
     /**
-     * Sets comment
+     * Set comment
      *
      * @param  ParentId $comment
      * @return self

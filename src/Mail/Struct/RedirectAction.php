@@ -63,7 +63,7 @@ class RedirectAction extends FilterAction
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class RedirectAction extends FilterAction
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self
@@ -85,7 +85,7 @@ class RedirectAction extends FilterAction
     }
 
     /**
-     * Gets copy
+     * Get copy
      *
      * @return bool
      */
@@ -95,7 +95,7 @@ class RedirectAction extends FilterAction
     }
 
     /**
-     * Sets copy
+     * Set copy
      *
      * @param  bool $copy
      * @return self

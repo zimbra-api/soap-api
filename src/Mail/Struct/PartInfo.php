@@ -183,7 +183,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -205,7 +205,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -215,7 +215,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -227,7 +227,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -237,7 +237,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -249,7 +249,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets contentDisposition
+     * Get contentDisposition
      *
      * @return string
      */
@@ -259,7 +259,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets contentDisposition
+     * Set contentDisposition
      *
      * @param  string $contentDisposition
      * @return self
@@ -271,7 +271,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets contentFilename
+     * Get contentFilename
      *
      * @return string
      */
@@ -281,7 +281,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets contentFilename
+     * Set contentFilename
      *
      * @param  string $contentFilename
      * @return self
@@ -293,7 +293,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets contentId
+     * Get contentId
      *
      * @return string
      */
@@ -303,7 +303,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets contentId
+     * Set contentId
      *
      * @param  string $contentId
      * @return self
@@ -315,7 +315,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets location
+     * Get location
      *
      * @return string
      */
@@ -325,7 +325,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets location
+     * Set location
      *
      * @param  string $location
      * @return self
@@ -337,7 +337,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets body
+     * Get body
      *
      * @return bool
      */
@@ -347,7 +347,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets body
+     * Set body
      *
      * @param  bool $body
      * @return self
@@ -359,7 +359,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets truncatedContent
+     * Get truncatedContent
      *
      * @return bool
      */
@@ -369,7 +369,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets truncatedContent
+     * Set truncatedContent
      *
      * @param  bool $truncatedContent
      * @return self
@@ -381,7 +381,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -391,7 +391,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -403,7 +403,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Sets mimeParts
+     * Set mimeParts
      *
      * @param  array $mimeParts
      * @return self
@@ -415,7 +415,7 @@ class PartInfo implements PartInfoInterface
     }
 
     /**
-     * Gets mimeParts
+     * Get mimeParts
      *
      * @return array
      */

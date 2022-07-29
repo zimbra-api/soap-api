@@ -47,7 +47,7 @@ class MigrateAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the migrate.
+     * Set the migrate.
      *
      * @return IdAndAction
      */
@@ -57,7 +57,7 @@ class MigrateAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the migrate.
+     * Set the migrate.
      *
      * @param  IdAndAction $migrate
      * @return self

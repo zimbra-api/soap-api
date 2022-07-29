@@ -196,7 +196,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -206,7 +206,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -218,7 +218,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -228,7 +228,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -240,7 +240,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return string
      */
@@ -250,7 +250,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param  string $description
      * @return self
@@ -262,7 +262,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -272,7 +272,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -284,7 +284,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -294,7 +294,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -306,7 +306,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -316,7 +316,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self
@@ -328,7 +328,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -338,7 +338,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -350,7 +350,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets descEnabled
+     * Get descEnabled
      *
      * @return bool
      */
@@ -360,7 +360,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets descEnabled
+     * Set descEnabled
      *
      * @param  bool $descEnabled
      * @return self
@@ -372,7 +372,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -382,7 +382,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -394,7 +394,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets upload
+     * Get upload
      *
      * @return Id
      */
@@ -404,7 +404,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets upload
+     * Set upload
      *
      * @param  Id $upload
      * @return self
@@ -416,7 +416,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets messagePart
+     * Get messagePart
      *
      * @return MessagePartSpec
      */
@@ -426,7 +426,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets messagePart
+     * Set messagePart
      *
      * @param  MessagePartSpec $messagePart
      * @return self
@@ -438,7 +438,7 @@ class DocumentSpec
     }
 
     /**
-     * Gets docRevision
+     * Get docRevision
      *
      * @return IdVersion
      */
@@ -448,7 +448,7 @@ class DocumentSpec
     }
 
     /**
-     * Sets docRevision
+     * Set docRevision
      *
      * @param  IdVersion $docRevision
      * @return self

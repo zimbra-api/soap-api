@@ -57,7 +57,7 @@ class StatsInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class StatsInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -79,7 +79,7 @@ class StatsInfo
     }
 
     /**
-     * Sets values
+     * Set values
      *
      * @param  StatsValues $values
      * @return self
@@ -91,7 +91,7 @@ class StatsInfo
     }
 
     /**
-     * Gets values
+     * Get values
      *
      * @return StatsValues
      */

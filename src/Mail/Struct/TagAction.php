@@ -48,7 +48,7 @@ class TagAction extends FilterAction
     }
 
     /**
-     * Gets tag
+     * Get tag
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class TagAction extends FilterAction
     }
 
     /**
-     * Sets tag
+     * Set tag
      *
      * @param  string $tag
      * @return self

@@ -57,7 +57,7 @@ abstract class HABMember
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -67,7 +67,7 @@ abstract class HABMember
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -79,7 +79,7 @@ abstract class HABMember
     }
 
     /**
-     * Gets seniorityIndex
+     * Get seniorityIndex
      *
      * @return int
      */
@@ -89,7 +89,7 @@ abstract class HABMember
     }
 
     /**
-     * Sets seniorityIndex
+     * Set seniorityIndex
      *
      * @param  int $seniorityIndex
      * @return self

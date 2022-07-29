@@ -64,7 +64,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountSelector
      */
@@ -74,7 +74,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self
@@ -86,7 +86,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DlSelector
      */
@@ -96,7 +96,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DlSelector $dl
      * @return self

@@ -25,68 +25,80 @@ use Zimbra\Common\Struct\SoapResponseInterface;
 class VerifyStoreManagerResponse implements SoapResponseInterface
 {
     /**
-     * storeManagerClass
+     * Store manager class
+     * 
      * @Accessor(getter="getStoreManagerClass", setter="setStoreManagerClass")
      * @SerializedName("storeManagerClass")
      * @Type("string")
      * @XmlAttribute
+     * @var string
      */
     private $storeManagerClass;
 
     /**
-     * incomingTime
+     * Incoming time
+     * 
      * @Accessor(getter="getIncomingTime", setter="setIncomingTime")
      * @SerializedName("incomingTime")
      * @Type("integer")
      * @XmlAttribute
+     * @var int
      */
     private $incomingTime;
 
     /**
-     * stageTime
+     * Stage time
+     * 
      * @Accessor(getter="getStageTime", setter="setStageTime")
      * @SerializedName("stageTime")
      * @Type("integer")
      * @XmlAttribute
+     * @var int
      */
     private $stageTime;
 
     /**
-     * linkTime
+     * Link time
+     * 
      * @Accessor(getter="getLinkTime", setter="setLinkTime")
      * @SerializedName("linkTime")
      * @Type("integer")
      * @XmlAttribute
+     * @var int
      */
     private $linkTime;
 
     /**
-     * fetchTime
+     * Fetch time
+     * 
      * @Accessor(getter="getFetchTime", setter="setFetchTime")
      * @SerializedName("fetchTime")
      * @Type("integer")
      * @XmlAttribute
+     * @var int
      */
     private $fetchTime;
 
     /**
-     * deleteTime
+     * Delete time
+     * 
      * @Accessor(getter="getDeleteTime", setter="setDeleteTime")
      * @SerializedName("deleteTime")
      * @Type("integer")
      * @XmlAttribute
+     * @var int
      */
     private $deleteTime;
 
     /**
-     * Constructor method for VerifyStoreManagerResponse
+     * Constructor
      * 
-     * @param string  $storeManagerClass
-     * @param int  $incomingTime
-     * @param int  $stageTime
-     * @param int  $linkTime
-     * @param int  $fetchTime
-     * @param int  $deleteTime
+     * @param string $storeManagerClass
+     * @param int $incomingTime
+     * @param int $stageTime
+     * @param int $linkTime
+     * @param int $fetchTime
+     * @param int $deleteTime
      * @return self
      */
     public function __construct(
@@ -119,7 +131,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets WaitSet ID
+     * Get WaitSet ID
      *
      * @return string
      */
@@ -129,7 +141,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets WaitSet ID
+     * Set WaitSet ID
      *
      * @param  string $storeManagerClass
      * @return self
@@ -141,7 +153,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets incomingTime
+     * Get incomingTime
      *
      * @return int
      */
@@ -151,7 +163,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets incomingTime
+     * Set incomingTime
      *
      * @param  int $incomingTime
      * @return self
@@ -163,7 +175,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets stageTime
+     * Get stageTime
      *
      * @return int
      */
@@ -173,7 +185,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets stageTime
+     * Set stageTime
      *
      * @param  int $stageTime
      * @return self
@@ -185,7 +197,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets linkTime
+     * Get linkTime
      *
      * @return int
      */
@@ -195,7 +207,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets linkTime
+     * Set linkTime
      *
      * @param  int $linkTime
      * @return self
@@ -207,7 +219,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets fetchTime
+     * Get fetchTime
      *
      * @return int
      */
@@ -217,7 +229,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets fetchTime
+     * Set fetchTime
      *
      * @param  int $fetchTime
      * @return self
@@ -229,7 +241,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets deleteTime
+     * Get deleteTime
      *
      * @return int
      */
@@ -239,7 +251,7 @@ class VerifyStoreManagerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets deleteTime
+     * Set deleteTime
      *
      * @param  int $deleteTime
      * @return self

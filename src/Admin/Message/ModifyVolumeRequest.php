@@ -58,7 +58,7 @@ class ModifyVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -68,7 +68,7 @@ class ModifyVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -80,7 +80,7 @@ class ModifyVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets the data source.
+     * Get the data source.
      *
      * @return VolumeInfo
      */
@@ -90,7 +90,7 @@ class ModifyVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets the data source
+     * Set the data source
      *
      * @param  VolumeInfo $volume
      * @return self

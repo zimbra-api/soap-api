@@ -194,7 +194,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the address
+     * Get the address
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the address
+     * Set the address
      *
      * @param  string $address
      * @return self
@@ -216,7 +216,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the url
+     * Get the url
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the url
+     * Set the url
      *
      * @param  string $url
      * @return self
@@ -238,7 +238,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the displayName
+     * Get the displayName
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the displayName
+     * Set the displayName
      *
      * @param  string $displayName
      * @return self
@@ -260,7 +260,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the sentBy
+     * Get the sentBy
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the sentBy
+     * Set the sentBy
      *
      * @param  string $sentBy
      * @return self
@@ -282,7 +282,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the dir
+     * Get the dir
      *
      * @return string
      */
@@ -292,7 +292,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the dir
+     * Set the dir
      *
      * @param  string $dir
      * @return self
@@ -304,7 +304,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the language
+     * Get the language
      *
      * @return string
      */
@@ -314,7 +314,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the language
+     * Set the language
      *
      * @param  string $language
      * @return self
@@ -326,7 +326,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the cuType
+     * Get the cuType
      *
      * @return string
      */
@@ -336,7 +336,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the cuType
+     * Set the cuType
      *
      * @param  string $cuType
      * @return self
@@ -348,7 +348,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the role
+     * Get the role
      *
      * @return string
      */
@@ -358,7 +358,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the role
+     * Set the role
      *
      * @param  string $role
      * @return self
@@ -370,7 +370,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the partStat
+     * Get the partStat
      *
      * @return PartStat
      */
@@ -380,7 +380,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the partStat
+     * Set the partStat
      *
      * @param  PartStat $partStat
      * @return self
@@ -392,7 +392,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the rsvp
+     * Get the rsvp
      *
      * @return bool
      */
@@ -402,7 +402,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the rsvp
+     * Set the rsvp
      *
      * @param  bool $rsvp
      * @return self
@@ -414,7 +414,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the member
+     * Get the member
      *
      * @return string
      */
@@ -424,7 +424,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the member
+     * Set the member
      *
      * @param  string $member
      * @return self
@@ -436,7 +436,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the delegatedTo
+     * Get the delegatedTo
      *
      * @return string
      */
@@ -446,7 +446,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the delegatedTo
+     * Set the delegatedTo
      *
      * @param  string $delegatedTo
      * @return self
@@ -458,7 +458,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets the delegatedFrom
+     * Get the delegatedFrom
      *
      * @return string
      */
@@ -468,7 +468,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Sets the delegatedFrom
+     * Set the delegatedFrom
      *
      * @param  string $delegatedFrom
      * @return self
@@ -504,7 +504,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     }
 
     /**
-     * Gets xParams
+     * Get xParams
      *
      * @return array
      */

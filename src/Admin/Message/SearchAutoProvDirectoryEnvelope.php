@@ -45,7 +45,7 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
     }
 
     /**
-     * Gets soap message body
+     * Get soap message body
      *
      * @return SoapBodyInterface
      */
@@ -55,7 +55,7 @@ class SearchAutoProvDirectoryEnvelope extends SoapEnvelope
     }
 
     /**
-     * Sets soap message body
+     * Set soap message body
      *
      * @param  SoapBodyInterface $body
      * @return self

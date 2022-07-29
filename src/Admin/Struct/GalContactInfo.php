@@ -45,7 +45,7 @@ class GalContactInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets the id
+     * Get the id
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class GalContactInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets the id
+     * Set the id
      *
      * @param  string $id
      * @return self

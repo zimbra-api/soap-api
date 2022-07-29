@@ -99,7 +99,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return DedupStatus
      */
@@ -109,7 +109,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  DedupStatus $status
      * @return self
@@ -121,7 +121,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -131,7 +131,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -143,7 +143,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets totalCount
+     * Get totalCount
      *
      * @return int
      */
@@ -153,7 +153,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets totalCount
+     * Set totalCount
      *
      * @param  int $totalCount
      * @return self
@@ -165,7 +165,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets volumeBlobsProgress
+     * Get volumeBlobsProgress
      *
      * @return array
      */
@@ -175,7 +175,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets volumeBlobsProgress
+     * Set volumeBlobsProgress
      *
      * @param  array $progress
      * @return self
@@ -199,7 +199,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets setBlobDigestsProgress
+     * Get setBlobDigestsProgress
      *
      * @return array
      */
@@ -209,7 +209,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets setBlobDigestsProgress
+     * Set setBlobDigestsProgress
      *
      * @param  array $progress
      * @return self

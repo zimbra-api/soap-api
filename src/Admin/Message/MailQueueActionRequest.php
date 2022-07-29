@@ -48,7 +48,7 @@ class MailQueueActionRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @return Server
      */
@@ -58,7 +58,7 @@ class MailQueueActionRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self

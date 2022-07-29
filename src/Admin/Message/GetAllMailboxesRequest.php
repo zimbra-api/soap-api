@@ -61,7 +61,7 @@ class GetAllMailboxesRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -71,7 +71,7 @@ class GetAllMailboxesRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -83,7 +83,7 @@ class GetAllMailboxesRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -93,7 +93,7 @@ class GetAllMailboxesRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self

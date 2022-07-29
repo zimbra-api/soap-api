@@ -48,7 +48,7 @@ class GetCalendarResourceResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the calResource.
+     * Get the calResource.
      *
      * @return CalendarResourceInfo
      */
@@ -58,7 +58,7 @@ class GetCalendarResourceResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the calResource.
+     * Set the calResource.
      *
      * @param  CalendarResourceInfo $calResource
      * @return self

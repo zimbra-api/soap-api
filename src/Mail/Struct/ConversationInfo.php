@@ -156,7 +156,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -178,7 +178,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -200,7 +200,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -222,7 +222,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -232,7 +232,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -244,7 +244,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -254,7 +254,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -266,7 +266,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -276,7 +276,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -288,7 +288,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -298,7 +298,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -310,7 +310,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -322,7 +322,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */
@@ -344,7 +344,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets chatMessages
+     * Set chatMessages
      *
      * @param  array $messages
      * @return self
@@ -356,7 +356,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets chatMessages
+     * Get chatMessages
      *
      * @return array
      */
@@ -378,7 +378,7 @@ class ConversationInfo
     }
 
     /**
-     * Sets messages
+     * Set messages
      *
      * @param  array $messages
      * @return self
@@ -390,7 +390,7 @@ class ConversationInfo
     }
 
     /**
-     * Gets messages
+     * Get messages
      *
      * @return array
      */

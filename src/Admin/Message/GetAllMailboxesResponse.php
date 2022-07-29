@@ -68,7 +68,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -78,7 +78,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -90,7 +90,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchTotal
+     * Get searchTotal
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchTotal
+     * Set searchTotal
      *
      * @param  int $searchTotal
      * @return self
@@ -124,7 +124,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mbox informations
+     * Set mbox informations
      *
      * @param  array $mboxes
      * @return self
@@ -136,7 +136,7 @@ class GetAllMailboxesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets mbox informations
+     * Get mbox informations
      *
      * @return array
      */

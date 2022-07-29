@@ -95,7 +95,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets recoveryAccount
+     * Get recoveryAccount
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets recoveryAccount
+     * Set recoveryAccount
      *
      * @param  string $recoveryAccount
      * @return self
@@ -117,7 +117,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets verificationCode
+     * Get verificationCode
      *
      * @return string
      */
@@ -127,7 +127,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets verificationCode
+     * Set verificationCode
      *
      * @param  string $verificationCode
      * @return self
@@ -139,7 +139,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets op
+     * Get op
      *
      * @return RecoveryAccountOperation
      */
@@ -149,7 +149,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets op
+     * Set op
      *
      * @param  RecoveryAccountOperation $op
      * @return self
@@ -161,7 +161,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets channel
+     * Get channel
      *
      * @return Channel
      */
@@ -171,7 +171,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets channel
+     * Set channel
      *
      * @param  Channel $channel
      * @return self

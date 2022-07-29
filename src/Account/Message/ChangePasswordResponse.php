@@ -56,7 +56,7 @@ class ChangePasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets new auth token
+     * Get new auth token
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class ChangePasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets new auth token
+     * Set new auth token
      *
      * @param  string $authToken
      * @return self
@@ -78,7 +78,7 @@ class ChangePasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets life time associated
+     * Get life time associated
      *
      * @return int
      */
@@ -88,7 +88,7 @@ class ChangePasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets life time associated
+     * Set life time associated
      *
      * @param  int $lifetime
      * @return self

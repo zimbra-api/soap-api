@@ -198,7 +198,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets itemIds
+     * Set itemIds
      *
      * @param  array $itemIds
      * @return self
@@ -219,7 +219,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return array
      */
@@ -240,7 +240,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets tagItemIds
+     * Set tagItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -254,7 +254,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets tagItemIds
+     * Get tagItemIds
      *
      * @return array
      */
@@ -264,7 +264,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets convItemIds
+     * Set convItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -278,7 +278,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets convItemIds
+     * Get convItemIds
      *
      * @return array
      */
@@ -288,7 +288,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets chatItemIds
+     * Set chatItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -302,7 +302,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets chatItemIds
+     * Get chatItemIds
      *
      * @return array
      */
@@ -312,7 +312,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets msgItemIds
+     * Set msgItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -326,7 +326,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets msgItemIds
+     * Get msgItemIds
      *
      * @return array
      */
@@ -336,7 +336,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets contactItemIds
+     * Set contactItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -350,7 +350,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets contactItemIds
+     * Get contactItemIds
      *
      * @return array
      */
@@ -360,7 +360,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets apptItemIds
+     * Set apptItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -374,7 +374,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets apptItemIds
+     * Get apptItemIds
      *
      * @return array
      */
@@ -384,7 +384,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets taskItemIds
+     * Set taskItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -398,7 +398,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets taskItemIds
+     * Get taskItemIds
      *
      * @return array
      */
@@ -408,7 +408,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets noteItemIds
+     * Set noteItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -422,7 +422,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets noteItemIds
+     * Get noteItemIds
      *
      * @return array
      */
@@ -432,7 +432,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets wikiItemIds
+     * Set wikiItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -446,7 +446,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets wikiItemIds
+     * Get wikiItemIds
      *
      * @return array
      */
@@ -456,7 +456,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Sets docItemIds
+     * Set docItemIds
      *
      * @param  array $itemIds
      * @return self
@@ -470,7 +470,7 @@ class SyncFolder extends Folder
     }
 
     /**
-     * Gets docItemIds
+     * Get docItemIds
      *
      * @return array
      */

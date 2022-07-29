@@ -77,7 +77,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Gets the mailbox.
+     * Get the mailbox.
      *
      * @return Mailbox
      */
@@ -87,7 +87,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Sets the mailbox.
+     * Set the mailbox.
      *
      * @param  Mailbox $mailbox
      * @return self
@@ -99,7 +99,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Gets exportDir
+     * Get exportDir
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Sets exportDir
+     * Set exportDir
      *
      * @param  string $exportDir
      * @return self
@@ -121,7 +121,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Gets exportFilenamePrefix
+     * Get exportFilenamePrefix
      *
      * @return string
      */
@@ -131,7 +131,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Sets exportFilenamePrefix
+     * Set exportFilenamePrefix
      *
      * @param  string $exportFilenamePrefix
      * @return self

@@ -48,7 +48,7 @@ class CreateSignatureResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the signature.
+     * Get the signature.
      *
      * @return NameId
      */
@@ -58,7 +58,7 @@ class CreateSignatureResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the signature.
+     * Set the signature.
      *
      * @param  NameId $signature
      * @return self

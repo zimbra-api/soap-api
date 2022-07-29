@@ -75,7 +75,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -85,7 +85,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self
@@ -97,7 +97,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -119,7 +119,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return int
      */
@@ -129,7 +129,7 @@ class ListDocumentRevisionsSpec
     }
 
     /**
-     * Sets the count
+     * Set the count
      *
      * @param  int $count
      * @return self

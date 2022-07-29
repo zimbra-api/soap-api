@@ -56,7 +56,7 @@ class StatsValueWrapper
     }
 
     /**
-     * Sets stats
+     * Set stats
      *
      * @param  array $stats
      * @return self
@@ -68,7 +68,7 @@ class StatsValueWrapper
     }
 
     /**
-     * Gets stats
+     * Get stats
      *
      * @return array
      */

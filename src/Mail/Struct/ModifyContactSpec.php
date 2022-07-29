@@ -87,7 +87,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Gets Contact Id
+     * Get Contact Id
      *
      * @return int
      */
@@ -97,7 +97,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Sets Contact Id
+     * Set Contact Id
      *
      * @param  int $id
      * @return self
@@ -109,7 +109,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Gets tag names
+     * Get tag names
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Sets tag names
+     * Set tag names
      *
      * @param  string $tagNames
      * @return self
@@ -131,7 +131,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -141,7 +141,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self
@@ -165,7 +165,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Gets contact group members
+     * Get contact group members
      *
      * @return array
      */
@@ -175,7 +175,7 @@ class ModifyContactSpec
     }
 
     /**
-     * Sets contact group members
+     * Set contact group members
      *
      * @param  array $members
      * @return self

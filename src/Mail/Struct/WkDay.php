@@ -59,7 +59,7 @@ class WkDay implements WkDayInterface
     }
 
     /**
-     * Gets day
+     * Get day
      *
      * @return WeekDay
      */
@@ -69,7 +69,7 @@ class WkDay implements WkDayInterface
     }
 
     /**
-     * Sets day
+     * Set day
      *
      * @param  WeekDay $day
      * @return self
@@ -81,7 +81,7 @@ class WkDay implements WkDayInterface
     }
 
     /**
-     * Gets ordWk
+     * Get ordWk
      *
      * @return int
      */
@@ -91,7 +91,7 @@ class WkDay implements WkDayInterface
     }
 
     /**
-     * Sets ordWk
+     * Set ordWk
      *
      * @param  int $ordWk
      * @return self

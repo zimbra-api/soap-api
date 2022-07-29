@@ -118,7 +118,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets ldap search base
+     * Get ldap search base
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets ldap search base
+     * Set ldap search base
      *
      * @param  string $ldapSearchBase
      * @return self
@@ -140,7 +140,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -150,7 +150,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -162,7 +162,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets sortAscending flag
+     * Get sortAscending flag
      *
      * @return bool
      */
@@ -172,7 +172,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets sortAscending flag
+     * Set sortAscending flag
      *
      * @param  bool $sortAscending
      * @return self
@@ -184,7 +184,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -194,7 +194,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -206,7 +206,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -216,7 +216,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -228,7 +228,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -238,7 +238,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self

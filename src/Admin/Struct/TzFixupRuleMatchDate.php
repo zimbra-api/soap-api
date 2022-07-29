@@ -54,7 +54,7 @@ class TzFixupRuleMatchDate
     }
 
     /**
-     * Gets the match month
+     * Get the match month
      *
      * @return int
      */
@@ -64,7 +64,7 @@ class TzFixupRuleMatchDate
     }
 
     /**
-     * Sets the match month
+     * Set the match month
      *
      * @param  int $mon
      * @return self
@@ -77,7 +77,7 @@ class TzFixupRuleMatchDate
     }
 
     /**
-     * Gets the match month day
+     * Get the match month day
      *
      * @return int
      */
@@ -87,7 +87,7 @@ class TzFixupRuleMatchDate
     }
 
     /**
-     * Sets the match month day
+     * Set the match month day
      *
      * @param  int $mday
      * @return self

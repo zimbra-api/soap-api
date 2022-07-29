@@ -116,7 +116,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -128,7 +128,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -150,7 +150,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -160,7 +160,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -172,7 +172,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -182,7 +182,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -194,7 +194,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -204,7 +204,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -216,7 +216,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */

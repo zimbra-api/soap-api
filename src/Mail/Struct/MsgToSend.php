@@ -128,7 +128,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Gets draftId
+     * Get draftId
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Sets draftId
+     * Set draftId
      *
      * @param  string $draftId
      * @return self
@@ -150,7 +150,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Gets sendFromDraft
+     * Get sendFromDraft
      *
      * @return bool
      */
@@ -160,7 +160,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Sets sendFromDraft
+     * Set sendFromDraft
      *
      * @param  bool $sendFromDraft
      * @return self
@@ -172,7 +172,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Gets dataSourceId
+     * Get dataSourceId
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class MsgToSend extends Msg
     }
 
     /**
-     * Sets dataSourceId
+     * Set dataSourceId
      *
      * @param  string $dataSourceId
      * @return self

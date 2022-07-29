@@ -54,7 +54,7 @@ class QueueQueryField
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class QueueQueryField
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -88,7 +88,7 @@ class QueueQueryField
     }
 
     /**
-     * Sets match sequence
+     * Set match sequence
      *
      * @param  array $matches
      * @return self
@@ -100,7 +100,7 @@ class QueueQueryField
     }
 
     /**
-     * Gets match sequence
+     * Get match sequence
      *
      * @return array
      */

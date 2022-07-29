@@ -56,7 +56,7 @@ class CheckDirSelector
     }
 
     /**
-     * Gets the path
+     * Get the path
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class CheckDirSelector
     }
 
     /**
-     * Sets the path
+     * Set the path
      *
      * @param  string $path
      * @return self
@@ -78,7 +78,7 @@ class CheckDirSelector
     }
 
     /**
-     * Gets create flag
+     * Get create flag
      *
      * @return bool
      */
@@ -88,7 +88,7 @@ class CheckDirSelector
     }
 
     /**
-     * Sets create flag
+     * Set create flag
      *
      * @param  bool $create
      * @return self

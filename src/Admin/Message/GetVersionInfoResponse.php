@@ -48,7 +48,7 @@ class GetVersionInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the info.
+     * Get the info.
      *
      * @return VersionInfo
      */
@@ -58,7 +58,7 @@ class GetVersionInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the info.
+     * Set the info.
      *
      * @param  VersionInfo $info
      * @return self

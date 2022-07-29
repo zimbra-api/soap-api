@@ -54,7 +54,7 @@ class ImportanceTest extends FilterTest
     }
 
     /**
-     * Gets importance
+     * Get importance
      *
      * @return Importance
      */
@@ -64,7 +64,7 @@ class ImportanceTest extends FilterTest
     }
 
     /**
-     * Sets importance
+     * Set importance
      *
      * @param  Importance $importance
      * @return self

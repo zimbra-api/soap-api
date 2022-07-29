@@ -68,7 +68,7 @@ class AliasInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets target name
+     * Get target name
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class AliasInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets target name
+     * Set target name
      *
      * @param  string $targetName
      * @return self
@@ -90,7 +90,7 @@ class AliasInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets target type
+     * Get target type
      *
      * @return TargetType
      */
@@ -100,7 +100,7 @@ class AliasInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets target type
+     * Set target type
      *
      * @param  TargetType $targetType
      * @return self

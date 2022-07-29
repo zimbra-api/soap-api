@@ -92,7 +92,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -102,7 +102,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -114,7 +114,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -124,7 +124,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -148,7 +148,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -170,7 +170,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Sets folders
+     * Set folders
      *
      * @param  array $folders
      * @return self
@@ -182,7 +182,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Gets folders
+     * Get folders
      *
      * @return array
      */

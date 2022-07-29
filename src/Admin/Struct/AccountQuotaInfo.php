@@ -82,7 +82,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $baseUrl
      * @return self
@@ -104,7 +104,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -114,7 +114,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -126,7 +126,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Gets quotaUsed
+     * Get quotaUsed
      *
      * @return int
      */
@@ -136,7 +136,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Sets quotaUsed
+     * Set quotaUsed
      *
      * @param  int $quotaUsed
      * @return self
@@ -148,7 +148,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Gets quotaLimit
+     * Get quotaLimit
      *
      * @return int
      */
@@ -158,7 +158,7 @@ class AccountQuotaInfo
     }
 
     /**
-     * Sets quotaLimit
+     * Set quotaLimit
      *
      * @param  int $quotaLimit
      * @return self

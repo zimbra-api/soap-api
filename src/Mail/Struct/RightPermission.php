@@ -59,7 +59,7 @@ class RightPermission
     }
 
     /**
-     * Gets allow
+     * Get allow
      *
      * @return bool
      */
@@ -69,7 +69,7 @@ class RightPermission
     }
 
     /**
-     * Sets allow
+     * Set allow
      *
      * @param  bool $allow
      * @return self
@@ -81,7 +81,7 @@ class RightPermission
     }
 
     /**
-     * Gets rightName
+     * Get rightName
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class RightPermission
     }
 
     /**
-     * Sets rightName
+     * Set rightName
      *
      * @param  string $rightName
      * @return self

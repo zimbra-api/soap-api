@@ -43,7 +43,7 @@ class Names
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class Names
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

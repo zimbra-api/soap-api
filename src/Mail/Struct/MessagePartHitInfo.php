@@ -189,7 +189,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -199,7 +199,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -211,7 +211,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -221,7 +221,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self
@@ -233,7 +233,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -243,7 +243,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -255,7 +255,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -265,7 +265,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -277,7 +277,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets conversationId
+     * Get conversationId
      *
      * @return int
      */
@@ -287,7 +287,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets conversationId
+     * Set conversationId
      *
      * @param  int $conversationId
      * @return self
@@ -299,7 +299,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets messageId
+     * Get messageId
      *
      * @return int
      */
@@ -309,7 +309,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets messageId
+     * Set messageId
      *
      * @param  int $messageId
      * @return self
@@ -321,7 +321,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -331,7 +331,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -343,7 +343,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets contentName
+     * Get contentName
      *
      * @return string
      */
@@ -353,7 +353,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets contentName
+     * Set contentName
      *
      * @param  string $contentName
      * @return self
@@ -365,7 +365,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -375,7 +375,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -387,7 +387,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -397,7 +397,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  EmailInfo $email
      * @return self
@@ -409,7 +409,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -419,7 +419,7 @@ class MessagePartHitInfo implements SearchHit
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self

@@ -73,7 +73,7 @@ class GrantPermissionRequest extends SoapRequest
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

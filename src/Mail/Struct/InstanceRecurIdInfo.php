@@ -91,7 +91,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Gets range
+     * Get range
      *
      * @return string
      */
@@ -101,7 +101,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Sets range
+     * Set range
      *
      * @param  string $range
      * @return self
@@ -115,7 +115,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Gets dateTime
+     * Get dateTime
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Sets dateTime
+     * Set dateTime
      *
      * @param  string $dateTime
      * @return self
@@ -137,7 +137,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return string
      */
@@ -147,7 +147,7 @@ class InstanceRecurIdInfo
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  string $timezone
      * @return self

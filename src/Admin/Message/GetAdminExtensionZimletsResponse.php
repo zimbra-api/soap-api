@@ -60,7 +60,7 @@ class GetAdminExtensionZimletsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets zimlet sequence
+     * Set zimlet sequence
      *
      * @param  array $zimlets
      * @return self
@@ -72,7 +72,7 @@ class GetAdminExtensionZimletsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets zimlet sequence
+     * Get zimlet sequence
      *
      * @return array
      */

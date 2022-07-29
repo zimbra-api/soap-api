@@ -45,7 +45,7 @@ class FilterAction
     }
 
     /**
-     * Gets index
+     * Get index
      *
      * @return int
      */
@@ -55,7 +55,7 @@ class FilterAction
     }
 
     /**
-     * Sets index
+     * Set index
      *
      * @param  int $index
      * @return self

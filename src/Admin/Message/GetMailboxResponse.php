@@ -48,7 +48,7 @@ class GetMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the mailbox
+     * Get the mailbox
      *
      * @return Mailbox
      */
@@ -58,7 +58,7 @@ class GetMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mailbox
+     * Set mailbox
      *
      * @param  Mailbox $mbox
      * @return self

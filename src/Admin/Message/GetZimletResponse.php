@@ -48,7 +48,7 @@ class GetZimletResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the zimlet.
+     * Get the zimlet.
      *
      * @return ZimletInfo
      */
@@ -58,7 +58,7 @@ class GetZimletResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the zimlet.
+     * Set the zimlet.
      *
      * @param  ZimletInfo $zimlet
      * @return self

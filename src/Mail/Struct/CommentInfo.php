@@ -174,7 +174,7 @@ class CommentInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -184,7 +184,7 @@ class CommentInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -196,7 +196,7 @@ class CommentInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -206,7 +206,7 @@ class CommentInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -218,7 +218,7 @@ class CommentInfo
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -228,7 +228,7 @@ class CommentInfo
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -240,7 +240,7 @@ class CommentInfo
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -250,7 +250,7 @@ class CommentInfo
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $uuid
      * @return self
@@ -262,7 +262,7 @@ class CommentInfo
     }
 
     /**
-     * Gets parentId
+     * Get parentId
      *
      * @return string
      */
@@ -272,7 +272,7 @@ class CommentInfo
     }
 
     /**
-     * Sets parentId
+     * Set parentId
      *
      * @param  string $parentId
      * @return self
@@ -284,7 +284,7 @@ class CommentInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -294,7 +294,7 @@ class CommentInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -306,7 +306,7 @@ class CommentInfo
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -316,7 +316,7 @@ class CommentInfo
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -328,7 +328,7 @@ class CommentInfo
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -338,7 +338,7 @@ class CommentInfo
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -350,7 +350,7 @@ class CommentInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -360,7 +360,7 @@ class CommentInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -372,7 +372,7 @@ class CommentInfo
     }
 
     /**
-     * Gets creatorEmail
+     * Get creatorEmail
      *
      * @return string
      */
@@ -382,7 +382,7 @@ class CommentInfo
     }
 
     /**
-     * Sets creatorEmail
+     * Set creatorEmail
      *
      * @param  string $creatorEmail
      * @return self
@@ -394,7 +394,7 @@ class CommentInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -406,7 +406,7 @@ class CommentInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */

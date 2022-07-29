@@ -47,7 +47,7 @@ class GetMsgMetadataRequest extends SoapRequest
     }
 
     /**
-     * Gets msgIds
+     * Get msgIds
      *
      * @return IdsAttr
      */
@@ -57,7 +57,7 @@ class GetMsgMetadataRequest extends SoapRequest
     }
 
     /**
-     * Sets msgIds
+     * Set msgIds
      *
      * @param  IdsAttr $msgIds
      * @return self

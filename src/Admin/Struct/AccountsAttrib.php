@@ -44,7 +44,7 @@ class AccountsAttrib
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class AccountsAttrib
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  string $name
      * @return self

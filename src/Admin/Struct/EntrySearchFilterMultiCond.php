@@ -83,7 +83,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Gets not flag
+     * Get not flag
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Sets not flag
+     * Set not flag
      *
      * @param  bool $not
      * @return self
@@ -105,7 +105,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Gets or flag
+     * Get or flag
      *
      * @return bool
      */
@@ -115,7 +115,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Sets or flag
+     * Set or flag
      *
      * @param  bool $or
      * @return self
@@ -144,7 +144,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Sets search filter conditions
+     * Set search filter conditions
      *
      * @return self
      */
@@ -156,7 +156,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Gets search filter conditions
+     * Get search filter conditions
      *
      * @return array
      */
@@ -166,7 +166,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Gets compound conditions
+     * Get compound conditions
      *
      * @return array
      */
@@ -176,7 +176,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Sets compound conditions
+     * Set compound conditions
      *
      * @return self
      */
@@ -189,7 +189,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Gets single conditions
+     * Get single conditions
      *
      * @return array
      */
@@ -199,7 +199,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     }
 
     /**
-     * Sets single conditions
+     * Set single conditions
      *
      * @return self
      */

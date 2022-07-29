@@ -72,7 +72,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -94,7 +94,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return DomainSelector
      */
@@ -104,7 +104,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  DomainSelector $domain
      * @return self
@@ -116,7 +116,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @return ServerSelector
      */
@@ -126,7 +126,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  ServerSelector $server
      * @return self

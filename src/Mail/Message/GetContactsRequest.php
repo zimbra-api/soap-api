@@ -220,7 +220,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets sync
+     * Get sync
      *
      * @return bool
      */
@@ -230,7 +230,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets sync
+     * Set sync
      *
      * @param  bool $sync
      * @return self
@@ -242,7 +242,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -252,7 +252,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -264,7 +264,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -274,7 +274,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -286,7 +286,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets derefGroupMember
+     * Get derefGroupMember
      *
      * @return bool
      */
@@ -296,7 +296,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets derefGroupMember
+     * Set derefGroupMember
      *
      * @param  bool $derefGroupMember
      * @return self
@@ -308,7 +308,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets includeMemberOf
+     * Get includeMemberOf
      *
      * @return bool
      */
@@ -318,7 +318,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets includeMemberOf
+     * Set includeMemberOf
      *
      * @param  bool $includeMemberOf
      * @return self
@@ -330,7 +330,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets returnHiddenAttrs
+     * Get returnHiddenAttrs
      *
      * @return bool
      */
@@ -340,7 +340,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets returnHiddenAttrs
+     * Set returnHiddenAttrs
      *
      * @param  bool $returnHiddenAttrs
      * @return self
@@ -352,7 +352,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets returnCertInfo
+     * Get returnCertInfo
      *
      * @return bool
      */
@@ -362,7 +362,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets returnCertInfo
+     * Set returnCertInfo
      *
      * @param  bool $returnCertInfo
      * @return self
@@ -374,7 +374,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets wantImapUid
+     * Get wantImapUid
      *
      * @return bool
      */
@@ -384,7 +384,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets wantImapUid
+     * Set wantImapUid
      *
      * @param  bool $wantImapUid
      * @return self
@@ -396,7 +396,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets maxMembers
+     * Get maxMembers
      *
      * @return int
      */
@@ -406,7 +406,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets maxMembers
+     * Set maxMembers
      *
      * @param  int $maxMembers
      * @return self
@@ -430,7 +430,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self
@@ -442,7 +442,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -464,7 +464,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets memberAttributes
+     * Set memberAttributes
      *
      * @param  array $attrs
      * @return self
@@ -476,7 +476,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets memberAttributes
+     * Get memberAttributes
      *
      * @return array
      */
@@ -498,7 +498,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param  array $contacts
      * @return self
@@ -510,7 +510,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */

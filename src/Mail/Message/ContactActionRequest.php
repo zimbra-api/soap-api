@@ -47,7 +47,7 @@ class ContactActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ContactActionSelector
      */
@@ -57,7 +57,7 @@ class ContactActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  ContactActionSelector $action
      * @return self

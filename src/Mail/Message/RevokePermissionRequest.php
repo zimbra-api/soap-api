@@ -73,7 +73,7 @@ class RevokePermissionRequest extends SoapRequest
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

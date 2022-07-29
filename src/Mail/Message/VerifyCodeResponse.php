@@ -48,7 +48,7 @@ class VerifyCodeResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets success
+     * Get success
      *
      * @return bool
      */
@@ -58,7 +58,7 @@ class VerifyCodeResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets success
+     * Set success
      *
      * @param  bool $success
      * @return self

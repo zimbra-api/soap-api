@@ -55,7 +55,7 @@ class AttributeDescription
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class AttributeDescription
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -77,7 +77,7 @@ class AttributeDescription
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class AttributeDescription
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param  string $description
      * @return self

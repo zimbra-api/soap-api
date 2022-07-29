@@ -177,7 +177,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets searchFilter
+     * Get searchFilter
      *
      * @return EntrySearchFilterInfo
      */
@@ -187,7 +187,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets searchFilter
+     * Set searchFilter
      *
      * @param  EntrySearchFilterInfo $searchFilter
      * @return self
@@ -199,7 +199,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets cursor
+     * Get cursor
      *
      * @return CursorInfo
      */
@@ -209,7 +209,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets cursor
+     * Set cursor
      *
      * @param  CursorInfo $cursor
      * @return self
@@ -221,7 +221,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -231,7 +231,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -243,7 +243,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -253,7 +253,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -265,7 +265,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets locale
+     * Get locale
      *
      * @return string
      */
@@ -275,7 +275,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets locale
+     * Set locale
      *
      * @param  string $locale
      * @return self
@@ -287,7 +287,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets galAccountId
+     * Get galAccountId
      *
      * @return string
      */
@@ -297,7 +297,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets galAccountId
+     * Set galAccountId
      *
      * @param  string $galAccountId
      * @return self
@@ -309,7 +309,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -319,7 +319,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -331,7 +331,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets quick
+     * Get quick
      *
      * @return bool
      */
@@ -341,7 +341,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets quick
+     * Set quick
      *
      * @param  bool $quick
      * @return self
@@ -353,7 +353,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -363,7 +363,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

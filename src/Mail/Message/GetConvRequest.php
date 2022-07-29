@@ -55,7 +55,7 @@ class GetConvRequest extends SoapRequest
     }
 
     /**
-     * Gets conversation
+     * Get conversation
      *
      * @return ConversationSpec
      */
@@ -65,7 +65,7 @@ class GetConvRequest extends SoapRequest
     }
 
     /**
-     * Sets conversation
+     * Set conversation
      *
      * @param  ConversationSpec $conversation
      * @return self

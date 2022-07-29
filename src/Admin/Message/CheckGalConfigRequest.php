@@ -70,7 +70,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets Exchange CheckGalConfig
+     * Set Exchange CheckGalConfig
      *
      * @param  LimitedQuery $query
      * @return self
@@ -82,7 +82,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets Exchange CheckGalConfig
+     * Get Exchange CheckGalConfig
      *
      * @return LimitedQuery
      */
@@ -92,7 +92,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  string $action
      * @return self

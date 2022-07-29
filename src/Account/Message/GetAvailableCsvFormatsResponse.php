@@ -58,7 +58,7 @@ class GetAvailableCsvFormatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets csvFormats
+     * Set csvFormats
      *
      * @param  array $formats
      * @return self
@@ -70,7 +70,7 @@ class GetAvailableCsvFormatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets csvFormats
+     * Get csvFormats
      *
      * @return array
      */

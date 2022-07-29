@@ -71,7 +71,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -81,7 +81,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -93,7 +93,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets total
+     * Get total
      *
      * @return int
      */
@@ -103,7 +103,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets total
+     * Set total
      *
      * @param  int $total
      * @return self
@@ -127,7 +127,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets session information
+     * Set session information
      *
      * @param array $sessions
      * @return self
@@ -139,7 +139,7 @@ class GetSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets session information
+     * Get session information
      *
      * @return array
      */

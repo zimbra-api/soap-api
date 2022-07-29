@@ -48,7 +48,7 @@ class CheckHostnameResolveRequest extends SoapRequest
     }
 
     /**
-     * Gets hostname
+     * Get hostname
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class CheckHostnameResolveRequest extends SoapRequest
     }
 
     /**
-     * Sets hostname
+     * Set hostname
      *
      * @param  string $hostname
      * @return self

@@ -59,7 +59,7 @@ class CheckDirectoryRequest extends SoapRequest
     }
 
     /**
-     * Sets directory array
+     * Set directory array
      *
      * @param  array $volumes
      * @return self
@@ -71,7 +71,7 @@ class CheckDirectoryRequest extends SoapRequest
     }
 
     /**
-     * Gets directory array
+     * Get directory array
      *
      * @return array
      */

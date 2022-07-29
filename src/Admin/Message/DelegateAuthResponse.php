@@ -56,7 +56,7 @@ class DelegateAuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets auth token
+     * Get auth token
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class DelegateAuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets auth token
+     * Set auth token
      *
      * @param  string $authToken
      * @return self
@@ -78,7 +78,7 @@ class DelegateAuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets lifetime
+     * Get lifetime
      *
      * @return int
      */
@@ -88,7 +88,7 @@ class DelegateAuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets lifetime
+     * Set lifetime
      *
      * @param  int $lifetime
      * @return self

@@ -51,7 +51,7 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
     }
 
     /**
-     * Gets metadata section key
+     * Get metadata section key
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
     }
 
     /**
-     * Sets metadata section key
+     * Set metadata section key
      *
      * @param  string $section
      * @return self

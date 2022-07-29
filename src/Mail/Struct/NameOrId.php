@@ -58,7 +58,7 @@ class NameOrId
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class NameOrId
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -80,7 +80,7 @@ class NameOrId
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class NameOrId
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

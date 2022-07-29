@@ -148,7 +148,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -158,7 +158,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -170,7 +170,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -180,7 +180,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -192,7 +192,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -202,7 +202,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -214,7 +214,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -224,7 +224,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -236,7 +236,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets noICal
+     * Get noICal
      *
      * @return bool
      */
@@ -246,7 +246,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets noICal
+     * Set noICal
      *
      * @param  bool $noICal
      * @return self
@@ -258,7 +258,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets dateReceived
+     * Get dateReceived
      *
      * @return int
      */
@@ -268,7 +268,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets dateReceived
+     * Set dateReceived
      *
      * @param  int $dateReceived
      * @return self
@@ -280,7 +280,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets attachmentId
+     * Get attachmentId
      *
      * @return string
      */
@@ -290,7 +290,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets attachmentId
+     * Set attachmentId
      *
      * @param  string $attachmentId
      * @return self
@@ -302,7 +302,7 @@ class AddMsgSpec
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -312,7 +312,7 @@ class AddMsgSpec
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

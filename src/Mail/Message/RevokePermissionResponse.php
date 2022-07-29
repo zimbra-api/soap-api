@@ -70,7 +70,7 @@ class RevokePermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

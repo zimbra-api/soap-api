@@ -72,7 +72,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -82,7 +82,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self
@@ -94,7 +94,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountSelector
      */
@@ -104,7 +104,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self

@@ -258,7 +258,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets frequency
+     * Get frequency
      *
      * @return Frequency
      */
@@ -268,7 +268,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets frequency
+     * Set frequency
      *
      * @param  Frequency $frequency
      * @return self
@@ -280,7 +280,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets until
+     * Get until
      *
      * @return DateTimeStringAttrInterface
      */
@@ -290,7 +290,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets until
+     * Set until
      *
      * @param  DateTimeStringAttrInterface $until
      * @return self
@@ -302,7 +302,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return NumAttrInterface
      */
@@ -312,7 +312,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets count
+     * Set count
      *
      * @param  NumAttrInterface $count
      * @return self
@@ -324,7 +324,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets interval
+     * Get interval
      *
      * @return IntervalRuleInterface
      */
@@ -334,7 +334,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets interval
+     * Set interval
      *
      * @param  IntervalRuleInterface $interval
      * @return self
@@ -346,7 +346,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets bySecond
+     * Get bySecond
      *
      * @return BySecondRuleInterface
      */
@@ -356,7 +356,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets bySecond
+     * Set bySecond
      *
      * @param  BySecondRuleInterface $bySecond
      * @return self
@@ -368,7 +368,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byMinute
+     * Get byMinute
      *
      * @return ByMinuteRuleInterface
      */
@@ -378,7 +378,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byMinute
+     * Set byMinute
      *
      * @param  ByMinuteRuleInterface $byMinute
      * @return self
@@ -390,7 +390,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byHour
+     * Get byHour
      *
      * @return ByHourRuleInterface
      */
@@ -400,7 +400,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byHour
+     * Set byHour
      *
      * @param  ByHourRuleInterface $byHour
      * @return self
@@ -412,7 +412,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byDay
+     * Get byDay
      *
      * @return ByDayRuleInterface
      */
@@ -422,7 +422,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byDay
+     * Set byDay
      *
      * @param  ByDayRuleInterface $byDay
      * @return self
@@ -434,7 +434,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byMonthDay
+     * Get byMonthDay
      *
      * @return ByMonthDayRuleInterface
      */
@@ -444,7 +444,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byMonthDay
+     * Set byMonthDay
      *
      * @param  ByMonthDayRuleInterface $byMonthDay
      * @return self
@@ -456,7 +456,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byYearDay
+     * Get byYearDay
      *
      * @return ByYearDayRuleInterface
      */
@@ -466,7 +466,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byYearDay
+     * Set byYearDay
      *
      * @param  ByYearDayRuleInterface $byYearDay
      * @return self
@@ -478,7 +478,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byWeekNo
+     * Get byWeekNo
      *
      * @return ByWeekNoRuleInterface
      */
@@ -488,7 +488,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byWeekNo
+     * Set byWeekNo
      *
      * @param  ByWeekNoRuleInterface $byWeekNo
      * @return self
@@ -500,7 +500,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets byMonth
+     * Get byMonth
      *
      * @return ByMonthRuleInterface
      */
@@ -510,7 +510,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets byMonth
+     * Set byMonth
      *
      * @param  ByMonthRuleInterface $byMonth
      * @return self
@@ -522,7 +522,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets bySetPos
+     * Get bySetPos
      *
      * @return BySetPosRuleInterface
      */
@@ -532,7 +532,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets bySetPos
+     * Set bySetPos
      *
      * @param  BySetPosRuleInterface $bySetPos
      * @return self
@@ -544,7 +544,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets weekStart
+     * Get weekStart
      *
      * @return WkstRuleInterface
      */
@@ -554,7 +554,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Sets weekStart
+     * Set weekStart
      *
      * @param  WkstRuleInterface $weekStart
      * @return self
@@ -590,7 +590,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     }
 
     /**
-     * Gets xNames
+     * Get xNames
      *
      * @return array
      */

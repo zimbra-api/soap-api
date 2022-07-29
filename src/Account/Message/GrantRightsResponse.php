@@ -69,7 +69,7 @@ class GrantRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

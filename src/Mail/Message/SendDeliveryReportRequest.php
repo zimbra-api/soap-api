@@ -47,7 +47,7 @@ class SendDeliveryReportRequest extends SoapRequest
     }
 
     /**
-     * Gets messageId
+     * Get messageId
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class SendDeliveryReportRequest extends SoapRequest
     }
 
     /**
-     * Sets messageId
+     * Set messageId
      *
      * @param  string $messageId
      * @return self

@@ -90,7 +90,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Gets check size
+     * Get check size
      *
      * @return bool
      */
@@ -100,7 +100,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Sets check size
+     * Set check size
      *
      * @param  bool $checkSize
      * @return self
@@ -112,7 +112,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Gets report used blobs
+     * Get report used blobs
      *
      * @return bool
      */
@@ -122,7 +122,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Sets report used blobs
+     * Set report used blobs
      *
      * @param  bool $checkSize
      * @return self
@@ -146,7 +146,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Sets volume array
+     * Set volume array
      *
      * @param  array $volumes
      * @return self
@@ -158,7 +158,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Gets volume array
+     * Get volume array
      *
      * @return array
      */
@@ -180,7 +180,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Sets mailbox array
+     * Set mailbox array
      *
      * @param  array $mailboxes
      * @return self
@@ -192,7 +192,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Gets mailbox array
+     * Get mailbox array
      *
      * @return array
      */

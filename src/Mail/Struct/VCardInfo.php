@@ -90,7 +90,7 @@ class VCardInfo
     }
 
     /**
-     * Gets messageId
+     * Get messageId
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class VCardInfo
     }
 
     /**
-     * Sets messageId
+     * Set messageId
      *
      * @param  string $messageId
      * @return self
@@ -112,7 +112,7 @@ class VCardInfo
     }
 
     /**
-     * Gets attachId
+     * Get attachId
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class VCardInfo
     }
 
     /**
-     * Sets attachId
+     * Set attachId
      *
      * @param  string $attachId
      * @return self
@@ -134,7 +134,7 @@ class VCardInfo
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class VCardInfo
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -156,7 +156,7 @@ class VCardInfo
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class VCardInfo
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

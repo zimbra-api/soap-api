@@ -52,7 +52,7 @@ class GetAllZimletsRequest extends SoapRequest
     }
 
     /**
-     * Gets exclude
+     * Get exclude
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class GetAllZimletsRequest extends SoapRequest
     }
 
     /**
-     * Sets exclude
+     * Set exclude
      *
      * @param  ZimletExcludeType $exclude
      * @return self

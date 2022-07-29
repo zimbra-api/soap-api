@@ -61,7 +61,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the grantee.
+     * Get the grantee.
      *
      * @return Grantee
      */
@@ -71,7 +71,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the grantee.
+     * Set the grantee.
      *
      * @param  Grantee $grantee
      * @return self
@@ -83,7 +83,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the owner.
+     * Set the owner.
      *
      * @return Account
      */
@@ -93,7 +93,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the owner.
+     * Set the owner.
      *
      * @param  Account $owner
      * @return self

@@ -108,7 +108,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Gets seq
+     * Get seq
      *
      * @return int
      */
@@ -118,7 +118,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Sets seq
+     * Set seq
      *
      * @param  int $seq
      * @return self
@@ -130,7 +130,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -140,7 +140,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -152,7 +152,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Gets attendee
+     * Get attendee
      *
      * @return string
      */
@@ -162,7 +162,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Sets attendee
+     * Set attendee
      *
      * @param  string $attendee
      * @return self
@@ -174,7 +174,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Gets sentBy
+     * Get sentBy
      *
      * @return string
      */
@@ -184,7 +184,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Sets sentBy
+     * Set sentBy
      *
      * @param  string $sentBy
      * @return self
@@ -196,7 +196,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Gets partStat
+     * Get partStat
      *
      * @return ParticipationStatus
      */
@@ -206,7 +206,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     }
 
     /**
-     * Sets partStat
+     * Set partStat
      *
      * @param  ParticipationStatus $partStat
      * @return self

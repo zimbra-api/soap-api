@@ -79,7 +79,7 @@ class ServiceStatus
     }
 
     /**
-     * Gets Zimbra ID
+     * Get Zimbra ID
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class ServiceStatus
     }
 
     /**
-     * Sets Zimbra ID
+     * Set Zimbra ID
      *
      * @param  string $server
      * @return self
@@ -101,7 +101,7 @@ class ServiceStatus
     }
 
     /**
-     * Gets service
+     * Get service
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class ServiceStatus
     }
 
     /**
-     * Sets service
+     * Set service
      *
      * @param  string $service
      * @return self
@@ -123,7 +123,7 @@ class ServiceStatus
     }
 
     /**
-     * Gets time
+     * Get time
      *
      * @return int
      */
@@ -133,7 +133,7 @@ class ServiceStatus
     }
 
     /**
-     * Sets time
+     * Set time
      *
      * @param  int $time
      * @return self
@@ -145,7 +145,7 @@ class ServiceStatus
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return ZeroOrOne
      */
@@ -155,7 +155,7 @@ class ServiceStatus
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  ZeroOrOne $status
      * @return self

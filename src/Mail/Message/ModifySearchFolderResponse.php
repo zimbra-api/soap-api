@@ -49,7 +49,7 @@ class ModifySearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchFolder point
+     * Get searchFolder point
      *
      * @return SearchFolder
      */
@@ -59,7 +59,7 @@ class ModifySearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchFolder point
+     * Set searchFolder point
      *
      * @param  SearchFolder $searchFolder
      * @return self

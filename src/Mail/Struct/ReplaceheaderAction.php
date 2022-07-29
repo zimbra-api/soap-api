@@ -71,7 +71,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     }
 
     /**
-     * Gets newName
+     * Get newName
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     }
 
     /**
-     * Sets newName
+     * Set newName
      *
      * @param  bool $newName
      * @return self
@@ -93,7 +93,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     }
 
     /**
-     * Gets newValue
+     * Get newValue
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     }
 
     /**
-     * Sets newValue
+     * Set newValue
      *
      * @param  string $newValue
      * @return self

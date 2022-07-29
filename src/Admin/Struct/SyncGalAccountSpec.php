@@ -54,7 +54,7 @@ class SyncGalAccountSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class SyncGalAccountSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -88,7 +88,7 @@ class SyncGalAccountSpec
     }
 
     /**
-     * Sets data source sequence
+     * Set data source sequence
      *
      * @param array $dataSources
      * @return self
@@ -100,7 +100,7 @@ class SyncGalAccountSpec
     }
 
     /**
-     * Gets data source sequence
+     * Get data source sequence
      *
      * @return array
      */

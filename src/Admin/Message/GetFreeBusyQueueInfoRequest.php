@@ -51,7 +51,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets provider.
+     * Get provider.
      *
      * @return NamedElement
      */
@@ -61,7 +61,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets provider.
+     * Set provider.
      *
      * @param  NamedElement $provider
      * @return self

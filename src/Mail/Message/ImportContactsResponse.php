@@ -51,7 +51,7 @@ class ImportContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contact
+     * Get contact
      *
      * @return ImportContact
      */
@@ -61,7 +61,7 @@ class ImportContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contact
+     * Set contact
      *
      * @param  ImportContact $contact
      * @return self

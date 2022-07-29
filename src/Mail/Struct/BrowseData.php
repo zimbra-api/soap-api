@@ -74,7 +74,7 @@ class BrowseData
     }
 
     /**
-     * Gets browseDomainHeader
+     * Get browseDomainHeader
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class BrowseData
     }
 
     /**
-     * Sets browseDomainHeader
+     * Set browseDomainHeader
      *
      * @param  string $browseDomainHeader
      * @return self
@@ -96,7 +96,7 @@ class BrowseData
     }
 
     /**
-     * Gets frequency
+     * Get frequency
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class BrowseData
     }
 
     /**
-     * Sets frequency
+     * Set frequency
      *
      * @param  int $frequency
      * @return self
@@ -118,7 +118,7 @@ class BrowseData
     }
 
     /**
-     * Gets data
+     * Get data
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class BrowseData
     }
 
     /**
-     * Sets data
+     * Set data
      *
      * @param  string $data
      * @return self

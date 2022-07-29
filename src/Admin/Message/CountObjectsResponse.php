@@ -55,7 +55,7 @@ class CountObjectsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class CountObjectsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -77,7 +77,7 @@ class CountObjectsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return Status
      */
@@ -87,7 +87,7 @@ class CountObjectsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self

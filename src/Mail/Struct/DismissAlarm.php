@@ -54,7 +54,7 @@ class DismissAlarm
     }
 
     /**
-     * Gets dismissedAt enum
+     * Get dismissedAt enum
      *
      * @return int
      */
@@ -64,7 +64,7 @@ class DismissAlarm
     }
 
     /**
-     * Sets dismissedAt enum
+     * Set dismissedAt enum
      *
      * @param  int $dismissedAt
      * @return self
@@ -76,7 +76,7 @@ class DismissAlarm
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class DismissAlarm
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

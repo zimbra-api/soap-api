@@ -70,7 +70,7 @@ class GrantPermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

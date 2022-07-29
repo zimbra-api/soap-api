@@ -74,7 +74,7 @@ class PreAuth
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class PreAuth
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -96,7 +96,7 @@ class PreAuth
     }
 
     /**
-     * Gets time stamp
+     * Get time stamp
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class PreAuth
     }
 
     /**
-     * Sets time stamp
+     * Set time stamp
      *
      * @param  int $timestamp
      * @return self
@@ -119,7 +119,7 @@ class PreAuth
     }
 
     /**
-     * Gets expiration time of the authtoken
+     * Get expiration time of the authtoken
      *
      * @return int
      */
@@ -129,7 +129,7 @@ class PreAuth
     }
 
     /**
-     * Sets expiration time of the authtoken
+     * Set expiration time of the authtoken
      *
      * @param  int $expiresTimestamp
      * @return self

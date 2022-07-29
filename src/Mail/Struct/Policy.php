@@ -97,7 +97,7 @@ class Policy
     }
 
     /**
-     * Gets type enum
+     * Get type enum
      *
      * @return EnumType
      */
@@ -107,7 +107,7 @@ class Policy
     }
 
     /**
-     * Sets type enum
+     * Set type enum
      *
      * @param  EnumType $type
      * @return self
@@ -119,7 +119,7 @@ class Policy
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class Policy
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -141,7 +141,7 @@ class Policy
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -151,7 +151,7 @@ class Policy
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -163,7 +163,7 @@ class Policy
     }
 
     /**
-     * Gets the lifetime
+     * Get the lifetime
      *
      * @return string
      */
@@ -173,7 +173,7 @@ class Policy
     }
 
     /**
-     * Sets the lifetime
+     * Set the lifetime
      *
      * @param  string $lifetime
      * @return self

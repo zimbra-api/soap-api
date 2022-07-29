@@ -101,7 +101,7 @@ class LinkInfo
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class LinkInfo
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $uuid
      * @return self
@@ -123,7 +123,7 @@ class LinkInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class LinkInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -145,7 +145,7 @@ class LinkInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class LinkInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -167,7 +167,7 @@ class LinkInfo
     }
 
     /**
-     * Gets defaultView
+     * Get defaultView
      *
      * @return string
      */
@@ -177,7 +177,7 @@ class LinkInfo
     }
 
     /**
-     * Sets defaultView
+     * Set defaultView
      *
      * @param  string $defaultView
      * @return self
@@ -189,7 +189,7 @@ class LinkInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return string
      */
@@ -199,7 +199,7 @@ class LinkInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  string $rights
      * @return self

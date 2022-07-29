@@ -43,7 +43,7 @@ class VerifyIndexResponse implements SoapResponseInterface
     private $message;
 
     /**
-     * Constructor method for VerifyIndexResponse
+     * Constructor
      *
      * @param bool $status
      * @param string $message
@@ -56,7 +56,7 @@ class VerifyIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return bool
      */
@@ -66,7 +66,7 @@ class VerifyIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  bool $status
      * @return self
@@ -78,7 +78,7 @@ class VerifyIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class VerifyIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self

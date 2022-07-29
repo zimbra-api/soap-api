@@ -46,7 +46,7 @@ class MsgAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class MsgAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $type
      * @return self

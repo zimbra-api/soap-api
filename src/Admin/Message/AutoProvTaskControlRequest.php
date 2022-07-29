@@ -50,7 +50,7 @@ class AutoProvTaskControlRequest extends SoapRequest
     }
 
     /**
-     * Gets the action.
+     * Get the action.
      *
      * @return AutoProvTaskAction
      */
@@ -60,7 +60,7 @@ class AutoProvTaskControlRequest extends SoapRequest
     }
 
     /**
-     * Sets the action.
+     * Set the action.
      *
      * @param  AutoProvTaskAction $action
      * @return self

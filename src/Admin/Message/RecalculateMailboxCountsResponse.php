@@ -48,7 +48,7 @@ class RecalculateMailboxCountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the mailbox
+     * Get the mailbox
      *
      * @return Mailbox
      */
@@ -58,7 +58,7 @@ class RecalculateMailboxCountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mailbox
+     * Set mailbox
      *
      * @param  Mailbox $mailbox
      * @return self

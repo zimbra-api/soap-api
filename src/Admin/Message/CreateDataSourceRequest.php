@@ -64,7 +64,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -86,7 +86,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets data source
+     * Get data source
      *
      * @return DataSourceSpecifier
      */
@@ -96,7 +96,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets data source
+     * Set data source
      *
      * @param  DataSourceSpecifier $name
      * @return self

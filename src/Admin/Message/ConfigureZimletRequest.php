@@ -47,7 +47,7 @@ class ConfigureZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets the content.
+     * Get the content.
      *
      * @return AttachmentIdAttrib
      */
@@ -57,7 +57,7 @@ class ConfigureZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets the content.
+     * Set the content.
      *
      * @param  AttachmentIdAttrib $content
      * @return self

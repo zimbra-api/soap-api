@@ -102,7 +102,7 @@ class RightModifierInfo
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class RightModifierInfo
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -124,7 +124,7 @@ class RightModifierInfo
     }
 
     /**
-     * Gets the deny flag
+     * Get the deny flag
      *
      * @return bool
      */
@@ -134,7 +134,7 @@ class RightModifierInfo
     }
 
     /**
-     * Sets the deny flag
+     * Set the deny flag
      *
      * @param  bool $deny
      * @return self
@@ -146,7 +146,7 @@ class RightModifierInfo
     }
 
     /**
-     * Gets the can delegate flag
+     * Get the can delegate flag
      *
      * @return bool
      */
@@ -156,7 +156,7 @@ class RightModifierInfo
     }
 
     /**
-     * Sets the can delegate flag
+     * Set the can delegate flag
      *
      * @param  bool $canDelegate
      * @return self
@@ -168,7 +168,7 @@ class RightModifierInfo
     }
 
     /**
-     * Gets the disinheritSubGroups flag
+     * Get the disinheritSubGroups flag
      *
      * @return bool
      */
@@ -178,7 +178,7 @@ class RightModifierInfo
     }
 
     /**
-     * Sets the disinheritSubGroups flag
+     * Set the disinheritSubGroups flag
      *
      * @param  bool $disinheritSubGroups
      * @return self
@@ -190,7 +190,7 @@ class RightModifierInfo
     }
 
     /**
-     * Gets the sub domain flag
+     * Get the sub domain flag
      *
      * @return bool
      */
@@ -200,7 +200,7 @@ class RightModifierInfo
     }
 
     /**
-     * Sets the sub domain flag
+     * Set the sub domain flag
      *
      * @param  bool $subDomain
      * @return self

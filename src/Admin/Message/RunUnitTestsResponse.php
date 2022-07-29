@@ -74,7 +74,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets results
+     * Get results
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets results
+     * Set results
      *
      * @param  TestResultInfo $results
      * @return self
@@ -96,7 +96,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets numExecuted
+     * Get numExecuted
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets numExecuted
+     * Set numExecuted
      *
      * @param  int $numExecuted
      * @return self
@@ -118,7 +118,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets numFailed
+     * Get numFailed
      *
      * @return int
      */
@@ -128,7 +128,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets numFailed
+     * Set numFailed
      *
      * @param  int $numFailed
      * @return self

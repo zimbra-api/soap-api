@@ -47,7 +47,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return FolderSpec
      */
@@ -57,7 +57,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  FolderSpec $folder
      * @return self

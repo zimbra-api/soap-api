@@ -58,7 +58,7 @@ class ExpandRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets instances
+     * Set instances
      *
      * @param  array $instances
      * @return self
@@ -70,7 +70,7 @@ class ExpandRecurResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets instances
+     * Get instances
      *
      * @return array
      */

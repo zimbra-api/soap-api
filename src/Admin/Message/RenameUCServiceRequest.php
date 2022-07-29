@@ -57,7 +57,7 @@ class RenameUCServiceRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class RenameUCServiceRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -79,7 +79,7 @@ class RenameUCServiceRequest extends SoapRequest
     }
 
     /**
-     * Gets newName
+     * Get newName
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class RenameUCServiceRequest extends SoapRequest
     }
 
     /**
-     * Sets newName
+     * Set newName
      *
      * @param  string $newName
      * @return self

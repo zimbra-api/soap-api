@@ -69,7 +69,7 @@ class CheckRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets targets
+     * Get targets
      *
      * @return array
      */

@@ -118,7 +118,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets app ID
+     * Get app ID
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets app ID
+     * Set app ID
      *
      * @param  string $appId
      * @return self
@@ -140,7 +140,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets registration Id
+     * Get registration Id
      *
      * @return string
      */
@@ -150,7 +150,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets registration Id
+     * Set registration Id
      *
      * @param  string $registrationId
      * @return self
@@ -162,7 +162,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets push provider
+     * Get push provider
      *
      * @return string
      */
@@ -172,7 +172,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets push provider
+     * Set push provider
      *
      * @param  string $pushProvider
      * @return self
@@ -184,7 +184,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets os name
+     * Get os name
      *
      * @return string
      */
@@ -194,7 +194,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets os name
+     * Set os name
      *
      * @param  string $osName
      * @return self
@@ -206,7 +206,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets os version
+     * Get os version
      *
      * @return string
      */
@@ -216,7 +216,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets os version
+     * Set os version
      *
      * @param  string $osVersion
      * @return self
@@ -228,7 +228,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Gets max payload size
+     * Get max payload size
      *
      * @return int
      */
@@ -238,7 +238,7 @@ class ZmgDeviceSpec
     }
 
     /**
-     * Sets max payload size
+     * Set max payload size
      *
      * @param  int $maxPayloadSize
      * @return self

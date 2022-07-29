@@ -129,7 +129,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  string $rights
      * @return self
@@ -157,7 +157,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets the type of grantee
+     * Get the type of grantee
      *
      * @return GranteeType
      */
@@ -167,7 +167,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets the type of grantee
+     * Set the type of grantee
      *
      * @param  GranteeType $grantType
      * @return self
@@ -179,7 +179,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets Zimbra Id
+     * Get Zimbra Id
      *
      * @return string
      */
@@ -189,7 +189,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets Zimbra Id
+     * Set Zimbra Id
      *
      * @param  string $zimbraId
      * @return self
@@ -201,7 +201,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets display name
+     * Get display name
      *
      * @return string
      */
@@ -211,7 +211,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets display name
+     * Set display name
      *
      * @param  string $displayName
      * @return string|self
@@ -223,7 +223,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets access key
+     * Get access key
      *
      * @return string
      */
@@ -233,7 +233,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets access key
+     * Set access key
      *
      * @param  string $accessKey
      * @return self
@@ -245,7 +245,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -255,7 +255,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -267,7 +267,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Gets args
+     * Get args
      *
      * @return string
      */
@@ -277,7 +277,7 @@ class ActionGrantSelector
     }
 
     /**
-     * Sets args
+     * Set args
      *
      * @param  string $args
      * @return self

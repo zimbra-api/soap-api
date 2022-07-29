@@ -50,7 +50,7 @@ class CreateSignatureRequest extends SoapRequest
     }
 
     /**
-     * Gets the signature.
+     * Get the signature.
      *
      * @return Signature
      */
@@ -60,7 +60,7 @@ class CreateSignatureRequest extends SoapRequest
     }
 
     /**
-     * Sets the signature.
+     * Set the signature.
      *
      * @param  Signature $signature
      * @return self

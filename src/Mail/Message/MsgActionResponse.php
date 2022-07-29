@@ -50,7 +50,7 @@ class MsgActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ActionResult
      */
@@ -60,7 +60,7 @@ class MsgActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  ActionResult $action
      * @return self

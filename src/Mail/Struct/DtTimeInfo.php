@@ -92,7 +92,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Gets the dateTime
+     * Get the dateTime
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Sets the dateTime
+     * Set the dateTime
      *
      * @param  string $dateTime
      * @return self
@@ -114,7 +114,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Gets the timezone
+     * Get the timezone
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Sets the timezone
+     * Set the timezone
      *
      * @param  string $timezone
      * @return self
@@ -136,7 +136,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Gets the utcTime
+     * Get the utcTime
      *
      * @return int
      */
@@ -146,7 +146,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     }
 
     /**
-     * Sets the utcTime
+     * Set the utcTime
      *
      * @param  int $utcTime
      * @return self

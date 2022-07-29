@@ -48,7 +48,7 @@ class DeleteIdentityRequest extends SoapRequest
     }
 
     /**
-     * Gets the identity.
+     * Get the identity.
      *
      * @return NameId
      */
@@ -58,7 +58,7 @@ class DeleteIdentityRequest extends SoapRequest
     }
 
     /**
-     * Sets the identity.
+     * Set the identity.
      *
      * @param  NameId $identity
      * @return self

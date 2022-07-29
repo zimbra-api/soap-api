@@ -105,7 +105,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -127,7 +127,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return GalSearchType
      */
@@ -137,7 +137,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GalSearchType $type
      * @return self
@@ -149,7 +149,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Gets needCanExpand
+     * Get needCanExpand
      *
      * @return bool
      */
@@ -159,7 +159,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Sets needCanExpand
+     * Set needCanExpand
      *
      * @param  bool $needCanExpand
      * @return self
@@ -171,7 +171,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Gets folderList
+     * Get folderList
      *
      * @return string
      */
@@ -181,7 +181,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Sets folderList
+     * Set folderList
      *
      * @param  string $folderList
      * @return self
@@ -193,7 +193,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Gets includeGal
+     * Get includeGal
      *
      * @return bool
      */
@@ -203,7 +203,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Sets includeGal
+     * Set includeGal
      *
      * @param  bool $includeGal
      * @return self

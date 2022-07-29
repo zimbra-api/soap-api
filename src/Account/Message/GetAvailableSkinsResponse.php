@@ -58,7 +58,7 @@ class GetAvailableSkinsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets skins
+     * Set skins
      *
      * @param  array $skins
      * @return self
@@ -70,7 +70,7 @@ class GetAvailableSkinsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets skins
+     * Get skins
      *
      * @return array
      */

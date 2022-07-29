@@ -53,7 +53,7 @@ class FlaggedTest extends FilterTest
     }
 
     /**
-     * Gets flag
+     * Get flag
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class FlaggedTest extends FilterTest
     }
 
     /**
-     * Sets flag
+     * Set flag
      *
      * @param  string $flag
      * @return self

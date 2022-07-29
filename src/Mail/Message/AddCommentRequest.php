@@ -48,7 +48,7 @@ class AddCommentRequest extends SoapRequest
     }
 
     /**
-     * Gets comment
+     * Get comment
      *
      * @return AddedComment
      */
@@ -58,7 +58,7 @@ class AddCommentRequest extends SoapRequest
     }
 
     /**
-     * Sets comment
+     * Set comment
      *
      * @param  AddedComment $comment
      * @return self

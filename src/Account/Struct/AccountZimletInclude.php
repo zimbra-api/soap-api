@@ -46,7 +46,7 @@ class AccountZimletInclude implements ZimletInclude
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class AccountZimletInclude implements ZimletInclude
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

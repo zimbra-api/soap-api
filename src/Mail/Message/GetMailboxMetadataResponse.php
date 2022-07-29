@@ -48,7 +48,7 @@ class GetMailboxMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets metadata
+     * Get metadata
      *
      * @return MailCustomMetadata
      */
@@ -58,7 +58,7 @@ class GetMailboxMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets metadata
+     * Set metadata
      *
      * @param  MailCustomMetadata $metadata
      * @return self

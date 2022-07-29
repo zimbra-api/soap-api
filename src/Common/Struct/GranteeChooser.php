@@ -68,7 +68,7 @@ class GranteeChooser
     }
 
     /**
-     * Gets a type
+     * Get a type
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class GranteeChooser
     }
 
     /**
-     * Sets a type
+     * Set a type
      *
      * @param  string $type
      * @return self
@@ -90,7 +90,7 @@ class GranteeChooser
     }
 
     /**
-     * Gets an id
+     * Get an id
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class GranteeChooser
     }
 
     /**
-     * Sets an id
+     * Set an id
      *
      * @param  string $id
      * @return self
@@ -112,7 +112,7 @@ class GranteeChooser
     }
 
     /**
-     * Gets a name
+     * Get a name
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class GranteeChooser
     }
 
     /**
-     * Sets a name
+     * Set a name
      *
      * @param  string $name
      * @return self

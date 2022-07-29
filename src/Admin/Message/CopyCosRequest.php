@@ -62,7 +62,7 @@ class CopyCosRequest extends SoapRequest
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return CosSelector
      */
@@ -72,7 +72,7 @@ class CopyCosRequest extends SoapRequest
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  CosSelector $cos
      * @return self
@@ -84,7 +84,7 @@ class CopyCosRequest extends SoapRequest
     }
 
     /**
-     * Gets destination name
+     * Get destination name
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class CopyCosRequest extends SoapRequest
     }
 
     /**
-     * Sets destination name
+     * Set destination name
      *
      * @param  string $newName
      * @return self

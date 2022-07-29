@@ -64,7 +64,7 @@ class GetEffectiveRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the grantee.
+     * Set the grantee.
      *
      * @return GranteeInfo
      */
@@ -74,7 +74,7 @@ class GetEffectiveRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the grantee.
+     * Set the grantee.
      *
      * @param  GranteeInfo $grantee
      * @return self
@@ -86,7 +86,7 @@ class GetEffectiveRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  Target $target
      * @return self
@@ -98,7 +98,7 @@ class GetEffectiveRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return Target
      */

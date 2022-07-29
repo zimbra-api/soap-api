@@ -47,7 +47,7 @@ class ICalReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets ical
+     * Get ical
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class ICalReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets ical
+     * Set ical
      *
      * @param  string $ical
      * @return self

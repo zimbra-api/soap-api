@@ -128,7 +128,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Gets account
+     * Get account
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets account
+     * Set account
      *
      * @param  string $account
      * @return self
@@ -150,7 +150,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Gets mboxSyncTokenDiff
+     * Get mboxSyncTokenDiff
      *
      * @return int
      */
@@ -160,7 +160,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets mboxSyncTokenDiff
+     * Set mboxSyncTokenDiff
      *
      * @param  int $mboxSyncTokenDiff
      * @return self
@@ -172,7 +172,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -194,7 +194,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Gets waitSetSession
+     * Get waitSetSession
      *
      * @return WaitSetSessionInfo
      */
@@ -204,7 +204,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets waitSetSession
+     * Set waitSetSession
      *
      * @param  WaitSetSessionInfo $waitSetSession
      * @return self
@@ -216,7 +216,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets interests
+     * Set interests
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets interests
+     * Set interests
      *
      * @param  string $interests
      * @return self
@@ -238,7 +238,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets mboxSyncToken
+     * Set mboxSyncToken
      *
      * @return int
      */
@@ -248,7 +248,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets mboxSyncToken
+     * Set mboxSyncToken
      *
      * @param  int $mboxSyncToken
      * @return self
@@ -260,7 +260,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Gets acctIdError
+     * Get acctIdError
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class SessionForWaitSet
     }
 
     /**
-     * Sets acctIdError
+     * Set acctIdError
      *
      * @param  string $acctIdError
      * @return self

@@ -55,7 +55,7 @@ class BufferedCommitInfo
     }
 
     /**
-     * Gets aid
+     * Get aid
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class BufferedCommitInfo
     }
 
     /**
-     * Sets aid
+     * Set aid
      *
      * @param  string $aid
      * @return self
@@ -77,7 +77,7 @@ class BufferedCommitInfo
     }
 
     /**
-     * Gets cid
+     * Get cid
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class BufferedCommitInfo
     }
 
     /**
-     * Sets cid
+     * Set cid
      *
      * @param  string $cid
      * @return self

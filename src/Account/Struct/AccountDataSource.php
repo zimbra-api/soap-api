@@ -376,7 +376,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -386,7 +386,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -398,7 +398,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -408,7 +408,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -420,7 +420,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -430,7 +430,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -442,7 +442,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets enabled
+     * Get enabled
      *
      * @return bool
      */
@@ -452,7 +452,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets enabled
+     * Set enabled
      *
      * @param  bool $enabled
      * @return self
@@ -464,7 +464,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets importOnly
+     * Get importOnly
      *
      * @return bool
      */
@@ -474,7 +474,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets importOnly
+     * Set importOnly
      *
      * @param  bool $importOnly
      * @return self
@@ -486,7 +486,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets host
+     * Get host
      *
      * @return string
      */
@@ -496,7 +496,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets host
+     * Set host
      *
      * @param  string $host
      * @return self
@@ -508,7 +508,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets port
+     * Get port
      *
      * @return int
      */
@@ -518,7 +518,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets port
+     * Set port
      *
      * @param  int $port
      * @return self
@@ -530,7 +530,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets connectionType
+     * Get connectionType
      *
      * @return ConnectionType
      */
@@ -540,7 +540,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets connectionType
+     * Set connectionType
      *
      * @param  ConnectionType $connectionType
      * @return self
@@ -552,7 +552,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets username
+     * Get username
      *
      * @return string
      */
@@ -562,7 +562,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets username
+     * Set username
      *
      * @param  string $username
      * @return self
@@ -574,7 +574,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -584,7 +584,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -596,7 +596,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets pollingInterval
+     * Get pollingInterval
      *
      * @return string
      */
@@ -606,7 +606,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets pollingInterval
+     * Set pollingInterval
      *
      * @param  string $pollingInterval
      * @return self
@@ -618,7 +618,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets emailAddress
+     * Get emailAddress
      *
      * @return string
      */
@@ -628,7 +628,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets emailAddress
+     * Set emailAddress
      *
      * @param  string $emailAddress
      * @return self
@@ -640,7 +640,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets useAddressForForwardReply
+     * Get useAddressForForwardReply
      *
      * @return bool
      */
@@ -650,7 +650,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets useAddressForForwardReply
+     * Set useAddressForForwardReply
      *
      * @param  bool $useAddressForForwardReply
      * @return self
@@ -662,7 +662,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets defaultSignature
+     * Get defaultSignature
      *
      * @return string
      */
@@ -672,7 +672,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets defaultSignature
+     * Set defaultSignature
      *
      * @param  string $defaultSignature
      * @return self
@@ -684,7 +684,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets forwardReplySignature
+     * Get forwardReplySignature
      *
      * @return string
      */
@@ -694,7 +694,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets forwardReplySignature
+     * Set forwardReplySignature
      *
      * @param  string $forwardReplySignature
      * @return self
@@ -706,7 +706,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets fromDisplay
+     * Get fromDisplay
      *
      * @return string
      */
@@ -716,7 +716,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets fromDisplay
+     * Set fromDisplay
      *
      * @param  string $fromDisplay
      * @return self
@@ -728,7 +728,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets replyToAddress
+     * Get replyToAddress
      *
      * @return string
      */
@@ -738,7 +738,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets replyToAddress
+     * Set replyToAddress
      *
      * @param  string $replyToAddress
      * @return self
@@ -750,7 +750,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets replyToDisplay
+     * Get replyToDisplay
      *
      * @return string
      */
@@ -760,7 +760,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets replyToDisplay
+     * Set replyToDisplay
      *
      * @param  string $replyToDisplay
      * @return self
@@ -772,7 +772,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets importClass
+     * Get importClass
      *
      * @return string
      */
@@ -782,7 +782,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets importClass
+     * Set importClass
      *
      * @param  string $importClass
      * @return self
@@ -794,7 +794,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets failingSince
+     * Get failingSince
      *
      * @return int
      */
@@ -804,7 +804,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets failingSince
+     * Set failingSince
      *
      * @param  int $failingSince
      * @return self
@@ -816,7 +816,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets lastError
+     * Get lastError
      *
      * @return string
      */
@@ -826,7 +826,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets lastError
+     * Set lastError
      *
      * @param  string $lastError
      * @return self
@@ -838,7 +838,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -848,7 +848,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attributes
      * @return self
@@ -875,7 +875,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets refreshToken
+     * Get refreshToken
      *
      * @return string
      */
@@ -885,7 +885,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets refreshToken
+     * Set refreshToken
      *
      * @param  string $refreshToken
      * @return self
@@ -897,7 +897,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Gets refreshTokenUrl
+     * Get refreshTokenUrl
      *
      * @return string
      */
@@ -907,7 +907,7 @@ class AccountDataSource implements DataSource
     }
 
     /**
-     * Sets refreshTokenUrl
+     * Set refreshTokenUrl
      *
      * @param  string $refreshTokenUrl
      * @return self

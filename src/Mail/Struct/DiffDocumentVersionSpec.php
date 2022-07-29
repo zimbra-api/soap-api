@@ -75,7 +75,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Gets version 1
+     * Get version 1
      *
      * @return int
      */
@@ -85,7 +85,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Sets version 1
+     * Set version 1
      *
      * @param  int $version1
      * @return self
@@ -97,7 +97,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Gets version 2
+     * Get version 2
      *
      * @return int
      */
@@ -107,7 +107,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Sets version 2
+     * Set version 2
      *
      * @param  int $version2
      * @return self
@@ -119,7 +119,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class DiffDocumentVersionSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

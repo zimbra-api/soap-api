@@ -70,7 +70,7 @@ class ModifyPropertiesRequest extends SoapRequest
     }
 
     /**
-     * Gets props
+     * Get props
      *
      * @return array
      */

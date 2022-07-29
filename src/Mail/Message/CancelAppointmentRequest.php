@@ -137,7 +137,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -149,7 +149,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -171,7 +171,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -181,7 +181,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -193,7 +193,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -203,7 +203,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -215,7 +215,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -225,7 +225,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets instance
+     * Set instance
      *
      * @param  InstanceRecurIdInfo $instance
      * @return self
@@ -237,7 +237,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets instance
+     * Get instance
      *
      * @return InstanceRecurIdInfo
      */
@@ -247,7 +247,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  CalTZInfo $timezone
      * @return self
@@ -259,7 +259,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -269,7 +269,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -281,7 +281,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */

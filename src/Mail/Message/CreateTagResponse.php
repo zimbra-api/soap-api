@@ -48,7 +48,7 @@ class CreateTagResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets tag point
+     * Get tag point
      *
      * @return TagInfo
      */
@@ -58,7 +58,7 @@ class CreateTagResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets tag point
+     * Set tag point
      *
      * @param  TagInfo $tag
      * @return self

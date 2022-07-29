@@ -58,7 +58,7 @@ class CheckSpellingResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets available
+     * Get available
      *
      * @return bool
      */
@@ -68,7 +68,7 @@ class CheckSpellingResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets available
+     * Set available
      *
      * @param  bool $available
      * @return self
@@ -92,7 +92,7 @@ class CheckSpellingResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets misspelledWords
+     * Set misspelledWords
      *
      * @param  array $words
      * @return self
@@ -104,7 +104,7 @@ class CheckSpellingResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets misspelledWords
+     * Get misspelledWords
      *
      * @return array
      */

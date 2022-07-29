@@ -69,7 +69,7 @@ class GetShareInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets shares
+     * Get shares
      *
      * @return array
      */

@@ -48,7 +48,7 @@ class AdminDestroyWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets WaitSet ID
+     * Get WaitSet ID
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class AdminDestroyWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets WaitSet ID
+     * Set WaitSet ID
      *
      * @param  string $waitSetId
      * @return self

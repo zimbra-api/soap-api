@@ -56,7 +56,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return ServerSelector
      */
@@ -66,7 +66,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  ServerSelector $server
      * @return self

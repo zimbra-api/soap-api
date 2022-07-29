@@ -83,7 +83,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Gets the target.
+     * Get the target.
      *
      * @return Target
      */
@@ -93,7 +93,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Sets the target.
+     * Set the target.
      *
      * @param  Target $target
      * @return self
@@ -105,7 +105,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -115,7 +115,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self
@@ -127,7 +127,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @return Cos
      */
@@ -137,7 +137,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  Cos $cos
      * @return self

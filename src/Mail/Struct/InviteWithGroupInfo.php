@@ -83,7 +83,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Gets calItemType
+     * Get calItemType
      *
      * @return InviteType
      */
@@ -93,7 +93,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Sets calItemType
+     * Set calItemType
      *
      * @param  InviteType $calItemType
      * @return self
@@ -105,7 +105,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -117,7 +117,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -139,7 +139,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Gets inviteComponents
+     * Get inviteComponents
      *
      * @return array
      */
@@ -149,7 +149,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Sets inviteComponents
+     * Set inviteComponents
      *
      * @param  array $inviteComponents
      * @return self
@@ -173,7 +173,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Sets calendarReplies
+     * Set calendarReplies
      *
      * @param  array $replies
      * @return self
@@ -185,7 +185,7 @@ class InviteWithGroupInfo
     }
 
     /**
-     * Gets calendarReplies
+     * Get calendarReplies
      *
      * @return array
      */

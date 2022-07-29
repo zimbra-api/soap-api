@@ -63,7 +63,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     }
 
     /**
-     * Gets sync
+     * Get sync
      *
      * @return bool
      */
@@ -73,7 +73,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     }
 
     /**
-     * Sets sync
+     * Set sync
      *
      * @param  bool $sync
      * @return self
@@ -85,7 +85,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -95,7 +95,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self

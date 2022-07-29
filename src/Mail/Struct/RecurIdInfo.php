@@ -90,7 +90,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Gets recurrenceRangeType
+     * Get recurrenceRangeType
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Sets recurrenceRangeType
+     * Set recurrenceRangeType
      *
      * @param  int $recurrenceRangeType
      * @return self
@@ -112,7 +112,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Gets recurrenceId
+     * Get recurrenceId
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Sets recurrenceId
+     * Set recurrenceId
      *
      * @param  string $recurrenceId
      * @return self
@@ -134,7 +134,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  string $timezone
      * @return self
@@ -156,7 +156,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Gets recurIdZ
+     * Get recurIdZ
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class RecurIdInfo implements RecurIdInfoInterface
     }
 
     /**
-     * Sets recurIdZ
+     * Set recurIdZ
      *
      * @param  string $recurIdZ
      * @return self

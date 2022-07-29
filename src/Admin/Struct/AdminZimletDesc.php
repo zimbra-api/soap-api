@@ -150,7 +150,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet name
+     * Get zimlet name
      *
      * @return string
      */
@@ -160,7 +160,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet name
+     * Set zimlet name
      *
      * @param  string $name
      * @return self
@@ -172,7 +172,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet version
+     * Get zimlet version
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet version
+     * Set zimlet version
      *
      * @param  string $version
      * @return self
@@ -194,7 +194,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet description
+     * Get zimlet description
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet description
+     * Set zimlet description
      *
      * @param  string $description
      * @return self
@@ -216,7 +216,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet extension
+     * Get zimlet extension
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet extension
+     * Set zimlet extension
      *
      * @param  string $extension
      * @return self
@@ -238,7 +238,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet target
+     * Get zimlet target
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet target
+     * Set zimlet target
      *
      * @param  string $target
      * @return self
@@ -260,7 +260,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet label
+     * Get zimlet label
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet label
+     * Set zimlet label
      *
      * @param  string $label
      * @return self
@@ -282,7 +282,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet server extension
+     * Get zimlet server extension
      *
      * @return ZimletServerExtension
      */
@@ -292,7 +292,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet server extension
+     * Set zimlet server extension
      *
      * @param  ZimletServerExtension $serverExtension
      * @return self
@@ -304,7 +304,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet include
+     * Get zimlet include
      *
      * @return AdminZimletInclude
      */
@@ -314,7 +314,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet include
+     * Set zimlet include
      *
      * @param  AdminZimletInclude $include
      * @return self
@@ -326,7 +326,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet include CSS
+     * Get zimlet include CSS
      *
      * @return AdminZimletIncludeCSS
      */
@@ -336,7 +336,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet include CSS
+     * Set zimlet include CSS
      *
      * @param  AdminZimletIncludeCSS $includeCSS
      * @return self
@@ -348,7 +348,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Gets zimlet target
+     * Get zimlet target
      *
      * @return AdminZimletTarget
      */
@@ -358,7 +358,7 @@ class AdminZimletDesc implements ZimletDesc
     }
 
     /**
-     * Sets zimlet target
+     * Set zimlet target
      *
      * @param  AdminZimletTarget $zimletTarget
      * @return self

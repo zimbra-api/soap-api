@@ -58,7 +58,7 @@ class ICalContent
     }
 
     /**
-     * Gets ical
+     * Get ical
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class ICalContent
     }
 
     /**
-     * Sets ical
+     * Set ical
      *
      * @param  string $ical
      * @return self
@@ -80,7 +80,7 @@ class ICalContent
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class ICalContent
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

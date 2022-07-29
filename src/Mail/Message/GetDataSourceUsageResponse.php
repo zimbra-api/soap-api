@@ -78,7 +78,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets usages
+     * Set usages
      *
      * @param  array $usages
      * @return self
@@ -90,7 +90,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets usages
+     * Get usages
      *
      * @return array
      */
@@ -100,7 +100,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dataSourceQuota
+     * Set dataSourceQuota
      *
      * @param  int $dataSourceQuota
      * @return self
@@ -112,7 +112,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dataSourceQuota
+     * Get dataSourceQuota
      *
      * @return int
      */
@@ -122,7 +122,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets totalQuota
+     * Set totalQuota
      *
      * @param  int $totalQuota
      * @return self
@@ -134,7 +134,7 @@ class GetDataSourceUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets totalQuota
+     * Get totalQuota
      *
      * @return int
      */

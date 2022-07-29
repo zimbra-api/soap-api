@@ -49,7 +49,7 @@ class CreateTagRequest extends SoapRequest
     }
 
     /**
-     * Gets tag
+     * Get tag
      *
      * @return TagSpec
      */
@@ -59,7 +59,7 @@ class CreateTagRequest extends SoapRequest
     }
 
     /**
-     * Sets tag
+     * Set tag
      *
      * @param  TagSpec $tag
      * @return self

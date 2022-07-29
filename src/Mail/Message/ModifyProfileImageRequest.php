@@ -64,7 +64,7 @@ class ModifyProfileImageRequest extends SoapRequest
     }
 
     /**
-     * Gets uploadId
+     * Get uploadId
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class ModifyProfileImageRequest extends SoapRequest
     }
 
     /**
-     * Sets uploadId
+     * Set uploadId
      *
      * @param  string $uploadId
      * @return self
@@ -86,7 +86,7 @@ class ModifyProfileImageRequest extends SoapRequest
     }
 
     /**
-     * Gets imageB64Data
+     * Get imageB64Data
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class ModifyProfileImageRequest extends SoapRequest
     }
 
     /**
-     * Sets imageB64Data
+     * Set imageB64Data
      *
      * @param  string $imageB64Data
      * @return self

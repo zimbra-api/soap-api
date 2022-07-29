@@ -47,7 +47,7 @@ class GetYahooCookieRequest extends SoapRequest
     }
 
     /**
-     * Gets user
+     * Get user
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class GetYahooCookieRequest extends SoapRequest
     }
 
     /**
-     * Sets user
+     * Set user
      *
      * @param  string $user
      * @return self

@@ -49,7 +49,7 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
     }
 
     /**
-     * Gets metadata section key
+     * Get metadata section key
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
     }
 
     /**
-     * Sets metadata section key
+     * Set metadata section key
      *
      * @param  string $section
      * @return self

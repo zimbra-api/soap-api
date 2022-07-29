@@ -87,7 +87,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return DeployAction
      */
@@ -97,7 +97,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  DeployAction $action
      * @return self
@@ -109,7 +109,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets flushCache
+     * Get flushCache
      *
      * @return bool
      */
@@ -119,7 +119,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets flushCache
+     * Set flushCache
      *
      * @param  bool $flushCache
      * @return self
@@ -131,7 +131,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets synchronous
+     * Get synchronous
      *
      * @return bool
      */
@@ -141,7 +141,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets synchronous
+     * Set synchronous
      *
      * @param  bool $synchronous
      * @return self
@@ -153,7 +153,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets the content.
+     * Get the content.
      *
      * @return AttachmentIdAttrib
      */
@@ -163,7 +163,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets the content.
+     * Set the content.
      *
      * @param  AttachmentIdAttrib $content
      * @return self

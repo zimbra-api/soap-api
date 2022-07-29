@@ -43,7 +43,7 @@ class DeviceId
     }
 
     /**
-     * Gets device ID
+     * Get device ID
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class DeviceId
     }
 
     /**
-     * Sets device ID
+     * Set device ID
      *
      * @param  string $id
      * @return self

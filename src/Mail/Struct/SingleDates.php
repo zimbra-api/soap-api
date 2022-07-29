@@ -58,7 +58,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -104,7 +104,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     }
 
     /**
-     * Gets dtVals
+     * Get dtVals
      *
      * @return array
      */

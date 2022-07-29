@@ -132,7 +132,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets totalActiveSessions
+     * Get totalActiveSessions
      *
      * @return int
      */
@@ -142,7 +142,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets totalActiveSessions
+     * Set totalActiveSessions
      *
      * @param  int $totalActiveSessions
      * @return self
@@ -154,7 +154,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the soapSessions.
+     * Get the soapSessions.
      *
      * @return InfoForSessionType
      */
@@ -164,7 +164,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the soapSessions.
+     * Set the soapSessions.
      *
      * @param  InfoForSessionType $soapSessions
      * @return self
@@ -176,7 +176,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the imapSessions.
+     * Get the imapSessions.
      *
      * @return InfoForSessionType
      */
@@ -186,7 +186,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the imapSessions.
+     * Set the imapSessions.
      *
      * @param  InfoForSessionType $imapSessions
      * @return self
@@ -198,7 +198,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the adminSessions.
+     * Get the adminSessions.
      *
      * @return InfoForSessionType
      */
@@ -208,7 +208,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the adminSessions.
+     * Set the adminSessions.
      *
      * @param  InfoForSessionType $adminSessions
      * @return self
@@ -220,7 +220,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the wikiSessions.
+     * Get the wikiSessions.
      *
      * @return InfoForSessionType
      */
@@ -230,7 +230,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the wikiSessions.
+     * Set the wikiSessions.
      *
      * @param  InfoForSessionType $wikiSessions
      * @return self
@@ -242,7 +242,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the synclistenerSessions.
+     * Get the synclistenerSessions.
      *
      * @return InfoForSessionType
      */
@@ -252,7 +252,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the synclistenerSessions.
+     * Set the synclistenerSessions.
      *
      * @param  InfoForSessionType $synclistenerSessions
      * @return self
@@ -264,7 +264,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the waitsetSessions.
+     * Get the waitsetSessions.
      *
      * @return InfoForSessionType
      */
@@ -274,7 +274,7 @@ class DumpSessionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the waitsetSessions.
+     * Set the waitsetSessions.
      *
      * @param  InfoForSessionType $waitsetSessions
      * @return self

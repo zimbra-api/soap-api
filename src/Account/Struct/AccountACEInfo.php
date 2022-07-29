@@ -134,7 +134,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets the type of grantee
+     * Get the type of grantee
      *
      * @return GranteeType
      */
@@ -144,7 +144,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets the type of grantee
+     * Set the type of grantee
      *
      * @param  GranteeType $granteeType
      * @return self
@@ -156,7 +156,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets the right enum
+     * Get the right enum
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets the right enum
+     * Set the right enum
      *
      * @param  string $right
      * @return self
@@ -178,7 +178,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets Zimbra Id
+     * Get Zimbra Id
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets Zimbra Id
+     * Set Zimbra Id
      *
      * @param  string $zimbraId
      * @return self
@@ -200,7 +200,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets display name
+     * Get display name
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets display name
+     * Set display name
      *
      * @param  string $displayName
      * @return string|self
@@ -222,7 +222,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets access key
+     * Get access key
      *
      * @return string
      */
@@ -232,7 +232,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets access key
+     * Set access key
      *
      * @param  string $accessKey
      * @return self
@@ -244,7 +244,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -254,7 +254,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -266,7 +266,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets deny specifically of right
+     * Get deny specifically of right
      *
      * @return bool
      */
@@ -276,7 +276,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets deny specifically of right
+     * Set deny specifically of right
      *
      * @param  bool $deny
      * @return self
@@ -288,7 +288,7 @@ class AccountACEInfo
     }
 
     /**
-     * Gets check grantee type status
+     * Get check grantee type status
      *
      * @return bool
      */
@@ -298,7 +298,7 @@ class AccountACEInfo
     }
 
     /**
-     * Sets check grantee type status
+     * Set check grantee type status
      *
      * @param  bool $checkGranteeType
      * @return self

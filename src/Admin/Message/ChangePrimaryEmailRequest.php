@@ -58,7 +58,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -68,7 +68,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -80,7 +80,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     }
 
     /**
-     * Gets new account name
+     * Get new account name
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     }
 
     /**
-     * Sets new account name
+     * Set new account name
      *
      * @param  string $newName
      * @return self

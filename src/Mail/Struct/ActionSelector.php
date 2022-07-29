@@ -243,7 +243,7 @@ class ActionSelector
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return string
      */
@@ -253,7 +253,7 @@ class ActionSelector
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self
@@ -265,7 +265,7 @@ class ActionSelector
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return string
      */
@@ -275,7 +275,7 @@ class ActionSelector
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  string $operation
      * @return self
@@ -287,7 +287,7 @@ class ActionSelector
     }
 
     /**
-     * Gets nonExistentIds
+     * Get nonExistentIds
      *
      * @return bool
      */
@@ -297,7 +297,7 @@ class ActionSelector
     }
 
     /**
-     * Sets nonExistentIds
+     * Set nonExistentIds
      *
      * @param  bool $nonExistentIds
      * @return self
@@ -309,7 +309,7 @@ class ActionSelector
     }
 
     /**
-     * Gets newlyCreatedIds
+     * Get newlyCreatedIds
      *
      * @return bool
      */
@@ -319,7 +319,7 @@ class ActionSelector
     }
 
     /**
-     * Sets newlyCreatedIds
+     * Set newlyCreatedIds
      *
      * @param  bool $newlyCreatedIds
      * @return self
@@ -331,7 +331,7 @@ class ActionSelector
     }
 
     /**
-     * Gets constraint
+     * Get constraint
      *
      * @return string
      */
@@ -341,7 +341,7 @@ class ActionSelector
     }
 
     /**
-     * Sets constraint
+     * Set constraint
      *
      * @param  string $constraint
      * @return self
@@ -353,7 +353,7 @@ class ActionSelector
     }
 
     /**
-     * Gets tag
+     * Get tag
      *
      * @return int
      */
@@ -363,7 +363,7 @@ class ActionSelector
     }
 
     /**
-     * Sets tag
+     * Set tag
      *
      * @param  int $tag
      * @return self
@@ -375,7 +375,7 @@ class ActionSelector
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -385,7 +385,7 @@ class ActionSelector
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -397,7 +397,7 @@ class ActionSelector
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -407,7 +407,7 @@ class ActionSelector
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -419,7 +419,7 @@ class ActionSelector
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -429,7 +429,7 @@ class ActionSelector
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -441,7 +441,7 @@ class ActionSelector
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -451,7 +451,7 @@ class ActionSelector
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -463,7 +463,7 @@ class ActionSelector
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -473,7 +473,7 @@ class ActionSelector
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -485,7 +485,7 @@ class ActionSelector
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -495,7 +495,7 @@ class ActionSelector
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -507,7 +507,7 @@ class ActionSelector
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -517,7 +517,7 @@ class ActionSelector
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self

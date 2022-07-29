@@ -60,7 +60,7 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * Gets truncatedContent
+     * Get truncatedContent
      *
      * @return bool
      */
@@ -70,7 +70,7 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * Sets truncatedContent
+     * Set truncatedContent
      *
      * @param  bool $truncatedContent
      * @return self
@@ -82,7 +82,7 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class Notification implements NotificationInterface
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

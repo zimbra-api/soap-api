@@ -60,7 +60,7 @@ class AlwaysOnClusterSelector
     }
 
     /**
-     * Gets account by
+     * Get account by
      *
      * @return AlwaysOnClusterBy
      */
@@ -70,7 +70,7 @@ class AlwaysOnClusterSelector
     }
 
     /**
-     * Sets account by enum
+     * Set account by enum
      *
      * @param  AlwaysOnClusterBy $by
      * @return self
@@ -82,7 +82,7 @@ class AlwaysOnClusterSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class AlwaysOnClusterSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

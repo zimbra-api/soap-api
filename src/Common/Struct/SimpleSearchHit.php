@@ -64,7 +64,7 @@ class SimpleSearchHit implements SearchHit
     }
 
     /**
-     * Gets Id ID.
+     * Get Id ID.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class SimpleSearchHit implements SearchHit
     }
 
     /**
-     * Sets Id ID.
+     * Set Id ID.
      *
      * @param  string $id
      * @return self
@@ -86,7 +86,7 @@ class SimpleSearchHit implements SearchHit
     }
 
     /**
-     * Gets content type
+     * Get content type
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class SimpleSearchHit implements SearchHit
     }
 
     /**
-     * Sets content type
+     * Set content type
      *
      * @param  string $sortField
      * @return self

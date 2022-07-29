@@ -80,7 +80,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets attachmentId
+     * Get attachmentId
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets attachmentId
+     * Set attachmentId
      *
      * @param  string $attachmentId
      * @return self
@@ -125,7 +125,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets attachments
+     * Set attachments
      *
      * @param  array $attachments
      * @return self
@@ -139,7 +139,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets attachments
+     * Get attachments
      *
      * @return array
      */
@@ -149,7 +149,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets mpAttachments
+     * Set mpAttachments
      *
      * @param  array $attachments
      * @return self
@@ -163,7 +163,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets mpAttachments
+     * Get mpAttachments
      *
      * @return array
      */
@@ -173,7 +173,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets msgAttachments
+     * Set msgAttachments
      *
      * @param  array $attachments
      * @return self
@@ -187,7 +187,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets msgAttachments
+     * Get msgAttachments
      *
      * @return array
      */
@@ -197,7 +197,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets cnAttachments
+     * Set cnAttachments
      *
      * @param  array $attachments
      * @return self
@@ -211,7 +211,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets cnAttachments
+     * Get cnAttachments
      *
      * @return array
      */
@@ -221,7 +221,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Sets docAttachments
+     * Set docAttachments
      *
      * @param  array $attachments
      * @return self
@@ -235,7 +235,7 @@ class AttachmentsInfo
     }
 
     /**
-     * Gets docAttachments
+     * Get docAttachments
      *
      * @return array
      */

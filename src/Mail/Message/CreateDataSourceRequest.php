@@ -211,7 +211,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets dataSource
+     * Set dataSource
      *
      * @param  MailDataSource $dataSource
      * @return self

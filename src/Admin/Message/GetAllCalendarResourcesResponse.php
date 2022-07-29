@@ -58,7 +58,7 @@ class GetAllCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calResources
+     * Set calResources
      *
      * @param  array $resources
      * @return self
@@ -70,7 +70,7 @@ class GetAllCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calResources
+     * Get calResources
      *
      * @return array
      */

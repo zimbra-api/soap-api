@@ -84,7 +84,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self

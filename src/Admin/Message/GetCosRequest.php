@@ -54,7 +54,7 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return CosSelector
      */
@@ -64,7 +64,7 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  CosSelector $cos
      * @return self

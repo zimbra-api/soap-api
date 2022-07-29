@@ -55,7 +55,7 @@ class DistributionListRightSpec
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class DistributionListRightSpec
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  string $right
      * @return self
@@ -89,7 +89,7 @@ class DistributionListRightSpec
     }
 
     /**
-     * Sets grantees
+     * Set grantees
      *
      * @return self
      */
@@ -100,7 +100,7 @@ class DistributionListRightSpec
     }
 
     /**
-     * Gets grantees
+     * Get grantees
      *
      * @return array
      */

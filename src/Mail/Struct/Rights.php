@@ -44,7 +44,7 @@ class Rights
     }
 
     /**
-     * Gets effectivePermissions
+     * Get effectivePermissions
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class Rights
     }
 
     /**
-     * Sets effectivePermissions
+     * Set effectivePermissions
      *
      * @param  string $id
      * @return self

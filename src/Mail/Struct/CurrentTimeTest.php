@@ -68,7 +68,7 @@ class CurrentTimeTest extends FilterTest
     }
 
     /**
-     * Gets dateComparison
+     * Get dateComparison
      *
      * @return DateComparison
      */
@@ -78,7 +78,7 @@ class CurrentTimeTest extends FilterTest
     }
 
     /**
-     * Sets dateComparison
+     * Set dateComparison
      *
      * @param  DateComparison $dateComparison
      * @return self
@@ -90,7 +90,7 @@ class CurrentTimeTest extends FilterTest
     }
 
     /**
-     * Gets time
+     * Get time
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class CurrentTimeTest extends FilterTest
     }
 
     /**
-     * Sets time
+     * Set time
      *
      * @param  string $time
      * @return self

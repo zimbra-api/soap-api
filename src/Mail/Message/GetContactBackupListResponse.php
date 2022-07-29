@@ -62,7 +62,7 @@ class GetContactBackupListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets backup
+     * Set backup
      *
      * @param  array $backup
      * @return self
@@ -74,7 +74,7 @@ class GetContactBackupListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets backup
+     * Get backup
      *
      * @return array
      */

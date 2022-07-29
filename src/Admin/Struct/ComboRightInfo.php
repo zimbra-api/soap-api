@@ -68,7 +68,7 @@ class ComboRightInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class ComboRightInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -90,7 +90,7 @@ class ComboRightInfo
     }
 
     /**
-     * Gets type enum
+     * Get type enum
      *
      * @return RightType
      */
@@ -100,7 +100,7 @@ class ComboRightInfo
     }
 
     /**
-     * Sets type enum
+     * Set type enum
      *
      * @param  RightType $type
      * @return self
@@ -112,7 +112,7 @@ class ComboRightInfo
     }
 
     /**
-     * Gets targetType
+     * Get targetType
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class ComboRightInfo
     }
 
     /**
-     * Sets targetType
+     * Set targetType
      *
      * @param  string $targetType
      * @return self

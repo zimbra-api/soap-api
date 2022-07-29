@@ -61,7 +61,7 @@ class CheckPermissionRequest extends SoapRequest
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return TargetSpec
      */
@@ -71,7 +71,7 @@ class CheckPermissionRequest extends SoapRequest
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  TargetSpec $target
      * @return self
@@ -98,7 +98,7 @@ class CheckPermissionRequest extends SoapRequest
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  string $rights
      * @return self
@@ -113,7 +113,7 @@ class CheckPermissionRequest extends SoapRequest
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

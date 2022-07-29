@@ -61,7 +61,7 @@ class AddMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  AddMsgSpec $msg
      * @return self
@@ -73,7 +73,7 @@ class AddMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return AddMsgSpec
      */
@@ -83,7 +83,7 @@ class AddMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets filterSent
+     * Set filterSent
      *
      * @param  bool $filterSent
      * @return self
@@ -95,7 +95,7 @@ class AddMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets filterSent
+     * Get filterSent
      *
      * @return bool
      */

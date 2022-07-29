@@ -59,7 +59,7 @@ class Cos
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class Cos
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -81,7 +81,7 @@ class Cos
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class Cos
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

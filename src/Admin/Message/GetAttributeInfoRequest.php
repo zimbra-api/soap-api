@@ -68,7 +68,7 @@ class GetAttributeInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class GetAttributeInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  int $attrs
      * @return self
@@ -90,7 +90,7 @@ class GetAttributeInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets entryTypes
+     * Get entryTypes
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class GetAttributeInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets entryTypes
+     * Set entryTypes
      *
      * @param  string $entryTypes
      * @return self

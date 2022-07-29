@@ -50,7 +50,7 @@ class NoOpResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets waitDisallowed
+     * Get waitDisallowed
      *
      * @return bool
      */
@@ -60,7 +60,7 @@ class NoOpResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets waitDisallowed
+     * Set waitDisallowed
      *
      * @param  bool $waitDisallowed
      * @return self

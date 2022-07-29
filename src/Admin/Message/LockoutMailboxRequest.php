@@ -61,7 +61,7 @@ class LockoutMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @return Account
      */
@@ -71,7 +71,7 @@ class LockoutMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -83,7 +83,7 @@ class LockoutMailboxRequest extends SoapRequest
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return LockoutOperation
      */
@@ -93,7 +93,7 @@ class LockoutMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  LockoutOperation $operation
      * @return self

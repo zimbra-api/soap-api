@@ -125,7 +125,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -147,7 +147,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets inlineRule
+     * Get inlineRule
      *
      * @return string
      */
@@ -157,7 +157,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets inlineRule
+     * Set inlineRule
      *
      * @param  string $inlineRule
      * @return self
@@ -169,7 +169,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets wantHtml
+     * Get wantHtml
      *
      * @return bool
      */
@@ -179,7 +179,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets wantHtml
+     * Set wantHtml
      *
      * @param  bool $wantHtml
      * @return self
@@ -191,7 +191,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets maxInlinedLength
+     * Get maxInlinedLength
      *
      * @return int
      */
@@ -201,7 +201,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets maxInlinedLength
+     * Set maxInlinedLength
      *
      * @param  int $maxInlinedLength
      * @return self
@@ -213,7 +213,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -225,7 +225,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -247,7 +247,7 @@ class ConversationSpec
     }
 
     /**
-     * Gets needCanExpand
+     * Get needCanExpand
      *
      * @return bool
      */
@@ -257,7 +257,7 @@ class ConversationSpec
     }
 
     /**
-     * Sets needCanExpand
+     * Set needCanExpand
      *
      * @param  bool $needCanExpand
      * @return self

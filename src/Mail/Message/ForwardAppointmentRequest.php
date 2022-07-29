@@ -97,7 +97,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -109,7 +109,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */
@@ -119,7 +119,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  DtTimeInfo $exceptionId
      * @return self
@@ -131,7 +131,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return DtTimeInfo
      */
@@ -141,7 +141,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  CalTZInfo $timezone
      * @return self
@@ -153,7 +153,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -163,7 +163,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -175,7 +175,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */

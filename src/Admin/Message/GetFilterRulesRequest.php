@@ -109,7 +109,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return AdminFilterType
      */
@@ -119,7 +119,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  AdminFilterType $type
      * @return self
@@ -131,7 +131,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -141,7 +141,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -153,7 +153,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -163,7 +163,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self
@@ -175,7 +175,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -185,7 +185,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self
@@ -197,7 +197,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return Cos
      */
@@ -207,7 +207,7 @@ class GetFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  Cos $cos
      * @return self

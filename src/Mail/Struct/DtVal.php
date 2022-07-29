@@ -78,7 +78,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Gets the startTime
+     * Get the startTime
      *
      * @return DtTimeInfoInterface
      */
@@ -88,7 +88,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Sets the startTime
+     * Set the startTime
      *
      * @param  DtTimeInfoInterface $startTime
      * @return self
@@ -100,7 +100,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Gets the endTime
+     * Get the endTime
      *
      * @return DtTimeInfoInterface
      */
@@ -110,7 +110,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Sets the endTime
+     * Set the endTime
      *
      * @param  DtTimeInfoInterface $endTime
      * @return self
@@ -122,7 +122,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Gets the duration
+     * Get the duration
      *
      * @return DurationInfoInterface
      */
@@ -132,7 +132,7 @@ class DtVal implements DtValInterface
     }
 
     /**
-     * Sets the duration
+     * Set the duration
      *
      * @param  DurationInfoInterface $duration
      * @return self

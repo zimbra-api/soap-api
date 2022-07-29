@@ -94,7 +94,7 @@ class ConvActionSelector extends ActionSelector
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  string $operation
      * @return self
@@ -108,7 +108,7 @@ class ConvActionSelector extends ActionSelector
     }
 
     /**
-     * Gets acctRelativePath
+     * Get acctRelativePath
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class ConvActionSelector extends ActionSelector
     }
 
     /**
-     * Sets acctRelativePath
+     * Set acctRelativePath
      *
      * @param  string $acctRelativePath
      * @return self

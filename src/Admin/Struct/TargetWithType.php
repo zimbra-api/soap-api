@@ -56,7 +56,7 @@ class TargetWithType
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class TargetWithType
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self
@@ -78,7 +78,7 @@ class TargetWithType
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class TargetWithType
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

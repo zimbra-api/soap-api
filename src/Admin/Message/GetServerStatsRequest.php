@@ -61,7 +61,7 @@ class GetServerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets stats
+     * Set stats
      *
      * @param array $stats
      * @return self
@@ -73,7 +73,7 @@ class GetServerStatsRequest extends SoapRequest
     }
 
     /**
-     * Gets stats
+     * Get stats
      *
      * @return array
      */

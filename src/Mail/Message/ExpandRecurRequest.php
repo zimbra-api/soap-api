@@ -108,7 +108,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -118,7 +118,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -130,7 +130,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -140,7 +140,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -164,7 +164,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -176,7 +176,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -206,7 +206,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets components
+     * Set components
      *
      * @param  array $components
      * @return self
@@ -223,7 +223,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets components
+     * Get components
      *
      * @return array
      */
@@ -233,7 +233,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets cancelComponents
+     * Set cancelComponents
      *
      * @param  array $components
      * @return self
@@ -245,7 +245,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets cancelComponents
+     * Get cancelComponents
      *
      * @return array
      */
@@ -255,7 +255,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets inviteComponents
+     * Set inviteComponents
      *
      * @param  array $components
      * @return self
@@ -267,7 +267,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets inviteComponents
+     * Get inviteComponents
      *
      * @return array
      */
@@ -277,7 +277,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptComponents
+     * Set exceptComponents
      *
      * @param  array $components
      * @return self
@@ -289,7 +289,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptComponents
+     * Get exceptComponents
      *
      * @return array
      */

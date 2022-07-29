@@ -53,7 +53,7 @@ class CurrentVolumeInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return int
      */
@@ -63,7 +63,7 @@ class CurrentVolumeInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  int $type
      * @return self
@@ -75,7 +75,7 @@ class CurrentVolumeInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class CurrentVolumeInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  int $id
      * @return self

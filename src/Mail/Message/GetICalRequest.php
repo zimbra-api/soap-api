@@ -81,7 +81,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -91,7 +91,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -103,7 +103,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -113,7 +113,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -125,7 +125,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

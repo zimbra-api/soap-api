@@ -75,7 +75,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return DomainSelector
      */
@@ -85,7 +85,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  DomainSelector $domain
      * @return self
@@ -97,7 +97,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets the principal.
+     * Get the principal.
      *
      * @return PrincipalSelector
      */
@@ -107,7 +107,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the principal.
+     * Set the principal.
      *
      * @param  Account $principal
      * @return self
@@ -119,7 +119,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self

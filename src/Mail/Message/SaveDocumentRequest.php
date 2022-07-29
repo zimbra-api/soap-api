@@ -73,7 +73,7 @@ class SaveDocumentRequest extends SoapRequest
     }
 
     /**
-     * Gets doc
+     * Get doc
      *
      * @return DocumentSpec
      */
@@ -83,7 +83,7 @@ class SaveDocumentRequest extends SoapRequest
     }
 
     /**
-     * Sets doc
+     * Set doc
      *
      * @param  DocumentSpec $doc
      * @return self

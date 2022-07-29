@@ -68,7 +68,7 @@ class StatsSpec
     }
 
     /**
-     * Gets the values.
+     * Get the values.
      *
      * @return StatsValueWrapper
      */
@@ -78,7 +78,7 @@ class StatsSpec
     }
 
     /**
-     * Sets the values.
+     * Set the values.
      *
      * @param  StatsValueWrapper $values
      * @return self
@@ -90,7 +90,7 @@ class StatsSpec
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class StatsSpec
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -112,7 +112,7 @@ class StatsSpec
     }
 
     /**
-     * Gets the limit
+     * Get the limit
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class StatsSpec
     }
 
     /**
-     * Sets the limit
+     * Set the limit
      *
      * @param  string $limit
      * @return self

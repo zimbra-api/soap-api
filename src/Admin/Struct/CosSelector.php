@@ -57,7 +57,7 @@ class CosSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return CosBy
      */
@@ -67,7 +67,7 @@ class CosSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  string $by
      * @return self
@@ -79,7 +79,7 @@ class CosSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CosSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

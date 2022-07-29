@@ -91,7 +91,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Sets wantImapUid
+     * Set wantImapUid
      *
      * @param  array $wantImapUid
      * @return self
@@ -103,7 +103,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Gets wantImapUid
+     * Get wantImapUid
      *
      * @return bool
      */
@@ -113,7 +113,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Sets wantModifiedSequence
+     * Set wantModifiedSequence
      *
      * @param  array $wantModifiedSequence
      * @return self
@@ -125,7 +125,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Gets wantModifiedSequence
+     * Get wantModifiedSequence
      *
      * @return bool
      */
@@ -135,7 +135,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return SaveDraftMsg
      */
@@ -145,7 +145,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  SaveDraftMsg $msg
      * @return self

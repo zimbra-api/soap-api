@@ -85,7 +85,7 @@ class SessionInfo
     }
 
     /**
-     * Gets an sessionProxied
+     * Get an sessionProxied
      *
      * @param  bool $sessionProxied
      * @return bool
@@ -96,7 +96,7 @@ class SessionInfo
     }
 
     /**
-     * Sets sessionProxied
+     * Set sessionProxied
      *
      * @param  bool $sessionProxied
      * @return self
@@ -108,7 +108,7 @@ class SessionInfo
     }
 
     /**
-     * Gets session ID
+     * Get session ID
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class SessionInfo
     }
 
     /**
-     * Sets session ID
+     * Set session ID
      *
      * @param  string $id
      * @return string|self
@@ -130,7 +130,7 @@ class SessionInfo
     }
 
     /**
-     * Gets sequence number for the highest notification received
+     * Get sequence number for the highest notification received
      *
      * @return int
      */
@@ -140,7 +140,7 @@ class SessionInfo
     }
 
     /**
-     * Sets sequence number for the highest notification received
+     * Set sequence number for the highest notification received
      *
      * @param  int $sequenceNum
      * @return self
@@ -152,7 +152,7 @@ class SessionInfo
     }
 
     /**
-     * Gets an value
+     * Get an value
      *
      * @return string
      */
@@ -162,7 +162,7 @@ class SessionInfo
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

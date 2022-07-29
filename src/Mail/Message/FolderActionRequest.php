@@ -136,7 +136,7 @@ class FolderActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return FolderActionSelector
      */
@@ -146,7 +146,7 @@ class FolderActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  FolderActionSelector $action
      * @return self

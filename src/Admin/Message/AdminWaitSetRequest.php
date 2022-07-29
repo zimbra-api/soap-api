@@ -169,7 +169,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets Waitset ID
+     * Get Waitset ID
      *
      * @return string
      */
@@ -179,7 +179,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets Waitset ID
+     * Set Waitset ID
      *
      * @param  string $waitSetId
      * @return self
@@ -191,7 +191,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets last known sequence number
+     * Get last known sequence number
      *
      * @return string
      */
@@ -201,7 +201,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets last known sequence number
+     * Set last known sequence number
      *
      * @param  string $lastKnownSeqNo
      * @return self
@@ -213,7 +213,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets block
+     * Get block
      *
      * @return bool
      */
@@ -223,7 +223,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets block
+     * Set block
      *
      * @param  bool $block
      * @return self
@@ -235,7 +235,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets expand
+     * Get expand
      *
      * @return bool
      */
@@ -245,7 +245,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets expand
+     * Set expand
      *
      * @param  bool $expand
      * @return self
@@ -257,7 +257,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets defaultInterests
+     * Get defaultInterests
      *
      * @return string
      */
@@ -267,7 +267,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @param  string $defaultInterests
      * @return self
@@ -279,7 +279,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets timeout
+     * Get timeout
      *
      * @return int
      */
@@ -289,7 +289,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets timeout
+     * Set timeout
      *
      * @param  int $timeout
      * @return self
@@ -301,7 +301,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets Waitsets to add.
+     * Get Waitsets to add.
      *
      * @return array
      */
@@ -311,7 +311,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets Waitsets to add.
+     * Set Waitsets to add.
      *
      * @param  array $accounts
      * @return self
@@ -335,7 +335,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets Waitsets to update.
+     * Get Waitsets to update.
      *
      * @return array
      */
@@ -345,7 +345,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets Waitsets to update.
+     * Set Waitsets to update.
      *
      * @param  array $accounts
      * @return self
@@ -369,7 +369,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets Waitsets to remove.
+     * Get Waitsets to remove.
      *
      * @return array
      */
@@ -379,7 +379,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets Waitsets to remove.
+     * Set Waitsets to remove.
      *
      * @param  array $removeAccounts
      * @return self

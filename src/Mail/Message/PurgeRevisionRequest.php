@@ -48,7 +48,7 @@ class PurgeRevisionRequest extends SoapRequest
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return PurgeRevisionSpec
      */
@@ -58,7 +58,7 @@ class PurgeRevisionRequest extends SoapRequest
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  PurgeRevisionSpec $revision
      * @return self

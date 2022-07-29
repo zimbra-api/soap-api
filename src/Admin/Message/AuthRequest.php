@@ -149,7 +149,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -171,7 +171,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -181,7 +181,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -193,7 +193,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets auth token
+     * Get auth token
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets auth token
+     * Set auth token
      *
      * @param  string $authToken
      * @return self
@@ -215,7 +215,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -225,7 +225,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -237,7 +237,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets virtual host
+     * Get virtual host
      *
      * @return string
      */
@@ -247,7 +247,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets virtual host
+     * Set virtual host
      *
      * @param  string $virtualHost
      * @return self
@@ -259,7 +259,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets persistAuthTokenCookie flag
+     * Get persistAuthTokenCookie flag
      *
      * @return bool
      */
@@ -269,7 +269,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets persistAuthTokenCookie flag
+     * Set persistAuthTokenCookie flag
      *
      * @param  bool $persistAuthTokenCookie
      * @return self
@@ -281,7 +281,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets csrfSupported flag
+     * Get csrfSupported flag
      *
      * @return bool
      */
@@ -291,7 +291,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets csrfSupported flag
+     * Set csrfSupported flag
      *
      * @param  bool $csrfSupported
      * @return self
@@ -303,7 +303,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets  the TOTP code used for two-factor authentication
+     * Get  the TOTP code used for two-factor authentication
      *
      * @return string
      */
@@ -313,7 +313,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets  the TOTP code used for two-factor authentication
+     * Set  the TOTP code used for two-factor authentication
      *
      * @param  string $twoFactorCode
      * @return self

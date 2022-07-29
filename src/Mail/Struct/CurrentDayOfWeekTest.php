@@ -53,7 +53,7 @@ class CurrentDayOfWeekTest extends FilterTest
     }
 
     /**
-     * Gets values
+     * Get values
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class CurrentDayOfWeekTest extends FilterTest
     }
 
     /**
-     * Sets values
+     * Set values
      *
      * @param  string $values
      * @return self

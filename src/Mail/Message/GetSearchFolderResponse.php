@@ -58,7 +58,7 @@ class GetSearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets search folders
+     * Set search folders
      *
      * @param  array $folders
      * @return self
@@ -70,7 +70,7 @@ class GetSearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets search folders
+     * Get search folders
      *
      * @return array
      */

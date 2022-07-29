@@ -59,7 +59,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     }
 
     /**
-     * Gets dn
+     * Get dn
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     }
 
     /**
-     * Sets dn
+     * Set dn
      *
      * @param  string $dn
      * @return self
@@ -81,7 +81,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     }
 
     /**
-     * Gets keys
+     * Get keys
      *
      * @return array
      */
@@ -91,7 +91,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     }
 
     /**
-     * Sets keys
+     * Set keys
      *
      * @param  array $keys
      * @return self

@@ -60,7 +60,7 @@ class GetZimletStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the zimlets.
+     * Get the zimlets.
      *
      * @return ZimletStatusParent
      */
@@ -70,7 +70,7 @@ class GetZimletStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the zimlets.
+     * Set the zimlets.
      *
      * @param  ZimletStatusParent $zimlets
      * @return self
@@ -94,7 +94,7 @@ class GetZimletStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets coses
+     * Set coses
      *
      * @param  array $coses
      * @return self
@@ -106,7 +106,7 @@ class GetZimletStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets coses
+     * Get coses
      *
      * @return array
      */

@@ -46,7 +46,7 @@ class ExportContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ExportContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

@@ -48,7 +48,7 @@ class GetIMAPRecentCutoffResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cutoff
+     * Get cutoff
      *
      * @return int
      */
@@ -58,7 +58,7 @@ class GetIMAPRecentCutoffResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cutoff
+     * Set cutoff
      *
      * @param  int $cutoff
      * @return self

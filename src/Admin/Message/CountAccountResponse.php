@@ -58,7 +58,7 @@ class CountAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cos quotas
+     * Set cos quotas
      *
      * @param  array $coses
      * @return self
@@ -70,7 +70,7 @@ class CountAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cos quotas
+     * Get cos quotas
      *
      * @return array
      */

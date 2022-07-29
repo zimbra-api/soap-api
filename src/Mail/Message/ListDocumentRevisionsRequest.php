@@ -50,7 +50,7 @@ class ListDocumentRevisionsRequest extends SoapRequest
     }
 
     /**
-     * Gets doc
+     * Get doc
      *
      * @return ListDocumentRevisionsSpec
      */
@@ -60,7 +60,7 @@ class ListDocumentRevisionsRequest extends SoapRequest
     }
 
     /**
-     * Sets doc
+     * Set doc
      *
      * @param  ListDocumentRevisionsSpec $doc
      * @return self

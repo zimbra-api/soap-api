@@ -81,7 +81,7 @@ class InfoForSessionType
     }
 
     /**
-     * Gets activeAccounts
+     * Get activeAccounts
      *
      * @return int
      */
@@ -91,7 +91,7 @@ class InfoForSessionType
     }
 
     /**
-     * Sets activeAccounts
+     * Set activeAccounts
      *
      * @param  int $activeAccounts
      * @return self
@@ -103,7 +103,7 @@ class InfoForSessionType
     }
 
     /**
-     * Gets activeSessions
+     * Get activeSessions
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class InfoForSessionType
     }
 
     /**
-     * Sets activeSessions
+     * Set activeSessions
      *
      * @param  int $activeSessions
      * @return self
@@ -137,7 +137,7 @@ class InfoForSessionType
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param array $accounts
      * @return self
@@ -149,7 +149,7 @@ class InfoForSessionType
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -171,7 +171,7 @@ class InfoForSessionType
     }
 
     /**
-     * Sets sessions
+     * Set sessions
      *
      * @param array $sessions
      * @return self
@@ -183,7 +183,7 @@ class InfoForSessionType
     }
 
     /**
-     * Gets sessions
+     * Get sessions
      *
      * @return array
      */

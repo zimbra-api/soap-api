@@ -135,7 +135,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -145,7 +145,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self
@@ -157,7 +157,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets queryOffset
+     * Get queryOffset
      *
      * @return int
      */
@@ -167,7 +167,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets queryOffset
+     * Set queryOffset
      *
      * @param  int $queryOffset
      * @return self
@@ -179,7 +179,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets queryMore
+     * Get queryMore
      *
      * @return bool
      */
@@ -189,7 +189,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets queryMore
+     * Set queryMore
      *
      * @param  bool $queryMore
      * @return self
@@ -201,7 +201,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the conversation
+     * Get the conversation
      *
      * @return NestedSearchConversation
      */
@@ -211,7 +211,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the conversation
+     * Set the conversation
      *
      * @param  NestedSearchConversation $conversation
      * @return self
@@ -247,7 +247,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets messages
+     * Get messages
      *
      * @return array
      */
@@ -257,7 +257,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the queryInfo
+     * Get the queryInfo
      *
      * @return SearchQueryInfo
      */
@@ -267,7 +267,7 @@ class SearchConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the queryInfo
+     * Set the queryInfo
      *
      * @param  SearchQueryInfo $queryInfo
      * @return self

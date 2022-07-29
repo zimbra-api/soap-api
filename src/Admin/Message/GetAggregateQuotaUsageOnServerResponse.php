@@ -58,7 +58,7 @@ class GetAggregateQuotaUsageOnServerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets quota informations
+     * Set quota informations
      *
      * @param  array $quotas
      * @return self
@@ -70,7 +70,7 @@ class GetAggregateQuotaUsageOnServerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets quota informations
+     * Get quota informations
      *
      * @return array
      */

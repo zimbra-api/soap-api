@@ -57,7 +57,7 @@ class RemoveAccountAliasRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class RemoveAccountAliasRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self
@@ -79,7 +79,7 @@ class RemoveAccountAliasRequest extends SoapRequest
     }
 
     /**
-     * Gets alias
+     * Get alias
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class RemoveAccountAliasRequest extends SoapRequest
     }
 
     /**
-     * Sets alias
+     * Set alias
      *
      * @param  string $alias
      * @return self

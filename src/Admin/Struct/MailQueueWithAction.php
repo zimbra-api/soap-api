@@ -55,7 +55,7 @@ class MailQueueWithAction
     }
 
     /**
-     * Gets the action.
+     * Get the action.
      *
      * @return MailQueueAction
      */
@@ -65,7 +65,7 @@ class MailQueueWithAction
     }
 
     /**
-     * Sets the action.
+     * Set the action.
      *
      * @param  MailQueueAction $action
      * @return self
@@ -77,7 +77,7 @@ class MailQueueWithAction
     }
 
     /**
-     * Gets the query name
+     * Get the query name
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class MailQueueWithAction
     }
 
     /**
-     * Sets the query name
+     * Set the query name
      *
      * @param  string $name
      * @return self

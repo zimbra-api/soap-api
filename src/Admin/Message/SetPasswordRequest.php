@@ -57,7 +57,7 @@ class SetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class SetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -79,7 +79,7 @@ class SetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets newPassword
+     * Get newPassword
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class SetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets newPassword
+     * Set newPassword
      *
      * @param  string $newPassword
      * @return self

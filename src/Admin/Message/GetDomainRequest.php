@@ -74,7 +74,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -84,7 +84,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self
@@ -96,7 +96,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return DomainSelector
      */
@@ -106,7 +106,7 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  DomainSelector $domain
      * @return self

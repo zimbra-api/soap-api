@@ -117,7 +117,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets month
+     * Get month
      *
      * @return int
      */
@@ -127,7 +127,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets month
+     * Set month
      *
      * @param  int $mon
      * @return self
@@ -140,7 +140,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets day of month
+     * Get day of month
      *
      * @return int
      */
@@ -150,7 +150,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets day of month
+     * Set day of month
      *
      * @param  int $mday
      * @return self
@@ -163,7 +163,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets hour
+     * Get hour
      *
      * @return int
      */
@@ -173,7 +173,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets hour
+     * Set hour
      *
      * @param  int $hour
      * @return self
@@ -186,7 +186,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets minute
+     * Get minute
      *
      * @return int
      */
@@ -196,7 +196,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets minute
+     * Set minute
      *
      * @param  int $min
      * @return self
@@ -209,7 +209,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets second
+     * Get second
      *
      * @return int
      */
@@ -219,7 +219,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets second
+     * Set second
      *
      * @param  int $sec
      * @return self
@@ -232,7 +232,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets week
+     * Get week
      *
      * @return int
      */
@@ -242,7 +242,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Sets week
+     * Set week
      *
      * @param  int $week
      * @return self
@@ -255,7 +255,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets day of week
+     * Get day of week
      *
      * @return int
      */
@@ -265,7 +265,7 @@ class TzOnsetInfo
     }
 
     /**
-     * Gets or sets mon
+     * Get or sets mon
      *
      * @param  int $wkday
      * @return self

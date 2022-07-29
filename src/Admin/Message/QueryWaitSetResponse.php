@@ -58,7 +58,7 @@ class QueryWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets waitsets
+     * Set waitsets
      *
      * @param  array $waitsets
      * @return self
@@ -70,7 +70,7 @@ class QueryWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets waitsets
+     * Get waitsets
      *
      * @return array
      */

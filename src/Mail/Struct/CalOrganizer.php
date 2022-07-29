@@ -131,7 +131,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the address
+     * Get the address
      *
      * @return string
      */
@@ -141,7 +141,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the address
+     * Set the address
      *
      * @param  string $address
      * @return self
@@ -153,7 +153,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the url
+     * Get the url
      *
      * @return string
      */
@@ -163,7 +163,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the url
+     * Set the url
      *
      * @param  string $url
      * @return self
@@ -175,7 +175,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the displayName
+     * Get the displayName
      *
      * @return string
      */
@@ -185,7 +185,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the displayName
+     * Set the displayName
      *
      * @param  string $displayName
      * @return self
@@ -197,7 +197,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the sentBy
+     * Get the sentBy
      *
      * @return string
      */
@@ -207,7 +207,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the sentBy
+     * Set the sentBy
      *
      * @param  string $sentBy
      * @return self
@@ -219,7 +219,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the dir
+     * Get the dir
      *
      * @return string
      */
@@ -229,7 +229,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the dir
+     * Set the dir
      *
      * @param  string $dir
      * @return self
@@ -241,7 +241,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets the language
+     * Get the language
      *
      * @return string
      */
@@ -251,7 +251,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Sets the language
+     * Set the language
      *
      * @param  string $language
      * @return self
@@ -287,7 +287,7 @@ class CalOrganizer implements CalOrganizerInterface
     }
 
     /**
-     * Gets xParams
+     * Get xParams
      *
      * @return array
      */

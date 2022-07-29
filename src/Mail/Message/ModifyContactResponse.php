@@ -48,7 +48,7 @@ class ModifyContactResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contact
+     * Get contact
      *
      * @return ContactInfo
      */
@@ -58,7 +58,7 @@ class ModifyContactResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contact
+     * Set contact
      *
      * @param  ContactInfo $contact
      * @return self

@@ -100,7 +100,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Gets object type
+     * Get object type
      *
      * @return CountObjectsType
      */
@@ -110,7 +110,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Sets object type
+     * Set object type
      *
      * @param  CountObjectsType $type
      * @return self
@@ -122,7 +122,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Gets only related
+     * Get only related
      *
      * @return bool
      */
@@ -132,7 +132,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Sets only related
+     * Set only related
      *
      * @param  bool $onlyRelated
      * @return self
@@ -156,7 +156,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Sets domains
+     * Set domains
      *
      * @param  array $domains
      * @return self
@@ -168,7 +168,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Gets domains
+     * Get domains
      *
      * @return array
      */
@@ -178,7 +178,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Gets the ucservice.
+     * Get the ucservice.
      *
      * @return UcServiceSelector
      */
@@ -188,7 +188,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Sets the ucservice.
+     * Set the ucservice.
      *
      * @param  UcServiceSelector $ucService
      * @return self

@@ -55,7 +55,7 @@ class ZimletStatusCos
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class ZimletStatusCos
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class ZimletStatusCos
     }
 
     /**
-     * Sets zimlets
+     * Set zimlets
      *
      * @param  array $zimlets
      * @return self
@@ -101,7 +101,7 @@ class ZimletStatusCos
     }
 
     /**
-     * Gets zimlets
+     * Get zimlets
      *
      * @return array
      */

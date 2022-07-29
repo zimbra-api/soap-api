@@ -101,7 +101,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -111,7 +111,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -123,7 +123,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -133,7 +133,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -145,7 +145,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets sortAscending
+     * Get sortAscending
      *
      * @return bool
      */
@@ -155,7 +155,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets sortAscending
+     * Set sortAscending
      *
      * @param  bool $sortAscending
      * @return self
@@ -167,7 +167,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DistributionListSelector
      */
@@ -177,7 +177,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DistributionList $dl
      * @return self

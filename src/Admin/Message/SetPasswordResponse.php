@@ -47,7 +47,7 @@ class SetPasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the message.
+     * Get the message.
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class SetPasswordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the message.
+     * Set the message.
      *
      * @param  string $message
      * @return self

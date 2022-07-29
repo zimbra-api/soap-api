@@ -89,7 +89,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -111,7 +111,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Gets the acl
+     * Get the acl
      *
      * @return ZimletAcl
      */
@@ -121,7 +121,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Sets the acl
+     * Set the acl
      *
      * @param  ZimletAcl $acl
      * @return self
@@ -133,7 +133,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Gets the status
+     * Get the status
      *
      * @return ValueAttrib
      */
@@ -143,7 +143,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Sets the status
+     * Set the status
      *
      * @param  ValueAttrib $status
      * @return self
@@ -157,7 +157,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Gets the priority
+     * Get the priority
      *
      * @return IntegerValueAttrib
      */
@@ -167,7 +167,7 @@ class ZimletAclStatusPri
     }
 
     /**
-     * Sets the priority
+     * Set the priority
      *
      * @param  IntegerValueAttrib $priority
      * @return self

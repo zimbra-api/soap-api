@@ -96,7 +96,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets expandAllAttrs
+     * Get expandAllAttrs
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets expandAllAttrs
+     * Set expandAllAttrs
      *
      * @param  string $expandAllAttrs
      * @return self
@@ -130,7 +130,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets the target.
+     * Set the target.
      *
      * @return Target
      */
@@ -140,7 +140,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets the target.
+     * Set the target.
      *
      * @param  Target $target
      * @return self
@@ -152,7 +152,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets the grantee.
+     * Set the grantee.
      *
      * @return Grantee
      */
@@ -162,7 +162,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets the grantee.
+     * Set the grantee.
      *
      * @param  Grantee $grantee
      * @return self

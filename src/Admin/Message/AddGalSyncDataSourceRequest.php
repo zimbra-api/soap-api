@@ -105,7 +105,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -115,7 +115,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -127,7 +127,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -149,7 +149,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -171,7 +171,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return GalMode
      */
@@ -181,7 +181,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GalMode $type
      * @return self
@@ -193,7 +193,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self

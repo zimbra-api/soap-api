@@ -106,7 +106,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -128,7 +128,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Gets GAL Account ID
+     * Get GAL Account ID
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Sets GAL Account ID
+     * Set GAL Account ID
      *
      * @param  string $galAccountId
      * @return self
@@ -150,7 +150,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Gets idOnly
+     * Get idOnly
      *
      * @return bool
      */
@@ -160,7 +160,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Sets idOnly
+     * Set idOnly
      *
      * @param  bool $idOnly
      * @return self
@@ -172,7 +172,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Gets getCount
+     * Get getCount
      *
      * @return bool
      */
@@ -182,7 +182,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Sets getCount
+     * Set getCount
      *
      * @param  bool $getCount
      * @return self
@@ -194,7 +194,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Gets the maximum number of results to return
+     * Get the maximum number of results to return
      *
      * @return int
      */
@@ -204,7 +204,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Sets the maximum number of results to return
+     * Set the maximum number of results to return
      *
      * @param  int $limit
      * @return self

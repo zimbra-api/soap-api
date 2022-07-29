@@ -53,7 +53,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return ModifyGroupMemberOperation
      */
@@ -63,7 +63,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  ModifyGroupMemberOperation $operation
      * @return self

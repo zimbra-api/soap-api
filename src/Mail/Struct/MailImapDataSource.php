@@ -61,7 +61,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     private $test;
 
     /**
-     * Gets oauthToken
+     * Get oauthToken
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Sets oauthToken
+     * Set oauthToken
      *
      * @param  string $oauthToken
      * @return self
@@ -83,7 +83,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Gets clientId
+     * Get clientId
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Sets clientId
+     * Set clientId
      *
      * @param  string $clientId
      * @return self
@@ -105,7 +105,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Gets clientSecret
+     * Get clientSecret
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Sets clientSecret
+     * Set clientSecret
      *
      * @param  string $clientSecret
      * @return self
@@ -127,7 +127,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Gets test
+     * Get test
      *
      * @return bool
      */
@@ -137,7 +137,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     }
 
     /**
-     * Sets test
+     * Set test
      *
      * @param  bool $test
      * @return self

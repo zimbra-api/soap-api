@@ -63,7 +63,7 @@ class DelegateAuthRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @return Account
      */
@@ -73,7 +73,7 @@ class DelegateAuthRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -85,7 +85,7 @@ class DelegateAuthRequest extends SoapRequest
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return int
      */
@@ -95,7 +95,7 @@ class DelegateAuthRequest extends SoapRequest
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  integer $id
      * @return self

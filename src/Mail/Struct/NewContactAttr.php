@@ -100,7 +100,7 @@ class NewContactAttr
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -110,7 +110,7 @@ class NewContactAttr
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -122,7 +122,7 @@ class NewContactAttr
     }
 
     /**
-     * Gets attachId
+     * Get attachId
      *
      * @return string
      */
@@ -132,7 +132,7 @@ class NewContactAttr
     }
 
     /**
-     * Sets attachId
+     * Set attachId
      *
      * @param  string $attachId
      * @return self
@@ -144,7 +144,7 @@ class NewContactAttr
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -154,7 +154,7 @@ class NewContactAttr
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -166,7 +166,7 @@ class NewContactAttr
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -176,7 +176,7 @@ class NewContactAttr
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -188,7 +188,7 @@ class NewContactAttr
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -198,7 +198,7 @@ class NewContactAttr
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

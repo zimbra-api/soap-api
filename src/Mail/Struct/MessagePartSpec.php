@@ -54,7 +54,7 @@ class MessagePartSpec
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class MessagePartSpec
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -76,7 +76,7 @@ class MessagePartSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class MessagePartSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

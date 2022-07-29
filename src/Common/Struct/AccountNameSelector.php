@@ -68,7 +68,7 @@ class AccountNameSelector
     }
 
     /**
-     * Gets account by
+     * Get account by
      *
      * @return AccountBy
      */
@@ -78,7 +78,7 @@ class AccountNameSelector
     }
 
     /**
-     * Sets account by enum
+     * Set account by enum
      *
      * @param  AccountBy $by
      * @return self
@@ -90,7 +90,7 @@ class AccountNameSelector
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class AccountNameSelector
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -112,7 +112,7 @@ class AccountNameSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class AccountNameSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

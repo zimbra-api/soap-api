@@ -46,7 +46,7 @@ class GetIMAPRecentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class GetIMAPRecentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self

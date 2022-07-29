@@ -100,7 +100,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets folder id
+     * Get folder id
      *
      * @return int
      */
@@ -110,7 +110,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets folder id
+     * Set folder id
      *
      * @param  int $folderId
      * @return self
@@ -134,7 +134,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets created sequence
+     * Set created sequence
      *
      * @param array $created
      * @return self
@@ -146,7 +146,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets created sequence
+     * Get created sequence
      *
      * @return array
      */
@@ -168,7 +168,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets deleted sequence
+     * Set deleted sequence
      *
      * @param array $deleted
      * @return self
@@ -180,7 +180,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets deleted sequence
+     * Get deleted sequence
      *
      * @return array
      */
@@ -202,7 +202,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets modified messages
+     * Set modified messages
      *
      * @param array $msgs
      * @return self
@@ -214,7 +214,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets modified messages
+     * Get modified messages
      *
      * @return array
      */
@@ -236,7 +236,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets modified tags
+     * Set modified tags
      *
      * @param array $tags
      * @return self
@@ -248,7 +248,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets modified tags
+     * Get modified tags
      *
      * @return array
      */
@@ -270,7 +270,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Sets renamed folders
+     * Set renamed folders
      *
      * @param array $modifiedFolders
      * @return self
@@ -282,7 +282,7 @@ class PendingFolderModifications
     }
 
     /**
-     * Gets renamed folders
+     * Get renamed folders
      *
      * @return array
      */

@@ -126,7 +126,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Gets wait
+     * Get wait
      *
      * @return bool
      */
@@ -136,7 +136,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Sets wait
+     * Set wait
      *
      * @param  bool $wait
      * @return self
@@ -148,7 +148,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Gets includeDelegates
+     * Get includeDelegates
      *
      * @return bool
      */
@@ -158,7 +158,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Sets bool
+     * Set bool
      *
      * @param  bool $bool
      * @return self
@@ -170,7 +170,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Gets enforceLimit
+     * Get enforceLimit
      *
      * @return bool
      */
@@ -180,7 +180,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Sets enforceLimit
+     * Set enforceLimit
      *
      * @param  bool $enforceLimit
      * @return self
@@ -192,7 +192,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Gets timeout
+     * Get timeout
      *
      * @return int
      */
@@ -202,7 +202,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Sets timeout
+     * Set timeout
      *
      * @param  int $timeout
      * @return self

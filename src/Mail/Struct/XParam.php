@@ -57,7 +57,7 @@ class XParam implements XParamInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class XParam implements XParamInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -79,7 +79,7 @@ class XParam implements XParamInterface
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class XParam implements XParamInterface
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

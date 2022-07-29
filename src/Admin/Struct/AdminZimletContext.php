@@ -74,7 +74,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Gets zimlet base url
+     * Get zimlet base url
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Sets zimlet base url
+     * Set zimlet base url
      *
      * @param  string $baseUrl
      * @return self
@@ -96,7 +96,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Gets zimlet priority
+     * Get zimlet priority
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Sets zimlet priority
+     * Set zimlet priority
      *
      * @param  int $priority
      * @return self
@@ -118,7 +118,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Gets zimlet presence
+     * Get zimlet presence
      *
      * @return ZimletPresence
      */
@@ -128,7 +128,7 @@ class AdminZimletContext implements ZimletContextInterface
     }
 
     /**
-     * Sets zimlet presence
+     * Set zimlet presence
      *
      * @param  ZimletPresence $presence
      * @return self

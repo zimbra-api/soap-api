@@ -60,7 +60,7 @@ class MsgPartIds
     }
 
     /**
-     * Gets partIds
+     * Get partIds
      *
      * @return string
      */
@@ -70,7 +70,7 @@ class MsgPartIds
     }
 
     /**
-     * Sets partIds
+     * Set partIds
      *
      * @param  string $partIds
      * @return self
@@ -82,7 +82,7 @@ class MsgPartIds
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class MsgPartIds
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

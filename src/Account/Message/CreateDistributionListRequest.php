@@ -77,7 +77,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -99,7 +99,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     }
 
     /**
-     * Gets dynamic
+     * Get dynamic
      *
      * @return bool
      */
@@ -109,7 +109,7 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     }
 
     /**
-     * Sets dynamic
+     * Set dynamic
      *
      * @param  bool $dynamic
      * @return self

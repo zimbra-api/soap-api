@@ -65,7 +65,7 @@ class DistributionListActionRequest extends SoapRequest
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DistributionListSelector
      */
@@ -75,7 +75,7 @@ class DistributionListActionRequest extends SoapRequest
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DistributionListSelector $dl
      * @return self
@@ -87,7 +87,7 @@ class DistributionListActionRequest extends SoapRequest
     }
 
     /**
-     * Gets the action.
+     * Get the action.
      *
      * @return DistributionListAction
      */
@@ -97,7 +97,7 @@ class DistributionListActionRequest extends SoapRequest
     }
 
     /**
-     * Sets the action.
+     * Set the action.
      *
      * @param  DistributionListAction $action
      * @return self

@@ -78,7 +78,7 @@ class TagActionInfo
     }
 
     /**
-     * Gets successNames
+     * Get successNames
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class TagActionInfo
     }
 
     /**
-     * Sets successNames
+     * Set successNames
      *
      * @param  string $successNames
      * @return self
@@ -100,7 +100,7 @@ class TagActionInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -110,7 +110,7 @@ class TagActionInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -122,7 +122,7 @@ class TagActionInfo
     }
 
     /**
-     * Gets the operation
+     * Get the operation
      *
      * @return string
      */
@@ -132,7 +132,7 @@ class TagActionInfo
     }
 
     /**
-     * Sets the operation
+     * Set the operation
      *
      * @param  string $operation
      * @return self

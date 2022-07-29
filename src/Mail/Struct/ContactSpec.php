@@ -128,7 +128,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets Contact Id
+     * Get Contact Id
      *
      * @return int
      */
@@ -138,7 +138,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets Contact Id
+     * Set Contact Id
      *
      * @param  int $id
      * @return self
@@ -150,7 +150,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -160,7 +160,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -172,7 +172,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -194,7 +194,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets tag names
+     * Get tag names
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets tag names
+     * Set tag names
      *
      * @param  string $tagNames
      * @return self
@@ -216,7 +216,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets vcard
+     * Get vcard
      *
      * @return VCardInfo
      */
@@ -226,7 +226,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets vcard
+     * Set vcard
      *
      * @param  VCardInfo $vcard
      * @return self
@@ -238,7 +238,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -248,7 +248,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self
@@ -272,7 +272,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Gets contact group members
+     * Get contact group members
      *
      * @return array
      */
@@ -282,7 +282,7 @@ class ContactSpec implements SpecifyContact
     }
 
     /**
-     * Sets contact group members
+     * Set contact group members
      *
      * @param  array $members
      * @return self

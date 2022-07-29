@@ -46,7 +46,7 @@ class RankingActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return RankingActionSpec
      */
@@ -56,7 +56,7 @@ class RankingActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  RankingActionSpec $action
      * @return self

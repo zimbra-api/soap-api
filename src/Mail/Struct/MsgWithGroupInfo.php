@@ -319,7 +319,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -329,7 +329,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -341,7 +341,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets imapUid
+     * Get imapUid
      *
      * @return int
      */
@@ -351,7 +351,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets imapUid
+     * Set imapUid
      *
      * @param  int $imapUid
      * @return self
@@ -363,7 +363,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets calendarIntendedFor
+     * Get calendarIntendedFor
      *
      * @return string
      */
@@ -373,7 +373,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets calendarIntendedFor
+     * Set calendarIntendedFor
      *
      * @param  string $calendarIntendedFor
      * @return self
@@ -385,7 +385,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets origId
+     * Get origId
      *
      * @return string
      */
@@ -395,7 +395,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets origId
+     * Set origId
      *
      * @param  string $origId
      * @return self
@@ -407,7 +407,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets draftReplyType
+     * Get draftReplyType
      *
      * @return ReplyType
      */
@@ -417,7 +417,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets draftReplyType
+     * Set draftReplyType
      *
      * @param  ReplyType $draftReplyType
      * @return self
@@ -429,7 +429,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets identityId
+     * Get identityId
      *
      * @return string
      */
@@ -439,7 +439,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets identityId
+     * Set identityId
      *
      * @param  string $identityId
      * @return self
@@ -451,7 +451,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets draftAccountId
+     * Get draftAccountId
      *
      * @return string
      */
@@ -461,7 +461,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets draftAccountId
+     * Set draftAccountId
      *
      * @param  string $draftAccountId
      * @return self
@@ -473,7 +473,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets draftAutoSendTime
+     * Get draftAutoSendTime
      *
      * @return int
      */
@@ -483,7 +483,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets draftAutoSendTime
+     * Set draftAutoSendTime
      *
      * @param  int $draftAutoSendTime
      * @return self
@@ -495,7 +495,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets sentDate
+     * Get sentDate
      *
      * @return int
      */
@@ -505,7 +505,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets sentDate
+     * Set sentDate
      *
      * @param  int $sentDate
      * @return self
@@ -517,7 +517,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets resentDate
+     * Get resentDate
      *
      * @return int
      */
@@ -527,7 +527,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets resentDate
+     * Set resentDate
      *
      * @param  int $resentDate
      * @return self
@@ -539,7 +539,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -549,7 +549,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -561,7 +561,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -571,7 +571,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -583,7 +583,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -595,7 +595,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */
@@ -617,7 +617,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -627,7 +627,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -639,7 +639,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets messageIdHeader
+     * Get messageIdHeader
      *
      * @return string
      */
@@ -649,7 +649,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets messageIdHeader
+     * Set messageIdHeader
      *
      * @param  string $messageIdHeader
      * @return self
@@ -661,7 +661,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets inReplyTo
+     * Get inReplyTo
      *
      * @return string
      */
@@ -671,7 +671,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets inReplyTo
+     * Set inReplyTo
      *
      * @param  string $inReplyTo
      * @return self
@@ -683,7 +683,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets invite
+     * Get invite
      *
      * @return InviteWithGroupInfo
      */
@@ -693,7 +693,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets invite
+     * Set invite
      *
      * @param  InviteWithGroupInfo $invite
      * @return self
@@ -705,7 +705,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -717,7 +717,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -739,7 +739,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return UrlAndValue
      */
@@ -749,7 +749,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  UrlAndValue $content
      * @return self
@@ -761,7 +761,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets mimePart
+     * Get mimePart
      *
      * @return MimePartInfo
      */
@@ -771,7 +771,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets mimePart
+     * Set mimePart
      *
      * @param  MimePartInfo $mimePart
      * @return self
@@ -783,7 +783,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets shr
+     * Get shr
      *
      * @return ShareNotification
      */
@@ -793,7 +793,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets shr
+     * Set shr
      *
      * @param  shr $shr
      * @return self
@@ -805,7 +805,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Sets dlSubs
+     * Set dlSubs
      *
      * @param  DLSubscriptionNotification $dlSubs
      * @return self
@@ -817,7 +817,7 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Gets dlSubs
+     * Get dlSubs
      *
      * @return DLSubscriptionNotification
      */

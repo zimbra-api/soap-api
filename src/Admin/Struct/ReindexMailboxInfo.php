@@ -72,7 +72,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -94,7 +94,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Sets types
+     * Set types
      *
      * @param  string $types
      * @return self
@@ -118,7 +118,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class ReindexMailboxInfo
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self

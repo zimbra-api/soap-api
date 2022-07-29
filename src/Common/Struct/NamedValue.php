@@ -53,7 +53,7 @@ class NamedValue
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class NamedValue
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -75,7 +75,7 @@ class NamedValue
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class NamedValue
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

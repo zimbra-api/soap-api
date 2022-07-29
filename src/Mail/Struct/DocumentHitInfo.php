@@ -110,7 +110,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -120,7 +120,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self

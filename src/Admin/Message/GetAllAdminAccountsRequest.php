@@ -48,7 +48,7 @@ class GetAllAdminAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -58,7 +58,7 @@ class GetAllAdminAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self

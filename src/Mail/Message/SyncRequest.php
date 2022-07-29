@@ -150,7 +150,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -160,7 +160,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -172,7 +172,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets calendarCutoff
+     * Get calendarCutoff
      *
      * @return int
      */
@@ -182,7 +182,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets calendarCutoff
+     * Set calendarCutoff
      *
      * @param  int $calendarCutoff
      * @return self
@@ -194,7 +194,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets msgCutoff
+     * Get msgCutoff
      *
      * @return int
      */
@@ -204,7 +204,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets msgCutoff
+     * Set msgCutoff
      *
      * @param  int $msgCutoff
      * @return self
@@ -216,7 +216,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -238,7 +238,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets typedDeletes
+     * Get typedDeletes
      *
      * @return bool
      */
@@ -248,7 +248,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets typedDeletes
+     * Set typedDeletes
      *
      * @param  bool $typedDeletes
      * @return self
@@ -260,7 +260,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets deleteLimit
+     * Get deleteLimit
      *
      * @return int
      */
@@ -270,7 +270,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets deleteLimit
+     * Set deleteLimit
      *
      * @param  int $deleteLimit
      * @return self
@@ -282,7 +282,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Gets changeLimit
+     * Get changeLimit
      *
      * @return int
      */
@@ -292,7 +292,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Sets changeLimit
+     * Set changeLimit
      *
      * @param  int $changeLimit
      * @return self

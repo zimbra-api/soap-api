@@ -57,7 +57,7 @@ class BounceMsgSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class BounceMsgSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -79,7 +79,7 @@ class BounceMsgSpec
     }
 
     /**
-     * Sets emailAddresses
+     * Set emailAddresses
      *
      * @param  array $addresses
      * @return self
@@ -91,7 +91,7 @@ class BounceMsgSpec
     }
 
     /**
-     * Gets emailAddresses
+     * Get emailAddresses
      *
      * @return array
      */

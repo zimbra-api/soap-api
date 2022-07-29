@@ -46,7 +46,7 @@ class CalEcho
     }
 
     /**
-     * Gets the invite
+     * Get the invite
      *
      * @return InviteAsMP
      */
@@ -56,7 +56,7 @@ class CalEcho
     }
 
     /**
-     * Sets the invite
+     * Set the invite
      *
      * @param  InviteAsMP $invite
      * @return self

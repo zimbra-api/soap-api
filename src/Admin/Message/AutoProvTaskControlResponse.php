@@ -48,7 +48,7 @@ class AutoProvTaskControlResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the status.
+     * Get the status.
      *
      * @return AutoProvTaskStatus
      */
@@ -58,7 +58,7 @@ class AutoProvTaskControlResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the status.
+     * Set the status.
      *
      * @param  AutoProvTaskStatus $status
      * @return self

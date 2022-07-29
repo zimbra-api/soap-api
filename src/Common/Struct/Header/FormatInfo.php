@@ -46,7 +46,7 @@ class FormatInfo
     }
 
     /**
-     * Gets desired response format.
+     * Get desired response format.
      *
      * @return RequestFormat
      */
@@ -56,7 +56,7 @@ class FormatInfo
     }
 
     /**
-     * Sets desired response format.
+     * Set desired response format.
      *
      * @param  RequestFormat $format
      * @return self

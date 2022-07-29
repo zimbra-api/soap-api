@@ -48,7 +48,7 @@ class FlagAction extends FilterAction
     }
 
     /**
-     * Gets flag
+     * Get flag
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class FlagAction extends FilterAction
     }
 
     /**
-     * Sets flag
+     * Set flag
      *
      * @param  string $flag
      * @return self

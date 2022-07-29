@@ -46,7 +46,7 @@ trait KeyValuePairsTrait
     }
 
     /**
-     * Sets key value pairs
+     * Set key value pairs
      *
      * @param  array $pairs
      * @return self
@@ -58,7 +58,7 @@ trait KeyValuePairsTrait
     }
 
     /**
-     * Gets attr sequence
+     * Get attr sequence
      *
      * @return array
      */
@@ -68,7 +68,7 @@ trait KeyValuePairsTrait
     }
 
     /**
-     * Gets the first value matching
+     * Get the first value matching
      *
      * @return string
      */
@@ -83,7 +83,7 @@ trait KeyValuePairsTrait
     }
 
     /**
-     * Gets the matching values
+     * Get the matching values
      *
      * @return array
      */

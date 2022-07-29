@@ -61,7 +61,7 @@ class SyncGalAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param array $accounts
      * @return self
@@ -73,7 +73,7 @@ class SyncGalAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */

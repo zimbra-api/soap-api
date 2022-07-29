@@ -57,7 +57,7 @@ class AddMsgResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  MessageSummary $message
      * @return self
@@ -75,7 +75,7 @@ class AddMsgResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return MessageSummary
      */
@@ -85,7 +85,7 @@ class AddMsgResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets chatMessage
+     * Get chatMessage
      *
      * @return ChatSummary
      */

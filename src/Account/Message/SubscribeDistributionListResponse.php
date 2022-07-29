@@ -46,7 +46,7 @@ class SubscribeDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets new auth token
+     * Get new auth token
      *
      * @return SubscribeStatus
      */
@@ -56,7 +56,7 @@ class SubscribeDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets new auth token
+     * Set new auth token
      *
      * @param  SubscribeStatus $status
      * @return self

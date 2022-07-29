@@ -75,7 +75,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -97,7 +97,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -119,7 +119,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return int
      */
@@ -129,7 +129,7 @@ class FreeBusyUserSpec
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  int $folderId
      * @return self

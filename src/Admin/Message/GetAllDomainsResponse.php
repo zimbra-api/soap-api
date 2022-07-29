@@ -58,7 +58,7 @@ class GetAllDomainsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets domain informations
+     * Set domain informations
      *
      * @param  array $domainList
      * @return self
@@ -70,7 +70,7 @@ class GetAllDomainsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets domain informations
+     * Get domain informations
      *
      * @return array
      */

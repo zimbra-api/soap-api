@@ -117,7 +117,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -127,7 +127,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -139,7 +139,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -149,7 +149,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -161,7 +161,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets data size
+     * Get data size
      *
      * @return int
      */
@@ -171,7 +171,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets data size
+     * Set data size
      *
      * @param  int $size
      * @return self
@@ -183,7 +183,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets volume Id
+     * Get volume Id
      *
      * @return int
      */
@@ -193,7 +193,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets volume Id
+     * Set volume Id
      *
      * @param  int $volumeId
      * @return self
@@ -205,7 +205,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets blob path
+     * Get blob path
      *
      * @return string
      */
@@ -215,7 +215,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets blob path
+     * Set blob path
      *
      * @param  string $blobPath
      * @return self
@@ -227,7 +227,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets external
+     * Get external
      *
      * @return bool
      */
@@ -237,7 +237,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets external
+     * Set external
      *
      * @param  bool $external
      * @return self
@@ -249,7 +249,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -259,7 +259,7 @@ class MissingBlobInfo
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self

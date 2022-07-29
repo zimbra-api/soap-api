@@ -95,7 +95,7 @@ class ChildAccount
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class ChildAccount
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -117,7 +117,7 @@ class ChildAccount
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -127,7 +127,7 @@ class ChildAccount
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -139,7 +139,7 @@ class ChildAccount
     }
 
     /**
-     * Gets isVisible
+     * Get isVisible
      *
      * @return bool
      */
@@ -149,7 +149,7 @@ class ChildAccount
     }
 
     /**
-     * Sets isVisible
+     * Set isVisible
      *
      * @param  string $isVisible
      * @return bool
@@ -161,7 +161,7 @@ class ChildAccount
     }
 
     /**
-     * Gets isActive
+     * Get isActive
      *
      * @return bool
      */
@@ -171,7 +171,7 @@ class ChildAccount
     }
 
     /**
-     * Sets isActive
+     * Set isActive
      *
      * @param  bool $isActive
      * @return self
@@ -183,7 +183,7 @@ class ChildAccount
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -193,7 +193,7 @@ class ChildAccount
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self

@@ -45,7 +45,7 @@ class Part
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class Part
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self

@@ -46,7 +46,7 @@ class DeleteDomainRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class DeleteDomainRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self

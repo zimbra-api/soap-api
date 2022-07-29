@@ -61,7 +61,7 @@ class Identity extends AttrsImpl
     }
 
     /**
-     * Gets identity name
+     * Get identity name
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Identity extends AttrsImpl
     }
 
     /**
-     * Sets identity name
+     * Set identity name
      *
      * @param  string $name
      * @return self
@@ -83,7 +83,7 @@ class Identity extends AttrsImpl
     }
 
     /**
-     * Gets identity ID
+     * Get identity ID
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class Identity extends AttrsImpl
     }
 
     /**
-     * Sets identity ID
+     * Set identity ID
      *
      * @param  string $id
      * @return self

@@ -101,7 +101,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets the account to authenticate against
+     * Get the account to authenticate against
      *
      * @return AccountSelector
      */
@@ -111,7 +111,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets the account to authenticate against
+     * Set the account to authenticate against
      *
      * @param  AccountSelector $account
      * @return self
@@ -123,7 +123,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -145,7 +145,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets old password
+     * Get old password
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets old password
+     * Set old password
      *
      * @param  string $password
      * @return self
@@ -167,7 +167,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets virtual host
+     * Get virtual host
      *
      * @return string
      */
@@ -177,7 +177,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets virtual host
+     * Set virtual host
      *
      * @param  string $virtualHost
      * @return self
@@ -189,7 +189,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets dryRun
+     * Get dryRun
      *
      * @return bool
      */
@@ -199,7 +199,7 @@ class ChangePasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets dryRun
+     * Set dryRun
      *
      * @param  bool $dryRun
      * @return self

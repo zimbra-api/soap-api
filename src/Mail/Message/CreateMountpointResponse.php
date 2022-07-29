@@ -48,7 +48,7 @@ class CreateMountpointResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets mount point
+     * Get mount point
      *
      * @return Mountpoint
      */
@@ -58,7 +58,7 @@ class CreateMountpointResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mount point
+     * Set mount point
      *
      * @param  Mountpoint $mount
      * @return self

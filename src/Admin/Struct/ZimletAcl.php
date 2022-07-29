@@ -59,7 +59,7 @@ class ZimletAcl
     }
 
     /**
-     * Gets the cos
+     * Get the cos
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class ZimletAcl
     }
 
     /**
-     * Sets the cos
+     * Set the cos
      *
      * @param  string $cos
      * @return self
@@ -81,7 +81,7 @@ class ZimletAcl
     }
 
     /**
-     * Gets the acl
+     * Get the acl
      *
      * @return AclType
      */
@@ -91,7 +91,7 @@ class ZimletAcl
     }
 
     /**
-     * Sets the acl
+     * Set the acl
      *
      * @param  AclType $acl
      * @return self

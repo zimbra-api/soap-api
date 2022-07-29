@@ -185,7 +185,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -195,7 +195,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -207,7 +207,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -217,7 +217,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -229,7 +229,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -239,7 +239,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -251,7 +251,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -261,7 +261,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -273,7 +273,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets location
+     * Get location
      *
      * @return string
      */
@@ -283,7 +283,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets location
+     * Set location
      *
      * @param  string $location
      * @return self
@@ -295,7 +295,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets isMeeting
+     * Get isMeeting
      *
      * @return bool
      */
@@ -305,7 +305,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets isMeeting
+     * Set isMeeting
      *
      * @param  bool $isMeeting
      * @return self
@@ -317,7 +317,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets isRecurring
+     * Get isRecurring
      *
      * @return bool
      */
@@ -327,7 +327,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets isRecurring
+     * Set isRecurring
      *
      * @param  bool $isRecurring
      * @return self
@@ -339,7 +339,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets isException
+     * Get isException
      *
      * @return bool
      */
@@ -349,7 +349,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets isException
+     * Set isException
      *
      * @param  bool $isException
      * @return self
@@ -361,7 +361,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets isReminderSet
+     * Get isReminderSet
      *
      * @return bool
      */
@@ -371,7 +371,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets isReminderSet
+     * Set isReminderSet
      *
      * @param  bool $isReminderSet
      * @return self
@@ -383,7 +383,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets isPrivate
+     * Get isPrivate
      *
      * @return bool
      */
@@ -393,7 +393,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets isPrivate
+     * Set isPrivate
      *
      * @param  bool $isPrivate
      * @return self
@@ -405,7 +405,7 @@ class FreeBusySlot
     }
 
     /**
-     * Gets hasPermission
+     * Get hasPermission
      *
      * @return bool
      */
@@ -415,7 +415,7 @@ class FreeBusySlot
     }
 
     /**
-     * Sets hasPermission
+     * Set hasPermission
      *
      * @param  bool $hasPermission
      * @return self

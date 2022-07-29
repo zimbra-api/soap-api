@@ -54,7 +54,7 @@ class IMAPItemInfo
     }
 
     /**
-     * Gets Message ID
+     * Get Message ID
      *
      * @return int
      */
@@ -64,7 +64,7 @@ class IMAPItemInfo
     }
 
     /**
-     * Sets Message ID
+     * Set Message ID
      *
      * @param  int $id
      * @return self
@@ -76,7 +76,7 @@ class IMAPItemInfo
     }
 
     /**
-     * Gets IMAP UID
+     * Get IMAP UID
      *
      * @return int
      */
@@ -86,7 +86,7 @@ class IMAPItemInfo
     }
 
     /**
-     * Sets IMAP UID
+     * Set IMAP UID
      *
      * @param  int $imapUid
      * @return self

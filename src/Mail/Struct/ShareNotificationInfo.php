@@ -104,7 +104,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -114,7 +114,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -126,7 +126,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets addressType
+     * Get addressType
      *
      * @return string
      */
@@ -136,7 +136,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  string $status
      * @return self
@@ -148,7 +148,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets the date
+     * Get the date
      *
      * @return int
      */
@@ -158,7 +158,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Sets the date
+     * Set the date
      *
      * @param  int $date
      * @return self
@@ -170,7 +170,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets the grantor
+     * Get the grantor
      *
      * @return Grantor
      */
@@ -180,7 +180,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Sets the grantor
+     * Set the grantor
      *
      * @param  Grantor $grantor
      * @return self
@@ -192,7 +192,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets the link
+     * Get the link
      *
      * @return LinkInfo
      */
@@ -202,7 +202,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Sets the link
+     * Set the link
      *
      * @param  LinkInfo $link
      * @return self
@@ -214,7 +214,7 @@ class ShareNotificationInfo
     }
 
     /**
-     * Gets the standardTZName
+     * Get the standardTZName
      *
      * @return string
      */

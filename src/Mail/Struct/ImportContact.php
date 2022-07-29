@@ -63,7 +63,7 @@ class ImportContact
     }
 
     /**
-     * Gets listOfCreatedIds
+     * Get listOfCreatedIds
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class ImportContact
     }
 
     /**
-     * Sets listOfCreatedIds
+     * Set listOfCreatedIds
      *
      * @param  string $listOfCreatedIds
      * @return self
@@ -85,7 +85,7 @@ class ImportContact
     }
 
     /**
-     * Gets numImported
+     * Get numImported
      *
      * @return int
      */
@@ -95,7 +95,7 @@ class ImportContact
     }
 
     /**
-     * Sets numImported
+     * Set numImported
      *
      * @param  int $numImported
      * @return self

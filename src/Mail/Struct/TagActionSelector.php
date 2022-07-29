@@ -94,7 +94,7 @@ class TagActionSelector extends ActionSelector
     }
 
     /**
-     * Gets retention policy
+     * Get retention policy
      *
      * @return RetentionPolicy
      */
@@ -104,7 +104,7 @@ class TagActionSelector extends ActionSelector
     }
 
     /**
-     * Sets retention policy
+     * Set retention policy
      *
      * @param  RetentionPolicy $retentionPolicy
      * @return self

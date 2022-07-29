@@ -57,7 +57,7 @@ class IdVersion
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -67,7 +67,7 @@ class IdVersion
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self
@@ -79,7 +79,7 @@ class IdVersion
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class IdVersion
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

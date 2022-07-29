@@ -48,7 +48,7 @@ class ChangePrimaryEmailResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -58,7 +58,7 @@ class ChangePrimaryEmailResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self

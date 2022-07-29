@@ -58,7 +58,7 @@ class GetFreeBusyQueueInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets providers
+     * Set providers
      *
      * @param  array $providers
      * @return self
@@ -70,7 +70,7 @@ class GetFreeBusyQueueInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets providers
+     * Get providers
      *
      * @return array
      */

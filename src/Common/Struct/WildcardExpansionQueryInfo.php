@@ -72,7 +72,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Gets str
+     * Get str
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Sets str
+     * Set str
      *
      * @param  string $str
      * @return self
@@ -94,7 +94,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Gets expanded
+     * Get expanded
      *
      * @return bool
      */
@@ -104,7 +104,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Sets expanded
+     * Set expanded
      *
      * @param  bool $expanded
      * @return self
@@ -116,7 +116,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Gets numExpanded
+     * Get numExpanded
      *
      * @return int
      */
@@ -126,7 +126,7 @@ class WildcardExpansionQueryInfo
     }
 
     /**
-     * Sets numExpanded
+     * Set numExpanded
      *
      * @param  int $numExpanded
      * @return self

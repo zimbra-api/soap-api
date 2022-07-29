@@ -58,7 +58,7 @@ class GetAllUCServicesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets ucServiceList
+     * Set ucServiceList
      *
      * @param  array $list
      * @return self
@@ -70,7 +70,7 @@ class GetAllUCServicesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets ucServiceList
+     * Get ucServiceList
      *
      * @return array
      */

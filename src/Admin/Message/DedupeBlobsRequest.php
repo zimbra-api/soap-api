@@ -58,7 +58,7 @@ class DedupeBlobsRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return DedupAction
      */
@@ -68,7 +68,7 @@ class DedupeBlobsRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  DedupAction $action
      * @return self
@@ -80,7 +80,7 @@ class DedupeBlobsRequest extends SoapRequest
     }
 
     /**
-     * Gets volumes
+     * Get volumes
      *
      * @return array
      */
@@ -90,7 +90,7 @@ class DedupeBlobsRequest extends SoapRequest
     }
 
     /**
-     * Sets volumes
+     * Set volumes
      *
      * @param  array $volumes
      * @return self

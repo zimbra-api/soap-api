@@ -57,7 +57,7 @@ class CacheEntrySelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return CacheEntryBy
      */
@@ -67,7 +67,7 @@ class CacheEntrySelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  CacheEntryBy $by
      * @return self
@@ -79,7 +79,7 @@ class CacheEntrySelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CacheEntrySelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

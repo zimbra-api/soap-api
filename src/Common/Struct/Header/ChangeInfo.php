@@ -56,7 +56,7 @@ class ChangeInfo
     }
 
     /**
-     * Gets the highest change ID the client knows about
+     * Get the highest change ID the client knows about
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class ChangeInfo
     }
 
     /**
-     * Sets the highest change ID the client knows about
+     * Set the highest change ID the client knows about
      *
      * @param  string $changeId
      * @return self
@@ -78,7 +78,7 @@ class ChangeInfo
     }
 
     /**
-     * Gets change type. Valid values "mod" (default) and "new"
+     * Get change type. Valid values "mod" (default) and "new"
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class ChangeInfo
     }
 
     /**
-     * Sets change type. Valid values "mod" (default) and "new"
+     * Set change type. Valid values "mod" (default) and "new"
      *
      * @param  string $changeType
      * @return self

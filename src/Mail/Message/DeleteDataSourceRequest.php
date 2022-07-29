@@ -119,7 +119,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets imap data sources
+     * Get imap data sources
      *
      * @return array
      */
@@ -129,7 +129,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets imap data sources
+     * Set imap data sources
      *
      * @return self
      */
@@ -142,7 +142,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets pop3 data sources
+     * Get pop3 data sources
      *
      * @return array
      */
@@ -152,7 +152,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets pop3 data sources
+     * Set pop3 data sources
      *
      * @return self
      */
@@ -165,7 +165,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets caldav data sources
+     * Get caldav data sources
      *
      * @return array
      */
@@ -175,7 +175,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets caldav data sources
+     * Set caldav data sources
      *
      * @return self
      */
@@ -188,7 +188,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets yab data sources
+     * Get yab data sources
      *
      * @return array
      */
@@ -198,7 +198,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets yab data sources
+     * Set yab data sources
      *
      * @return self
      */
@@ -211,7 +211,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets rss data sources
+     * Get rss data sources
      *
      * @return array
      */
@@ -221,7 +221,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets rss data sources
+     * Set rss data sources
      *
      * @return self
      */
@@ -234,7 +234,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets gal data sources
+     * Get gal data sources
      *
      * @return array
      */
@@ -244,7 +244,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets gal data sources
+     * Set gal data sources
      *
      * @return self
      */
@@ -257,7 +257,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets cal data sources
+     * Get cal data sources
      *
      * @return array
      */
@@ -267,7 +267,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets cal data sources
+     * Set cal data sources
      *
      * @return self
      */
@@ -280,7 +280,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets unknown data sources
+     * Get unknown data sources
      *
      * @return array
      */
@@ -290,7 +290,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Sets unknown data sources
+     * Set unknown data sources
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Gets dataSources
+     * Get dataSources
      *
      * @return array
      */

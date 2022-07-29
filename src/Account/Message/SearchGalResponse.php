@@ -120,7 +120,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -130,7 +130,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -142,7 +142,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -152,7 +152,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -164,7 +164,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -174,7 +174,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -186,7 +186,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets pagingSupported
+     * Get pagingSupported
      *
      * @return bool
      */
@@ -196,7 +196,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets pagingSupported
+     * Set pagingSupported
      *
      * @param  bool $pagingSupported
      * @return self
@@ -208,7 +208,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets tokenizeKey
+     * Get tokenizeKey
      *
      * @return bool
      */
@@ -218,7 +218,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets tokenizeKey
+     * Set tokenizeKey
      *
      * @param  bool $tokenizeKey
      * @return self
@@ -242,7 +242,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param  array $contacts
      * @return self
@@ -254,7 +254,7 @@ class SearchGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */

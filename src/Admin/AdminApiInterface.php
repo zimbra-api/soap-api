@@ -924,7 +924,7 @@ interface AdminApiInterface extends ApiInterface
     function getAdminSavedSearches(array $searches = []): ?Message\GetAdminSavedSearchesResponse;
 
     /**
-     * Gets the aggregate quota usage for all domains on the server.
+     * Get the aggregate quota usage for all domains on the server.
      * 
      * @return Message\GetAggregateQuotaUsageOnServerResponse
      */

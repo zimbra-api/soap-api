@@ -54,7 +54,7 @@ class ServerQueues
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class ServerQueues
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $serverName
      * @return self
@@ -88,7 +88,7 @@ class ServerQueues
     }
 
     /**
-     * Sets queues
+     * Set queues
      *
      * @param array $queues
      * @return self
@@ -100,7 +100,7 @@ class ServerQueues
     }
 
     /**
-     * Gets queues
+     * Get queues
      *
      * @return array
      */

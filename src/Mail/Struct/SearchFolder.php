@@ -80,7 +80,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -102,7 +102,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -112,7 +112,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self
@@ -124,7 +124,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class SearchFolder extends Folder
     }
 
     /**
-     * Sets types
+     * Set types
      *
      * @param  string $types
      * @return self

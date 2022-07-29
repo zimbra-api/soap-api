@@ -47,7 +47,7 @@ class CreateNoteRequest extends SoapRequest
     }
 
     /**
-     * Gets note
+     * Get note
      *
      * @return NewNoteSpec
      */
@@ -57,7 +57,7 @@ class CreateNoteRequest extends SoapRequest
     }
 
     /**
-     * Sets note
+     * Set note
      *
      * @param  NewNoteSpec $note
      * @return self

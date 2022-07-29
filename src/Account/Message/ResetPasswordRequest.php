@@ -46,7 +46,7 @@ class ResetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Gets the password.
+     * Get the password.
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ResetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Sets the password.
+     * Set the password.
      *
      * @param  string $password
      * @return self

@@ -57,7 +57,7 @@ class RetentionPolicy
     }
 
     /**
-     * Gets keep policies.
+     * Get keep policies.
      *
      * @return Policy
      */
@@ -67,7 +67,7 @@ class RetentionPolicy
     }
 
     /**
-     * Sets keep policies.
+     * Set keep policies.
      *
      * @param  array $policies
      * @return self
@@ -79,7 +79,7 @@ class RetentionPolicy
     }
 
     /**
-     * Gets purge policies.
+     * Get purge policies.
      *
      * @return Policy
      */
@@ -89,7 +89,7 @@ class RetentionPolicy
     }
 
     /**
-     * Sets purge policies.
+     * Set purge policies.
      *
      * @param  array $policies
      * @return self

@@ -64,7 +64,7 @@ class Session
     }
 
     /**
-     * Gets session id
+     * Get session id
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class Session
     }
 
     /**
-     * Sets session id
+     * Set session id
      *
      * @param  string $value
      * @return self
@@ -86,7 +86,7 @@ class Session
     }
 
     /**
-     * Gets session type
+     * Get session type
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class Session
     }
 
     /**
-     * Sets session type
+     * Set session type
      *
      * @param  string $type
      * @return self
@@ -108,7 +108,7 @@ class Session
     }
 
     /**
-     * Gets session id
+     * Get session id
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class Session
     }
 
     /**
-     * Sets session id
+     * Set session id
      *
      * @param  string $id
      * @return self

@@ -62,7 +62,7 @@ class GetServiceStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the timezone.
+     * Get the timezone.
      *
      * @return TimeZoneInfo
      */
@@ -72,7 +72,7 @@ class GetServiceStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the timezone.
+     * Set the timezone.
      *
      * @param  TimeZoneInfo $timezone
      * @return self
@@ -96,7 +96,7 @@ class GetServiceStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  array $statuses
      * @return self
@@ -108,7 +108,7 @@ class GetServiceStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return array
      */

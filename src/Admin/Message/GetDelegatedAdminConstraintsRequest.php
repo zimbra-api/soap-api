@@ -90,7 +90,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return TargetType
      */
@@ -100,7 +100,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  TargetType $type
      * @return self
@@ -112,7 +112,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -134,7 +134,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -156,7 +156,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return array
      */
@@ -166,7 +166,7 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  array $attrs
      * @return self

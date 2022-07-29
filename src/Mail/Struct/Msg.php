@@ -251,7 +251,7 @@ class Msg
     }
 
     /**
-     * Gets attachmentId
+     * Get attachmentId
      *
      * @return string
      */
@@ -261,7 +261,7 @@ class Msg
     }
 
     /**
-     * Sets attachmentId
+     * Set attachmentId
      *
      * @param  string $attachmentId
      * @return self
@@ -273,7 +273,7 @@ class Msg
     }
 
     /**
-     * Gets origId
+     * Get origId
      *
      * @return string
      */
@@ -283,7 +283,7 @@ class Msg
     }
 
     /**
-     * Sets origId
+     * Set origId
      *
      * @param  string $origId
      * @return self
@@ -295,7 +295,7 @@ class Msg
     }
 
     /**
-     * Gets replyType
+     * Get replyType
      *
      * @return ReplyType
      */
@@ -305,7 +305,7 @@ class Msg
     }
 
     /**
-     * Sets replyType
+     * Set replyType
      *
      * @param  ReplyType $replyType
      * @return self
@@ -317,7 +317,7 @@ class Msg
     }
 
     /**
-     * Gets identityId
+     * Get identityId
      *
      * @return string
      */
@@ -327,7 +327,7 @@ class Msg
     }
 
     /**
-     * Sets identityId
+     * Set identityId
      *
      * @param  string $identityId
      * @return self
@@ -339,7 +339,7 @@ class Msg
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -349,7 +349,7 @@ class Msg
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -361,7 +361,7 @@ class Msg
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -373,7 +373,7 @@ class Msg
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -395,7 +395,7 @@ class Msg
     }
 
     /**
-     * Gets inReplyTo
+     * Get inReplyTo
      *
      * @return string
      */
@@ -405,7 +405,7 @@ class Msg
     }
 
     /**
-     * Sets inReplyTo
+     * Set inReplyTo
      *
      * @param  string $inReplyTo
      * @return self
@@ -417,7 +417,7 @@ class Msg
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -427,7 +427,7 @@ class Msg
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -439,7 +439,7 @@ class Msg
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -449,7 +449,7 @@ class Msg
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -461,7 +461,7 @@ class Msg
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -471,7 +471,7 @@ class Msg
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -483,7 +483,7 @@ class Msg
     }
 
     /**
-     * Gets mimePart
+     * Get mimePart
      *
      * @return MimePartInfo
      */
@@ -493,7 +493,7 @@ class Msg
     }
 
     /**
-     * Sets mimePart
+     * Set mimePart
      *
      * @param  MimePartInfo $mimePart
      * @return self
@@ -505,7 +505,7 @@ class Msg
     }
 
     /**
-     * Gets attachments
+     * Get attachments
      *
      * @return AttachmentsInfo
      */
@@ -515,7 +515,7 @@ class Msg
     }
 
     /**
-     * Sets attachments
+     * Set attachments
      *
      * @param  AttachmentsInfo $attachments
      * @return self
@@ -527,7 +527,7 @@ class Msg
     }
 
     /**
-     * Gets invite
+     * Get invite
      *
      * @return InvitationInfo
      */
@@ -537,7 +537,7 @@ class Msg
     }
 
     /**
-     * Sets invite
+     * Set invite
      *
      * @param  InvitationInfo $invite
      * @return self
@@ -549,7 +549,7 @@ class Msg
     }
 
     /**
-     * Sets emailAddresses
+     * Set emailAddresses
      *
      * @param  array $addresses
      * @return self
@@ -561,7 +561,7 @@ class Msg
     }
 
     /**
-     * Gets emailAddresses
+     * Get emailAddresses
      *
      * @return array
      */
@@ -583,7 +583,7 @@ class Msg
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -595,7 +595,7 @@ class Msg
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -617,7 +617,7 @@ class Msg
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -627,7 +627,7 @@ class Msg
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self

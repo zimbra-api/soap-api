@@ -48,7 +48,7 @@ class ModifyAlwaysOnClusterResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cluster.
+     * Get the cluster.
      *
      * @return AlwaysOnClusterInfo
      */
@@ -58,7 +58,7 @@ class ModifyAlwaysOnClusterResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cluster.
+     * Set the cluster.
      *
      * @param  AlwaysOnClusterInfo $cluster
      * @return self

@@ -58,7 +58,7 @@ class GetRightsDocRequest extends SoapRequest
     }
 
     /**
-     * Sets packages
+     * Set packages
      *
      * @param array $pkgs
      * @return self
@@ -70,7 +70,7 @@ class GetRightsDocRequest extends SoapRequest
     }
 
     /**
-     * Gets packages
+     * Get packages
      *
      * @return array
      */

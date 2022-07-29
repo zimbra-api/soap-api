@@ -47,7 +47,7 @@ class WkstRule implements WkstRuleInterface
     }
 
     /**
-     * Gets day
+     * Get day
      *
      * @return WeekDay
      */
@@ -57,7 +57,7 @@ class WkstRule implements WkstRuleInterface
     }
 
     /**
-     * Sets day
+     * Set day
      *
      * @param  WeekDay $day
      * @return self

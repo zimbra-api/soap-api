@@ -56,7 +56,7 @@ class ZimletStatusParent
     }
 
     /**
-     * Sets zimlets
+     * Set zimlets
      *
      * @param  array $zimlets
      * @return self
@@ -68,7 +68,7 @@ class ZimletStatusParent
     }
 
     /**
-     * Gets zimlets
+     * Get zimlets
      *
      * @return array
      */

@@ -64,7 +64,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     }
 
     /**
-     * Gets the absolute
+     * Get the absolute
      *
      * @return DateAttrInterface
      */
@@ -74,7 +74,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     }
 
     /**
-     * Sets the absolute
+     * Set the absolute
      *
      * @param  DateAttrInterface $absolute
      * @return self
@@ -86,7 +86,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     }
 
     /**
-     * Gets the relative
+     * Get the relative
      *
      * @return DurationInfoInterface
      */
@@ -96,7 +96,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     }
 
     /**
-     * Sets the relative
+     * Set the relative
      *
      * @param  DurationInfoInterface $relative
      * @return self

@@ -70,7 +70,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self
@@ -92,7 +92,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return int
      */
@@ -102,7 +102,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  int $flags
      * @return self
@@ -114,7 +114,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class ImapMessageInfo extends IMAPItemInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self

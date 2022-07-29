@@ -47,7 +47,7 @@ class CreateSearchFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets searchFolder
+     * Get searchFolder
      *
      * @return NewSearchFolderSpec
      */
@@ -57,7 +57,7 @@ class CreateSearchFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets searchFolder
+     * Set searchFolder
      *
      * @param  NewSearchFolderSpec $searchFolder
      * @return self

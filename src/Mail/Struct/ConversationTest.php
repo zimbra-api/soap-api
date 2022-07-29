@@ -53,7 +53,7 @@ class ConversationTest extends FilterTest
     }
 
     /**
-     * Gets where
+     * Get where
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class ConversationTest extends FilterTest
     }
 
     /**
-     * Sets where
+     * Set where
      *
      * @param  string $where
      * @return self

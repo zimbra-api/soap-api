@@ -86,7 +86,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Gets zimbraId
+     * Get zimbraId
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Sets zimbraId
+     * Set zimbraId
      *
      * @param  string $id
      * @return self
@@ -108,7 +108,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Gets displayName
+     * Get displayName
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Sets displayName
+     * Set displayName
      *
      * @param  string $displayName
      * @return self
@@ -130,7 +130,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Gets accessKey
+     * Get accessKey
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class FolderActionResult extends ActionResult
     }
 
     /**
-     * Sets accessKey
+     * Set accessKey
      *
      * @param  string $accessKey
      * @return self

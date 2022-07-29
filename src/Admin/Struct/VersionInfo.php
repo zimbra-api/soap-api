@@ -161,7 +161,7 @@ class VersionInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -171,7 +171,7 @@ class VersionInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self
@@ -183,7 +183,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the version
+     * Get the version
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the version
+     * Set the version
      *
      * @param  string $version
      * @return self
@@ -205,7 +205,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the release
+     * Get the release
      *
      * @return string
      */
@@ -215,7 +215,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the release
+     * Set the release
      *
      * @param  string $release
      * @return self
@@ -227,7 +227,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the buildDate
+     * Get the buildDate
      *
      * @return string
      */
@@ -237,7 +237,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the buildDate
+     * Set the buildDate
      *
      * @param  string $buildDate
      * @return self
@@ -249,7 +249,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the host
+     * Get the host
      *
      * @return string
      */
@@ -259,7 +259,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the host
+     * Set the host
      *
      * @param  string $host
      * @return self
@@ -271,7 +271,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the majorVersion
+     * Get the majorVersion
      *
      * @return string
      */
@@ -281,7 +281,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the majorVersion
+     * Set the majorVersion
      *
      * @param  string $majorVersion
      * @return self
@@ -293,7 +293,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the minorVersion
+     * Get the minorVersion
      *
      * @return string
      */
@@ -303,7 +303,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the minorVersion
+     * Set the minorVersion
      *
      * @param  string $minorVersion
      * @return self
@@ -315,7 +315,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the microVersion
+     * Get the microVersion
      *
      * @return string
      */
@@ -325,7 +325,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the microVersion
+     * Set the microVersion
      *
      * @param  string $microVersion
      * @return self
@@ -337,7 +337,7 @@ class VersionInfo
     }
 
     /**
-     * Gets the platform
+     * Get the platform
      *
      * @return string
      */
@@ -347,7 +347,7 @@ class VersionInfo
     }
 
     /**
-     * Sets the platform
+     * Set the platform
      *
      * @param  string $platform
      * @return self

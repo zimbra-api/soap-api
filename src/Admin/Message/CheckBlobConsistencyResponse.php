@@ -58,7 +58,7 @@ class CheckBlobConsistencyResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mailbox array
+     * Set mailbox array
      *
      * @param  array $mailboxes
      * @return self
@@ -70,7 +70,7 @@ class CheckBlobConsistencyResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets mailbox array
+     * Get mailbox array
      *
      * @return array
      */

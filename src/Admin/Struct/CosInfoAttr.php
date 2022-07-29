@@ -63,7 +63,7 @@ class CosInfoAttr extends Attr
     }
 
     /**
-     * Gets cosAttr
+     * Get cosAttr
      *
      * @return bool
      */
@@ -73,7 +73,7 @@ class CosInfoAttr extends Attr
     }
 
     /**
-     * Sets cosAttr
+     * Set cosAttr
      *
      * @param  bool $cosAttr
      * @return self
@@ -85,7 +85,7 @@ class CosInfoAttr extends Attr
     }
 
     /**
-     * Gets destination name
+     * Get destination name
      *
      * @return bool
      */
@@ -95,7 +95,7 @@ class CosInfoAttr extends Attr
     }
 
     /**
-     * Sets permDenied
+     * Set permDenied
      *
      * @param  bool $permDenied
      * @return self

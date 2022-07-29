@@ -68,7 +68,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -90,7 +90,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Gets execSeconds
+     * Get execSeconds
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Sets execSeconds
+     * Set execSeconds
      *
      * @param  int $execSeconds
      * @return self
@@ -112,7 +112,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Gets className
+     * Get className
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class CompletedTestInfo
     }
 
     /**
-     * Sets className
+     * Set className
      *
      * @param  string $className
      * @return self

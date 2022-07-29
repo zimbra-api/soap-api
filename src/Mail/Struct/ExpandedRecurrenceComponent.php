@@ -105,7 +105,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Gets range
+     * Get range
      *
      * @return InstanceRecurIdInfo
      */
@@ -115,7 +115,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Sets range
+     * Set range
      *
      * @param  InstanceRecurIdInfo $range
      * @return self
@@ -127,7 +127,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Gets dateTime
+     * Get dateTime
      *
      * @return int
      */
@@ -137,7 +137,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Sets dateTime
+     * Set dateTime
      *
      * @param  int $dateTime
      * @return self
@@ -149,7 +149,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return int
      */
@@ -159,7 +159,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  int $timezone
      * @return self
@@ -171,7 +171,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return DurationInfo
      */
@@ -181,7 +181,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  DurationInfo $duration
      * @return self
@@ -193,7 +193,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Gets recurrence
+     * Get recurrence
      *
      * @return RecurrenceInfo
      */
@@ -203,7 +203,7 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Sets recurrence
+     * Set recurrence
      *
      * @param  RecurrenceInfo $recurrence
      * @return self

@@ -48,7 +48,7 @@ class GetCreateObjectAttrsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the setAttrs.
+     * Get the setAttrs.
      *
      * @return EffectiveAttrsInfo
      */
@@ -58,7 +58,7 @@ class GetCreateObjectAttrsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the setAttrs.
+     * Set the setAttrs.
      *
      * @param  EffectiveAttrsInfo $setAttrs
      * @return self

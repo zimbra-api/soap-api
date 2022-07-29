@@ -55,7 +55,7 @@ class MailQueueCount
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class MailQueueCount
     }
 
     /**
-     * Sets count
+     * Set count
      *
      * @param  int $target
      * @return self
@@ -77,7 +77,7 @@ class MailQueueCount
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class MailQueueCount
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

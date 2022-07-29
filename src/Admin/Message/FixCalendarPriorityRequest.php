@@ -61,7 +61,7 @@ class FixCalendarPriorityRequest extends SoapRequest
     }
 
     /**
-     * Gets sync
+     * Get sync
      *
      * @return bool
      */
@@ -71,7 +71,7 @@ class FixCalendarPriorityRequest extends SoapRequest
     }
 
     /**
-     * Sets sync
+     * Set sync
      *
      * @param  bool $sync
      * @return self
@@ -83,7 +83,7 @@ class FixCalendarPriorityRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -93,7 +93,7 @@ class FixCalendarPriorityRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self

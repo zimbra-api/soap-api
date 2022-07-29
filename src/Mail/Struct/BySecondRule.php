@@ -46,7 +46,7 @@ class BySecondRule implements BySecondRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class BySecondRule implements BySecondRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

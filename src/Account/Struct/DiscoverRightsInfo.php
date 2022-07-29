@@ -57,7 +57,7 @@ class DiscoverRightsInfo
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class DiscoverRightsInfo
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  string $right
      * @return self
@@ -91,7 +91,7 @@ class DiscoverRightsInfo
     }
 
     /**
-     * Sets targets
+     * Set targets
      *
      * @param  array $targets
      * @return self
@@ -103,7 +103,7 @@ class DiscoverRightsInfo
     }
 
     /**
-     * Gets targets
+     * Get targets
      *
      * @return array
      */

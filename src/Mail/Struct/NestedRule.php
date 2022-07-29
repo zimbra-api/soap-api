@@ -86,7 +86,7 @@ class NestedRule
     }
 
     /**
-     * Gets filterVariables
+     * Get filterVariables
      *
      * @return FilterVariables
      */
@@ -96,7 +96,7 @@ class NestedRule
     }
 
     /**
-     * Sets filterVariables
+     * Set filterVariables
      *
      * @param  FilterVariables $filterVariables
      * @return self
@@ -108,7 +108,7 @@ class NestedRule
     }
 
     /**
-     * Gets tests
+     * Get tests
      *
      * @return FilterTests
      */
@@ -118,7 +118,7 @@ class NestedRule
     }
 
     /**
-     * Sets tests
+     * Set tests
      *
      * @param  FilterTests $tests
      * @return self
@@ -130,7 +130,7 @@ class NestedRule
     }
 
     /**
-     * Gets filter actions
+     * Get filter actions
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class NestedRule
     }
 
     /**
-     * Sets filter actions
+     * Set filter actions
      *
      * @param  array $actions
      * @return self
@@ -169,7 +169,7 @@ class NestedRule
     }
 
     /**
-     * Gets filterActions
+     * Get filterActions
      *
      * @return FilterActions
      */
@@ -179,7 +179,7 @@ class NestedRule
     }
 
     /**
-     * Sets filterActions
+     * Set filterActions
      *
      * @param  FilterActions $actions
      * @return self
@@ -191,7 +191,7 @@ class NestedRule
     }
 
     /**
-     * Gets child
+     * Get child
      *
      * @return NestedRule
      */
@@ -201,7 +201,7 @@ class NestedRule
     }
 
     /**
-     * Sets child
+     * Set child
      *
      * @param  NestedRule $child
      * @return self

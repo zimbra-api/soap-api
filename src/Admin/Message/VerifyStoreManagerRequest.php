@@ -53,7 +53,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     private $checkBlobs;
 
     /**
-     * Constructor method for VerifyStoreManagerRequest
+     * Constructor
      * 
      * @param int  $fileSize
      * @param int  $num
@@ -78,7 +78,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Gets fileSize
+     * Get fileSize
      *
      * @return int
      */
@@ -88,7 +88,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Sets fileSize
+     * Set fileSize
      *
      * @param  int $fileSize
      * @return self
@@ -100,7 +100,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -110,7 +110,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -122,7 +122,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Gets checkBlobs
+     * Get checkBlobs
      *
      * @return bool
      */
@@ -132,7 +132,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Sets checkBlobs
+     * Set checkBlobs
      *
      * @param  bool $checkBlobs
      * @return self

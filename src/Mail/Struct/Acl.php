@@ -74,7 +74,7 @@ class Acl
     }
 
     /**
-     * Gets internalGrantExpiry
+     * Get internalGrantExpiry
      *
      * @return int
      */
@@ -84,7 +84,7 @@ class Acl
     }
 
     /**
-     * Sets internalGrantExpiry
+     * Set internalGrantExpiry
      *
      * @param  int $internalGrantExpiry
      * @return self
@@ -96,7 +96,7 @@ class Acl
     }
 
     /**
-     * Gets guestGrantExpiry
+     * Get guestGrantExpiry
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class Acl
     }
 
     /**
-     * Sets guestGrantExpiry
+     * Set guestGrantExpiry
      *
      * @param  int $guestGrantExpiry
      * @return self
@@ -118,7 +118,7 @@ class Acl
     }
 
     /**
-     * Sets grants
+     * Set grants
      *
      * @param  array $grants
      * @return self
@@ -130,7 +130,7 @@ class Acl
     }
 
     /**
-     * Gets grants
+     * Get grants
      *
      * @return array
      */

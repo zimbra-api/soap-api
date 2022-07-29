@@ -53,7 +53,7 @@ class CreateZimletRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class CreateZimletRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

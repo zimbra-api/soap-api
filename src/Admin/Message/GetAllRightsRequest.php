@@ -84,7 +84,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets targetType
+     * Get targetType
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets targetType
+     * Set targetType
      *
      * @param  int $targetType
      * @return self
@@ -106,7 +106,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets expandAllAttrs
+     * Get expandAllAttrs
      *
      * @return bool
      */
@@ -116,7 +116,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets expandAllAttrs
+     * Set expandAllAttrs
      *
      * @param  bool $expandAllAttrs
      * @return self
@@ -128,7 +128,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets rightClass
+     * Get rightClass
      *
      * @return RightClass
      */
@@ -138,7 +138,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Sets rightClass
+     * Set rightClass
      *
      * @param  RightClass $rightClass
      * @return self

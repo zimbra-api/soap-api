@@ -63,7 +63,7 @@ class FileIntoAction extends FilterAction
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class FileIntoAction extends FilterAction
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -85,7 +85,7 @@ class FileIntoAction extends FilterAction
     }
 
     /**
-     * Gets copy
+     * Get copy
      *
      * @return bool
      */
@@ -95,7 +95,7 @@ class FileIntoAction extends FilterAction
     }
 
     /**
-     * Sets copy
+     * Set copy
      *
      * @param  bool $copy
      * @return self

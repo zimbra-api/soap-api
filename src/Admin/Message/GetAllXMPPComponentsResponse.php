@@ -58,7 +58,7 @@ class GetAllXMPPComponentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets components
+     * Set components
      *
      * @param  array $components
      * @return self
@@ -70,7 +70,7 @@ class GetAllXMPPComponentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets components
+     * Get components
      *
      * @return array
      */

@@ -458,7 +458,7 @@ class Folder
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -468,7 +468,7 @@ class Folder
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -480,7 +480,7 @@ class Folder
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -490,7 +490,7 @@ class Folder
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $uuid
      * @return self
@@ -502,7 +502,7 @@ class Folder
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -512,7 +512,7 @@ class Folder
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -524,7 +524,7 @@ class Folder
     }
 
     /**
-     * Gets absoluteFolderPath
+     * Get absoluteFolderPath
      *
      * @return string
      */
@@ -534,7 +534,7 @@ class Folder
     }
 
     /**
-     * Sets absoluteFolderPath
+     * Set absoluteFolderPath
      *
      * @param  string $absoluteFolderPath
      * @return self
@@ -546,7 +546,7 @@ class Folder
     }
 
     /**
-     * Gets parentId
+     * Get parentId
      *
      * @return string
      */
@@ -556,7 +556,7 @@ class Folder
     }
 
     /**
-     * Sets parentId
+     * Set parentId
      *
      * @param  string $parentId
      * @return self
@@ -568,7 +568,7 @@ class Folder
     }
 
     /**
-     * Gets folderUuid
+     * Get folderUuid
      *
      * @return string
      */
@@ -578,7 +578,7 @@ class Folder
     }
 
     /**
-     * Sets folderUuid
+     * Set folderUuid
      *
      * @param  string $folderUuid
      * @return self
@@ -590,7 +590,7 @@ class Folder
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -600,7 +600,7 @@ class Folder
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -612,7 +612,7 @@ class Folder
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -622,7 +622,7 @@ class Folder
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -634,7 +634,7 @@ class Folder
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -644,7 +644,7 @@ class Folder
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -656,7 +656,7 @@ class Folder
     }
 
     /**
-     * Gets unreadCount
+     * Get unreadCount
      *
      * @return int
      */
@@ -666,7 +666,7 @@ class Folder
     }
 
     /**
-     * Sets unreadCount
+     * Set unreadCount
      *
      * @param  int $unreadCount
      * @return self
@@ -678,7 +678,7 @@ class Folder
     }
 
     /**
-     * Gets imapUnreadCount
+     * Get imapUnreadCount
      *
      * @return int
      */
@@ -688,7 +688,7 @@ class Folder
     }
 
     /**
-     * Sets imapUnreadCount
+     * Set imapUnreadCount
      *
      * @param  int $imapUnreadCount
      * @return self
@@ -700,7 +700,7 @@ class Folder
     }
 
     /**
-     * Gets view
+     * Get view
      *
      * @return ViewType
      */
@@ -710,7 +710,7 @@ class Folder
     }
 
     /**
-     * Sets view
+     * Set view
      *
      * @param  ViewType $view
      * @return self
@@ -722,7 +722,7 @@ class Folder
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -732,7 +732,7 @@ class Folder
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -744,7 +744,7 @@ class Folder
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -754,7 +754,7 @@ class Folder
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -766,7 +766,7 @@ class Folder
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -776,7 +776,7 @@ class Folder
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -788,7 +788,7 @@ class Folder
     }
 
     /**
-     * Gets itemCount
+     * Get itemCount
      *
      * @return int
      */
@@ -798,7 +798,7 @@ class Folder
     }
 
     /**
-     * Sets itemCount
+     * Set itemCount
      *
      * @param  int $itemCount
      * @return self
@@ -810,7 +810,7 @@ class Folder
     }
 
     /**
-     * Gets imapItemCount
+     * Get imapItemCount
      *
      * @return int
      */
@@ -820,7 +820,7 @@ class Folder
     }
 
     /**
-     * Sets imapItemCount
+     * Set imapItemCount
      *
      * @param  int $imapItemCount
      * @return self
@@ -832,7 +832,7 @@ class Folder
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -842,7 +842,7 @@ class Folder
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -854,7 +854,7 @@ class Folder
     }
 
     /**
-     * Gets imapModifiedSequence
+     * Get imapModifiedSequence
      *
      * @return int
      */
@@ -864,7 +864,7 @@ class Folder
     }
 
     /**
-     * Sets imapModifiedSequence
+     * Set imapModifiedSequence
      *
      * @param  int $imapModifiedSequence
      * @return self
@@ -876,7 +876,7 @@ class Folder
     }
 
     /**
-     * Gets imapUidNext
+     * Get imapUidNext
      *
      * @return int
      */
@@ -886,7 +886,7 @@ class Folder
     }
 
     /**
-     * Sets imapUidNext
+     * Set imapUidNext
      *
      * @param  int $imapUidNext
      * @return self
@@ -898,7 +898,7 @@ class Folder
     }
 
     /**
-     * Gets url
+     * Get url
      *
      * @return string
      */
@@ -908,7 +908,7 @@ class Folder
     }
 
     /**
-     * Sets url
+     * Set url
      *
      * @param  string $url
      * @return self
@@ -920,7 +920,7 @@ class Folder
     }
 
     /**
-     * Gets activeSyncDisabled
+     * Get activeSyncDisabled
      *
      * @return bool
      */
@@ -930,7 +930,7 @@ class Folder
     }
 
     /**
-     * Sets activeSyncDisabled
+     * Set activeSyncDisabled
      *
      * @param  bool $activeSyncDisabled
      * @return self
@@ -942,7 +942,7 @@ class Folder
     }
 
     /**
-     * Gets webOfflineSyncDays
+     * Get webOfflineSyncDays
      *
      * @return int
      */
@@ -952,7 +952,7 @@ class Folder
     }
 
     /**
-     * Sets webOfflineSyncDays
+     * Set webOfflineSyncDays
      *
      * @param  int $webOfflineSyncDays
      * @return self
@@ -964,7 +964,7 @@ class Folder
     }
 
     /**
-     * Gets perm
+     * Get perm
      *
      * @return string
      */
@@ -974,7 +974,7 @@ class Folder
     }
 
     /**
-     * Sets perm
+     * Set perm
      *
      * @param  string $perm
      * @return self
@@ -986,7 +986,7 @@ class Folder
     }
 
     /**
-     * Gets recursive
+     * Get recursive
      *
      * @return bool
      */
@@ -996,7 +996,7 @@ class Folder
     }
 
     /**
-     * Sets recursive
+     * Set recursive
      *
      * @param  bool $recursive
      * @return self
@@ -1008,7 +1008,7 @@ class Folder
     }
 
     /**
-     * Gets restUrl
+     * Get restUrl
      *
      * @return string
      */
@@ -1018,7 +1018,7 @@ class Folder
     }
 
     /**
-     * Sets restUrl
+     * Set restUrl
      *
      * @param  string $restUrl
      * @return self
@@ -1030,7 +1030,7 @@ class Folder
     }
 
     /**
-     * Gets deletable
+     * Get deletable
      *
      * @return bool
      */
@@ -1040,7 +1040,7 @@ class Folder
     }
 
     /**
-     * Sets deletable
+     * Set deletable
      *
      * @param  bool $deletable
      * @return self
@@ -1052,7 +1052,7 @@ class Folder
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -1064,7 +1064,7 @@ class Folder
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */
@@ -1086,7 +1086,7 @@ class Folder
     }
 
     /**
-     * Gets acl
+     * Get acl
      *
      * @return Acl
      */
@@ -1096,7 +1096,7 @@ class Folder
     }
 
     /**
-     * Sets acl
+     * Set acl
      *
      * @param  Acl $acl
      * @return self
@@ -1108,7 +1108,7 @@ class Folder
     }
 
     /**
-     * Gets subFolders
+     * Get subFolders
      *
      * @return array
      */
@@ -1118,7 +1118,7 @@ class Folder
     }
 
     /**
-     * Sets subFolders
+     * Set subFolders
      *
      * @param  array $subFolders
      * @return self
@@ -1130,7 +1130,7 @@ class Folder
     }
 
     /**
-     * Gets mountpoints
+     * Get mountpoints
      *
      * @return array
      */
@@ -1140,7 +1140,7 @@ class Folder
     }
 
     /**
-     * Sets mountpoints
+     * Set mountpoints
      *
      * @param  array $mountpoints
      * @return self
@@ -1152,7 +1152,7 @@ class Folder
     }
 
     /**
-     * Gets searchFolders
+     * Get searchFolders
      *
      * @return array
      */
@@ -1162,7 +1162,7 @@ class Folder
     }
 
     /**
-     * Sets searchFolders
+     * Set searchFolders
      *
      * @param  array $searchFolders
      * @return self
@@ -1174,7 +1174,7 @@ class Folder
     }
 
     /**
-     * Gets retentionPolicy
+     * Get retentionPolicy
      *
      * @return RetentionPolicy
      */
@@ -1184,7 +1184,7 @@ class Folder
     }
 
     /**
-     * Sets retentionPolicy
+     * Set retentionPolicy
      *
      * @param  RetentionPolicy $retentionPolicy
      * @return self

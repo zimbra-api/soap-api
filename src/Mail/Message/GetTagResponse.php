@@ -58,7 +58,7 @@ class GetTagResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  array $tags
      * @return self
@@ -70,7 +70,7 @@ class GetTagResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return array
      */

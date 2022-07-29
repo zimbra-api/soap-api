@@ -54,7 +54,7 @@ class IdAndAction
     }
 
     /**
-     * Gets Zimbra ID of account
+     * Get Zimbra ID of account
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class IdAndAction
     }
 
     /**
-     * Sets Zimbra ID of account
+     * Set Zimbra ID of account
      *
      * @param  string $id
      * @return self
@@ -76,7 +76,7 @@ class IdAndAction
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class IdAndAction
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  string $action
      * @return self

@@ -56,7 +56,7 @@ class ServerSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return ServerBy
      */
@@ -66,7 +66,7 @@ class ServerSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  ServerBy $by
      * @return self
@@ -78,7 +78,7 @@ class ServerSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class ServerSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

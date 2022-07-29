@@ -74,7 +74,7 @@ class ModifyPrefsRequest extends SoapRequest
     }
 
     /**
-     * Gets prefs
+     * Get prefs
      *
      * @return array
      */

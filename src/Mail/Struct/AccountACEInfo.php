@@ -121,7 +121,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets the type of grantee
+     * Get the type of grantee
      *
      * @return GranteeType
      */
@@ -131,7 +131,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets the type of grantee
+     * Set the type of grantee
      *
      * @param  GranteeType $granteeType
      * @return self
@@ -143,7 +143,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets the right
+     * Get the right
      *
      * @return string
      */
@@ -153,7 +153,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets the right
+     * Set the right
      *
      * @param  string $right
      * @return self
@@ -165,7 +165,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets Zimbra Id
+     * Get Zimbra Id
      *
      * @return string
      */
@@ -175,7 +175,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets Zimbra Id
+     * Set Zimbra Id
      *
      * @param  string $zimbraId
      * @return self
@@ -187,7 +187,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets display name
+     * Get display name
      *
      * @return string
      */
@@ -197,7 +197,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets display name
+     * Set display name
      *
      * @param  string $displayName
      * @return string|self
@@ -209,7 +209,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets access key
+     * Get access key
      *
      * @return string
      */
@@ -219,7 +219,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets access key
+     * Set access key
      *
      * @param  string $accessKey
      * @return self
@@ -231,7 +231,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -241,7 +241,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -253,7 +253,7 @@ class AccountACEinfo
     }
 
     /**
-     * Gets deny specifically of right
+     * Get deny specifically of right
      *
      * @return bool
      */
@@ -263,7 +263,7 @@ class AccountACEinfo
     }
 
     /**
-     * Sets deny specifically of right
+     * Set deny specifically of right
      *
      * @param  bool $deny
      * @return self

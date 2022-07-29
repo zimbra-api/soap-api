@@ -104,7 +104,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -114,7 +114,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -126,7 +126,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return int
      */
@@ -136,7 +136,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  int $duration
      * @return self
@@ -148,7 +148,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets allDay
+     * Get allDay
      *
      * @return bool
      */
@@ -158,7 +158,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets allDay
+     * Set allDay
      *
      * @param  bool $allDay
      * @return self
@@ -170,7 +170,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets tzOffset
+     * Get tzOffset
      *
      * @return int
      */
@@ -180,7 +180,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets tzOffset
+     * Set tzOffset
      *
      * @param  int $tzOffset
      * @return self
@@ -192,7 +192,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets recurIdZ
+     * Get recurIdZ
      *
      * @return string
      */
@@ -202,7 +202,7 @@ class ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets recurIdZ
+     * Set recurIdZ
      *
      * @param  string $recurIdZ
      * @return self

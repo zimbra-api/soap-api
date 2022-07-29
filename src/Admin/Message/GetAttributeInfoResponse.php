@@ -58,7 +58,7 @@ class GetAttributeInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets attribute descriptions
+     * Set attribute descriptions
      *
      * @param  array $attrs
      * @return self
@@ -70,7 +70,7 @@ class GetAttributeInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets attribute descriptions
+     * Get attribute descriptions
      *
      * @return array
      */

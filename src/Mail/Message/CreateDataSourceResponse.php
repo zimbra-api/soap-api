@@ -209,7 +209,7 @@ class CreateDataSourceResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dataSource
+     * Set dataSource
      *
      * @param  Id $dataSource
      * @return self

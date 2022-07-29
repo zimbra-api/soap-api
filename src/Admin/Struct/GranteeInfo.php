@@ -70,7 +70,7 @@ class GranteeInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class GranteeInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -92,7 +92,7 @@ class GranteeInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return name
      */
@@ -102,7 +102,7 @@ class GranteeInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -114,7 +114,7 @@ class GranteeInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return GranteeType
      */
@@ -124,7 +124,7 @@ class GranteeInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GranteeType $type
      * @return self

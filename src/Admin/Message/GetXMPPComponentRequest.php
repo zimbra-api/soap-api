@@ -55,7 +55,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the component.
+     * Get the component.
      *
      * @return XMPPComponentSelector
      */
@@ -65,7 +65,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the component.
+     * Set the component.
      *
      * @param  XMPPComponentSelector $component
      * @return self

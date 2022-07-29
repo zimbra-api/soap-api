@@ -34,7 +34,7 @@ class AccountPop3DataSource extends AccountDataSource implements Pop3DataSource
     private $leaveOnServer;
 
     /**
-     * Gets leaveOnServer
+     * Get leaveOnServer
      *
      * @return bool
      */
@@ -44,7 +44,7 @@ class AccountPop3DataSource extends AccountDataSource implements Pop3DataSource
     }
 
     /**
-     * Sets leaveOnServer
+     * Set leaveOnServer
      *
      * @param  bool $leaveOnServer
      * @return self

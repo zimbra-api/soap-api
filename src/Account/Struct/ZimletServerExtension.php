@@ -76,7 +76,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Gets hasKeyword
+     * Get hasKeyword
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Sets hasKeyword
+     * Set hasKeyword
      *
      * @param  string $hasKeyword
      * @return self
@@ -98,7 +98,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Gets extensionClass
+     * Get extensionClass
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Sets extensionClass
+     * Set extensionClass
      *
      * @param  string $extensionClass
      * @return self
@@ -120,7 +120,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Gets regex
+     * Get regex
      *
      * @return string
      */
@@ -130,7 +130,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     }
 
     /**
-     * Sets regex
+     * Set regex
      *
      * @param  string $regex
      * @return self

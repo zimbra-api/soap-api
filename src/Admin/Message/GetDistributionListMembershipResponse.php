@@ -58,7 +58,7 @@ class GetDistributionListMembershipResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dls
+     * Set dls
      *
      * @param  array $dls
      * @return self
@@ -70,7 +70,7 @@ class GetDistributionListMembershipResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dls
+     * Get dls
      *
      * @return array
      */

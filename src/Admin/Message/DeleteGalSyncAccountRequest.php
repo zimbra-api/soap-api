@@ -48,7 +48,7 @@ class DeleteGalSyncAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @return AccountSelector
      */
@@ -58,7 +58,7 @@ class DeleteGalSyncAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self

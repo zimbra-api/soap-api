@@ -55,7 +55,7 @@ class DataSourceUsage
     }
 
     /**
-     * Gets usage
+     * Get usage
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class DataSourceUsage
     }
 
     /**
-     * Sets usage
+     * Set usage
      *
      * @param  int $usage
      * @return self
@@ -77,7 +77,7 @@ class DataSourceUsage
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class DataSourceUsage
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

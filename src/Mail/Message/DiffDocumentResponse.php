@@ -58,7 +58,7 @@ class DiffDocumentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets chunks
+     * Set chunks
      *
      * @param  array $chunks
      * @return self
@@ -70,7 +70,7 @@ class DiffDocumentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets chunks
+     * Get chunks
      *
      * @return array
      */

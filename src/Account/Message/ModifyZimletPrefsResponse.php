@@ -44,7 +44,7 @@ class ModifyZimletPrefsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets zimlets
+     * Get zimlets
      *
      * @return array
      */
@@ -54,7 +54,7 @@ class ModifyZimletPrefsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets zimlets
+     * Set zimlets
      *
      * @param  array $zimlets
      * @return self

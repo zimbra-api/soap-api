@@ -156,7 +156,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -168,7 +168,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -178,7 +178,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -190,7 +190,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -200,7 +200,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets verb
+     * Set verb
      *
      * @param  VerbType $verb
      * @return self
@@ -212,7 +212,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets verb
+     * Get verb
      *
      * @return VerbType
      */
@@ -222,7 +222,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets updateOrganizer
+     * Set updateOrganizer
      *
      * @param  bool $updateOrganizer
      * @return self
@@ -234,7 +234,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets updateOrganizer
+     * Get updateOrganizer
      *
      * @return bool
      */
@@ -244,7 +244,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets identityId
+     * Set identityId
      *
      * @param  string $identityId
      * @return self
@@ -256,7 +256,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets identityId
+     * Get identityId
      *
      * @return string
      */
@@ -266,7 +266,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  DtTimeInfo $exceptionId
      * @return self
@@ -278,7 +278,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return DtTimeInfo
      */
@@ -288,7 +288,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  CalTZInfo $timezone
      * @return self
@@ -300,7 +300,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -310,7 +310,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -322,7 +322,7 @@ class SendInviteReplyRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */

@@ -42,7 +42,7 @@ class AttributeName
     }
 
     /**
-     * Gets attribute name
+     * Get attribute name
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class AttributeName
     }
 
     /**
-     * Sets attribute name
+     * Set attribute name
      *
      * @param  string $name
      * @return self

@@ -58,7 +58,7 @@ class GetAllAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self
@@ -70,7 +70,7 @@ class GetAllAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */

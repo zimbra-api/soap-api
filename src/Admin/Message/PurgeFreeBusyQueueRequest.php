@@ -49,7 +49,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra provider
+     * Get zimbra provider
      *
      * @return NamedElement
      */
@@ -59,7 +59,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra provider
+     * Set zimbra provider
      *
      * @param  NamedElement $provider
      * @return self

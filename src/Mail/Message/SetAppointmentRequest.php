@@ -193,7 +193,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return int
      */
@@ -203,7 +203,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -215,7 +215,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -225,7 +225,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -237,7 +237,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -247,7 +247,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -259,7 +259,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -269,7 +269,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -281,7 +281,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets noNextAlarm
+     * Get noNextAlarm
      *
      * @return bool
      */
@@ -291,7 +291,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets noNextAlarm
+     * Set noNextAlarm
      *
      * @param  bool $noNextAlarm
      * @return self
@@ -303,7 +303,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets nextAlarm
+     * Get nextAlarm
      *
      * @return int
      */
@@ -313,7 +313,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets nextAlarm
+     * Set nextAlarm
      *
      * @param  int $nextAlarm
      * @return self
@@ -325,7 +325,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets defaultId
+     * Get defaultId
      *
      * @return SetCalendarItemInfo
      */
@@ -335,7 +335,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets defaultId
+     * Set defaultId
      *
      * @param  SetCalendarItemInfo $defaultId
      * @return self
@@ -359,7 +359,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptions
+     * Set exceptions
      *
      * @param  array $exceptions
      * @return self
@@ -371,7 +371,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptions
+     * Get exceptions
      *
      * @return array
      */
@@ -393,7 +393,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets cancellations
+     * Set cancellations
      *
      * @param  array $cancellations
      * @return self
@@ -405,7 +405,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets cancellations
+     * Get cancellations
      *
      * @return array
      */
@@ -427,7 +427,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets replies
+     * Set replies
      *
      * @param  array $replies
      * @return self
@@ -439,7 +439,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets replies
+     * Get replies
      *
      * @return array
      */

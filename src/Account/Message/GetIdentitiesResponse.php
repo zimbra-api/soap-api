@@ -58,7 +58,7 @@ class GetIdentitiesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets identities
+     * Set identities
      *
      * @param  array $identities
      * @return self
@@ -70,7 +70,7 @@ class GetIdentitiesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets identities
+     * Get identities
      *
      * @return array
      */

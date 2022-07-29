@@ -46,7 +46,7 @@ class NumAttr implements NumAttrInterface
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class NumAttr implements NumAttrInterface
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self

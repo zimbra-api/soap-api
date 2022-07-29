@@ -58,7 +58,7 @@ class CheckDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets directory array
+     * Set directory array
      *
      * @param  array $volumes
      * @return self
@@ -70,7 +70,7 @@ class CheckDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets directory array
+     * Get directory array
      *
      * @return array
      */

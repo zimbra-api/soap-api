@@ -89,7 +89,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return DataSourceBy
      */
@@ -99,7 +99,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  DataSourceBy $by
      * @return self
@@ -111,7 +111,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -121,7 +121,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -133,7 +133,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Gets the full sync flag
+     * Get the full sync flag
      *
      * @return bool
      */
@@ -143,7 +143,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Sets the full sync flag
+     * Set the full sync flag
      *
      * @param  bool $fullSync
      * @return self
@@ -155,7 +155,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Gets the reset flag
+     * Get the reset flag
      *
      * @return bool
      */
@@ -165,7 +165,7 @@ class SyncGalAccountDataSourceSpec
     }
 
     /**
-     * Sets the reset flag
+     * Set the reset flag
      *
      * @param  bool $reset
      * @return self

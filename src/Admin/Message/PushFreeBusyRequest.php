@@ -64,7 +64,7 @@ class PushFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra domains
+     * Get zimbra domains
      *
      * @return Names
      */
@@ -74,7 +74,7 @@ class PushFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra domains
+     * Set zimbra domains
      *
      * @param  Names $domains
      * @return self
@@ -98,7 +98,7 @@ class PushFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self
@@ -110,7 +110,7 @@ class PushFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */

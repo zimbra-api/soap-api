@@ -44,7 +44,7 @@ class IdsAttr
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class IdsAttr
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self

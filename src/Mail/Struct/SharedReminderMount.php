@@ -57,7 +57,7 @@ class SharedReminderMount
     }
 
     /**
-     * Gets showReminders
+     * Get showReminders
      *
      * @return bool
      */
@@ -67,7 +67,7 @@ class SharedReminderMount
     }
 
     /**
-     * Sets showReminders
+     * Set showReminders
      *
      * @param  bool $showReminders
      * @return self
@@ -79,7 +79,7 @@ class SharedReminderMount
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class SharedReminderMount
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

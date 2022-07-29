@@ -48,7 +48,7 @@ class GetNoteRequest extends SoapRequest
     }
 
     /**
-     * Gets note
+     * Get note
      *
      * @return Id
      */
@@ -58,7 +58,7 @@ class GetNoteRequest extends SoapRequest
     }
 
     /**
-     * Sets note
+     * Set note
      *
      * @param  Id $note
      * @return self

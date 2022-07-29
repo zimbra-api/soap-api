@@ -58,7 +58,7 @@ class GetAllZimletsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets zimlet informations
+     * Set zimlet informations
      *
      * @param  array $zimlets
      * @return self
@@ -70,7 +70,7 @@ class GetAllZimletsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets zimlet informations
+     * Get zimlet informations
      *
      * @return array
      */

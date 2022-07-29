@@ -45,7 +45,7 @@ class GetLastItemIdInMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -55,7 +55,7 @@ class GetLastItemIdInMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self

@@ -83,7 +83,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return EffectiveRightsTargetSelector
      */
@@ -93,7 +93,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  EffectiveRightsTargetSelector $target
      * @return self
@@ -105,7 +105,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeSelector
      */
@@ -115,7 +115,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets grantee
+     * Set grantee
      *
      * @param  GranteeSelector $grantee
      * @return self
@@ -127,7 +127,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return CheckedRight
      */
@@ -137,7 +137,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  CheckedRight $right
      * @return self

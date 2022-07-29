@@ -88,7 +88,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets the type.
+     * Get the type.
      *
      * @return TargetType
      */
@@ -98,7 +98,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets the type
+     * Set the type
      *
      * @param  TargetType $type
      * @return self
@@ -110,7 +110,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -120,7 +120,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -132,7 +132,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets the name.
+     * Get the name.
      *
      * @return string
      */
@@ -142,7 +142,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -166,7 +166,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Sets attribute sequence
+     * Set attribute sequence
      *
      * @param array $attrs
      * @return self
@@ -178,7 +178,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Gets attribute sequence
+     * Get attribute sequence
      *
      * @return array
      */

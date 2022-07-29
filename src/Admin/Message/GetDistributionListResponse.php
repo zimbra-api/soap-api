@@ -76,7 +76,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -86,7 +86,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -98,7 +98,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets total
+     * Get total
      *
      * @return int
      */
@@ -108,7 +108,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets total
+     * Set total
      *
      * @param  int $total
      * @return self
@@ -120,7 +120,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DLInfo
      */
@@ -130,7 +130,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DLInfo $dl
      * @return self

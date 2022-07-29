@@ -172,7 +172,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -194,7 +194,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets parentFolderId
+     * Get parentFolderId
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets parentFolderId
+     * Set parentFolderId
      *
      * @param  string $parentFolderId
      * @return self
@@ -216,7 +216,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets defaultView
+     * Get defaultView
      *
      * @return ViewType
      */
@@ -226,7 +226,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets defaultView
+     * Set defaultView
      *
      * @param  ViewType $defaultView
      * @return self
@@ -238,7 +238,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -260,7 +260,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -270,7 +270,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -282,7 +282,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -292,7 +292,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -304,7 +304,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets url
+     * Get url
      *
      * @return string
      */
@@ -314,7 +314,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets url
+     * Set url
      *
      * @param  string $url
      * @return self
@@ -326,7 +326,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets fetchIfExists
+     * Get fetchIfExists
      *
      * @return bool
      */
@@ -336,7 +336,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets fetchIfExists
+     * Set fetchIfExists
      *
      * @param  bool $fetchIfExists
      * @return self
@@ -348,7 +348,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets syncToUrl
+     * Get syncToUrl
      *
      * @return bool
      */
@@ -358,7 +358,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets syncToUrl
+     * Set syncToUrl
      *
      * @param  bool $syncToUrl
      * @return self
@@ -370,7 +370,7 @@ class NewFolderSpec
     }
 
     /**
-     * Sets grants
+     * Set grants
      *
      * @param  array $grants
      * @return self
@@ -382,7 +382,7 @@ class NewFolderSpec
     }
 
     /**
-     * Gets grants
+     * Get grants
      *
      * @return array
      */

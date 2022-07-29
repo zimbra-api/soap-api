@@ -41,7 +41,7 @@ class SuggestedQueryString
     }
 
     /**
-     * Gets suggestedQueryString
+     * Get suggestedQueryString
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class SuggestedQueryString
     }
 
     /**
-     * Sets suggestedQueryString
+     * Set suggestedQueryString
      *
      * @param  string $suggestedQueryString
      * @return self

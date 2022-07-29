@@ -86,7 +86,7 @@ class ItemSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class ItemSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -108,7 +108,7 @@ class ItemSpec
     }
 
     /**
-     * Gets the folder
+     * Get the folder
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class ItemSpec
     }
 
     /**
-     * Sets the folder
+     * Set the folder
      *
      * @param  string $folder
      * @return self
@@ -130,7 +130,7 @@ class ItemSpec
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class ItemSpec
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -152,7 +152,7 @@ class ItemSpec
     }
 
     /**
-     * Gets the path
+     * Get the path
      *
      * @return string
      */
@@ -162,7 +162,7 @@ class ItemSpec
     }
 
     /**
-     * Sets the path
+     * Set the path
      *
      * @param  string $path
      * @return self

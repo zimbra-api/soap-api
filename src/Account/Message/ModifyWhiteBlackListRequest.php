@@ -86,7 +86,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     }
 
     /**
-     * Gets whiteListEntries
+     * Get whiteListEntries
      *
      * @return array
      */
@@ -120,7 +120,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     }
 
     /**
-     * Gets blackListEntries
+     * Get blackListEntries
      *
      * @return array
      */

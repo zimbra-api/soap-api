@@ -74,7 +74,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -84,7 +84,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -96,7 +96,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -106,7 +106,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -118,7 +118,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class GetApptSummariesRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self

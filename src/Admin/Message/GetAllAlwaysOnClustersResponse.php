@@ -58,7 +58,7 @@ class GetAllAlwaysOnClustersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets alwaysOnClusters
+     * Set alwaysOnClusters
      *
      * @param  array $list
      * @return self
@@ -70,7 +70,7 @@ class GetAllAlwaysOnClustersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets alwaysOnClusters
+     * Get alwaysOnClusters
      *
      * @return array
      */

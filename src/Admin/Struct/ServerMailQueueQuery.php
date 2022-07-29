@@ -54,7 +54,7 @@ class ServerMailQueueQuery
     }
 
     /**
-     * Gets the mail queue query details.
+     * Get the mail queue query details.
      *
      * @return MailQueueQuery
      */
@@ -64,7 +64,7 @@ class ServerMailQueueQuery
     }
 
     /**
-     * Sets the mail queue query details.
+     * Set the mail queue query details.
      *
      * @param  MailQueueQuery $queue
      * @return self
@@ -76,7 +76,7 @@ class ServerMailQueueQuery
     }
 
     /**
-     * Gets the MTA Server
+     * Get the MTA Server
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class ServerMailQueueQuery
     }
 
     /**
-     * Sets the MTA Server
+     * Set the MTA Server
      *
      * @param  string $name
      * @return self

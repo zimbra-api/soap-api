@@ -188,7 +188,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -198,7 +198,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -210,7 +210,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -220,7 +220,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -232,7 +232,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -242,7 +242,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -254,7 +254,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets conversationId
+     * Get conversationId
      *
      * @return string
      */
@@ -264,7 +264,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets conversationId
+     * Set conversationId
      *
      * @param  string $conversationId
      * @return self
@@ -276,7 +276,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -286,7 +286,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -298,7 +298,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -308,7 +308,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -320,7 +320,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -330,7 +330,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -342,7 +342,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -352,7 +352,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -364,7 +364,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -374,7 +374,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -386,7 +386,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -396,7 +396,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -408,7 +408,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -420,7 +420,7 @@ class MessageCommon implements MessageCommonInterface
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */

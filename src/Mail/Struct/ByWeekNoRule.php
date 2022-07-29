@@ -47,7 +47,7 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

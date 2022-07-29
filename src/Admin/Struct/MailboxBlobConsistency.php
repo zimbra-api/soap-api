@@ -110,7 +110,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets mailbox ID
+     * Get mailbox ID
      *
      * @return int
      */
@@ -120,7 +120,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets mailbox ID
+     * Set mailbox ID
      *
      * @param  int $id
      * @return self
@@ -144,7 +144,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets missing blobs
+     * Set missing blobs
      *
      * @param  array $blobs
      * @return self
@@ -156,7 +156,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets missing blobs
+     * Get missing blobs
      *
      * @return array
      */
@@ -178,7 +178,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets incorrect sizes
+     * Set incorrect sizes
      *
      * @param  array $sizes
      * @return self
@@ -190,7 +190,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets incorrect sizes
+     * Get incorrect sizes
      *
      * @return array
      */
@@ -212,7 +212,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets unexpected blobs
+     * Set unexpected blobs
      *
      * @param  array $blobs
      * @return self
@@ -224,7 +224,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets unexpected blobs
+     * Get unexpected blobs
      *
      * @return array
      */
@@ -246,7 +246,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets incorrect revisions
+     * Set incorrect revisions
      *
      * @param  IncorrectRevisionsWrapper $revisions
      * @return self
@@ -258,7 +258,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets incorrect revisions
+     * Get incorrect revisions
      *
      * @return array
      */
@@ -280,7 +280,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Sets used blobs
+     * Set used blobs
      *
      * @param  UsedBlobsWrapper $blobs
      * @return self
@@ -292,7 +292,7 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Gets used blobs
+     * Get used blobs
      *
      * @return array
      */

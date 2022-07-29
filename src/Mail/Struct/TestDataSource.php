@@ -61,7 +61,7 @@ class TestDataSource
     }
 
     /**
-     * Gets success
+     * Get success
      *
      * @return int
      */
@@ -71,7 +71,7 @@ class TestDataSource
     }
 
     /**
-     * Sets success
+     * Set success
      *
      * @param  int $success
      * @return self
@@ -83,7 +83,7 @@ class TestDataSource
     }
 
     /**
-     * Gets the error
+     * Get the error
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class TestDataSource
     }
 
     /**
-     * Sets the error
+     * Set the error
      *
      * @param  string $error
      * @return self

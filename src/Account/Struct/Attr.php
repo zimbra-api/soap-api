@@ -68,7 +68,7 @@ class Attr
     }
 
     /**
-     * Gets name of attribute
+     * Get name of attribute
      *
      * @param  string $name
      * @return string
@@ -79,7 +79,7 @@ class Attr
     }
 
     /**
-     * Sets name of attribute
+     * Set name of attribute
      *
      * @param  string $name
      * @return self
@@ -91,7 +91,7 @@ class Attr
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -101,7 +101,7 @@ class Attr
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -113,7 +113,7 @@ class Attr
     }
 
     /**
-     * Gets permission has been denied flag
+     * Get permission has been denied flag
      *
      * @return bool
      */
@@ -123,7 +123,7 @@ class Attr
     }
 
     /**
-     * Sets permission has been denied flag
+     * Set permission has been denied flag
      *
      * @param  bool $pd
      * @return self

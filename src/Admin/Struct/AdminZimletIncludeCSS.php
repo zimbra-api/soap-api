@@ -46,7 +46,7 @@ class AdminZimletIncludeCSS implements ZimletIncludeCSS
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class AdminZimletIncludeCSS implements ZimletIncludeCSS
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

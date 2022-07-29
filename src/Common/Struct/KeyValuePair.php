@@ -53,7 +53,7 @@ class KeyValuePair
     }
 
     /**
-     * Gets key
+     * Get key
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class KeyValuePair
     }
 
     /**
-     * Sets key
+     * Set key
      *
      * @param  string $key
      * @return self
@@ -75,7 +75,7 @@ class KeyValuePair
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class KeyValuePair
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $key
      * @return self

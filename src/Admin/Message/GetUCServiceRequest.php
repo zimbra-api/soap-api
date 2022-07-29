@@ -54,7 +54,7 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the ucService.
+     * Get the ucService.
      *
      * @return UcServiceSelector
      */
@@ -64,7 +64,7 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the ucService.
+     * Set the ucService.
      *
      * @param  UcServiceSelector $ucService
      * @return self

@@ -76,7 +76,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Gets zimletContext
+     * Get zimletContext
      *
      * @return ZimletContextInterface
      */
@@ -86,7 +86,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Sets zimletContext
+     * Set zimletContext
      *
      * @param  ZimletContextInterface $zimletContext
      * @return self
@@ -100,7 +100,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Gets zimlet
+     * Get zimlet
      *
      * @return ZimletDesc
      */
@@ -110,7 +110,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Sets zimlet
+     * Set zimlet
      *
      * @param  ZimletDesc $zimlet
      * @return self
@@ -124,7 +124,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Gets zimletConfig
+     * Get zimletConfig
      *
      * @return ZimletConfigInfo
      */
@@ -134,7 +134,7 @@ class AccountZimletInfo implements ZimletInterface
     }
 
     /**
-     * Sets zimletConfig
+     * Set zimletConfig
      *
      * @param  ZimletConfigInfo $zimletConfig
      * @return self

@@ -47,7 +47,7 @@ class BySetPosRule implements BySetPosRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class BySetPosRule implements BySetPosRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

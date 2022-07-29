@@ -78,7 +78,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  string $email
      * @return self
@@ -100,7 +100,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets op
+     * Get op
      *
      * @return RecoverAccountOperation
      */
@@ -110,7 +110,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets op
+     * Set op
      *
      * @param  RecoverAccountOperation $type
      * @return self
@@ -122,7 +122,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets channel
+     * Get channel
      *
      * @return Channel
      */
@@ -132,7 +132,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets channel
+     * Set channel
      *
      * @param  Channel $channel
      * @return self

@@ -79,7 +79,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -101,7 +101,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -123,7 +123,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets isDefaultCos
+     * Get isDefaultCos
      *
      * @return bool
      */
@@ -133,7 +133,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets isDefaultCos
+     * Set isDefaultCos
      *
      * @param  bool $isDefaultCos
      * @return self
@@ -157,7 +157,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param array $attrs
      * @return self
@@ -169,7 +169,7 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */

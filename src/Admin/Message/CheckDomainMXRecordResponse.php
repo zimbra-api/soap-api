@@ -87,7 +87,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets MX Record entries
+     * Get MX Record entries
      *
      * @return array
      */
@@ -97,7 +97,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets MX Record entries
+     * Set MX Record entries
      *
      * @param  array $entries
      * @return self
@@ -109,7 +109,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets code
+     * Get code
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets code
+     * Set code
      *
      * @param  string $code
      * @return self
@@ -131,7 +131,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -141,7 +141,7 @@ class CheckDomainMXRecordResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self

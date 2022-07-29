@@ -226,7 +226,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets the xUid
+     * Get the xUid
      *
      * @return string
      */
@@ -236,7 +236,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets the xUid
+     * Set the xUid
      *
      * @param  string $xUid
      * @return self
@@ -248,7 +248,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets the uid
+     * Get the uid
      *
      * @return string
      */
@@ -258,7 +258,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets the uid
+     * Set the uid
      *
      * @param  string $uid
      * @return self
@@ -270,7 +270,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -280,7 +280,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -292,7 +292,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -302,7 +302,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -314,7 +314,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -324,7 +324,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -336,7 +336,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -346,7 +346,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -358,7 +358,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -368,7 +368,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -380,7 +380,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -390,7 +390,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -402,7 +402,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -412,7 +412,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -424,7 +424,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return ParticipationStatus
      */
@@ -434,7 +434,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $partStat
      * @return self
@@ -446,7 +446,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -456,7 +456,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self

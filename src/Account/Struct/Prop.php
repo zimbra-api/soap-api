@@ -65,7 +65,7 @@ class Prop
     }
 
     /**
-     * Gets zimlet name
+     * Get zimlet name
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class Prop
     }
 
     /**
-     * Sets zimlet name
+     * Set zimlet name
      *
      * @param  string $zimlet
      * @return self
@@ -87,7 +87,7 @@ class Prop
     }
 
     /**
-     * Gets property name
+     * Get property name
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class Prop
     }
 
     /**
-     * Sets property name
+     * Set property name
      *
      * @param  string $name
      * @return self
@@ -109,7 +109,7 @@ class Prop
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -119,7 +119,7 @@ class Prop
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

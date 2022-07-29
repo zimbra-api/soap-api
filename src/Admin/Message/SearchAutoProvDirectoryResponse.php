@@ -72,7 +72,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -82,7 +82,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -94,7 +94,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchTotal
+     * Get searchTotal
      *
      * @return int
      */
@@ -104,7 +104,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchTotal
+     * Set searchTotal
      *
      * @param  int $searchTotal
      * @return self
@@ -128,7 +128,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets entries
+     * Set entries
      *
      * @param  array $entries
      * @return self
@@ -140,7 +140,7 @@ class SearchAutoProvDirectoryResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets entries
+     * Get entries
      *
      * @return array
      */

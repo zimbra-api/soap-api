@@ -75,7 +75,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Gets uri
+     * Get uri
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Sets uri
+     * Set uri
      *
      * @param  string $uri
      * @return self
@@ -97,7 +97,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -119,7 +119,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Gets binaryB64Data
+     * Get binaryB64Data
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class CalendarAttach implements CalendarAttachInterface
     }
 
     /**
-     * Sets binaryB64Data
+     * Set binaryB64Data
      *
      * @param  string $binaryB64Data
      * @return self

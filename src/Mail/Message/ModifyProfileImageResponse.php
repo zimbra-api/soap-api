@@ -48,7 +48,7 @@ class ModifyProfileImageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets itemId
+     * Get itemId
      *
      * @return int
      */
@@ -58,7 +58,7 @@ class ModifyProfileImageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets itemId
+     * Set itemId
      *
      * @param  int $itemId
      * @return self

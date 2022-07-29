@@ -55,7 +55,7 @@ class FilterVariable
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class FilterVariable
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -77,7 +77,7 @@ class FilterVariable
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class FilterVariable
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

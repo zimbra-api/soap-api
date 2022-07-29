@@ -48,7 +48,7 @@ class MailQueueFlushRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @return Server
      */
@@ -58,7 +58,7 @@ class MailQueueFlushRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self

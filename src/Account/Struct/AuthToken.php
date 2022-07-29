@@ -72,7 +72,7 @@ class AuthToken
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class AuthToken
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -94,7 +94,7 @@ class AuthToken
     }
 
     /**
-     * Gets auth token is verified flag
+     * Get auth token is verified flag
      *
      * @return bool
      */
@@ -104,7 +104,7 @@ class AuthToken
     }
 
     /**
-     * Sets auth token is verified flag
+     * Set auth token is verified flag
      *
      * @param  bool $verifyAccount
      * @return self
@@ -116,7 +116,7 @@ class AuthToken
     }
 
     /**
-     * Gets life time of the auth token
+     * Get life time of the auth token
      *
      * @return int
      */
@@ -126,7 +126,7 @@ class AuthToken
     }
 
     /**
-     * Sets life time of the auth token
+     * Set life time of the auth token
      *
      * @param  int $lifetime
      * @return self

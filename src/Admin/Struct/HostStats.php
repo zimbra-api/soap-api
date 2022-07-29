@@ -57,7 +57,7 @@ class HostStats
     }
 
     /**
-     * Gets hostName
+     * Get hostName
      *
      * @return hostName
      */
@@ -67,7 +67,7 @@ class HostStats
     }
 
     /**
-     * Sets hostName
+     * Set hostName
      *
      * @param  string $hostName
      * @return self
@@ -79,7 +79,7 @@ class HostStats
     }
 
     /**
-     * Sets stats
+     * Set stats
      *
      * @param  StatsInfo $stats
      * @return self
@@ -91,7 +91,7 @@ class HostStats
     }
 
     /**
-     * Gets stats
+     * Get stats
      *
      * @return StatsInfo
      */

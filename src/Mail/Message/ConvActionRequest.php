@@ -47,7 +47,7 @@ class ConvActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ConvActionSelector
      */
@@ -57,7 +57,7 @@ class ConvActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  ConvActionSelector $action
      * @return self

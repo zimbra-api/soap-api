@@ -373,7 +373,7 @@ trait MailSearchParams
     private $includeMemberOf;
 
     /**
-     * Gets includeTagDeleted
+     * Get includeTagDeleted
      *
      * @return bool
      */
@@ -383,7 +383,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets includeTagDeleted
+     * Set includeTagDeleted
      *
      * @param  bool $includeTagDeleted
      * @return self
@@ -395,7 +395,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets includeTagMuted
+     * Get includeTagMuted
      *
      * @return bool
      */
@@ -405,7 +405,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets includeTagMuted
+     * Set includeTagMuted
      *
      * @param  bool $includeTagMuted
      * @return self
@@ -417,7 +417,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets allowableTaskStatus
+     * Get allowableTaskStatus
      *
      * @return string
      */
@@ -427,7 +427,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets allowableTaskStatus
+     * Set allowableTaskStatus
      *
      * @param  string $allowableTaskStatus
      * @return self
@@ -442,7 +442,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets calItemExpandStart
+     * Get calItemExpandStart
      *
      * @return int
      */
@@ -452,7 +452,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets calItemExpandStart
+     * Set calItemExpandStart
      *
      * @param  int $calItemExpandStart
      * @return self
@@ -464,7 +464,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets calItemExpandEnd
+     * Get calItemExpandEnd
      *
      * @return int
      */
@@ -474,7 +474,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets calItemExpandEnd
+     * Set calItemExpandEnd
      *
      * @param  int $calItemExpandEnd
      * @return self
@@ -486,7 +486,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -496,7 +496,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -508,7 +508,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets inDumpster
+     * Get inDumpster
      *
      * @return bool
      */
@@ -518,7 +518,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets inDumpster
+     * Set inDumpster
      *
      * @param  bool $inDumpster
      * @return self
@@ -530,7 +530,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets searchTypes
+     * Get searchTypes
      *
      * @return string
      */
@@ -540,7 +540,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets searchTypes
+     * Set searchTypes
      *
      * @param  string $searchTypes
      * @return self
@@ -555,7 +555,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets groupBy
+     * Get groupBy
      *
      * @return string
      */
@@ -565,7 +565,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets groupBy
+     * Set groupBy
      *
      * @param  string $groupBy
      * @return self
@@ -577,7 +577,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets quick
+     * Get quick
      *
      * @return bool
      */
@@ -587,7 +587,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets quick
+     * Set quick
      *
      * @param  bool $quick
      * @return self
@@ -599,7 +599,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -609,7 +609,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self
@@ -621,7 +621,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets fetch
+     * Get fetch
      *
      * @return string
      */
@@ -631,7 +631,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets fetch
+     * Set fetch
      *
      * @param  string $fetch
      * @return self
@@ -643,7 +643,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets markRead
+     * Get markRead
      *
      * @return bool
      */
@@ -653,7 +653,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets markRead
+     * Set markRead
      *
      * @param  bool $markRead
      * @return self
@@ -665,7 +665,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets maxInlinedLength
+     * Get maxInlinedLength
      *
      * @return int
      */
@@ -675,7 +675,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets maxInlinedLength
+     * Set maxInlinedLength
      *
      * @param  int $maxInlinedLength
      * @return self
@@ -687,7 +687,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets wantHtml
+     * Get wantHtml
      *
      * @return bool
      */
@@ -697,7 +697,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets wantHtml
+     * Set wantHtml
      *
      * @param  bool $wantHtml
      * @return self
@@ -709,7 +709,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets needCanExpand
+     * Get needCanExpand
      *
      * @return bool
      */
@@ -719,7 +719,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets needCanExpand
+     * Set needCanExpand
      *
      * @param  bool $needCanExpand
      * @return self
@@ -731,7 +731,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets neuterImages
+     * Get neuterImages
      *
      * @return bool
      */
@@ -741,7 +741,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets neuterImages
+     * Set neuterImages
      *
      * @param  bool $neuterImages
      * @return self
@@ -753,7 +753,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets wantRecipients
+     * Get wantRecipients
      *
      * @return WantRecipsSetting
      */
@@ -763,7 +763,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets wantRecipients
+     * Set wantRecipients
      *
      * @param  WantRecipsSetting $wantRecipients
      * @return self
@@ -775,7 +775,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets prefetch
+     * Get prefetch
      *
      * @return bool
      */
@@ -785,7 +785,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets prefetch
+     * Set prefetch
      *
      * @param  bool $prefetch
      * @return self
@@ -797,7 +797,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets resultMode
+     * Get resultMode
      *
      * @return string
      */
@@ -807,7 +807,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets resultMode
+     * Set resultMode
      *
      * @param  string $resultMode
      * @return self
@@ -819,7 +819,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets fullConversation
+     * Get fullConversation
      *
      * @return bool
      */
@@ -829,7 +829,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets fullConversation
+     * Set fullConversation
      *
      * @param  bool $fullConversation
      * @return self
@@ -841,7 +841,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets field
+     * Get field
      *
      * @return string
      */
@@ -851,7 +851,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets field
+     * Set field
      *
      * @param  string $field
      * @return self
@@ -863,7 +863,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -873,7 +873,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -885,7 +885,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -895,7 +895,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -931,7 +931,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -941,7 +941,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets the calTz
+     * Get the calTz
      *
      * @return CalTZInfoInterface
      */
@@ -951,7 +951,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets the calTz
+     * Set the calTz
      *
      * @param  CalTZInfoInterface $calTz
      * @return self
@@ -963,7 +963,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets locale
+     * Get locale
      *
      * @return string
      */
@@ -973,7 +973,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets locale
+     * Set locale
      *
      * @param  string $locale
      * @return self
@@ -985,7 +985,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets the cursor
+     * Get the cursor
      *
      * @return CursorInfo
      */
@@ -995,7 +995,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets the cursor
+     * Set the cursor
      *
      * @param  CursorInfo $cursor
      * @return self
@@ -1007,7 +1007,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets wantContent
+     * Get wantContent
      *
      * @return MsgContent
      */
@@ -1017,7 +1017,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets wantContent
+     * Set wantContent
      *
      * @param  MsgContent $wantContent
      * @return self
@@ -1029,7 +1029,7 @@ trait MailSearchParams
     }
 
     /**
-     * Gets includeMemberOf
+     * Get includeMemberOf
      *
      * @return bool
      */
@@ -1039,7 +1039,7 @@ trait MailSearchParams
     }
 
     /**
-     * Sets includeMemberOf
+     * Set includeMemberOf
      *
      * @param  bool $includeMemberOf
      * @return self

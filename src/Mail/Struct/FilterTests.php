@@ -300,7 +300,7 @@ class FilterTests
     }
 
     /**
-     * Gets condition
+     * Get condition
      *
      * @return FilterCondition
      */
@@ -310,7 +310,7 @@ class FilterTests
     }
 
     /**
-     * Sets condition
+     * Set condition
      *
      * @param  FilterCondition $condition
      * @return self
@@ -322,7 +322,7 @@ class FilterTests
     }
 
     /**
-     * Gets address book filter tests
+     * Get address book filter tests
      *
      * @return array
      */
@@ -332,7 +332,7 @@ class FilterTests
     }
 
     /**
-     * Sets address book filter tests
+     * Set address book filter tests
      *
      * @return self
      */
@@ -345,7 +345,7 @@ class FilterTests
     }
 
     /**
-     * Gets address filter tests
+     * Get address filter tests
      *
      * @return array
      */
@@ -355,7 +355,7 @@ class FilterTests
     }
 
     /**
-     * Sets address filter tests
+     * Set address filter tests
      *
      * @return self
      */
@@ -368,7 +368,7 @@ class FilterTests
     }
 
     /**
-     * Gets envelope filter tests
+     * Get envelope filter tests
      *
      * @return array
      */
@@ -378,7 +378,7 @@ class FilterTests
     }
 
     /**
-     * Sets envelope filter tests
+     * Set envelope filter tests
      *
      * @return self
      */
@@ -391,7 +391,7 @@ class FilterTests
     }
 
     /**
-     * Gets attachment filter tests
+     * Get attachment filter tests
      *
      * @return array
      */
@@ -401,7 +401,7 @@ class FilterTests
     }
 
     /**
-     * Sets attachment filter tests
+     * Set attachment filter tests
      *
      * @return self
      */
@@ -414,7 +414,7 @@ class FilterTests
     }
 
     /**
-     * Gets body filter tests
+     * Get body filter tests
      *
      * @return array
      */
@@ -424,7 +424,7 @@ class FilterTests
     }
 
     /**
-     * Sets body filter tests
+     * Set body filter tests
      *
      * @return self
      */
@@ -437,7 +437,7 @@ class FilterTests
     }
 
     /**
-     * Gets bulk filter tests
+     * Get bulk filter tests
      *
      * @return array
      */
@@ -447,7 +447,7 @@ class FilterTests
     }
 
     /**
-     * Sets bulk filter tests
+     * Set bulk filter tests
      *
      * @return self
      */
@@ -460,7 +460,7 @@ class FilterTests
     }
 
     /**
-     * Gets contact ranking filter tests
+     * Get contact ranking filter tests
      *
      * @return array
      */
@@ -470,7 +470,7 @@ class FilterTests
     }
 
     /**
-     * Sets contact ranking filter tests
+     * Set contact ranking filter tests
      *
      * @return self
      */
@@ -483,7 +483,7 @@ class FilterTests
     }
 
     /**
-     * Gets conversation filter tests
+     * Get conversation filter tests
      *
      * @return array
      */
@@ -493,7 +493,7 @@ class FilterTests
     }
 
     /**
-     * Gets conversation filter tests
+     * Get conversation filter tests
      *
      * @return self
      */
@@ -506,7 +506,7 @@ class FilterTests
     }
 
     /**
-     * Gets current day of week filter tests
+     * Get current day of week filter tests
      *
      * @return array
      */
@@ -516,7 +516,7 @@ class FilterTests
     }
 
     /**
-     * Sets current day of week filter tests
+     * Set current day of week filter tests
      *
      * @return self
      */
@@ -529,7 +529,7 @@ class FilterTests
     }
 
     /**
-     * Gets current time filter tests
+     * Get current time filter tests
      *
      * @return array
      */
@@ -539,7 +539,7 @@ class FilterTests
     }
 
     /**
-     * Sets current time filter tests
+     * Set current time filter tests
      *
      * @return self
      */
@@ -552,7 +552,7 @@ class FilterTests
     }
 
     /**
-     * Gets date filter tests
+     * Get date filter tests
      *
      * @return array
      */
@@ -562,7 +562,7 @@ class FilterTests
     }
 
     /**
-     * Sets date filter tests
+     * Set date filter tests
      *
      * @return self
      */
@@ -575,7 +575,7 @@ class FilterTests
     }
 
     /**
-     * Gets facebook filter tests
+     * Get facebook filter tests
      *
      * @return array
      */
@@ -585,7 +585,7 @@ class FilterTests
     }
 
     /**
-     * Sets facebook filter tests
+     * Set facebook filter tests
      *
      * @return self
      */
@@ -598,7 +598,7 @@ class FilterTests
     }
 
     /**
-     * Gets flagged filter tests
+     * Get flagged filter tests
      *
      * @return array
      */
@@ -608,7 +608,7 @@ class FilterTests
     }
 
     /**
-     * Gets flagged filter tests
+     * Get flagged filter tests
      *
      * @return self
      */
@@ -621,7 +621,7 @@ class FilterTests
     }
 
     /**
-     * Gets header exists filter tests
+     * Get header exists filter tests
      *
      * @return array
      */
@@ -631,7 +631,7 @@ class FilterTests
     }
 
     /**
-     * Sets header exists filter tests
+     * Set header exists filter tests
      *
      * @return self
      */
@@ -644,7 +644,7 @@ class FilterTests
     }
 
     /**
-     * Gets header filter tests
+     * Get header filter tests
      *
      * @return array
      */
@@ -654,7 +654,7 @@ class FilterTests
     }
 
     /**
-     * Sets header filter tests
+     * Set header filter tests
      *
      * @return self
      */
@@ -667,7 +667,7 @@ class FilterTests
     }
 
     /**
-     * Gets importance filter tests
+     * Get importance filter tests
      *
      * @return array
      */
@@ -677,7 +677,7 @@ class FilterTests
     }
 
     /**
-     * Sets importance filter tests
+     * Set importance filter tests
      *
      * @return self
      */
@@ -690,7 +690,7 @@ class FilterTests
     }
 
     /**
-     * Gets invite filter tests
+     * Get invite filter tests
      *
      * @return array
      */
@@ -700,7 +700,7 @@ class FilterTests
     }
 
     /**
-     * Sets invite filter tests
+     * Set invite filter tests
      *
      * @return self
      */
@@ -713,7 +713,7 @@ class FilterTests
     }
 
     /**
-     * Gets linkedin filter tests
+     * Get linkedin filter tests
      *
      * @return array
      */
@@ -723,7 +723,7 @@ class FilterTests
     }
 
     /**
-     * Sets linkedin filter tests
+     * Set linkedin filter tests
      *
      * @return self
      */
@@ -736,7 +736,7 @@ class FilterTests
     }
 
     /**
-     * Gets list filter tests
+     * Get list filter tests
      *
      * @return array
      */
@@ -746,7 +746,7 @@ class FilterTests
     }
 
     /**
-     * Sets list filter tests
+     * Set list filter tests
      *
      * @return self
      */
@@ -759,7 +759,7 @@ class FilterTests
     }
 
     /**
-     * Gets me filter tests
+     * Get me filter tests
      *
      * @return array
      */
@@ -769,7 +769,7 @@ class FilterTests
     }
 
     /**
-     * Sets me filter tests
+     * Set me filter tests
      *
      * @return self
      */
@@ -782,7 +782,7 @@ class FilterTests
     }
 
     /**
-     * Gets mime header filter tests
+     * Get mime header filter tests
      *
      * @return array
      */
@@ -792,7 +792,7 @@ class FilterTests
     }
 
     /**
-     * Sets mime header filter tests
+     * Set mime header filter tests
      *
      * @return self
      */
@@ -805,7 +805,7 @@ class FilterTests
     }
 
     /**
-     * Gets size filter tests
+     * Get size filter tests
      *
      * @return array
      */
@@ -815,7 +815,7 @@ class FilterTests
     }
 
     /**
-     * Sets size filter tests
+     * Set size filter tests
      *
      * @return self
      */
@@ -828,7 +828,7 @@ class FilterTests
     }
 
     /**
-     * Gets socialcast filter tests
+     * Get socialcast filter tests
      *
      * @return array
      */
@@ -838,7 +838,7 @@ class FilterTests
     }
 
     /**
-     * Sets socialcast filter tests
+     * Set socialcast filter tests
      *
      * @return self
      */
@@ -851,7 +851,7 @@ class FilterTests
     }
 
     /**
-     * Gets true filter tests
+     * Get true filter tests
      *
      * @return array
      */
@@ -861,7 +861,7 @@ class FilterTests
     }
 
     /**
-     * Sets true filter tests
+     * Set true filter tests
      *
      * @return self
      */
@@ -874,7 +874,7 @@ class FilterTests
     }
 
     /**
-     * Gets twitter filter tests
+     * Get twitter filter tests
      *
      * @return array
      */
@@ -884,7 +884,7 @@ class FilterTests
     }
 
     /**
-     * Sets twitter filter tests
+     * Set twitter filter tests
      *
      * @return self
      */
@@ -897,7 +897,7 @@ class FilterTests
     }
 
     /**
-     * Gets community requests filter tests
+     * Get community requests filter tests
      *
      * @return array
      */
@@ -907,7 +907,7 @@ class FilterTests
     }
 
     /**
-     * Sets community requests filter tests
+     * Set community requests filter tests
      *
      * @return self
      */
@@ -920,7 +920,7 @@ class FilterTests
     }
 
     /**
-     * Gets community content filter tests
+     * Get community content filter tests
      *
      * @return array
      */
@@ -930,7 +930,7 @@ class FilterTests
     }
 
     /**
-     * Sets community content filter tests
+     * Set community content filter tests
      *
      * @return self
      */
@@ -943,7 +943,7 @@ class FilterTests
     }
 
     /**
-     * Gets community connections filter tests
+     * Get community connections filter tests
      *
      * @return array
      */
@@ -953,7 +953,7 @@ class FilterTests
     }
 
     /**
-     * Sets community connections filter tests
+     * Set community connections filter tests
      *
      * @return self
      */
@@ -966,7 +966,7 @@ class FilterTests
     }
 
     /**
-     * Gets tests
+     * Get tests
      *
      * @return array
      */
@@ -1005,7 +1005,7 @@ class FilterTests
     }
 
     /**
-     * Sets tests
+     * Set tests
      *
      * @param  array $tests
      * @return self

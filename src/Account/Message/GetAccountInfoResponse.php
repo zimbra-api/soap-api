@@ -149,7 +149,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the name.
+     * Get the name.
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the name.
+     * Set the name.
      *
      * @param  string $name
      * @return self
@@ -195,7 +195,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return array
      */
@@ -205,7 +205,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the soapURL.
+     * Get the soapURL.
      *
      * @return string
      */
@@ -215,7 +215,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the soapURL.
+     * Set the soapURL.
      *
      * @param  string $soapURL
      * @return self
@@ -227,7 +227,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the publicURL.
+     * Get the publicURL.
      *
      * @return string
      */
@@ -237,7 +237,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the publicURL.
+     * Set the publicURL.
      *
      * @param  string $publicURL
      * @return self
@@ -249,7 +249,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the changePasswordURL.
+     * Get the changePasswordURL.
      *
      * @return string
      */
@@ -259,7 +259,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the changePasswordURL.
+     * Set the changePasswordURL.
      *
      * @param  string $changePasswordURL
      * @return self
@@ -271,7 +271,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the communityURL.
+     * Get the communityURL.
      *
      * @return string
      */
@@ -281,7 +281,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the communityURL.
+     * Set the communityURL.
      *
      * @param  string $communityURL
      * @return self
@@ -293,7 +293,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the adminURL.
+     * Get the adminURL.
      *
      * @return string
      */
@@ -303,7 +303,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the adminURL.
+     * Set the adminURL.
      *
      * @param  string $adminURL
      * @return self
@@ -315,7 +315,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the boshURL.
+     * Get the boshURL.
      *
      * @return string
      */
@@ -325,7 +325,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the boshURL.
+     * Set the boshURL.
      *
      * @param  string $boshURL
      * @return self

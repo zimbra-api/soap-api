@@ -54,7 +54,7 @@ class BlackList
     }
 
     /**
-     * Sets addr array
+     * Set addr array
      *
      * @param array $addrs
      * @return self
@@ -66,7 +66,7 @@ class BlackList
     }
 
     /**
-     * Gets addr array
+     * Get addr array
      *
      * @return array
      */

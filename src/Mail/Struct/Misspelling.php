@@ -59,7 +59,7 @@ class Misspelling
     }
 
     /**
-     * Gets word
+     * Get word
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class Misspelling
     }
 
     /**
-     * Sets word
+     * Set word
      *
      * @param  string $word
      * @return self
@@ -81,7 +81,7 @@ class Misspelling
     }
 
     /**
-     * Gets suggestions
+     * Get suggestions
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class Misspelling
     }
 
     /**
-     * Sets suggestions
+     * Set suggestions
      *
      * @param  string $suggestions
      * @return self

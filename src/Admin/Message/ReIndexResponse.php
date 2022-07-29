@@ -60,7 +60,7 @@ class ReIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the progress.
+     * Get the progress.
      *
      * @return Progress
      */
@@ -70,7 +70,7 @@ class ReIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the progress.
+     * Set the progress.
      *
      * @param  Progress $progress
      * @return self
@@ -82,7 +82,7 @@ class ReIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return Status
      */
@@ -92,7 +92,7 @@ class ReIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  Status $status
      * @return self

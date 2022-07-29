@@ -227,7 +227,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the authorization token
+     * Get the authorization token
      *
      * @return string
      */
@@ -237,7 +237,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the authorization token
+     * Set the authorization token
      *
      * @param  string $authToken
      * @return self
@@ -249,7 +249,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets life time for the authorization
+     * Get life time for the authorization
      *
      * @return int
      */
@@ -259,7 +259,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets life time for the authorization
+     * Set life time for the authorization
      *
      * @param  int $lifetime
      * @return self
@@ -271,7 +271,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets trust lifetime, if a trusted token is issued
+     * Get trust lifetime, if a trusted token is issued
      *
      * @return int
      */
@@ -281,7 +281,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets trust lifetime, if a trusted token is issued
+     * Set trust lifetime, if a trusted token is issued
      *
      * @param  int $trustLifetime
      * @return self
@@ -293,7 +293,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets session information
+     * Get session information
      *
      * @return Session
      */
@@ -303,7 +303,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets session information
+     * Set session information
      *
      * @param  Session $session
      * @return self
@@ -315,7 +315,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets host additional SOAP requests should be directed to.
+     * Get host additional SOAP requests should be directed to.
      *
      * @return string
      */
@@ -325,7 +325,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets host additional SOAP requests should be directed to.
+     * Set host additional SOAP requests should be directed to.
      *
      * @param  string $refer
      * @return self
@@ -337,7 +337,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the name of the skin to use, if requestedSkin specified
+     * Get the name of the skin to use, if requestedSkin specified
      *
      * @return string
      */
@@ -347,7 +347,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the name of the skin to use, if requestedSkin specified
+     * Set the name of the skin to use, if requestedSkin specified
      *
      * @param  string $skin
      * @return self
@@ -359,7 +359,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the CSRF token, if client is CSRF token enabled
+     * Get the CSRF token, if client is CSRF token enabled
      *
      * @return string
      */
@@ -369,7 +369,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the CSRF token, if client is CSRF token enabled
+     * Set the CSRF token, if client is CSRF token enabled
      *
      * @param  string $csrfToken
      * @return self
@@ -381,7 +381,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets random secure device ID generated for the requesting device
+     * Get random secure device ID generated for the requesting device
      *
      * @return string
      */
@@ -391,7 +391,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets random secure device ID generated for the requesting device
+     * Set random secure device ID generated for the requesting device
      *
      * @param  string $deviceId
      * @return self
@@ -403,7 +403,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets trusted device token
+     * Get trusted device token
      *
      * @return string
      */
@@ -413,7 +413,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets trusted device token
+     * Set trusted device token
      *
      * @param  string $trustedToken
      * @return self
@@ -425,7 +425,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
+     * Get indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
      *
      * @return bool
      */
@@ -435,7 +435,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
+     * Set indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
      *
      * @param  bool $zmgProxy
      * @return self
@@ -447,7 +447,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets requested preference settings
+     * Get requested preference settings
      *
      * @return array
      */
@@ -457,7 +457,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets requested preference settings
+     * Set requested preference settings
      *
      * @param  array $prefs
      * @return self
@@ -481,7 +481,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets requested attribute settings
+     * Get requested attribute settings
      *
      * @return array
      */
@@ -491,7 +491,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets requested attribute settings
+     * Set requested attribute settings
      *
      * @param  array $attrs
      * @return self
@@ -515,7 +515,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets two factor auth required
+     * Get two factor auth required
      *
      * @return bool
      */
@@ -525,7 +525,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets two factor auth required
+     * Set two factor auth required
      *
      * @param  int $twoFactorAuthRequired
      * @return self
@@ -537,7 +537,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets trusted devices enabled
+     * Get trusted devices enabled
      *
      * @return bool
      */
@@ -547,7 +547,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets trusted devices enabled
+     * Set trusted devices enabled
      *
      * @param  int $trustedDevicesEnabled
      * @return self

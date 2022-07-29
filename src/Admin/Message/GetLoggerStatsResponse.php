@@ -71,7 +71,7 @@ class GetLoggerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets hostNames
+     * Set hostNames
      *
      * @param  array $hostNames
      * @return self
@@ -83,7 +83,7 @@ class GetLoggerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets hostNames
+     * Get hostNames
      *
      * @return array
      */
@@ -93,7 +93,7 @@ class GetLoggerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets note
+     * Get note
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class GetLoggerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets note
+     * Set note
      *
      * @param  string $note
      * @return self

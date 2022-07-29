@@ -59,7 +59,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     }
 
     /**
-     * Gets user
+     * Get user
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     }
 
     /**
-     * Sets user
+     * Set user
      *
      * @param  string $user
      * @return self
@@ -81,7 +81,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self

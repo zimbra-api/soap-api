@@ -47,7 +47,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self

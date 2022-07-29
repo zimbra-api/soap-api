@@ -42,7 +42,7 @@ class ValueAttrib
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class ValueAttrib
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

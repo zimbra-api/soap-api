@@ -65,7 +65,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     }
 
     /**
-     * Gets the add
+     * Get the add
      *
      * @return RecurrenceInfoInterface
      */
@@ -75,7 +75,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     }
 
     /**
-     * Sets the add
+     * Set the add
      *
      * @param  RecurrenceInfoInterface $add
      * @return self
@@ -87,7 +87,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     }
 
     /**
-     * Gets the exclude
+     * Get the exclude
      *
      * @return RecurrenceInfoInterface
      */
@@ -97,7 +97,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     }
 
     /**
-     * Sets the exclude
+     * Set the exclude
      *
      * @param  RecurrenceInfoInterface $exclude
      * @return self

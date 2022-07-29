@@ -136,7 +136,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet name
+     * Get zimlet name
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet name
+     * Set zimlet name
      *
      * @param  string $name
      * @return self
@@ -158,7 +158,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet version
+     * Get zimlet version
      *
      * @return string
      */
@@ -168,7 +168,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet version
+     * Set zimlet version
      *
      * @param  string $version
      * @return self
@@ -180,7 +180,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet description
+     * Get zimlet description
      *
      * @return string
      */
@@ -190,7 +190,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet description
+     * Set zimlet description
      *
      * @param  string $description
      * @return self
@@ -202,7 +202,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet extension
+     * Get zimlet extension
      *
      * @return string
      */
@@ -212,7 +212,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet extension
+     * Set zimlet extension
      *
      * @param  string $extension
      * @return self
@@ -224,7 +224,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet target
+     * Get zimlet target
      *
      * @return string
      */
@@ -234,7 +234,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet target
+     * Set zimlet target
      *
      * @param  string $target
      * @return self
@@ -246,7 +246,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets zimlet label
+     * Get zimlet label
      *
      * @return string
      */
@@ -256,7 +256,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets zimlet label
+     * Set zimlet label
      *
      * @param  string $label
      * @return self
@@ -268,7 +268,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets Zimlet global configuration information
+     * Get Zimlet global configuration information
      *
      * @return ZimletGlobalConfigInfo
      */
@@ -278,7 +278,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets Zimlet global configuration information
+     * Set Zimlet global configuration information
      *
      * @param  ZimletGlobalConfigInfo $global
      * @return self
@@ -292,7 +292,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Gets Zimlet host configuration information
+     * Get Zimlet host configuration information
      *
      * @return ZimletHostConfigInfo
      */
@@ -302,7 +302,7 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     }
 
     /**
-     * Sets Zimlet host configuration information
+     * Set Zimlet host configuration information
      *
      * @param  ZimletHostConfigInfo $host
      * @return self

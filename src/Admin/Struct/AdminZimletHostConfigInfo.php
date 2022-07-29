@@ -58,7 +58,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     }
 
     /**
-     * Gets zimbra host name
+     * Get zimbra host name
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     }
 
     /**
-     * Sets zimbra host name
+     * Set zimbra host name
      *
      * @param  string $name
      * @return self
@@ -94,7 +94,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     }
 
     /**
-     * Sets properties
+     * Set properties
      *
      * @param  array $properties
      * @return self
@@ -106,7 +106,7 @@ class AdminZimletHostConfigInfo implements ZimletHostConfigInfo
     }
 
     /**
-     * Gets properties
+     * Get properties
      *
      * @return array
      */

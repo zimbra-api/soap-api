@@ -74,7 +74,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -84,7 +84,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self
@@ -96,7 +96,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -118,7 +118,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Gets includeOlderRevisions
+     * Get includeOlderRevisions
      *
      * @return bool
      */
@@ -128,7 +128,7 @@ class PurgeRevisionSpec
     }
 
     /**
-     * Sets includeOlderRevisions
+     * Set includeOlderRevisions
      *
      * @param  bool $includeOlderRevisions
      * @return self

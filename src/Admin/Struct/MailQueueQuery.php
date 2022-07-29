@@ -82,7 +82,7 @@ class MailQueueQuery
     }
 
     /**
-     * Gets query.
+     * Get query.
      *
      * @return QueueQuery
      */
@@ -92,7 +92,7 @@ class MailQueueQuery
     }
 
     /**
-     * Sets query.
+     * Set query.
      *
      * @param  QueueQuery $query
      * @return self
@@ -104,7 +104,7 @@ class MailQueueQuery
     }
 
     /**
-     * Gets the the queue name
+     * Get the the queue name
      *
      * @return string
      */
@@ -114,7 +114,7 @@ class MailQueueQuery
     }
 
     /**
-     * Sets the queue name
+     * Set the queue name
      *
      * @param  string $name
      * @return self
@@ -126,7 +126,7 @@ class MailQueueQuery
     }
 
     /**
-     * Gets queue scan
+     * Get queue scan
      *
      * @return bool
      */
@@ -136,7 +136,7 @@ class MailQueueQuery
     }
 
     /**
-     * Sets queue scan
+     * Set queue scan
      *
      * @param  bool $scan
      * @return self
@@ -148,7 +148,7 @@ class MailQueueQuery
     }
 
     /**
-     * Gets the time to wait
+     * Get the time to wait
      *
      * @return int
      */
@@ -158,7 +158,7 @@ class MailQueueQuery
     }
 
     /**
-     * Sets the time to wait
+     * Set the time to wait
      *
      * @param  int $wait
      * @return self

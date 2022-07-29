@@ -64,7 +64,7 @@ class RankingActionSpec
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class RankingActionSpec
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  string $email
      * @return self
@@ -86,7 +86,7 @@ class RankingActionSpec
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return RankingActionOp
      */
@@ -96,7 +96,7 @@ class RankingActionSpec
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  RankingActionOp $operation
      * @return self

@@ -43,7 +43,7 @@ class DiscoverRightsEmail
     }
 
     /**
-     * Gets addr
+     * Get addr
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class DiscoverRightsEmail
     }
 
     /**
-     * Sets addr
+     * Set addr
      *
      * @param  string $addr
      * @return self

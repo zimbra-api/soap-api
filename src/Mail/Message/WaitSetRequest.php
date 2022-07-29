@@ -195,7 +195,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets waitSetId
+     * Get waitSetId
      *
      * @return string
      */
@@ -205,7 +205,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets waitSetId
+     * Set waitSetId
      *
      * @param  string $waitSetId
      * @return self
@@ -217,7 +217,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets lastKnownSeqNo
+     * Get lastKnownSeqNo
      *
      * @return string
      */
@@ -227,7 +227,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets lastKnownSeqNo
+     * Set lastKnownSeqNo
      *
      * @param  string $lastKnownSeqNo
      * @return self
@@ -239,7 +239,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets block
+     * Get block
      *
      * @return bool
      */
@@ -249,7 +249,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets block
+     * Set block
      *
      * @param  bool $block
      * @return self
@@ -261,7 +261,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets defaultInterests
+     * Get defaultInterests
      *
      * @return string
      */
@@ -271,7 +271,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @param  string $defaultInterests
      * @return self
@@ -284,7 +284,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets timeout
+     * Get timeout
      *
      * @return int
      */
@@ -294,7 +294,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets timeout
+     * Set timeout
      *
      * @param  int $timeout
      * @return self
@@ -306,7 +306,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets expand
+     * Get expand
      *
      * @return bool
      */
@@ -316,7 +316,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets expand
+     * Set expand
      *
      * @param  bool $expand
      * @return self
@@ -340,7 +340,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets addAccounts
+     * Set addAccounts
      *
      * @param  array $accounts
      * @return self
@@ -352,7 +352,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets addAccounts
+     * Get addAccounts
      *
      * @return array
      */
@@ -374,7 +374,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets updateAccounts
+     * Set updateAccounts
      *
      * @param  array $accounts
      * @return self
@@ -386,7 +386,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets updateAccounts
+     * Get updateAccounts
      *
      * @return array
      */
@@ -408,7 +408,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Sets removeAccounts
+     * Set removeAccounts
      *
      * @param  array $removeAccounts
      * @return self
@@ -420,7 +420,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Gets removeAccounts
+     * Get removeAccounts
      *
      * @return array
      */

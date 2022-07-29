@@ -136,7 +136,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets interestMask
+     * Get interestMask
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets interestMask
+     * Set interestMask
      *
      * @param  string $interestMask
      * @return self
@@ -158,7 +158,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets creationTime
+     * Get creationTime
      *
      * @return int
      */
@@ -168,7 +168,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets creationTime
+     * Set creationTime
      *
      * @param  int $creationTime
      * @return self
@@ -180,7 +180,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -190,7 +190,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -202,7 +202,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets folderInterests
+     * Get folderInterests
      *
      * @return string
      */
@@ -212,7 +212,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets folderInterests
+     * Set folderInterests
      *
      * @param  string $folderInterests
      * @return self
@@ -224,7 +224,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets changedFolders
+     * Get changedFolders
      *
      * @return string
      */
@@ -234,7 +234,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets changedFolders
+     * Set changedFolders
      *
      * @param  string $changedFolders
      * @return self
@@ -246,7 +246,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets highestChangeId
+     * Set highestChangeId
      *
      * @return int
      */
@@ -256,7 +256,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets highestChangeId
+     * Set highestChangeId
      *
      * @param  int $highestChangeId
      * @return self
@@ -268,7 +268,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets lastAccessTime
+     * Set lastAccessTime
      *
      * @return int
      */
@@ -278,7 +278,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets lastAccessTime
+     * Set lastAccessTime
      *
      * @param  int $lastAccessTime
      * @return self
@@ -290,7 +290,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Gets sessionId
+     * Get sessionId
      *
      * @return string
      */
@@ -300,7 +300,7 @@ class WaitSetSessionInfo
     }
 
     /**
-     * Sets sessionId
+     * Set sessionId
      *
      * @param  string $sessionId
      * @return self

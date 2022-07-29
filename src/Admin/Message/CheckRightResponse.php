@@ -60,7 +60,7 @@ class CheckRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets allow
+     * Get allow
      *
      * @return bool
      */
@@ -70,7 +70,7 @@ class CheckRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets allow
+     * Set allow
      *
      * @param  bool $allow
      * @return self
@@ -82,7 +82,7 @@ class CheckRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the via.
+     * Get the via.
      *
      * @return RightViaInfo
      */
@@ -92,7 +92,7 @@ class CheckRightResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the via.
+     * Set the via.
      *
      * @param  RightViaInfo $via
      * @return self

@@ -54,7 +54,7 @@ class NameId
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class NameId
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -76,7 +76,7 @@ class NameId
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class NameId
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

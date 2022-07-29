@@ -111,7 +111,7 @@ class FilterRule
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -121,7 +121,7 @@ class FilterRule
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -133,7 +133,7 @@ class FilterRule
     }
 
     /**
-     * Gets active
+     * Get active
      *
      * @return bool
      */
@@ -143,7 +143,7 @@ class FilterRule
     }
 
     /**
-     * Sets active
+     * Set active
      *
      * @param  bool $active
      * @return self
@@ -155,7 +155,7 @@ class FilterRule
     }
 
     /**
-     * Gets filterVariables
+     * Get filterVariables
      *
      * @return FilterVariables
      */
@@ -165,7 +165,7 @@ class FilterRule
     }
 
     /**
-     * Sets filterVariables
+     * Set filterVariables
      *
      * @param  FilterVariables $filterVariables
      * @return self
@@ -177,7 +177,7 @@ class FilterRule
     }
 
     /**
-     * Gets tests
+     * Get tests
      *
      * @return FilterTests
      */
@@ -187,7 +187,7 @@ class FilterRule
     }
 
     /**
-     * Sets tests
+     * Set tests
      *
      * @param  FilterTests $tests
      * @return self
@@ -199,7 +199,7 @@ class FilterRule
     }
 
     /**
-     * Gets filter actions
+     * Get filter actions
      *
      * @return array
      */
@@ -209,7 +209,7 @@ class FilterRule
     }
 
     /**
-     * Sets filter actions
+     * Set filter actions
      *
      * @param  array $actions
      * @return self
@@ -238,7 +238,7 @@ class FilterRule
     }
 
     /**
-     * Gets filterActions
+     * Get filterActions
      *
      * @return FilterActions
      */
@@ -248,7 +248,7 @@ class FilterRule
     }
 
     /**
-     * Sets filterActions
+     * Set filterActions
      *
      * @param  FilterActions $actions
      * @return self
@@ -260,7 +260,7 @@ class FilterRule
     }
 
     /**
-     * Gets child
+     * Get child
      *
      * @return NestedRule
      */
@@ -270,7 +270,7 @@ class FilterRule
     }
 
     /**
-     * Sets child
+     * Set child
      *
      * @param  NestedRule $child
      * @return self

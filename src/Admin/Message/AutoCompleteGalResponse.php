@@ -86,7 +86,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -96,7 +96,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -108,7 +108,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets tokenizeKey
+     * Get tokenizeKey
      *
      * @return bool
      */
@@ -118,7 +118,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets tokenizeKey
+     * Set tokenizeKey
      *
      * @param  bool $tokenizeKey
      * @return self
@@ -130,7 +130,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets pagingSupported
+     * Get pagingSupported
      *
      * @return bool
      */
@@ -140,7 +140,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets pagingSupported
+     * Set pagingSupported
      *
      * @param  bool $pagingSupported
      * @return self
@@ -164,7 +164,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param array $errors
      * @return self
@@ -176,7 +176,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */

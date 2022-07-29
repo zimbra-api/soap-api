@@ -73,7 +73,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets code
+     * Get code
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets code
+     * Set code
      *
      * @param  string $code
      * @return self
@@ -95,7 +95,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets bind dn
+     * Get bind dn
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets bind dn
+     * Set bind dn
      *
      * @param  string $bindDn
      * @return self
@@ -117,7 +117,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -127,7 +127,7 @@ class CheckAuthConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self

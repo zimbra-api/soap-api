@@ -58,7 +58,7 @@ class ClientInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return DomainSelector
      */

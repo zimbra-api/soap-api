@@ -75,7 +75,7 @@ class TzFixupRule
     }
 
     /**
-     * Gets the match.
+     * Get the match.
      *
      * @return TzFixupRuleMatch
      */
@@ -85,7 +85,7 @@ class TzFixupRule
     }
 
     /**
-     * Sets the match.
+     * Set the match.
      *
      * @param  TzFixupRuleMatch $match
      * @return self
@@ -97,7 +97,7 @@ class TzFixupRule
     }
 
     /**
-     * Gets the touch.
+     * Get the touch.
      *
      * @return SimpleElement
      */
@@ -107,7 +107,7 @@ class TzFixupRule
     }
 
     /**
-     * Sets the touch.
+     * Set the touch.
      *
      * @param  SimpleElement $touch
      * @return self
@@ -119,7 +119,7 @@ class TzFixupRule
     }
 
     /**
-     * Gets the replace.
+     * Get the replace.
      *
      * @return TzReplaceInfo
      */
@@ -129,7 +129,7 @@ class TzFixupRule
     }
 
     /**
-     * Sets the replace.
+     * Set the replace.
      *
      * @param  TzReplaceInfo $replace
      * @return self

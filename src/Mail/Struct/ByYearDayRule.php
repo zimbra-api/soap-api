@@ -48,7 +48,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

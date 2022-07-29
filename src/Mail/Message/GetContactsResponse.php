@@ -58,7 +58,7 @@ class GetContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param  array $contacts
      * @return self
@@ -70,7 +70,7 @@ class GetContactsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */

@@ -144,7 +144,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets searchFilter
+     * Get searchFilter
      *
      * @return EntrySearchFilterInfo
      */
@@ -154,7 +154,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets searchFilter
+     * Set searchFilter
      *
      * @param  EntrySearchFilterInfo $searchFilter
      * @return self
@@ -166,7 +166,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -176,7 +176,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -188,7 +188,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -198,7 +198,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -210,7 +210,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -220,7 +220,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -232,7 +232,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -242,7 +242,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self
@@ -254,7 +254,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -264,7 +264,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -276,7 +276,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets sortAscending
+     * Get sortAscending
      *
      * @return bool
      */
@@ -286,7 +286,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets sortAscending
+     * Set sortAscending
      *
      * @param  bool $sortAscending
      * @return self

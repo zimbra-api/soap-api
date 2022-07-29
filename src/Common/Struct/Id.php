@@ -44,7 +44,7 @@ class Id
     }
 
     /**
-     * Gets an id
+     * Get an id
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class Id
     }
 
     /**
-     * Sets an id
+     * Set an id
      *
      * @param  string $id
      * @return self

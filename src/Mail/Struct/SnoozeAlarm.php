@@ -57,7 +57,7 @@ class SnoozeAlarm
     }
 
     /**
-     * Gets snoozeUntil
+     * Get snoozeUntil
      *
      * @return int
      */
@@ -67,7 +67,7 @@ class SnoozeAlarm
     }
 
     /**
-     * Sets snoozeUntil
+     * Set snoozeUntil
      *
      * @param  int $snoozeUntil
      * @return self
@@ -79,7 +79,7 @@ class SnoozeAlarm
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class SnoozeAlarm
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

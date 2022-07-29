@@ -56,7 +56,7 @@ class PackageRightsInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class PackageRightsInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -78,7 +78,7 @@ class PackageRightsInfo
     }
 
     /**
-     * Gets cmds
+     * Get cmds
      *
      * @return array
      */
@@ -88,7 +88,7 @@ class PackageRightsInfo
     }
 
     /**
-     * Sets cmds
+     * Set cmds
      *
      * @param  array $cmds
      * @return self

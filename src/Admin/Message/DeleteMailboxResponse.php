@@ -48,7 +48,7 @@ class DeleteMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the mbox.
+     * Get the mbox.
      *
      * @return MailboxId
      */
@@ -58,7 +58,7 @@ class DeleteMailboxResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @param  MailboxId $mbox
      * @return self

@@ -48,7 +48,7 @@ class GetSystemRetentionPolicyResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets retentionPolicy
+     * Get retentionPolicy
      *
      * @return RetentionPolicy
      */
@@ -58,7 +58,7 @@ class GetSystemRetentionPolicyResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets retentionPolicy
+     * Set retentionPolicy
      *
      * @param  RetentionPolicy $retentionPolicy
      * @return self

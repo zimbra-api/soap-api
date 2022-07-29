@@ -56,7 +56,7 @@ class UserAgentInfo
     }
 
     /**
-     * Gets user agent name
+     * Get user agent name
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class UserAgentInfo
     }
 
     /**
-     * Sets user agent name
+     * Set user agent name
      *
      * @param  string $name
      * @return self
@@ -78,7 +78,7 @@ class UserAgentInfo
     }
 
     /**
-     * Gets user agent version
+     * Get user agent version
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class UserAgentInfo
     }
 
     /**
-     * Sets user agent version
+     * Set user agent version
      *
      * @param  string $version
      * @return self

@@ -77,7 +77,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return int
      */
@@ -87,7 +87,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  int $folder
      * @return self
@@ -99,7 +99,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self
@@ -121,7 +121,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return MailItemType
      */
@@ -131,7 +131,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  MailItemType $type
      * @return self

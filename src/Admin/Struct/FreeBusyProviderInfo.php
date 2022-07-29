@@ -105,7 +105,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -127,7 +127,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets propagate
+     * Get propagate
      *
      * @return bool
      */
@@ -137,7 +137,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets propagate
+     * Set propagate
      *
      * @param  string $propagate
      * @return self
@@ -149,7 +149,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets start
+     * Get start
      *
      * @return int
      */
@@ -159,7 +159,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets start
+     * Set start
      *
      * @param  int $start
      * @return self
@@ -171,7 +171,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets int
+     * Get int
      *
      * @return int
      */
@@ -181,7 +181,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets end
+     * Set end
      *
      * @param  int $end
      * @return self
@@ -193,7 +193,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets queue
+     * Get queue
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets queue
+     * Set queue
      *
      * @param  string $target
      * @return self
@@ -215,7 +215,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Gets prefix
+     * Get prefix
      *
      * @return string
      */
@@ -225,7 +225,7 @@ class FreeBusyProviderInfo
     }
 
     /**
-     * Sets prefix
+     * Set prefix
      *
      * @param  string $prefix
      * @return self

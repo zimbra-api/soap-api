@@ -46,7 +46,7 @@ class DeleteVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets Volume id
+     * Get Volume id
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class DeleteVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets Volume id
+     * Set Volume id
      *
      * @param  int $id
      * @return self

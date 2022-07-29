@@ -49,7 +49,7 @@ class GetNoteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets note
+     * Get note
      *
      * @return NoteInfo
      */
@@ -59,7 +59,7 @@ class GetNoteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets note
+     * Set note
      *
      * @param  NoteInfo $note
      * @return self

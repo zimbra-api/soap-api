@@ -43,7 +43,7 @@ class CookieSpec
     }
 
     /**
-     * Gets cookie name
+     * Get cookie name
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class CookieSpec
     }
 
     /**
-     * Sets cookie name
+     * Set cookie name
      *
      * @param  string $name
      * @return self

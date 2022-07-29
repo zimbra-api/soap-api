@@ -57,7 +57,7 @@ class GetAccountMembershipResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dlList
+     * Set dlList
      *
      * @param array $dlList
      * @return self
@@ -69,7 +69,7 @@ class GetAccountMembershipResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dlList
+     * Get dlList
      *
      * @return array
      */

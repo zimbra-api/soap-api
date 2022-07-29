@@ -130,7 +130,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets ownerEmail
+     * Get ownerEmail
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets ownerEmail
+     * Set ownerEmail
      *
      * @param  string $ownerEmail
      * @return self
@@ -152,7 +152,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets ownerAccountId
+     * Get ownerAccountId
      *
      * @return string
      */
@@ -162,7 +162,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets ownerAccountId
+     * Set ownerAccountId
      *
      * @param  string $ownerAccountId
      * @return self
@@ -174,7 +174,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets remoteFolderId
+     * Get remoteFolderId
      *
      * @return int
      */
@@ -184,7 +184,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets remoteFolderId
+     * Set remoteFolderId
      *
      * @param  int $remoteFolderId
      * @return self
@@ -196,7 +196,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets remoteUuid
+     * Get remoteUuid
      *
      * @return string
      */
@@ -206,7 +206,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets remoteUuid
+     * Set remoteUuid
      *
      * @param  string $remoteUuid
      * @return self
@@ -218,7 +218,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets remoteFolderName
+     * Get remoteFolderName
      *
      * @return string
      */
@@ -228,7 +228,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets remoteFolderName
+     * Set remoteFolderName
      *
      * @param  string $remoteFolderName
      * @return self
@@ -240,7 +240,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets reminderEnabled
+     * Get reminderEnabled
      *
      * @return bool
      */
@@ -250,7 +250,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets reminderEnabled
+     * Set reminderEnabled
      *
      * @param  bool $reminderEnabled
      * @return self
@@ -262,7 +262,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Gets broken
+     * Get broken
      *
      * @return bool
      */
@@ -272,7 +272,7 @@ class Mountpoint extends Folder
     }
 
     /**
-     * Sets broken
+     * Set broken
      *
      * @param  bool $broken
      * @return self

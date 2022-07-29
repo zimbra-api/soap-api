@@ -57,7 +57,7 @@ class LimitedQuery
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -67,7 +67,7 @@ class LimitedQuery
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -79,7 +79,7 @@ class LimitedQuery
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class LimitedQuery
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

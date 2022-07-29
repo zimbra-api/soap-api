@@ -216,7 +216,7 @@ class NoteInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -226,7 +226,7 @@ class NoteInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -238,7 +238,7 @@ class NoteInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class NoteInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -260,7 +260,7 @@ class NoteInfo
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class NoteInfo
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -282,7 +282,7 @@ class NoteInfo
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -292,7 +292,7 @@ class NoteInfo
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -304,7 +304,7 @@ class NoteInfo
     }
 
     /**
-     * Gets bounds
+     * Get bounds
      *
      * @return string
      */
@@ -314,7 +314,7 @@ class NoteInfo
     }
 
     /**
-     * Sets bounds
+     * Set bounds
      *
      * @param  string $bounds
      * @return self
@@ -326,7 +326,7 @@ class NoteInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -336,7 +336,7 @@ class NoteInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -348,7 +348,7 @@ class NoteInfo
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -358,7 +358,7 @@ class NoteInfo
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -370,7 +370,7 @@ class NoteInfo
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -380,7 +380,7 @@ class NoteInfo
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -392,7 +392,7 @@ class NoteInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -402,7 +402,7 @@ class NoteInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -414,7 +414,7 @@ class NoteInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -424,7 +424,7 @@ class NoteInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -436,7 +436,7 @@ class NoteInfo
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -446,7 +446,7 @@ class NoteInfo
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -458,7 +458,7 @@ class NoteInfo
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -468,7 +468,7 @@ class NoteInfo
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -480,7 +480,7 @@ class NoteInfo
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -490,7 +490,7 @@ class NoteInfo
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -502,7 +502,7 @@ class NoteInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -514,7 +514,7 @@ class NoteInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */

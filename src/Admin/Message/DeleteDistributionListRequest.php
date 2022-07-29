@@ -59,7 +59,7 @@ class DeleteDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class DeleteDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self
@@ -81,7 +81,7 @@ class DeleteDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Gets cascadeDelete
+     * Get cascadeDelete
      *
      * @return bool
      */
@@ -91,7 +91,7 @@ class DeleteDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Sets cascadeDelete
+     * Set cascadeDelete
      *
      * @param  bool $cascadeDelete
      * @return self

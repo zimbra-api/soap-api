@@ -57,7 +57,7 @@ class ExceptIdInfo
     }
 
     /**
-     * Gets recurrenceId
+     * Get recurrenceId
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class ExceptIdInfo
     }
 
     /**
-     * Sets recurrenceId
+     * Set recurrenceId
      *
      * @param  string $recurrenceId
      * @return self
@@ -79,7 +79,7 @@ class ExceptIdInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class ExceptIdInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

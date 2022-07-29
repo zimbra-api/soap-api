@@ -51,7 +51,7 @@ class ZimletInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets Keyword
+     * Get Keyword
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class ZimletInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets Keyword
+     * Set Keyword
      *
      * @param  string $hasKeyword
      * @return self

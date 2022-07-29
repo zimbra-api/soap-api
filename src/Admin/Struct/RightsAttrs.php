@@ -49,7 +49,7 @@ class RightsAttrs
     }
 
     /**
-     * Gets all
+     * Get all
      *
      * @return bool
      */
@@ -59,7 +59,7 @@ class RightsAttrs
     }
 
     /**
-     * Sets all
+     * Set all
      *
      * @param  bool $all
      * @return self

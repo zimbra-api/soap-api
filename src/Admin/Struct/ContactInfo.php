@@ -317,7 +317,7 @@ class ContactInfo
     }
 
     /**
-     * Gets sort field value
+     * Get sort field value
      *
      * @return string
      */
@@ -327,7 +327,7 @@ class ContactInfo
     }
 
     /**
-     * Sets sort field value
+     * Set sort field value
      *
      * @param  string $sortField
      * @return self
@@ -339,7 +339,7 @@ class ContactInfo
     }
 
     /**
-     * Gets can expand
+     * Get can expand
      *
      * @return bool
      */
@@ -349,7 +349,7 @@ class ContactInfo
     }
 
     /**
-     * Sets can expand
+     * Set can expand
      *
      * @param  bool $canExpand
      * @return bool
@@ -361,7 +361,7 @@ class ContactInfo
     }
 
     /**
-     * Gets Contact Id
+     * Get Contact Id
      *
      * @return string
      */
@@ -371,7 +371,7 @@ class ContactInfo
     }
 
     /**
-     * Sets Contact Id
+     * Set Contact Id
      *
      * @param  string $id
      * @return self
@@ -383,7 +383,7 @@ class ContactInfo
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -393,7 +393,7 @@ class ContactInfo
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -405,7 +405,7 @@ class ContactInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -415,7 +415,7 @@ class ContactInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -427,7 +427,7 @@ class ContactInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -437,7 +437,7 @@ class ContactInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -449,7 +449,7 @@ class ContactInfo
     }
 
     /**
-     * Gets tag names
+     * Get tag names
      *
      * @return string
      */
@@ -459,7 +459,7 @@ class ContactInfo
     }
 
     /**
-     * Sets tag names
+     * Set tag names
      *
      * @param  string $tagNames
      * @return self
@@ -471,7 +471,7 @@ class ContactInfo
     }
 
     /**
-     * Gets change date
+     * Get change date
      *
      * @return int
      */
@@ -481,7 +481,7 @@ class ContactInfo
     }
 
     /**
-     * Sets change date
+     * Set change date
      *
      * @param  int $changeDate
      * @return self
@@ -493,7 +493,7 @@ class ContactInfo
     }
 
     /**
-     * Gets modified sequence ID
+     * Get modified sequence ID
      *
      * @return int
      */
@@ -503,7 +503,7 @@ class ContactInfo
     }
 
     /**
-     * Sets modified sequence ID
+     * Set modified sequence ID
      *
      * @param  int $modifiedSequenceId
      * @return self
@@ -515,7 +515,7 @@ class ContactInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -525,7 +525,7 @@ class ContactInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -537,7 +537,7 @@ class ContactInfo
     }
 
     /**
-     * Gets revision ID
+     * Get revision ID
      *
      * @return int
      */
@@ -547,7 +547,7 @@ class ContactInfo
     }
 
     /**
-     * Sets revision ID
+     * Set revision ID
      *
      * @param  int $revisionId
      * @return self
@@ -559,7 +559,7 @@ class ContactInfo
     }
 
     /**
-     * Gets FileAs string for contact
+     * Get FileAs string for contact
      *
      * @return string
      */
@@ -569,7 +569,7 @@ class ContactInfo
     }
 
     /**
-     * Sets FileAs string for contact
+     * Set FileAs string for contact
      *
      * @param  string $fileAs
      * @return self
@@ -581,7 +581,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact email address
+     * Get contact email address
      *
      * @return string
      */
@@ -591,7 +591,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact email address
+     * Set contact email address
      *
      * @param  string $email
      * @return self
@@ -603,7 +603,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact email address 2
+     * Get contact email address 2
      *
      * @return string
      */
@@ -613,7 +613,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact email address 2
+     * Set contact email address 2
      *
      * @param  string $email2
      * @return self
@@ -625,7 +625,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact email address 3
+     * Get contact email address 3
      *
      * @return string
      */
@@ -635,7 +635,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact email address 3
+     * Set contact email address 3
      *
      * @param  string $email3
      * @return self
@@ -647,7 +647,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact type
+     * Get contact type
      *
      * @return string
      */
@@ -657,7 +657,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact type
+     * Set contact type
      *
      * @param  string $type
      * @return self
@@ -669,7 +669,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact distribution list
+     * Get contact distribution list
      *
      * @return string
      */
@@ -679,7 +679,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact distribution list
+     * Set contact distribution list
      *
      * @param  string $dlist
      * @return self
@@ -691,7 +691,7 @@ class ContactInfo
     }
 
     /**
-     * Gets Global Address List entry reference
+     * Get Global Address List entry reference
      *
      * @return string
      */
@@ -701,7 +701,7 @@ class ContactInfo
     }
 
     /**
-     * Sets Global Address List entry reference
+     * Set Global Address List entry reference
      *
      * @param  string $reference
      * @return self
@@ -713,7 +713,7 @@ class ContactInfo
     }
 
     /**
-     * Gets denotes whether the number of entries on a GAL group exceeds the specified max
+     * Get denotes whether the number of entries on a GAL group exceeds the specified max
      *
      * @return bool
      */
@@ -723,7 +723,7 @@ class ContactInfo
     }
 
     /**
-     * Sets denotes whether the number of entries on a GAL group exceeds the specified max
+     * Set denotes whether the number of entries on a GAL group exceeds the specified max
      *
      * @param  bool $tooManyMembers
      * @return self
@@ -735,7 +735,7 @@ class ContactInfo
     }
 
     /**
-     * Gets custom metadata information
+     * Get custom metadata information
      *
      * @return array
      */
@@ -745,7 +745,7 @@ class ContactInfo
     }
 
     /**
-     * Sets custom metadata information
+     * Set custom metadata information
      *
      * @param  array $metadatas
      * @return self
@@ -769,7 +769,7 @@ class ContactInfo
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -779,7 +779,7 @@ class ContactInfo
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self
@@ -803,7 +803,7 @@ class ContactInfo
     }
 
     /**
-     * Gets contact group members
+     * Get contact group members
      *
      * @return array
      */
@@ -813,7 +813,7 @@ class ContactInfo
     }
 
     /**
-     * Sets contact group members
+     * Set contact group members
      *
      * @param  array $attrs
      * @return self

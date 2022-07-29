@@ -68,7 +68,7 @@ class AccountInfo
     }
 
     /**
-     * Gets account by
+     * Get account by
      *
      * @return AccountBy
      */
@@ -78,7 +78,7 @@ class AccountInfo
     }
 
     /**
-     * Sets account by enum
+     * Set account by enum
      *
      * @param  AccountBy $by
      * @return self
@@ -90,7 +90,7 @@ class AccountInfo
     }
 
     /**
-     * Gets mountpoint traversed
+     * Get mountpoint traversed
      *
      * @return bool
      */
@@ -100,7 +100,7 @@ class AccountInfo
     }
 
     /**
-     * Sets mountpoint traversed
+     * Set mountpoint traversed
      *
      * @param  bool $mountpointTraversed
      * @return self
@@ -112,7 +112,7 @@ class AccountInfo
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class AccountInfo
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

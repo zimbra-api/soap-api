@@ -58,7 +58,7 @@ class AddAccountLoggerResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets loggers
+     * Set loggers
      *
      * @param  array $loggers
      * @return self
@@ -70,7 +70,7 @@ class AddAccountLoggerResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets loggers
+     * Get loggers
      *
      * @return array
      */

@@ -47,7 +47,7 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

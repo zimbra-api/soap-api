@@ -53,7 +53,7 @@ class OpValue
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class OpValue
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class OpValue
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

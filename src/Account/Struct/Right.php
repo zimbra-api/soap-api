@@ -42,7 +42,7 @@ class Right
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class Right
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  string $right
      * @return self

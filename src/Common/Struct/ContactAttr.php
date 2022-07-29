@@ -90,7 +90,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Gets Part ID.
+     * Get Part ID.
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Sets Part ID.
+     * Set Part ID.
      *
      * @param  string $part
      * @return self
@@ -112,7 +112,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Gets content type
+     * Get content type
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Sets content type
+     * Set content type
      *
      * @param  string $contentType
      * @return self
@@ -134,7 +134,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -144,7 +144,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -156,7 +156,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Gets content filename
+     * Get content filename
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class ContactAttr extends KeyValuePair
     }
 
     /**
-     * Sets content filename
+     * Set content filename
      *
      * @param  string $contentFilename
      * @return self

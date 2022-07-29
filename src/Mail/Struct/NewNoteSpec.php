@@ -87,7 +87,7 @@ class NewNoteSpec
     }
 
     /**
-     * Gets parentFolderId
+     * Get parentFolderId
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class NewNoteSpec
     }
 
     /**
-     * Sets parentFolderId
+     * Set parentFolderId
      *
      * @param  string $parentFolderId
      * @return self
@@ -109,7 +109,7 @@ class NewNoteSpec
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -119,7 +119,7 @@ class NewNoteSpec
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -131,7 +131,7 @@ class NewNoteSpec
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -141,7 +141,7 @@ class NewNoteSpec
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -153,7 +153,7 @@ class NewNoteSpec
     }
 
     /**
-     * Gets bounds
+     * Get bounds
      *
      * @return string
      */
@@ -163,7 +163,7 @@ class NewNoteSpec
     }
 
     /**
-     * Sets bounds
+     * Set bounds
      *
      * @param  string $bounds
      * @return self

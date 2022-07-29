@@ -95,7 +95,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Gets the hostName.
+     * Get the hostName.
      *
      * @return HostName
      */
@@ -105,7 +105,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets the hostName.
+     * Set the hostName.
      *
      * @param  HostName $hostName
      * @return self
@@ -117,7 +117,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets the stats.
+     * Set the stats.
      *
      * @return StatsSpec
      */
@@ -127,7 +127,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets the stats.
+     * Set the stats.
      *
      * @param  StatsSpec $stats
      * @return self
@@ -139,7 +139,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return TimeAttr
      */
@@ -149,7 +149,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  TimeAttr $startTime
      * @return self
@@ -161,7 +161,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return TimeAttr
      */
@@ -171,7 +171,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  TimeAttr $endTime
      * @return self

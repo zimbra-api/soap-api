@@ -114,7 +114,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets the rules
+     * Set the rules
      *
      * @param  array $rules
      * @return self
@@ -128,7 +128,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets rules
+     * Get rules
      *
      * @return array
      */
@@ -138,7 +138,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets add rules
+     * Set add rules
      *
      * @param  array $rules
      * @return self
@@ -150,7 +150,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets add rules
+     * Get add rules
      *
      * @return array
      */
@@ -160,7 +160,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets exclude rules
+     * Set exclude rules
      *
      * @param  array $rules
      * @return self
@@ -172,7 +172,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets exclude rules
+     * Get exclude rules
      *
      * @return array
      */
@@ -182,7 +182,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets except rules
+     * Set except rules
      *
      * @param  array $rules
      * @return self
@@ -194,7 +194,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets except rules
+     * Get except rules
      *
      * @return array
      */
@@ -204,7 +204,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets cancel rules
+     * Set cancel rules
      *
      * @param  array $rules
      * @return self
@@ -216,7 +216,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets cancel rules
+     * Get cancel rules
      *
      * @return array
      */
@@ -226,7 +226,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets dates rules
+     * Set dates rules
      *
      * @param  array $rules
      * @return self
@@ -238,7 +238,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets dates rules
+     * Get dates rules
      *
      * @return array
      */
@@ -248,7 +248,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Sets simple rules
+     * Set simple rules
      *
      * @param  array $rules
      * @return self
@@ -260,7 +260,7 @@ class RecurrenceInfo implements RecurRuleBase, RecurrenceInfoInterface
     }
 
     /**
-     * Gets simple rules
+     * Get simple rules
      *
      * @return array
      */

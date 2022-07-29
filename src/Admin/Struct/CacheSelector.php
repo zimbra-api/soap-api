@@ -87,7 +87,7 @@ class CacheSelector
     }
 
     /**
-     * Gets cache types
+     * Get cache types
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class CacheSelector
     }
 
     /**
-     * Sets cache types
+     * Set cache types
      *
      * @param  string $types
      * @return self
@@ -109,7 +109,7 @@ class CacheSelector
     }
 
     /**
-     * Gets is all servers flag
+     * Get is all servers flag
      *
      * @return bool
      */
@@ -119,7 +119,7 @@ class CacheSelector
     }
 
     /**
-     * Sets is all servers flag
+     * Set is all servers flag
      *
      * @param  bool $allServers
      * @return self
@@ -131,7 +131,7 @@ class CacheSelector
     }
 
     /**
-     * Gets is imap servers flag
+     * Get is imap servers flag
      *
      * @return bool
      */
@@ -141,7 +141,7 @@ class CacheSelector
     }
 
     /**
-     * Sets is imap servers flag
+     * Set is imap servers flag
      *
      * @param  bool $imapServers
      * @return self
@@ -165,7 +165,7 @@ class CacheSelector
     }
 
     /**
-     * Sets entry sequence
+     * Set entry sequence
      *
      * @param  array $entries The entries
      * @return self
@@ -177,7 +177,7 @@ class CacheSelector
     }
 
     /**
-     * Gets entry sequence
+     * Get entry sequence
      *
      * @return array
      */

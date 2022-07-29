@@ -22,14 +22,14 @@ namespace Zimbra\Common\Struct;
 interface SearchFilterCondition
 {
     /**
-     * Gets not flag
+     * Get not flag
      *
      * @return bool
      */
     function isNot(): ?bool;
 
     /**
-     * Sets not flag
+     * Set not flag
      *
      * @param  bool $not
      * @return self

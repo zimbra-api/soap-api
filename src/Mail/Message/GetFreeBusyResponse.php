@@ -58,7 +58,7 @@ class GetFreeBusyResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets freebusyUsers
+     * Set freebusyUsers
      *
      * @param  array $users
      * @return self
@@ -70,7 +70,7 @@ class GetFreeBusyResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets freebusyUsers
+     * Get freebusyUsers
      *
      * @return array
      */

@@ -74,7 +74,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return EffectiveRightsTargetSelector
      */
@@ -84,7 +84,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  EffectiveRightsTargetSelector $target
      * @return self
@@ -96,7 +96,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeSelector
      */
@@ -106,7 +106,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Sets grantee
+     * Set grantee
      *
      * @param  GranteeSelector $grantee
      * @return self
@@ -118,7 +118,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return RightModifierInfo
      */
@@ -128,7 +128,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  RightModifierInfo $right
      * @return self
