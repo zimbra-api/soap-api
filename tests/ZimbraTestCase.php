@@ -9,7 +9,7 @@ use Zimbra\Common\Serializer\SerializerFactory;
 use Zimbra\Common\Soap\ClientInterface;
 
 /**
- * Base testcase class for all Zimbra testcases.
+ * Base class for all Zimbra test cases.
  */
 abstract class ZimbraTestCase extends TestCase
 {

@@ -80,6 +80,12 @@ EOT;
  */
 class BatchEnvelope extends SoapEnvelope
 {
+    /**
+     * @Accessor(getter="getBody", setter="setBody")
+     * @SerializedName("Body")
+     * @Type("Zimbra\Tests\Common\Struct\BatchBody")
+     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     */
     private $body;
 
     public function getBody() : SoapBodyInterface
