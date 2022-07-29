@@ -72,7 +72,7 @@ class TargetSpec
     }
 
     /**
-     * Gets targetType
+     * Get targetType
      *
      * @return TargetType
      */
@@ -82,7 +82,7 @@ class TargetSpec
     }
 
     /**
-     * Sets targetType
+     * Set targetType
      *
      * @param  TargetType $targetType
      * @return self
@@ -94,7 +94,7 @@ class TargetSpec
     }
 
     /**
-     * Gets accountBy
+     * Get accountBy
      *
      * @return AccountBy
      */
@@ -104,7 +104,7 @@ class TargetSpec
     }
 
     /**
-     * Sets accountBy
+     * Set accountBy
      *
      * @param  AccountBy $accountBy
      * @return self
@@ -116,7 +116,7 @@ class TargetSpec
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class TargetSpec
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

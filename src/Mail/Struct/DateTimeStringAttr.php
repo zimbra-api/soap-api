@@ -46,7 +46,7 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
     }
 
     /**
-     * Gets dateTime
+     * Get dateTime
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
     }
 
     /**
-     * Sets dateTime
+     * Set dateTime
      *
      * @param  string $dateTime
      * @return self

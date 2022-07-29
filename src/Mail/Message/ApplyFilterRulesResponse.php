@@ -48,7 +48,7 @@ class ApplyFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets msgIds
+     * Get msgIds
      *
      * @return IdsAttr
      */
@@ -58,7 +58,7 @@ class ApplyFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets msgIds
+     * Set msgIds
      *
      * @param  IdsAttr $msgIds
      * @return self

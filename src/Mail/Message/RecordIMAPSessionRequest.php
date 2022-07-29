@@ -51,7 +51,7 @@ class RecordIMAPSessionRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class RecordIMAPSessionRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self

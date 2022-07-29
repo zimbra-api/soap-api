@@ -60,7 +60,7 @@ class GetModifiedItemsIDsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  array $ids
      * @return self
@@ -73,7 +73,7 @@ class GetModifiedItemsIDsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return array
      */

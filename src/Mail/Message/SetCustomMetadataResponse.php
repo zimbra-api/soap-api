@@ -46,7 +46,7 @@ class SetCustomMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class SetCustomMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

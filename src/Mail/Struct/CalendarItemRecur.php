@@ -115,7 +115,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Gets recurrence
+     * Get recurrence
      *
      * @return RecurrenceInfoInterface
      */
@@ -125,7 +125,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Sets recurrence
+     * Set recurrence
      *
      * @param  RecurrenceInfoInterface $recurrence
      * @return self
@@ -137,7 +137,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return ExceptionRecurIdInfoInterface
      */
@@ -147,7 +147,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  ExceptionRecurIdInfoInterface $exceptionId
      * @return self
@@ -159,7 +159,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Gets dtStart
+     * Get dtStart
      *
      * @return DtTimeInfoInterface
      */
@@ -169,7 +169,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Sets dtStart
+     * Set dtStart
      *
      * @param  DtTimeInfoInterface $dtStart
      * @return self
@@ -181,7 +181,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Gets dtEnd
+     * Get dtEnd
      *
      * @return DtTimeInfoInterface
      */
@@ -191,7 +191,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Sets dtEnd
+     * Set dtEnd
      *
      * @param  DtTimeInfoInterface $dtEnd
      * @return self
@@ -203,7 +203,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return DurationInfoInterface
      */
@@ -213,7 +213,7 @@ class CalendarItemRecur
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  DurationInfoInterface $duration
      * @return self

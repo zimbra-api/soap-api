@@ -113,7 +113,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -123,7 +123,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -135,7 +135,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets autoSendTime
+     * Get autoSendTime
      *
      * @return int
      */
@@ -145,7 +145,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets autoSendTime
+     * Set autoSendTime
      *
      * @param  int $autoSendTime
      * @return self
@@ -157,7 +157,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -169,7 +169,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */
@@ -191,7 +191,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -201,7 +201,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -213,7 +213,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -223,7 +223,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -235,7 +235,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Gets invite
+     * Get invite
      *
      * @return InviteInfo
      */
@@ -245,7 +245,7 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Sets invite
+     * Set invite
      *
      * @param  InviteInfo $invite
      * @return self

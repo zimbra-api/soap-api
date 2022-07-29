@@ -84,7 +84,7 @@ class MPInviteInfo
     }
 
     /**
-     * Gets calItemType
+     * Get calItemType
      *
      * @return InviteType
      */
@@ -94,7 +94,7 @@ class MPInviteInfo
     }
 
     /**
-     * Sets calItemType
+     * Set calItemType
      *
      * @param  InviteType $calItemType
      * @return self
@@ -106,7 +106,7 @@ class MPInviteInfo
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -118,7 +118,7 @@ class MPInviteInfo
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class MPInviteInfo
     }
 
     /**
-     * Sets calendarReplies
+     * Set calendarReplies
      *
      * @param  array $replies
      * @return self
@@ -152,7 +152,7 @@ class MPInviteInfo
     }
 
     /**
-     * Gets calendarReplies
+     * Get calendarReplies
      *
      * @return array
      */
@@ -174,7 +174,7 @@ class MPInviteInfo
     }
 
     /**
-     * Sets inviteComponents
+     * Set inviteComponents
      *
      * @param  array $components
      * @return self
@@ -186,7 +186,7 @@ class MPInviteInfo
     }
 
     /**
-     * Gets inviteComponents
+     * Get inviteComponents
      *
      * @return array
      */

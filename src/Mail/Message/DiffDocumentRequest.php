@@ -52,7 +52,7 @@ class DiffDocumentRequest extends SoapRequest
     }
 
     /**
-     * Gets doc
+     * Get doc
      *
      * @return DiffDocumentVersionSpec
      */
@@ -62,7 +62,7 @@ class DiffDocumentRequest extends SoapRequest
     }
 
     /**
-     * Sets doc
+     * Set doc
      *
      * @param  DiffDocumentVersionSpec $doc
      * @return self

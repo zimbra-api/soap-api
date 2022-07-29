@@ -132,7 +132,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets nextAlarm
+     * Get nextAlarm
      *
      * @return int
      */
@@ -142,7 +142,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets nextAlarm
+     * Set nextAlarm
      *
      * @param  int $nextAlarm
      * @return self
@@ -154,7 +154,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets alarmInstanceStart
+     * Get alarmInstanceStart
      *
      * @return int
      */
@@ -164,7 +164,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets alarmInstanceStart
+     * Set alarmInstanceStart
      *
      * @param  int $alarmInstanceStart
      * @return self
@@ -176,7 +176,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets invId
+     * Get invId
      *
      * @return int
      */
@@ -186,7 +186,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets invId
+     * Set invId
      *
      * @param  int $invId
      * @return self
@@ -198,7 +198,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -208,7 +208,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -220,7 +220,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -230,7 +230,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -242,7 +242,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets location
+     * Get location
      *
      * @return string
      */
@@ -252,7 +252,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets location
+     * Set location
      *
      * @param  string $location
      * @return self
@@ -264,7 +264,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Gets alarm
+     * Get alarm
      *
      * @return AlarmInfo
      */
@@ -274,7 +274,7 @@ class AlarmDataInfo
     }
 
     /**
-     * Sets alarm
+     * Set alarm
      *
      * @param  AlarmInfo $alarm
      * @return self

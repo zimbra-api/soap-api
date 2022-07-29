@@ -58,7 +58,7 @@ class IMAPCopyResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets items
+     * Set items
      *
      * @param  array $items
      * @return self
@@ -70,7 +70,7 @@ class IMAPCopyResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets items
+     * Get items
      *
      * @return array
      */

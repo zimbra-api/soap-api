@@ -89,7 +89,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Gets calItemType
+     * Get calItemType
      *
      * @return InviteType
      */
@@ -99,7 +99,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Sets calItemType
+     * Set calItemType
      *
      * @param  InviteType $calItemType
      * @return self
@@ -111,7 +111,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -123,7 +123,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -145,7 +145,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Gets inviteComponent
+     * Get inviteComponent
      *
      * @return InviteComponentInterface
      */
@@ -155,7 +155,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Sets inviteComponent
+     * Set inviteComponent
      *
      * @param  InviteComponentInterface $inviteComponent
      * @return self
@@ -167,7 +167,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Sets calendarReplies
+     * Set calendarReplies
      *
      * @param  array $replies
      * @return self
@@ -179,7 +179,7 @@ class InviteInfo implements InviteInfoInterface
     }
 
     /**
-     * Gets calendarReplies
+     * Get calendarReplies
      *
      * @return array
      */

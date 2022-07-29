@@ -74,7 +74,7 @@ class GetPermissionRequest extends SoapRequest
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

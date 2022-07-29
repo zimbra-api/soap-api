@@ -49,7 +49,7 @@ class CreateContactResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contact
+     * Get contact
      *
      * @return ContactInfo
      */
@@ -59,7 +59,7 @@ class CreateContactResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contact
+     * Set contact
      *
      * @param  ContactInfo $contact
      * @return self

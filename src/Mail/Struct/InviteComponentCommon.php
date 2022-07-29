@@ -422,7 +422,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the method
+     * Get the method
      *
      * @return string
      */
@@ -432,7 +432,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the method
+     * Set the method
      *
      * @param  string $method
      * @return self
@@ -444,7 +444,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the componentNum
+     * Get the componentNum
      *
      * @return int
      */
@@ -454,7 +454,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the componentNum
+     * Set the componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -466,7 +466,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the rsvp
+     * Get the rsvp
      *
      * @return bool
      */
@@ -476,7 +476,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the rsvp
+     * Set the rsvp
      *
      * @param  bool $rsvp
      * @return self
@@ -488,7 +488,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the priority
+     * Get the priority
      *
      * @return string
      */
@@ -498,7 +498,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the priority
+     * Set the priority
      *
      * @param  string $priority
      * @return self
@@ -510,7 +510,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -520,7 +520,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -532,7 +532,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the location
+     * Get the location
      *
      * @return string
      */
@@ -542,7 +542,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the location
+     * Set the location
      *
      * @param  string $location
      * @return self
@@ -554,7 +554,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the percentComplete
+     * Get the percentComplete
      *
      * @return string
      */
@@ -564,7 +564,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the percentComplete
+     * Set the percentComplete
      *
      * @param  string $percentComplete
      * @return self
@@ -576,7 +576,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the completed
+     * Get the completed
      *
      * @return string
      */
@@ -586,7 +586,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the completed
+     * Set the completed
      *
      * @param  string $completed
      * @return self
@@ -598,7 +598,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the noBlob
+     * Get the noBlob
      *
      * @return bool
      */
@@ -608,7 +608,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the noBlob
+     * Set the noBlob
      *
      * @param  bool $noBlob
      * @return self
@@ -620,7 +620,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the freeBusyActual
+     * Get the freeBusyActual
      *
      * @return FreeBusyStatus
      */
@@ -630,7 +630,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the freeBusyActual
+     * Set the freeBusyActual
      *
      * @param  FreeBusyStatus $freeBusyActual
      * @return self
@@ -642,7 +642,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the freeBusy
+     * Get the freeBusy
      *
      * @return FreeBusyStatus
      */
@@ -652,7 +652,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the freeBusy
+     * Set the freeBusy
      *
      * @param  FreeBusyStatus $freeBusy
      * @return self
@@ -664,7 +664,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the transparency
+     * Get the transparency
      *
      * @return Transparency
      */
@@ -674,7 +674,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the transparency
+     * Set the transparency
      *
      * @param  Transparency $transparency
      * @return self
@@ -686,7 +686,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the isOrganizer
+     * Get the isOrganizer
      *
      * @return bool
      */
@@ -696,7 +696,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the isOrganizer
+     * Set the isOrganizer
      *
      * @param  bool $isOrganizer
      * @return self
@@ -708,7 +708,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the xUid
+     * Get the xUid
      *
      * @return string
      */
@@ -718,7 +718,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the xUid
+     * Set the xUid
      *
      * @param  string $xUid
      * @return self
@@ -730,7 +730,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the uid
+     * Get the uid
      *
      * @return string
      */
@@ -740,7 +740,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the uid
+     * Set the uid
      *
      * @param  string $uid
      * @return self
@@ -752,7 +752,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the sequence
+     * Get the sequence
      *
      * @return int
      */
@@ -762,7 +762,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the sequence
+     * Set the sequence
      *
      * @param  int $sequence
      * @return self
@@ -774,7 +774,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the dateTime
+     * Get the dateTime
      *
      * @return int
      */
@@ -784,7 +784,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the dateTime
+     * Set the dateTime
      *
      * @param  int $dateTime
      * @return self
@@ -796,7 +796,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the calItemId
+     * Get the calItemId
      *
      * @return string
      */
@@ -806,7 +806,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the calItemId
+     * Set the calItemId
      *
      * @param  string $calItemId
      * @return self
@@ -818,7 +818,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the deprecatedApptId
+     * Get the deprecatedApptId
      *
      * @return string
      */
@@ -828,7 +828,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the deprecatedApptId
+     * Set the deprecatedApptId
      *
      * @param  string $deprecatedApptId
      * @return self
@@ -840,7 +840,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the calItemFolder
+     * Get the calItemFolder
      *
      * @return string
      */
@@ -850,7 +850,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the calItemFolder
+     * Set the calItemFolder
      *
      * @param  string $calItemFolder
      * @return self
@@ -862,7 +862,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the status
+     * Get the status
      *
      * @return InviteStatus
      */
@@ -872,7 +872,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the status
+     * Set the status
      *
      * @param  InviteStatus $status
      * @return self
@@ -884,7 +884,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the calClass
+     * Get the calClass
      *
      * @return InviteClass
      */
@@ -894,7 +894,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the calClass
+     * Set the calClass
      *
      * @param  InviteClass $calClass
      * @return self
@@ -906,7 +906,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the url
+     * Get the url
      *
      * @return string
      */
@@ -916,7 +916,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the url
+     * Set the url
      *
      * @param  string $url
      * @return self
@@ -928,7 +928,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the isException
+     * Get the isException
      *
      * @return bool
      */
@@ -938,7 +938,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the isException
+     * Set the isException
      *
      * @param  bool $isException
      * @return self
@@ -950,7 +950,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the recurIdZ
+     * Get the recurIdZ
      *
      * @return string
      */
@@ -960,7 +960,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the recurIdZ
+     * Set the recurIdZ
      *
      * @param  string $recurIdZ
      * @return self
@@ -972,7 +972,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the isAllDay
+     * Get the isAllDay
      *
      * @return bool
      */
@@ -982,7 +982,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the isAllDay
+     * Set the isAllDay
      *
      * @param  bool $isAllDay
      * @return self
@@ -994,7 +994,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the isDraft
+     * Get the isDraft
      *
      * @return bool
      */
@@ -1004,7 +1004,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the isDraft
+     * Set the isDraft
      *
      * @param  bool $isDraft
      * @return self
@@ -1016,7 +1016,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the neverSent
+     * Get the neverSent
      *
      * @return bool
      */
@@ -1026,7 +1026,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the neverSent
+     * Set the neverSent
      *
      * @param  bool $neverSent
      * @return self
@@ -1038,7 +1038,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Gets the changes
+     * Get the changes
      *
      * @return string
      */
@@ -1048,7 +1048,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     }
 
     /**
-     * Sets the changes
+     * Set the changes
      *
      * @param  string $changes
      * @return self

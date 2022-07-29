@@ -76,7 +76,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Gets last
+     * Get last
      *
      * @return bool
      */
@@ -86,7 +86,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Sets last
+     * Set last
      *
      * @param  bool $last
      * @return self
@@ -98,7 +98,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -108,7 +108,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -120,7 +120,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Gets test
+     * Get test
      *
      * @return EditheaderTest
      */
@@ -130,7 +130,7 @@ class DeleteheaderAction extends FilterAction
     }
 
     /**
-     * Sets test
+     * Set test
      *
      * @param  EditheaderTest $test
      * @return self

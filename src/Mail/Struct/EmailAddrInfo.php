@@ -74,7 +74,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Gets addressType
+     * Get addressType
      *
      * @return AddressType
      */
@@ -84,7 +84,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Sets addressType
+     * Set addressType
      *
      * @param  AddressType $addressType
      * @return self
@@ -96,7 +96,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self
@@ -118,7 +118,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Gets the personal
+     * Get the personal
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class EmailAddrInfo
     }
 
     /**
-     * Sets the personal
+     * Set the personal
      *
      * @param  string $personal
      * @return self

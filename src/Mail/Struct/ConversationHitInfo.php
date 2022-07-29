@@ -99,7 +99,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self
@@ -121,7 +121,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     }
 
     /**
-     * Sets messageHits
+     * Set messageHits
      *
      * @param  array $hits
      * @return self
@@ -133,7 +133,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     }
 
     /**
-     * Gets messageHits
+     * Get messageHits
      *
      * @return array
      */

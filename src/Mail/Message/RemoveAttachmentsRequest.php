@@ -49,7 +49,7 @@ class RemoveAttachmentsRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return MsgPartIds
      */
@@ -59,7 +59,7 @@ class RemoveAttachmentsRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  MsgPartIds $msg
      * @return self

@@ -76,7 +76,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Gets headerName
+     * Get headerName
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Sets headerName
+     * Set headerName
      *
      * @param  string $headerName
      * @return self
@@ -98,7 +98,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Gets headerValue
+     * Get headerValue
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Sets headerValue
+     * Set headerValue
      *
      * @param  string $headerValue
      * @return self
@@ -120,7 +120,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Gets last
+     * Get last
      *
      * @return bool
      */
@@ -130,7 +130,7 @@ class AddheaderAction extends FilterAction
     }
 
     /**
-     * Sets last
+     * Set last
      *
      * @param  bool $last
      * @return self

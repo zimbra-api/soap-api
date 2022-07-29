@@ -101,7 +101,7 @@ class MimePartInfo
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class MimePartInfo
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -123,7 +123,7 @@ class MimePartInfo
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class MimePartInfo
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -145,7 +145,7 @@ class MimePartInfo
     }
 
     /**
-     * Gets contentId
+     * Get contentId
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class MimePartInfo
     }
 
     /**
-     * Sets contentId
+     * Set contentId
      *
      * @param  string $contentId
      * @return self
@@ -167,7 +167,7 @@ class MimePartInfo
     }
 
     /**
-     * Gets mimeParts
+     * Get mimeParts
      *
      * @return array
      */
@@ -177,7 +177,7 @@ class MimePartInfo
     }
 
     /**
-     * Sets mimeParts
+     * Set mimeParts
      *
      * @param  array $mimeParts
      * @return self
@@ -201,7 +201,7 @@ class MimePartInfo
     }
 
     /**
-     * Gets attachments
+     * Get attachments
      *
      * @return AttachmentsInfo
      */
@@ -211,7 +211,7 @@ class MimePartInfo
     }
 
     /**
-     * Sets attachments
+     * Set attachments
      *
      * @param  AttachmentsInfo $attachments
      * @return self

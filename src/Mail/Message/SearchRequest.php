@@ -212,7 +212,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Gets warmup
+     * Get warmup
      *
      * @return bool
      */
@@ -222,7 +222,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Sets warmup
+     * Set warmup
      *
      * @param bool $warmup
      * @return self

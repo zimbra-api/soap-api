@@ -74,7 +74,7 @@ class GetFolderSpec
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class GetFolderSpec
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $id
      * @return self
@@ -96,7 +96,7 @@ class GetFolderSpec
     }
 
     /**
-     * Gets the folderId
+     * Get the folderId
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class GetFolderSpec
     }
 
     /**
-     * Sets the folderId
+     * Set the folderId
      *
      * @param  string $folderId
      * @return self
@@ -118,7 +118,7 @@ class GetFolderSpec
     }
 
     /**
-     * Gets the path
+     * Get the path
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class GetFolderSpec
     }
 
     /**
-     * Sets the path
+     * Set the path
      *
      * @param  string $path
      * @return self

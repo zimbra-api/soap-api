@@ -59,7 +59,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return int
      */
@@ -69,7 +69,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  int $folderId
      * @return self
@@ -81,7 +81,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     }
 
     /**
-     * Gets modSeq
+     * Get modSeq
      *
      * @return int
      */
@@ -91,7 +91,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     }
 
     /**
-     * Sets modSeq
+     * Set modSeq
      *
      * @param  int $modSeq
      * @return self

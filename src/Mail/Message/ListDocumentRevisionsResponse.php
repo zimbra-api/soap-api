@@ -69,7 +69,7 @@ class ListDocumentRevisionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets revisions
+     * Set revisions
      *
      * @param  array $revisions
      * @return self
@@ -81,7 +81,7 @@ class ListDocumentRevisionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets revisions
+     * Get revisions
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class ListDocumentRevisionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets users
+     * Set users
      *
      * @param  array $users
      * @return self
@@ -115,7 +115,7 @@ class ListDocumentRevisionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets users
+     * Get users
      *
      * @return array
      */

@@ -128,7 +128,7 @@ class Grant
     }
 
     /**
-     * Gets perm
+     * Get perm
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class Grant
     }
 
     /**
-     * Sets perm
+     * Set perm
      *
      * @param  string $perm
      * @return self
@@ -156,7 +156,7 @@ class Grant
     }
 
     /**
-     * Gets the type of grantee
+     * Get the type of grantee
      *
      * @return GrantGranteeType
      */
@@ -166,7 +166,7 @@ class Grant
     }
 
     /**
-     * Sets the type of grantee
+     * Set the type of grantee
      *
      * @param  GrantGranteeType $granteeType
      * @return self
@@ -178,7 +178,7 @@ class Grant
     }
 
     /**
-     * Gets grantee Id
+     * Get grantee Id
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class Grant
     }
 
     /**
-     * Sets grantee Id
+     * Set grantee Id
      *
      * @param  string $granteeId
      * @return self
@@ -200,7 +200,7 @@ class Grant
     }
 
     /**
-     * Gets grantee name
+     * Get grantee name
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class Grant
     }
 
     /**
-     * Sets grantee name
+     * Set grantee name
      *
      * @param  string $granteeName
      * @return string|self
@@ -222,7 +222,7 @@ class Grant
     }
 
     /**
-     * Gets access key
+     * Get access key
      *
      * @return string
      */
@@ -232,7 +232,7 @@ class Grant
     }
 
     /**
-     * Sets access key
+     * Set access key
      *
      * @param  string $accessKey
      * @return self
@@ -244,7 +244,7 @@ class Grant
     }
 
     /**
-     * Gets guest password
+     * Get guest password
      *
      * @return string
      */
@@ -254,7 +254,7 @@ class Grant
     }
 
     /**
-     * Sets guest password
+     * Set guest password
      *
      * @param  string $guestPassword
      * @return self
@@ -266,7 +266,7 @@ class Grant
     }
 
     /**
-     * Gets expiry
+     * Get expiry
      *
      * @return int
      */
@@ -276,7 +276,7 @@ class Grant
     }
 
     /**
-     * Sets expiry
+     * Set expiry
      *
      * @param  int $expiry
      * @return self

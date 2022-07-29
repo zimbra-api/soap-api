@@ -300,7 +300,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets categories
+     * Get categories
      *
      * @return array
      */
@@ -310,7 +310,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets categories
+     * Set categories
      *
      * @param  array $categories
      * @return self
@@ -340,7 +340,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets comments
+     * Get comments
      *
      * @return array
      */
@@ -350,7 +350,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets comments
+     * Set comments
      *
      * @param  array $comments
      * @return self
@@ -380,7 +380,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets contacts
+     * Get contacts
      *
      * @return array
      */
@@ -390,7 +390,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets contacts
+     * Set contacts
      *
      * @param  array $contacts
      * @return self
@@ -420,7 +420,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -430,7 +430,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -442,7 +442,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return string
      */
@@ -452,7 +452,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param  string $description
      * @return self
@@ -464,7 +464,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets htmlDescription
+     * Get htmlDescription
      *
      * @return string
      */
@@ -474,7 +474,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets htmlDescription
+     * Set htmlDescription
      *
      * @param  string $htmlDescription
      * @return self
@@ -486,7 +486,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets geo
+     * Get geo
      *
      * @return GeoInfo
      */
@@ -496,7 +496,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets geo
+     * Set geo
      *
      * @param  GeoInfo $geo
      * @return self
@@ -508,7 +508,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets attendees
+     * Set attendees
      *
      * @param  array $attendees
      * @return self
@@ -520,7 +520,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets attendees
+     * Get attendees
      *
      * @return array
      */
@@ -542,7 +542,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets alarms
+     * Set alarms
      *
      * @param  array $alarms
      * @return self
@@ -554,7 +554,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets alarms
+     * Get alarms
      *
      * @return array
      */
@@ -576,7 +576,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets xProps
+     * Set xProps
      *
      * @param  array $xProps
      * @return self
@@ -588,7 +588,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets xProps
+     * Get xProps
      *
      * @return array
      */
@@ -610,7 +610,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets organizer
+     * Get organizer
      *
      * @return CalOrganizer
      */
@@ -620,7 +620,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets organizer
+     * Set organizer
      *
      * @param  CalOrganizer $organizer
      * @return self
@@ -632,7 +632,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets recurrence
+     * Get recurrence
      *
      * @return RecurrenceInfo
      */
@@ -642,7 +642,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets recurrence
+     * Set recurrence
      *
      * @param  RecurrenceInfo $recurrence
      * @return self
@@ -654,7 +654,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return ExceptionRecurIdInfo
      */
@@ -664,7 +664,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  ExceptionRecurIdInfo $exceptionId
      * @return self
@@ -676,7 +676,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets dtStart
+     * Get dtStart
      *
      * @return DtTimeInfo
      */
@@ -686,7 +686,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets dtStart
+     * Set dtStart
      *
      * @param  DtTimeInfo $dtStart
      * @return self
@@ -698,7 +698,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets dtEnd
+     * Get dtEnd
      *
      * @return DtTimeInfo
      */
@@ -708,7 +708,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets dtEnd
+     * Set dtEnd
      *
      * @param  DtTimeInfo $dtEnd
      * @return self
@@ -720,7 +720,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Gets duration
+     * Get duration
      *
      * @return DurationInfo
      */
@@ -730,7 +730,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     }
 
     /**
-     * Sets duration
+     * Set duration
      *
      * @param  DurationInfo $duration
      * @return self

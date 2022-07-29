@@ -62,7 +62,7 @@ class Content
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -72,7 +72,7 @@ class Content
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -84,7 +84,7 @@ class Content
     }
 
     /**
-     * Gets attachUploadId
+     * Get attachUploadId
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class Content
     }
 
     /**
-     * Sets attachUploadId
+     * Set attachUploadId
      *
      * @param  string $attachUploadId
      * @return self

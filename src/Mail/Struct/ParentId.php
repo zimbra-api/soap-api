@@ -44,7 +44,7 @@ class ParentId
     }
 
     /**
-     * Gets parentId
+     * Get parentId
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class ParentId
     }
 
     /**
-     * Sets parentId
+     * Set parentId
      *
      * @param  string $parentId
      * @return self

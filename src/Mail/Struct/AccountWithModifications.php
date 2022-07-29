@@ -71,7 +71,7 @@ class AccountWithModifications
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -81,7 +81,7 @@ class AccountWithModifications
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $folderId
      * @return self
@@ -93,7 +93,7 @@ class AccountWithModifications
     }
 
     /**
-     * Gets last change id
+     * Get last change id
      *
      * @return int
      */
@@ -103,7 +103,7 @@ class AccountWithModifications
     }
 
     /**
-     * Sets last change id
+     * Set last change id
      *
      * @param  int $lastChangeId
      * @return self
@@ -127,7 +127,7 @@ class AccountWithModifications
     }
 
     /**
-     * Sets pending modification folders
+     * Set pending modification folders
      *
      * @param array $mods
      * @return self
@@ -139,7 +139,7 @@ class AccountWithModifications
     }
 
     /**
-     * Gets pending modification folders
+     * Get pending modification folders
      *
      * @return array
      */

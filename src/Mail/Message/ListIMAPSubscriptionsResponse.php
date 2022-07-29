@@ -60,7 +60,7 @@ class ListIMAPSubscriptionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets subscriptions
+     * Set subscriptions
      *
      * @param  array $subs
      * @return self
@@ -72,7 +72,7 @@ class ListIMAPSubscriptionsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets subscriptions
+     * Get subscriptions
      *
      * @return array
      */

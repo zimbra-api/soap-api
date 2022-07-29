@@ -75,7 +75,7 @@ class TagSpec
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -85,7 +85,7 @@ class TagSpec
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -97,7 +97,7 @@ class TagSpec
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class TagSpec
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -119,7 +119,7 @@ class TagSpec
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -129,7 +129,7 @@ class TagSpec
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self

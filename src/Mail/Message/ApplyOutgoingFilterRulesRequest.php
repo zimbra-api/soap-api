@@ -94,7 +94,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets filterRules
+     * Set filterRules
      *
      * @param  array $rules
      * @return self
@@ -106,7 +106,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets filterRules
+     * Get filterRules
      *
      * @return array
      */
@@ -116,7 +116,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -138,7 +138,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets msgIds
+     * Get msgIds
      *
      * @return IdsAttr
      */
@@ -148,7 +148,7 @@ class ApplyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets msgIds
+     * Set msgIds
      *
      * @param  IdsAttr $msgIds
      * @return self

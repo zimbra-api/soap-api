@@ -46,7 +46,7 @@ class ContactAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ContactAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $type
      * @return self

@@ -72,7 +72,7 @@ class GetCommentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets users
+     * Set users
      *
      * @param  array $users
      * @return self
@@ -84,7 +84,7 @@ class GetCommentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets users
+     * Get users
      *
      * @return array
      */
@@ -106,7 +106,7 @@ class GetCommentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets comments
+     * Set comments
      *
      * @param  array $comments
      * @return self
@@ -118,7 +118,7 @@ class GetCommentsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets comments
+     * Get comments
      *
      * @return array
      */

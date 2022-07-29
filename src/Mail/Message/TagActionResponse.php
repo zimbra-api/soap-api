@@ -50,7 +50,7 @@ class TagActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return TagActionInfo
      */
@@ -60,7 +60,7 @@ class TagActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  TagActionInfo $action
      * @return self

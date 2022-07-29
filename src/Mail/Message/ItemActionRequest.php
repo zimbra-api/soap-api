@@ -48,7 +48,7 @@ class ItemActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ActionSelector
      */
@@ -58,7 +58,7 @@ class ItemActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  ActionSelector $action
      * @return self

@@ -75,7 +75,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calItemId
+     * Get calItemId
      *
      * @return int
      */
@@ -85,7 +85,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calItemId
+     * Set calItemId
      *
      * @param  int $calItemId
      * @return self
@@ -97,7 +97,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets invId
+     * Get invId
      *
      * @return int
      */
@@ -107,7 +107,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets invId
+     * Set invId
      *
      * @param  int $invId
      * @return self
@@ -119,7 +119,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -129,7 +129,7 @@ class AddAppointmentInviteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self

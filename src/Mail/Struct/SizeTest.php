@@ -68,7 +68,7 @@ class SizeTest extends FilterTest
     }
 
     /**
-     * Gets numberComparison
+     * Get numberComparison
      *
      * @return NumberComparison
      */
@@ -78,7 +78,7 @@ class SizeTest extends FilterTest
     }
 
     /**
-     * Sets numberComparison
+     * Set numberComparison
      *
      * @param  NumberComparison $numberComparison
      * @return self
@@ -90,7 +90,7 @@ class SizeTest extends FilterTest
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class SizeTest extends FilterTest
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  string $size
      * @return self

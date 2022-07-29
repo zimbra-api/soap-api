@@ -321,7 +321,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -331,7 +331,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -343,7 +343,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets imapUid
+     * Get imapUid
      *
      * @return int
      */
@@ -353,7 +353,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets imapUid
+     * Set imapUid
      *
      * @param  int $imapUid
      * @return self
@@ -365,7 +365,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets calendarIntendedFor
+     * Get calendarIntendedFor
      *
      * @return string
      */
@@ -375,7 +375,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets calendarIntendedFor
+     * Set calendarIntendedFor
      *
      * @param  string $calendarIntendedFor
      * @return self
@@ -387,7 +387,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets origId
+     * Get origId
      *
      * @return string
      */
@@ -397,7 +397,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets origId
+     * Set origId
      *
      * @param  string $origId
      * @return self
@@ -409,7 +409,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets draftReplyType
+     * Get draftReplyType
      *
      * @return ReplyType
      */
@@ -419,7 +419,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets draftReplyType
+     * Set draftReplyType
      *
      * @param  ReplyType $draftReplyType
      * @return self
@@ -431,7 +431,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets identityId
+     * Get identityId
      *
      * @return string
      */
@@ -441,7 +441,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets identityId
+     * Set identityId
      *
      * @param  string $identityId
      * @return self
@@ -453,7 +453,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets draftAccountId
+     * Get draftAccountId
      *
      * @return string
      */
@@ -463,7 +463,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets draftAccountId
+     * Set draftAccountId
      *
      * @param  string $draftAccountId
      * @return self
@@ -475,7 +475,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets draftAutoSendTime
+     * Get draftAutoSendTime
      *
      * @return int
      */
@@ -485,7 +485,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets draftAutoSendTime
+     * Set draftAutoSendTime
      *
      * @param  int $draftAutoSendTime
      * @return self
@@ -497,7 +497,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets sentDate
+     * Get sentDate
      *
      * @return int
      */
@@ -507,7 +507,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets sentDate
+     * Set sentDate
      *
      * @param  int $sentDate
      * @return self
@@ -519,7 +519,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets resentDate
+     * Get resentDate
      *
      * @return int
      */
@@ -529,7 +529,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets resentDate
+     * Set resentDate
      *
      * @param  int $resentDate
      * @return self
@@ -541,7 +541,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -551,7 +551,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -563,7 +563,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -573,7 +573,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -585,7 +585,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -596,7 +596,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */
@@ -617,7 +617,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -627,7 +627,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -639,7 +639,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets messageIdHeader
+     * Get messageIdHeader
      *
      * @return string
      */
@@ -649,7 +649,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets messageIdHeader
+     * Set messageIdHeader
      *
      * @param  string $messageIdHeader
      * @return self
@@ -661,7 +661,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets inReplyTo
+     * Get inReplyTo
      *
      * @return string
      */
@@ -671,7 +671,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets inReplyTo
+     * Set inReplyTo
      *
      * @param  string $inReplyTo
      * @return self
@@ -683,7 +683,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets invite
+     * Get invite
      *
      * @return InviteInfo
      */
@@ -693,7 +693,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets invite
+     * Set invite
      *
      * @param  InviteInfo $invite
      * @return self
@@ -704,7 +704,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -716,7 +716,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -738,7 +738,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets partInfos
+     * Set partInfos
      *
      * @param  array $partInfos
      * @return self
@@ -750,7 +750,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets partInfos
+     * Get partInfos
      *
      * @return array
      */
@@ -772,7 +772,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets shareNotifications
+     * Set shareNotifications
      *
      * @param  array $shareNotifications
      * @return self
@@ -784,7 +784,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets shareNotifications
+     * Get shareNotifications
      *
      * @return array
      */
@@ -806,7 +806,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Sets dlSubs
+     * Set dlSubs
      *
      * @param  array $dlSubs
      * @return self
@@ -818,7 +818,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Gets dlSubs
+     * Get dlSubs
      *
      * @return array
      */

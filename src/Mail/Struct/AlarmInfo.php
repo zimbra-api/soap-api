@@ -152,7 +152,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return AlarmAction
      */
@@ -162,7 +162,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  AlarmAction $action
      * @return self
@@ -174,7 +174,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets the trigger
+     * Get the trigger
      *
      * @return AlarmTriggerInfoInterface
      */
@@ -184,7 +184,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets the trigger
+     * Set the trigger
      *
      * @param  AlarmTriggerInfoInterface $trigger
      * @return self
@@ -196,7 +196,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets the repeat
+     * Get the repeat
      *
      * @return DurationInfoInterface
      */
@@ -206,7 +206,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets the repeat
+     * Set the repeat
      *
      * @param  DurationInfoInterface $repeat
      * @return self
@@ -218,7 +218,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets the description
+     * Get the description
      *
      * @return string
      */
@@ -228,7 +228,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets the description
+     * Set the description
      *
      * @param  string $description
      * @return self
@@ -240,7 +240,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets the attach
+     * Get the attach
      *
      * @return CalendarAttachInterface
      */
@@ -250,7 +250,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets the attach
+     * Set the attach
      *
      * @param  CalendarAttachInterface $attach
      * @return self
@@ -262,7 +262,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets the summary
+     * Get the summary
      *
      * @return string
      */
@@ -272,7 +272,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Sets the summary
+     * Set the summary
      *
      * @param  string $summary
      * @return self
@@ -308,7 +308,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets attendees
+     * Get attendees
      *
      * @return array
      */
@@ -342,7 +342,7 @@ class AlarmInfo implements AlarmInfoInterface
     }
 
     /**
-     * Gets xProps
+     * Get xProps
      *
      * @return array
      */

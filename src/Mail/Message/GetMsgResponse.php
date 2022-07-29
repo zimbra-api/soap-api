@@ -49,7 +49,7 @@ class GetMsgResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return MsgWithGroupInfo
      */
@@ -59,7 +59,7 @@ class GetMsgResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  MsgWithGroupInfo $msg
      * @return self

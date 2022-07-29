@@ -73,7 +73,7 @@ class Grantor
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class Grantor
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  string $email
      * @return self
@@ -95,7 +95,7 @@ class Grantor
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class Grantor
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -117,7 +117,7 @@ class Grantor
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -127,7 +127,7 @@ class Grantor
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

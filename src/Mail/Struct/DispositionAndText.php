@@ -63,7 +63,7 @@ class DispositionAndText
     }
 
     /**
-     * Gets disposition
+     * Get disposition
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class DispositionAndText
     }
 
     /**
-     * Sets disposition
+     * Set disposition
      *
      * @param  string $disposition
      * @return self
@@ -85,7 +85,7 @@ class DispositionAndText
     }
 
     /**
-     * Gets text
+     * Get text
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class DispositionAndText
     }
 
     /**
-     * Sets text
+     * Set text
      *
      * @param  string $text
      * @return self

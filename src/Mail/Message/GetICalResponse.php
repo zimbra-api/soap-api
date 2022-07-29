@@ -49,7 +49,7 @@ class GetICalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return ICalContent
      */
@@ -59,7 +59,7 @@ class GetICalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  ICalContent $content
      * @return self

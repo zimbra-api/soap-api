@@ -48,7 +48,7 @@ class GetYahooAuthTokenResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets failed
+     * Get failed
      *
      * @return bool
      */
@@ -58,7 +58,7 @@ class GetYahooAuthTokenResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets failed
+     * Set failed
      *
      * @param  bool $failed
      * @return self

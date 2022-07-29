@@ -219,7 +219,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Gets conversationId
+     * Get conversationId
      *
      * @return string
      */
@@ -229,7 +229,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Sets conversationId
+     * Set conversationId
      *
      * @param  string $conversationId
      * @return self
@@ -241,7 +241,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Gets nestMessages
+     * Get nestMessages
      *
      * @return bool
      */
@@ -251,7 +251,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Sets nestMessages
+     * Set nestMessages
      *
      * @param bool $nestMessages
      * @return self

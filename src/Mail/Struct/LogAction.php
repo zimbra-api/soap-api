@@ -63,7 +63,7 @@ class LogAction extends FilterAction
     }
 
     /**
-     * Gets level
+     * Get level
      *
      * @return LoggingLevel
      */
@@ -73,7 +73,7 @@ class LogAction extends FilterAction
     }
 
     /**
-     * Sets level
+     * Set level
      *
      * @param  LoggingLevel $level
      * @return self
@@ -85,7 +85,7 @@ class LogAction extends FilterAction
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class LogAction extends FilterAction
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

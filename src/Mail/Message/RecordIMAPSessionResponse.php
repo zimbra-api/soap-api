@@ -61,7 +61,7 @@ class RecordIMAPSessionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets lastItemId
+     * Get lastItemId
      *
      * @return int
      */
@@ -71,7 +71,7 @@ class RecordIMAPSessionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets lastItemId
+     * Set lastItemId
      *
      * @param  int $lastItemId
      * @return self
@@ -83,7 +83,7 @@ class RecordIMAPSessionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets folderUuid
+     * Get folderUuid
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class RecordIMAPSessionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets folderUuid
+     * Set folderUuid
      *
      * @param  string $folderUuid
      * @return self

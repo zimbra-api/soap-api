@@ -131,7 +131,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -141,7 +141,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -153,7 +153,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets addressType
+     * Get addressType
      *
      * @return int
      */
@@ -163,7 +163,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets tzStdOffset
+     * Set tzStdOffset
      *
      * @param  int $tzStdOffset
      * @return self
@@ -175,7 +175,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets the tzDayOffset
+     * Get the tzDayOffset
      *
      * @return int
      */
@@ -185,7 +185,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets the tzDayOffset
+     * Set the tzDayOffset
      *
      * @param  int $tzDayOffset
      * @return self
@@ -197,7 +197,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets the standardTzOnset
+     * Get the standardTzOnset
      *
      * @return TzOnsetInfo
      */
@@ -207,7 +207,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets the standardTzOnset
+     * Set the standardTzOnset
      *
      * @param  TzOnsetInfo $standardTzOnset
      * @return self
@@ -219,7 +219,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets the daylightTzOnset
+     * Get the daylightTzOnset
      *
      * @return TzOnsetInfo
      */
@@ -229,7 +229,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets the daylightTzOnset
+     * Set the daylightTzOnset
      *
      * @param  TzOnsetInfo $daylightTzOnset
      * @return self
@@ -241,7 +241,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets the standardTZName
+     * Get the standardTZName
      *
      * @return string
      */
@@ -251,7 +251,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets the standardTZName
+     * Set the standardTZName
      *
      * @param  string $standardTZName
      * @return self
@@ -263,7 +263,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Gets the daylightTZName
+     * Get the daylightTZName
      *
      * @return string
      */
@@ -273,7 +273,7 @@ class CalTZInfo implements CalTZInfoInterface
     }
 
     /**
-     * Sets the daylightTZName
+     * Set the daylightTZName
      *
      * @param  string $daylightTZName
      * @return self

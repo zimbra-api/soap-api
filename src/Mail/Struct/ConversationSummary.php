@@ -239,7 +239,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -249,7 +249,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -261,7 +261,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -271,7 +271,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -283,7 +283,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets numUnread
+     * Get numUnread
      *
      * @return int
      */
@@ -293,7 +293,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets numUnread
+     * Set numUnread
      *
      * @param  int $numUnread
      * @return self
@@ -305,7 +305,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -315,7 +315,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -327,7 +327,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -337,7 +337,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -349,7 +349,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -359,7 +359,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -371,7 +371,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -381,7 +381,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -393,7 +393,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -403,7 +403,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -415,7 +415,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets elided
+     * Get elided
      *
      * @return bool
      */
@@ -425,7 +425,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets elided
+     * Set elided
      *
      * @param  bool $elided
      * @return self
@@ -437,7 +437,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -447,7 +447,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -459,7 +459,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -469,7 +469,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -481,7 +481,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */
@@ -491,7 +491,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -515,7 +515,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -525,7 +525,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -537,7 +537,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -547,7 +547,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -559,7 +559,7 @@ class ConversationSummary
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -571,7 +571,7 @@ class ConversationSummary
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */

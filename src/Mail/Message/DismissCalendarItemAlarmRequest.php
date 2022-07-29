@@ -69,7 +69,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Sets apptAlarms
+     * Set apptAlarms
      *
      * @param  array $alarms
      * @return self
@@ -83,7 +83,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Gets apptAlarms
+     * Get apptAlarms
      *
      * @return array
      */
@@ -105,7 +105,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Sets taskAlarms
+     * Set taskAlarms
      *
      * @param  array $alarms
      * @return self
@@ -119,7 +119,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Gets taskAlarms
+     * Get taskAlarms
      *
      * @return array
      */

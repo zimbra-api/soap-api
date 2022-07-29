@@ -147,7 +147,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -157,7 +157,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -169,7 +169,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets num
+     * Get num
      *
      * @return int
      */
@@ -179,7 +179,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets num
+     * Set num
      *
      * @param  int $num
      * @return self
@@ -191,7 +191,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -201,7 +201,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -213,7 +213,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets the flags
+     * Get the flags
      *
      * @return string
      */
@@ -223,7 +223,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets the flags
+     * Set the flags
      *
      * @param  string $flags
      * @return self
@@ -235,7 +235,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets the tags
+     * Get the tags
      *
      * @return string
      */
@@ -245,7 +245,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets the tags
+     * Set the tags
      *
      * @param  string $tags
      * @return self
@@ -257,7 +257,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets the tagNames
+     * Get the tagNames
      *
      * @return string
      */
@@ -267,7 +267,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets the tagNames
+     * Set the tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -303,7 +303,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets messages
+     * Get messages
      *
      * @return array
      */
@@ -313,7 +313,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Gets the queryInfo
+     * Get the queryInfo
      *
      * @return SearchQueryInfo
      */
@@ -323,7 +323,7 @@ class NestedSearchConversation
     }
 
     /**
-     * Sets the queryInfo
+     * Set the queryInfo
      *
      * @param  SearchQueryInfo $queryInfo
      * @return self

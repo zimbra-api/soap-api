@@ -134,7 +134,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return GetFolderSpec
      */
@@ -144,7 +144,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  GetFolderSpec $folder
      * @return self
@@ -156,7 +156,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets isVisible
+     * Get isVisible
      *
      * @return bool
      */
@@ -166,7 +166,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets isVisible
+     * Set isVisible
      *
      * @param  bool $isVisible
      * @return self
@@ -178,7 +178,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets needGranteeName
+     * Get needGranteeName
      *
      * @return bool
      */
@@ -188,7 +188,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets needGranteeName
+     * Set needGranteeName
      *
      * @param  bool $needGranteeName
      * @return self
@@ -200,7 +200,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets viewConstraint
+     * Get viewConstraint
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets viewConstraint
+     * Set viewConstraint
      *
      * @param  string $viewConstraint
      * @return self
@@ -222,7 +222,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets treeDepth
+     * Get treeDepth
      *
      * @return int
      */
@@ -232,7 +232,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets treeDepth
+     * Set treeDepth
      *
      * @param  int $treeDepth
      * @return self
@@ -244,7 +244,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets traverseMountpoints
+     * Get traverseMountpoints
      *
      * @return bool
      */
@@ -254,7 +254,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets traverseMountpoints
+     * Set traverseMountpoints
      *
      * @param  bool $traverseMountpoints
      * @return self

@@ -345,7 +345,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -355,7 +355,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -367,7 +367,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -377,7 +377,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $uuid
      * @return self
@@ -389,7 +389,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -399,7 +399,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -411,7 +411,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -421,7 +421,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -433,7 +433,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -443,7 +443,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -455,7 +455,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -465,7 +465,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -477,7 +477,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets folderUuid
+     * Get folderUuid
      *
      * @return string
      */
@@ -487,7 +487,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets folderUuid
+     * Set folderUuid
      *
      * @param  string $folderUuid
      * @return self
@@ -499,7 +499,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -509,7 +509,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -521,7 +521,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets metadataVersion
+     * Get metadataVersion
      *
      * @return int
      */
@@ -531,7 +531,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets metadataVersion
+     * Set metadataVersion
      *
      * @param  int $metadataVersion
      * @return self
@@ -543,7 +543,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -553,7 +553,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -565,7 +565,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -575,7 +575,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -587,7 +587,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -597,7 +597,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -609,7 +609,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -619,7 +619,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -631,7 +631,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -641,7 +641,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -653,7 +653,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets description
+     * Get description
      *
      * @return string
      */
@@ -663,7 +663,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets description
+     * Set description
      *
      * @param  string $description
      * @return self
@@ -675,7 +675,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -685,7 +685,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -697,7 +697,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets descEnabled
+     * Get descEnabled
      *
      * @return bool
      */
@@ -707,7 +707,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets descEnabled
+     * Set descEnabled
      *
      * @param  bool $descEnabled
      * @return self
@@ -719,7 +719,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -729,7 +729,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self
@@ -741,7 +741,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets lastEditedBy
+     * Get lastEditedBy
      *
      * @return string
      */
@@ -751,7 +751,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets lastEditedBy
+     * Set lastEditedBy
      *
      * @param  string $lastEditedBy
      * @return self
@@ -763,7 +763,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets creator
+     * Get creator
      *
      * @return string
      */
@@ -773,7 +773,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets creator
+     * Set creator
      *
      * @param  string $creator
      * @return self
@@ -785,7 +785,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets createdDate
+     * Get createdDate
      *
      * @return int
      */
@@ -795,7 +795,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets createdDate
+     * Set createdDate
      *
      * @param  int $createdDate
      * @return self
@@ -807,7 +807,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */
@@ -817,7 +817,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -841,7 +841,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -851,7 +851,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -863,7 +863,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Gets acl
+     * Get acl
      *
      * @return Acl
      */
@@ -873,7 +873,7 @@ class CommonDocumentInfo
     }
 
     /**
-     * Sets acl
+     * Set acl
      *
      * @param  Acl $acl
      * @return self

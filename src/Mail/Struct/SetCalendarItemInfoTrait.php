@@ -66,7 +66,7 @@ trait SetCalendarItemInfoTrait
     }
 
     /**
-     * Gets partStat
+     * Get partStat
      *
      * @return ParticipationStatus
      */
@@ -76,7 +76,7 @@ trait SetCalendarItemInfoTrait
     }
 
     /**
-     * Sets partStat
+     * Set partStat
      *
      * @param  ParticipationStatus $partStat
      * @return self
@@ -88,7 +88,7 @@ trait SetCalendarItemInfoTrait
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */
@@ -98,7 +98,7 @@ trait SetCalendarItemInfoTrait
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self

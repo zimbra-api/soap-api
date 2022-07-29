@@ -69,7 +69,7 @@ class ByDayRule implements ByDayRuleInterface
     }
 
     /**
-     * Gets days
+     * Get days
      *
      * @return array
      */

@@ -121,7 +121,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets imap data sources
+     * Get imap data sources
      *
      * @return array
      */
@@ -131,7 +131,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets imap data sources
+     * Set imap data sources
      *
      * @return self
      */
@@ -144,7 +144,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets pop3 data sources
+     * Get pop3 data sources
      *
      * @return array
      */
@@ -154,7 +154,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets pop3 data sources
+     * Set pop3 data sources
      *
      * @return self
      */
@@ -167,7 +167,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets caldav data sources
+     * Get caldav data sources
      *
      * @return array
      */
@@ -177,7 +177,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets caldav data sources
+     * Set caldav data sources
      *
      * @return self
      */
@@ -190,7 +190,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets yab data sources
+     * Get yab data sources
      *
      * @return array
      */
@@ -200,7 +200,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets yab data sources
+     * Set yab data sources
      *
      * @return self
      */
@@ -213,7 +213,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets rss data sources
+     * Get rss data sources
      *
      * @return array
      */
@@ -223,7 +223,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets rss data sources
+     * Set rss data sources
      *
      * @return self
      */
@@ -236,7 +236,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets gal data sources
+     * Get gal data sources
      *
      * @return array
      */
@@ -246,7 +246,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets gal data sources
+     * Set gal data sources
      *
      * @return self
      */
@@ -259,7 +259,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets cal data sources
+     * Get cal data sources
      *
      * @return array
      */
@@ -269,7 +269,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets cal data sources
+     * Set cal data sources
      *
      * @return self
      */
@@ -282,7 +282,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets unknown data sources
+     * Get unknown data sources
      *
      * @return array
      */
@@ -292,7 +292,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Sets unknown data sources
+     * Set unknown data sources
      *
      * @return self
      */
@@ -359,7 +359,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Gets dataSources
+     * Get dataSources
      *
      * @return array
      */

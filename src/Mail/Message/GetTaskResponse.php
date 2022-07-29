@@ -64,7 +64,7 @@ class GetTaskResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets appt
+     * Get appt
      *
      * @return CalendarItemInfo
      */
@@ -74,7 +74,7 @@ class GetTaskResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets appt
+     * Set appt
      *
      * @param  CalendarItemInfo $appt
      * @return self
@@ -86,7 +86,7 @@ class GetTaskResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets task
+     * Get task
      *
      * @return TaskItemInfo
      */
@@ -96,7 +96,7 @@ class GetTaskResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets task
+     * Set task
      *
      * @param  TaskItemInfo $task
      * @return self

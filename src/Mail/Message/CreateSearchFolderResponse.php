@@ -48,7 +48,7 @@ class CreateSearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchFolder point
+     * Get searchFolder point
      *
      * @return SearchFolder
      */
@@ -58,7 +58,7 @@ class CreateSearchFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchFolder point
+     * Set searchFolder point
      *
      * @param  SearchFolder $searchFolder
      * @return self

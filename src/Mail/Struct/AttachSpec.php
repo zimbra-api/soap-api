@@ -46,7 +46,7 @@ abstract class AttachSpec
     }
 
     /**
-     * Gets optional
+     * Get optional
      *
      * @return bool
      */
@@ -56,7 +56,7 @@ abstract class AttachSpec
     }
 
     /**
-     * Sets optional
+     * Set optional
      *
      * @param  bool $optional
      * @return self

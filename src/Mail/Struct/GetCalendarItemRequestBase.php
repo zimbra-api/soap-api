@@ -112,7 +112,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets sync
+     * Get sync
      *
      * @return bool
      */
@@ -122,7 +122,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets sync
+     * Set sync
      *
      * @param  bool $sync
      * @return self
@@ -134,7 +134,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets uid
+     * Get uid
      *
      * @return string
      */
@@ -144,7 +144,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets uid
+     * Set uid
      *
      * @param  string $uid
      * @return self
@@ -156,7 +156,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets includeContent
+     * Get includeContent
      *
      * @return bool
      */
@@ -166,7 +166,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets includeContent
+     * Set includeContent
      *
      * @param  bool $includeContent
      * @return self
@@ -178,7 +178,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets includeInvites
+     * Get includeInvites
      *
      * @return bool
      */
@@ -188,7 +188,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets includeInvites
+     * Set includeInvites
      *
      * @param  bool $includeInvites
      * @return self
@@ -200,7 +200,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -210,7 +210,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

@@ -93,7 +93,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Sets wantImapUid
+     * Set wantImapUid
      *
      * @param  array $wantImapUid
      * @return self
@@ -105,7 +105,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Gets wantImapUid
+     * Get wantImapUid
      *
      * @return bool
      */
@@ -115,7 +115,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Sets wantModifiedSequence
+     * Set wantModifiedSequence
      *
      * @param  array $wantModifiedSequence
      * @return self
@@ -127,7 +127,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Gets wantModifiedSequence
+     * Get wantModifiedSequence
      *
      * @return bool
      */
@@ -137,7 +137,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Gets verbose
+     * Get verbose
      *
      * @return bool
      */
@@ -147,7 +147,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Sets verbose
+     * Set verbose
      *
      * @param  bool $verbose
      * @return self
@@ -159,7 +159,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Gets contact
+     * Get contact
      *
      * @return ContactSpec
      */
@@ -169,7 +169,7 @@ class CreateContactRequest extends SoapRequest
     }
 
     /**
-     * Sets contact
+     * Set contact
      *
      * @param  ContactSpec $contact
      * @return self

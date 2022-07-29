@@ -62,7 +62,7 @@ class ModifyContactAttr extends NewContactAttr
     }
 
     /**
-     * Gets the operation
+     * Get the operation
      *
      * @return string
      */
@@ -72,7 +72,7 @@ class ModifyContactAttr extends NewContactAttr
     }
 
     /**
-     * Sets the operation
+     * Set the operation
      *
      * @param  string $operation
      * @return self

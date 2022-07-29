@@ -102,7 +102,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets waitSetId
+     * Get waitSetId
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets waitSetId
+     * Set waitSetId
      *
      * @param  string $waitSetId
      * @return self
@@ -124,7 +124,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets defaultInterests
+     * Get defaultInterests
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @param  string $defaultInterests
      * @return self
@@ -159,7 +159,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets errors
+     * Set errors
      *
      * @param  array $errors
      * @return self
@@ -171,7 +171,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets errors
+     * Get errors
      *
      * @return array
      */
@@ -181,7 +181,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets sequence
+     * Get sequence
      *
      * @return int
      */
@@ -191,7 +191,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets sequence
+     * Set sequence
      *
      * @param  int $sequence
      * @return self

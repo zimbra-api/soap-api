@@ -123,7 +123,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -135,7 +135,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -145,7 +145,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -157,7 +157,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -167,7 +167,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -179,7 +179,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -189,7 +189,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -201,7 +201,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */

@@ -203,7 +203,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -213,7 +213,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self
@@ -225,7 +225,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -235,7 +235,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -247,7 +247,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets contentMatched
+     * Get contentMatched
      *
      * @return bool
      */
@@ -257,7 +257,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets contentMatched
+     * Set contentMatched
      *
      * @param  bool $contentMatched
      * @return self
@@ -269,7 +269,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets nextAlarm
+     * Get nextAlarm
      *
      * @return int
      */
@@ -279,7 +279,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets nextAlarm
+     * Set nextAlarm
      *
      * @param  int $nextAlarm
      * @return self
@@ -291,7 +291,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets organizer
+     * Get organizer
      *
      * @return CalOrganizer
      */
@@ -301,7 +301,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets organizer
+     * Set organizer
      *
      * @param  CalOrganizer $organizer
      * @return self
@@ -313,7 +313,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets categories
+     * Get categories
      *
      * @return array
      */
@@ -323,7 +323,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets categories
+     * Set categories
      *
      * @param  array $categories
      * @return self
@@ -353,7 +353,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets geo
+     * Get geo
      *
      * @return GeoInfo
      */
@@ -363,7 +363,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets geo
+     * Set geo
      *
      * @param  GeoInfo $geo
      * @return self
@@ -375,7 +375,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -385,7 +385,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self
@@ -421,7 +421,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets instances
+     * Get instances
      *
      * @return array
      */
@@ -431,7 +431,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets alarmData
+     * Get alarmData
      *
      * @return AlarmDataInfo
      */
@@ -441,7 +441,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Sets alarmData
+     * Set alarmData
      *
      * @param  AlarmDataInfo $alarmData
      * @return self
@@ -477,7 +477,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets invites
+     * Get invites
      *
      * @return array
      */
@@ -511,7 +511,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Gets replies
+     * Get replies
      *
      * @return array
      */

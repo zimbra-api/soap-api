@@ -133,7 +133,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -143,7 +143,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -155,7 +155,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -165,7 +165,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -177,7 +177,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets uid
+     * Get uid
      *
      * @return string
      */
@@ -187,7 +187,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets uid
+     * Set uid
      *
      * @param  string $uid
      * @return self
@@ -199,7 +199,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -221,7 +221,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -231,7 +231,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -243,7 +243,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets excludeUid
+     * Get excludeUid
      *
      * @return string
      */
@@ -253,7 +253,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets excludeUid
+     * Set excludeUid
      *
      * @param  string $excludeUid
      * @return self
@@ -277,7 +277,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Sets freebusyUsers
+     * Set freebusyUsers
      *
      * @param  array $users
      * @return self
@@ -289,7 +289,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Gets freebusyUsers
+     * Get freebusyUsers
      *
      * @return array
      */

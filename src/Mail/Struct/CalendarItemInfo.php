@@ -243,7 +243,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -253,7 +253,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -265,7 +265,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -275,7 +275,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -287,7 +287,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -297,7 +297,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -309,7 +309,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets uid
+     * Get uid
      *
      * @return string
      */
@@ -319,7 +319,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets uid
+     * Set uid
      *
      * @param  string $uid
      * @return self
@@ -331,7 +331,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return ParticipationStatus
      */
@@ -341,7 +341,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $partStat
      * @return self
@@ -353,7 +353,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -363,7 +363,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -375,7 +375,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -385,7 +385,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -397,7 +397,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -407,7 +407,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -419,7 +419,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -429,7 +429,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -441,7 +441,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -451,7 +451,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -463,7 +463,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -473,7 +473,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -485,7 +485,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets nextAlarm
+     * Get nextAlarm
      *
      * @return int
      */
@@ -495,7 +495,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets nextAlarm
+     * Set nextAlarm
      *
      * @param  int $nextAlarm
      * @return self
@@ -507,7 +507,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets orphan
+     * Get orphan
      *
      * @return bool
      */
@@ -517,7 +517,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets orphan
+     * Set orphan
      *
      * @param  bool $orphan
      * @return self
@@ -529,7 +529,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets invites
+     * Set invites
      *
      * @param  array $invites
      * @return self
@@ -541,7 +541,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets invites
+     * Get invites
      *
      * @return array
      */
@@ -563,7 +563,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets calendarReplies
+     * Set calendarReplies
      *
      * @param  array $replies
      * @return self
@@ -575,7 +575,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets calendarReplies
+     * Get calendarReplies
      *
      * @return array
      */
@@ -597,7 +597,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -609,7 +609,7 @@ class CalendarItemInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */

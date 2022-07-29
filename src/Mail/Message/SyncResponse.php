@@ -225,7 +225,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -235,7 +235,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -247,7 +247,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets token
+     * Get token
      *
      * @return string
      */
@@ -257,7 +257,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets token
+     * Set token
      *
      * @param  string $token
      * @return self
@@ -269,7 +269,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -279,7 +279,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -291,7 +291,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -301,7 +301,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -312,7 +312,7 @@ class SyncResponse implements SoapResponseInterface
         return $this;
     }
     /**
-     * Gets deleted
+     * Get deleted
      *
      * @return SyncDeletedInfo
      */
@@ -322,7 +322,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets deleted
+     * Set deleted
      *
      * @param  SyncDeletedInfo $deleted
      * @return self
@@ -334,7 +334,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets items
+     * Set items
      *
      * @param  array $items
      * @return self
@@ -356,7 +356,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets items
+     * Get items
      *
      * @return array
      */
@@ -378,7 +378,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets folderItems
+     * Set folderItems
      *
      * @param  array $folderItems
      * @return self
@@ -392,7 +392,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets folderItems
+     * Get folderItems
      *
      * @return array
      */
@@ -402,7 +402,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets tagItems
+     * Set tagItems
      *
      * @param  array $tagItems
      * @return self
@@ -416,7 +416,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets tagItems
+     * Get tagItems
      *
      * @return array
      */
@@ -426,7 +426,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets noteItems
+     * Set noteItems
      *
      * @param  array $noteItems
      * @return self
@@ -440,7 +440,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets noteItems
+     * Get noteItems
      *
      * @return array
      */
@@ -450,7 +450,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets contactItems
+     * Set contactItems
      *
      * @param  array $contactItems
      * @return self
@@ -464,7 +464,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contactItems
+     * Get contactItems
      *
      * @return array
      */
@@ -474,7 +474,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets apptItems
+     * Set apptItems
      *
      * @param  array $apptItems
      * @return self
@@ -488,7 +488,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets apptItems
+     * Get apptItems
      *
      * @return array
      */
@@ -498,7 +498,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets taskItems
+     * Set taskItems
      *
      * @param  array $taskItems
      * @return self
@@ -512,7 +512,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets taskItems
+     * Get taskItems
      *
      * @return array
      */
@@ -522,7 +522,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets convItems
+     * Set convItems
      *
      * @param  array $convItems
      * @return self
@@ -536,7 +536,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets convItems
+     * Get convItems
      *
      * @return array
      */
@@ -546,7 +546,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets wikiItems
+     * Set wikiItems
      *
      * @param  array $wikiItems
      * @return self
@@ -560,7 +560,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets wikiItems
+     * Get wikiItems
      *
      * @return array
      */
@@ -570,7 +570,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets docItems
+     * Set docItems
      *
      * @param  array $docItems
      * @return self
@@ -584,7 +584,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets docItems
+     * Get docItems
      *
      * @return array
      */
@@ -594,7 +594,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets msgItems
+     * Set msgItems
      *
      * @param  array $msgItems
      * @return self
@@ -608,7 +608,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets msgItems
+     * Get msgItems
      *
      * @return array
      */
@@ -618,7 +618,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets chatItems
+     * Set chatItems
      *
      * @param  array $chatItems
      * @return self
@@ -632,7 +632,7 @@ class SyncResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets chatItems
+     * Get chatItems
      *
      * @return array
      */

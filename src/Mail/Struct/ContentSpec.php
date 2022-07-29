@@ -90,7 +90,7 @@ class ContentSpec
     }
 
     /**
-     * Gets text
+     * Get text
      *
      * @return string
      */
@@ -100,7 +100,7 @@ class ContentSpec
     }
 
     /**
-     * Sets text
+     * Set text
      *
      * @param  string $text
      * @return self
@@ -112,7 +112,7 @@ class ContentSpec
     }
 
     /**
-     * Gets attachmentId
+     * Get attachmentId
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class ContentSpec
     }
 
     /**
-     * Sets attachmentId
+     * Set attachmentId
      *
      * @param  string $attachmentId
      * @return self
@@ -134,7 +134,7 @@ class ContentSpec
     }
 
     /**
-     * Gets messageId
+     * Get messageId
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class ContentSpec
     }
 
     /**
-     * Sets messageId
+     * Set messageId
      *
      * @param  string $messageId
      * @return self
@@ -156,7 +156,7 @@ class ContentSpec
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class ContentSpec
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self

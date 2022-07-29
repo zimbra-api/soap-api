@@ -84,7 +84,7 @@ class ActionResult
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class ActionResult
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -106,7 +106,7 @@ class ActionResult
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class ActionResult
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  string $operation
      * @return self
@@ -128,7 +128,7 @@ class ActionResult
     }
 
     /**
-     * Gets nonExistentIds
+     * Get nonExistentIds
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class ActionResult
     }
 
     /**
-     * Sets nonExistentIds
+     * Set nonExistentIds
      *
      * @param  string $nonExistentIds
      * @return self
@@ -150,7 +150,7 @@ class ActionResult
     }
 
     /**
-     * Gets newlyCreatedIds
+     * Get newlyCreatedIds
      *
      * @return string
      */
@@ -160,7 +160,7 @@ class ActionResult
     }
 
     /**
-     * Sets newlyCreatedIds
+     * Set newlyCreatedIds
      *
      * @param  string $newlyCreatedIds
      * @return self

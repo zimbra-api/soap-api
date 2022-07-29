@@ -47,7 +47,7 @@ class CreateMountpointRequest extends SoapRequest
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return NewMountpointSpec
      */
@@ -57,7 +57,7 @@ class CreateMountpointRequest extends SoapRequest
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  NewMountpointSpec $folder
      * @return self

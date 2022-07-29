@@ -69,7 +69,7 @@ class GetMsgMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets chatMessages
+     * Set chatMessages
      *
      * @param  array $messages
      * @return self
@@ -81,7 +81,7 @@ class GetMsgMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets chatMessages
+     * Get chatMessages
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class GetMsgMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets msgMessages
+     * Set msgMessages
      *
      * @param  array $messages
      * @return self
@@ -115,7 +115,7 @@ class GetMsgMetadataResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets msgMessages
+     * Get msgMessages
      *
      * @return array
      */

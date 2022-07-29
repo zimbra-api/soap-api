@@ -118,7 +118,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -140,7 +140,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return int
      */
@@ -150,7 +150,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  int $size
      * @return self
@@ -162,7 +162,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -172,7 +172,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -184,7 +184,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -194,7 +194,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -206,7 +206,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets autoSendTime
+     * Get autoSendTime
      *
      * @return int
      */
@@ -216,7 +216,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets autoSendTime
+     * Set autoSendTime
      *
      * @param  int $autoSendTime
      * @return self
@@ -228,7 +228,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -238,7 +238,7 @@ class ConversationMsgHitInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self

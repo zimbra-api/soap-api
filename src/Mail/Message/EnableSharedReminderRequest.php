@@ -47,7 +47,7 @@ class EnableSharedReminderRequest extends SoapRequest
     }
 
     /**
-     * Gets mount
+     * Get mount
      *
      * @return SharedReminderMount
      */
@@ -57,7 +57,7 @@ class EnableSharedReminderRequest extends SoapRequest
     }
 
     /**
-     * Sets mount
+     * Set mount
      *
      * @param  SharedReminderMount $mount
      * @return self

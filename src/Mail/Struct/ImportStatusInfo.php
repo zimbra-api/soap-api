@@ -96,7 +96,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Gets the id
+     * Get the id
      *
      * @return string
      */
@@ -106,7 +106,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Sets the id
+     * Set the id
      *
      * @param  string $id
      * @return self
@@ -118,7 +118,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Gets the running
+     * Get the running
      *
      * @return bool
      */
@@ -128,7 +128,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Sets the running
+     * Set the running
      *
      * @param  bool $running
      * @return self
@@ -140,7 +140,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Gets the success
+     * Get the success
      *
      * @return bool
      */
@@ -150,7 +150,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Sets the success
+     * Set the success
      *
      * @param  bool $success
      * @return self
@@ -162,7 +162,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Gets error
+     * Get error
      *
      * @return string
      */
@@ -172,7 +172,7 @@ abstract class ImportStatusInfo
     }
 
     /**
-     * Sets error
+     * Set error
      *
      * @param  string $error
      * @return self

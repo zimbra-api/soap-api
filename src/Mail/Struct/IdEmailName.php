@@ -76,7 +76,7 @@ class IdEmailName
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class IdEmailName
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  string $email
      * @return self
@@ -98,7 +98,7 @@ class IdEmailName
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class IdEmailName
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -120,7 +120,7 @@ class IdEmailName
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -130,7 +130,7 @@ class IdEmailName
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

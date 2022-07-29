@@ -59,7 +59,7 @@ class FilterTest
     }
 
     /**
-     * Gets index
+     * Get index
      *
      * @return int
      */
@@ -69,7 +69,7 @@ class FilterTest
     }
 
     /**
-     * Sets index
+     * Set index
      *
      * @param  int $index
      * @return self
@@ -81,7 +81,7 @@ class FilterTest
     }
 
     /**
-     * Gets negative
+     * Get negative
      *
      * @return bool
      */
@@ -91,7 +91,7 @@ class FilterTest
     }
 
     /**
-     * Sets negative
+     * Set negative
      *
      * @param  bool $negative
      * @return self

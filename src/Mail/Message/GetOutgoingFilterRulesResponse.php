@@ -60,7 +60,7 @@ class GetOutgoingFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets filter rules
+     * Set filter rules
      *
      * @param  array $rules
      * @return self
@@ -72,7 +72,7 @@ class GetOutgoingFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets filter rules
+     * Get filter rules
      *
      * @return array
      */

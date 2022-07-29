@@ -46,7 +46,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

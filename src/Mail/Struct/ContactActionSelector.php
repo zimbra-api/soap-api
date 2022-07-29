@@ -87,7 +87,7 @@ class ContactActionSelector extends ActionSelector
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  string $operation
      * @return self
@@ -125,7 +125,7 @@ class ContactActionSelector extends ActionSelector
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return array
      */

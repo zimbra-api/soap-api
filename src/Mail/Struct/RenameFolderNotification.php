@@ -56,7 +56,7 @@ class RenameFolderNotification extends ModifyNotification
     }
 
     /**
-     * Gets folder id
+     * Get folder id
      *
      * @return int
      */
@@ -66,7 +66,7 @@ class RenameFolderNotification extends ModifyNotification
     }
 
     /**
-     * Sets folder id
+     * Set folder id
      *
      * @param  int $folderId
      * @return self
@@ -78,7 +78,7 @@ class RenameFolderNotification extends ModifyNotification
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class RenameFolderNotification extends ModifyNotification
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $name
      * @return self

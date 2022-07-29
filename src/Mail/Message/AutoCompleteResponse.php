@@ -75,7 +75,7 @@ class AutoCompleteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets matches
+     * Set matches
      *
      * @param  array $matches
      * @return self
@@ -87,7 +87,7 @@ class AutoCompleteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets matches
+     * Get matches
      *
      * @return array
      */
@@ -97,7 +97,7 @@ class AutoCompleteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets canBeCached
+     * Get canBeCached
      *
      * @return bool
      */
@@ -107,7 +107,7 @@ class AutoCompleteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets canBeCached
+     * Set canBeCached
      *
      * @param  bool $canBeCached
      * @return self

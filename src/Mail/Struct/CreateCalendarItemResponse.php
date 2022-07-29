@@ -135,7 +135,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calItemId
+     * Get calItemId
      *
      * @return string
      */
@@ -145,7 +145,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calItemId
+     * Set calItemId
      *
      * @param  string $calItemId
      * @return self
@@ -157,7 +157,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets deprecatedApptId
+     * Get deprecatedApptId
      *
      * @return string
      */
@@ -167,7 +167,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets deprecatedApptId
+     * Set deprecatedApptId
      *
      * @param  string $deprecatedApptId
      * @return self
@@ -179,7 +179,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calInvId
+     * Get calInvId
      *
      * @return string
      */
@@ -189,7 +189,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calInvId
+     * Set calInvId
      *
      * @param  string $calInvId
      * @return self
@@ -201,7 +201,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -211,7 +211,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -223,7 +223,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -233,7 +233,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -245,7 +245,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Id
      */
@@ -255,7 +255,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Id $msg
      * @return self
@@ -267,7 +267,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets echo
+     * Get echo
      *
      * @return CalEcho
      */
@@ -277,7 +277,7 @@ class CreateCalendarItemResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets echo
+     * Set echo
      *
      * @param  CalEcho $echo
      * @return self

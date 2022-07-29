@@ -75,7 +75,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Gets browseBy
+     * Get browseBy
      *
      * @return BrowseBy
      */
@@ -85,7 +85,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Sets browseBy
+     * Set browseBy
      *
      * @param  BrowseBy $browseBy
      * @return self
@@ -97,7 +97,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Gets regex
+     * Get regex
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Sets regex
+     * Set regex
      *
      * @param  string $regex
      * @return self
@@ -119,7 +119,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Gets max
+     * Get max
      *
      * @return int
      */
@@ -129,7 +129,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Sets max
+     * Set max
      *
      * @param  int $max
      * @return self

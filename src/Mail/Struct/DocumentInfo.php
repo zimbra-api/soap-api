@@ -123,7 +123,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Gets lockOwnerId
+     * Get lockOwnerId
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Sets lockOwnerId
+     * Set lockOwnerId
      *
      * @param  string $lockOwnerId
      * @return self
@@ -145,7 +145,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Gets lockOwnerEmail
+     * Get lockOwnerEmail
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Sets lockOwnerEmail
+     * Set lockOwnerEmail
      *
      * @param  string $lockOwnerEmail
      * @return self
@@ -167,7 +167,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Gets lockOwnerTimestamp
+     * Get lockOwnerTimestamp
      *
      * @return string
      */
@@ -177,7 +177,7 @@ class DocumentInfo extends CommonDocumentInfo
     }
 
     /**
-     * Sets lockOwnerTimestamp
+     * Set lockOwnerTimestamp
      *
      * @param  string $lockOwnerTimestamp
      * @return self

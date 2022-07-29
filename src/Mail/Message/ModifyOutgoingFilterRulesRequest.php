@@ -63,7 +63,7 @@ class ModifyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets filterRules
+     * Set filterRules
      *
      * @param  array $rules
      * @return self
@@ -75,7 +75,7 @@ class ModifyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets filterRules
+     * Get filterRules
      *
      * @return array
      */

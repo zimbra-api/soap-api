@@ -49,7 +49,7 @@ class GetItemRequest extends SoapRequest
     }
 
     /**
-     * Gets item
+     * Get item
      *
      * @return ItemSpec
      */
@@ -59,7 +59,7 @@ class GetItemRequest extends SoapRequest
     }
 
     /**
-     * Sets item
+     * Set item
      *
      * @param  ItemSpec $item
      * @return self

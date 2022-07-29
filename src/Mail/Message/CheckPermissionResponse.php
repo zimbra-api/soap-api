@@ -60,7 +60,7 @@ class CheckPermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets allow
+     * Get allow
      *
      * @return bool
      */
@@ -70,7 +70,7 @@ class CheckPermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets allow
+     * Set allow
      *
      * @param  bool $allow
      * @return self
@@ -94,7 +94,7 @@ class CheckPermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self
@@ -106,7 +106,7 @@ class CheckPermissionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

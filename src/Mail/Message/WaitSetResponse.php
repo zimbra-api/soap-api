@@ -105,7 +105,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets waitSetId
+     * Get waitSetId
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets waitSetId
+     * Set waitSetId
      *
      * @param  string $waitSetId
      * @return self
@@ -127,7 +127,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets canceled
+     * Get canceled
      *
      * @return bool
      */
@@ -137,7 +137,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets canceled
+     * Set canceled
      *
      * @param  bool $canceled
      * @return self
@@ -149,7 +149,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets seqNo
+     * Get seqNo
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets seqNo
+     * Set seqNo
      *
      * @param  string $seqNo
      * @return self
@@ -183,7 +183,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets signalledAccounts
+     * Set signalledAccounts
      *
      * @param  array $accounts
      * @return self
@@ -195,7 +195,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets signalledAccounts
+     * Get signalledAccounts
      *
      * @return array
      */
@@ -217,7 +217,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Sets errors
+     * Set errors
      *
      * @param  array $errors
      * @return self
@@ -229,7 +229,7 @@ class WaitSetResponse implements WaitSetResp, SoapResponseInterface
     }
 
     /**
-     * Gets errors
+     * Get errors
      *
      * @return array
      */

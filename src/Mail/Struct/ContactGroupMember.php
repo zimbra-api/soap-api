@@ -78,7 +78,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Gets contact group member type
+     * Get contact group member type
      *
      * @return MemberType
      */
@@ -88,7 +88,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Sets contact group member type
+     * Set contact group member type
      *
      * @param  MemberType $type
      * @return self
@@ -100,7 +100,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Gets contact group member value
+     * Get contact group member value
      *
      * @return string
      */
@@ -110,7 +110,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Sets contact group member value
+     * Set contact group member value
      *
      * @param  string $value
      * @return self
@@ -122,7 +122,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Gets contact
+     * Get contact
      *
      * @return ContactInterface
      */
@@ -132,7 +132,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
     }
 
     /**
-     * Sets contact
+     * Set contact
      *
      * @param  ContactInterface $contact
      * @return self

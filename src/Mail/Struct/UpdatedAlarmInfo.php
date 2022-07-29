@@ -60,7 +60,7 @@ class UpdatedAlarmInfo
     }
 
     /**
-     * Gets calItemId
+     * Get calItemId
      *
      * @return string
      */
@@ -70,7 +70,7 @@ class UpdatedAlarmInfo
     }
 
     /**
-     * Sets calItemId
+     * Set calItemId
      *
      * @param  string $calItemId
      * @return self
@@ -82,7 +82,7 @@ class UpdatedAlarmInfo
     }
 
     /**
-     * Gets alarmData
+     * Get alarmData
      *
      * @return AlarmDataInfo
      */
@@ -92,7 +92,7 @@ class UpdatedAlarmInfo
     }
 
     /**
-     * Sets alarmData
+     * Set alarmData
      *
      * @param  AlarmDataInfo $alarmData
      * @return self

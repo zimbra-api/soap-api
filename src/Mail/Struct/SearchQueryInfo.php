@@ -78,7 +78,7 @@ class SearchQueryInfo
     }
 
     /**
-     * Gets suggests
+     * Get suggests
      *
      * @return array
      */
@@ -112,7 +112,7 @@ class SearchQueryInfo
     }
 
     /**
-     * Gets wildcards
+     * Get wildcards
      *
      * @return array
      */

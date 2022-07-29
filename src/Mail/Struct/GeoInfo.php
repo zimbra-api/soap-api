@@ -61,7 +61,7 @@ class GeoInfo implements GeoInfoInterface
     }
 
     /**
-     * Gets latitude
+     * Get latitude
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class GeoInfo implements GeoInfoInterface
     }
 
     /**
-     * Sets latitude
+     * Set latitude
      *
      * @param  string $latitude
      * @return self
@@ -83,7 +83,7 @@ class GeoInfo implements GeoInfoInterface
     }
 
     /**
-     * Gets longitude
+     * Get longitude
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class GeoInfo implements GeoInfoInterface
     }
 
     /**
-     * Sets longitude
+     * Set longitude
      *
      * @param  string $longitude
      * @return self

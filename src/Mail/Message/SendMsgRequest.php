@@ -161,7 +161,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets the msg.
+     * Get the msg.
      *
      * @return MsgToSend
      */
@@ -171,7 +171,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets the msg.
+     * Set the msg.
      *
      * @param  MsgToSend $msg
      * @return self
@@ -183,7 +183,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets needCalendarSentbyFixup
+     * Get needCalendarSentbyFixup
      *
      * @return bool
      */
@@ -193,7 +193,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets needCalendarSentbyFixup
+     * Set needCalendarSentbyFixup
      *
      * @param  bool $needCalendarSentbyFixup
      * @return self
@@ -205,7 +205,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets isCalendarForward
+     * Get isCalendarForward
      *
      * @return bool
      */
@@ -215,7 +215,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets isCalendarForward
+     * Set isCalendarForward
      *
      * @param  bool $isCalendarForward
      * @return self
@@ -227,7 +227,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets noSaveToSent
+     * Get noSaveToSent
      *
      * @return bool
      */
@@ -237,7 +237,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets noSaveToSent
+     * Set noSaveToSent
      *
      * @param  bool $noSaveToSent
      * @return self
@@ -249,7 +249,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets fetchSavedMsg
+     * Get fetchSavedMsg
      *
      * @return bool
      */
@@ -259,7 +259,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets fetchSavedMsg
+     * Set fetchSavedMsg
      *
      * @param  bool $fetchSavedMsg
      * @return self
@@ -271,7 +271,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets sendUid
+     * Get sendUid
      *
      * @return string
      */
@@ -281,7 +281,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets sendUid
+     * Set sendUid
      *
      * @param  string $sendUid
      * @return self
@@ -293,7 +293,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets deliveryReport
+     * Get deliveryReport
      *
      * @return bool
      */
@@ -303,7 +303,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets deliveryReport
+     * Set deliveryReport
      *
      * @param  bool $deliveryReport
      * @return self

@@ -55,7 +55,7 @@ class AddedComment
     }
 
     /**
-     * Gets parentId
+     * Get parentId
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class AddedComment
     }
 
     /**
-     * Sets parentId
+     * Set parentId
      *
      * @param  string $parentId
      * @return self
@@ -77,7 +77,7 @@ class AddedComment
     }
 
     /**
-     * Gets text
+     * Get text
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class AddedComment
     }
 
     /**
-     * Sets text
+     * Set text
      *
      * @param  string $text
      * @return self

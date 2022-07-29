@@ -46,7 +46,7 @@ class ByMonthRule implements ByMonthRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ByMonthRule implements ByMonthRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

@@ -49,7 +49,7 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

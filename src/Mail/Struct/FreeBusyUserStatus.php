@@ -57,7 +57,7 @@ class FreeBusyUserStatus
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class FreeBusyUserStatus
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -79,7 +79,7 @@ class FreeBusyUserStatus
     }
 
     /**
-     * Gets freebusyStatus
+     * Get freebusyStatus
      *
      * @return FreeBusyStatus
      */
@@ -89,7 +89,7 @@ class FreeBusyUserStatus
     }
 
     /**
-     * Sets freebusyStatus
+     * Set freebusyStatus
      *
      * @param  FreeBusyStatus $freebusyStatus
      * @return self

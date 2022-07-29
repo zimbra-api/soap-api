@@ -97,7 +97,7 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the duration
+     * Get the duration
      *
      * @return int
      */
@@ -107,7 +107,7 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the duration
+     * Set the duration
      *
      * @param  int $duration
      * @return self

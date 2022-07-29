@@ -247,7 +247,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets email
+     * Get email
      *
      * @return string
      */
@@ -257,7 +257,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets email
+     * Set email
      *
      * @param  string $email
      * @return self
@@ -269,7 +269,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets matchType
+     * Get matchType
      *
      * @return MatchType
      */
@@ -279,7 +279,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets matchType
+     * Set matchType
      *
      * @param  MatchType $matchType
      * @return self
@@ -291,7 +291,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets ranking
+     * Get ranking
      *
      * @return int
      */
@@ -301,7 +301,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets ranking
+     * Set ranking
      *
      * @param  int $ranking
      * @return self
@@ -313,7 +313,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets group
+     * Get group
      *
      * @return bool
      */
@@ -323,7 +323,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets group
+     * Set group
      *
      * @param  bool $group
      * @return self
@@ -335,7 +335,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets canExpandGroupMembers
+     * Get canExpandGroupMembers
      *
      * @return bool
      */
@@ -345,7 +345,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets canExpandGroupMembers
+     * Set canExpandGroupMembers
      *
      * @param  bool $canExpandGroupMembers
      * @return self
@@ -357,7 +357,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -367,7 +367,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -379,7 +379,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -389,7 +389,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -401,7 +401,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets displayName
+     * Get displayName
      *
      * @return string
      */
@@ -411,7 +411,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets displayName
+     * Set displayName
      *
      * @param  string $displayName
      * @return self
@@ -423,7 +423,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets firstName
+     * Get firstName
      *
      * @return string
      */
@@ -433,7 +433,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets firstName
+     * Set firstName
      *
      * @param  string $firstName
      * @return self
@@ -445,7 +445,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets middleName
+     * Get middleName
      *
      * @return string
      */
@@ -455,7 +455,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets middleName
+     * Set middleName
      *
      * @param  string $middleName
      * @return self
@@ -467,7 +467,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets lastName
+     * Get lastName
      *
      * @return string
      */
@@ -477,7 +477,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets lastName
+     * Set lastName
      *
      * @param  string $lastName
      * @return self
@@ -489,7 +489,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets fullName
+     * Get fullName
      *
      * @return string
      */
@@ -499,7 +499,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets fullName
+     * Set fullName
      *
      * @param  string $fullName
      * @return self
@@ -511,7 +511,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets nickname
+     * Get nickname
      *
      * @return string
      */
@@ -521,7 +521,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets nickname
+     * Set nickname
      *
      * @param  string $nickname
      * @return self
@@ -533,7 +533,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets company
+     * Get company
      *
      * @return string
      */
@@ -543,7 +543,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets company
+     * Set company
      *
      * @param  string $company
      * @return self
@@ -555,7 +555,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Gets fileAs
+     * Get fileAs
      *
      * @return string
      */
@@ -565,7 +565,7 @@ class AutoCompleteMatch
     }
 
     /**
-     * Sets fileAs
+     * Set fileAs
      *
      * @param  string $fileAs
      * @return self

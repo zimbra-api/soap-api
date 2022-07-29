@@ -130,7 +130,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets matchType
+     * Get matchType
      *
      * @return MatchType
      */
@@ -140,7 +140,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets matchType
+     * Set matchType
      *
      * @param  MatchType $matchType
      * @return self
@@ -152,7 +152,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return bool
      */
@@ -162,7 +162,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets count
+     * Set count
      *
      * @param  bool $count
      * @return self
@@ -174,7 +174,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return bool
      */
@@ -184,7 +184,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  bool $value
      * @return self
@@ -196,7 +196,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets relationalComparator
+     * Get relationalComparator
      *
      * @return RelationalComparator
      */
@@ -206,7 +206,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets relationalComparator
+     * Set relationalComparator
      *
      * @param  RelationalComparator $relationalComparator
      * @return self
@@ -218,7 +218,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets comparator
+     * Get comparator
      *
      * @return ComparisonComparator
      */
@@ -228,7 +228,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets comparator
+     * Set comparator
      *
      * @param  ComparisonComparator $comparator
      * @return self
@@ -240,7 +240,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets headerName
+     * Get headerName
      *
      * @return string
      */
@@ -250,7 +250,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets headerName
+     * Set headerName
      *
      * @param  string $headerName
      * @return self
@@ -262,7 +262,7 @@ class EditheaderTest
     }
 
     /**
-     * Gets headerValue
+     * Get headerValue
      *
      * @return array
      */
@@ -272,7 +272,7 @@ class EditheaderTest
     }
 
     /**
-     * Sets headerValue
+     * Set headerValue
      *
      * @param  array $headerValue
      * @return self

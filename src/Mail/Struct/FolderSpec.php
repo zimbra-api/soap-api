@@ -44,7 +44,7 @@ class FolderSpec
     }
 
     /**
-     * Gets the folder
+     * Get the folder
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class FolderSpec
     }
 
     /**
-     * Sets the folder
+     * Set the folder
      *
      * @param  string $folder
      * @return self

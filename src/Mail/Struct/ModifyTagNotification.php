@@ -56,7 +56,7 @@ class ModifyTagNotification extends ModifyNotification
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -66,7 +66,7 @@ class ModifyTagNotification extends ModifyNotification
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -78,7 +78,7 @@ class ModifyTagNotification extends ModifyNotification
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class ModifyTagNotification extends ModifyNotification
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

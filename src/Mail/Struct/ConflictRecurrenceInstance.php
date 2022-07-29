@@ -57,7 +57,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     }
 
     /**
-     * Sets freebusyUsers
+     * Set freebusyUsers
      *
      * @param  array $users
      * @return self
@@ -69,7 +69,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     }
 
     /**
-     * Gets freebusyUsers
+     * Get freebusyUsers
      *
      * @return array
      */

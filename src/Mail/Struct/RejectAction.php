@@ -47,7 +47,7 @@ class RejectAction extends FilterAction
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -57,7 +57,7 @@ class RejectAction extends FilterAction
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self

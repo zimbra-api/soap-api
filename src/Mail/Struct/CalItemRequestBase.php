@@ -123,7 +123,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets echo
+     * Get echo
      *
      * @return bool
      */
@@ -133,7 +133,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets echo
+     * Set echo
      *
      * @param  bool $echo
      * @return self
@@ -145,7 +145,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets maxSize
+     * Get maxSize
      *
      * @return int
      */
@@ -155,7 +155,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets maxSize
+     * Set maxSize
      *
      * @param  int $maxSize
      * @return self
@@ -167,7 +167,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets wantHtml
+     * Get wantHtml
      *
      * @return bool
      */
@@ -177,7 +177,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets wantHtml
+     * Set wantHtml
      *
      * @param  bool $wantHtml
      * @return self
@@ -189,7 +189,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets neuter
+     * Get neuter
      *
      * @return bool
      */
@@ -199,7 +199,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets neuter
+     * Set neuter
      *
      * @param  bool $neuter
      * @return self
@@ -211,7 +211,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets forceSend
+     * Get forceSend
      *
      * @return bool
      */
@@ -221,7 +221,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets forceSend
+     * Set forceSend
      *
      * @param  bool $forceSend
      * @return self
@@ -233,7 +233,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */
@@ -243,7 +243,7 @@ abstract class CalItemRequestBase extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self

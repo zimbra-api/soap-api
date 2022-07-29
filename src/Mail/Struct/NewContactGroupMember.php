@@ -64,7 +64,7 @@ class NewContactGroupMember
     }
 
     /**
-     * Gets contact group member type
+     * Get contact group member type
      *
      * @return MemberType
      */
@@ -74,7 +74,7 @@ class NewContactGroupMember
     }
 
     /**
-     * Sets contact group member type
+     * Set contact group member type
      *
      * @param  MemberType $type
      * @return self
@@ -86,7 +86,7 @@ class NewContactGroupMember
     }
 
     /**
-     * Gets contact group member value
+     * Get contact group member value
      *
      * @return string
      */
@@ -96,7 +96,7 @@ class NewContactGroupMember
     }
 
     /**
-     * Sets contact group member value
+     * Set contact group member value
      *
      * @param  string $value
      * @return self

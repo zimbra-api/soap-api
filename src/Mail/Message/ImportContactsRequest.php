@@ -111,7 +111,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return Content
      */
@@ -121,7 +121,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  Content $content
      * @return self
@@ -133,7 +133,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -143,7 +143,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -155,7 +155,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -165,7 +165,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -177,7 +177,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets csvFormat
+     * Get csvFormat
      *
      * @return string
      */
@@ -187,7 +187,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets csvFormat
+     * Set csvFormat
      *
      * @param  string $csvFormat
      * @return self
@@ -199,7 +199,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets csvLocale
+     * Get csvLocale
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets csvLocale
+     * Set csvLocale
      *
      * @param  string $csvLocale
      * @return self

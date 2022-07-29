@@ -72,7 +72,7 @@ class GetCalendarItemSummariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets apptEntries
+     * Set apptEntries
      *
      * @param  array $apptEntries
      * @return self
@@ -84,7 +84,7 @@ class GetCalendarItemSummariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets apptEntries
+     * Get apptEntries
      *
      * @return array
      */
@@ -106,7 +106,7 @@ class GetCalendarItemSummariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets taskEntries
+     * Set taskEntries
      *
      * @param  array $taskEntries
      * @return self
@@ -118,7 +118,7 @@ class GetCalendarItemSummariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets taskEntries
+     * Get taskEntries
      *
      * @return array
      */

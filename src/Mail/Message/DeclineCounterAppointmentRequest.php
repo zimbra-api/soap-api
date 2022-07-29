@@ -51,7 +51,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -63,7 +63,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */

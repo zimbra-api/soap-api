@@ -46,7 +46,7 @@ class IntervalRule implements IntervalRuleInterface
     }
 
     /**
-     * Gets ival
+     * Get ival
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class IntervalRule implements IntervalRuleInterface
     }
 
     /**
-     * Sets ival
+     * Set ival
      *
      * @param  int $ival
      * @return self

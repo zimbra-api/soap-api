@@ -49,7 +49,7 @@ class SendVerificationCodeRequest extends SoapRequest
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -59,7 +59,7 @@ class SendVerificationCodeRequest extends SoapRequest
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self

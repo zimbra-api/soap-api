@@ -184,7 +184,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets recursive
+     * Get recursive
      *
      * @return bool
      */
@@ -194,7 +194,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets recursive
+     * Set recursive
      *
      * @param  bool $recursive
      * @return self
@@ -206,7 +206,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets url
+     * Get url
      *
      * @return string
      */
@@ -216,7 +216,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets url
+     * Set url
      *
      * @param  string $url
      * @return self
@@ -228,7 +228,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets excludeFreeBusy
+     * Get excludeFreeBusy
      *
      * @return bool
      */
@@ -238,7 +238,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets excludeFreeBusy
+     * Set excludeFreeBusy
      *
      * @param  bool $excludeFreeBusy
      * @return self
@@ -250,7 +250,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets zimbraId
+     * Get zimbraId
      *
      * @return string
      */
@@ -260,7 +260,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets zimbraId
+     * Set zimbraId
      *
      * @param  string $id
      * @return self
@@ -272,7 +272,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets grantType
+     * Get grantType
      *
      * @return GranteeType
      */
@@ -282,7 +282,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets grantType
+     * Set grantType
      *
      * @param  GranteeType $grantType
      * @return self
@@ -294,7 +294,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets view
+     * Get view
      *
      * @return string
      */
@@ -304,7 +304,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets view
+     * Set view
      *
      * @param  string $view
      * @return self
@@ -316,7 +316,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets grant
+     * Get grant
      *
      * @return ActionGrantSelector
      */
@@ -326,7 +326,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets grant
+     * Set grant
      *
      * @param  ActionGrantSelector $grant
      * @return self
@@ -338,7 +338,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets grants.
+     * Get grants.
      *
      * @return array
      */
@@ -348,7 +348,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets grants.
+     * Set grants.
      *
      * @param  array $grants
      * @return self
@@ -372,7 +372,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets retention policy
+     * Get retention policy
      *
      * @return RetentionPolicy
      */
@@ -382,7 +382,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets retention policy
+     * Set retention policy
      *
      * @param  RetentionPolicy $retentionPolicy
      * @return self
@@ -394,7 +394,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Gets num days
+     * Get num days
      *
      * @return int
      */
@@ -404,7 +404,7 @@ class FolderActionSelector extends ActionSelector
     }
 
     /**
-     * Sets num days
+     * Set num days
      *
      * @param  int $numDays
      * @return self

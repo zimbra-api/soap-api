@@ -45,7 +45,7 @@ class GenerateUUIDResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets uuid
+     * Get uuid
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class GenerateUUIDResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets uuid
+     * Set uuid
      *
      * @param  string $uuid
      * @return self

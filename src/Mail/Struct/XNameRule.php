@@ -61,7 +61,7 @@ class XNameRule implements XNameRuleInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class XNameRule implements XNameRuleInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -83,7 +83,7 @@ class XNameRule implements XNameRuleInterface
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class XNameRule implements XNameRuleInterface
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

@@ -48,7 +48,7 @@ class GetMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return MsgSpec
      */
@@ -58,7 +58,7 @@ class GetMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  MsgSpec $msg
      * @return self

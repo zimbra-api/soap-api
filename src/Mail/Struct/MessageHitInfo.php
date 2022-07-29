@@ -148,7 +148,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -158,7 +158,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self
@@ -170,7 +170,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Gets contentMatched
+     * Get contentMatched
      *
      * @return bool
      */
@@ -180,7 +180,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Sets contentMatched
+     * Set contentMatched
      *
      * @param  bool $contentMatched
      * @return self
@@ -192,7 +192,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Sets messagePartHits
+     * Set messagePartHits
      *
      * @param  array $hits
      * @return self
@@ -204,7 +204,7 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     }
 
     /**
-     * Gets messagePartHits
+     * Get messagePartHits
      *
      * @return array
      */

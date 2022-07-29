@@ -93,7 +93,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets messages
+     * Set messages
      *
      * @param  array $messages
      * @return self
@@ -105,7 +105,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets messages
+     * Get messages
      *
      * @return array
      */
@@ -115,7 +115,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets hasMore
+     * Get hasMore
      *
      * @return bool
      */
@@ -125,7 +125,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets hasMore
+     * Set hasMore
      *
      * @param  bool $hasMore
      * @return self
@@ -137,7 +137,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cursor
+     * Get cursor
      *
      * @return ImapCursorInfo
      */
@@ -147,7 +147,7 @@ class OpenIMAPFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cursor
+     * Set cursor
      *
      * @param  ImapCursorInfo $cursor
      * @return self

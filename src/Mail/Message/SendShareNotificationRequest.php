@@ -95,7 +95,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Gets the item.
+     * Get the item.
      *
      * @return Id
      */
@@ -105,7 +105,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Sets the item.
+     * Set the item.
      *
      * @param  Id $item
      * @return self
@@ -129,7 +129,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Sets email address array
+     * Set email address array
      *
      * @param array  $addresses
      * @return self
@@ -141,7 +141,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Gets email address array
+     * Get email address array
      *
      * @return array
      */
@@ -151,7 +151,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ShareAction
      */
@@ -161,7 +161,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  string $action
      * @return self
@@ -173,7 +173,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Gets notes
+     * Get notes
      *
      * @return string
      */
@@ -183,7 +183,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Sets notes
+     * Set notes
      *
      * @param  string $notes
      * @return self

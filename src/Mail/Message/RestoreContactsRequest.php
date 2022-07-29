@@ -69,7 +69,7 @@ class RestoreContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets contactsBackupFileName
+     * Get contactsBackupFileName
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class RestoreContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets contactsBackupFileName
+     * Set contactsBackupFileName
      *
      * @param  string $contactsBackupFileName
      * @return self
@@ -91,7 +91,7 @@ class RestoreContactsRequest extends SoapRequest
     }
 
     /**
-     * Gets resolve
+     * Get resolve
      *
      * @return RestoreResolve
      */
@@ -101,7 +101,7 @@ class RestoreContactsRequest extends SoapRequest
     }
 
     /**
-     * Sets resolve
+     * Set resolve
      *
      * @param  RestoreResolve $resolve
      * @return self

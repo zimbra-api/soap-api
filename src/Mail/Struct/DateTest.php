@@ -68,7 +68,7 @@ class DateTest extends FilterTest
     }
 
     /**
-     * Gets dateComparison
+     * Get dateComparison
      *
      * @return DateComparison
      */
@@ -78,7 +78,7 @@ class DateTest extends FilterTest
     }
 
     /**
-     * Sets dateComparison
+     * Set dateComparison
      *
      * @param  DateComparison $dateComparison
      * @return self
@@ -90,7 +90,7 @@ class DateTest extends FilterTest
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class DateTest extends FilterTest
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self

@@ -80,7 +80,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return ContentSpec
      */
@@ -90,7 +90,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  ContentSpec $content
      * @return self
@@ -102,7 +102,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -124,7 +124,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self

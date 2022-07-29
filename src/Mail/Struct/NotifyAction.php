@@ -111,7 +111,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -121,7 +121,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self
@@ -133,7 +133,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -143,7 +143,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -155,7 +155,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Gets maxBodySize
+     * Get maxBodySize
      *
      * @return int
      */
@@ -165,7 +165,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Sets maxBodySize
+     * Set maxBodySize
      *
      * @param  int $maxBodySize
      * @return self
@@ -177,7 +177,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -187,7 +187,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -199,7 +199,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Gets origHeaders
+     * Get origHeaders
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class NotifyAction extends FilterAction
     }
 
     /**
-     * Sets origHeaders
+     * Set origHeaders
      *
      * @param  string $origHeaders
      * @return self

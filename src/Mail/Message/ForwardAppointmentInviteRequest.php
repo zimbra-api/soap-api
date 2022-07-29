@@ -65,7 +65,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  Msg $msg
      * @return self
@@ -77,7 +77,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return Msg
      */
@@ -87,7 +87,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -99,7 +99,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */

@@ -121,7 +121,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets addressType
+     * Get addressType
      *
      * @return AddressType
      */
@@ -131,7 +131,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets addressType
+     * Set addressType
      *
      * @param  AddressType $addressType
      * @return self
@@ -143,7 +143,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -153,7 +153,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self
@@ -165,7 +165,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets the personal
+     * Get the personal
      *
      * @return string
      */
@@ -175,7 +175,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets the personal
+     * Set the personal
      *
      * @param  string $personal
      * @return self
@@ -187,7 +187,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets the display
+     * Get the display
      *
      * @return string
      */
@@ -197,7 +197,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets the display
+     * Set the display
      *
      * @param  string $display
      * @return self
@@ -209,7 +209,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets group
+     * Get group
      *
      * @return bool
      */
@@ -219,7 +219,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets group
+     * Set group
      *
      * @param  bool $group
      * @return self
@@ -231,7 +231,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Gets canExpandGroupMembers
+     * Get canExpandGroupMembers
      *
      * @return bool
      */
@@ -241,7 +241,7 @@ class EmailInfo implements EmailInfoInterface
     }
 
     /**
-     * Sets canExpandGroupMembers
+     * Set canExpandGroupMembers
      *
      * @param  bool $canExpandGroupMembers
      * @return self

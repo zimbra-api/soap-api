@@ -48,7 +48,7 @@ class CreateNoteResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets note point
+     * Get note point
      *
      * @return NoteInfo
      */
@@ -58,7 +58,7 @@ class CreateNoteResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets note point
+     * Set note point
      *
      * @param  NoteInfo $note
      * @return self

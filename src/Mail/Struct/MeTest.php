@@ -53,7 +53,7 @@ class MeTest extends FilterTest
     }
 
     /**
-     * Gets header
+     * Get header
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class MeTest extends FilterTest
     }
 
     /**
-     * Sets header
+     * Set header
      *
      * @param  string $header
      * @return self

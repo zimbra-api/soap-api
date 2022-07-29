@@ -107,7 +107,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Gets from
+     * Get from
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Sets from
+     * Set from
      *
      * @param  string $from
      * @return self
@@ -129,7 +129,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Gets importance
+     * Get importance
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Sets importance
+     * Set importance
      *
      * @param  string $importance
      * @return self
@@ -151,7 +151,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Gets options
+     * Get options
      *
      * @return int
      */
@@ -161,7 +161,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Sets options
+     * Set options
      *
      * @param  string $options
      * @return self
@@ -173,7 +173,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Gets message
+     * Get message
      *
      * @return string
      */
@@ -183,7 +183,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Sets message
+     * Set message
      *
      * @param  string $message
      * @return self
@@ -195,7 +195,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Gets method
+     * Get method
      *
      * @return string
      */
@@ -205,7 +205,7 @@ class RFCCompliantNotifyAction extends FilterAction
     }
 
     /**
-     * Sets method
+     * Set method
      *
      * @param  string $method
      * @return self

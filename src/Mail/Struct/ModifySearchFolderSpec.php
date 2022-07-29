@@ -92,7 +92,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -114,7 +114,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -136,7 +136,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Gets searchTypes
+     * Get searchTypes
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Sets searchTypes
+     * Set searchTypes
      *
      * @param  string $searchTypes
      * @return self
@@ -164,7 +164,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -174,7 +174,7 @@ class ModifySearchFolderSpec
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self

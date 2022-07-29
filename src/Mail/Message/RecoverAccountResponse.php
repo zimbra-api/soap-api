@@ -66,7 +66,7 @@ class RecoverAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets recoveryAccount
+     * Get recoveryAccount
      *
      * @return string
      */
@@ -76,7 +76,7 @@ class RecoverAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets recoveryAccount
+     * Set recoveryAccount
      *
      * @param  string $recoveryAccount
      * @return self
@@ -88,7 +88,7 @@ class RecoverAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets recoveryAttemptsLeft
+     * Get recoveryAttemptsLeft
      *
      * @return int
      */
@@ -98,7 +98,7 @@ class RecoverAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets recoveryAttemptsLeft
+     * Set recoveryAttemptsLeft
      *
      * @param  int $recoveryAttemptsLeft
      * @return self

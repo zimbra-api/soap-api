@@ -67,7 +67,7 @@ class BodyTest extends FilterTest
     }
 
     /**
-     * Gets caseSensitive
+     * Get caseSensitive
      *
      * @return bool
      */
@@ -77,7 +77,7 @@ class BodyTest extends FilterTest
     }
 
     /**
-     * Sets caseSensitive
+     * Set caseSensitive
      *
      * @param  bool $caseSensitive
      * @return self
@@ -89,7 +89,7 @@ class BodyTest extends FilterTest
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class BodyTest extends FilterTest
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

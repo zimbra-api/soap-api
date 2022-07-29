@@ -49,7 +49,7 @@ class SaveDocumentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets doc
+     * Get doc
      *
      * @return IdVersionName
      */
@@ -59,7 +59,7 @@ class SaveDocumentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets doc
+     * Set doc
      *
      * @param  IdVersionName $doc
      * @return self

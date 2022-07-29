@@ -72,7 +72,7 @@ class GetMiniCalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets busy dates
+     * Set busy dates
      *
      * @param  array $dates busyDates
      * @return self
@@ -84,7 +84,7 @@ class GetMiniCalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets busy dates
+     * Get busy dates
      *
      * @return array
      */
@@ -106,7 +106,7 @@ class GetMiniCalResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets errors
+     * Set errors
      *
      * @param  array $errors
      * @return self
@@ -118,7 +118,7 @@ class GetMiniCalResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets errors
+     * Get errors
      *
      * @return array
      */

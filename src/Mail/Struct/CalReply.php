@@ -111,7 +111,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Gets sequence
+     * Get sequence
      *
      * @return int
      */
@@ -121,7 +121,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Sets sequence
+     * Set sequence
      *
      * @param  int $sequence
      * @return self
@@ -133,7 +133,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -143,7 +143,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -155,7 +155,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Gets attendee
+     * Get attendee
      *
      * @return string
      */
@@ -165,7 +165,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Sets attendee
+     * Set attendee
      *
      * @param  string $attendee
      * @return self
@@ -177,7 +177,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Gets sentBy
+     * Get sentBy
      *
      * @return string
      */
@@ -187,7 +187,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Sets sentBy
+     * Set sentBy
      *
      * @param  string $sentBy
      * @return self
@@ -199,7 +199,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Gets partStat
+     * Get partStat
      *
      * @return ParticipationStatus
      */
@@ -209,7 +209,7 @@ class CalReply extends RecurIdInfo
     }
 
     /**
-     * Sets partStat
+     * Set partStat
      *
      * @param  ParticipationStatus $partStat
      * @return self

@@ -48,7 +48,7 @@ class NoteActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return NoteActionSelector
      */
@@ -58,7 +58,7 @@ class NoteActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  NoteActionSelector $action
      * @return self

@@ -60,7 +60,7 @@ class GetSpellDictionariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dictionaries
+     * Set dictionaries
      *
      * @param  array $dictionaries
      * @return self
@@ -72,7 +72,7 @@ class GetSpellDictionariesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dictionaries
+     * Get dictionaries
      *
      * @return array
      */

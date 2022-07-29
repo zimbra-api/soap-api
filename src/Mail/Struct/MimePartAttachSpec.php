@@ -59,7 +59,7 @@ class MimePartAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets messageId
+     * Get messageId
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class MimePartAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets messageId
+     * Set messageId
      *
      * @param  string $type
      * @return self
@@ -81,7 +81,7 @@ class MimePartAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets the part
+     * Get the part
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class MimePartAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets the part
+     * Set the part
      *
      * @param  string $part
      * @return self

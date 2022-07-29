@@ -161,7 +161,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -171,7 +171,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -183,7 +183,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets endTime
+     * Get endTime
      *
      * @return int
      */
@@ -193,7 +193,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets endTime
+     * Set endTime
      *
      * @param  int $endTime
      * @return self
@@ -205,7 +205,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets allInstances
+     * Get allInstances
      *
      * @return bool
      */
@@ -215,7 +215,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets allInstances
+     * Set allInstances
      *
      * @param  bool $allInstances
      * @return self
@@ -227,7 +227,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets excludeUid
+     * Get excludeUid
      *
      * @return string
      */
@@ -237,7 +237,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets excludeUid
+     * Set excludeUid
      *
      * @param  string $excludeUid
      * @return self
@@ -261,7 +261,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -273,7 +273,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -303,7 +303,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets components
+     * Set components
      *
      * @param  array $components
      * @return self
@@ -320,7 +320,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets components
+     * Get components
      *
      * @return array
      */
@@ -330,7 +330,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets cancelComponents
+     * Set cancelComponents
      *
      * @param  array $components
      * @return self
@@ -342,7 +342,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets cancelComponents
+     * Get cancelComponents
      *
      * @return array
      */
@@ -352,7 +352,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets inviteComponents
+     * Set inviteComponents
      *
      * @param  array $components
      * @return self
@@ -364,7 +364,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets inviteComponents
+     * Get inviteComponents
      *
      * @return array
      */
@@ -374,7 +374,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptComponents
+     * Set exceptComponents
      *
      * @param  array $components
      * @return self
@@ -386,7 +386,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptComponents
+     * Get exceptComponents
      *
      * @return array
      */
@@ -408,7 +408,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Sets freebusyUsers
+     * Set freebusyUsers
      *
      * @param  array $users
      * @return self
@@ -420,7 +420,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Gets freebusyUsers
+     * Get freebusyUsers
      *
      * @return array
      */

@@ -65,7 +65,7 @@ class InviteTest extends FilterTest
     }
 
     /**
-     * Gets methods
+     * Get methods
      *
      * @return array
      */
@@ -75,7 +75,7 @@ class InviteTest extends FilterTest
     }
 
     /**
-     * Sets methods
+     * Set methods
      *
      * @param  array $methods
      * @return self

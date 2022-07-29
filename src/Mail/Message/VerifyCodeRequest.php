@@ -66,7 +66,7 @@ class VerifyCodeRequest extends SoapRequest
     }
 
     /**
-     * Gets address
+     * Get address
      *
      * @return string
      */
@@ -76,7 +76,7 @@ class VerifyCodeRequest extends SoapRequest
     }
 
     /**
-     * Sets address
+     * Set address
      *
      * @param  string $address
      * @return self
@@ -88,7 +88,7 @@ class VerifyCodeRequest extends SoapRequest
     }
 
     /**
-     * Gets verificationCode
+     * Get verificationCode
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class VerifyCodeRequest extends SoapRequest
     }
 
     /**
-     * Sets verificationCode
+     * Set verificationCode
      *
      * @param  string $verificationCode
      * @return self

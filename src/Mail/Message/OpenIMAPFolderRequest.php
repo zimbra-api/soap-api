@@ -77,7 +77,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  array $limit
      * @return self
@@ -89,7 +89,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -99,7 +99,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  string $folderId
      * @return self
@@ -121,7 +121,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets cursor
+     * Get cursor
      *
      * @return ImapCursorInfo
      */
@@ -131,7 +131,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets cursor
+     * Set cursor
      *
      * @param  ImapCursorInfo $cursor
      * @return self

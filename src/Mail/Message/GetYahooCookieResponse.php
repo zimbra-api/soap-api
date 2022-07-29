@@ -92,7 +92,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets crumb
+     * Get crumb
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets crumb
+     * Set crumb
      *
      * @param  string $crumb
      * @return self
@@ -114,7 +114,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets error
+     * Get error
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets error
+     * Set error
      *
      * @param  string $error
      * @return self
@@ -136,7 +136,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets y
+     * Get y
      *
      * @return string
      */
@@ -146,7 +146,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets y
+     * Set y
      *
      * @param  string $y
      * @return self
@@ -158,7 +158,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets t
+     * Get t
      *
      * @return string
      */
@@ -168,7 +168,7 @@ class GetYahooCookieResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets t
+     * Set t
      *
      * @param  string $t
      * @return self

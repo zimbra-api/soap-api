@@ -62,7 +62,7 @@ class GetCustomMetadataRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -72,7 +72,7 @@ class GetCustomMetadataRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -84,7 +84,7 @@ class GetCustomMetadataRequest extends SoapRequest
     }
 
     /**
-     * Gets metadata
+     * Get metadata
      *
      * @return SectionAttr
      */
@@ -94,7 +94,7 @@ class GetCustomMetadataRequest extends SoapRequest
     }
 
     /**
-     * Sets metadata
+     * Set metadata
      *
      * @param  SectionAttr $metadata
      * @return self

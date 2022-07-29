@@ -46,7 +46,7 @@ class GetIMAPRecentCutoffRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class GetIMAPRecentCutoffRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

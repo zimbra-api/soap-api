@@ -45,7 +45,7 @@ class ModifyItemNotification extends ModifyNotification
     }
 
     /**
-     * Gets modified IMAP message
+     * Get modified IMAP message
      *
      * @return ImapMessageInfo
      */
@@ -55,7 +55,7 @@ class ModifyItemNotification extends ModifyNotification
     }
 
     /**
-     * Sets modified IMAP message
+     * Set modified IMAP message
      *
      * @param  ImapMessageInfo $msgInfo
      * @return self

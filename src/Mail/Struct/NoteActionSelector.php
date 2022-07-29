@@ -107,7 +107,7 @@ class NoteActionSelector extends ActionSelector
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class NoteActionSelector extends ActionSelector
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
@@ -129,7 +129,7 @@ class NoteActionSelector extends ActionSelector
     }
 
     /**
-     * Gets bounds
+     * Get bounds
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class NoteActionSelector extends ActionSelector
     }
 
     /**
-     * Sets bounds
+     * Set bounds
      *
      * @param  string $id
      * @return self

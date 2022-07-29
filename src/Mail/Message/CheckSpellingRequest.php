@@ -80,7 +80,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Gets dictionary
+     * Get dictionary
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Sets dictionary
+     * Set dictionary
      *
      * @param  string $dictionary
      * @return self
@@ -102,7 +102,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Gets ignoreList
+     * Get ignoreList
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Sets ignoreList
+     * Set ignoreList
      *
      * @param  string $ignoreList
      * @return self
@@ -124,7 +124,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Gets text
+     * Get text
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Sets text
+     * Set text
      *
      * @param  string $text
      * @return self

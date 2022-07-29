@@ -51,7 +51,7 @@ class MsgActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return ActionSelector
      */
@@ -61,7 +61,7 @@ class MsgActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  ActionSelector $action
      * @return self

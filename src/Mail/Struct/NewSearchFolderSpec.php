@@ -144,7 +144,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -166,7 +166,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -176,7 +176,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -188,7 +188,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets searchTypes
+     * Get searchTypes
      *
      * @return string
      */
@@ -198,7 +198,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets searchTypes
+     * Set searchTypes
      *
      * @param  string $searchTypes
      * @return self
@@ -216,7 +216,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -226,7 +226,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self
@@ -238,7 +238,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets parentFolderId
+     * Get parentFolderId
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets parentFolderId
+     * Set parentFolderId
      *
      * @param  string $parentFolderId
      * @return self
@@ -260,7 +260,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -282,7 +282,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -292,7 +292,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -304,7 +304,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -314,7 +314,7 @@ class NewSearchFolderSpec
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self

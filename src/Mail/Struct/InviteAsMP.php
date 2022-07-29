@@ -170,7 +170,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -180,7 +180,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -192,7 +192,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return string
      */
@@ -202,7 +202,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  string $part
      * @return self
@@ -214,7 +214,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets sentDate
+     * Get sentDate
      *
      * @return int
      */
@@ -224,7 +224,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets sentDate
+     * Set sentDate
      *
      * @param  int $sentDate
      * @return self
@@ -236,7 +236,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets emails
+     * Set emails
      *
      * @param  array $emails
      * @return self
@@ -248,7 +248,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets emails
+     * Get emails
      *
      * @return array
      */
@@ -270,7 +270,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets subject
+     * Get subject
      *
      * @return string
      */
@@ -280,7 +280,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets subject
+     * Set subject
      *
      * @param  string $subject
      * @return self
@@ -292,7 +292,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets messageIdHeader
+     * Get messageIdHeader
      *
      * @return string
      */
@@ -302,7 +302,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets messageIdHeader
+     * Set messageIdHeader
      *
      * @param  string $messageIdHeader
      * @return self
@@ -314,7 +314,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets invite
+     * Get invite
      *
      * @return MPInviteInfo
      */
@@ -324,7 +324,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets invite
+     * Set invite
      *
      * @param  MPInviteInfo $invite
      * @return self
@@ -336,7 +336,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  array $headers
      * @return self
@@ -348,7 +348,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return array
      */
@@ -370,7 +370,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets contentElems
+     * Set contentElems
      *
      * @param  array $contentElems
      * @return self
@@ -383,7 +383,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets contentElems
+     * Get contentElems
      *
      * @return array
      */
@@ -393,7 +393,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets mpContentElems
+     * Set mpContentElems
      *
      * @param  array $elements
      * @return self
@@ -407,7 +407,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets mpContentElems
+     * Get mpContentElems
      *
      * @return array
      */
@@ -417,7 +417,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets shrContentElems
+     * Set shrContentElems
      *
      * @param  array $elements
      * @return self
@@ -431,7 +431,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets shrContentElems
+     * Get shrContentElems
      *
      * @return array
      */
@@ -441,7 +441,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Sets dlSubsContentElems
+     * Set dlSubsContentElems
      *
      * @param  array $elements
      * @return self
@@ -455,7 +455,7 @@ class InviteAsMP extends MessageCommon
     }
 
     /**
-     * Gets dlSubsContentElems
+     * Get dlSubsContentElems
      *
      * @return array
      */

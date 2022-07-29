@@ -91,7 +91,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Gets recurrenceRangeType
+     * Get recurrenceRangeType
      *
      * @return int
      */
@@ -101,7 +101,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Sets recurrenceRangeType
+     * Set recurrenceRangeType
      *
      * @param  int $recurrenceRangeType
      * @return self
@@ -113,7 +113,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Gets dateTime
+     * Get dateTime
      *
      * @return string
      */
@@ -123,7 +123,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Sets dateTime
+     * Set dateTime
      *
      * @param  string $dateTime
      * @return self
@@ -135,7 +135,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return string
      */
@@ -145,7 +145,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  string $timezone
      * @return self

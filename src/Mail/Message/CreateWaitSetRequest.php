@@ -108,7 +108,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self
@@ -120,7 +120,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -130,7 +130,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Gets defaultInterests
+     * Get defaultInterests
      *
      * @return string
      */
@@ -140,7 +140,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @param  string $defaultInterests
      * @return self
@@ -153,7 +153,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Gets allAccounts
+     * Get allAccounts
      *
      * @return bool
      */
@@ -163,7 +163,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Sets allAccounts
+     * Set allAccounts
      *
      * @param  bool $allAccounts
      * @return self

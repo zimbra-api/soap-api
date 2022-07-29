@@ -73,7 +73,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -95,7 +95,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Gets exceptionId
+     * Get exceptionId
      *
      * @return DtTimeInfo
      */
@@ -105,7 +105,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Sets exceptionId
+     * Set exceptionId
      *
      * @param  DtTimeInfo $exceptionId
      * @return self
@@ -117,7 +117,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Gets timezone
+     * Get timezone
      *
      * @return CalTZInfo
      */
@@ -127,7 +127,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Sets timezone
+     * Set timezone
      *
      * @param  CalTZInfo $timezone
      * @return self

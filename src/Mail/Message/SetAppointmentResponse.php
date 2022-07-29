@@ -94,7 +94,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calItemId
+     * Get calItemId
      *
      * @return int
      */
@@ -104,7 +104,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calItemId
+     * Set calItemId
      *
      * @param  string $calItemId
      * @return self
@@ -116,7 +116,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets deprecatedApptId
+     * Get deprecatedApptId
      *
      * @return int
      */
@@ -126,7 +126,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets deprecatedApptId
+     * Set deprecatedApptId
      *
      * @param  string $deprecatedApptId
      * @return self
@@ -138,7 +138,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets defaultId
+     * Get defaultId
      *
      * @return Id
      */
@@ -148,7 +148,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets defaultId
+     * Set defaultId
      *
      * @param  Id $defaultId
      * @return self
@@ -172,7 +172,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets exceptions
+     * Set exceptions
      *
      * @param  array $exceptions
      * @return self
@@ -184,7 +184,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets exceptions
+     * Get exceptions
      *
      * @return array
      */

@@ -104,7 +104,7 @@ class WikiHitInfo extends CommonDocumentInfo implements SearchHit
     }
 
     /**
-     * Gets sortField
+     * Get sortField
      *
      * @return string
      */
@@ -114,7 +114,7 @@ class WikiHitInfo extends CommonDocumentInfo implements SearchHit
     }
 
     /**
-     * Sets sortField
+     * Set sortField
      *
      * @param  string $sortField
      * @return self

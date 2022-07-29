@@ -179,7 +179,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -189,7 +189,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -201,7 +201,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets draftAccountId
+     * Get draftAccountId
      *
      * @return string
      */
@@ -211,7 +211,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets draftAccountId
+     * Set draftAccountId
      *
      * @param  string $draftAccountId
      * @return self
@@ -223,7 +223,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -233,7 +233,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -245,7 +245,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets tagNames
+     * Get tagNames
      *
      * @return string
      */
@@ -255,7 +255,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets tagNames
+     * Set tagNames
      *
      * @param  string $tagNames
      * @return self
@@ -267,7 +267,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -277,7 +277,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -289,7 +289,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -299,7 +299,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -311,7 +311,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Gets autoSendTime
+     * Get autoSendTime
      *
      * @return int
      */
@@ -321,7 +321,7 @@ class SaveDraftMsg extends Msg
     }
 
     /**
-     * Sets autoSendTime
+     * Set autoSendTime
      *
      * @param  int $autoSendTime
      * @return self

@@ -188,7 +188,7 @@ class FilterActions
     }
 
     /**
-     * Gets filter variables
+     * Get filter variables
      *
      * @return array
      */
@@ -198,7 +198,7 @@ class FilterActions
     }
 
     /**
-     * Sets filter variables
+     * Set filter variables
      *
      * @return self
      */
@@ -211,7 +211,7 @@ class FilterActions
     }
 
     /**
-     * Gets keep filter actions
+     * Get keep filter actions
      *
      * @return array
      */
@@ -221,7 +221,7 @@ class FilterActions
     }
 
     /**
-     * Sets keep filter actions
+     * Set keep filter actions
      *
      * @return self
      */
@@ -234,7 +234,7 @@ class FilterActions
     }
 
     /**
-     * Gets discard filter actions
+     * Get discard filter actions
      *
      * @return array
      */
@@ -244,7 +244,7 @@ class FilterActions
     }
 
     /**
-     * Sets discard filter actions
+     * Set discard filter actions
      *
      * @return self
      */
@@ -257,7 +257,7 @@ class FilterActions
     }
 
     /**
-     * Gets file into filter actions
+     * Get file into filter actions
      *
      * @return array
      */
@@ -267,7 +267,7 @@ class FilterActions
     }
 
     /**
-     * Sets file into filter actions
+     * Set file into filter actions
      *
      * @return self
      */
@@ -280,7 +280,7 @@ class FilterActions
     }
 
     /**
-     * Gets flag filter actions
+     * Get flag filter actions
      *
      * @return array
      */
@@ -290,7 +290,7 @@ class FilterActions
     }
 
     /**
-     * Sets flag filter actions
+     * Set flag filter actions
      *
      * @return self
      */
@@ -303,7 +303,7 @@ class FilterActions
     }
 
     /**
-     * Gets tag filter actions
+     * Get tag filter actions
      *
      * @return array
      */
@@ -313,7 +313,7 @@ class FilterActions
     }
 
     /**
-     * Sets tag filter actions
+     * Set tag filter actions
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class FilterActions
     }
 
     /**
-     * Gets redirect filter actions
+     * Get redirect filter actions
      *
      * @return array
      */
@@ -336,7 +336,7 @@ class FilterActions
     }
 
     /**
-     * Sets redirect filter actions
+     * Set redirect filter actions
      *
      * @return self
      */
@@ -349,7 +349,7 @@ class FilterActions
     }
 
     /**
-     * Gets reply filter actions
+     * Get reply filter actions
      *
      * @return array
      */
@@ -359,7 +359,7 @@ class FilterActions
     }
 
     /**
-     * Sets reply filter actions
+     * Set reply filter actions
      *
      * @return self
      */
@@ -372,7 +372,7 @@ class FilterActions
     }
 
     /**
-     * Gets notify filter actions
+     * Get notify filter actions
      *
      * @return array
      */
@@ -382,7 +382,7 @@ class FilterActions
     }
 
     /**
-     * Sets notify filter actions
+     * Set notify filter actions
      *
      * @return self
      */
@@ -395,7 +395,7 @@ class FilterActions
     }
 
     /**
-     * Gets RFC compliant notify filter actions
+     * Get RFC compliant notify filter actions
      *
      * @return array
      */
@@ -405,7 +405,7 @@ class FilterActions
     }
 
     /**
-     * Sets RFC compliant notify filter actions
+     * Set RFC compliant notify filter actions
      *
      * @return self
      */
@@ -418,7 +418,7 @@ class FilterActions
     }
 
     /**
-     * Gets stop filter actions
+     * Get stop filter actions
      *
      * @return array
      */
@@ -428,7 +428,7 @@ class FilterActions
     }
 
     /**
-     * Sets stop filter actions
+     * Set stop filter actions
      *
      * @return self
      */
@@ -441,7 +441,7 @@ class FilterActions
     }
 
     /**
-     * Gets reject filter actions
+     * Get reject filter actions
      *
      * @return array
      */
@@ -451,7 +451,7 @@ class FilterActions
     }
 
     /**
-     * Sets reject filter actions
+     * Set reject filter actions
      *
      * @return self
      */
@@ -464,7 +464,7 @@ class FilterActions
     }
 
     /**
-     * Gets ereject filter actions
+     * Get ereject filter actions
      *
      * @return array
      */
@@ -474,7 +474,7 @@ class FilterActions
     }
 
     /**
-     * Sets ereject filter actions
+     * Set ereject filter actions
      *
      * @return self
      */
@@ -487,7 +487,7 @@ class FilterActions
     }
 
     /**
-     * Gets log filter actions
+     * Get log filter actions
      *
      * @return array
      */
@@ -497,7 +497,7 @@ class FilterActions
     }
 
     /**
-     * Sets log filter actions
+     * Set log filter actions
      *
      * @return self
      */
@@ -510,7 +510,7 @@ class FilterActions
     }
 
     /**
-     * Gets add header filter actions
+     * Get add header filter actions
      *
      * @return array
      */
@@ -520,7 +520,7 @@ class FilterActions
     }
 
     /**
-     * Sets add header filter actions
+     * Set add header filter actions
      *
      * @return self
      */
@@ -533,7 +533,7 @@ class FilterActions
     }
 
     /**
-     * Gets delete header filter actions
+     * Get delete header filter actions
      *
      * @return array
      */
@@ -543,7 +543,7 @@ class FilterActions
     }
 
     /**
-     * Sets delete header filter actions
+     * Set delete header filter actions
      *
      * @return self
      */
@@ -556,7 +556,7 @@ class FilterActions
     }
 
     /**
-     * Gets replace header filter actions
+     * Get replace header filter actions
      *
      * @return array
      */
@@ -566,7 +566,7 @@ class FilterActions
     }
 
     /**
-     * Sets replace header filter actions
+     * Set replace header filter actions
      *
      * @return self
      */
@@ -669,7 +669,7 @@ class FilterActions
     }
 
     /**
-     * Gets filter actions
+     * Get filter actions
      *
      * @return array
      */

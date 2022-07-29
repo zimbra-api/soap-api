@@ -144,7 +144,7 @@ class Invitation
     }
 
     /**
-     * Gets calItemType
+     * Get calItemType
      *
      * @return string
      */
@@ -154,7 +154,7 @@ class Invitation
     }
 
     /**
-     * Sets calItemType
+     * Set calItemType
      *
      * @param  string $calItemType
      * @return self
@@ -166,7 +166,7 @@ class Invitation
     }
 
     /**
-     * Gets sequence
+     * Get sequence
      *
      * @return int
      */
@@ -176,7 +176,7 @@ class Invitation
     }
 
     /**
-     * Sets sequence
+     * Set sequence
      *
      * @param  int $sequence
      * @return self
@@ -188,7 +188,7 @@ class Invitation
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -198,7 +198,7 @@ class Invitation
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -210,7 +210,7 @@ class Invitation
     }
 
     /**
-     * Gets componentNum
+     * Get componentNum
      *
      * @return int
      */
@@ -220,7 +220,7 @@ class Invitation
     }
 
     /**
-     * Sets componentNum
+     * Set componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -232,7 +232,7 @@ class Invitation
     }
 
     /**
-     * Gets recurrenceId
+     * Get recurrenceId
      *
      * @return string
      */
@@ -242,7 +242,7 @@ class Invitation
     }
 
     /**
-     * Sets recurrenceId
+     * Set recurrenceId
      *
      * @param  string $recurrenceId
      * @return self
@@ -278,7 +278,7 @@ class Invitation
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -288,7 +288,7 @@ class Invitation
     }
 
     /**
-     * Gets inviteComponent
+     * Get inviteComponent
      *
      * @return InviteComponent
      */
@@ -298,7 +298,7 @@ class Invitation
     }
 
     /**
-     * Sets inviteComponent
+     * Set inviteComponent
      *
      * @param  InviteComponent $inviteComponent
      * @return self
@@ -334,7 +334,7 @@ class Invitation
     }
 
     /**
-     * Gets partInfos
+     * Get partInfos
      *
      * @return array
      */
@@ -368,7 +368,7 @@ class Invitation
     }
 
     /**
-     * Gets shareNotifications
+     * Get shareNotifications
      *
      * @return array
      */
@@ -402,7 +402,7 @@ class Invitation
     }
 
     /**
-     * Gets dlSubs
+     * Get dlSubs
      *
      * @return array
      */

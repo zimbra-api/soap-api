@@ -164,7 +164,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets types
+     * Set types
      *
      * @param  array $types
      * @return self
@@ -188,7 +188,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return array
      */
@@ -212,7 +212,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets ids
+     * Get ids
      *
      * @return string
      */
@@ -222,7 +222,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets ids
+     * Set ids
      *
      * @param  string $ids
      * @return self
@@ -234,7 +234,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets folderTypes
+     * Set folderTypes
      *
      * @param  array $types
      * @return self
@@ -248,7 +248,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets folderTypes
+     * Get folderTypes
      *
      * @return array
      */
@@ -258,7 +258,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets searchTypes
+     * Set searchTypes
      *
      * @param  array $types
      * @return self
@@ -272,7 +272,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets searchTypes
+     * Get searchTypes
      *
      * @return array
      */
@@ -282,7 +282,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets linkTypes
+     * Set linkTypes
      *
      * @param  array $types
      * @return self
@@ -296,7 +296,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets linkTypes
+     * Get linkTypes
      *
      * @return array
      */
@@ -306,7 +306,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets tagTypes
+     * Set tagTypes
      *
      * @param  array $types
      * @return self
@@ -320,7 +320,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets tagTypes
+     * Get tagTypes
      *
      * @return array
      */
@@ -330,7 +330,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets convTypes
+     * Set convTypes
      *
      * @param  array $types
      * @return self
@@ -344,7 +344,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets convTypes
+     * Get convTypes
      *
      * @return array
      */
@@ -354,7 +354,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets chatTypes
+     * Set chatTypes
      *
      * @param  array $types
      * @return self
@@ -368,7 +368,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets chatTypes
+     * Get chatTypes
      *
      * @return array
      */
@@ -378,7 +378,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets msgTypes
+     * Set msgTypes
      *
      * @param  array $types
      * @return self
@@ -392,7 +392,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets msgTypes
+     * Get msgTypes
      *
      * @return array
      */
@@ -402,7 +402,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets contactTypes
+     * Set contactTypes
      *
      * @param  array $types
      * @return self
@@ -416,7 +416,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets contactTypes
+     * Get contactTypes
      *
      * @return array
      */
@@ -426,7 +426,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets apptTypes
+     * Set apptTypes
      *
      * @param  array $types
      * @return self
@@ -440,7 +440,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets apptTypes
+     * Get apptTypes
      *
      * @return array
      */
@@ -450,7 +450,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets taskTypes
+     * Set taskTypes
      *
      * @param  array $types
      * @return self
@@ -464,7 +464,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets taskTypes
+     * Get taskTypes
      *
      * @return array
      */
@@ -474,7 +474,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets noteTypes
+     * Set noteTypes
      *
      * @param  array $types
      * @return self
@@ -488,7 +488,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets noteTypes
+     * Get noteTypes
      *
      * @return array
      */
@@ -498,7 +498,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets wikiTypes
+     * Set wikiTypes
      *
      * @param  array $types
      * @return self
@@ -512,7 +512,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets wikiTypes
+     * Get wikiTypes
      *
      * @return array
      */
@@ -522,7 +522,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Sets docTypes
+     * Set docTypes
      *
      * @param  array $types
      * @return self
@@ -536,7 +536,7 @@ class SyncDeletedInfo
     }
 
     /**
-     * Gets docTypes
+     * Get docTypes
      *
      * @return array
      */

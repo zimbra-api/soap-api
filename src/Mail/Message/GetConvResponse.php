@@ -48,7 +48,7 @@ class GetConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets conversation
+     * Get conversation
      *
      * @return ConversationInfo
      */
@@ -58,7 +58,7 @@ class GetConvResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets conversation
+     * Set conversation
      *
      * @param  ConversationInfo $conversation
      * @return self

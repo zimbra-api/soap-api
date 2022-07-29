@@ -106,7 +106,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -118,7 +118,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets numComponents
+     * Set numComponents
      *
      * @param  int $numComponents
      * @return self
@@ -140,7 +140,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets numComponents
+     * Get numComponents
      *
      * @return int
      */
@@ -150,7 +150,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -162,7 +162,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -172,7 +172,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -184,7 +184,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */

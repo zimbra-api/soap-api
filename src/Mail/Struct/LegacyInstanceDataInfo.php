@@ -162,7 +162,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets startTime
+     * Get startTime
      *
      * @return int
      */
@@ -172,7 +172,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets startTime
+     * Set startTime
      *
      * @param  int $startTime
      * @return self
@@ -184,7 +184,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets isException
+     * Get isException
      *
      * @return bool
      */
@@ -194,7 +194,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets isException
+     * Set isException
      *
      * @param  bool $isException
      * @return self
@@ -206,7 +206,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets organizer
+     * Get organizer
      *
      * @return CalOrganizer
      */
@@ -216,7 +216,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets organizer
+     * Set organizer
      *
      * @param  CalOrganizer $organizer
      * @return self
@@ -228,7 +228,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets categories
+     * Get categories
      *
      * @return array
      */
@@ -238,7 +238,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets categories
+     * Set categories
      *
      * @param  array $categories
      * @return self
@@ -268,7 +268,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets geo
+     * Get geo
      *
      * @return GeoInfo
      */
@@ -278,7 +278,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets geo
+     * Set geo
      *
      * @param  GeoInfo $geo
      * @return self
@@ -290,7 +290,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Gets fragment
+     * Get fragment
      *
      * @return string
      */
@@ -300,7 +300,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     }
 
     /**
-     * Sets fragment
+     * Set fragment
      *
      * @param  string $fragment
      * @return self

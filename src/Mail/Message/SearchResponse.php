@@ -254,7 +254,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return SearchSortBy
      */
@@ -264,7 +264,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  SearchSortBy $sortBy
      * @return self
@@ -276,7 +276,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets queryOffset
+     * Get queryOffset
      *
      * @return int
      */
@@ -286,7 +286,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets queryOffset
+     * Set queryOffset
      *
      * @param  int $queryOffset
      * @return self
@@ -298,7 +298,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets queryMore
+     * Get queryMore
      *
      * @return bool
      */
@@ -308,7 +308,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets queryMore
+     * Set queryMore
      *
      * @param  bool $queryMore
      * @return self
@@ -320,7 +320,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -330,7 +330,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self
@@ -366,7 +366,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets simpleHits
+     * Get simpleHits
      *
      * @return array
      */
@@ -400,7 +400,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets conversationHits
+     * Get conversationHits
      *
      * @return array
      */
@@ -434,7 +434,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets messageHits
+     * Get messageHits
      *
      * @return array
      */
@@ -468,7 +468,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets chatHits
+     * Get chatHits
      *
      * @return array
      */
@@ -502,7 +502,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets messagePartHits
+     * Get messagePartHits
      *
      * @return array
      */
@@ -536,7 +536,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets contactHits
+     * Get contactHits
      *
      * @return array
      */
@@ -570,7 +570,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets noteHits
+     * Get noteHits
      *
      * @return array
      */
@@ -604,7 +604,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets documentHits
+     * Get documentHits
      *
      * @return array
      */
@@ -638,7 +638,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets wikiHits
+     * Get wikiHits
      *
      * @return array
      */
@@ -672,7 +672,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets appointmentHits
+     * Get appointmentHits
      *
      * @return array
      */
@@ -706,7 +706,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets taskHits
+     * Get taskHits
      *
      * @return array
      */
@@ -716,7 +716,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the queryInfo
+     * Get the queryInfo
      *
      * @return SearchQueryInfo
      */
@@ -726,7 +726,7 @@ class SearchResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the queryInfo
+     * Set the queryInfo
      *
      * @param  SearchQueryInfo $queryInfo
      * @return self

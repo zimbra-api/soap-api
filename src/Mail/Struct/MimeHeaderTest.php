@@ -96,7 +96,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  string $headers
      * @return self
@@ -118,7 +118,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Gets stringComparison
+     * Get stringComparison
      *
      * @return StringComparison
      */
@@ -128,7 +128,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Sets stringComparison
+     * Set stringComparison
      *
      * @param  StringComparison $stringComparison
      * @return self
@@ -140,7 +140,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Gets caseSensitive
+     * Get caseSensitive
      *
      * @return bool
      */
@@ -150,7 +150,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Sets caseSensitive
+     * Set caseSensitive
      *
      * @param  bool $caseSensitive
      * @return self
@@ -162,7 +162,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -172,7 +172,7 @@ class MimeHeaderTest extends FilterTest
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

@@ -51,7 +51,7 @@ class TagActionRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return TagActionSelector
      */
@@ -61,7 +61,7 @@ class TagActionRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  TagActionSelector $action
      * @return self

@@ -49,7 +49,7 @@ class AddCommentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets comment
+     * Get comment
      *
      * @return Id
      */
@@ -59,7 +59,7 @@ class AddCommentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets comment
+     * Set comment
      *
      * @param  Id $comment
      * @return self

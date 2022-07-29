@@ -46,7 +46,7 @@ class ByHourRule implements ByHourRuleInterface
     }
 
     /**
-     * Gets list
+     * Get list
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class ByHourRule implements ByHourRuleInterface
     }
 
     /**
-     * Sets list
+     * Set list
      *
      * @param  string $list
      * @return self

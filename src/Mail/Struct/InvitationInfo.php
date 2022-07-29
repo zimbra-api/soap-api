@@ -112,7 +112,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -134,7 +134,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets contentType
+     * Get contentType
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets contentType
+     * Set contentType
      *
      * @param  string $contentType
      * @return self
@@ -156,7 +156,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets contentId
+     * Get contentId
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets contentId
+     * Set contentId
      *
      * @param  string $contentId
      * @return self
@@ -178,7 +178,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return RawInvite
      */
@@ -188,7 +188,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  RawInvite $content
      * @return self
@@ -200,7 +200,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets inviteComponent
+     * Get inviteComponent
      *
      * @return InviteComponent
      */
@@ -210,7 +210,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets inviteComponent
+     * Set inviteComponent
      *
      * @param  InviteComponent $inviteComponent
      * @return self
@@ -222,7 +222,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets timezones
+     * Set timezones
      *
      * @param  array $timezones
      * @return self
@@ -234,7 +234,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets timezones
+     * Get timezones
      *
      * @return array
      */
@@ -256,7 +256,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets mimeParts
+     * Set mimeParts
      *
      * @param  array $mimeParts
      * @return self
@@ -268,7 +268,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets mimeParts
+     * Get mimeParts
      *
      * @return array
      */
@@ -290,7 +290,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Gets attachments
+     * Get attachments
      *
      * @return AttachmentsInfo
      */
@@ -300,7 +300,7 @@ class InvitationInfo extends InviteComponent
     }
 
     /**
-     * Sets attachments
+     * Set attachments
      *
      * @param  AttachmentsInfo $attachments
      * @return self

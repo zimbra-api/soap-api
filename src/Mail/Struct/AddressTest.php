@@ -154,7 +154,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets header
+     * Get header
      *
      * @return string
      */
@@ -164,7 +164,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets header
+     * Set header
      *
      * @param  string $header
      * @return self
@@ -176,7 +176,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets part
+     * Get part
      *
      * @return AddressPart
      */
@@ -186,7 +186,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets part
+     * Set part
      *
      * @param  AddressPart $part
      * @return self
@@ -198,7 +198,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets comparison
+     * Get comparison
      *
      * @return StringComparison
      */
@@ -208,7 +208,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets comparison
+     * Set comparison
      *
      * @param  StringComparison $comparison
      * @return self
@@ -220,7 +220,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets caseSensitive
+     * Get caseSensitive
      *
      * @return bool
      */
@@ -230,7 +230,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets caseSensitive
+     * Set caseSensitive
      *
      * @param  bool $caseSensitive
      * @return self
@@ -242,7 +242,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -252,7 +252,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -264,7 +264,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets valueComparison
+     * Get valueComparison
      *
      * @return ValueComparison
      */
@@ -274,7 +274,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets valueComparison
+     * Set valueComparison
      *
      * @param  ValueComparison $valueComparison
      * @return self
@@ -286,7 +286,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets countComparison
+     * Get countComparison
      *
      * @return CountComparison
      */
@@ -296,7 +296,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets countComparison
+     * Set countComparison
      *
      * @param  CountComparison $countComparison
      * @return self
@@ -308,7 +308,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Gets valueComparisonComparator
+     * Get valueComparisonComparator
      *
      * @return ComparisonComparator
      */
@@ -318,7 +318,7 @@ class AddressTest extends FilterTest
     }
 
     /**
-     * Sets valueComparisonComparator
+     * Set valueComparisonComparator
      *
      * @param  ComparisonComparator $valueComparisonComparator
      * @return self

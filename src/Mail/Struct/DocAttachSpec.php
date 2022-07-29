@@ -76,7 +76,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $type
      * @return self
@@ -98,7 +98,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets the id
+     * Get the id
      *
      * @return string
      */
@@ -108,7 +108,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets the id
+     * Set the id
      *
      * @param  string $id
      * @return self
@@ -120,7 +120,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -130,7 +130,7 @@ class DocAttachSpec extends AttachSpec
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $type
      * @return self

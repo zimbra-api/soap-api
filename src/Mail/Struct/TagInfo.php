@@ -188,7 +188,7 @@ class TagInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -198,7 +198,7 @@ class TagInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -210,7 +210,7 @@ class TagInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -220,7 +220,7 @@ class TagInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -232,7 +232,7 @@ class TagInfo
     }
 
     /**
-     * Gets color
+     * Get color
      *
      * @return int
      */
@@ -242,7 +242,7 @@ class TagInfo
     }
 
     /**
-     * Sets color
+     * Set color
      *
      * @param  int $color
      * @return self
@@ -254,7 +254,7 @@ class TagInfo
     }
 
     /**
-     * Gets rgb
+     * Get rgb
      *
      * @return string
      */
@@ -264,7 +264,7 @@ class TagInfo
     }
 
     /**
-     * Sets rgb
+     * Set rgb
      *
      * @param  string $rgb
      * @return self
@@ -276,7 +276,7 @@ class TagInfo
     }
 
     /**
-     * Gets unread
+     * Get unread
      *
      * @return int
      */
@@ -286,7 +286,7 @@ class TagInfo
     }
 
     /**
-     * Sets unread
+     * Set unread
      *
      * @param  int $unread
      * @return self
@@ -298,7 +298,7 @@ class TagInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -308,7 +308,7 @@ class TagInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -320,7 +320,7 @@ class TagInfo
     }
 
     /**
-     * Gets modifiedSequence
+     * Get modifiedSequence
      *
      * @return int
      */
@@ -330,7 +330,7 @@ class TagInfo
     }
 
     /**
-     * Sets modifiedSequence
+     * Set modifiedSequence
      *
      * @param  int $modifiedSequence
      * @return self
@@ -342,7 +342,7 @@ class TagInfo
     }
 
     /**
-     * Gets changeDate
+     * Get changeDate
      *
      * @return int
      */
@@ -352,7 +352,7 @@ class TagInfo
     }
 
     /**
-     * Sets changeDate
+     * Set changeDate
      *
      * @param  int $changeDate
      * @return self
@@ -364,7 +364,7 @@ class TagInfo
     }
 
     /**
-     * Gets count
+     * Get count
      *
      * @return int
      */
@@ -374,7 +374,7 @@ class TagInfo
     }
 
     /**
-     * Sets count
+     * Set count
      *
      * @param  int $count
      * @return self
@@ -386,7 +386,7 @@ class TagInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -396,7 +396,7 @@ class TagInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -408,7 +408,7 @@ class TagInfo
     }
 
     /**
-     * Sets metadatas
+     * Set metadatas
      *
      * @param  array $metadatas
      * @return self
@@ -420,7 +420,7 @@ class TagInfo
     }
 
     /**
-     * Gets metadatas
+     * Get metadatas
      *
      * @return array
      */
@@ -442,7 +442,7 @@ class TagInfo
     }
 
     /**
-     * Gets retentionPolicy
+     * Get retentionPolicy
      *
      * @return RetentionPolicy
      */
@@ -452,7 +452,7 @@ class TagInfo
     }
 
     /**
-     * Sets retentionPolicy
+     * Set retentionPolicy
      *
      * @param  RetentionPolicy $retentionPolicy
      * @return self

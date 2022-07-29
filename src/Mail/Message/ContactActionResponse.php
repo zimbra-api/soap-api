@@ -48,7 +48,7 @@ class ContactActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return FolderActionResult
      */
@@ -58,7 +58,7 @@ class ContactActionResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  FolderActionResult $action
      * @return self

@@ -367,7 +367,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the partStat
+     * Get the partStat
      *
      * @return ParticipationStatus
      */
@@ -377,7 +377,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the partStat
+     * Set the partStat
      *
      * @param  ParticipationStatus $partStat
      * @return self
@@ -389,7 +389,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the recurIdZ
+     * Get the recurIdZ
      *
      * @return string
      */
@@ -399,7 +399,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the recurIdZ
+     * Set the recurIdZ
      *
      * @param  string $recurIdZ
      * @return self
@@ -411,7 +411,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the tzOffset
+     * Get the tzOffset
      *
      * @return int
      */
@@ -421,7 +421,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the tzOffset
+     * Set the tzOffset
      *
      * @param  int $tzOffset
      * @return self
@@ -433,7 +433,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the isRecurring
+     * Get the isRecurring
      *
      * @return bool
      */
@@ -443,7 +443,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the isRecurring
+     * Set the isRecurring
      *
      * @param  bool $isRecurring
      * @return self
@@ -455,7 +455,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the componentNum
+     * Get the componentNum
      *
      * @return int
      */
@@ -465,7 +465,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the componentNum
+     * Set the componentNum
      *
      * @param  int $componentNum
      * @return self
@@ -477,7 +477,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the priority
+     * Get the priority
      *
      * @return string
      */
@@ -487,7 +487,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the priority
+     * Set the priority
      *
      * @param  string $priority
      * @return self
@@ -499,7 +499,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -509,7 +509,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -521,7 +521,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the location
+     * Get the location
      *
      * @return string
      */
@@ -531,7 +531,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the location
+     * Set the location
      *
      * @param  string $location
      * @return self
@@ -543,7 +543,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the invId
+     * Get the invId
      *
      * @return string
      */
@@ -553,7 +553,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the invId
+     * Set the invId
      *
      * @param  string $invId
      * @return self
@@ -565,7 +565,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the taskPercentComplete
+     * Get the taskPercentComplete
      *
      * @return string
      */
@@ -575,7 +575,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the taskPercentComplete
+     * Set the taskPercentComplete
      *
      * @param  string $taskPercentComplete
      * @return self
@@ -587,7 +587,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the hasExceptions
+     * Get the hasExceptions
      *
      * @return bool
      */
@@ -597,7 +597,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the hasExceptions
+     * Set the hasExceptions
      *
      * @param  bool $hasExceptions
      * @return self
@@ -609,7 +609,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the freeBusyActual
+     * Get the freeBusyActual
      *
      * @return FreeBusyStatus
      */
@@ -619,7 +619,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the freeBusyActual
+     * Set the freeBusyActual
      *
      * @param  FreeBusyStatus $freeBusyActual
      * @return self
@@ -631,7 +631,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the freeBusyIntended
+     * Get the freeBusyIntended
      *
      * @return FreeBusyStatus
      */
@@ -641,7 +641,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the freeBusyIntended
+     * Set the freeBusyIntended
      *
      * @param  FreeBusyStatus $freeBusyIntended
      * @return self
@@ -653,7 +653,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the transparency
+     * Get the transparency
      *
      * @return Transparency
      */
@@ -663,7 +663,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the transparency
+     * Set the transparency
      *
      * @param  Transparency $transparency
      * @return self
@@ -675,7 +675,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the isOrganizer
+     * Get the isOrganizer
      *
      * @return bool
      */
@@ -685,7 +685,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the isOrganizer
+     * Set the isOrganizer
      *
      * @param  bool $isOrganizer
      * @return self
@@ -697,7 +697,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the taskDueDate
+     * Get the taskDueDate
      *
      * @return int
      */
@@ -707,7 +707,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the taskDueDate
+     * Set the taskDueDate
      *
      * @param  int $taskDueDate
      * @return self
@@ -719,7 +719,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the taskTzOffsetDue
+     * Get the taskTzOffsetDue
      *
      * @return int
      */
@@ -729,7 +729,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the taskTzOffsetDue
+     * Set the taskTzOffsetDue
      *
      * @param  int $taskTzOffsetDue
      * @return self
@@ -741,7 +741,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the status
+     * Get the status
      *
      * @return InviteStatus
      */
@@ -751,7 +751,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the status
+     * Set the status
      *
      * @param  InviteStatus $status
      * @return self
@@ -763,7 +763,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the calClass
+     * Get the calClass
      *
      * @return InviteClass
      */
@@ -773,7 +773,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the calClass
+     * Set the calClass
      *
      * @param  InviteClass $calClass
      * @return self
@@ -785,7 +785,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the allDay
+     * Get the allDay
      *
      * @return bool
      */
@@ -795,7 +795,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the allDay
+     * Set the allDay
      *
      * @param  bool $allDay
      * @return self
@@ -807,7 +807,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the hasOtherAttendees
+     * Get the hasOtherAttendees
      *
      * @return bool
      */
@@ -817,7 +817,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the hasOtherAttendees
+     * Set the hasOtherAttendees
      *
      * @param  bool $hasOtherAttendees
      * @return self
@@ -829,7 +829,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the hasAlarm
+     * Get the hasAlarm
      *
      * @return bool
      */
@@ -839,7 +839,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the hasAlarm
+     * Set the hasAlarm
      *
      * @param  bool $hasAlarm
      * @return self
@@ -851,7 +851,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the draft
+     * Get the draft
      *
      * @return bool
      */
@@ -861,7 +861,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the draft
+     * Set the draft
      *
      * @param  bool $draft
      * @return self
@@ -873,7 +873,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Gets the neverSent
+     * Get the neverSent
      *
      * @return bool
      */
@@ -883,7 +883,7 @@ class CommonInstanceDataAttrs
     }
 
     /**
-     * Sets the neverSent
+     * Set the neverSent
      *
      * @param  bool $neverSent
      * @return self

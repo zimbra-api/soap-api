@@ -48,7 +48,7 @@ class GetEffectiveFolderPermsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return Rights
      */
@@ -58,7 +58,7 @@ class GetEffectiveFolderPermsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  Rights $folder
      * @return self

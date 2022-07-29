@@ -59,7 +59,7 @@ class SearchActionRequest extends SoapRequest
     }
 
     /**
-     * Gets searchRequest
+     * Get searchRequest
      *
      * @return SearchRequest
      */
@@ -69,7 +69,7 @@ class SearchActionRequest extends SoapRequest
     }
 
     /**
-     * Sets searchRequest
+     * Set searchRequest
      *
      * @param  SearchRequest $searchRequest
      * @return self
@@ -81,7 +81,7 @@ class SearchActionRequest extends SoapRequest
     }
 
     /**
-     * Gets bulkAction
+     * Get bulkAction
      *
      * @return BulkAction
      */
@@ -91,7 +91,7 @@ class SearchActionRequest extends SoapRequest
     }
 
     /**
-     * Sets bulkAction
+     * Set bulkAction
      *
      * @param  BulkAction $bulkAction
      * @return self

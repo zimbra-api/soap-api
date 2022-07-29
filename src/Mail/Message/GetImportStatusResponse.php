@@ -119,7 +119,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets imap statuses
+     * Get imap statuses
      *
      * @return array
      */
@@ -129,7 +129,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets imap statuses
+     * Set imap statuses
      *
      * @return self
      */
@@ -142,7 +142,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets pop3 statuses
+     * Get pop3 statuses
      *
      * @return array
      */
@@ -152,7 +152,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets pop3 statuses
+     * Set pop3 statuses
      *
      * @return self
      */
@@ -165,7 +165,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets caldav statuses
+     * Get caldav statuses
      *
      * @return array
      */
@@ -175,7 +175,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets caldav statuses
+     * Set caldav statuses
      *
      * @return self
      */
@@ -188,7 +188,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets yab statuses
+     * Get yab statuses
      *
      * @return array
      */
@@ -198,7 +198,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets yab statuses
+     * Set yab statuses
      *
      * @return self
      */
@@ -211,7 +211,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets rss statuses
+     * Get rss statuses
      *
      * @return array
      */
@@ -221,7 +221,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets rss statuses
+     * Set rss statuses
      *
      * @return self
      */
@@ -234,7 +234,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets gal statuses
+     * Get gal statuses
      *
      * @return array
      */
@@ -244,7 +244,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets gal statuses
+     * Set gal statuses
      *
      * @return self
      */
@@ -257,7 +257,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cal statuses
+     * Get cal statuses
      *
      * @return array
      */
@@ -267,7 +267,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cal statuses
+     * Set cal statuses
      *
      * @return self
      */
@@ -280,7 +280,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets unknown statuses
+     * Get unknown statuses
      *
      * @return array
      */
@@ -290,7 +290,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets unknown statuses
+     * Set unknown statuses
      *
      * @return self
      */
@@ -357,7 +357,7 @@ class GetImportStatusResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets statuses
+     * Get statuses
      *
      * @return array
      */

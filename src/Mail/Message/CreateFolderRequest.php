@@ -47,7 +47,7 @@ class CreateFolderRequest extends SoapRequest
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return NewFolderSpec
      */
@@ -57,7 +57,7 @@ class CreateFolderRequest extends SoapRequest
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  NewFolderSpec $folder
      * @return self

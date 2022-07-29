@@ -66,7 +66,7 @@ class GetFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets mount point
+     * Get mount point
      *
      * @return Mountpoint
      */
@@ -76,7 +76,7 @@ class GetFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets search folder
+     * Get search folder
      *
      * @return SearchFolder
      */
@@ -86,7 +86,7 @@ class GetFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return Folder
      */
@@ -96,7 +96,7 @@ class GetFolderResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  Folder $folder
      * @return self

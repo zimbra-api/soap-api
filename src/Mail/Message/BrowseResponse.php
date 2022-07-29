@@ -58,7 +58,7 @@ class BrowseResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets browseDatas
+     * Set browseDatas
      *
      * @param  array $datas
      * @return self
@@ -70,7 +70,7 @@ class BrowseResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets browseDatas
+     * Get browseDatas
      *
      * @return array
      */

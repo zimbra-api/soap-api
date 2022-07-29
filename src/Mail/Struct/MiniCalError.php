@@ -71,7 +71,7 @@ class MiniCalError
     }
 
     /**
-     * Gets code
+     * Get code
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class MiniCalError
     }
 
     /**
-     * Sets code
+     * Set code
      *
      * @param  string $code
      * @return self
@@ -93,7 +93,7 @@ class MiniCalError
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class MiniCalError
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -115,7 +115,7 @@ class MiniCalError
     }
 
     /**
-     * Gets the errorMessage
+     * Get the errorMessage
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class MiniCalError
     }
 
     /**
-     * Sets the errorMessage
+     * Set the errorMessage
      *
      * @param  string $errorMessage
      * @return self

@@ -52,7 +52,7 @@ class BounceMsgRequest extends SoapRequest
     }
 
     /**
-     * Gets msg
+     * Get msg
      *
      * @return BounceMsgSpec
      */
@@ -62,7 +62,7 @@ class BounceMsgRequest extends SoapRequest
     }
 
     /**
-     * Sets msg
+     * Set msg
      *
      * @param  BounceMsgSpec $msg
      * @return self

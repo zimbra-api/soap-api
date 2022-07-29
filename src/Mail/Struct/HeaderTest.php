@@ -138,7 +138,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets headers
+     * Get headers
      *
      * @return string
      */
@@ -148,7 +148,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets headers
+     * Set headers
      *
      * @param  string $headers
      * @return self
@@ -160,7 +160,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets stringComparison
+     * Get stringComparison
      *
      * @return StringComparison
      */
@@ -170,7 +170,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets stringComparison
+     * Set stringComparison
      *
      * @param  StringComparison $stringComparison
      * @return self
@@ -182,7 +182,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets caseSensitive
+     * Get caseSensitive
      *
      * @return bool
      */
@@ -192,7 +192,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets caseSensitive
+     * Set caseSensitive
      *
      * @param  bool $caseSensitive
      * @return self
@@ -204,7 +204,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -214,7 +214,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -226,7 +226,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets valueComparison
+     * Get valueComparison
      *
      * @return ValueComparison
      */
@@ -236,7 +236,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets valueComparison
+     * Set valueComparison
      *
      * @param  ValueComparison $valueComparison
      * @return self
@@ -248,7 +248,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets countComparison
+     * Get countComparison
      *
      * @return CountComparison
      */
@@ -258,7 +258,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets countComparison
+     * Set countComparison
      *
      * @param  CountComparison $countComparison
      * @return self
@@ -270,7 +270,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Gets valueComparisonComparator
+     * Get valueComparisonComparator
      *
      * @return ComparisonComparator
      */
@@ -280,7 +280,7 @@ class HeaderTest extends FilterTest
     }
 
     /**
-     * Sets valueComparisonComparator
+     * Set valueComparisonComparator
      *
      * @param  ComparisonComparator $valueComparisonComparator
      * @return self

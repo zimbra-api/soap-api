@@ -67,7 +67,7 @@ class BulkAction
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class BulkAction
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -89,7 +89,7 @@ class BulkAction
     }
 
     /**
-     * Gets op
+     * Get op
      *
      * @return BulkOperation
      */
@@ -99,7 +99,7 @@ class BulkAction
     }
 
     /**
-     * Sets op
+     * Set op
      *
      * @param  BulkOperation $op
      * @return self

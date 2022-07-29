@@ -67,7 +67,7 @@ class XProp implements XPropInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class XProp implements XPropInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class XProp implements XPropInterface
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class XProp implements XPropInterface
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -135,7 +135,7 @@ class XProp implements XPropInterface
     }
 
     /**
-     * Gets xParams
+     * Get xParams
      *
      * @return array
      */

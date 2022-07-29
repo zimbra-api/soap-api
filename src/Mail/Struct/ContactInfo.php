@@ -366,7 +366,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets sort field value
+     * Get sort field value
      *
      * @return string
      */
@@ -376,7 +376,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets sort field value
+     * Set sort field value
      *
      * @param  string $sortField
      * @return self
@@ -388,7 +388,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets can expand
+     * Get can expand
      *
      * @return bool
      */
@@ -398,7 +398,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets can expand
+     * Set can expand
      *
      * @param  string $canExpand
      * @return bool
@@ -410,7 +410,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets Contact Id
+     * Get Contact Id
      *
      * @return string
      */
@@ -420,7 +420,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets Contact Id
+     * Set Contact Id
      *
      * @param  string $id
      * @return self
@@ -432,7 +432,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets imapUid
+     * Get imapUid
      *
      * @return int
      */
@@ -442,7 +442,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets imapUid
+     * Set imapUid
      *
      * @param  int $imapUid
      * @return self
@@ -454,7 +454,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -464,7 +464,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self
@@ -476,7 +476,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets flags
+     * Get flags
      *
      * @return string
      */
@@ -486,7 +486,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets flags
+     * Set flags
      *
      * @param  string $flags
      * @return self
@@ -498,7 +498,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets tags
+     * Get tags
      *
      * @return string
      */
@@ -508,7 +508,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets tags
+     * Set tags
      *
      * @param  string $tags
      * @return self
@@ -520,7 +520,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets tag names
+     * Get tag names
      *
      * @return string
      */
@@ -530,7 +530,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets tag names
+     * Set tag names
      *
      * @param  string $tagNames
      * @return self
@@ -542,7 +542,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets change date
+     * Get change date
      *
      * @return int
      */
@@ -552,7 +552,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets change date
+     * Set change date
      *
      * @param  int $changeDate
      * @return self
@@ -564,7 +564,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets modified sequence ID
+     * Get modified sequence ID
      *
      * @return int
      */
@@ -574,7 +574,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets modified sequence ID
+     * Set modified sequence ID
      *
      * @param  int $modifiedSequenceId
      * @return self
@@ -586,7 +586,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return int
      */
@@ -596,7 +596,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  int $date
      * @return self
@@ -608,7 +608,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets revision ID
+     * Get revision ID
      *
      * @return int
      */
@@ -618,7 +618,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets revision ID
+     * Set revision ID
      *
      * @param  int $revisionId
      * @return self
@@ -630,7 +630,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets FileAs string for contact
+     * Get FileAs string for contact
      *
      * @return string
      */
@@ -640,7 +640,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets FileAs string for contact
+     * Set FileAs string for contact
      *
      * @param  string $fileAs
      * @return self
@@ -652,7 +652,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact email address
+     * Get contact email address
      *
      * @return string
      */
@@ -662,7 +662,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact email address
+     * Set contact email address
      *
      * @param  string $email
      * @return self
@@ -674,7 +674,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact email address 2
+     * Get contact email address 2
      *
      * @return string
      */
@@ -684,7 +684,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact email address 2
+     * Set contact email address 2
      *
      * @param  string $email2
      * @return self
@@ -696,7 +696,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact email address 3
+     * Get contact email address 3
      *
      * @return string
      */
@@ -706,7 +706,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact email address 3
+     * Set contact email address 3
      *
      * @param  string $email3
      * @return self
@@ -718,7 +718,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact type
+     * Get contact type
      *
      * @return string
      */
@@ -728,7 +728,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact type
+     * Set contact type
      *
      * @param  string $type
      * @return self
@@ -740,7 +740,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact distribution list
+     * Get contact distribution list
      *
      * @return string
      */
@@ -750,7 +750,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact distribution list
+     * Set contact distribution list
      *
      * @param  string $dlist
      * @return self
@@ -762,7 +762,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets Global Address List entry reference
+     * Get Global Address List entry reference
      *
      * @return string
      */
@@ -772,7 +772,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets Global Address List entry reference
+     * Set Global Address List entry reference
      *
      * @param  string $reference
      * @return self
@@ -784,7 +784,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets denotes whether the number of entries on a GAL group exceeds the specified max
+     * Get denotes whether the number of entries on a GAL group exceeds the specified max
      *
      * @return bool
      */
@@ -794,7 +794,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets denotes whether the number of entries on a GAL group exceeds the specified max
+     * Set denotes whether the number of entries on a GAL group exceeds the specified max
      *
      * @param  bool $tooManyMembers
      * @return self
@@ -806,7 +806,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets custom metadata information
+     * Get custom metadata information
      *
      * @return array
      */
@@ -816,7 +816,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets custom metadata information
+     * Set custom metadata information
      *
      * @param  array $metadatas
      * @return self
@@ -840,7 +840,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -850,7 +850,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  array $attrs
      * @return self
@@ -874,7 +874,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets contact group members
+     * Get contact group members
      *
      * @return array
      */
@@ -884,7 +884,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets contact group members
+     * Set contact group members
      *
      * @param  array $members
      * @return self
@@ -908,7 +908,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Gets memberOf
+     * Get memberOf
      *
      * @return string
      */
@@ -918,7 +918,7 @@ class ContactInfo implements ContactInterface, SearchHit
     }
 
     /**
-     * Sets memberOf
+     * Set memberOf
      *
      * @param  string $memberOf
      * @return self

@@ -54,7 +54,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
     }
 
     /**
-     * Gets metadata
+     * Get metadata
      *
      * @return MailCustomMetadata
      */
@@ -64,7 +64,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
     }
 
     /**
-     * Sets metadata
+     * Set metadata
      *
      * @param  MailCustomMetadata $metadata
      * @return self

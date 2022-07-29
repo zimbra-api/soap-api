@@ -48,7 +48,7 @@ class ReplyAction extends FilterAction
     }
 
     /**
-     * Gets content
+     * Get content
      *
      * @return string
      */
@@ -58,7 +58,7 @@ class ReplyAction extends FilterAction
     }
 
     /**
-     * Sets content
+     * Set content
      *
      * @param  string $content
      * @return self
