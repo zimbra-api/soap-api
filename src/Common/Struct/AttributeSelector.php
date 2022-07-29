@@ -22,14 +22,14 @@ namespace Zimbra\Common\Struct;
 interface AttributeSelector
 {
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return string
      */
     function getAttrs(): ?string;
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  string $attrs
      * @return self

@@ -22,14 +22,14 @@ namespace Zimbra\Common\Struct;
 interface SoapEnvelopeInterface
 {
     /**
-     * Gets soap header message
+     * Get soap header message
      *
      * @return SoapHeaderInterface
      */
     function getHeader(): ?SoapHeaderInterface;
 
     /**
-     * Gets soap body message
+     * Get soap body message
      *
      * @return SoapBodyInterface
      */

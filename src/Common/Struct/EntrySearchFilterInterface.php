@@ -22,21 +22,21 @@ namespace Zimbra\Common\Struct;
 interface EntrySearchFilterInterface
 {
     /**
-     * Gets simple search filter condition
+     * Get simple search filter condition
      *
      * @return SearchFilterCondition
      */
     function getCondition(): ?SearchFilterCondition;
 
     /**
-     * Gets compound search filter condition
+     * Get compound search filter condition
      *
      * @return SearchFilterCondition
      */
     function getConditions(): ?SearchFilterCondition;
 
     /**
-     * Sets search filter condition
+     * Set search filter condition
      *
      * @param  SearchFilterCondition $condition
      * @return self

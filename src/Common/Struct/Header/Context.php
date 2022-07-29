@@ -256,7 +256,7 @@ class Context
     }
 
     /**
-     * Gets number of times this request has been proxied
+     * Get number of times this request has been proxied
      *
      * @return int
      */
@@ -266,7 +266,7 @@ class Context
     }
 
     /**
-     * Sets number of times this request has been proxied
+     * Set number of times this request has been proxied
      *
      * @param  int $hopCount
      * @return self
@@ -278,7 +278,7 @@ class Context
     }
 
     /**
-     * Gets auth token
+     * Get auth token
      *
      * @return string
      */
@@ -288,7 +288,7 @@ class Context
     }
 
     /**
-     * Sets auth token
+     * Set auth token
      *
      * @param  string $authToken
      * @return self
@@ -300,7 +300,7 @@ class Context
     }
 
     /**
-     * Gets session info
+     * Get session info
      *
      * @return SessionInfo
      */
@@ -310,7 +310,7 @@ class Context
     }
 
     /**
-     * Sets session info
+     * Set session info
      *
      * @param  SessionInfo $session
      * @return self
@@ -322,7 +322,7 @@ class Context
     }
 
     /**
-     * Gets session id
+     * Get session id
      *
      * @return SessionInfo
      */
@@ -332,7 +332,7 @@ class Context
     }
 
     /**
-     * Sets session id
+     * Set session id
      *
      * @param  SessionInfo $sessionId
      * @return self
@@ -344,7 +344,7 @@ class Context
     }
 
     /**
-     * Gets no session
+     * Get no session
      *
      * @return string
      */
@@ -354,7 +354,7 @@ class Context
     }
 
     /**
-     * Sets no session
+     * Set no session
      *
      * @param  string $noSession
      * @return self
@@ -366,7 +366,7 @@ class Context
     }
 
     /**
-     * Gets account info
+     * Get account info
      *
      * @return AccountInfo
      */
@@ -376,7 +376,7 @@ class Context
     }
 
     /**
-     * Sets account info
+     * Set account info
      *
      * @param  AccountInfo $account
      * @return self
@@ -388,7 +388,7 @@ class Context
     }
 
     /**
-     * Gets change
+     * Get change
      *
      * @return ChangeInfo
      */
@@ -398,7 +398,7 @@ class Context
     }
 
     /**
-     * Sets change
+     * Set change
      *
      * @param  ChangeInfo $change
      * @return self
@@ -410,7 +410,7 @@ class Context
     }
 
     /**
-     * Gets target server
+     * Get target server
      *
      * @return string
      */
@@ -420,7 +420,7 @@ class Context
     }
 
     /**
-     * Sets target server
+     * Set target server
      *
      * @param  string $targetServer
      * @return self
@@ -432,7 +432,7 @@ class Context
     }
 
     /**
-     * Gets user agent
+     * Get user agent
      *
      * @return UserAgentInfo
      */
@@ -442,7 +442,7 @@ class Context
     }
 
     /**
-     * Sets user agent
+     * Set user agent
      *
      * @param  UserAgentInfo $userAgent
      * @return self
@@ -454,7 +454,7 @@ class Context
     }
 
     /**
-     * Gets auth token control information
+     * Get auth token control information
      *
      * @return AuthTokenControl
      */
@@ -464,7 +464,7 @@ class Context
     }
 
     /**
-     * Sets auth token control information
+     * Set auth token control information
      *
      * @param  AuthTokenControl $authTokenControl
      * @return self
@@ -476,7 +476,7 @@ class Context
     }
 
     /**
-     * Gets desired response format information
+     * Get desired response format information
      *
      * @return FormatInfo
      */
@@ -486,7 +486,7 @@ class Context
     }
 
     /**
-     * Sets desired response format information
+     * Set desired response format information
      *
      * @param  FormatInfo $format
      * @return self
@@ -498,7 +498,7 @@ class Context
     }
 
     /**
-     * Gets information about which notifications have already been received
+     * Get information about which notifications have already been received
      *
      * @return NotifyInfo
      */
@@ -508,7 +508,7 @@ class Context
     }
 
     /**
-     * Sets information about which notifications have already been received
+     * Set information about which notifications have already been received
      *
      * @param  NotifyInfo $notify
      * @return self
@@ -520,7 +520,7 @@ class Context
     }
 
     /**
-     * Gets no notify
+     * Get no notify
      *
      * @return string
      */
@@ -530,7 +530,7 @@ class Context
     }
 
     /**
-     * Sets no notify
+     * Set no notify
      *
      * @param  string $noNotify
      * @return self
@@ -542,7 +542,7 @@ class Context
     }
 
     /**
-     * Gets no qualify
+     * Get no qualify
      *
      * @return string
      */
@@ -552,7 +552,7 @@ class Context
     }
 
     /**
-     * Sets no qualify
+     * Set no qualify
      *
      * @param  string $noQualify
      * @return self
@@ -564,7 +564,7 @@ class Context
     }
 
     /**
-     * Gets information on where the request has come from
+     * Get information on where the request has come from
      *
      * @return string
      */
@@ -574,7 +574,7 @@ class Context
     }
 
     /**
-     * Sets information on where the request has come from
+     * Set information on where the request has come from
      *
      * @param  string $via
      * @return self
@@ -586,7 +586,7 @@ class Context
     }
 
     /**
-     * Gets SOAP request ID
+     * Get SOAP request ID
      *
      * @return string
      */
@@ -596,7 +596,7 @@ class Context
     }
 
     /**
-     * Sets SOAP request ID
+     * Set SOAP request ID
      *
      * @param  string $soapRequestId
      * @return self
@@ -608,7 +608,7 @@ class Context
     }
 
     /**
-     * Gets CSRF token
+     * Get CSRF token
      *
      * @return string
      */
@@ -618,7 +618,7 @@ class Context
     }
 
     /**
-     * Sets CSRF token
+     * Set CSRF token
      *
      * @param  string $csrfToken
      * @return self

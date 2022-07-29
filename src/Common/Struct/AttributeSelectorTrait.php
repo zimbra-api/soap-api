@@ -31,7 +31,7 @@ trait AttributeSelectorTrait
     private $attrs;
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return string
      */
@@ -41,7 +41,7 @@ trait AttributeSelectorTrait
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param  string $attrs
      * @return self

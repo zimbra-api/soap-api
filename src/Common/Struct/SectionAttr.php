@@ -44,7 +44,7 @@ class SectionAttr
     }
 
     /**
-     * Gets attribute section
+     * Get attribute section
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class SectionAttr
     }
 
     /**
-     * Sets attribute section
+     * Set attribute section
      *
      * @param  string $section
      * @return self

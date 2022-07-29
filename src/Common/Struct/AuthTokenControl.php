@@ -44,7 +44,7 @@ class AuthTokenControl
     }
 
     /**
-     * Gets an voidOnExpired
+     * Get an voidOnExpired
      *
      * @param  bool $voidOnExpired
      * @return bool
@@ -55,7 +55,7 @@ class AuthTokenControl
     }
 
     /**
-     * Sets voidOnExpired
+     * Set voidOnExpired
      *
      * @param  bool $voidOnExpired
      * @return self

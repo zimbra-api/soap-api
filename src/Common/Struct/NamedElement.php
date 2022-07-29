@@ -44,7 +44,7 @@ class NamedElement
     }
 
     /**
-     * Gets a name
+     * Get a name
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class NamedElement
     }
 
     /**
-     * Sets a name
+     * Set a name
      *
      * @param  string $name
      * @return self

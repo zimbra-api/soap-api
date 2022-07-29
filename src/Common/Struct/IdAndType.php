@@ -52,7 +52,7 @@ class IdAndType
     }
 
     /**
-     * Gets an id
+     * Get an id
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class IdAndType
     }
 
     /**
-     * Sets an id
+     * Set an id
      *
      * @param  string $id
      * @return self
@@ -74,7 +74,7 @@ class IdAndType
     }
 
     /**
-     * Gets a type
+     * Get a type
      *
      * @return string
      */
@@ -84,7 +84,7 @@ class IdAndType
     }
 
     /**
-     * Sets a type
+     * Set a type
      *
      * @param  string $type
      * @return self

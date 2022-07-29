@@ -91,7 +91,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -101,7 +101,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -113,7 +113,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Gets Id
+     * Get Id
      *
      * @return string
      */
@@ -123,7 +123,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Sets Id
+     * Set Id
      *
      * @param  string $id
      * @return self
@@ -135,7 +135,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Gets the token
+     * Get the token
      *
      * @return string
      */
@@ -145,7 +145,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Sets the token
+     * Set the token
      *
      * @param  string $token
      * @return self
@@ -157,7 +157,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Sets interests
+     * Set interests
      *
      * @param string $interests Comma-separated list
      * @return self
@@ -176,7 +176,7 @@ class WaitSetAddSpec
     }
 
     /**
-     * Gets interests
+     * Get interests
      *
      * @return string
      */

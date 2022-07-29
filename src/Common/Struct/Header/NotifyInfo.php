@@ -44,7 +44,7 @@ class NotifyInfo
     }
 
     /**
-     * Gets sequence number for the highest notification received
+     * Get sequence number for the highest notification received
      *
      * @return int
      */
@@ -54,7 +54,7 @@ class NotifyInfo
     }
 
     /**
-     * Sets sequence number for the highest notification received
+     * Set sequence number for the highest notification received
      *
      * @param  int $sequenceNum
      * @return self

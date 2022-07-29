@@ -85,7 +85,7 @@ class CursorInfo
     }
 
     /**
-     * Gets an id
+     * Get an id
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class CursorInfo
     }
 
     /**
-     * Sets an id
+     * Set an id
      *
      * @param  string $id
      * @return string|self
@@ -107,7 +107,7 @@ class CursorInfo
     }
 
     /**
-     * Gets sortVal
+     * Get sortVal
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class CursorInfo
     }
 
     /**
-     * Sets sortVal
+     * Set sortVal
      *
      * @param  string $sortVal
      * @return self
@@ -129,7 +129,7 @@ class CursorInfo
     }
 
     /**
-     * Gets an endSortVal
+     * Get an endSortVal
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class CursorInfo
     }
 
     /**
-     * Sets endSortVal
+     * Set endSortVal
      *
      * @param  string $endSortVal
      * @return self
@@ -151,7 +151,7 @@ class CursorInfo
     }
 
     /**
-     * Gets an includeOffset
+     * Get an includeOffset
      *
      * @param  bool $includeOffset
      * @return bool
@@ -162,7 +162,7 @@ class CursorInfo
     }
 
     /**
-     * Sets includeOffset
+     * Set includeOffset
      *
      * @param  bool $includeOffset
      * @return self

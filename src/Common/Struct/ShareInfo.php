@@ -194,7 +194,7 @@ class ShareInfo
     }
 
     /**
-     * Gets ownerId
+     * Get ownerId
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class ShareInfo
     }
 
     /**
-     * Sets ownerId
+     * Set ownerId
      *
      * @param  string $ownerId
      * @return self
@@ -216,7 +216,7 @@ class ShareInfo
     }
 
     /**
-     * Gets folderUuid
+     * Get folderUuid
      *
      * @return int
      */
@@ -226,7 +226,7 @@ class ShareInfo
     }
 
     /**
-     * Sets folderUuid
+     * Set folderUuid
      *
      * @param  int $folderUuid
      * @return self
@@ -238,7 +238,7 @@ class ShareInfo
     }
 
     /**
-     * Gets ownerEmail
+     * Get ownerEmail
      *
      * @return string
      */
@@ -248,7 +248,7 @@ class ShareInfo
     }
 
     /**
-     * Sets ownerEmail
+     * Set ownerEmail
      *
      * @param  string $ownerEmail
      * @return self
@@ -260,7 +260,7 @@ class ShareInfo
     }
 
     /**
-     * Gets ownerDisplayName
+     * Get ownerDisplayName
      *
      * @return string
      */
@@ -270,7 +270,7 @@ class ShareInfo
     }
 
     /**
-     * Sets ownerDisplayName
+     * Set ownerDisplayName
      *
      * @param  string $ownerDisplayName
      * @return self
@@ -282,7 +282,7 @@ class ShareInfo
     }
 
     /**
-     * Gets folderId
+     * Get folderId
      *
      * @return int
      */
@@ -292,7 +292,7 @@ class ShareInfo
     }
 
     /**
-     * Sets folderId
+     * Set folderId
      *
      * @param  int $folderId
      * @return self
@@ -304,7 +304,7 @@ class ShareInfo
     }
 
     /**
-     * Gets folderPath
+     * Get folderPath
      *
      * @return string
      */
@@ -314,7 +314,7 @@ class ShareInfo
     }
 
     /**
-     * Sets folderPath
+     * Set folderPath
      *
      * @param  string $folderPath
      * @return self
@@ -326,7 +326,7 @@ class ShareInfo
     }
 
     /**
-     * Gets defaultView
+     * Get defaultView
      *
      * @return string
      */
@@ -336,7 +336,7 @@ class ShareInfo
     }
 
     /**
-     * Sets defaultView
+     * Set defaultView
      *
      * @param  string $defaultView
      * @return self
@@ -348,7 +348,7 @@ class ShareInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return string
      */
@@ -358,7 +358,7 @@ class ShareInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  string $rights
      * @return self
@@ -370,7 +370,7 @@ class ShareInfo
     }
 
     /**
-     * Gets granteeType
+     * Get granteeType
      *
      * @return string
      */
@@ -380,7 +380,7 @@ class ShareInfo
     }
 
     /**
-     * Sets granteeType
+     * Set granteeType
      *
      * @param  string $granteeType
      * @return self
@@ -392,7 +392,7 @@ class ShareInfo
     }
 
     /**
-     * Gets granteeId
+     * Get granteeId
      *
      * @return string
      */
@@ -402,7 +402,7 @@ class ShareInfo
     }
 
     /**
-     * Sets granteeId
+     * Set granteeId
      *
      * @param  string $granteeId
      * @return self
@@ -414,7 +414,7 @@ class ShareInfo
     }
 
     /**
-     * Gets granteeName
+     * Get granteeName
      *
      * @return string
      */
@@ -424,7 +424,7 @@ class ShareInfo
     }
 
     /**
-     * Sets granteeName
+     * Set granteeName
      *
      * @param  string $granteeName
      * @return self
@@ -436,7 +436,7 @@ class ShareInfo
     }
 
     /**
-     * Gets granteeDisplayName
+     * Get granteeDisplayName
      *
      * @return string
      */
@@ -446,7 +446,7 @@ class ShareInfo
     }
 
     /**
-     * Sets granteeDisplayName
+     * Set granteeDisplayName
      *
      * @param  string $granteeDisplayName
      * @return self
@@ -458,7 +458,7 @@ class ShareInfo
     }
 
     /**
-     * Gets mountpointId
+     * Get mountpointId
      *
      * @return string
      */
@@ -468,7 +468,7 @@ class ShareInfo
     }
 
     /**
-     * Sets mountpointId
+     * Set mountpointId
      *
      * @param  string $mountpointId
      * @return self

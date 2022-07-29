@@ -22,14 +22,14 @@ namespace Zimbra\Common\Struct;
 interface CustomMetadataInterface extends KeyValuePairs
 {
     /**
-     * Gets metadata section key
+     * Get metadata section key
      *
      * @return string
      */
     function getSection(): ?string;
 
     /**
-     * Sets metadata section key
+     * Set metadata section key
      *
      * @param  string $section
      * @return self

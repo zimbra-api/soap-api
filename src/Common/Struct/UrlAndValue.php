@@ -55,7 +55,7 @@ class UrlAndValue
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class UrlAndValue
     }
 
     /**
-     * Sets url
+     * Set url
      *
      * @param  string $url
      * @return self
@@ -77,7 +77,7 @@ class UrlAndValue
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class UrlAndValue
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self
