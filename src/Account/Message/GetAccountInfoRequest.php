@@ -47,7 +47,7 @@ class GetAccountInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountSelector
      */
@@ -57,7 +57,7 @@ class GetAccountInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self

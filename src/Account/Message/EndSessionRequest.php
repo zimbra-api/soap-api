@@ -95,7 +95,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Gets excludeCurrentSession
+     * Get excludeCurrentSession
      *
      * @return bool
      */
@@ -105,7 +105,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Sets excludeCurrentSession
+     * Set excludeCurrentSession
      *
      * @param  bool $type
      * @return self
@@ -117,7 +117,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Gets logoff
+     * Get logoff
      *
      * @return bool
      */
@@ -127,7 +127,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Sets logoff
+     * Set logoff
      *
      * @param  bool $logoff
      * @return self
@@ -139,7 +139,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Gets sessionId
+     * Get sessionId
      *
      * @return string
      */
@@ -149,7 +149,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Sets sessionId
+     * Set sessionId
      *
      * @param  string $sessionId
      * @return self
@@ -161,7 +161,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Gets clearAllSoapSessions
+     * Get clearAllSoapSessions
      *
      * @return bool
      */
@@ -171,7 +171,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Sets clearAllSoapSessions
+     * Set clearAllSoapSessions
      *
      * @param  bool $clearAllSoapSessions
      * @return self

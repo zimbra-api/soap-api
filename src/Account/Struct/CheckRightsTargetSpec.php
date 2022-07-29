@@ -74,7 +74,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Gets target type
+     * Get target type
      *
      * @return TargetType
      */
@@ -84,7 +84,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Sets target type
+     * Set target type
      *
      * @param  TargetType $type
      * @return self
@@ -96,7 +96,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Gets target by
+     * Get target by
      *
      * @return TargetBy
      */
@@ -106,7 +106,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Sets target by
+     * Set target by
      *
      * @param  TargetBy $by
      * @return self
@@ -118,7 +118,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Gets target key
+     * Get target key
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Sets target key
+     * Set target key
      *
      * @param  string $key
      * @return self
@@ -155,7 +155,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  string $rights
      * @return self
@@ -167,7 +167,7 @@ class CheckRightsTargetSpec
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

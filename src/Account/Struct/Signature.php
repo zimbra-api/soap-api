@@ -84,7 +84,7 @@ class Signature
     }
 
     /**
-     * Gets ID for the signature
+     * Get ID for the signature
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class Signature
     }
 
     /**
-     * Sets ID for the signature
+     * Set ID for the signature
      *
      * @param  string $id
      * @return self
@@ -106,7 +106,7 @@ class Signature
     }
 
     /**
-     * Gets name for the signature
+     * Get name for the signature
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class Signature
     }
 
     /**
-     * Sets name for the signature
+     * Set name for the signature
      *
      * @param  string $name
      * @return self
@@ -128,7 +128,7 @@ class Signature
     }
 
     /**
-     * Gets content ID
+     * Get content ID
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class Signature
     }
 
     /**
-     * Sets content ID
+     * Set content ID
      *
      * @param  string $cid
      * @return self
@@ -162,7 +162,7 @@ class Signature
     }
 
     /**
-     * Sets signature content sequence
+     * Set signature content sequence
      *
      * @param array  $contents
      * @return self
@@ -174,7 +174,7 @@ class Signature
     }
 
     /**
-     * Gets signature content array
+     * Get signature content array
      *
      * @return array
      */

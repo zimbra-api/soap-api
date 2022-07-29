@@ -58,7 +58,7 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     }
 
     /**
-     * Sets properties
+     * Set properties
      *
      * @param  array $properties
      * @return self
@@ -70,7 +70,7 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     }
 
     /**
-     * Gets properties
+     * Get properties
      *
      * @return array
      */

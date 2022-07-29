@@ -79,7 +79,7 @@ class VersionInfo
     }
 
     /**
-     * Gets fullVersion
+     * Get fullVersion
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class VersionInfo
     }
 
     /**
-     * Sets fullVersion
+     * Set fullVersion
      *
      * @param  string $fullVersion
      * @return self
@@ -101,7 +101,7 @@ class VersionInfo
     }
 
     /**
-     * Gets release
+     * Get release
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class VersionInfo
     }
 
     /**
-     * Sets release
+     * Set release
      *
      * @param  string $release
      * @return self
@@ -123,7 +123,7 @@ class VersionInfo
     }
 
     /**
-     * Gets date
+     * Get date
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class VersionInfo
     }
 
     /**
-     * Sets date
+     * Set date
      *
      * @param  string $date
      * @return self
@@ -145,7 +145,7 @@ class VersionInfo
     }
 
     /**
-     * Gets host
+     * Get host
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class VersionInfo
     }
 
     /**
-     * Sets host
+     * Set host
      *
      * @param  string $host
      * @return self

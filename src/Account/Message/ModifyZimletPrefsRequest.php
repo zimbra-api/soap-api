@@ -70,7 +70,7 @@ class ModifyZimletPrefsRequest extends SoapRequest
     }
 
     /**
-     * Gets zimlets
+     * Get zimlets
      *
      * @return array
      */

@@ -58,7 +58,7 @@ class GetSignaturesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets signatures
+     * Set signatures
      *
      * @param  array $signatures
      * @return self
@@ -70,7 +70,7 @@ class GetSignaturesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets signatures
+     * Get signatures
      *
      * @return array
      */

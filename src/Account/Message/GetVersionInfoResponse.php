@@ -49,7 +49,7 @@ class GetVersionInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets versionInfo
+     * Set versionInfo
      *
      * @param  VersionInfo $signatures
      * @return self
@@ -61,7 +61,7 @@ class GetVersionInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets versionInfo
+     * Get versionInfo
      *
      * @return VersionInfo
      */

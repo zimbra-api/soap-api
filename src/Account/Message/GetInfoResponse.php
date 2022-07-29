@@ -456,7 +456,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the attachmentSizeLimit.
+     * Get the attachmentSizeLimit.
      *
      * @return int
      */
@@ -466,7 +466,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the attachmentSizeLimit.
+     * Set the attachmentSizeLimit.
      *
      * @param  int $attachmentSizeLimit
      * @return self
@@ -478,7 +478,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the documentSizeLimit.
+     * Get the documentSizeLimit.
      *
      * @return int
      */
@@ -488,7 +488,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the documentSizeLimit.
+     * Set the documentSizeLimit.
      *
      * @param  int $documentSizeLimit
      * @return self
@@ -500,7 +500,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the version.
+     * Get the version.
      *
      * @return string
      */
@@ -510,7 +510,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the version.
+     * Set the version.
      *
      * @param  string $version
      * @return self
@@ -522,7 +522,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the accountId.
+     * Get the accountId.
      *
      * @return string
      */
@@ -532,7 +532,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the accountId.
+     * Set the accountId.
      *
      * @param  string $accountId
      * @return self
@@ -544,7 +544,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the profileImageId.
+     * Get the profileImageId.
      *
      * @return int
      */
@@ -554,7 +554,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the profileImageId.
+     * Set the profileImageId.
      *
      * @param  int $profileImageId
      * @return self
@@ -566,7 +566,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the accountName.
+     * Get the accountName.
      *
      * @return string
      */
@@ -576,7 +576,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the accountName.
+     * Set the accountName.
      *
      * @param  string $accountName
      * @return self
@@ -588,7 +588,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the crumb.
+     * Get the crumb.
      *
      * @return string
      */
@@ -598,7 +598,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the crumb.
+     * Set the crumb.
      *
      * @param  string $crumb
      * @return self
@@ -610,7 +610,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the lifetime.
+     * Get the lifetime.
      *
      * @return int
      */
@@ -620,7 +620,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the lifetime.
+     * Set the lifetime.
      *
      * @param  int $lifetime
      * @return self
@@ -632,7 +632,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the adminDelegated.
+     * Get the adminDelegated.
      *
      * @return bool
      */
@@ -642,7 +642,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the adminDelegated.
+     * Set the adminDelegated.
      *
      * @param  bool $adminDelegated
      * @return self
@@ -654,7 +654,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the restUrl.
+     * Get the restUrl.
      *
      * @return string
      */
@@ -664,7 +664,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the restUrl.
+     * Set the restUrl.
      *
      * @param  string $restUrl
      * @return self
@@ -676,7 +676,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the quotaUsed.
+     * Get the quotaUsed.
      *
      * @return int
      */
@@ -686,7 +686,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the quotaUsed.
+     * Set the quotaUsed.
      *
      * @param  int $quotaUsed
      * @return self
@@ -698,7 +698,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the previousSessionTime.
+     * Get the previousSessionTime.
      *
      * @return int
      */
@@ -708,7 +708,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the previousSessionTime.
+     * Set the previousSessionTime.
      *
      * @param  int $previousSessionTime
      * @return self
@@ -720,7 +720,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the lastWriteAccessTime.
+     * Get the lastWriteAccessTime.
      *
      * @return int
      */
@@ -730,7 +730,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the lastWriteAccessTime.
+     * Set the lastWriteAccessTime.
      *
      * @param  int $lastWriteAccessTime
      * @return self
@@ -742,7 +742,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the recentMessageCount.
+     * Get the recentMessageCount.
      *
      * @return int
      */
@@ -752,7 +752,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the recentMessageCount.
+     * Set the recentMessageCount.
      *
      * @param  int $recentMessageCount
      * @return self
@@ -764,7 +764,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return Cos
      */
@@ -774,7 +774,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  Cos $cos
      * @return self
@@ -810,7 +810,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets prefs
+     * Get prefs
      *
      * @return array
      */
@@ -844,7 +844,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return array
      */
@@ -878,7 +878,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets zimlets
+     * Get zimlets
      *
      * @return array
      */
@@ -912,7 +912,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets props
+     * Get props
      *
      * @return array
      */
@@ -946,7 +946,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets identities
+     * Get identities
      *
      * @return array
      */
@@ -980,7 +980,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets signatures
+     * Get signatures
      *
      * @return array
      */
@@ -990,7 +990,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the account data sources.
+     * Get the account data sources.
      *
      * @return AccountDataSources
      */
@@ -1000,7 +1000,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the account data sources.
+     * Set the account data sources.
      *
      * @param  AccountDataSources $dataSources
      * @return self
@@ -1027,7 +1027,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the data sources.
+     * Get the data sources.
      *
      * @return array
      */
@@ -1037,7 +1037,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the data sources.
+     * Set the data sources.
      *
      * @param  array $dataSources
      * @return self
@@ -1073,7 +1073,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets childAccounts
+     * Get childAccounts
      *
      * @return array
      */
@@ -1107,7 +1107,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets discoveredRights
+     * Get discoveredRights
      *
      * @return array
      */
@@ -1117,7 +1117,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the soapURL.
+     * Get the soapURL.
      *
      * @return string
      */
@@ -1127,7 +1127,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the soapURL.
+     * Set the soapURL.
      *
      * @param  string $soapURL
      * @return self
@@ -1139,7 +1139,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the publicURL.
+     * Get the publicURL.
      *
      * @return string
      */
@@ -1149,7 +1149,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the publicURL.
+     * Set the publicURL.
      *
      * @param  string $publicURL
      * @return self
@@ -1161,7 +1161,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the changePasswordURL.
+     * Get the changePasswordURL.
      *
      * @return string
      */
@@ -1171,7 +1171,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the changePasswordURL.
+     * Set the changePasswordURL.
      *
      * @param  string $changePasswordURL
      * @return self
@@ -1183,7 +1183,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the adminURL.
+     * Get the adminURL.
      *
      * @return string
      */
@@ -1193,7 +1193,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the adminURL.
+     * Set the adminURL.
      *
      * @param  string $adminURL
      * @return self
@@ -1205,7 +1205,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the boshURL.
+     * Get the boshURL.
      *
      * @return string
      */
@@ -1215,7 +1215,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the boshURL.
+     * Set the boshURL.
      *
      * @param  string $boshURL
      * @return self
@@ -1227,7 +1227,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the isTrackingIMAP.
+     * Get the isTrackingIMAP.
      *
      * @return bool
      */
@@ -1237,7 +1237,7 @@ class GetInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the isTrackingIMAP.
+     * Set the isTrackingIMAP.
      *
      * @param  bool $isTrackingIMAP
      * @return self

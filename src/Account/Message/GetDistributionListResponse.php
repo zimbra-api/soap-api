@@ -48,7 +48,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DistributionListInfo
      */
@@ -58,7 +58,7 @@ class GetDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DistributionListInfo $dl
      * @return self

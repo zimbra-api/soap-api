@@ -58,7 +58,7 @@ class GetAvailableLocalesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets locales
+     * Set locales
      *
      * @param  array $locales
      * @return self
@@ -70,7 +70,7 @@ class GetAvailableLocalesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets locales
+     * Get locales
      *
      * @return array
      */

@@ -78,7 +78,7 @@ class GetWhiteBlackListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets whiteListEntries
+     * Set whiteListEntries
      *
      * @param  array $entries
      * @return self
@@ -90,7 +90,7 @@ class GetWhiteBlackListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets whiteListEntries
+     * Get whiteListEntries
      *
      * @return array
      */
@@ -115,7 +115,7 @@ class GetWhiteBlackListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets blackListEntries
+     * Set blackListEntries
      *
      * @param  array $entries
      * @return self
@@ -127,7 +127,7 @@ class GetWhiteBlackListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets blackListEntries
+     * Get blackListEntries
      *
      * @return array
      */

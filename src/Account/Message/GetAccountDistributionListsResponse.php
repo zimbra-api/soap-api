@@ -69,7 +69,7 @@ class GetAccountDistributionListsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dlList
+     * Get dlList
      *
      * @return array
      */

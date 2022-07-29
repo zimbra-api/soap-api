@@ -57,7 +57,7 @@ class ClientInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets attrList
+     * Get attrList
      *
      * @return array
      */

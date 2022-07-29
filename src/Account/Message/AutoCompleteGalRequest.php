@@ -113,7 +113,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets the name to test for autocompletion
+     * Get the name to test for autocompletion
      *
      * @return string
      */
@@ -123,7 +123,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets the name to test for autocompletion
+     * Set the name to test for autocompletion
      *
      * @param  string $name
      * @return self
@@ -135,7 +135,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets type of addresses to auto-complete on
+     * Get type of addresses to auto-complete on
      *
      * @return GalSearchType
      */
@@ -145,7 +145,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets type of addresses to auto-complete on
+     * Set type of addresses to auto-complete on
      *
      * @param  GalSearchType $type
      * @return self
@@ -157,7 +157,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets need can expand
+     * Get need can expand
      *
      * @return bool
      */
@@ -167,7 +167,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets need can expand
+     * Set need can expand
      *
      * @param  bool $needCanExpand
      * @return self
@@ -179,7 +179,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets GAL Account ID
+     * Get GAL Account ID
      *
      * @return string
      */
@@ -189,7 +189,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets GAL Account ID
+     * Set GAL Account ID
      *
      * @param  string $galAccountId
      * @return self
@@ -201,7 +201,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets the maximum number of results to return
+     * Get the maximum number of results to return
      *
      * @return int
      */
@@ -211,7 +211,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets the maximum number of results to return
+     * Set the maximum number of results to return
      *
      * @param  int $limit
      * @return self

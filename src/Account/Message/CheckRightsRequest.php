@@ -70,7 +70,7 @@ class CheckRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets targets
+     * Get targets
      *
      * @return array
      */

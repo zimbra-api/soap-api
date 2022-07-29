@@ -50,7 +50,7 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
     }
 
     /**
-     * Gets metadata section key
+     * Get metadata section key
      *
      * @return string
      */
@@ -60,7 +60,7 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
     }
 
     /**
-     * Sets metadata section key
+     * Set metadata section key
      *
      * @param  string $section
      * @return self

@@ -127,7 +127,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets the ref
+     * Get the ref
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets the ref
+     * Set the ref
      *
      * @param  string $ref
      * @return self
@@ -149,7 +149,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets the displayName
+     * Get the displayName
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets the displayName
+     * Set the displayName
      *
      * @param  string $displayName
      * @return self
@@ -171,7 +171,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets is dynamic
+     * Get is dynamic
      *
      * @return bool
      */
@@ -181,7 +181,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets is dynamic
+     * Set is dynamic
      *
      * @param  bool $dynamic
      * @return self
@@ -193,7 +193,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets the via
+     * Get the via
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets the via
+     * Set the via
      *
      * @param  string $via
      * @return self
@@ -215,7 +215,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets isOwner
+     * Get isOwner
      *
      * @return bool
      */
@@ -225,7 +225,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets isOwner
+     * Set isOwner
      *
      * @param  bool $isOwner
      * @return self
@@ -237,7 +237,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Gets isMember
+     * Get isMember
      *
      * @return bool
      */
@@ -247,7 +247,7 @@ class DLInfo extends ObjectInfo
     }
 
     /**
-     * Sets isMember
+     * Set isMember
      *
      * @param  bool $isMember
      * @return self

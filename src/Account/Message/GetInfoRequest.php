@@ -64,7 +64,7 @@ class GetInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the sections.
+     * Get the sections.
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class GetInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the sections.
+     * Set the sections.
      *
      * @param  string $sections
      * @return self
@@ -107,7 +107,7 @@ class GetInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the rights.
+     * Get the rights.
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class GetInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the rights.
+     * Set the rights.
      *
      * @param  string $rights
      * @return self

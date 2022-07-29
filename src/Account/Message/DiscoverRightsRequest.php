@@ -82,7 +82,7 @@ class DiscoverRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

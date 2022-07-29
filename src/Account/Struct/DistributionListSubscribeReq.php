@@ -71,7 +71,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return SubscribeOp
      */
@@ -81,7 +81,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  SubscribeOp $op
      * @return self
@@ -93,7 +93,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -115,7 +115,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Gets bccOwners flag
+     * Get bccOwners flag
      *
      * @return bool
      */
@@ -125,7 +125,7 @@ class DistributionListSubscribeReq
     }
 
     /**
-     * Sets bccOwners flag
+     * Set bccOwners flag
      * Flag whether to bcc all other owners on the accept/reject notification emails.
      *
      * @param  bool $bccOwners

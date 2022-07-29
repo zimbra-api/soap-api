@@ -55,7 +55,7 @@ class CheckRightsRightInfo
     }
 
     /**
-     * Gets name of right
+     * Get name of right
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class CheckRightsRightInfo
     }
 
     /**
-     * Sets name of right
+     * Set name of right
      *
      * @param  string $right
      * @return self
@@ -77,7 +77,7 @@ class CheckRightsRightInfo
     }
 
     /**
-     * Gets allow
+     * Get allow
      *
      * @return bool
      */
@@ -87,7 +87,7 @@ class CheckRightsRightInfo
     }
 
     /**
-     * Sets allow
+     * Set allow
      *
      * @param  bool $allow
      * @return self

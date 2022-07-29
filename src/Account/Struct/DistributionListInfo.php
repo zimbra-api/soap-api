@@ -121,7 +121,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets isOwner
+     * Get isOwner
      *
      * @return bool
      */
@@ -131,7 +131,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets isOwner
+     * Set isOwner
      *
      * @param  bool $isOwner
      * @return self
@@ -143,7 +143,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets isMember
+     * Get isMember
      *
      * @return bool
      */
@@ -153,7 +153,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets isMember
+     * Set isMember
      *
      * @param  bool $isMember
      * @return self
@@ -165,7 +165,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets is dynamic
+     * Get is dynamic
      *
      * @return bool
      */
@@ -175,7 +175,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets is dynamic
+     * Set is dynamic
      *
      * @param  bool $dynamic
      * @return self
@@ -187,7 +187,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets members
+     * Get members
      *
      * @return array
      */
@@ -197,7 +197,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets members
+     * Set members
      *
      * @param  array $members
      * @return self
@@ -224,7 +224,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets owners
+     * Get owners
      *
      * @return array
      */
@@ -234,7 +234,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets owners
+     * Set owners
      *
      * @param  array $owners
      * @return self
@@ -258,7 +258,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */
@@ -268,7 +268,7 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self

@@ -76,7 +76,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -86,7 +86,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -98,7 +98,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -108,7 +108,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -120,7 +120,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return string
      */
@@ -130,7 +130,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  string $dl
      * @return self

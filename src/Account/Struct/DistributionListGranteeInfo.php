@@ -69,7 +69,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -91,7 +91,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return name
      */
@@ -101,7 +101,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -113,7 +113,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return GranteeType
      */
@@ -123,7 +123,7 @@ class DistributionListGranteeInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GranteeType $type
      * @return self

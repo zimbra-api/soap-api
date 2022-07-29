@@ -85,7 +85,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Gets ownerOf
+     * Get ownerOf
      *
      * @return bool
      */
@@ -95,7 +95,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Sets ownerOf
+     * Set ownerOf
      *
      * @param  bool $ownerOf
      * @return self
@@ -107,7 +107,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  string $attrs
      * @return self
@@ -129,7 +129,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Gets memberOf
+     * Get memberOf
      *
      * @return MemberOfSelector
      */
@@ -139,7 +139,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Sets memberOf
+     * Set memberOf
      *
      * @param  MemberOfSelector $memberOf
      * @return self

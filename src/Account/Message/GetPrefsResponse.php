@@ -69,7 +69,7 @@ class GetPrefsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets prefs
+     * Get prefs
      *
      * @return array
      */

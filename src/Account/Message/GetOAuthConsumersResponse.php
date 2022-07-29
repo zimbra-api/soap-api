@@ -58,7 +58,7 @@ class GetOAuthConsumersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets consumers
+     * Set consumers
      *
      * @param  array $consumers
      * @return self
@@ -70,7 +70,7 @@ class GetOAuthConsumersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets consumers
+     * Get consumers
      *
      * @return array
      */

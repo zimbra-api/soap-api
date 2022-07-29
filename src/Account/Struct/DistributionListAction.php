@@ -106,7 +106,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets operation to perform
+     * Set operation to perform
      *
      * @return Operation
      */
@@ -116,7 +116,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets operation to perform
+     * Set operation to perform
      *
      * @param  Operation $op
      * @return self
@@ -128,7 +128,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets new name
+     * Get new name
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets new name
+     * Set new name
      *
      * @param  string $newName
      * @return self
@@ -150,7 +150,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets subscription request
+     * Get subscription request
      *
      * @return Subscribe
      */
@@ -160,7 +160,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets subscription request
+     * Set subscription request
      *
      * @param  Subscribe $subsReq
      * @return self
@@ -187,7 +187,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets members
+     * Set members
      *
      * @param array $dlms
      * @return self
@@ -199,7 +199,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets members
+     * Get members
      *
      * @return array
      */
@@ -221,7 +221,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets owners
+     * Set owners
      *
      * @param array $owners
      * @return self
@@ -233,7 +233,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets owners
+     * Get owners
      *
      * @return array
      */
@@ -255,7 +255,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param array $rights
      * @return self
@@ -267,7 +267,7 @@ class DistributionListAction extends AccountKeyValuePairs
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

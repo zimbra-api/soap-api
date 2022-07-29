@@ -56,7 +56,7 @@ class AccountZimletProperty implements ZimletProperty
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class AccountZimletProperty implements ZimletProperty
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -78,7 +78,7 @@ class AccountZimletProperty implements ZimletProperty
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class AccountZimletProperty implements ZimletProperty
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

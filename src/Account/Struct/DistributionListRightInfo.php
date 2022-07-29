@@ -54,7 +54,7 @@ class DistributionListRightInfo
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class DistributionListRightInfo
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  string $right
      * @return self
@@ -76,7 +76,7 @@ class DistributionListRightInfo
     }
 
     /**
-     * Gets grantees
+     * Get grantees
      *
      * @return array
      */
@@ -86,7 +86,7 @@ class DistributionListRightInfo
     }
 
     /**
-     * Sets grantees
+     * Set grantees
      *
      * @param  array $grantees
      * @return self

@@ -81,7 +81,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Gets attribute name
+     * Get attribute name
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Sets attribute name
+     * Set attribute name
      *
      * @param  string $attr
      * @return self
@@ -103,7 +103,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Gets operator
+     * Get operator
      *
      * @return Operator
      */
@@ -113,7 +113,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Sets operator
+     * Set operator
      *
      * @param  Operator $op
      * @return self
@@ -125,7 +125,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -147,7 +147,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Gets not flag
+     * Get not flag
      *
      * @return bool
      */
@@ -157,7 +157,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     }
 
     /**
-     * Sets not flag
+     * Set not flag
      *
      * @param  bool $not
      * @return self

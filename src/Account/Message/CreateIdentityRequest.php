@@ -49,7 +49,7 @@ class CreateIdentityRequest extends SoapRequest
     }
 
     /**
-     * Gets the identity.
+     * Get the identity.
      *
      * @return Identity
      */
@@ -59,7 +59,7 @@ class CreateIdentityRequest extends SoapRequest
     }
 
     /**
-     * Sets the identity.
+     * Set the identity.
      *
      * @param  Identity $identity
      * @return self

@@ -298,7 +298,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets controls whether the auth token cookie
+     * Get controls whether the auth token cookie
      *
      * @return bool
      */
@@ -308,7 +308,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets controls whether the auth token cookie
+     * Set controls whether the auth token cookie
      *
      * @param  bool $persistAuthTokenCookie
      * @return self
@@ -320,7 +320,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets controls whether the client supports CSRF token
+     * Get controls whether the client supports CSRF token
      *
      * @return bool
      */
@@ -330,7 +330,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets controls whether the client supports CSRF token
+     * Set controls whether the client supports CSRF token
      *
      * @param  bool $csrfSupported
      * @return self
@@ -342,7 +342,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets the account to authenticate against
+     * Get the account to authenticate against
      *
      * @return AccountSelector
      */
@@ -352,7 +352,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets the account to authenticate against
+     * Set the account to authenticate against
      *
      * @param  AccountSelector $account
      * @return self
@@ -364,7 +364,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets password to use in conjunction with an account
+     * Get password to use in conjunction with an account
      *
      * @return string
      */
@@ -374,7 +374,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets password to use in conjunction with an account
+     * Set password to use in conjunction with an account
      *
      * @param  string $password
      * @return self
@@ -386,7 +386,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets recoveryCode to use in conjunction with an account in case of forgot password flow.
+     * Get recoveryCode to use in conjunction with an account in case of forgot password flow.
      *
      * @return string
      */
@@ -396,7 +396,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets recoveryCode to use in conjunction with an account in case of forgot password flow.
+     * Set recoveryCode to use in conjunction with an account in case of forgot password flow.
      *
      * @param  string $recoveryCode
      * @return self
@@ -408,7 +408,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets preauth
+     * Get preauth
      *
      * @return PreAuth
      */
@@ -418,7 +418,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets preauth
+     * Set preauth
      *
      * @param  PreAuth $preauth
      * @return self
@@ -430,7 +430,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets auth token
+     * Get auth token
      *
      * @return AuthToken
      */
@@ -440,7 +440,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets auth token
+     * Set auth token
      *
      * @param  AuthToken $preauth
      * @return self
@@ -452,7 +452,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets jwt token
+     * Get jwt token
      *
      * @return string
      */
@@ -462,7 +462,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets jwt token
+     * Set jwt token
      *
      * @param  string $jwtToken
      * @return self
@@ -474,7 +474,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets virtual host
+     * Get virtual host
      *
      * @return string
      */
@@ -484,7 +484,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets virtual host
+     * Set virtual host
      *
      * @param  string $virtualHost
      * @return self
@@ -496,7 +496,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets requested preference settings
+     * Get requested preference settings
      *
      * @return array
      */
@@ -506,7 +506,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets requested preference settings
+     * Set requested preference settings
      *
      * @param  array $prefs
      * @return self
@@ -530,7 +530,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets requested attribute settings
+     * Get requested attribute settings
      *
      * @return array
      */
@@ -540,7 +540,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets requested attribute settings
+     * Set requested attribute settings
      *
      * @param  array $attrs
      * @return self
@@ -564,7 +564,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets name of the skin requested by the client
+     * Get name of the skin requested by the client
      *
      * @return string
      */
@@ -574,7 +574,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets name of the skin requested by the client
+     * Set name of the skin requested by the client
      *
      * @param  string $requestedSkin
      * @return self
@@ -586,7 +586,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets the TOTP code used for two-factor authentication
+     * Get the TOTP code used for two-factor authentication
      *
      * @return string
      */
@@ -596,7 +596,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets the TOTP code used for two-factor authentication
+     * Set the TOTP code used for two-factor authentication
      *
      * @param  string $twoFactorCode
      * @return self
@@ -608,7 +608,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets trusted device flag
+     * Get trusted device flag
      *
      * @return bool
      */
@@ -618,7 +618,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets trusted device flag
+     * Set trusted device flag
      *
      * @param  bool $deviceTrusted
      * @return self
@@ -630,7 +630,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets trusted device token
+     * Get trusted device token
      *
      * @return string
      */
@@ -640,7 +640,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets trusted device token
+     * Set trusted device token
      *
      * @param  string $trustedDeviceToken
      * @return self
@@ -652,7 +652,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets device identifier
+     * Get device identifier
      *
      * @return string
      */
@@ -662,7 +662,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets device identifier
+     * Set device identifier
      *
      * @param  string $deviceId
      * @return self
@@ -674,7 +674,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets generate device id
+     * Get generate device id
      *
      * @return bool
      */
@@ -684,7 +684,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets generate device id
+     * Set generate device id
      *
      * @param  bool $generateDeviceId
      * @return self
@@ -696,7 +696,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Gets type of token to be returned, it can be auth or jwt
+     * Get type of token to be returned, it can be auth or jwt
      *
      * @return string
      */
@@ -706,7 +706,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Sets type of token to be returned, it can be auth or jwt
+     * Set type of token to be returned, it can be auth or jwt
      *
      * @param  string $tokenType
      * @return self

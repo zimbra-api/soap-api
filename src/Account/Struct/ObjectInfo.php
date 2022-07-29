@@ -69,7 +69,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -79,7 +79,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -91,7 +91,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -101,7 +101,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -125,7 +125,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Sets attribute sequence
+     * Set attribute sequence
      *
      * @param array $attrs
      * @return self
@@ -137,7 +137,7 @@ abstract class ObjectInfo
     }
 
     /**
-     * Gets attribute sequence
+     * Get attribute sequence
      *
      * @return array
      */

@@ -56,7 +56,7 @@ class SignatureContent
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class SignatureContent
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -78,7 +78,7 @@ class SignatureContent
     }
 
     /**
-     * Gets content type
+     * Get content type
      *
      * @return ContentType
      */
@@ -88,7 +88,7 @@ class SignatureContent
     }
 
     /**
-     * Sets content type
+     * Set content type
      *
      * @param  ContentType $type
      * @return self

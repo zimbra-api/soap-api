@@ -72,7 +72,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -82,7 +82,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -94,7 +94,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $target
      * @return self
@@ -116,7 +116,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Gets localName
+     * Get localName
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class LocaleInfo implements LocaleInterface
     }
 
     /**
-     * Sets localName
+     * Set localName
      *
      * @param  string $localName
      * @return self

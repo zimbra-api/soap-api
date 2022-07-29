@@ -55,7 +55,7 @@ trait PrefsImplTrail
     }
 
     /**
-     * Sets prefs
+     * Set prefs
      *
      * @param  array $prefs
      * @return self
@@ -67,7 +67,7 @@ trait PrefsImplTrail
     }
 
     /**
-     * Gets prefs
+     * Get prefs
      *
      * @return array
      */

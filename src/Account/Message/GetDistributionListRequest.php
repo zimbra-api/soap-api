@@ -83,7 +83,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Gets needOwners
+     * Get needOwners
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Sets needOwners
+     * Set needOwners
      *
      * @param  bool $needOwners
      * @return self
@@ -105,7 +105,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Gets needRights
+     * Get needRights
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Sets needRights
+     * Set needRights
      *
      * @param  string $needRights
      * @return self
@@ -127,7 +127,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DistributionListSelector
      */
@@ -137,7 +137,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DistributionListSelector $dl
      * @return self

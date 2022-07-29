@@ -46,7 +46,7 @@ class AccountZimletTarget implements ZimletTarget
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class AccountZimletTarget implements ZimletTarget
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

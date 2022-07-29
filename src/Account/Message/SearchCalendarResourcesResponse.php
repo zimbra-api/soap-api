@@ -106,7 +106,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -128,7 +128,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -138,7 +138,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -150,7 +150,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -160,7 +160,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -172,7 +172,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets pagingSupported
+     * Get pagingSupported
      *
      * @return bool
      */
@@ -182,7 +182,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets pagingSupported
+     * Set pagingSupported
      *
      * @param  bool $pagingSupported
      * @return self
@@ -206,7 +206,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calendarResources
+     * Set calendarResources
      *
      * @param  array $resources
      * @return self
@@ -218,7 +218,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calendarResources
+     * Get calendarResources
      *
      * @return array
      */

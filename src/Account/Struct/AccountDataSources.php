@@ -107,7 +107,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets imap data sources
+     * Get imap data sources
      *
      * @return array
      */
@@ -117,7 +117,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets imap data sources
+     * Set imap data sources
      *
      * @return self
      */
@@ -130,7 +130,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets pop3 data sources
+     * Get pop3 data sources
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets pop3 data sources
+     * Set pop3 data sources
      *
      * @return self
      */
@@ -153,7 +153,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets caldav data sources
+     * Get caldav data sources
      *
      * @return array
      */
@@ -163,7 +163,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets caldav data sources
+     * Set caldav data sources
      *
      * @return self
      */
@@ -176,7 +176,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets yab data sources
+     * Get yab data sources
      *
      * @return array
      */
@@ -186,7 +186,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets yab data sources
+     * Set yab data sources
      *
      * @return array
      */
@@ -199,7 +199,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets rss data sources
+     * Get rss data sources
      *
      * @return array
      */
@@ -209,7 +209,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets rss data sources
+     * Set rss data sources
      *
      * @return self
      */
@@ -222,7 +222,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets gal data sources
+     * Get gal data sources
      *
      * @return array
      */
@@ -232,7 +232,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets gal data sources
+     * Set gal data sources
      *
      * @return self
      */
@@ -245,7 +245,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets cal data sources
+     * Get cal data sources
      *
      * @return array
      */
@@ -255,7 +255,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets cal data sources
+     * Set cal data sources
      *
      * @return self
      */
@@ -268,7 +268,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets unknown data sources
+     * Get unknown data sources
      *
      * @return array
      */
@@ -278,7 +278,7 @@ class AccountDataSources
     }
 
     /**
-     * Sets unknown data sources
+     * Set unknown data sources
      *
      * @return self
      */
@@ -345,7 +345,7 @@ class AccountDataSources
     }
 
     /**
-     * Gets data sources
+     * Get data sources
      *
      * @return array
      */

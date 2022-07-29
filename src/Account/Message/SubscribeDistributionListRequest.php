@@ -61,7 +61,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Gets the dl to authenticate against
+     * Get the dl to authenticate against
      *
      * @return DistributionListSelector
      */
@@ -71,7 +71,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Sets the dl to authenticate against
+     * Set the dl to authenticate against
      *
      * @param  DistributionListSelector $dl
      * @return self
@@ -83,7 +83,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Gets op
+     * Get op
      *
      * @return DistributionListSubscribeOp
      */
@@ -93,7 +93,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Sets op
+     * Set op
      *
      * @param  DistributionListSubscribeOp $op
      * @return self

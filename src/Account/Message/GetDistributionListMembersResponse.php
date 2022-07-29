@@ -90,7 +90,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -100,7 +100,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -112,7 +112,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets total
+     * Get total
      *
      * @return int
      */
@@ -122,7 +122,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets total
+     * Set total
      *
      * @param  int $total
      * @return self
@@ -134,7 +134,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dlMembers
+     * Get dlMembers
      *
      * @return array
      */
@@ -144,7 +144,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dlMembers
+     * Set dlMembers
      *
      * @param  array $members
      * @return self
@@ -183,7 +183,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets habGroupMembers
+     * Set habGroupMembers
      *
      * @param  array $members
      * @return self
@@ -195,7 +195,7 @@ class GetDistributionListMembersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets habGroupMembers
+     * Get habGroupMembers
      *
      * @return array
      */

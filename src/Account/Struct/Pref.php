@@ -67,7 +67,7 @@ class Pref
     }
 
     /**
-     * Gets preference name
+     * Get preference name
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class Pref
     }
 
     /**
-     * Sets preference name
+     * Set preference name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class Pref
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class Pref
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self
@@ -121,7 +121,7 @@ class Pref
     }
 
     /**
-     * Sets preference modified time
+     * Set preference modified time
      *
      * @param  int $modified
      * @return self

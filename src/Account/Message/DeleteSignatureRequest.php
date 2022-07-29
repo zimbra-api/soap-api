@@ -48,7 +48,7 @@ class DeleteSignatureRequest extends SoapRequest
     }
 
     /**
-     * Gets the signature.
+     * Get the signature.
      *
      * @return NameId
      */
@@ -58,7 +58,7 @@ class DeleteSignatureRequest extends SoapRequest
     }
 
     /**
-     * Sets the signature.
+     * Set the signature.
      *
      * @param  NameId $signature
      * @return self

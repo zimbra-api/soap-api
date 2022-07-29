@@ -97,7 +97,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets internal
+     * Get internal
      *
      * @return bool
      */
@@ -107,7 +107,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets internal
+     * Set internal
      *
      * @param  bool $internal
      * @return self
@@ -119,7 +119,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets includeSelf
+     * Get includeSelf
      *
      * @return bool
      */
@@ -129,7 +129,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets includeSelf
+     * Set includeSelf
      *
      * @param  bool $includeSelf
      * @return self
@@ -153,7 +153,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeChooser
      */
@@ -175,7 +175,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets owner
+     * Get owner
      *
      * @return AccountSelector
      */

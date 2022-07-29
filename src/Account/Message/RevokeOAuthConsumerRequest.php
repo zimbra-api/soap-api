@@ -44,7 +44,7 @@ class RevokeOAuthConsumerRequest extends SoapRequest
     }
 
     /**
-     * Gets the accessToken.
+     * Get the accessToken.
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class RevokeOAuthConsumerRequest extends SoapRequest
     }
 
     /**
-     * Sets the accessToken.
+     * Set the accessToken.
      *
      * @param  string $accessToken
      * @return self

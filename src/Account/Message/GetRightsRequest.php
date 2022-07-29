@@ -72,7 +72,7 @@ class GetRightsRequest extends SoapRequest
     }
 
     /**
-     * Gets aces
+     * Get aces
      *
      * @return array
      */

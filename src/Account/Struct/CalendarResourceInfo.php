@@ -59,7 +59,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -81,7 +81,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self

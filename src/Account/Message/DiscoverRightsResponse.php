@@ -69,7 +69,7 @@ class DiscoverRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets discoveredRights
+     * Get discoveredRights
      *
      * @return array
      */

@@ -54,7 +54,7 @@ trait AttrsImplTrait
     }
 
     /**
-     * Sets attr sequence
+     * Set attr sequence
      *
      * @param  array $attrs
      * @return self
@@ -66,7 +66,7 @@ trait AttrsImplTrait
     }
 
     /**
-     * Gets attr sequence
+     * Get attr sequence
      *
      * @return Sequence
      */

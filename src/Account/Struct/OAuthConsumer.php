@@ -83,7 +83,7 @@ class OAuthConsumer
     }
 
     /**
-     * Gets accessToken
+     * Get accessToken
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class OAuthConsumer
     }
 
     /**
-     * Sets accessToken
+     * Set accessToken
      *
      * @param  string $accessToken
      * @return self
@@ -105,7 +105,7 @@ class OAuthConsumer
     }
 
     /**
-     * Gets approvedOn
+     * Get approvedOn
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class OAuthConsumer
     }
 
     /**
-     * Sets approvedOn
+     * Set approvedOn
      *
      * @param  string $approvedOn
      * @return self
@@ -127,7 +127,7 @@ class OAuthConsumer
     }
 
     /**
-     * Gets applicationName
+     * Get applicationName
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class OAuthConsumer
     }
 
     /**
-     * Sets applicationName
+     * Set applicationName
      *
      * @param  string $applicationName
      * @return self
@@ -149,7 +149,7 @@ class OAuthConsumer
     }
 
     /**
-     * Gets device
+     * Get device
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class OAuthConsumer
     }
 
     /**
-     * Sets device
+     * Set device
      *
      * @param  string $device
      * @return self

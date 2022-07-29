@@ -57,7 +57,7 @@ class ModifyZimletPrefsSpec
     }
 
     /**
-     * Gets zimlet name
+     * Get zimlet name
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class ModifyZimletPrefsSpec
     }
 
     /**
-     * Sets zimlet name
+     * Set zimlet name
      *
      * @param  string $name
      * @return self
@@ -79,7 +79,7 @@ class ModifyZimletPrefsSpec
     }
 
     /**
-     * Gets presence
+     * Get presence
      *
      * @return ZimletStatus
      */
@@ -89,7 +89,7 @@ class ModifyZimletPrefsSpec
     }
 
     /**
-     * Sets presence
+     * Set presence
      *
      * @param  ZimletStatus $presence
      * @return self

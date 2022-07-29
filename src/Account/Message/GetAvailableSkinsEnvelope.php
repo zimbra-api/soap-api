@@ -45,7 +45,7 @@ class GetAvailableSkinsEnvelope extends SoapEnvelope
     }
 
     /**
-     * Gets soap message body
+     * Get soap message body
      *
      * @return SoapBodyInterface
      */
@@ -55,7 +55,7 @@ class GetAvailableSkinsEnvelope extends SoapEnvelope
     }
 
     /**
-     * Sets soap message body
+     * Set soap message body
      *
      * @param  SoapBodyInterface $body
      * @return self
