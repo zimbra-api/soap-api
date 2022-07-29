@@ -11,6 +11,7 @@
 namespace Zimbra\Common\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, Type, SerializedName, XmlAttribute};
+use Zimbra\Common\Enum\OnError;
 
 /**
  * Batch request class, not to be instantiated.
@@ -26,22 +27,22 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
     /**
      * @Accessor(getter="getOnError", setter="setOnError")
      * @SerializedName("onerror")
-     * @Type("string")
+     * @Type("Zimbra\Common\Enum\OnError")
      * @XmlAttribute
      */
-    private $onerror = 'continue';
+    private ?OnError $onerror = NULL;
 
     /**
      * Constructor
      * 
-     * @param array  $requests
-     * @param string $onerror
+     * @param array   $requests
+     * @param OnError $onerror
      * @return self
      */
-    public function __construct(array $requests = [], string $onerror = 'continue')
+    public function __construct(array $requests = [], ?OnError $onerror = NULL)
     {
-        $this->setRequests($requests)
-             ->setOnError($onerror);
+        $this->setOnError($onerror ?? OnError::CONTINUE())
+             ->setRequests($requests);
     }
 
     /**
@@ -54,9 +55,9 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
     /**
      * Get on error
      *
-     * @return string
+     * @return OnError
      */
-    public function getOnError(): string
+    public function getOnError(): OnError
     {
         return $this->onerror;
     }
@@ -64,15 +65,11 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
     /**
      * Set on error
      *
-     * @param  string $onerror
+     * @param  OnError $onerror
      * @return self
      */
-    public function setOnError(string $onerror): self
+    public function setOnError(OnError $onerror): self
     {
-        $onerror = strtolower($onerror);
-        if (!in_array($onerror, ['continue', 'stop'])) {
-            $onerror = 'continue';
-        }
         $this->onerror = $onerror;
         return $this;
     }
