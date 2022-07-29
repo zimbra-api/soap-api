@@ -10,9 +10,9 @@
 
 namespace Zimbra\Common\Soap;
 
+use Http\Discovery\{Psr17FactoryDiscovery, Psr18ClientDiscovery};
 use Psr\Http\Client\ClientInterface as HttpClient;
 use Psr\Http\Message\{RequestFactoryInterface, StreamFactoryInterface};
-use Http\Discovery\{Psr17FactoryDiscovery, Psr18ClientDiscovery};
 
 /**
  * Factory for client instances.
