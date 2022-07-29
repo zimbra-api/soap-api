@@ -58,7 +58,7 @@ class ComputeAggregateQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets domain quotas
+     * Set domain quotas
      *
      * @param  array $quotas
      * @return self
@@ -70,7 +70,7 @@ class ComputeAggregateQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets domain quotas
+     * Get domain quotas
      *
      * @return array
      */

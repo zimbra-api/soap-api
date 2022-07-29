@@ -95,7 +95,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Gets session ID
+     * Get session ID
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Sets session ID
+     * Set session ID
      *
      * @param  string $sessionId
      * @return self
@@ -117,7 +117,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Gets the createdDate
+     * Get the createdDate
      *
      * @return int
      */
@@ -127,7 +127,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Sets the createdDate
+     * Set the createdDate
      *
      * @param  int $createdDate
      * @return self
@@ -139,7 +139,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Gets the lastAccessedDate
+     * Get the lastAccessedDate
      *
      * @return int
      */
@@ -149,7 +149,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Sets the lastAccessedDate
+     * Set the lastAccessedDate
      *
      * @param  int $lastAccessedDate
      * @return self
@@ -161,7 +161,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Gets the zimbraId
+     * Get the zimbraId
      *
      * @return string
      */
@@ -171,7 +171,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Sets the zimbraId
+     * Set the zimbraId
      *
      * @param  string $zimbraId
      * @return self
@@ -183,7 +183,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -193,7 +193,7 @@ class SimpleSessionInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

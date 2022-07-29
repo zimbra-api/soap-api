@@ -70,7 +70,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -92,7 +92,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Gets constraint
+     * Get constraint
      *
      * @return ConstraintInfo
      */
@@ -102,7 +102,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Sets constraint
+     * Set constraint
      *
      * @param  ConstraintInfo $constraint
      * @return self
@@ -114,7 +114,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Gets values
+     * Get values
      *
      * @return array
      */
@@ -124,7 +124,7 @@ class EffectiveAttrInfo
     }
 
     /**
-     * Sets values
+     * Set values
      *
      * @param  array $values
      * @return self

@@ -35,7 +35,7 @@ class VerifyIndexEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for VerifyIndexEnvelope
+     * Constructor
      *
      * @return self
      */
@@ -45,7 +45,7 @@ class VerifyIndexEnvelope extends SoapEnvelope
     }
 
     /**
-     * Gets soap message body
+     * Get soap message body
      *
      * @return SoapBodyInterface
      */
@@ -55,7 +55,7 @@ class VerifyIndexEnvelope extends SoapEnvelope
     }
 
     /**
-     * Sets soap message body
+     * Set soap message body
      *
      * @param  SoapBodyInterface $body
      * @return self

@@ -201,7 +201,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -211,7 +211,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -223,7 +223,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets maxResults
+     * Get maxResults
      *
      * @return int
      */
@@ -233,7 +233,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets maxResults
+     * Set maxResults
      *
      * @param  int $maxResults
      * @return self
@@ -245,7 +245,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -255,7 +255,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -267,7 +267,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -277,7 +277,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -289,7 +289,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -299,7 +299,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -311,7 +311,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -321,7 +321,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self
@@ -333,7 +333,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -343,7 +343,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self
@@ -355,7 +355,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -365,7 +365,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -377,7 +377,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return string
      */
@@ -387,7 +387,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets types
+     * Set types
      *
      * @param  string $types
      * @return self
@@ -399,7 +399,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets sortAscending
+     * Get sortAscending
      *
      * @return bool
      */
@@ -409,7 +409,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets sortAscending
+     * Set sortAscending
      *
      * @param  bool $sortAscending
      * @return self
@@ -421,7 +421,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets isCountOnly
+     * Get isCountOnly
      *
      * @return bool
      */
@@ -431,7 +431,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  bool $attrs
      * @return self

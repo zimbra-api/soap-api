@@ -55,7 +55,7 @@ class ExportAndDeleteItemSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class ExportAndDeleteItemSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  int $id
      * @return self
@@ -77,7 +77,7 @@ class ExportAndDeleteItemSpec
     }
 
     /**
-     * Gets version
+     * Get version
      *
      * @return int
      */
@@ -87,7 +87,7 @@ class ExportAndDeleteItemSpec
     }
 
     /**
-     * Sets version
+     * Set version
      *
      * @param  int $version
      * @return self

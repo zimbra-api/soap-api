@@ -87,7 +87,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets cos
+     * Get cos
      *
      * @return CosSelector
      */
@@ -97,7 +97,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets cos
+     * Set cos
      *
      * @param  CosSelector $cos
      * @return self
@@ -109,7 +109,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets keep policy
+     * Get keep policy
      *
      * @return PolicyHolder
      */
@@ -119,7 +119,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets keep policy
+     * Set keep policy
      *
      * @param  PolicyHolder $keep
      * @return self
@@ -131,7 +131,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets purge policy
+     * Get purge policy
      *
      * @return PolicyHolder
      */
@@ -141,7 +141,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets purge policy
+     * Set purge policy
      *
      * @param  PolicyHolder $purge
      * @return self

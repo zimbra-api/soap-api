@@ -53,7 +53,7 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the zimlet.
+     * Get the zimlet.
      *
      * @return NamedElement
      */
@@ -63,7 +63,7 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the zimlet.
+     * Set the zimlet.
      *
      * @param  NamedElement $zimlet
      * @return self

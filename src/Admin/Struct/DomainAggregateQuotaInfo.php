@@ -67,7 +67,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Gets the id
+     * Get the id
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Sets the id
+     * Set the id
      *
      * @param  string $id
      * @return self
@@ -111,7 +111,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Gets quota used
+     * Get quota used
      *
      * @return int
      */
@@ -121,7 +121,7 @@ class DomainAggregateQuotaInfo
     }
 
     /**
-     * Sets quota used
+     * Set quota used
      *
      * @param  int $quotaUsed
      * @return self

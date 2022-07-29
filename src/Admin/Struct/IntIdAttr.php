@@ -42,7 +42,7 @@ class IntIdAttr
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return int
      */
@@ -52,7 +52,7 @@ class IntIdAttr
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  int $id
      * @return self

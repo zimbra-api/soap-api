@@ -84,7 +84,7 @@ class DomainAdminRight
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -94,7 +94,7 @@ class DomainAdminRight
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -106,7 +106,7 @@ class DomainAdminRight
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return RightType
      */
@@ -116,7 +116,7 @@ class DomainAdminRight
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  RightType $type
      * @return self
@@ -128,7 +128,7 @@ class DomainAdminRight
     }
 
     /**
-     * Gets desc
+     * Get desc
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class DomainAdminRight
     }
 
     /**
-     * Sets desc
+     * Set desc
      *
      * @param  string $desc
      * @return self
@@ -150,7 +150,7 @@ class DomainAdminRight
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */
@@ -160,7 +160,7 @@ class DomainAdminRight
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self

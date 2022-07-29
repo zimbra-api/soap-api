@@ -55,7 +55,7 @@ class IndexStats
     }
 
     /**
-     * Gets maxDocs
+     * Get maxDocs
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class IndexStats
     }
 
     /**
-     * Sets maxDocs
+     * Set maxDocs
      *
      * @param  int $maxDocs
      * @return self
@@ -77,7 +77,7 @@ class IndexStats
     }
 
     /**
-     * Sets numDeletedDocs
+     * Set numDeletedDocs
      *
      * @return int
      */
@@ -87,7 +87,7 @@ class IndexStats
     }
 
     /**
-     * Sets numDeletedDocs
+     * Set numDeletedDocs
      *
      * @param  int $numDeletedDocs
      * @return self

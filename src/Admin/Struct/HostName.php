@@ -42,7 +42,7 @@ class HostName
     }
 
     /**
-     * Gets hostname
+     * Get hostname
      *
      * @return string
      */
@@ -52,7 +52,7 @@ class HostName
     }
 
     /**
-     * Sets hostname
+     * Set hostname
      *
      * @param  string $hostName
      * @return self

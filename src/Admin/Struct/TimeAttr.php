@@ -44,7 +44,7 @@ class TimeAttr
     }
 
     /**
-     * Gets end time
+     * Get end time
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class TimeAttr
     }
 
     /**
-     * Sets end time
+     * Set end time
      *
      * @param  string $time
      * @return self

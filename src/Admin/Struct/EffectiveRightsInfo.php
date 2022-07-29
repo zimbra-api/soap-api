@@ -65,7 +65,7 @@ class EffectiveRightsInfo
              ->setRights($rights);
     }
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */
@@ -75,7 +75,7 @@ class EffectiveRightsInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self
@@ -99,7 +99,7 @@ class EffectiveRightsInfo
     }
 
     /**
-     * Gets setAttrs
+     * Get setAttrs
      *
      * @return EffectiveAttrsInfo
      */
@@ -109,7 +109,7 @@ class EffectiveRightsInfo
     }
 
     /**
-     * Sets setAttrs
+     * Set setAttrs
      *
      * @param  EffectiveAttrsInfo $setAttrs
      * @return self
@@ -121,7 +121,7 @@ class EffectiveRightsInfo
     }
 
     /**
-     * Gets getAttrs
+     * Get getAttrs
      *
      * @return EffectiveAttrsInfo
      */
@@ -131,7 +131,7 @@ class EffectiveRightsInfo
     }
 
     /**
-     * Sets getAttrs
+     * Set getAttrs
      *
      * @param  EffectiveAttrsInfo $getAttrs
      * @return self

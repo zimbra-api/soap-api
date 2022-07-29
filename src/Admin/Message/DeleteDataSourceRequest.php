@@ -66,7 +66,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -76,7 +76,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -88,7 +88,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets dataSource
+     * Get dataSource
      *
      * @return Id
      */
@@ -98,7 +98,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets dataSource
+     * Set dataSource
      *
      * @param  Id $dataSource
      * @return self

@@ -67,7 +67,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -77,7 +77,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -99,7 +99,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -123,7 +123,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Sets sessions
+     * Set sessions
      *
      * @param array $sessions
      * @return self
@@ -135,7 +135,7 @@ class AccountSessionInfo
     }
 
     /**
-     * Gets sessions
+     * Get sessions
      *
      * @return array
      */

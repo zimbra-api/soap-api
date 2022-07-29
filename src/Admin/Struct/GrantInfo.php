@@ -67,7 +67,7 @@ class GrantInfo
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return TypeIdName
      */
@@ -77,7 +77,7 @@ class GrantInfo
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  TypeIdName $target
      * @return self
@@ -89,7 +89,7 @@ class GrantInfo
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeInfo
      */
@@ -99,7 +99,7 @@ class GrantInfo
     }
 
     /**
-     * Sets grantee
+     * Set grantee
      *
      * @param  GranteeInfo $grantee
      * @return self
@@ -111,7 +111,7 @@ class GrantInfo
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return RightModifierInfo
      */
@@ -121,7 +121,7 @@ class GrantInfo
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  RightModifierInfo $right
      * @return self

@@ -43,7 +43,7 @@ class MailboxByAccountIdSelector
     }
 
     /**
-     * Gets the account ID
+     * Get the account ID
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class MailboxByAccountIdSelector
     }
 
     /**
-     * Sets the account ID
+     * Set the account ID
      *
      * @param  string $id
      * @return self

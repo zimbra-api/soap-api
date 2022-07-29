@@ -48,7 +48,7 @@ class GetAllDomainsRequest extends SoapRequest
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -58,7 +58,7 @@ class GetAllDomainsRequest extends SoapRequest
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self

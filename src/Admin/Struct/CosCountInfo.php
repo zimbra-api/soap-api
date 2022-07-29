@@ -70,7 +70,7 @@ class CosCountInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class CosCountInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -92,7 +92,7 @@ class CosCountInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class CosCountInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -114,7 +114,7 @@ class CosCountInfo
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return int
      */
@@ -124,7 +124,7 @@ class CosCountInfo
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  int $value
      * @return self

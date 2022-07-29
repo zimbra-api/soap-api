@@ -50,7 +50,7 @@ class PurgeMessagesRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra mbox
+     * Get zimbra mbox
      *
      * @return Mailbox
      */
@@ -60,7 +60,7 @@ class PurgeMessagesRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra mbox
+     * Set zimbra mbox
      *
      * @param  Mailbox $mbox
      * @return self

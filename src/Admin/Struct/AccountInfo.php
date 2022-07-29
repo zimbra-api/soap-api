@@ -52,7 +52,7 @@ class AccountInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets is external
+     * Get is external
      *
      * @return bool
      */
@@ -62,7 +62,7 @@ class AccountInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets is external
+     * Set is external
      *
      * @param  bool $isExternal
      * @return self

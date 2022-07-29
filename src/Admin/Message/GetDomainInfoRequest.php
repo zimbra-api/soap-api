@@ -69,7 +69,7 @@ class GetDomainInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -79,7 +79,7 @@ class GetDomainInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self
@@ -91,7 +91,7 @@ class GetDomainInfoRequest extends SoapRequest
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return DomainSelector
      */
@@ -101,7 +101,7 @@ class GetDomainInfoRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  DomainSelector $domain
      * @return self

@@ -71,7 +71,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -93,7 +93,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Gets notes
+     * Get notes
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Sets notes
+     * Set notes
      *
      * @param  array $notes
      * @return self
@@ -127,7 +127,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */
@@ -137,7 +137,7 @@ class CmdRightsInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self

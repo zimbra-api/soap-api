@@ -137,7 +137,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -147,7 +147,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -159,7 +159,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets allServers
+     * Get allServers
      *
      * @return bool
      */
@@ -169,7 +169,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets allServers
+     * Set allServers
      *
      * @param  bool $allServers
      * @return self
@@ -181,7 +181,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -191,7 +191,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -203,7 +203,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -213,7 +213,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -225,7 +225,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -235,7 +235,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -247,7 +247,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets sortAscending
+     * Get sortAscending
      *
      * @return bool
      */
@@ -257,7 +257,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets sortAscending
+     * Set sortAscending
      *
      * @param  bool $sortAscending
      * @return self
@@ -269,7 +269,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Gets refresh
+     * Get refresh
      *
      * @return bool
      */
@@ -279,7 +279,7 @@ class GetQuotaUsageRequest extends SoapRequest
     }
 
     /**
-     * Sets refresh
+     * Set refresh
      *
      * @param  bool $refresh
      * @return self

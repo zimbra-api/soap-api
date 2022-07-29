@@ -56,7 +56,7 @@ class XMPPComponentSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return XmppBy
      */
@@ -66,7 +66,7 @@ class XMPPComponentSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  XmppBy $by
      * @return self
@@ -78,7 +78,7 @@ class XMPPComponentSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class XMPPComponentSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

@@ -48,7 +48,7 @@ class CompactIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return Status
      */
@@ -58,7 +58,7 @@ class CompactIndexResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  Status $status
      * @return self

@@ -48,7 +48,7 @@ class CreateAlwaysOnClusterResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the alwaysOnCluster.
+     * Get the alwaysOnCluster.
      *
      * @return AlwaysOnClusterInfo
      */
@@ -58,7 +58,7 @@ class CreateAlwaysOnClusterResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the alwaysOnCluster.
+     * Set the alwaysOnCluster.
      *
      * @param  AlwaysOnClusterInfo $alwaysOnCluster
      * @return self

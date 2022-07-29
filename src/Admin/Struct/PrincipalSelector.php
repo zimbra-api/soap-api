@@ -56,7 +56,7 @@ class PrincipalSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return PrincipalBy
      */
@@ -66,7 +66,7 @@ class PrincipalSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  PrincipalBy $by
      * @return self
@@ -78,7 +78,7 @@ class PrincipalSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class PrincipalSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

@@ -61,7 +61,7 @@ class DumpSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets includeAccounts
+     * Get includeAccounts
      *
      * @return bool
      */
@@ -71,7 +71,7 @@ class DumpSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets includeAccounts
+     * Set includeAccounts
      *
      * @param  bool $includeAccounts
      * @return self
@@ -83,7 +83,7 @@ class DumpSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets groupByAccount
+     * Get groupByAccount
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class DumpSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets groupByAccount
+     * Set groupByAccount
      *
      * @param  bool $groupByAccount
      * @return self

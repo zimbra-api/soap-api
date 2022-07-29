@@ -73,7 +73,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return EffectiveRightsTargetSelector
      */
@@ -83,7 +83,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  EffectiveRightsTargetSelector $target
      * @return self
@@ -95,7 +95,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeSelector
      */
@@ -105,7 +105,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Sets grantee
+     * Set grantee
      *
      * @param  GranteeSelector $grantee
      * @return self
@@ -117,7 +117,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return RightModifierInfo
      */
@@ -127,7 +127,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  RightModifierInfo $right
      * @return self

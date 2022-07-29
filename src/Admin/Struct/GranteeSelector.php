@@ -103,7 +103,7 @@ class GranteeSelector
     }
 
     /**
-     * Gets type enum
+     * Get type enum
      *
      * @return GranteeType
      */
@@ -113,7 +113,7 @@ class GranteeSelector
     }
 
     /**
-     * Sets type enum
+     * Set type enum
      *
      * @param  GranteeType $type
      * @return self
@@ -125,7 +125,7 @@ class GranteeSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return GranteeBy
      */
@@ -135,7 +135,7 @@ class GranteeSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  GranteeBy $by
      * @return self
@@ -147,7 +147,7 @@ class GranteeSelector
     }
 
     /**
-     * Gets secret
+     * Get secret
      *
      * @return string
      */
@@ -157,7 +157,7 @@ class GranteeSelector
     }
 
     /**
-     * Sets secret
+     * Set secret
      *
      * @param  string $secret
      * @return self
@@ -169,7 +169,7 @@ class GranteeSelector
     }
 
     /**
-     * Gets all flag
+     * Get all flag
      *
      * @return bool
      */
@@ -179,7 +179,7 @@ class GranteeSelector
     }
 
     /**
-     * Sets all flag
+     * Set all flag
      *
      * @param  bool $all
      * @return self
@@ -191,7 +191,7 @@ class GranteeSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -201,7 +201,7 @@ class GranteeSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

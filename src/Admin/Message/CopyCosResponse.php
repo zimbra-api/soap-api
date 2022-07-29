@@ -48,7 +48,7 @@ class CopyCosResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return CosInfo
      */
@@ -58,7 +58,7 @@ class CopyCosResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  CosInfo $cos
      * @return self

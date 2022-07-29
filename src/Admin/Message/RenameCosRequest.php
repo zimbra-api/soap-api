@@ -58,7 +58,7 @@ class RenameCosRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class RenameCosRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -80,7 +80,7 @@ class RenameCosRequest extends SoapRequest
     }
 
     /**
-     * Gets newName
+     * Get newName
      *
      * @return string
      */
@@ -90,7 +90,7 @@ class RenameCosRequest extends SoapRequest
     }
 
     /**
-     * Sets newName
+     * Set newName
      *
      * @param  string $newName
      * @return self

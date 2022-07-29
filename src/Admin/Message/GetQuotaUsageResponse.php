@@ -70,7 +70,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -80,7 +80,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -92,7 +92,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchTotal
+     * Get searchTotal
      *
      * @return int
      */
@@ -102,7 +102,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchTotal
+     * Set searchTotal
      *
      * @param  int $searchTotal
      * @return self
@@ -126,7 +126,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets account quota information
+     * Set account quota information
      *
      * @param array $quotas
      * @return self
@@ -138,7 +138,7 @@ class GetQuotaUsageResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets account quota information
+     * Get account quota information
      *
      * @return array
      */

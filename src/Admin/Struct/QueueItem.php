@@ -178,7 +178,7 @@ class QueueItem
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class QueueItem
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -200,7 +200,7 @@ class QueueItem
     }
 
     /**
-     * Gets time
+     * Get time
      *
      * @return string
      */
@@ -210,7 +210,7 @@ class QueueItem
     }
 
     /**
-     * Sets time
+     * Set time
      *
      * @param  string $time
      * @return self
@@ -222,7 +222,7 @@ class QueueItem
     }
 
     /**
-     * Gets fromdomain
+     * Get fromdomain
      *
      * @return string
      */
@@ -232,7 +232,7 @@ class QueueItem
     }
 
     /**
-     * Sets fromdomain
+     * Set fromdomain
      *
      * @param  string $fromdomain
      * @return self
@@ -244,7 +244,7 @@ class QueueItem
     }
 
     /**
-     * Gets size
+     * Get size
      *
      * @return string
      */
@@ -254,7 +254,7 @@ class QueueItem
     }
 
     /**
-     * Sets size
+     * Set size
      *
      * @param  string $size
      * @return self
@@ -266,7 +266,7 @@ class QueueItem
     }
 
     /**
-     * Gets from
+     * Get from
      *
      * @return string
      */
@@ -276,7 +276,7 @@ class QueueItem
     }
 
     /**
-     * Sets from
+     * Set from
      *
      * @param  string $from
      * @return self
@@ -288,7 +288,7 @@ class QueueItem
     }
 
     /**
-     * Gets to
+     * Get to
      *
      * @return string
      */
@@ -298,7 +298,7 @@ class QueueItem
     }
 
     /**
-     * Sets to
+     * Set to
      *
      * @param  string $to
      * @return self
@@ -310,7 +310,7 @@ class QueueItem
     }
 
     /**
-     * Gets host
+     * Get host
      *
      * @return string
      */
@@ -320,7 +320,7 @@ class QueueItem
     }
 
     /**
-     * Sets host
+     * Set host
      *
      * @param  string $host
      * @return self
@@ -332,7 +332,7 @@ class QueueItem
     }
 
     /**
-     * Gets addr
+     * Get addr
      *
      * @return string
      */
@@ -342,7 +342,7 @@ class QueueItem
     }
 
     /**
-     * Sets addr
+     * Set addr
      *
      * @param  string $addr
      * @return self
@@ -354,7 +354,7 @@ class QueueItem
     }
 
     /**
-     * Gets reason
+     * Get reason
      *
      * @return string
      */
@@ -364,7 +364,7 @@ class QueueItem
     }
 
     /**
-     * Sets reason
+     * Set reason
      *
      * @param  string $reason
      * @return self
@@ -376,7 +376,7 @@ class QueueItem
     }
 
     /**
-     * Gets filter
+     * Get filter
      *
      * @return string
      */
@@ -386,7 +386,7 @@ class QueueItem
     }
 
     /**
-     * Sets filter
+     * Set filter
      *
      * @param  string $filter
      * @return self
@@ -398,7 +398,7 @@ class QueueItem
     }
 
     /**
-     * Gets todomain
+     * Get todomain
      *
      * @return string
      */
@@ -408,7 +408,7 @@ class QueueItem
     }
 
     /**
-     * Sets todomain
+     * Set todomain
      *
      * @param  string $todomain
      * @return self
@@ -420,7 +420,7 @@ class QueueItem
     }
 
     /**
-     * Gets received
+     * Get received
      *
      * @return string
      */
@@ -430,7 +430,7 @@ class QueueItem
     }
 
     /**
-     * Sets received
+     * Set received
      *
      * @param  string $received
      * @return self

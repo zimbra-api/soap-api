@@ -70,7 +70,7 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -92,7 +92,7 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self

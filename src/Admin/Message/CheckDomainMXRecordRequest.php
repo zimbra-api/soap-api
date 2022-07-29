@@ -50,7 +50,7 @@ class CheckDomainMXRecordRequest extends SoapRequest
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  DomainSelector $domain
      * @return self
@@ -62,7 +62,7 @@ class CheckDomainMXRecordRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return DomainSelector
      */

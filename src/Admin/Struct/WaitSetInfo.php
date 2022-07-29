@@ -177,7 +177,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets waitSetId
+     * Get waitSetId
      *
      * @return string
      */
@@ -187,7 +187,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets waitSetId
+     * Set waitSetId
      *
      * @param  string $waitSetId
      * @return self
@@ -199,7 +199,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets owner
+     * Set owner
      *
      * @return string
      */
@@ -209,7 +209,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets owner
+     * Set owner
      *
      * @param  string $owner
      * @return self
@@ -221,7 +221,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @return string
      */
@@ -231,7 +231,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets defaultInterests
+     * Set defaultInterests
      *
      * @param  int $defaultInterests
      * @return self
@@ -243,7 +243,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets lastAccessDate
+     * Get lastAccessDate
      *
      * @return int
      */
@@ -253,7 +253,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets lastAccessDate
+     * Set lastAccessDate
      *
      * @param  int $lastAccessDate
      * @return self
@@ -265,7 +265,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets signalledAccounts
+     * Get signalledAccounts
      *
      * @return AccountsAttrib
      */
@@ -275,7 +275,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets signalledAccounts
+     * Set signalledAccounts
      *
      * @param  AccountsAttrib $signalledAccounts
      * @return self
@@ -287,7 +287,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets cbSeqNo
+     * Get cbSeqNo
      *
      * @return string
      */
@@ -297,7 +297,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets cbSeqNo
+     * Set cbSeqNo
      *
      * @param  string $cbSeqNo
      * @return self
@@ -309,7 +309,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets changedFolders
+     * Get changedFolders
      *
      * @return string
      */
@@ -319,7 +319,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets currentSeqNo
+     * Set currentSeqNo
      *
      * @param  string $currentSeqNo
      * @return self
@@ -331,7 +331,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets nextSeqNo
+     * Get nextSeqNo
      *
      * @return string
      */
@@ -341,7 +341,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets nextSeqNo
+     * Set nextSeqNo
      *
      * @param  string $nextSeqNo
      * @return self
@@ -353,7 +353,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets error information
+     * Get error information
      *
      * @return array
      */
@@ -363,7 +363,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets error information
+     * Set error information
      *
      * @param  array $errors
      * @return self
@@ -387,7 +387,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets buffered commit information
+     * Get buffered commit information
      *
      * @return array
      */
@@ -397,7 +397,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets buffered commit information
+     * Set buffered commit information
      *
      * @param  array $commits
      * @return self
@@ -421,7 +421,7 @@ class WaitSetInfo
     }
 
     /**
-     * Gets session information
+     * Get session information
      *
      * @return array
      */
@@ -431,7 +431,7 @@ class WaitSetInfo
     }
 
     /**
-     * Sets session information
+     * Set session information
      *
      * @param  array $sessions
      * @return self

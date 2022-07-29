@@ -55,7 +55,7 @@ class ComboRights
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param array $comboRights
      * @return self
@@ -67,7 +67,7 @@ class ComboRights
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

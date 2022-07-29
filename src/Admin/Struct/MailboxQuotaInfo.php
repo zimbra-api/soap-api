@@ -55,7 +55,7 @@ class MailboxQuotaInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class MailboxQuotaInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -77,7 +77,7 @@ class MailboxQuotaInfo
     }
 
     /**
-     * Gets quotaUsed
+     * Get quotaUsed
      *
      * @return int
      */
@@ -87,7 +87,7 @@ class MailboxQuotaInfo
     }
 
     /**
-     * Sets quotaUsed
+     * Set quotaUsed
      *
      * @param  int $quotaUsed
      * @return self

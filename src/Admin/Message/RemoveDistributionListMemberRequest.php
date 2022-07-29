@@ -69,7 +69,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self
@@ -106,7 +106,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Sets members
+     * Set members
      *
      * @param  array $members Members
      * @return self
@@ -118,7 +118,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Gets members
+     * Get members
      *
      * @return array
      */
@@ -143,7 +143,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts Accounts
      * @return self
@@ -155,7 +155,7 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */

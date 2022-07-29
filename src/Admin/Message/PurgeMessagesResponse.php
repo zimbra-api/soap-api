@@ -58,7 +58,7 @@ class PurgeMessagesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets mailboxes
+     * Set mailboxes
      *
      * @param  array $mailboxes
      * @return self
@@ -70,7 +70,7 @@ class PurgeMessagesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets mailboxes
+     * Get mailboxes
      *
      * @return array
      */

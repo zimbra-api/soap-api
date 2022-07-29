@@ -103,7 +103,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -125,7 +125,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -135,7 +135,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -147,7 +147,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return GalSearchType
      */
@@ -157,7 +157,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GalSearchType $type
      * @return self
@@ -169,7 +169,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets GAL Account ID
+     * Get GAL Account ID
      *
      * @return string
      */
@@ -179,7 +179,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets GAL Account ID
+     * Set GAL Account ID
      *
      * @param  string $galAccountId
      * @return self
@@ -191,7 +191,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -201,7 +201,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self

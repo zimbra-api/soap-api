@@ -53,7 +53,7 @@ class InDomainInfo
              ->setDomains($domains);
     }
     /**
-     * Gets domains
+     * Get domains
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class InDomainInfo
     }
 
     /**
-     * Sets domains
+     * Set domains
      *
      * @param  array $domains
      * @return self
@@ -87,7 +87,7 @@ class InDomainInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return EffectiveRightsInfo
      */
@@ -97,7 +97,7 @@ class InDomainInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  EffectiveRightsInfo $rights
      * @return self

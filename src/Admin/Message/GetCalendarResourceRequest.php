@@ -73,7 +73,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -83,7 +83,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self
@@ -95,7 +95,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Gets the calResource.
+     * Get the calResource.
      *
      * @return CalendarResourceSelector
      */
@@ -105,7 +105,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Sets the calResource.
+     * Set the calResource.
      *
      * @param  CalendarResourceSelector $calResource
      * @return self

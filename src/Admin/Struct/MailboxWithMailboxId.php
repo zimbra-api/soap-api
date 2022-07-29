@@ -70,7 +70,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Gets mbxid
+     * Get mbxid
      *
      * @return int
      */
@@ -80,7 +80,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Sets the mbxid
+     * Set the mbxid
      *
      * @param  int $mbxid
      * @return self
@@ -92,7 +92,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Gets the account ID
+     * Get the account ID
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Sets the account ID
+     * Set the account ID
      *
      * @param  string $accountId
      * @return self
@@ -114,7 +114,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Gets the size
+     * Get the size
      *
      * @return int
      */
@@ -124,7 +124,7 @@ class MailboxWithMailboxId
     }
 
     /**
-     * Sets the size
+     * Set the size
      *
      * @param  int $size
      * @return self

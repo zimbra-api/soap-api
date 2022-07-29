@@ -51,7 +51,7 @@ class QueryWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Gets waitSetId
+     * Get waitSetId
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class QueryWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Sets waitSetId
+     * Set waitSetId
      *
      * @param  string $waitSetId
      * @return self

@@ -47,7 +47,7 @@ class DeleteZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets the zimlet.
+     * Set the zimlet.
      *
      * @return NamedElement
      */
@@ -57,7 +57,7 @@ class DeleteZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets the zimlet.
+     * Set the zimlet.
      *
      * @param  NamedElement $zimlet
      * @return self

@@ -46,7 +46,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Gets dn
+     * Get dn
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Sets dn
+     * Set dn
      *
      * @param  string $dn
      * @return self

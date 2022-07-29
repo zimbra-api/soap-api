@@ -53,7 +53,7 @@ class VolumeIdAndProgress
     }
 
     /**
-     * Sets the volumeId
+     * Set the volumeId
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class VolumeIdAndProgress
     }
 
     /**
-     * Sets the volumeId
+     * Set the volumeId
      *
      * @param  string $volumeId
      * @return self
@@ -75,7 +75,7 @@ class VolumeIdAndProgress
     }
 
     /**
-     * Sets the progress
+     * Set the progress
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class VolumeIdAndProgress
     }
 
     /**
-     * Sets the progress
+     * Set the progress
      *
      * @param  string $progress
      * @return self

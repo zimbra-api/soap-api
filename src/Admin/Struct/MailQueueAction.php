@@ -66,7 +66,7 @@ class MailQueueAction
     }
 
     /**
-     * Gets the Time/rule for transitioning from daylight time to query time.
+     * Get the Time/rule for transitioning from daylight time to query time.
      *
      * @return QueueQuery
      */
@@ -76,7 +76,7 @@ class MailQueueAction
     }
 
     /**
-     * Sets the Time/rule for transitioning from daylight time to query time.
+     * Set the Time/rule for transitioning from daylight time to query time.
      *
      * @param  QueueQuery $query
      * @return self
@@ -88,7 +88,7 @@ class MailQueueAction
     }
 
     /**
-     * Gets op enum
+     * Get op enum
      *
      * @return QueueAction
      */
@@ -98,7 +98,7 @@ class MailQueueAction
     }
 
     /**
-     * Sets op enum
+     * Set op enum
      *
      * @param  QueueAction $op
      * @return self
@@ -110,7 +110,7 @@ class MailQueueAction
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return QueueActionBy
      */
@@ -120,7 +120,7 @@ class MailQueueAction
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  QueueActionBy $by
      * @return self

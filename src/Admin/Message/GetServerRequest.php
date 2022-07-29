@@ -74,7 +74,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -84,7 +84,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self
@@ -96,7 +96,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return ServerSelector
      */
@@ -106,7 +106,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  ServerSelector $server
      * @return self

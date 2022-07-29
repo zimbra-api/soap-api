@@ -67,7 +67,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Gets the match month
+     * Get the match month
      *
      * @return int
      */
@@ -77,7 +77,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Sets the match month
+     * Set the match month
      *
      * @param  int $mon
      * @return self
@@ -90,7 +90,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Gets the match week
+     * Get the match week
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Sets the match week
+     * Set the match week
      *
      * @param  int $week
      * @return self
@@ -113,7 +113,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Gets the match week day
+     * Get the match week day
      *
      * @return int
      */
@@ -123,7 +123,7 @@ class TzFixupRuleMatchRule
     }
 
     /**
-     * Sets the match week day
+     * Set the match week day
      *
      * @param  int $wkday
      * @return self

@@ -93,7 +93,7 @@ class DirPathInfo
     }
 
     /**
-     * Gets the path
+     * Get the path
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class DirPathInfo
     }
 
     /**
-     * Sets the path
+     * Set the path
      *
      * @param  string $path
      * @return self
@@ -115,7 +115,7 @@ class DirPathInfo
     }
 
     /**
-     * Gets exists flag
+     * Get exists flag
      *
      * @return bool
      */
@@ -125,7 +125,7 @@ class DirPathInfo
     }
 
     /**
-     * Sets exists flag
+     * Set exists flag
      *
      * @param  bool $exists
      * @return self
@@ -137,7 +137,7 @@ class DirPathInfo
     }
 
     /**
-     * Gets is directory flag
+     * Get is directory flag
      *
      * @return bool
      */
@@ -147,7 +147,7 @@ class DirPathInfo
     }
 
     /**
-     * Sets is directory flag
+     * Set is directory flag
      *
      * @param  bool $directory
      * @return self
@@ -159,7 +159,7 @@ class DirPathInfo
     }
 
     /**
-     * Gets readable flag
+     * Get readable flag
      *
      * @return bool
      */
@@ -169,7 +169,7 @@ class DirPathInfo
     }
 
     /**
-     * Sets readable flag
+     * Set readable flag
      *
      * @param  bool $readable
      * @return self
@@ -181,7 +181,7 @@ class DirPathInfo
     }
 
     /**
-     * Gets writable flag
+     * Get writable flag
      *
      * @return bool
      */
@@ -191,7 +191,7 @@ class DirPathInfo
     }
 
     /**
-     * Sets writable flag
+     * Set writable flag
      *
      * @param  bool $writable
      * @return self

@@ -54,7 +54,7 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

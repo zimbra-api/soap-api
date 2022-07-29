@@ -48,7 +48,7 @@ class ModifyDomainResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return DomainInfo
      */
@@ -58,7 +58,7 @@ class ModifyDomainResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  DomainInfo $domain
      * @return self

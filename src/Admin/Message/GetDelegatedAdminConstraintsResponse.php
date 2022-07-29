@@ -58,7 +58,7 @@ class GetDelegatedAdminConstraintsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets constraint attributes
+     * Set constraint attributes
      *
      * @param  array $attrs
      * @return self
@@ -70,7 +70,7 @@ class GetDelegatedAdminConstraintsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets constraint attributes
+     * Get constraint attributes
      *
      * @return array
      */

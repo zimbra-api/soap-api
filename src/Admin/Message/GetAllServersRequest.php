@@ -77,7 +77,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Gets service
+     * Get service
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Sets service
+     * Set service
      *
      * @param  int $service
      * @return self
@@ -99,7 +99,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Gets applyConfig
+     * Get applyConfig
      *
      * @return bool
      */
@@ -109,7 +109,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Sets applyConfig
+     * Set applyConfig
      *
      * @param  bool $applyConfig
      * @return self
@@ -121,7 +121,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Gets alwaysOnClusterId
+     * Get alwaysOnClusterId
      *
      * @return string
      */
@@ -131,7 +131,7 @@ class GetAllServersRequest extends SoapRequest
     }
 
     /**
-     * Sets alwaysOnClusterId
+     * Set alwaysOnClusterId
      *
      * @param  string $alwaysOnClusterId
      * @return self

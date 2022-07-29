@@ -55,7 +55,7 @@ class ConstraintAttr
     }
 
     /**
-     * Gets constraint information
+     * Get constraint information
      *
      * @return ConstraintInfo
      */
@@ -65,7 +65,7 @@ class ConstraintAttr
     }
 
     /**
-     * Sets constraint information
+     * Set constraint information
      *
      * @param  ConstraintInfo $constraint
      * @return self
@@ -77,7 +77,7 @@ class ConstraintAttr
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class ConstraintAttr
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

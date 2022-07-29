@@ -72,7 +72,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -82,7 +82,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -94,7 +94,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchTotal
+     * Get searchTotal
      *
      * @return int
      */
@@ -104,7 +104,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchTotal
+     * Set searchTotal
      *
      * @param  int $searchTotal
      * @return self
@@ -128,7 +128,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calResources
+     * Set calResources
      *
      * @param  array $resources
      * @return self
@@ -140,7 +140,7 @@ class SearchCalendarResourcesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calResources
+     * Get calResources
      *
      * @return array
      */

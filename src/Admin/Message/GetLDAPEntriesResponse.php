@@ -58,7 +58,7 @@ class GetLDAPEntriesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets LDAPEntry informations
+     * Set LDAPEntry informations
      *
      * @param  array $LDAPEntries
      * @return self
@@ -70,7 +70,7 @@ class GetLDAPEntriesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets LDAPEntry informations
+     * Get LDAPEntry informations
      *
      * @return array
      */

@@ -46,7 +46,7 @@ class LDAPEntryInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class LDAPEntryInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

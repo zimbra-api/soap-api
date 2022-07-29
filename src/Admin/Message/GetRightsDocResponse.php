@@ -83,7 +83,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets packages
+     * Set packages
      *
      * @param  array $pkgs
      * @return self
@@ -95,7 +95,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets packages
+     * Get packages
      *
      * @return array
      */
@@ -105,7 +105,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets notUsed
+     * Set notUsed
      *
      * @param  array $notUsed
      * @return self
@@ -117,7 +117,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets notUsed
+     * Get notUsed
      *
      * @return array
      */
@@ -139,7 +139,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  array $rights
      * @return self
@@ -151,7 +151,7 @@ class GetRightsDocResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return array
      */

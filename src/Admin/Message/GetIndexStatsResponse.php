@@ -48,7 +48,7 @@ class GetIndexStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the stats.
+     * Get the stats.
      *
      * @return IndexStats
      */
@@ -58,7 +58,7 @@ class GetIndexStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the stats.
+     * Set the stats.
      *
      * @param  IndexStats $stats
      * @return self

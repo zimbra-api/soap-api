@@ -49,7 +49,7 @@ class AutoProvAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountInfo
      */
@@ -59,7 +59,7 @@ class AutoProvAccountResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountInfo $account
      * @return self

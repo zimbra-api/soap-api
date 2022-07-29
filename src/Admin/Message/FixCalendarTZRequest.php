@@ -91,7 +91,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Gets sync
+     * Get sync
      *
      * @return bool
      */
@@ -101,7 +101,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Sets sync
+     * Set sync
      *
      * @param  bool $sync
      * @return self
@@ -113,7 +113,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Gets after
+     * Get after
      *
      * @return int
      */
@@ -123,7 +123,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Sets after
+     * Set after
      *
      * @param  int $after
      * @return self
@@ -135,7 +135,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -145,7 +145,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self
@@ -169,7 +169,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Gets the tzFixup.
+     * Get the tzFixup.
      *
      * @return TzFixup
      */
@@ -179,7 +179,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Sets the tzFixup.
+     * Set the tzFixup.
      *
      * @param  TzFixup $tzFixup
      * @return self

@@ -58,7 +58,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -68,7 +68,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -80,7 +80,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return int
      */
@@ -90,7 +90,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  int $type
      * @return self

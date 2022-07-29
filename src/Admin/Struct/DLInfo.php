@@ -66,7 +66,7 @@ class DLInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets is dynamic
+     * Get is dynamic
      *
      * @return bool
      */
@@ -76,7 +76,7 @@ class DLInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets is dynamic
+     * Set is dynamic
      *
      * @param  bool $dynamic
      * @return self
@@ -88,7 +88,7 @@ class DLInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets the via
+     * Get the via
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class DLInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets the via
+     * Set the via
      *
      * @param  string $via
      * @return self

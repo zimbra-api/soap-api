@@ -56,7 +56,7 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Gets the cluster.
+     * Get the cluster.
      *
      * @return AlwaysOnClusterSelector
      */
@@ -66,7 +66,7 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Sets the cluster.
+     * Set the cluster.
      *
      * @param  AlwaysOnClusterSelector $cluster
      * @return self

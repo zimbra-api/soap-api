@@ -162,7 +162,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -172,7 +172,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -184,7 +184,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -194,7 +194,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -206,7 +206,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -216,7 +216,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -228,7 +228,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -238,7 +238,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -250,7 +250,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets applyCos
+     * Get applyCos
      *
      * @return bool
      */
@@ -260,7 +260,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets applyCos
+     * Set applyCos
      *
      * @param  bool $applyCos
      * @return self
@@ -272,7 +272,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return string
      */
@@ -282,7 +282,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  string $attrs
      * @return self
@@ -294,7 +294,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return string
      */
@@ -304,7 +304,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  string $sortBy
      * @return self
@@ -316,7 +316,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets types
+     * Get types
      *
      * @return string
      */
@@ -326,7 +326,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets types
+     * Set types
      *
      * @param  string $types
      * @return self
@@ -338,7 +338,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets sortAscending
+     * Get sortAscending
      *
      * @return bool
      */
@@ -348,7 +348,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets sortAscending
+     * Set sortAscending
      *
      * @param  bool $sortAscending
      * @return self

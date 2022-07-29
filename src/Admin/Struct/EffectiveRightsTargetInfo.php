@@ -77,7 +77,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return TargetType
      */
@@ -87,7 +87,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  TargetType $type
      * @return self
@@ -99,7 +99,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -121,7 +121,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -131,7 +131,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

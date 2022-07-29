@@ -49,7 +49,7 @@ class GetAllDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -59,7 +59,7 @@ class GetAllDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self

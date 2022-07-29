@@ -50,7 +50,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets cos
+     * Get cos
      *
      * @return CosSelector
      */
@@ -60,7 +60,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets cos
+     * Set cos
      *
      * @param  CosSelector $cos
      * @return self

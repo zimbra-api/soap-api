@@ -57,7 +57,7 @@ class DomainSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return DomainBy
      */
@@ -67,7 +67,7 @@ class DomainSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  DomainBy $by
      * @return self
@@ -79,7 +79,7 @@ class DomainSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class DomainSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

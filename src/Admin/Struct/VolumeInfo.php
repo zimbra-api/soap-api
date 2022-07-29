@@ -189,7 +189,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the Id
+     * Get the Id
      *
      * @return int
      */
@@ -199,7 +199,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the Id
+     * Set the Id
      *
      * @param  int $id
      * @return self
@@ -211,7 +211,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the type
+     * Get the type
      *
      * @return int
      */
@@ -221,7 +221,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the type
+     * Set the type
      *
      * @param  int $type
      * @return self
@@ -233,7 +233,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the compression threshold
+     * Get the compression threshold
      *
      * @return int
      */
@@ -243,7 +243,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the compression threshold
+     * Set the compression threshold
      *
      * @param  int $compressionThreshold
      * @return self
@@ -255,7 +255,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the mgbits
+     * Get the mgbits
      *
      * @return int
      */
@@ -265,7 +265,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the mgbits
+     * Set the mgbits
      *
      * @param  int $mgbits
      * @return self
@@ -277,7 +277,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the mbits
+     * Get the mbits
      *
      * @return int
      */
@@ -287,7 +287,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the mbits
+     * Set the mbits
      *
      * @param  int $mbits
      * @return self
@@ -299,7 +299,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the fgbits
+     * Get the fgbits
      *
      * @return int
      */
@@ -309,7 +309,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the fgbits
+     * Set the fgbits
      *
      * @param  int $fgbits
      * @return self
@@ -321,7 +321,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the fbits
+     * Get the fbits
      *
      * @return int
      */
@@ -331,7 +331,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the fbits
+     * Set the fbits
      *
      * @param  int $fbits
      * @return self
@@ -343,7 +343,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @return string
      */
@@ -353,7 +353,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -365,7 +365,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the root path
+     * Set the root path
      *
      * @return string
      */
@@ -375,7 +375,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the root path
+     * Set the root path
      *
      * @param  string $rootpath
      * @return self
@@ -387,7 +387,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets the compress blobs
+     * Get the compress blobs
      *
      * @return bool
      */
@@ -397,7 +397,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the compress blobs
+     * Set the compress blobs
      *
      * @param  bool $compressBlobs
      * @return self
@@ -409,7 +409,7 @@ class VolumeInfo
     }
 
     /**
-     * Gets is current
+     * Get is current
      *
      * @return bool
      */
@@ -419,7 +419,7 @@ class VolumeInfo
     }
 
     /**
-     * Sets the current
+     * Set the current
      *
      * @param  bool $current
      * @return self

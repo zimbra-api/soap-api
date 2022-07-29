@@ -45,7 +45,7 @@ class PackageSelector
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class PackageSelector
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

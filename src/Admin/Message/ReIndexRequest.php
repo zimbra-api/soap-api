@@ -64,7 +64,7 @@ class ReIndexRequest extends SoapRequest
     }
 
     /**
-     * Gets the mbox.
+     * Get the mbox.
      *
      * @return Mbox
      */
@@ -74,7 +74,7 @@ class ReIndexRequest extends SoapRequest
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @param  Mbox $mbox
      * @return self
@@ -86,7 +86,7 @@ class ReIndexRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return Action
      */
@@ -96,7 +96,7 @@ class ReIndexRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  Action $action
      * @return self

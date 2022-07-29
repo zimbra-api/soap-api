@@ -59,7 +59,7 @@ class GetAdminSavedSearchesRequest extends SoapRequest
     }
 
     /**
-     * Sets searches
+     * Set searches
      *
      * @param array $searches
      * @return self
@@ -71,7 +71,7 @@ class GetAdminSavedSearchesRequest extends SoapRequest
     }
 
     /**
-     * Gets searches
+     * Get searches
      *
      * @return array
      */

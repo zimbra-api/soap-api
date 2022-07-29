@@ -63,7 +63,7 @@ class GetAccountLoggersRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class GetAccountLoggersRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -85,7 +85,7 @@ class GetAccountLoggersRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountSelector
      */
@@ -95,7 +95,7 @@ class GetAccountLoggersRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self

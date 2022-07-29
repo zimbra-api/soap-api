@@ -132,7 +132,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -142,7 +142,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -154,7 +154,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -164,7 +164,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -176,7 +176,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets the type.
+     * Get the type.
      *
      * @return GalMode
      */
@@ -186,7 +186,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets the type.
+     * Set the type.
      *
      * @param  GalMode $type
      * @return self
@@ -198,7 +198,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return AccountSelector
      */
@@ -208,7 +208,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  AccountSelector $account
      * @return self
@@ -220,7 +220,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets mailHost
+     * Get mailHost
      *
      * @return string
      */
@@ -230,7 +230,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets mailHost
+     * Set mailHost
      *
      * @param  string $mailHost
      * @return self
@@ -242,7 +242,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -252,7 +252,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self
@@ -264,7 +264,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets folder
+     * Get folder
      *
      * @return string
      */
@@ -274,7 +274,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets folder
+     * Set folder
      *
      * @param  string $folder
      * @return self

@@ -58,7 +58,7 @@ class GetAllCosResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets cosList
+     * Set cosList
      *
      * @param  array $cosList
      * @return self
@@ -70,7 +70,7 @@ class GetAllCosResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets cosList
+     * Get cosList
      *
      * @return array
      */

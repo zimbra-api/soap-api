@@ -48,7 +48,7 @@ class GetUCServiceResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the ucService.
+     * Get the ucService.
      *
      * @return UCServiceInfo
      */
@@ -58,7 +58,7 @@ class GetUCServiceResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the ucService.
+     * Set the ucService.
      *
      * @param  UCServiceInfo $ucService
      * @return self

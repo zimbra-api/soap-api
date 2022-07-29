@@ -68,7 +68,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Gets numSucceeded
+     * Get numSucceeded
      *
      * @return int
      */
@@ -78,7 +78,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Sets numSucceeded
+     * Set numSucceeded
      *
      * @param  int $numSucceeded
      * @return self
@@ -90,7 +90,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Sets numFailed
+     * Set numFailed
      *
      * @return int
      */
@@ -100,7 +100,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Sets numFailed
+     * Set numFailed
      *
      * @param  int $numFailed
      * @return self
@@ -112,7 +112,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Sets numRemaining
+     * Set numRemaining
      *
      * @return int
      */
@@ -122,7 +122,7 @@ class ReindexProgressInfo
     }
 
     /**
-     * Sets numRemaining
+     * Set numRemaining
      *
      * @param  int $numRemaining
      * @return self

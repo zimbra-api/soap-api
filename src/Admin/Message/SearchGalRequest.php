@@ -106,7 +106,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return string
      */
@@ -116,7 +116,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  string $domain
      * @return self
@@ -128,7 +128,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -138,7 +138,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -150,7 +150,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -160,7 +160,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -172,7 +172,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -182,7 +182,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  GalSearchType $type
      * @return self
@@ -194,7 +194,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Gets galAccountId
+     * Get galAccountId
      *
      * @return string
      */
@@ -204,7 +204,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Sets galAccountId
+     * Set galAccountId
      *
      * @param  string $galAccountId
      * @return self

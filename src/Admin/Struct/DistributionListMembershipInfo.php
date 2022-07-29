@@ -71,7 +71,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Gets the id
+     * Get the id
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Sets the id
+     * Set the id
      *
      * @param  string $id
      * @return self
@@ -93,7 +93,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -115,7 +115,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Gets via
+     * Get via
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class DistributionListMembershipInfo
     }
 
     /**
-     * Sets via
+     * Set via
      *
      * @param  string $via
      * @return self

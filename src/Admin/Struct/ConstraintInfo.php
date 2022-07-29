@@ -71,7 +71,7 @@ class ConstraintInfo
     }
 
     /**
-     * Gets minimum value
+     * Get minimum value
      *
      * @return string
      */
@@ -81,7 +81,7 @@ class ConstraintInfo
     }
 
     /**
-     * Sets minimum value
+     * Set minimum value
      *
      * @param  string $min
      * @return self
@@ -93,7 +93,7 @@ class ConstraintInfo
     }
 
     /**
-     * Gets maximum value
+     * Get maximum value
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class ConstraintInfo
     }
 
     /**
-     * Sets maximum value
+     * Set maximum value
      *
      * @param  string $max
      * @return self
@@ -115,7 +115,7 @@ class ConstraintInfo
     }
 
     /**
-     * Gets acceptable values
+     * Get acceptable values
      *
      * @return array
      */
@@ -125,7 +125,7 @@ class ConstraintInfo
     }
 
     /**
-     * Sets acceptable values
+     * Set acceptable values
      *
      * @param  array $values
      * @return self

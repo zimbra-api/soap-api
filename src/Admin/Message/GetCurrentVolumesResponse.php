@@ -59,7 +59,7 @@ class GetCurrentVolumesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets volume informations
+     * Set volume informations
      *
      * @param  array $volumes
      * @return self
@@ -71,7 +71,7 @@ class GetCurrentVolumesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets volume informations
+     * Get volume informations
      *
      * @return array
      */

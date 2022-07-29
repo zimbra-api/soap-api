@@ -45,7 +45,7 @@ class PolicyHolder
     }
 
     /**
-     * Gets the policy.
+     * Get the policy.
      *
      * @return Policy
      */
@@ -55,7 +55,7 @@ class PolicyHolder
     }
 
     /**
-     * Sets the policy.
+     * Set the policy.
      *
      * @param  Policy $policy
      * @return self

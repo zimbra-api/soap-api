@@ -45,7 +45,7 @@ class CheckedRight
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class CheckedRight
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

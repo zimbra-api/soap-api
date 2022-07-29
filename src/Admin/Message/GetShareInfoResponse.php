@@ -57,7 +57,7 @@ class GetShareInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets share information
+     * Set share information
      *
      * @param array $shares
      * @return self
@@ -69,7 +69,7 @@ class GetShareInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets share information
+     * Get share information
      *
      * @return array
      */

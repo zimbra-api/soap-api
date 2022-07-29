@@ -105,7 +105,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets serverList
+     * Get serverList
      *
      * @return string
      */
@@ -115,7 +115,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets serverList
+     * Set serverList
      *
      * @param  string $serverList
      * @return self
@@ -127,7 +127,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets hashAlgorithm
+     * Get hashAlgorithm
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets hashAlgorithm
+     * Set hashAlgorithm
      *
      * @param  string $hashAlgorithm
      * @return self
@@ -149,7 +149,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets binaryProtocolEnabled
+     * Get binaryProtocolEnabled
      *
      * @return bool
      */
@@ -159,7 +159,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets binaryProtocolEnabled
+     * Set binaryProtocolEnabled
      *
      * @param  bool $binaryProtocolEnabled
      * @return self
@@ -171,7 +171,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets defaultExpirySeconds
+     * Get defaultExpirySeconds
      *
      * @return int
      */
@@ -181,7 +181,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets defaultExpirySeconds
+     * Set defaultExpirySeconds
      *
      * @param  int $defaultExpirySeconds
      * @return self
@@ -193,7 +193,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets defaultTimeoutMillis
+     * Get defaultTimeoutMillis
      *
      * @return int
      */
@@ -203,7 +203,7 @@ class GetMemcachedClientConfigResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets defaultTimeoutMillis
+     * Set defaultTimeoutMillis
      *
      * @param  int $defaultTimeoutMillis
      * @return self

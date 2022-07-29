@@ -61,7 +61,7 @@ class CalendarResourceSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return CalendarResourceBy
      */
@@ -71,7 +71,7 @@ class CalendarResourceSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  CalendarResourceBy $by
      * @return self
@@ -83,7 +83,7 @@ class CalendarResourceSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class CalendarResourceSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

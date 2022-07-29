@@ -56,7 +56,7 @@ class LoggerInfo
     }
 
     /**
-     * Gets category
+     * Get category
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class LoggerInfo
     }
 
     /**
-     * Sets category
+     * Set category
      *
      * @param  string $category
      * @return self
@@ -78,7 +78,7 @@ class LoggerInfo
     }
 
     /**
-     * Gets level enum
+     * Get level enum
      *
      * @return LoggingLevel
      */
@@ -88,7 +88,7 @@ class LoggerInfo
     }
 
     /**
-     * Sets level enum
+     * Set level enum
      *
      * @param  LoggingLevel $level
      * @return self

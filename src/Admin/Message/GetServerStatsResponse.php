@@ -58,7 +58,7 @@ class GetServerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets statistics
+     * Set statistics
      *
      * @param  array $stats
      * @return self
@@ -70,7 +70,7 @@ class GetServerStatsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets statistics
+     * Get statistics
      *
      * @return array
      */

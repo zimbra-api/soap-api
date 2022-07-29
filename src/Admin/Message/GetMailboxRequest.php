@@ -51,7 +51,7 @@ class GetMailboxRequest extends SoapRequest
     }
 
     /**
-     * Gets the mbox.
+     * Get the mbox.
      *
      * @return Mailbox
      */
@@ -61,7 +61,7 @@ class GetMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @param  Mailbox $mbox
      * @return self

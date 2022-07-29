@@ -56,7 +56,7 @@ class UcServiceSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return UcServiceBy
      */
@@ -66,7 +66,7 @@ class UcServiceSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  UcServiceBy $by
      * @return self
@@ -78,7 +78,7 @@ class UcServiceSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class UcServiceSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

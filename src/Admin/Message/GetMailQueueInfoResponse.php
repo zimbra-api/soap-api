@@ -48,7 +48,7 @@ class GetMailQueueInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the server
+     * Get the server
      *
      * @return Server
      */
@@ -58,7 +58,7 @@ class GetMailQueueInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets server
+     * Set server
      *
      * @param  Server $server
      * @return self

@@ -50,7 +50,7 @@ class CheckExchangeAuthRequest extends SoapRequest
     }
 
     /**
-     * Sets Exchange Auth
+     * Set Exchange Auth
      *
      * @param  ExchangeAuthSpec $auth
      * @return self
@@ -62,7 +62,7 @@ class CheckExchangeAuthRequest extends SoapRequest
     }
 
     /**
-     * Gets Exchange Auth
+     * Get Exchange Auth
      *
      * @return ExchangeAuthSpec
      */

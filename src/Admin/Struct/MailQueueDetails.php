@@ -118,7 +118,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -140,7 +140,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets time
+     * Get time
      *
      * @return int
      */
@@ -150,7 +150,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets time
+     * Set time
      *
      * @param  int $time
      * @return self
@@ -162,7 +162,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets stillScanning
+     * Get stillScanning
      *
      * @return bool
      */
@@ -172,7 +172,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets stillScanning
+     * Set stillScanning
      *
      * @param  bool $stillScanning
      * @return self
@@ -184,7 +184,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets total
+     * Get total
      *
      * @return int
      */
@@ -194,7 +194,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets total
+     * Set total
      *
      * @param  int $total
      * @return self
@@ -206,7 +206,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -216,7 +216,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -240,7 +240,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets queueSummaries
+     * Set queueSummaries
      *
      * @param array $summaries
      * @return self
@@ -252,7 +252,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets queueSummaries
+     * Get queueSummaries
      *
      * @return array
      */
@@ -274,7 +274,7 @@ class MailQueueDetails
     }
 
     /**
-     * Sets queueItems
+     * Set queueItems
      *
      * @param array $queueItems
      * @return self
@@ -286,7 +286,7 @@ class MailQueueDetails
     }
 
     /**
-     * Gets queueItems
+     * Get queueItems
      *
      * @return array
      */

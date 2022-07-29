@@ -72,7 +72,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Gets type enum
+     * Get type enum
      *
      * @return TargetType
      */
@@ -82,7 +82,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Sets type enum
+     * Set type enum
      *
      * @param  TargetType $type
      * @return self
@@ -94,7 +94,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Gets by enum
+     * Get by enum
      *
      * @return TargetBy
      */
@@ -104,7 +104,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Sets by enum
+     * Set by enum
      *
      * @param  TargetBy $by
      * @return self
@@ -116,7 +116,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -126,7 +126,7 @@ class EffectiveRightsTargetSelector
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

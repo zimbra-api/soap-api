@@ -52,7 +52,7 @@ class DeleteMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @return Mailbox
      */
@@ -62,7 +62,7 @@ class DeleteMailboxRequest extends SoapRequest
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @param  Mailbox $mbox
      * @return self

@@ -78,7 +78,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets is dynamic
+     * Get is dynamic
      *
      * @return bool
      */
@@ -88,7 +88,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets is dynamic
+     * Set is dynamic
      *
      * @param  bool $dynamic
      * @return self
@@ -100,7 +100,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets members
+     * Get members
      *
      * @return array
      */
@@ -110,7 +110,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets members
+     * Set members
      *
      * @param  array $members
      * @return self
@@ -137,7 +137,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Gets owners
+     * Get owners
      *
      * @return array
      */
@@ -147,7 +147,7 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * Sets owners
+     * Set owners
      *
      * @param  array $owners
      * @return self

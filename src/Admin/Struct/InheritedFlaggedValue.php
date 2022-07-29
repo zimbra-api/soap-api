@@ -56,7 +56,7 @@ class InheritedFlaggedValue
     }
 
     /**
-     * Gets inherited
+     * Get inherited
      *
      * @return bool
      */
@@ -66,7 +66,7 @@ class InheritedFlaggedValue
     }
 
     /**
-     * Sets inherited
+     * Set inherited
      *
      * @param  bool $inherited
      * @return self
@@ -78,7 +78,7 @@ class InheritedFlaggedValue
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -88,7 +88,7 @@ class InheritedFlaggedValue
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $name
      * @return self

@@ -43,7 +43,7 @@ class LicenseExpirationInfo
     }
 
     /**
-     * Gets device ID
+     * Get device ID
      *
      * @return string
      */
@@ -53,7 +53,7 @@ class LicenseExpirationInfo
     }
 
     /**
-     * Sets device ID
+     * Set device ID
      *
      * @param  string $date
      * @return self

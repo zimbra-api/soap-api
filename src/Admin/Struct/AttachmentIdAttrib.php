@@ -25,15 +25,18 @@ class AttachmentIdAttrib
 {
     /**
      * Attachment ID
+     * 
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
+     * @var string
      */
     private $aid;
 
     /**
-     * Constructor method for AttachmentIdAttrib
+     * Constructor
+     * 
      * @param  string $aid
      * @return self
      */
@@ -45,7 +48,7 @@ class AttachmentIdAttrib
     }
 
     /**
-     * Gets attachment ID
+     * Get attachment ID
      *
      * @return string
      */
@@ -55,7 +58,7 @@ class AttachmentIdAttrib
     }
 
     /**
-     * Sets attachment ID
+     * Set attachment ID
      *
      * @param  string $aid
      * @return self

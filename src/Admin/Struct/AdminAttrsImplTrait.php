@@ -43,7 +43,7 @@ trait AdminAttrsImplTrait
     }
 
     /**
-     * Sets attribute sequence
+     * Set attribute sequence
      *
      * @param array $attrs
      * @return self
@@ -55,7 +55,7 @@ trait AdminAttrsImplTrait
     }
 
     /**
-     * Gets attribute sequence
+     * Get attribute sequence
      *
      * @return array
      */

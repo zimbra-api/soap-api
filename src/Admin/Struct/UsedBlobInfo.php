@@ -95,7 +95,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -105,7 +105,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -117,7 +117,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Gets revision
+     * Get revision
      *
      * @return int
      */
@@ -127,7 +127,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Sets revision
+     * Set revision
      *
      * @param  int $revision
      * @return self
@@ -139,7 +139,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Gets data size
+     * Get data size
      *
      * @return int
      */
@@ -149,7 +149,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Sets data size
+     * Set data size
      *
      * @param  int $size
      * @return self
@@ -161,7 +161,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Gets volume Id
+     * Get volume Id
      *
      * @return int
      */
@@ -171,7 +171,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Sets volume Id
+     * Set volume Id
      *
      * @param  int $volumeId
      * @return self
@@ -183,7 +183,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Gets blob
+     * Get blob
      *
      * @return BlobSizeInfo
      */
@@ -193,7 +193,7 @@ class UsedBlobInfo
     }
 
     /**
-     * Sets blob
+     * Set blob
      *
      * @param  BlobSizeInfo $blob
      * @return self

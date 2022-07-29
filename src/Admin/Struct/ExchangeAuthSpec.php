@@ -96,7 +96,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Gets URL to Exchange server
+     * Get URL to Exchange server
      *
      * @return string
      */
@@ -106,7 +106,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Sets URL to Exchange server
+     * Set URL to Exchange server
      *
      * @param  string $url
      * @return self
@@ -118,7 +118,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Gets exchange user
+     * Get exchange user
      *
      * @return string
      */
@@ -128,7 +128,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Sets exchange user
+     * Set exchange user
      *
      * @param  string $user
      * @return self
@@ -140,7 +140,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Gets exchange password
+     * Get exchange password
      *
      * @return string
      */
@@ -150,7 +150,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Sets exchange password
+     * Set exchange password
      *
      * @param  string $pass
      * @return self
@@ -162,7 +162,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Gets scheme enum
+     * Get scheme enum
      *
      * @return AuthScheme
      */
@@ -172,7 +172,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Sets scheme enum
+     * Set scheme enum
      *
      * @param  AuthScheme $scheme
      * @return self
@@ -184,7 +184,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Gets auth type
+     * Get auth type
      *
      * @return string
      */
@@ -194,7 +194,7 @@ class ExchangeAuthSpec
     }
 
     /**
-     * Sets auth type
+     * Set auth type
      *
      * @param  string $type
      * @return self

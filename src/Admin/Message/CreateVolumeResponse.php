@@ -48,7 +48,7 @@ class CreateVolumeResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the volume.
+     * Get the volume.
      *
      * @return VolumeInfo
      */
@@ -58,7 +58,7 @@ class CreateVolumeResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the volume.
+     * Set the volume.
      *
      * @param  VolumeInfo $volume
      * @return self

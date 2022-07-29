@@ -124,7 +124,7 @@ class RightInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -134,7 +134,7 @@ class RightInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -146,7 +146,7 @@ class RightInfo
     }
 
     /**
-     * Gets targetType
+     * Get targetType
      *
      * @return string
      */
@@ -156,7 +156,7 @@ class RightInfo
     }
 
     /**
-     * Sets targetType
+     * Set targetType
      *
      * @param  string $targetType
      * @return self
@@ -168,7 +168,7 @@ class RightInfo
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return RightType
      */
@@ -178,7 +178,7 @@ class RightInfo
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  RightType $type
      * @return self
@@ -190,7 +190,7 @@ class RightInfo
     }
 
     /**
-     * Gets rightClass
+     * Get rightClass
      *
      * @return RightClass
      */
@@ -200,7 +200,7 @@ class RightInfo
     }
 
     /**
-     * Sets rightClass
+     * Set rightClass
      *
      * @param  RightClass $rightClass
      * @return self
@@ -212,7 +212,7 @@ class RightInfo
     }
 
     /**
-     * Gets desc
+     * Get desc
      *
      * @return string
      */
@@ -222,7 +222,7 @@ class RightInfo
     }
 
     /**
-     * Sets desc
+     * Set desc
      *
      * @param  string $desc
      * @return self
@@ -234,7 +234,7 @@ class RightInfo
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return RightsAttrs
      */
@@ -244,7 +244,7 @@ class RightInfo
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  RightsAttrs $attrs
      * @return self
@@ -256,7 +256,7 @@ class RightInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return ComboRights
      */
@@ -266,7 +266,7 @@ class RightInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  ComboRights $rights
      * @return self

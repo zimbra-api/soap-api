@@ -48,7 +48,7 @@ class CreateXMPPComponentResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the component.
+     * Get the component.
      *
      * @return XMPPComponentInfo
      */
@@ -58,7 +58,7 @@ class CreateXMPPComponentResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the component.
+     * Set the component.
      *
      * @param  XMPPComponentInfo $component
      * @return self

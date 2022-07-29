@@ -189,7 +189,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return int
      */
@@ -199,7 +199,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  int $id
      * @return self
@@ -211,7 +211,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets groupId
+     * Get groupId
      *
      * @return int
      */
@@ -221,7 +221,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets groupId
+     * Set groupId
      *
      * @param  int $canExpand
      * @return bool
@@ -233,7 +233,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets accountId
+     * Get accountId
      *
      * @return string
      */
@@ -243,7 +243,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets accountId
+     * Set accountId
      *
      * @param  string $accountId
      * @return self
@@ -255,7 +255,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets indexVolumeId
+     * Get indexVolumeId
      *
      * @return int
      */
@@ -265,7 +265,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets indexVolumeId
+     * Set indexVolumeId
      *
      * @param  int $indexVolumeId
      * @return self
@@ -277,7 +277,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets itemIdCheckPoint
+     * Get itemIdCheckPoint
      *
      * @return int
      */
@@ -287,7 +287,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets itemIdCheckPoint
+     * Set itemIdCheckPoint
      *
      * @param  int $itemIdCheckPoint
      * @return self
@@ -299,7 +299,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets contactCount
+     * Get contactCount
      *
      * @return int
      */
@@ -309,7 +309,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets contactCount
+     * Set contactCount
      *
      * @param  int $contactCount
      * @return self
@@ -321,7 +321,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets sizeCheckPoint
+     * Get sizeCheckPoint
      *
      * @return int
      */
@@ -331,7 +331,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets sizeCheckPoint
+     * Set sizeCheckPoint
      *
      * @param  int $tagNames
      * @return self
@@ -343,7 +343,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets changeCheckPoint
+     * Get changeCheckPoint
      *
      * @return int
      */
@@ -353,7 +353,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets changeCheckPoint
+     * Set changeCheckPoint
      *
      * @param  int $changeCheckPoint
      * @return self
@@ -365,7 +365,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets trackingSync
+     * Get trackingSync
      *
      * @return int
      */
@@ -375,7 +375,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets trackingSync
+     * Set trackingSync
      *
      * @param  int $trackingSync
      * @return self
@@ -387,7 +387,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets trackingImap
+     * Get trackingImap
      *
      * @return bool
      */
@@ -397,7 +397,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets trackingImap
+     * Set trackingImap
      *
      * @param  bool $trackingImap
      * @return self
@@ -409,7 +409,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets lastBackupAt
+     * Get lastBackupAt
      *
      * @return int
      */
@@ -419,7 +419,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets lastBackupAt
+     * Set lastBackupAt
      *
      * @param  int $lastBackupAt
      * @return self
@@ -431,7 +431,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets lastSoapAccess
+     * Get lastSoapAccess
      *
      * @return int
      */
@@ -441,7 +441,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets lastSoapAccess
+     * Set lastSoapAccess
      *
      * @param  int $lastSoapAccess
      * @return self
@@ -453,7 +453,7 @@ class MailboxInfo
     }
 
     /**
-     * Gets newMessages
+     * Get newMessages
      *
      * @return int
      */
@@ -463,7 +463,7 @@ class MailboxInfo
     }
 
     /**
-     * Sets newMessages
+     * Set newMessages
      *
      * @param  int $newMessages
      * @return self

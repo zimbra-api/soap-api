@@ -53,7 +53,7 @@ class ContactBackupServer
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class ContactBackupServer
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -75,7 +75,7 @@ class ContactBackupServer
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return string
      */
@@ -85,7 +85,7 @@ class ContactBackupServer
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  ContactBackupStatus $status
      * @return self

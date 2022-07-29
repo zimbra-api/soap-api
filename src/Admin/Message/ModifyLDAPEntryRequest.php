@@ -51,7 +51,7 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets dn
+     * Get dn
      *
      * @return string
      */
@@ -61,7 +61,7 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets dn
+     * Set dn
      *
      * @param  string $dn
      * @return self

@@ -57,7 +57,7 @@ class GetAdminConsoleUICompResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets values
+     * Set values
      *
      * @param array $values
      * @return self
@@ -69,7 +69,7 @@ class GetAdminConsoleUICompResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets values
+     * Get values
      *
      * @return array
      */

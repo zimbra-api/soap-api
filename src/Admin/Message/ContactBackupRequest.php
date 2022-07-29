@@ -60,7 +60,7 @@ class ContactBackupRequest extends SoapRequest
     }
 
     /**
-     * Gets the servers.
+     * Get the servers.
      *
      * @return array
      */
@@ -70,7 +70,7 @@ class ContactBackupRequest extends SoapRequest
     }
 
     /**
-     * Sets the servers.
+     * Set the servers.
      *
      * @param  array $servers
      * @return self
@@ -94,7 +94,7 @@ class ContactBackupRequest extends SoapRequest
     }
 
     /**
-     * Gets operation
+     * Get operation
      *
      * @return ContactBackupOp
      */
@@ -104,7 +104,7 @@ class ContactBackupRequest extends SoapRequest
     }
 
     /**
-     * Sets operation
+     * Set operation
      *
      * @param  ContactBackupOp $op
      * @return self

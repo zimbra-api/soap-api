@@ -104,7 +104,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Gets the any.
+     * Get the any.
      *
      * @return SimpleElement
      */
@@ -114,7 +114,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Sets the any.
+     * Set the any.
      *
      * @param  SimpleElement $any
      * @return self
@@ -126,7 +126,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Gets the tzid.
+     * Get the tzid.
      *
      * @return Id
      */
@@ -136,7 +136,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Sets the tzid.
+     * Set the tzid.
      *
      * @param  Id $tzid
      * @return self
@@ -148,7 +148,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Gets the nonDst.
+     * Get the nonDst.
      *
      * @return Offset
      */
@@ -158,7 +158,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Sets the nonDst.
+     * Set the nonDst.
      *
      * @param  Offset $nonDst
      * @return self
@@ -170,7 +170,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Gets the rules.
+     * Get the rules.
      *
      * @return TzFixupRuleMatchRules
      */
@@ -180,7 +180,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Sets the rules.
+     * Set the rules.
      *
      * @param  TzFixupRuleMatchRules $rules
      * @return self
@@ -192,7 +192,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Gets the dates.
+     * Get the dates.
      *
      * @return TzFixupRuleMatchDates
      */
@@ -202,7 +202,7 @@ class TzFixupRuleMatch
     }
 
     /**
-     * Sets the dates.
+     * Set the dates.
      *
      * @param  TzFixupRuleMatchDates $dates
      * @return self

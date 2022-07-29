@@ -106,7 +106,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return SessionType
      */
@@ -116,7 +116,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  SessionType $type
      * @return self
@@ -128,7 +128,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -138,7 +138,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -150,7 +150,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -160,7 +160,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -172,7 +172,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets sortBy
+     * Get sortBy
      *
      * @return GetSessionsSortBy
      */
@@ -182,7 +182,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets sortBy
+     * Set sortBy
      *
      * @param  GetSessionsSortBy $sortBy
      * @return self
@@ -194,7 +194,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Gets refresh
+     * Get refresh
      *
      * @return bool
      */
@@ -204,7 +204,7 @@ class GetSessionsRequest extends SoapRequest
     }
 
     /**
-     * Sets refresh
+     * Set refresh
      *
      * @param  bool $refresh
      * @return self

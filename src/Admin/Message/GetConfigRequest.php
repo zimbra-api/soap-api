@@ -49,7 +49,7 @@ class GetConfigRequest extends SoapRequest
     }
 
     /**
-     * Gets the attr.
+     * Get the attr.
      *
      * @return Attr
      */
@@ -59,7 +59,7 @@ class GetConfigRequest extends SoapRequest
     }
 
     /**
-     * Sets the attr.
+     * Set the attr.
      *
      * @param  Attr $attr
      * @return self

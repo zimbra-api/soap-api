@@ -48,7 +48,7 @@ class CreateDataSourceResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cal resource.
+     * Get the cal resource.
      *
      * @return DataSourceInfo
      */
@@ -58,7 +58,7 @@ class CreateDataSourceResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cal resource.
+     * Set the cal resource.
      *
      * @param  DataSourceInfo $dataSource
      * @return self

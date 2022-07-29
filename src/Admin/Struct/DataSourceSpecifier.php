@@ -59,7 +59,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     }
 
     /**
-     * Gets data source type
+     * Get data source type
      *
      * @return DataSourceType
      */
@@ -69,7 +69,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     }
 
     /**
-     * Sets data source type
+     * Set data source type
      *
      * @param  DataSourceType $type
      * @return self
@@ -81,7 +81,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     }
 
     /**
-     * Gets data source name
+     * Get data source name
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
     }
 
     /**
-     * Sets data source name
+     * Set data source name
      *
      * @param  string $name
      * @return self

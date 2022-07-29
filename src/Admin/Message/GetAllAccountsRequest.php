@@ -63,7 +63,7 @@ class GetAllAccountsRequest extends SoapRequest
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -73,7 +73,7 @@ class GetAllAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self
@@ -85,7 +85,7 @@ class GetAllAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -95,7 +95,7 @@ class GetAllAccountsRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self

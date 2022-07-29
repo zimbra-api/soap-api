@@ -46,7 +46,7 @@ class GetIndexStatsRequest extends SoapRequest
     }
 
     /**
-     * Gets mbox.
+     * Get mbox.
      *
      * @return Mailbox
      */
@@ -56,7 +56,7 @@ class GetIndexStatsRequest extends SoapRequest
     }
 
     /**
-     * Sets mbox.
+     * Set mbox.
      *
      * @param  Mailbox $mbox
      * @return self

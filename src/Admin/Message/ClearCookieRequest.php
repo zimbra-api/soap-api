@@ -58,7 +58,7 @@ class ClearCookieRequest extends SoapRequest
     }
 
     /**
-     * Sets cookies
+     * Set cookies
      *
      * @param array $cookies
      * @return self
@@ -70,7 +70,7 @@ class ClearCookieRequest extends SoapRequest
     }
 
     /**
-     * Gets cookies
+     * Get cookies
      *
      * @return array
      */

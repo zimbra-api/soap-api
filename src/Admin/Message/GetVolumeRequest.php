@@ -46,7 +46,7 @@ class GetVolumeRequest extends SoapRequest
     }
 
     /**
-     * Gets volume id
+     * Get volume id
      *
      * @return int
      */
@@ -56,7 +56,7 @@ class GetVolumeRequest extends SoapRequest
     }
 
     /**
-     * Sets volume id
+     * Set volume id
      *
      * @param  int $id
      * @return self

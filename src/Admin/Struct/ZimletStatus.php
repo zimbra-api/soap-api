@@ -85,7 +85,7 @@ class ZimletStatus
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class ZimletStatus
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -107,7 +107,7 @@ class ZimletStatus
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return ZimletStatusSetting
      */
@@ -117,7 +117,7 @@ class ZimletStatus
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  ZimletStatusSetting $status
      * @return self
@@ -129,7 +129,7 @@ class ZimletStatus
     }
 
     /**
-     * Gets extension
+     * Get extension
      *
      * @return bool
      */
@@ -139,7 +139,7 @@ class ZimletStatus
     }
 
     /**
-     * Sets extension
+     * Set extension
      *
      * @param  bool $extension
      * @return self
@@ -151,7 +151,7 @@ class ZimletStatus
     }
 
     /**
-     * Gets priority
+     * Get priority
      *
      * @return int
      */
@@ -161,7 +161,7 @@ class ZimletStatus
     }
 
     /**
-     * Sets priority
+     * Set priority
      *
      * @param  int $priority
      * @return self

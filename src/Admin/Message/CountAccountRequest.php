@@ -48,7 +48,7 @@ class CountAccountRequest extends SoapRequest
     }
 
     /**
-     * Gets the domain.
+     * Get the domain.
      *
      * @return Domain
      */
@@ -58,7 +58,7 @@ class CountAccountRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self

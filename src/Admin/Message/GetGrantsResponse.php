@@ -58,7 +58,7 @@ class GetGrantsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets grants
+     * Set grants
      *
      * @param  array $grants
      * @return self
@@ -70,7 +70,7 @@ class GetGrantsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets grants
+     * Get grants
      *
      * @return array
      */

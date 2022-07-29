@@ -48,7 +48,7 @@ class ModifyDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the dl.
+     * Get the dl.
      *
      * @return DLInfo
      */
@@ -58,7 +58,7 @@ class ModifyDistributionListResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the dl.
+     * Set the dl.
      *
      * @param  DLInfo $dl
      * @return self

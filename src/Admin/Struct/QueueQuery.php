@@ -81,7 +81,7 @@ class QueueQuery
     }
 
     /**
-     * Sets field sequence
+     * Set field sequence
      *
      * @param  array $fields
      * @return self
@@ -93,7 +93,7 @@ class QueueQuery
     }
 
     /**
-     * Gets field sequence
+     * Get field sequence
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class QueueQuery
     }
 
     /**
-     * Gets the limit
+     * Get the limit
      *
      * @return int
      */
@@ -113,7 +113,7 @@ class QueueQuery
     }
 
     /**
-     * Sets the limit
+     * Set the limit
      *
      * @param  int $limit
      * @return self
@@ -125,7 +125,7 @@ class QueueQuery
     }
 
     /**
-     * Gets the offset
+     * Get the offset
      *
      * @return int
      */
@@ -135,7 +135,7 @@ class QueueQuery
     }
 
     /**
-     * Sets the offset
+     * Set the offset
      *
      * @param  int $offset
      * @return self

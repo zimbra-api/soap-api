@@ -65,7 +65,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -87,7 +87,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -97,7 +97,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -121,7 +121,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Sets loggers
+     * Set loggers
      *
      * @param array $loggers
      * @return self
@@ -133,7 +133,7 @@ class AccountLoggerInfo
     }
 
     /**
-     * Gets loggers
+     * Get loggers
      *
      * @return array
      */

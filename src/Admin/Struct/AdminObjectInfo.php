@@ -64,7 +64,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -74,7 +74,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -86,7 +86,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -96,7 +96,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -120,7 +120,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Sets attribute sequence
+     * Set attribute sequence
      *
      * @param array $attrs
      * @return self
@@ -132,7 +132,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Gets attribute sequence
+     * Get attribute sequence
      *
      * @return array
      */

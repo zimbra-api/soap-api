@@ -82,7 +82,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Gets the logger.
+     * Get the logger.
      *
      * @return Logger
      */
@@ -92,7 +92,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Sets the logger.
+     * Set the logger.
      *
      * @param  Logger $logger
      * @return self
@@ -104,7 +104,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @return Account
      */
@@ -114,7 +114,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -126,7 +126,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -136,7 +136,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

@@ -54,7 +54,7 @@ class ServerWithQueueAction
     }
 
     /**
-     * Gets the queue.
+     * Get the queue.
      *
      * @return MailQueueWithAction
      */
@@ -64,7 +64,7 @@ class ServerWithQueueAction
     }
 
     /**
-     * Sets the queue.
+     * Set the queue.
      *
      * @param  MailQueueWithAction $queue
      * @return self
@@ -76,7 +76,7 @@ class ServerWithQueueAction
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -86,7 +86,7 @@ class ServerWithQueueAction
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self

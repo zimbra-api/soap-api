@@ -45,7 +45,7 @@ class AdminDestroyWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets WaitSet ID
+     * Get WaitSet ID
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class AdminDestroyWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets WaitSet ID
+     * Set WaitSet ID
      *
      * @param  string $waitSetId
      * @return self

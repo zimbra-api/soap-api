@@ -114,7 +114,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -148,7 +148,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets attributes
+     * Set attributes
      *
      * @param array $attrs
      * @return self
@@ -160,7 +160,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets attributes
+     * Get attributes
      *
      * @return array
      */
@@ -170,7 +170,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return CosInfo
      */
@@ -180,7 +180,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  CosInfo $cos
      * @return self
@@ -207,7 +207,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets soap URL list
+     * Set soap URL list
      *
      * @param  array $soapURLList
      * @return self
@@ -219,7 +219,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets soap URL list
+     * Get soap URL list
      *
      * @return array
      */
@@ -229,7 +229,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets admin soap URL
+     * Get admin soap URL
      *
      * @return string
      */
@@ -239,7 +239,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets admin soap URL
+     * Set admin soap URL
      *
      * @param  string $adminSoapURL
      * @return self
@@ -251,7 +251,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets public mail URL
+     * Get public mail URL
      *
      * @return string
      */
@@ -261,7 +261,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets public mail URL
+     * Set public mail URL
      *
      * @param  string $publicMailURL
      * @return self

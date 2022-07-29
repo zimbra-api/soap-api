@@ -63,7 +63,7 @@ class GetServerNIfsRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return IpType
      */
@@ -73,7 +73,7 @@ class GetServerNIfsRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  IpType $type
      * @return self
@@ -85,7 +85,7 @@ class GetServerNIfsRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @return Server
      */
@@ -95,7 +95,7 @@ class GetServerNIfsRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self

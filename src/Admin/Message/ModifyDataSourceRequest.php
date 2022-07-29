@@ -64,7 +64,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -74,7 +74,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -86,7 +86,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets the data source.
+     * Get the data source.
      *
      * @return DataSourceInfo
      */
@@ -96,7 +96,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets the data source
+     * Set the data source
      *
      * @param  DataSourceInfo $dataSource
      * @return self

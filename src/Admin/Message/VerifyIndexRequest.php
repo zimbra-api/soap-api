@@ -37,7 +37,7 @@ class VerifyIndexRequest extends SoapRequest
     private ?Mailbox $mbox = NULL;
 
     /**
-     * Constructor method for VerifyIndexRequest
+     * Constructor
      * 
      * @param  Mailbox  $mbox
      * @return self
@@ -50,7 +50,7 @@ class VerifyIndexRequest extends SoapRequest
     }
 
     /**
-     * Sets mbox
+     * Set mbox
      *
      * @param  Mailbox $mbox
      * @return self
@@ -62,7 +62,7 @@ class VerifyIndexRequest extends SoapRequest
     }
 
     /**
-     * Gets mbox
+     * Get mbox
      *
      * @return MailboxByAccountIdSelector
      */

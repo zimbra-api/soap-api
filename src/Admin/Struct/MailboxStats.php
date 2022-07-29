@@ -58,7 +58,7 @@ class MailboxStats
     }
 
     /**
-     * Gets numMboxes
+     * Get numMboxes
      *
      * @return int
      */
@@ -68,7 +68,7 @@ class MailboxStats
     }
 
     /**
-     * Sets numMboxes
+     * Set numMboxes
      *
      * @param  int $target
      * @return self
@@ -80,7 +80,7 @@ class MailboxStats
     }
 
     /**
-     * Gets totalSize
+     * Get totalSize
      *
      * @return int
      */
@@ -90,7 +90,7 @@ class MailboxStats
     }
 
     /**
-     * Sets totalSize
+     * Set totalSize
      *
      * @param  int $totalSize
      * @return self

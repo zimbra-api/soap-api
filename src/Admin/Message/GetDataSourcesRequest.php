@@ -53,7 +53,7 @@ class GetDataSourcesRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class GetDataSourcesRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self

@@ -68,7 +68,7 @@ class TypeIdName
     }
 
     /**
-     * Gets id
+     * Get id
      *
      * @return string
      */
@@ -78,7 +78,7 @@ class TypeIdName
     }
 
     /**
-     * Sets id
+     * Set id
      *
      * @param  string $id
      * @return self
@@ -90,7 +90,7 @@ class TypeIdName
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return name
      */
@@ -100,7 +100,7 @@ class TypeIdName
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -112,7 +112,7 @@ class TypeIdName
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class TypeIdName
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self

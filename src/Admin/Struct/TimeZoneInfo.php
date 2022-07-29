@@ -55,7 +55,7 @@ class TimeZoneInfo
     }
 
     /**
-     * Gets Zimbra ID
+     * Get Zimbra ID
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class TimeZoneInfo
     }
 
     /**
-     * Sets Zimbra ID
+     * Set Zimbra ID
      *
      * @param  string $id
      * @return self
@@ -77,7 +77,7 @@ class TimeZoneInfo
     }
 
     /**
-     * Gets displayName
+     * Get displayName
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class TimeZoneInfo
     }
 
     /**
-     * Sets displayName
+     * Set displayName
      *
      * @param  string $displayName
      * @return self

@@ -53,7 +53,7 @@ class RightsEntriesInfo
              ->setEntries($entries);
     }
     /**
-     * Gets entries
+     * Get entries
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class RightsEntriesInfo
     }
 
     /**
-     * Sets entries
+     * Set entries
      *
      * @param  array $entries
      * @return self
@@ -87,7 +87,7 @@ class RightsEntriesInfo
     }
 
     /**
-     * Gets rights
+     * Get rights
      *
      * @return EffectiveRightsInfo
      */
@@ -97,7 +97,7 @@ class RightsEntriesInfo
     }
 
     /**
-     * Sets rights
+     * Set rights
      *
      * @param  EffectiveRightsInfo $rights
      * @return self

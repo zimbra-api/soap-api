@@ -54,7 +54,7 @@ class StatsValues
     }
 
     /**
-     * Gets t
+     * Get t
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class StatsValues
     }
 
     /**
-     * Sets t
+     * Set t
      *
      * @param  string $t
      * @return self
@@ -88,7 +88,7 @@ class StatsValues
     }
 
     /**
-     * Sets stats
+     * Set stats
      *
      * @param  array $stats
      * @return self
@@ -100,7 +100,7 @@ class StatsValues
     }
 
     /**
-     * Gets stats
+     * Get stats
      *
      * @return array
      */

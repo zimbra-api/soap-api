@@ -70,7 +70,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Gets server
+     * Get server
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Sets server
+     * Set server
      *
      * @param  string $server
      * @return self
@@ -92,7 +92,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Gets status
+     * Get status
      *
      * @return DeployStatus
      */
@@ -102,7 +102,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Sets status
+     * Set status
      *
      * @param  DeployStatus $status
      * @return self
@@ -114,7 +114,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Gets error
+     * Get error
      *
      * @return string
      */
@@ -124,7 +124,7 @@ class ZimletDeploymentStatus
     }
 
     /**
-     * Sets error
+     * Set error
      *
      * @param  string $error
      * @return self

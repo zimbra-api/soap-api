@@ -81,7 +81,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $path
      * @return self
@@ -103,7 +103,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Gets data size
+     * Get data size
      *
      * @return int
      */
@@ -113,7 +113,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Sets data size
+     * Set data size
      *
      * @param  int $size
      * @return self
@@ -125,7 +125,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Gets file size
+     * Get file size
      *
      * @return int
      */
@@ -135,7 +135,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Sets file size
+     * Set file size
      *
      * @param  int $fileSize
      * @return self
@@ -147,7 +147,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Gets external
+     * Get external
      *
      * @return bool
      */
@@ -157,7 +157,7 @@ class BlobSizeInfo
     }
 
     /**
-     * Sets external
+     * Set external
      *
      * @param  bool $external
      * @return self

@@ -85,7 +85,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -107,7 +107,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -117,7 +117,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $id
      * @return self
@@ -129,7 +129,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets domainName
+     * Get domainName
      *
      * @return string
      */
@@ -139,7 +139,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets domainName
+     * Set domainName
      *
      * @param  string $domainName
      * @return self
@@ -151,7 +151,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Gets serverName
+     * Get serverName
      *
      * @return string
      */
@@ -161,7 +161,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     }
 
     /**
-     * Sets serverName
+     * Set serverName
      *
      * @param  string $serverName
      * @return self

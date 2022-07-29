@@ -63,7 +63,7 @@ class CompactIndexRequest extends SoapRequest
     }
 
     /**
-     * Gets the mbox.
+     * Get the mbox.
      *
      * @return Mbox
      */
@@ -73,7 +73,7 @@ class CompactIndexRequest extends SoapRequest
     }
 
     /**
-     * Sets the mbox.
+     * Set the mbox.
      *
      * @param  Mbox $mbox
      * @return self
@@ -85,7 +85,7 @@ class CompactIndexRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return Action
      */
@@ -95,7 +95,7 @@ class CompactIndexRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  Action $action
      * @return self

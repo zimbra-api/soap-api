@@ -48,7 +48,7 @@ class GetLicenseInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the expiration.
+     * Get the expiration.
      *
      * @return LicenseExpirationInfo
      */
@@ -58,7 +58,7 @@ class GetLicenseInfoResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the expiration.
+     * Set the expiration.
      *
      * @param  LicenseExpirationInfo $expiration
      * @return self

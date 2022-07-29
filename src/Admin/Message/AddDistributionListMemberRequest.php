@@ -57,7 +57,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self
@@ -94,7 +94,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Sets members
+     * Set members
      *
      * @param  array $members Members
      * @return self
@@ -106,7 +106,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Gets members
+     * Get members
      *
      * @return array
      */

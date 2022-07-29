@@ -68,7 +68,7 @@ class RightViaInfo
     }
 
     /**
-     * Gets target
+     * Get target
      *
      * @return TargetWithType
      */
@@ -78,7 +78,7 @@ class RightViaInfo
     }
 
     /**
-     * Sets target
+     * Set target
      *
      * @param  TargetWithType $query
      * @return self
@@ -90,7 +90,7 @@ class RightViaInfo
     }
 
     /**
-     * Gets grantee
+     * Get grantee
      *
      * @return GranteeWithType
      */
@@ -100,7 +100,7 @@ class RightViaInfo
     }
 
     /**
-     * Sets grantee
+     * Set grantee
      *
      * @param  GranteeWithType $query
      * @return self
@@ -112,7 +112,7 @@ class RightViaInfo
     }
 
     /**
-     * Gets right
+     * Get right
      *
      * @return CheckedRight
      */
@@ -122,7 +122,7 @@ class RightViaInfo
     }
 
     /**
-     * Sets right
+     * Set right
      *
      * @param  CheckedRight $right
      * @return self

@@ -59,7 +59,7 @@ class TzReplaceInfo
     }
 
     /**
-     * Gets the wellKnownTz.
+     * Get the wellKnownTz.
      *
      * @return Id
      */
@@ -69,7 +69,7 @@ class TzReplaceInfo
     }
 
     /**
-     * Sets the wellKnownTz.
+     * Set the wellKnownTz.
      *
      * @param  Id $wellKnownTz
      * @return self
@@ -81,7 +81,7 @@ class TzReplaceInfo
     }
 
     /**
-     * Gets the tz.
+     * Get the tz.
      *
      * @return CalTzInfo
      */
@@ -91,7 +91,7 @@ class TzReplaceInfo
     }
 
     /**
-     * Sets the tz.
+     * Set the tz.
      *
      * @param  CalTzInfo $tz
      * @return self

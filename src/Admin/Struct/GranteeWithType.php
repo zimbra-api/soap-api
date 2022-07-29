@@ -55,7 +55,7 @@ class GranteeWithType
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class GranteeWithType
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  string $type
      * @return self
@@ -77,7 +77,7 @@ class GranteeWithType
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -87,7 +87,7 @@ class GranteeWithType
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

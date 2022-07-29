@@ -69,7 +69,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -79,7 +79,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -91,7 +91,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Gets dynamic
+     * Get dynamic
      *
      * @return bool
      */
@@ -101,7 +101,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Sets dynamic
+     * Set dynamic
      *
      * @param  bool $dynamic
      * @return self

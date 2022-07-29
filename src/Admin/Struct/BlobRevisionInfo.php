@@ -81,7 +81,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $path
      * @return self
@@ -103,7 +103,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Gets revision number
+     * Get revision number
      *
      * @return int
      */
@@ -113,7 +113,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Sets revision number
+     * Set revision number
      *
      * @param  int $revision
      * @return self
@@ -125,7 +125,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Gets file size
+     * Get file size
      *
      * @return int
      */
@@ -135,7 +135,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Sets file size
+     * Set file size
      *
      * @param  int $fileSize
      * @return self
@@ -147,7 +147,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Gets external
+     * Get external
      *
      * @return bool
      */
@@ -157,7 +157,7 @@ class BlobRevisionInfo
     }
 
     /**
-     * Sets external
+     * Set external
      *
      * @param  bool $external
      * @return self

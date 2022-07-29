@@ -45,7 +45,7 @@ class DeployZimletResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets progresses
+     * Get progresses
      *
      * @return array
      */
@@ -55,7 +55,7 @@ class DeployZimletResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets progresses
+     * Set progresses
      *
      * @param  array $progresses
      * @return self

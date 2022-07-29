@@ -73,7 +73,7 @@ class Stat
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -83,7 +83,7 @@ class Stat
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -95,7 +95,7 @@ class Stat
     }
 
     /**
-     * Gets the description
+     * Get the description
      *
      * @return string
      */
@@ -105,7 +105,7 @@ class Stat
     }
 
     /**
-     * Sets the description
+     * Set the description
      *
      * @param  string $description
      * @return self
@@ -117,7 +117,7 @@ class Stat
     }
 
     /**
-     * Gets value
+     * Get value
      *
      * @return string
      */
@@ -127,7 +127,7 @@ class Stat
     }
 
     /**
-     * Sets value
+     * Set value
      *
      * @param  string $value
      * @return self

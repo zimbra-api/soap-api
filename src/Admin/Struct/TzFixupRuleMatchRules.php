@@ -81,7 +81,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Gets the standard match date.
+     * Get the standard match date.
      *
      * @return TzFixupRuleMatchRule
      */
@@ -91,7 +91,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Sets the standard match date.
+     * Set the standard match date.
      *
      * @param  TzFixupRuleMatchRule $standard
      * @return self
@@ -103,7 +103,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Gets the daylight match date.
+     * Get the daylight match date.
      *
      * @return TzFixupRuleMatchRule
      */
@@ -113,7 +113,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Sets the daylight match date.
+     * Set the daylight match date.
      *
      * @param  TzFixupRuleMatchRule $daylight
      * @return self
@@ -125,7 +125,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Gets the stdoff
+     * Get the stdoff
      *
      * @return int
      */
@@ -135,7 +135,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Sets the stdoff
+     * Set the stdoff
      *
      * @param  int $stdoff
      * @return self
@@ -147,7 +147,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Gets the dayoff
+     * Get the dayoff
      *
      * @return int
      */
@@ -157,7 +157,7 @@ class TzFixupRuleMatchRules
     }
 
     /**
-     * Sets the dayoff
+     * Set the dayoff
      *
      * @param  int $dayoff
      * @return self

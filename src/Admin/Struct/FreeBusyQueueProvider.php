@@ -55,7 +55,7 @@ class FreeBusyQueueProvider
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class FreeBusyQueueProvider
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -89,7 +89,7 @@ class FreeBusyQueueProvider
     }
 
     /**
-     * Sets accountibutes
+     * Set accountibutes
      *
      * @param array $accounts
      * @return self
@@ -101,7 +101,7 @@ class FreeBusyQueueProvider
     }
 
     /**
-     * Gets accountibutes
+     * Get accountibutes
      *
      * @return array
      */

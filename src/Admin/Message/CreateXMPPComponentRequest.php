@@ -47,7 +47,7 @@ class CreateXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Gets component
+     * Get component
      *
      * @return XMPPComponentSpec
      */
@@ -57,7 +57,7 @@ class CreateXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Sets component
+     * Set component
      *
      * @param  XMPPComponentSpec $name
      * @return self

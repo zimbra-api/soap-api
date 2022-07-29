@@ -99,7 +99,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets WaitSet ID
+     * Get WaitSet ID
      *
      * @return string
      */
@@ -109,7 +109,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets WaitSet ID
+     * Set WaitSet ID
      *
      * @param  string $waitSetId
      * @return self
@@ -121,7 +121,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets canceled
+     * Get canceled
      *
      * @return bool
      */
@@ -131,7 +131,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets canceled
+     * Set canceled
      *
      * @param  bool $canceled
      * @return self
@@ -143,7 +143,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets sequence number
+     * Get sequence number
      *
      * @return string
      */
@@ -153,7 +153,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets sequence number
+     * Set sequence number
      *
      * @param  string $seqNo
      * @return self
@@ -177,7 +177,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets signaled accounts
+     * Set signaled accounts
      *
      * @param array $accounts
      * @return self
@@ -189,7 +189,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets signaled account
+     * Get signaled account
      *
      * @return array
      */
@@ -211,7 +211,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets error information
+     * Set error information
      *
      * @param array $errors
      * @return self
@@ -223,7 +223,7 @@ class AdminWaitSetResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets error information
+     * Get error information
      *
      * @return array
      */

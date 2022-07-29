@@ -81,7 +81,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Gets volume Id
+     * Get volume Id
      *
      * @return int
      */
@@ -91,7 +91,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Sets volume Id
+     * Set volume Id
      *
      * @param  int $volumeId
      * @return self
@@ -103,7 +103,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Gets path
+     * Get path
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Sets path
+     * Set path
      *
      * @param  string $path
      * @return self
@@ -125,7 +125,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Gets file size
+     * Get file size
      *
      * @return int
      */
@@ -135,7 +135,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Sets file size
+     * Set file size
      *
      * @param  int $fileSize
      * @return self
@@ -147,7 +147,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Gets external
+     * Get external
      *
      * @return bool
      */
@@ -157,7 +157,7 @@ class UnexpectedBlobInfo
     }
 
     /**
-     * Sets external
+     * Set external
      *
      * @param  bool $external
      * @return self

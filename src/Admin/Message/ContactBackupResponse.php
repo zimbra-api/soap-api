@@ -48,7 +48,7 @@ class ContactBackupResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the servers.
+     * Get the servers.
      *
      * @return array
      */
@@ -58,7 +58,7 @@ class ContactBackupResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the servers.
+     * Set the servers.
      *
      * @param  array $servers
      * @return self

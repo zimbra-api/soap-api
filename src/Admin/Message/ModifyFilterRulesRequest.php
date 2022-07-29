@@ -124,7 +124,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return AdminFilterType
      */
@@ -134,7 +134,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  AdminFilterType $type
      * @return self
@@ -146,7 +146,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -156,7 +156,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -168,7 +168,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -178,7 +178,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self
@@ -190,7 +190,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -200,7 +200,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self
@@ -212,7 +212,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return Cos
      */
@@ -222,7 +222,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  Cos $cos
      * @return self
@@ -246,7 +246,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Sets filter filterRules
+     * Set filter filterRules
      *
      * @param  array $filterRules
      * @return self
@@ -258,7 +258,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Gets filter filterRules
+     * Get filter filterRules
      *
      * @return array
      */

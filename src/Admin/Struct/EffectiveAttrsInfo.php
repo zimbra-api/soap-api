@@ -56,7 +56,7 @@ class EffectiveAttrsInfo
     }
 
     /**
-     * Gets all
+     * Get all
      *
      * @return bool
      */
@@ -66,7 +66,7 @@ class EffectiveAttrsInfo
     }
 
     /**
-     * Sets all
+     * Set all
      *
      * @param  bool $all
      * @return self
@@ -78,7 +78,7 @@ class EffectiveAttrsInfo
     }
 
     /**
-     * Gets attrs
+     * Get attrs
      *
      * @return array
      */
@@ -88,7 +88,7 @@ class EffectiveAttrsInfo
     }
 
     /**
-     * Sets attrs
+     * Set attrs
      *
      * @param  array $attrs
      * @return self

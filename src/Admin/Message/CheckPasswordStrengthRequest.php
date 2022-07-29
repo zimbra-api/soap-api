@@ -57,7 +57,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra id
+     * Get zimbra id
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra id
+     * Set zimbra id
      *
      * @param  string $id
      * @return self
@@ -79,7 +79,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     }
 
     /**
-     * Gets password
+     * Get password
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     }
 
     /**
-     * Sets password
+     * Set password
      *
      * @param  string $password
      * @return self

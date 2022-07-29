@@ -69,7 +69,7 @@ class GetGrantsRequest extends SoapRequest
     }
 
     /**
-     * Gets target.
+     * Get target.
      *
      * @return Target
      */
@@ -79,7 +79,7 @@ class GetGrantsRequest extends SoapRequest
     }
 
     /**
-     * Sets target.
+     * Set target.
      *
      * @param  Target $target
      * @return self
@@ -91,7 +91,7 @@ class GetGrantsRequest extends SoapRequest
     }
 
     /**
-     * Gets grantee.
+     * Get grantee.
      *
      * @return GranteeSelector
      */
@@ -101,7 +101,7 @@ class GetGrantsRequest extends SoapRequest
     }
 
     /**
-     * Sets grantee.
+     * Set grantee.
      *
      * @param  GranteeSelector $grantee
      * @return self

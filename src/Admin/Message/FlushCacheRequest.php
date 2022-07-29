@@ -59,7 +59,7 @@ class FlushCacheRequest extends SoapRequest
     }
 
     /**
-     * Gets the cache.
+     * Get the cache.
      *
      * @return CacheSelector
      */
@@ -69,7 +69,7 @@ class FlushCacheRequest extends SoapRequest
     }
 
     /**
-     * Sets the cache.
+     * Set the cache.
      *
      * @param  CacheSelector $cache
      * @return self

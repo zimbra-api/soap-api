@@ -61,7 +61,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets cos
+     * Get cos
      *
      * @return CosSelector
      */
@@ -71,7 +71,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets cos
+     * Set cos
      *
      * @param  CosSelector $cos
      * @return self
@@ -83,7 +83,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Gets policy
+     * Get policy
      *
      * @return Policy
      */
@@ -93,7 +93,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Sets policy
+     * Set policy
      *
      * @param  Policy $id
      * @return self

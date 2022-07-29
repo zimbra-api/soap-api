@@ -58,7 +58,7 @@ class GetAdminSavedSearchesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets saved searches
+     * Set saved searches
      *
      * @param  array $searches
      * @return self
@@ -70,7 +70,7 @@ class GetAdminSavedSearchesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets saved searches
+     * Get saved searches
      *
      * @return array
      */

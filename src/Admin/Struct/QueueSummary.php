@@ -54,7 +54,7 @@ class QueueSummary
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return string
      */
@@ -64,7 +64,7 @@ class QueueSummary
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  string $type
      * @return self
@@ -88,7 +88,7 @@ class QueueSummary
     }
 
     /**
-     * Sets items
+     * Set items
      *
      * @param array $items
      * @return self
@@ -100,7 +100,7 @@ class QueueSummary
     }
 
     /**
-     * Gets items
+     * Get items
      *
      * @return array
      */

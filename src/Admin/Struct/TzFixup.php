@@ -53,7 +53,7 @@ class TzFixup
     }
 
     /**
-     * Sets fixup rule sequence
+     * Set fixup rule sequence
      *
      * @param array $fixupRules
      * @return self
@@ -65,7 +65,7 @@ class TzFixup
     }
 
     /**
-     * Gets fixup rule sequence
+     * Get fixup rule sequence
      *
      * @return array
      */

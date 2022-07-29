@@ -45,7 +45,7 @@ class RightWithName
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -55,7 +55,7 @@ class RightWithName
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self

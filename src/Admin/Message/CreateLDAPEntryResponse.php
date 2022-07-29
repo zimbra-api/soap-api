@@ -48,7 +48,7 @@ class CreateLDAPEntryResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the LDAPEntry.
+     * Get the LDAPEntry.
      *
      * @return LDAPEntryInfo
      */
@@ -58,7 +58,7 @@ class CreateLDAPEntryResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the LDAPEntry.
+     * Set the LDAPEntry.
      *
      * @param  LDAPEntryInfo $LDAPEntry
      * @return self

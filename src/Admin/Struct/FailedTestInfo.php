@@ -79,7 +79,7 @@ class FailedTestInfo
     }
 
     /**
-     * Gets the name
+     * Get the name
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class FailedTestInfo
     }
 
     /**
-     * Sets the name
+     * Set the name
      *
      * @param  string $name
      * @return self
@@ -101,7 +101,7 @@ class FailedTestInfo
     }
 
     /**
-     * Gets execSeconds
+     * Get execSeconds
      *
      * @return int
      */
@@ -111,7 +111,7 @@ class FailedTestInfo
     }
 
     /**
-     * Sets execSeconds
+     * Set execSeconds
      *
      * @param  int $execSeconds
      * @return self
@@ -123,7 +123,7 @@ class FailedTestInfo
     }
 
     /**
-     * Gets className
+     * Get className
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class FailedTestInfo
     }
 
     /**
-     * Sets className
+     * Set className
      *
      * @param  string $className
      * @return self
@@ -145,7 +145,7 @@ class FailedTestInfo
     }
 
     /**
-     * Gets throwable
+     * Get throwable
      *
      * @return string
      */
@@ -155,7 +155,7 @@ class FailedTestInfo
     }
 
     /**
-     * Sets throwable
+     * Set throwable
      *
      * @param  string $throwable
      * @return self

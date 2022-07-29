@@ -160,7 +160,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets keyAttr
+     * Get keyAttr
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets keyAttr
+     * Set keyAttr
      *
      * @param  string $keyAttr
      * @return self
@@ -182,7 +182,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets domain
+     * Get domain
      *
      * @return DomainSelector
      */
@@ -192,7 +192,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets domain
+     * Set domain
      *
      * @param  DomainSelector $domain
      * @return self
@@ -204,7 +204,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets query
+     * Get query
      *
      * @return string
      */
@@ -214,7 +214,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets query
+     * Set query
      *
      * @param  string $query
      * @return self
@@ -226,7 +226,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets name
+     * Get name
      *
      * @return string
      */
@@ -236,7 +236,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets name
+     * Set name
      *
      * @param  string $name
      * @return self
@@ -248,7 +248,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets maxResults
+     * Get maxResults
      *
      * @return int
      */
@@ -258,7 +258,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets maxResults
+     * Set maxResults
      *
      * @param  int $maxResults
      * @return self
@@ -270,7 +270,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets limit
+     * Get limit
      *
      * @return int
      */
@@ -280,7 +280,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets limit
+     * Set limit
      *
      * @param  int $limit
      * @return self
@@ -292,7 +292,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets offset
+     * Get offset
      *
      * @return int
      */
@@ -302,7 +302,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets offset
+     * Set offset
      *
      * @param  int $offset
      * @return self
@@ -314,7 +314,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Gets refresh
+     * Get refresh
      *
      * @return bool
      */
@@ -324,7 +324,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Sets refresh
+     * Set refresh
      *
      * @param  bool $refresh
      * @return self

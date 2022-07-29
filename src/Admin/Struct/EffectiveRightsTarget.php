@@ -82,7 +82,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets Target type
+     * Set Target type
      *
      * @return TargetType
      */
@@ -92,7 +92,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets Target type
+     * Set Target type
      *
      * @param  TargetType $type
      * @return self
@@ -104,7 +104,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets Effective rights
+     * Set Effective rights
      *
      * @return EffectiveRightsInfo
      */
@@ -114,7 +114,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets Effective rights
+     * Set Effective rights
      *
      * @param  EffectiveRightsInfo $all
      * @return self
@@ -126,7 +126,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Gets inDomainLists
+     * Get inDomainLists
      *
      * @return array
      */
@@ -136,7 +136,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets inDomainLists
+     * Set inDomainLists
      *
      * @param  array $lists
      * @return self
@@ -160,7 +160,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Gets entriesLists
+     * Get entriesLists
      *
      * @return array
      */
@@ -170,7 +170,7 @@ class EffectiveRightsTarget
     }
 
     /**
-     * Sets entriesLists
+     * Set entriesLists
      *
      * @param  array $lists
      * @return self

@@ -134,7 +134,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets more
+     * Get more
      *
      * @return bool
      */
@@ -144,7 +144,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets more
+     * Set more
      *
      * @param  bool $more
      * @return self
@@ -156,7 +156,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets searchTotal
+     * Get searchTotal
      *
      * @return int
      */
@@ -166,7 +166,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets searchTotal
+     * Set searchTotal
      *
      * @param  int $searchTotal
      * @return self
@@ -190,7 +190,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets calResources
+     * Set calResources
      *
      * @param  array $resources
      * @return self
@@ -202,7 +202,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets calResources
+     * Get calResources
      *
      * @return array
      */
@@ -224,7 +224,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets dls
+     * Set dls
      *
      * @param  array $dls
      * @return self
@@ -236,7 +236,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets dls
+     * Get dls
      *
      * @return array
      */
@@ -258,7 +258,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets aliases
+     * Set aliases
      *
      * @param  array $aliases
      * @return self
@@ -270,7 +270,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets aliases
+     * Get aliases
      *
      * @return array
      */
@@ -292,7 +292,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets accounts
+     * Set accounts
      *
      * @param  array $accounts
      * @return self
@@ -304,7 +304,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets accounts
+     * Get accounts
      *
      * @return array
      */
@@ -326,7 +326,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets domain informations
+     * Set domain informations
      *
      * @param  array $domains
      * @return self
@@ -338,7 +338,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets domain informations
+     * Get domain informations
      *
      * @return array
      */
@@ -360,7 +360,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets coses
+     * Set coses
      *
      * @param  array $coses
      * @return self
@@ -372,7 +372,7 @@ class SearchAccountsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets coses
+     * Get coses
      *
      * @return array
      */

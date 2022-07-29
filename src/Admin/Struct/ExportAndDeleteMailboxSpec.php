@@ -55,7 +55,7 @@ class ExportAndDeleteMailboxSpec
     }
 
     /**
-     * Gets ID
+     * Get ID
      *
      * @return int
      */
@@ -65,7 +65,7 @@ class ExportAndDeleteMailboxSpec
     }
 
     /**
-     * Sets ID
+     * Set ID
      *
      * @param  int $id
      * @return self
@@ -89,7 +89,7 @@ class ExportAndDeleteMailboxSpec
     }
 
     /**
-     * Sets item sequence
+     * Set item sequence
      *
      * @param  array $items Items
      * @return self
@@ -101,7 +101,7 @@ class ExportAndDeleteMailboxSpec
     }
 
     /**
-     * Gets item sequence
+     * Get item sequence
      *
      * @return array
      */

@@ -79,7 +79,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets auth token
+     * Get auth token
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets auth token
+     * Set auth token
      *
      * @param  string $authToken
      * @return self
@@ -101,7 +101,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets csrf token
+     * Get csrf token
      *
      * @return string
      */
@@ -111,7 +111,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets csrf token
+     * Set csrf token
      *
      * @param  string $csrfToken
      * @return self
@@ -123,7 +123,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets lifetime
+     * Get lifetime
      *
      * @return int
      */
@@ -133,7 +133,7 @@ class AuthResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets lifetime
+     * Set lifetime
      *
      * @param  int $lifetime
      * @return self

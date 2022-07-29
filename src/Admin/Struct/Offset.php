@@ -43,7 +43,7 @@ class Offset
     }
 
     /**
-     * Gets the offset
+     * Get the offset
      *
      * @return int
      */
@@ -53,7 +53,7 @@ class Offset
     }
 
     /**
-     * Sets the offset
+     * Set the offset
      *
      * @param  int $offset
      * @return self

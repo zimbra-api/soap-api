@@ -58,7 +58,7 @@ class GetAllActiveServersResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets server informations
+     * Set server informations
      *
      * @param  array $list
      * @return self
@@ -70,7 +70,7 @@ class GetAllActiveServersResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets server informations
+     * Get server informations
      *
      * @return array
      */

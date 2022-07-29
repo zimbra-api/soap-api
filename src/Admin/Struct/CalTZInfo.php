@@ -127,7 +127,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets timezone ID
+     * Get timezone ID
      *
      * @return string
      */
@@ -137,7 +137,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets timezone ID
+     * Set timezone ID
      *
      * @param  string $id
      * @return self
@@ -149,7 +149,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Standard Time's offset in minutes from UTC
+     * Get the Standard Time's offset in minutes from UTC
      *
      * @return int
      */
@@ -159,7 +159,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Standard Time's offset in minutes from UTC
+     * Set the Standard Time's offset in minutes from UTC
      *
      * @param  int $stdoff
      * @return self
@@ -171,7 +171,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Daylight Saving Time's offset in minutes from UTC
+     * Get the Daylight Saving Time's offset in minutes from UTC
      *
      * @return int
      */
@@ -181,7 +181,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Daylight Saving Time's offset in minutes from UTC
+     * Set the Daylight Saving Time's offset in minutes from UTC
      *
      * @param  int $dayoff
      * @return self
@@ -193,7 +193,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Standard Time component's timezone name
+     * Get the Standard Time component's timezone name
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Standard Time component's timezone name
+     * Set the Standard Time component's timezone name
      *
      * @param  string $stdname
      * @return self
@@ -215,7 +215,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Daylight Saving Time component's timezone name
+     * Get the Daylight Saving Time component's timezone name
      *
      * @return string
      */
@@ -225,7 +225,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Daylight Saving Time component's timezone name
+     * Set the Daylight Saving Time component's timezone name
      *
      * @param  string $dayname
      * @return self
@@ -237,7 +237,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Time/rule for transitioning from daylight time to standard time.
+     * Get the Time/rule for transitioning from daylight time to standard time.
      *
      * @return TzOnsetInfo
      */
@@ -247,7 +247,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Time/rule for transitioning from daylight time to standard time.
+     * Set the Time/rule for transitioning from daylight time to standard time.
      *
      * @param  TzOnsetInfo $standard
      * @return self
@@ -259,7 +259,7 @@ class CalTZInfo
     }
 
     /**
-     * Gets the Time/rule for transitioning from standard time to daylight time
+     * Get the Time/rule for transitioning from standard time to daylight time
      *
      * @return TzOnsetInfo
      */
@@ -269,7 +269,7 @@ class CalTZInfo
     }
 
     /**
-     * Sets the Time/rule for transitioning from standard time to daylight time
+     * Set the Time/rule for transitioning from standard time to daylight time
      *
      * @param  TzOnsetInfo $daylight
      * @return self

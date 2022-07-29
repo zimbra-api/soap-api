@@ -61,7 +61,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     }
 
     /**
-     * Sets tokens
+     * Set tokens
      *
      * @param  array $tokens Members
      * @return self
@@ -73,7 +73,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     }
 
     /**
-     * Gets tokens
+     * Get tokens
      *
      * @return array
      */

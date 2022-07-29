@@ -59,7 +59,7 @@ class UndeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra name
+     * Get zimbra name
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class UndeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra name
+     * Set zimbra name
      *
      * @param  string $name
      * @return self
@@ -81,7 +81,7 @@ class UndeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Gets action
+     * Get action
      *
      * @return string
      */
@@ -91,7 +91,7 @@ class UndeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Sets action
+     * Set action
      *
      * @param  string $action
      * @return self

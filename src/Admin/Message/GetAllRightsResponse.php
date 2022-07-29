@@ -58,7 +58,7 @@ class GetAllRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets right informations
+     * Set right informations
      *
      * @param  array $rights
      * @return self
@@ -70,7 +70,7 @@ class GetAllRightsResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets right informations
+     * Get right informations
      *
      * @return array
      */

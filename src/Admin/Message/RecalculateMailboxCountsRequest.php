@@ -50,7 +50,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     }
 
     /**
-     * Gets zimbra mbox
+     * Get zimbra mbox
      *
      * @return MailboxByAccountIdSelector
      */
@@ -60,7 +60,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     }
 
     /**
-     * Sets zimbra mbox
+     * Set zimbra mbox
      *
      * @param  MailboxByAccountIdSelector $mbox
      * @return self

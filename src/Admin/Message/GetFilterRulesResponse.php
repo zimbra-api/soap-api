@@ -123,7 +123,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets type
+     * Get type
      *
      * @return AdminFilterType
      */
@@ -133,7 +133,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets type
+     * Set type
      *
      * @param  AdminFilterType $type
      * @return self
@@ -145,7 +145,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the account.
+     * Get the account.
      *
      * @return Account
      */
@@ -155,7 +155,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the account.
+     * Set the account.
      *
      * @param  Account $account
      * @return self
@@ -167,7 +167,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the server.
+     * Get the server.
      *
      * @return Server
      */
@@ -177,7 +177,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the server.
+     * Set the server.
      *
      * @param  Server $server
      * @return self
@@ -189,7 +189,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @return Domain
      */
@@ -199,7 +199,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the domain.
+     * Set the domain.
      *
      * @param  Domain $domain
      * @return self
@@ -211,7 +211,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets the cos.
+     * Get the cos.
      *
      * @return Cos
      */
@@ -221,7 +221,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets the cos.
+     * Set the cos.
      *
      * @param  Cos $cos
      * @return self
@@ -245,7 +245,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Sets filter rules
+     * Set filter rules
      *
      * @param  array $rules
      * @return self
@@ -257,7 +257,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
     }
 
     /**
-     * Gets filter rules
+     * Get filter rules
      *
      * @return array
      */

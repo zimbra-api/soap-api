@@ -49,7 +49,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Sets the component.
+     * Set the component.
      *
      * @return Component
      */
@@ -59,7 +59,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Sets the component.
+     * Set the component.
      *
      * @param  Component $component
      * @return self
