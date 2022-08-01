@@ -16,6 +16,13 @@ Via Composer
 $ composer require zimbra-api/soap-api
 ```
 or just add it to your `composer.json` file directly.
+```javascript
+{
+    "require": {
+        "zimbra-api/soap-api": "*"
+    }
+}
+```
 > `zimbra-api` follows the PSR-4 convention names for its classes, which means you can easily integrate `zimbra-api` classes loading in your own autoloader.
 
 ## Basic usage of admin api
