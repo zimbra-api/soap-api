@@ -19,7 +19,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @package    Zimbra
  * @subpackage Account
  * @category   Message
- * @author     Nguyen Van 2013-present - nguyennv1981@gmail.com
+ * @author     Nguyen Van 2020-present - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020 by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
