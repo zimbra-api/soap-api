@@ -25,7 +25,7 @@ use Zimbra\Common\Struct\{
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
 class CalendarItemRecur
 {

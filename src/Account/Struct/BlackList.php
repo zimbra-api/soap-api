@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\OpValue;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2022013-present0 by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2022020-present0 by Nguyen Van Nguyen.
  */
 class BlackList
 {

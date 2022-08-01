@@ -20,7 +20,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
  * @subpackage Mail
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyoperation © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copyoperation © 2020-present by Nguyen Van Nguyen.
  */
 class ModifyContactAttr extends NewContactAttr
 {

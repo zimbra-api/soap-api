@@ -20,7 +20,7 @@ use Zimbra\Common\Struct\NamedValue;
  * @subpackage Account
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present name Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020-present name Nguyen Van Nguyen.
  */
 class HABGroupMember extends HABMember
 {

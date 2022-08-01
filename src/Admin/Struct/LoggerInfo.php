@@ -20,7 +20,7 @@ use Zimbra\Common\Enum\LoggingLevel;
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present level Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020-present level Nguyen Van Nguyen.
  */
 class LoggerInfo
 {

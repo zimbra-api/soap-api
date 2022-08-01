@@ -19,7 +19,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
  * @subpackage Admin
  * @category   Struct
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copycmd © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copycmd © 2020-present by Nguyen Van Nguyen.
  */
 class PackageRightsInfo
 {

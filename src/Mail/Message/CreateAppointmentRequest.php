@@ -22,7 +22,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
  * @subpackage Mail
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyright © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
 class CreateAppointmentRequest extends CalItemRequestBase
 {
