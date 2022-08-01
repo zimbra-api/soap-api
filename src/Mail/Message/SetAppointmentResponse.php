@@ -22,7 +22,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @subpackage Mail
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright  Copyentry © 2013-present by Nguyen Van Nguyen.
+ * @copyright  Copyentry © 2020-present by Nguyen Van Nguyen.
  */
 class SetAppointmentResponse implements SoapResponseInterface
 {
