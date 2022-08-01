@@ -42,7 +42,7 @@ use Zimbra\Common\Soap\AbstractApi;
  * @package   Zimbra
  * @category  Account
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020-present by Nguyen Van Nguyen.
  */
 class AccountApi extends AbstractApi implements AccountApiInterface
 {

@@ -86,7 +86,7 @@ use Zimbra\Common\Soap\AbstractApi;
  * @package   Zimbra
  * @category  Admin
  * @author    Nguyen Van Nguyen - nguyennv1981@gmail.com
- * @copyright Copyright © 2013-present by Nguyen Van Nguyen.
+ * @copyright Copyright © 2020-present by Nguyen Van Nguyen.
  */
 class AdminApi extends AbstractApi implements AdminApiInterface
 {
