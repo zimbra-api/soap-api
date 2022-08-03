@@ -28,7 +28,7 @@ class ServerSelector
      * Selects the meaning of {server-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\ServerBy")
+     * @Type("Enum<Zimbra\Common\Enum\ServerBy>")
      * @XmlAttribute
      */
     private ServerBy $by;

@@ -29,7 +29,7 @@ class CompactIndexResponse implements SoapResponseInterface
      * Status - one of started|running|idle
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\CompactIndexStatus")
+     * @Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")
      * @XmlAttribute
      */
     private ?Status $status = NULL;

@@ -28,7 +28,7 @@ class SyncGalAccountDataSourceSpec
      * The by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\DataSourceBy")
+     * @Type("Enum<Zimbra\Common\Enum\DataSourceBy>")
      * @XmlAttribute
      */
     private DataSourceBy $by;

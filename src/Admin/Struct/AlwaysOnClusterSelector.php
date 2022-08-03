@@ -29,7 +29,7 @@ class AlwaysOnClusterSelector
      * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\AlwaysOnClusterBy")
+     * @Type("Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>")
      * @XmlAttribute
      */
     private AlwaysOnClusterBy $by;

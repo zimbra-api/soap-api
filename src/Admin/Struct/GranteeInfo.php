@@ -46,7 +46,7 @@ class GranteeInfo
      * Grantee type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GranteeType")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
      */
     private ?GranteeType $type = NULL;

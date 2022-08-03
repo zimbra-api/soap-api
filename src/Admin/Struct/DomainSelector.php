@@ -28,7 +28,7 @@ class DomainSelector
      * Select the meaning of {acct-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\DomainBy")
+     * @Type("Enum<Zimbra\Common\Enum\DomainBy>")
      * @XmlAttribute
      */
     private DomainBy $by;

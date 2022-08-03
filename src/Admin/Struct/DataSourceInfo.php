@@ -46,7 +46,7 @@ class DataSourceInfo extends AdminAttrsImpl
      * Data source type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\DataSourceType")
+     * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
      * @XmlAttribute
      */
     private DataSourceType $type;

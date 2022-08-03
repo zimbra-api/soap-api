@@ -42,7 +42,7 @@ class CompactIndexRequest extends SoapRequest
      * status: show compact indexing status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Common\Enum\CompactIndexAction")
+     * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
      * @XmlAttribute
      */
     private ?Action $action = NULL;

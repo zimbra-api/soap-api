@@ -33,7 +33,7 @@ class GetServerNIfsRequest extends SoapRequest
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\IpType")
+     * @Type("Enum<Zimbra\Common\Enum\IpType>")
      * @XmlAttribute
      */
     private ?IpType $type = NULL;

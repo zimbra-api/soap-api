@@ -28,7 +28,7 @@ class XMPPComponentSelector
      * Select the meaning of {xmpp-comp-selector-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\XmppComponentBy")
+     * @Type("Enum<Zimbra\Common\Enum\XmppComponentBy>")
      * @XmlAttribute
      */
     private XmppBy $by;

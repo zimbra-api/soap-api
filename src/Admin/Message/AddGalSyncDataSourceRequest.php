@@ -61,7 +61,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * GalMode type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GalMode")
+     * @Type("Enum<Zimbra\Common\Enum\GalMode>")
      * @XmlAttribute
      */
     private GalMode $type;

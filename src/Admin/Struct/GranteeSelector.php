@@ -28,7 +28,7 @@ class GranteeSelector
      * Grantee type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GranteeType")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
      */
     private ?GranteeType $type = NULL;
@@ -37,7 +37,7 @@ class GranteeSelector
      * Grantee by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\GranteeBy")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeBy>")
      * @XmlAttribute
      */
     private ?GranteeBy $by = NULL;

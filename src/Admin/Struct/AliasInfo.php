@@ -37,7 +37,7 @@ class AliasInfo extends AdminObjectInfo
      * Target type
      * @Accessor(getter="getTargetTyoe", setter="setTargetTyoe")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\TargetType")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
      */
     private ?TargetType $targetType = NULL;

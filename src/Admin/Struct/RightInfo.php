@@ -37,7 +37,7 @@ class RightInfo
      * Right type.  Valid values : getAttrs | setAttrs | combo | preset
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\RightType")
+     * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
      */
     private RightType $type;
@@ -55,7 +55,7 @@ class RightInfo
      * Right class
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
-     * @Type("Zimbra\Common\Enum\RightClass")
+     * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
      */
     private RightClass $rightClass;

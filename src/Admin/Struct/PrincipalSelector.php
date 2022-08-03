@@ -28,7 +28,7 @@ class PrincipalSelector
      * Meaning determined by {principal-selector-by}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\AutoProvPrincipalBy")
+     * @Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")
      * @XmlAttribute
      */
     private PrincipalBy $by;

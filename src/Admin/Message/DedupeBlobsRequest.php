@@ -31,7 +31,7 @@ class DedupeBlobsRequest extends SoapRequest
      * Action to perform - one of start|status|stop
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Common\Enum\DedupAction")
+     * @Type("Enum<Zimbra\Common\Enum\DedupAction>")
      * @XmlAttribute
      */
     private DedupAction $action;

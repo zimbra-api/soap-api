@@ -48,7 +48,7 @@ class AutoCompleteGalRequest extends SoapRequest
      * Type of addresses to auto-complete on
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GalSearchType")
+     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute()
      */
     private ?GalSearchType $type = NULL;

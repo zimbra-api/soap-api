@@ -28,7 +28,7 @@ class UcServiceSelector
      * Selects the meaning of {ucservice-key}
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\UcServiceBy")
+     * @Type("Enum<Zimbra\Common\Enum\UcServiceBy>")
      * @XmlAttribute
      */
     private UcServiceBy $by;

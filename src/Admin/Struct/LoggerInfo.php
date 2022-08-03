@@ -35,7 +35,7 @@ class LoggerInfo
     /**
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
-     * @Type("Zimbra\Common\Enum\LoggingLevel")
+     * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
      * @XmlAttribute
      */
     private ?LoggingLevel $level = NULL;

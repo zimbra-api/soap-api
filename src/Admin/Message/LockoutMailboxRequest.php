@@ -40,7 +40,7 @@ class LockoutMailboxRequest extends SoapRequest
      * one of 'start' or 'end'
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\LockoutOperation")
+     * @Type("Enum<Zimbra\Common\Enum\LockoutOperation>")
      * @XmlAttribute
      */
     private ?LockoutOperation $operation = NULL;

@@ -34,7 +34,7 @@ class GetFilterRulesResponse implements SoapResponseInterface
      * Type can be either before or after
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\AdminFilterType")
+     * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
      * @XmlAttribute
      */
     private AdminFilterType $type;

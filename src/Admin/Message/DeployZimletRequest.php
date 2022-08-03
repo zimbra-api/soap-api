@@ -31,7 +31,7 @@ class DeployZimletRequest extends SoapRequest
      * Action - valid values : deployAll|deployLocal|status
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Common\Enum\ZimletDeployAction")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletDeployAction>")
      * @XmlAttribute
      */
     private DeployAction $action;

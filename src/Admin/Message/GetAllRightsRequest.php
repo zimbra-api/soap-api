@@ -55,7 +55,7 @@ class GetAllRightsRequest extends SoapRequest
      * ALL:   return both admin rights and user rights
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
-     * @Type("Zimbra\Common\Enum\RightClass")
+     * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
      */
     private ?RightClass $rightClass = NULL;

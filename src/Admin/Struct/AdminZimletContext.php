@@ -48,7 +48,7 @@ class AdminZimletContext implements ZimletContextInterface
      * Valid values: mandatory | enabled | disabled
      * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
      * @SerializedName("presence")
-     * @Type("Zimbra\Common\Enum\ZimletPresence")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletPresence>")
      * @XmlAttribute
      */
     private ZimletPresence $zimletPresence;

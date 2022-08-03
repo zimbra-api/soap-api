@@ -30,7 +30,7 @@ class ReIndexResponse implements SoapResponseInterface
      * Status - one of started|running|cancelled|idle
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\ReIndexStatus")
+     * @Type("Enum<Zimbra\Common\Enum\ReIndexStatus>")
      * @XmlAttribute
      */
     private Status $status;

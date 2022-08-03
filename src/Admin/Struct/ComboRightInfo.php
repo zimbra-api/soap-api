@@ -35,7 +35,7 @@ class ComboRightInfo
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\RightType")
+     * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
      */
     private RightType $type;

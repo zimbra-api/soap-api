@@ -41,7 +41,7 @@ class ContactBackupRequest extends SoapRequest
      * op can be either start or stop
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\ContactBackupOp")
+     * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
      * @XmlAttribute
      */
     private ContactBackupOp $op;

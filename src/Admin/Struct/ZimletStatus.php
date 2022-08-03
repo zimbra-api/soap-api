@@ -37,7 +37,7 @@ class ZimletStatus
      * Status
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\ZimletStatusSetting")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
      * @XmlAttribute
      */
     private ZimletStatusSetting $status;

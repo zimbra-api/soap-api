@@ -27,7 +27,7 @@ class DistributionListSelector
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\DistributionListBy")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListBy>")
      * @XmlAttribute
      */
     private DistributionListBy $by;

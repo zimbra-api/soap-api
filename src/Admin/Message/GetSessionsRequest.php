@@ -30,7 +30,7 @@ class GetSessionsRequest extends SoapRequest
      * Type - valid values soap|imap|admin
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\SessionType")
+     * @Type("Enum<Zimbra\Common\Enum\SessionType>")
      * @XmlAttribute
      */
     private SessionType $type;
@@ -39,7 +39,7 @@ class GetSessionsRequest extends SoapRequest
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Common\Enum\GetSessionsSortBy")
+     * @Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")
      * @XmlAttribute
      */
     private ?GetSessionsSortBy $sortBy = NULL;

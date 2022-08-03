@@ -29,7 +29,7 @@ class AutoProvTaskControlResponse implements SoapResponseInterface
      * Auth token
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\AutoProvTaskStatus")
+     * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskStatus>")
      * @XmlAttribute
      */
     private ?AutoProvTaskStatus $status = NULL;

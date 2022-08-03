@@ -35,7 +35,7 @@ class ContactBackupServer
     /**
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\ContactBackupStatus")
+     * @Type("Enum<Zimbra\Common\Enum\ContactBackupStatus>")
      * @XmlAttribute
      */
     private ContactBackupStatus $status;

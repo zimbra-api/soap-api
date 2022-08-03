@@ -37,7 +37,7 @@ class ZimletDeploymentStatus
      * Status - valid values succeeded|failed|pending
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\ZimletDeployStatus")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
      * @XmlAttribute
      */
     private DeployStatus $status;

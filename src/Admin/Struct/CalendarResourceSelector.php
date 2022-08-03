@@ -29,7 +29,7 @@ class CalendarResourceSelector
      * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\CalendarResourceBy")
+     * @Type("Enum<Zimbra\Common\Enum\CalendarResourceBy>")
      * @XmlAttribute
      */
     private CalendarResourceBy $by;

@@ -28,7 +28,7 @@ class EffectiveRightsTargetSelector
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\TargetType")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
      */
     private TargetType $type;
@@ -37,7 +37,7 @@ class EffectiveRightsTargetSelector
      * Target by
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\TargetBy")
+     * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
      */
     private ?TargetBy $by = NULL;

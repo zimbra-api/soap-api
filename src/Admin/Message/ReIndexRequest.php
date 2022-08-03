@@ -43,7 +43,7 @@ class ReIndexRequest extends SoapRequest
      * cancel: cancel reindexing 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Common\Enum\ReIndexAction")
+     * @Type("Enum<Zimbra\Common\Enum\ReIndexAction>")
      * @XmlAttribute
      */
     private ?Action $action = NULL;

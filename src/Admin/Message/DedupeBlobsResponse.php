@@ -30,7 +30,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
      * Status - one of started|running|idle|stopped
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\DedupStatus")
+     * @Type("Enum<Zimbra\Common\Enum\DedupStatus>")
      * @XmlAttribute
      */
     private ?DedupStatus $status = NULL;
