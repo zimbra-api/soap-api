@@ -32,6 +32,9 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
 {
     private const TYPE_ENUM = 'Enum';
 
+    /**
+     * {@inheritdoc}
+     */
     public static function getSubscribingMethods(): array
     {
         return [
@@ -73,7 +76,7 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
 
     private function getEnumClass(array $type): string
     {
-        if (!$this->hasEnumClassParameter($type)) {
+        if (!(isset($type['params'][0]) && isset($type['params'][0]['name']))) {
             throw new \InvalidArgumentException('Missing enum class name');
         }
 
@@ -82,10 +85,5 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
             throw new \TypeError(sprintf('Class "%s" is not an Enum', $enumClass));
         }
         return $enumClass;
-    }
-
-    private function hasEnumClassParameter(array $type): bool
-    {
-        return isset($type['params'][0]) && isset($type['params'][0]['name']);
     }
 }

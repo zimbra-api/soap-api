@@ -14,10 +14,6 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use JMS\Serializer\Handler\HandlerRegistryInterface;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\{SerializerBuilder, SerializerInterface};
-use Zimbra\Common\Serializer\{
-    XmlDeserializationVisitorFactory,
-    XmlSerializationVisitorFactory
-};
 
 /**
  * Serializer factory class.
@@ -84,11 +80,7 @@ final class SerializerFactory
     {
         if (!(self::$builder instanceof SerializerBuilder)) {
             AnnotationRegistry::registerLoader('class_exists');
-
-            self::$builder = SerializerBuilder::create()
-                ->addDefaultHandlers()
-                ->setSerializationVisitor('xml', new XmlSerializationVisitorFactory())
-                ->setDeserializationVisitor('xml', new XmlDeserializationVisitorFactory());
+            self::$builder = SerializerBuilder::create();
         }
 
         if (self::$debug) {
