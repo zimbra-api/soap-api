@@ -86,7 +86,7 @@ class GetFolderSpec
     /**
      * Set uuid
      *
-     * @param  string $id
+     * @param  string $uuid
      * @return self
      */
     public function setUuid(string $uuid): self

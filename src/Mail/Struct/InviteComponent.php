@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
 use Zimbra\Common\Struct\{
     AlarmInfoInterface,
     CalendarAttendeeInterface,

@@ -82,6 +82,7 @@ class AccountACEinfo
 
     /**
      * Constructor method for AccountACEinfo
+     * 
      * @param GranteeType $granteeType
      * @param string $right
      * @param string $zimbraId

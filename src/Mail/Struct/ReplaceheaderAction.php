@@ -49,7 +49,7 @@ class ReplaceheaderAction extends DeleteheaderAction
      * @param int $offset
      * @param EditheaderTest $test
      * @param string $newName
-     * @param newValue $newValue
+     * @param string $newValue
      * @return self
      */
     public function __construct(
@@ -83,7 +83,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     /**
      * Set newName
      *
-     * @param  bool $newName
+     * @param  string $newName
      * @return self
      */
     public function setNewName(string $newName)

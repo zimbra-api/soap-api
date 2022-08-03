@@ -212,14 +212,4 @@ class ShareNotificationInfo
         $this->link = $link;
         return $this;
     }
-
-    /**
-     * Get the standardTZName
-     *
-     * @return string
-     */
-    public function getStandardTZName(): ?string
-    {
-        return $this->standardTZName;
-    }
 }

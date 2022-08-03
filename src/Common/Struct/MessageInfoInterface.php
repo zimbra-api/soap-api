@@ -60,5 +60,5 @@ interface MessageInfoInterface extends MessageCommonInterface
     function addEmailInterface(EmailInfoInterface $email): self;
     function setInviteInterface(InviteInfoInterface $invite): self;
     function getEmailInterfaces(): array;
-    function getInvitInterfacee(): ?InviteInfoInterface;
+    function getInvitInterface(): ?InviteInfoInterface;
 }

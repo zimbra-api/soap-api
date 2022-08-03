@@ -100,7 +100,7 @@ class TagActionInfo
     }
 
     /**
-     * Get ID
+     * Get successes
      *
      * @return string
      */
@@ -110,9 +110,9 @@ class TagActionInfo
     }
 
     /**
-     * Set ID
+     * Set successes
      *
-     * @param  string $id
+     * @param  string $successes
      * @return self
      */
     public function setSuccesses(string $successes): self

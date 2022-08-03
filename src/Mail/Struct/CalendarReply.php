@@ -79,10 +79,12 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * Constructor method for CalendarReply
      *
      * @param  int $recurrenceRangeType
-     * @param  int $recurrenceId
+     * @param  string $recurrenceId
      * @param  int $seq
      * @param  int $date
      * @param  string $attendee
+     * @param  string $sentBy
+     * @param  ParticipationStatus $partStat
      * @return self
      */
     public function __construct(

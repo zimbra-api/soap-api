@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
 
 /**
  * InstanceDataInfo struct class
@@ -82,8 +83,37 @@ class InstanceDataInfo extends InstanceDataAttrs
     private $fragment;
 
     /**
-     * Constructor method
-     *
+     * Constructor
+     * 
+     * @param int $startTime
+     * @param bool $isException
+     * @param CalOrganizer $organizer
+     * @param array $categories
+     * @param GeoInfo $geo
+     * @param string $fragment
+     * @param int $duration
+     * @param ParticipationStatus $partStat
+     * @param string $recurIdZ
+     * @param int $tzOffset
+     * @param FreeBusyStatus $freeBusyActual
+     * @param bool $isRecurring
+     * @param bool $hasExceptions
+     * @param string $priority
+     * @param FreeBusyStatus $freeBusyIntended
+     * @param Transparency $transparency
+     * @param string $name
+     * @param string $location
+     * @param bool $hasOtherAttendees
+     * @param bool $isOrganizer
+     * @param string $invId
+     * @param int $componentNum
+     * @param InviteStatus $status
+     * @param InviteClass $calClass
+     * @param bool $allDay
+     * @param bool $draft
+     * @param bool $neverSent
+     * @param int $taskDueDate
+     * @param int $taskTzOffsetDue
      * @return self
      */
     public function __construct(
@@ -93,32 +123,33 @@ class InstanceDataInfo extends InstanceDataAttrs
         array $categories = [],
         ?GeoInfo $geo = NULL,
         ?string $fragment = NULL,
-        ?string $partStat = NULL,
+        ?int $duration = NULL,
+        ?ParticipationStatus $partStat = NULL,
         ?string $recurIdZ = NULL,
         ?int $tzOffset = NULL,
-        ?string $freeBusyActual = NULL,
+        ?FreeBusyStatus $freeBusyActual = NULL,
         ?bool $isRecurring = NULL,
         ?bool $hasExceptions = NULL,
         ?string $priority = NULL,
-        ?string $freeBusyIntended = NULL,
-        ?string $transparency = NULL,
+        ?FreeBusyStatus $freeBusyIntended = NULL,
+        ?Transparency $transparency = NULL,
         ?string $name = NULL,
         ?string $location = NULL,
         ?bool $hasOtherAttendees = NULL,
         ?bool $isOrganizer = NULL,
         ?string $invId = NULL,
         ?int $componentNum = NULL,
-        ?string $status = NULL,
-        ?string $calClass = NULL,
+        ?InviteStatus $status = NULL,
+        ?InviteClass $calClass = NULL,
         ?bool $allDay = NULL,
         ?bool $draft = NULL,
         ?bool $neverSent = NULL,
         ?int $taskDueDate = NULL,
-        ?int $taskTzOffsetDue = NULL,
-        ?int $duration = NULL
+        ?int $taskTzOffsetDue = NULL
     )
     {
         parent::__construct(
+            $duration,
             $partStat,
             $recurIdZ,
             $tzOffset,
@@ -140,8 +171,7 @@ class InstanceDataInfo extends InstanceDataAttrs
             $draft,
             $neverSent,
             $taskDueDate,
-            $taskTzOffsetDue,
-            $duration
+            $taskTzOffsetDue
         );
         $this->setCategories($categories);
         if (NULL !== $startTime) {

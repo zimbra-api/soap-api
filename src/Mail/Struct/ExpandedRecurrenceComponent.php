@@ -105,68 +105,68 @@ class ExpandedRecurrenceComponent
     }
 
     /**
-     * Get range
+     * Get exceptionId
      *
      * @return InstanceRecurIdInfo
      */
     public function getExceptionId(): ?InstanceRecurIdInfo
     {
-        return $this->range;
+        return $this->exceptionId;
     }
 
     /**
-     * Set range
+     * Set exceptionId
      *
-     * @param  InstanceRecurIdInfo $range
+     * @param  InstanceRecurIdInfo $exceptionId
      * @return self
      */
-    public function setExceptionId(InstanceRecurIdInfo $range): self
+    public function setExceptionId(InstanceRecurIdInfo $exceptionId): self
     {
-        $this->range = $range;
+        $this->exceptionId = $exceptionId;
         return $this;
     }
 
     /**
-     * Get dateTime
+     * Get startTime
      *
      * @return int
      */
     public function getStartTime(): int
     {
-        return $this->dateTime;
+        return $this->startTime;
     }
 
     /**
-     * Set dateTime
+     * Set startTime
      *
-     * @param  int $dateTime
+     * @param  int $startTime
      * @return self
      */
-    public function setStartTime(int $dateTime): self
+    public function setStartTime(int $startTime): self
     {
-        $this->dateTime = $dateTime;
+        $this->startTime = $startTime;
         return $this;
     }
 
     /**
-     * Get timezone
+     * Get endTime
      *
      * @return int
      */
     public function getEndTime(): ?int
     {
-        return $this->timezone;
+        return $this->endTime;
     }
 
     /**
-     * Set timezone
+     * Set endTime
      *
-     * @param  int $timezone
+     * @param  int $endTime
      * @return self
      */
-    public function setEndTime(int $timezone): self
+    public function setEndTime(int $endTime): self
     {
-        $this->timezone = $timezone;
+        $this->endTime = $endTime;
         return $this;
     }
 

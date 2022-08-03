@@ -400,7 +400,7 @@ class ContactInfo implements ContactInterface, SearchHit
     /**
      * Set can expand
      *
-     * @param  string $canExpand
+     * @param  bool $canExpand
      * @return bool
      */
     public function setCanExpand(bool $canExpand): self

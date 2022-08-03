@@ -158,7 +158,7 @@ class PendingFolderModifications
     /**
      * Add deleted item
      *
-     * @param  DeleteItemNotification $attr
+     * @param  DeleteItemNotification $item
      * @return self
      */
     public function addDeletedItem(DeleteItemNotification $item): self
@@ -272,7 +272,7 @@ class PendingFolderModifications
     /**
      * Set renamed folders
      *
-     * @param array $modifiedFolders
+     * @param array $folders
      * @return self
      */
     public function setRenamedFolders(array $folders): self

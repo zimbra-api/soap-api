@@ -151,7 +151,7 @@ class InviteWithGroupInfo
     /**
      * Set inviteComponents
      *
-     * @param  array $inviteComponents
+     * @param  array $components
      * @return self
      */
     public function setInviteComponents(array $components): self

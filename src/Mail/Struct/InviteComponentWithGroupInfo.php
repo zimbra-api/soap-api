@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteChange, InviteClass, InviteStatus, Transparency};
 use Zimbra\Common\Struct\{
     AlarmInfoInterface,
     CalendarAttendeeInterface,
@@ -488,7 +489,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get geo
      *
-     * @return GeoInfo
+     * @return GeoInfoInterface
      */
     public function getGeo(): ?GeoInfoInterface
     {
@@ -498,7 +499,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set geo
      *
-     * @param  GeoInfo $geo
+     * @param  GeoInfoInterface $geo
      * @return self
      */
     public function setGeo(GeoInfoInterface $geo): self
@@ -612,7 +613,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get organizer
      *
-     * @return CalOrganizer
+     * @return CalOrganizerInterface
      */
     public function getOrganizer(): ?CalOrganizerInterface
     {
@@ -622,7 +623,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set organizer
      *
-     * @param  CalOrganizer $organizer
+     * @param  CalOrganizerInterface $organizer
      * @return self
      */
     public function setOrganizer(CalOrganizerInterface $organizer): self
@@ -634,7 +635,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get recurrence
      *
-     * @return RecurrenceInfo
+     * @return RecurrenceInfoInterface
      */
     public function getRecurrence(): ?RecurrenceInfoInterface
     {
@@ -644,7 +645,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set recurrence
      *
-     * @param  RecurrenceInfo $recurrence
+     * @param  RecurrenceInfoInterface $recurrence
      * @return self
      */
     public function setRecurrence(RecurrenceInfoInterface $recurrence): self
@@ -656,7 +657,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get exceptionId
      *
-     * @return ExceptionRecurIdInfo
+     * @return ExceptionRecurIdInfoInterface
      */
     public function getExceptionId(): ?ExceptionRecurIdInfoInterface
     {
@@ -666,7 +667,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set exceptionId
      *
-     * @param  ExceptionRecurIdInfo $exceptionId
+     * @param  ExceptionRecurIdInfoInterface $exceptionId
      * @return self
      */
     public function setExceptionId(ExceptionRecurIdInfoInterface $exceptionId): self
@@ -678,7 +679,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get dtStart
      *
-     * @return DtTimeInfo
+     * @return DtTimeInfoInterface
      */
     public function getDtStart(): ?DtTimeInfoInterface
     {
@@ -688,7 +689,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set dtStart
      *
-     * @param  DtTimeInfo $dtStart
+     * @param  DtTimeInfoInterface $dtStart
      * @return self
      */
     public function setDtStart(DtTimeInfoInterface $dtStart): self
@@ -700,7 +701,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get dtEnd
      *
-     * @return DtTimeInfo
+     * @return DtTimeInfoInterface
      */
     public function getDtEnd(): ?DtTimeInfoInterface
     {
@@ -710,7 +711,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set dtEnd
      *
-     * @param  DtTimeInfo $dtEnd
+     * @param  DtTimeInfoInterface $dtEnd
      * @return self
      */
     public function setDtEnd(DtTimeInfoInterface $dtEnd): self
@@ -722,7 +723,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Get duration
      *
-     * @return DurationInfo
+     * @return DurationInfoInterface
      */
     public function getDuration(): ?DurationInfoInterface
     {
@@ -732,7 +733,7 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
     /**
      * Set duration
      *
-     * @param  DurationInfo $duration
+     * @param  DurationInfoInterface $duration
      * @return self
      */
     public function setDuration(DurationInfoInterface $duration): self

@@ -13,7 +13,7 @@ class NewNoteSpecTest extends ZimbraTestCase
     public function testNewNoteSpec()
     {
         $folder = $this->faker->uuid;
-        $content = $this->faker->uuid;
+        $content = $this->faker->text;
         $color = $this->faker->numberBetween(0, 127);
         $bounds = $this->faker->word;
 
@@ -28,7 +28,7 @@ class NewNoteSpecTest extends ZimbraTestCase
         $this->assertSame($color, $note->getColor());
         $this->assertSame($bounds, $note->getBounds());
 
-        $note = new NewNoteSpec('', '');
+        $note = new NewNoteSpec();
         $note->setFolder($folder)
             ->setContent($content)
             ->setColor($color)

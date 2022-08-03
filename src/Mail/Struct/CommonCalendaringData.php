@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
 
 /**
  * CommonCalendaringData struct class
@@ -426,7 +427,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Get id
      *
-     * @return ParticipationStatus
+     * @return string
      */
     public function getId(): ?string
     {
@@ -436,7 +437,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Set id
      *
-     * @param  string $partStat
+     * @param  string $id
      * @return self
      */
     public function setId(string $id): self

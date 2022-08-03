@@ -58,7 +58,7 @@ class MsgAttachSpec extends AttachSpec
     /**
      * Set id
      *
-     * @param  string $type
+     * @param  string $id
      * @return self
      */
     public function setId(string $id): self

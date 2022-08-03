@@ -71,7 +71,7 @@ class MimePartAttachSpec extends AttachSpec
     /**
      * Set messageId
      *
-     * @param  string $type
+     * @param  string $messageId
      * @return self
      */
     public function setMessageId(string $messageId): self

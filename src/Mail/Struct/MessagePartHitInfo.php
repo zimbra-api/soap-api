@@ -389,7 +389,7 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Get email
      *
-     * @return string
+     * @return EmailInfo
      */
     public function getEmail(): ?EmailInfo
     {

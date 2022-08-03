@@ -262,7 +262,7 @@ class FolderActionSelector extends ActionSelector
     /**
      * Set zimbraId
      *
-     * @param  string $id
+     * @param  string $zimbraId
      * @return self
      */
     public function setZimbraId(string $zimbraId): self

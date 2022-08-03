@@ -795,7 +795,7 @@ class MsgWithGroupInfo extends MessageCommon
     /**
      * Set shr
      *
-     * @param  shr $shr
+     * @param  ShareNotification $shr
      * @return self
      */
     public function setShareNotification(ShareNotification $shr): self

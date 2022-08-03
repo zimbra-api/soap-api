@@ -261,8 +261,32 @@ class CommonInstanceDataAttrs
     private $taskTzOffsetDue;
 
     /**
-     * Constructor CommonInstanceDataAttrs
+     * Constructor
      *
+     * @param ParticipationStatus $partStat
+     * @param string $recurIdZ
+     * @param int $tzOffset
+     * @param FreeBusyStatus $freeBusyActual
+     * @param string $taskPercentComplete
+     * @param bool $isRecurring
+     * @param bool $hasExceptions
+     * @param string $priority
+     * @param FreeBusyStatus $freeBusyIntended
+     * @param Transparency $transparency
+     * @param string $name
+     * @param string $location
+     * @param bool $hasOtherAttendees
+     * @param bool $hasAlarm
+     * @param bool $isOrganizer
+     * @param string $invId
+     * @param int $componentNum
+     * @param InviteStatus $status
+     * @param InviteClass $calClass
+     * @param bool $allDay
+     * @param bool $draft
+     * @param bool $neverSent
+     * @param int $taskDueDate
+     * @param int $taskTzOffsetDue
      * @return self
      */
     public function __construct(

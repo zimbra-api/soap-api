@@ -11,6 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
+use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
 
 /**
  * InstanceDataAttrs struct class
@@ -33,8 +34,33 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
     private $duration;
 
     /**
-     * Constructor InstanceDataAttrs
+     * Constructor
      *
+     * @param int $duration
+     * @param ParticipationStatus $partStat
+     * @param string $recurIdZ
+     * @param int $tzOffset
+     * @param FreeBusyStatus $freeBusyActual
+     * @param string $taskPercentComplete
+     * @param bool $isRecurring
+     * @param bool $hasExceptions
+     * @param string $priority
+     * @param FreeBusyStatus $freeBusyIntended
+     * @param Transparency $transparency
+     * @param string $name
+     * @param string $location
+     * @param bool $hasOtherAttendees
+     * @param bool $hasAlarm
+     * @param bool $isOrganizer
+     * @param string $invId
+     * @param int $componentNum
+     * @param InviteStatus $status
+     * @param InviteClass $calClass
+     * @param bool $allDay
+     * @param bool $draft
+     * @param bool $neverSent
+     * @param int $taskDueDate
+     * @param int $taskTzOffsetDue
      * @return self
      */
     public function __construct(

@@ -101,13 +101,13 @@ class NameOrId
         return $this;
     }
 
-    public static function createForName(string $name): static
+    public static function createForName(string $name): NameOrId
     {
-        return new static($name);
+        return new self($name);
     }
 
-    public static function createForId(string $id): static
+    public static function createForId(string $id): NameOrId
     {
-        return new static(NULL, $id);
+        return new self(NULL, $id);
     }
 }

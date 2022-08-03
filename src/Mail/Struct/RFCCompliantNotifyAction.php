@@ -153,7 +153,7 @@ class RFCCompliantNotifyAction extends FilterAction
     /**
      * Get options
      *
-     * @return int
+     * @return string
      */
     public function getOptions(): ?string
     {

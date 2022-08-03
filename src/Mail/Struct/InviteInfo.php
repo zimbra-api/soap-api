@@ -52,7 +52,7 @@ class InviteInfo implements InviteInfoInterface
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?InviteComponent $inviteComponent = NULL;
+    private ?InviteComponentInterface $inviteComponent = NULL;
 
     /**
      * List of replies received from attendees.

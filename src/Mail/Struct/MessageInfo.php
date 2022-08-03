@@ -177,7 +177,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?InviteInfo $invite = NULL;
+    private ?InviteInfoInterface $invite = NULL;
 
     /**
      * Headers
@@ -689,7 +689,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function getInvite(): ?InviteInfo
     {
-        return $this->getInvitInterfacee();
+        return $this->getInvitInterface();
     }
 
     /**
@@ -728,7 +728,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Add header
      *
-     * @param  Header $header
+     * @param  KeyValuePair $header
      * @return self
      */
     public function addHeader(KeyValuePair $header): self
@@ -774,7 +774,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Set shareNotifications
      *
-     * @param  array $shareNotifications
+     * @param  array $notifications
      * @return self
      */
     public function setShareNotifications(array $notifications): self
@@ -862,7 +862,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         return $this->emails;
     }
 
-    public function getInvitInterfacee(): ?InviteInfoInterface
+    public function getInvitInterface(): ?InviteInfoInterface
     {
         return $this->invite;
     }

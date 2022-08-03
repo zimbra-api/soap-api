@@ -88,7 +88,7 @@ class DocAttachSpec extends AttachSpec
     /**
      * Set path
      *
-     * @param  string $type
+     * @param  string $path
      * @return self
      */
     public function setPath(string $path): self
@@ -132,7 +132,7 @@ class DocAttachSpec extends AttachSpec
     /**
      * Set version
      *
-     * @param  int $type
+     * @param  int $version
      * @return self
      */
     public function setVersion(int $version): self

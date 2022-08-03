@@ -87,24 +87,24 @@ class NewNoteSpec
     }
 
     /**
-     * Get parentFolderId
+     * Get folder
      *
      * @return string
      */
     public function getFolder(): string
     {
-        return $this->parentFolderId;
+        return $this->folder;
     }
 
     /**
-     * Set parentFolderId
+     * Set folder
      *
-     * @param  string $parentFolderId
+     * @param  string $folder
      * @return self
      */
-    public function setFolder(string $parentFolderId): self
+    public function setFolder(string $folder): self
     {
-        $this->parentFolderId = $parentFolderId;
+        $this->folder = $folder;
         return $this;
     }
 

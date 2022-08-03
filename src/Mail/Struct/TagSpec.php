@@ -97,24 +97,24 @@ class TagSpec
     }
 
     /**
-     * Get content
+     * Get name
      *
      * @return string
      */
     public function getName(): ?string
     {
-        return $this->content;
+        return $this->name;
     }
 
     /**
-     * Set content
+     * Set name
      *
-     * @param  string $content
+     * @param  string $name
      * @return self
      */
-    public function setName(string $content): self
+    public function setName(string $name): self
     {
-        $this->content = $content;
+        $this->name = $name;
         return $this;
     }
 

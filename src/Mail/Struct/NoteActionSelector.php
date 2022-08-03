@@ -141,7 +141,7 @@ class NoteActionSelector extends ActionSelector
     /**
      * Set bounds
      *
-     * @param  string $id
+     * @param  string $bounds
      * @return self
      */
     public function setBounds(string $bounds): self

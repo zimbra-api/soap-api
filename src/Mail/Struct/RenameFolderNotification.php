@@ -43,6 +43,7 @@ class RenameFolderNotification extends ModifyNotification
 
     /**
      * Constructor method for RenameFolderNotification
+     * 
      * @param  int $folderId
      * @param  string $path
      * @param  int $changeBitmask
@@ -90,7 +91,7 @@ class RenameFolderNotification extends ModifyNotification
     /**
      * Set path
      *
-     * @param  string $name
+     * @param  string $path
      * @return self
      */
     public function setPath(string $path): self

@@ -237,24 +237,24 @@ class NewMountpointSpec
     }
 
     /**
-     * Get parentFolderId
+     * Get folderId
      *
      * @return string
      */
     public function getFolderId(): string
     {
-        return $this->parentFolderId;
+        return $this->folderId;
     }
 
     /**
-     * Set parentFolderId
+     * Set folderId
      *
-     * @param  string $parentFolderId
+     * @param  string $folderId
      * @return self
      */
-    public function setFolderId(string $parentFolderId): self
+    public function setFolderId(string $folderId): self
     {
-        $this->parentFolderId = $parentFolderId;
+        $this->folderId = $folderId;
         return $this;
     }
 

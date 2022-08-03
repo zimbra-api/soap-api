@@ -58,24 +58,24 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     }
 
     /**
-     * Get name
+     * Get timezone
      *
      * @return string
      */
     public function getTimezone(): ?string
     {
-        return $this->name;
+        return $this->timezone;
     }
 
     /**
-     * Set name
+     * Set timezone
      *
-     * @param  string $name
+     * @param  string $timezone
      * @return self
      */
-    public function setTimezone(string $name): self
+    public function setTimezone(string $timezone): self
     {
-        $this->name = $name;
+        $this->timezone = $timezone;
         return $this;
     }
 

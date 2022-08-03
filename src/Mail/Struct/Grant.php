@@ -213,7 +213,7 @@ class Grant
      * Set grantee name
      *
      * @param  string $granteeName
-     * @return string|self
+     * @return self
      */
     public function setGranteeName(string $granteeName): self
     {

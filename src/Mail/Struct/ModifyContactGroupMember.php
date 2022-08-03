@@ -36,8 +36,11 @@ class ModifyContactGroupMember extends NewContactGroupMember
     private ?ModifyGroupMemberOperation $operation = NULL;
 
     /**
-     * Constructor method for AccountACEinfo
-     * @param GranteeType $granteeType
+     * Constructor method for ModifyContactGroupMember
+     * 
+     * @param ModifyGroupMemberOperation $operation
+     * @param MemberType $type
+     * @param MemberType $type
      * @return self
      */
     public function __construct(

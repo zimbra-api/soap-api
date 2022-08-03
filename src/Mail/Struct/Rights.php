@@ -56,7 +56,7 @@ class Rights
     /**
      * Set effectivePermissions
      *
-     * @param  string $id
+     * @param  string $effectivePermissions
      * @return self
      */
     public function setEffectivePermissions(string $effectivePermissions): self

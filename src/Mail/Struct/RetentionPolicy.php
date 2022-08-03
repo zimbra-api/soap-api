@@ -59,7 +59,7 @@ class RetentionPolicy
     /**
      * Get keep policies.
      *
-     * @return Policy
+     * @return array
      */
     public function getKeepPolicy(): array
     {
@@ -81,7 +81,7 @@ class RetentionPolicy
     /**
      * Get purge policies.
      *
-     * @return Policy
+     * @return array
      */
     public function getPurgePolicy(): array
     {
