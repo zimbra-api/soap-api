@@ -16,6 +16,7 @@ use Zimbra\Account\Struct\{
     AuthPrefs,
     AuthToken,
     DistributionListAction,
+    EntrySearchFilterInfo,
     Identity,
     NameId,
     PreAuth,
@@ -30,7 +31,6 @@ use Zimbra\Common\Struct\{
     AccountSelector,
     CursorInfo,
     DistributionListSelector,
-    EntrySearchFilterInfo,
     GranteeChooser
 };
 use Zimbra\Common\Soap\ApiInterface;
@@ -159,10 +159,10 @@ interface AccountApiInterface extends ApiInterface
     function checkRights(array $targets = []): ?Message\CheckRightsResponse;
 
     /**
-     * clientInfo
+     * Get client info
      *
-     * @param  DomainSelector $ClientInfoResponse
-     * @return Message\CheckRightsResponse
+     * @param  DomainSelector $domain
+     * @return Message\ClientInfoResponse
      */
     function clientInfo(DomainSelector $domain): ?Message\ClientInfoResponse;
 
@@ -281,7 +281,7 @@ interface AccountApiInterface extends ApiInterface
      *  - isOwner is returned only if ownerOf on the request is 1 (true).
      *  - isMember is returned only if memberOf on the request is not "none".
      *
-     * @param  string $ownerOf
+     * @param  bool $ownerOf
      * @param  MemberOfSelector $memberOf
      * @param  string $attrs
      * @return Message\GetAccountDistributionListsResponse
@@ -350,7 +350,7 @@ interface AccountApiInterface extends ApiInterface
     /**
      * Get a distribution list, optionally with ownership information an granted rights.
      *
-     * @param  getDistributionList $dl
+     * @param  DistributionListSelector $dl
      * @param  bool $needOwners
      * @param  string $needRights
      * @param  array $attrs

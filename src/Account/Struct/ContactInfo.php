@@ -378,7 +378,7 @@ class ContactInfo
     /**
      * Set can expand
      *
-     * @param  string $canExpand
+     * @param  bool $canExpand
      * @return bool
      */
     public function setCanExpand(bool $canExpand): self
@@ -842,12 +842,14 @@ class ContactInfo
     /**
      * Set contact group members
      *
-     * @param  array $attrs
+     * @param  array $members
      * @return self
      */
     public function setContactGroupMembers(array $members): self
     {
-        $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ContactGroupMember);
+        $this->contactGroupMembers = array_filter(
+            $members, static fn ($member) => $member instanceof ContactGroupMember
+        );
         return $this;
     }
 

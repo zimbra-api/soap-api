@@ -55,24 +55,24 @@ class MailboxQuotaInfo
     }
 
     /**
-     * Get id
+     * Get accountId
      *
      * @return string
      */
     public function getAccountId(): string
     {
-        return $this->id;
+        return $this->accountId;
     }
 
     /**
-     * Set id
+     * Set accountId
      *
-     * @param  string $id
+     * @param  string $accountId
      * @return self
      */
-    public function setAccountId(string $id): self
+    public function setAccountId(string $accountId): self
     {
-        $this->id = $id;
+        $this->accountId = $accountId;
         return $this;
     }
 

@@ -54,7 +54,7 @@ trait AttrsImplTrait
     }
 
     /**
-     * Set attr sequence
+     * Set attrs
      *
      * @param  array $attrs
      * @return self
@@ -66,9 +66,9 @@ trait AttrsImplTrait
     }
 
     /**
-     * Get attr sequence
+     * Get attrs
      *
-     * @return Sequence
+     * @return array
      */
     public function getAttrs(): array
     {

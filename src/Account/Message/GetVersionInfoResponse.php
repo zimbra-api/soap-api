@@ -51,7 +51,7 @@ class GetVersionInfoResponse implements SoapResponseInterface
     /**
      * Set versionInfo
      *
-     * @param  VersionInfo $signatures
+     * @param  VersionInfo $versionInfo
      * @return self
      */
     public function setVersionInfo(VersionInfo $versionInfo): self

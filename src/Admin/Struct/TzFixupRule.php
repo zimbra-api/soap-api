@@ -27,10 +27,10 @@ class TzFixupRule
      * Match
      * @Accessor(getter="getMatch", setter="setMatch")
      * @SerializedName("match")
-     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatch")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatch")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?TZFixupRuleMatch $match = NULL;
+    private ?TzFixupRuleMatch $match = NULL;
 
     /**
      * Need either "touch" or "replace" but not both 

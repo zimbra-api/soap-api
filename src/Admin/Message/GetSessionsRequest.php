@@ -78,7 +78,7 @@ class GetSessionsRequest extends SoapRequest
      * @param  GetSessionsSortBy $sortBy
      * @param  int $offset
      * @param  int $limit
-     * @param  boo $refresh
+     * @param  bool $refresh
      * @return self
      */
     public function __construct(

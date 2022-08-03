@@ -47,7 +47,7 @@ class ClientInfoResponse implements SoapResponseInterface
     /**
      * Set attrList
      *
-     * @param  array $requests
+     * @param  array $attrList
      * @return self
      */
     public function setAttrList(array $attrList): self

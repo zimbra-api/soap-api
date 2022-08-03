@@ -84,7 +84,7 @@ class SignatureContent
      */
     public function getContentType(): ?ContentType
     {
-        return $this->contentType;
+        return $this->type;
     }
 
     /**
@@ -95,7 +95,7 @@ class SignatureContent
      */
     public function setContentType(ContentType $type): self
     {
-        $this->contentType = $type;
+        $this->type = $type;
         return $this;
     }
 }

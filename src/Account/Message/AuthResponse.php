@@ -153,20 +153,20 @@ class AuthResponse implements SoapResponseInterface
     /**
      * Constructor method for AuthResponse
      *
-     * @param  string $authToken
-     * @param  int    $lifetime
-     * @param  Session   $session
-     * @param  string    $refer
-     * @param  string    $skin
-     * @param  string    $csrfToken
-     * @param  string    $deviceId
-     * @param  string    $trustedToken
-     * @param  int    $trustLifetime
+     * @param  string  $authToken
+     * @param  int     $lifetime
+     * @param  Session $session
+     * @param  string  $refer
+     * @param  string  $skin
+     * @param  string  $csrfToken
+     * @param  string  $deviceId
+     * @param  string  $trustedToken
+     * @param  int     $trustLifetime
      * @param  bool    $zmgProxy
-     * @param  AuthPrefs $prefs
-     * @param  AuthAttrs $attrs
-     * @param  bool      $twoFactorAuthRequired
-     * @param  bool      $trustedDevicesEnabled
+     * @param  array   $prefs
+     * @param  array   $attrs
+     * @param  bool    $twoFactorAuthRequired
+     * @param  bool    $trustedDevicesEnabled
      * @return self
      */
     public function __construct(
@@ -505,7 +505,7 @@ class AuthResponse implements SoapResponseInterface
     /**
      * Add an attr
      *
-     * @param  Attr $pref
+     * @param  Attr $attr
      * @return self
      */
     public function addAttr(Attr $attr): self
@@ -527,7 +527,7 @@ class AuthResponse implements SoapResponseInterface
     /**
      * Set two factor auth required
      *
-     * @param  int $twoFactorAuthRequired
+     * @param  bool $twoFactorAuthRequired
      * @return self
      */
     public function setTwoFactorAuthRequired(bool $twoFactorAuthRequired): self
@@ -549,7 +549,7 @@ class AuthResponse implements SoapResponseInterface
     /**
      * Set trusted devices enabled
      *
-     * @param  int $trustedDevicesEnabled
+     * @param  bool $trustedDevicesEnabled
      * @return self
      */
     public function setTrustedDevicesEnabled(bool $trustedDevicesEnabled): self

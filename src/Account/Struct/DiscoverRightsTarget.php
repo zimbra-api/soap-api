@@ -106,7 +106,7 @@ class DiscoverRightsTarget
      */
     public function getType(): TargetType
     {
-        return $this->targetType;
+        return $this->type;
     }
 
     /**
@@ -117,14 +117,14 @@ class DiscoverRightsTarget
      */
     public function setType(TargetType $type): self
     {
-        $this->targetType = $type;
+        $this->type = $type;
         return $this;
     }
 
     /**
      * Get id
      *
-     * @return TargetBy
+     * @return string
      */
     public function getId(): ?string
     {

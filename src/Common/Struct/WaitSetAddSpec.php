@@ -49,6 +49,8 @@ class WaitSetAddSpec
     private $token;
 
     /**
+     * Comma-separated list
+     * 
      * @Accessor(getter="getInterests", setter="setInterests")
      * @SerializedName("types")
      * @Type("string")
@@ -159,18 +161,12 @@ class WaitSetAddSpec
     /**
      * Set interests
      *
-     * @param string $interests Comma-separated list
+     * @param string $interests
      * @return self
      */
-    public function setInterests($interests): self
+    public function setInterests(string $interests): self
     {
-        $types = [];
-        if (is_array($interests)) {
-            $types = array_filter($interests, static fn ($type) => InterestType::isValid($type));
-        }
-        elseif (!empty($interests)) {
-            $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::isValid($type));
-        }
+        $types = array_filter(explode(',', $interests), static fn ($type) => InterestType::isValid($type));
         $this->interests = !empty($types) ? implode(',', array_unique($types)) : NULL;
         return $this;
     }

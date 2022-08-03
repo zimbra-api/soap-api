@@ -44,8 +44,9 @@ class TzReplaceInfo
 
     /**
      * Constructor method for TzReplaceInfo
-     * @param TzOnsetInfo $wellKnownTz
-     * @param TzOnsetInfo $tz
+     * 
+     * @param Id $wellKnownTz
+     * @param CalTZInfo $tz
      * @return self
      */
     public function __construct(?Id $wellKnownTz = NULL, ?CalTZInfo $tz = NULL)

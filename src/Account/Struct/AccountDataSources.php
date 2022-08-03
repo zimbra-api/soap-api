@@ -119,6 +119,7 @@ class AccountDataSources
     /**
      * Set imap data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setImapDataSources(array $dataSources): self
@@ -142,6 +143,7 @@ class AccountDataSources
     /**
      * Set pop3 data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setPop3DataSources(array $dataSources): self
@@ -165,6 +167,7 @@ class AccountDataSources
     /**
      * Set caldav data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setCaldavDataSources(array $dataSources): self
@@ -188,7 +191,8 @@ class AccountDataSources
     /**
      * Set yab data sources
      *
-     * @return array
+     * @param  array $dataSources
+     * @return self
      */
     public function setYabDataSources(array $dataSources): self
     {
@@ -211,6 +215,7 @@ class AccountDataSources
     /**
      * Set rss data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setRssDataSources(array $dataSources): self
@@ -234,6 +239,7 @@ class AccountDataSources
     /**
      * Set gal data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setGalDataSources(array $dataSources): self
@@ -257,6 +263,7 @@ class AccountDataSources
     /**
      * Set cal data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setCalDataSources(array $dataSources): self
@@ -280,6 +287,7 @@ class AccountDataSources
     /**
      * Set unknown data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setUnknownDataSources(array $dataSources): self

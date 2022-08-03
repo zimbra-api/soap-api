@@ -126,10 +126,9 @@ class DistributionListSubscribeReq
 
     /**
      * Set bccOwners flag
-     * Flag whether to bcc all other owners on the accept/reject notification emails.
      *
      * @param  bool $bccOwners
-     * @return bool|self
+     * @return self
      */
     public function setBccOwners(bool $bccOwners): self
     {

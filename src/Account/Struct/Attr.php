@@ -70,7 +70,6 @@ class Attr
     /**
      * Get name of attribute
      *
-     * @param  string $name
      * @return string
      */
     public function getName(): string

@@ -37,7 +37,7 @@ class AddGalSyncDataSourceResponse implements SoapResponseInterface
     /**
      * Constructor method for AddGalSyncDataSourceResponse
      *
-     * @param Account $account
+     * @param AccountInfo $account
      * @return self
      */
     public function __construct(?AccountInfo $account = NULL)

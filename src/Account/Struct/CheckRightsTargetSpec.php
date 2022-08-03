@@ -157,7 +157,7 @@ class CheckRightsTargetSpec
     /**
      * Set rights
      *
-     * @param  string $rights
+     * @param  array $rights
      * @return self
      */
     public function setRights(array $rights): self

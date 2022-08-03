@@ -97,7 +97,7 @@ class CheckRightsTargetInfo
     /**
      * Set target type
      *
-     * @param  string $type
+     * @param  TargetType $type
      * @return self
      */
     public function setTargetType(TargetType $type): self

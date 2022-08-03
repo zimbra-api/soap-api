@@ -107,7 +107,7 @@ class EndSessionRequest extends SoapRequest
     /**
      * Set excludeCurrentSession
      *
-     * @param  bool $type
+     * @param  bool $excludeCurrentSession
      * @return self
      */
     public function setExcludeCurrentSession(bool $excludeCurrentSession): self

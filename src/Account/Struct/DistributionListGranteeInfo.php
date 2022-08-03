@@ -93,7 +93,7 @@ class DistributionListGranteeInfo
     /**
      * Get name
      *
-     * @return name
+     * @return string
      */
     public function getName(): string
     {

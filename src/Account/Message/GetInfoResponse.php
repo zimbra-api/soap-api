@@ -330,7 +330,7 @@ class GetInfoResponse implements SoapResponseInterface
      * @param int $previousSessionTime
      * @param int $lastWriteAccessTime
      * @param int $recentMessageCount
-     * @param int $cos
+     * @param Cos $cos
      * @param array $prefs
      * @param array $attrs
      * @param array $zimlets

@@ -106,10 +106,10 @@ class LocaleInfo implements LocaleInterface
     /**
      * Set id
      *
-     * @param  string $target
+     * @param  string $id
      * @return self
      */
-    public function setId($id): self
+    public function setId(string $id): self
     {
         $this->id = $id;
         return $this;
@@ -131,7 +131,7 @@ class LocaleInfo implements LocaleInterface
      * @param  string $localName
      * @return self
      */
-    public function setLocalName($localName): self
+    public function setLocalName(string $localName): self
     {
         $this->localName = $localName;
         return $this;

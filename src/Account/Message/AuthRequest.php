@@ -442,7 +442,7 @@ class AuthRequest extends SoapRequest
     /**
      * Set auth token
      *
-     * @param  AuthToken $preauth
+     * @param  AuthToken $authToken
      * @return self
      */
     public function setAuthToken(AuthToken $authToken): self
@@ -554,7 +554,7 @@ class AuthRequest extends SoapRequest
     /**
      * Add an attr
      *
-     * @param  Attr $pref
+     * @param  Attr $attr
      * @return self
      */
     public function addAttr(Attr $attr): self
