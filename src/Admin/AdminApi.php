@@ -33,6 +33,7 @@ use Zimbra\Admin\Struct\{
     LoggerInfo,
     MailboxByAccountIdSelector,
     Names,
+    PolicyHolder,
     PrincipalSelector,
     RightModifierInfo,
     ReindexMailboxInfo,
@@ -71,12 +72,12 @@ use Zimbra\Common\Enum\{
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
+    GranteeChooser,
     Id,
     NamedElement
 };
 use Zimbra\Mail\Struct\{
-    Policy,
-    PolicyHolder
+    Policy
 };
 use Zimbra\Common\Soap\AbstractApi;
 
@@ -1626,11 +1627,11 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function modifyDataSource(
-        string $id, DataSourceInfo $dataSource, array $attrs = []
+        DataSourceInfo $dataSource, string $id, array $attrs = []
     ): ?Message\ModifyDataSourceResponse
     {
         return $this->invoke(new Message\ModifyDataSourceRequest(
-            $id, $dataSource, $attrs
+            $dataSource, $id, $attrs
         ));
     }
 

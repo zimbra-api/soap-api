@@ -139,7 +139,7 @@ class ConstraintInfo
     /**
      * Adds a values
      *
-     * @param  string $values
+     * @param  string $value
      * @return self
      */
     public function addValue($value): self

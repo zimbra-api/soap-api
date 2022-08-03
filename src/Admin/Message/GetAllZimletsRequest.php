@@ -54,7 +54,7 @@ class GetAllZimletsRequest extends SoapRequest
     /**
      * Get exclude
      *
-     * @return string
+     * @return ZimletExcludeType
      */
     public function getExclude(): ?ZimletExcludeType
     {

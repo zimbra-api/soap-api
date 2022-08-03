@@ -59,7 +59,7 @@ class CreateVolumeRequest extends SoapRequest
     /**
      * Set volume
      *
-     * @param  VolumeInfo $name
+     * @param  VolumeInfo $volume
      * @return self
      */
     public function setVolume(VolumeInfo $volume): self

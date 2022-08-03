@@ -169,7 +169,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     /**
      * Get the dl.
      *
-     * @return DistributionListSelector
+     * @return DistributionList
      */
     public function getDl(): ?DistributionList
     {

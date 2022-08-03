@@ -4924,7 +4924,7 @@ EOT;
 EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
-        $response = $api->modifyDataSource($this->faker->uuid, new \Zimbra\Admin\Struct\DataSourceInfo());
+        $response = $api->modifyDataSource(new \Zimbra\Admin\Struct\DataSourceInfo(), $this->faker->uuid);
         $this->assertInstanceOf(\Zimbra\Admin\Message\ModifyDataSourceResponse::class, $response);
     }
 

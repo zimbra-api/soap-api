@@ -50,7 +50,7 @@ class CreateDistributionListResponse implements SoapResponseInterface
     /**
      * Get the dl.
      *
-     * @return DistributionListInfo
+     * @return DLInfo
      */
     public function getDl(): ?DLInfo
     {

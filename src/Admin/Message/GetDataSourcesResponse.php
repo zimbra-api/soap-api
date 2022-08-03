@@ -60,7 +60,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set dataSource informations
      *
-     * @param  array $dataSources
+     * @param  array $sources
      * @return self
      */
     public function setDataSources(array $sources): self

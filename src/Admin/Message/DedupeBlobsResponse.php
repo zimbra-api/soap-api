@@ -70,7 +70,7 @@ class DedupeBlobsResponse implements SoapResponseInterface
     /**
      * Constructor method for DedupeBlobsResponse
      *
-     * @param  DedupStatus $action
+     * @param  DedupStatus $status
      * @param  int $totalSize
      * @param  int $totalCount
      * @param  array $volumeBlobsProgress

@@ -24,10 +24,10 @@ class ModifyDataSourceTest extends ZimbraTestCase
 
         $dataSource = new DataSourceInfo($name, $id, DataSourceType::POP3(), [new Attr($key, $value)]);
 
-        $request = new ModifyDataSourceRequest($id, $dataSource);
+        $request = new ModifyDataSourceRequest($dataSource, $id);
         $this->assertSame($id, $request->getId());
         $this->assertEquals($dataSource, $request->getDataSource());
-        $request = new ModifyDataSourceRequest('', new DataSourceInfo('', '', DataSourceType::POP3()));
+        $request = new ModifyDataSourceRequest(new DataSourceInfo());
         $request->setId($id)
             ->setDataSource($dataSource)
             ->setAttrs([new Attr($key, $value)]);

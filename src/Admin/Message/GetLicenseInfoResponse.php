@@ -37,7 +37,7 @@ class GetLicenseInfoResponse implements SoapResponseInterface
     /**
      * Constructor method for GetLicenseInfoResponse
      *
-     * @param Account $expiration
+     * @param LicenseExpirationInfo $expiration
      * @return self
      */
     public function __construct(?LicenseExpirationInfo $expiration = NULL)

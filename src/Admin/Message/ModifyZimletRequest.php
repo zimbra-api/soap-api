@@ -47,29 +47,7 @@ class ModifyZimletRequest extends SoapRequest
     }
 
     /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set id
-     *
-     * @param  int $id
-     * @return self
-     */
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * Get the data source.
+     * Get the zimlet.
      *
      * @return ZimletAclStatusPri
      */
@@ -79,7 +57,7 @@ class ModifyZimletRequest extends SoapRequest
     }
 
     /**
-     * Set the data source
+     * Set the zimlet
      *
      * @param  ZimletAclStatusPri $zimlet
      * @return self

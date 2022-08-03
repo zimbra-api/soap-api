@@ -89,7 +89,7 @@ class GetAllServersRequest extends SoapRequest
     /**
      * Set service
      *
-     * @param  int $service
+     * @param  string $service
      * @return self
      */
     public function setService(string $service): self

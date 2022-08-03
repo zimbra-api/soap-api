@@ -80,7 +80,7 @@ class GetAttributeInfoRequest extends SoapRequest
     /**
      * Set attrs
      *
-     * @param  int $attrs
+     * @param  string $attrs
      * @return self
      */
     public function setAttrs(string $attrs): self

@@ -98,7 +98,7 @@ class CreateDataSourceRequest extends SoapRequest
     /**
      * Set data source
      *
-     * @param  DataSourceSpecifier $name
+     * @param  DataSourceSpecifier $dataSource
      * @return self
      */
     public function setDataSource(DataSourceSpecifier $dataSource): self

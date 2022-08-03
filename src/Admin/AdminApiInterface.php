@@ -33,6 +33,7 @@ use Zimbra\Admin\Struct\{
     LoggerInfo,
     MailboxByAccountIdSelector,
     Names,
+    PolicyHolder,
     PrincipalSelector,
     RightModifierInfo,
     ReindexMailboxInfo,
@@ -71,12 +72,12 @@ use Zimbra\Common\Enum\{
 use Zimbra\Common\Struct\{
     AccountSelector,
     AccountNameSelector,
+    GranteeChooser,
     Id,
     NamedElement
 };
 use Zimbra\Mail\Struct\{
-    Policy,
-    PolicyHolder
+    Policy
 };
 use Zimbra\Common\Soap\ApiInterface;
 
@@ -1482,7 +1483,7 @@ interface AdminApiInterface extends ApiInterface
     /**
      * Get Network Interface information for a server
      * 
-     * @param  Server $server
+     * @param  ServerSelector $server
      * @param  IpType $type
      * @return Message\GetServerNIfsResponse
      */
@@ -1512,8 +1513,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  GetSessionsSortBy $sortBy
      * @param  int $offset
      * @param  int $limit
-     * @param  boo $sortAscending
-     * @param  boo $refresh
+     * @param  bool $refresh
      * @return Message\GetSessionsResponse
      */
     function getSessions(
@@ -1704,13 +1704,13 @@ interface AdminApiInterface extends ApiInterface
      * Only the attributes specified in the request are modified.
      * To change the name, specify "zimbraDataSourceName" as an attribute. 
      * 
-     * @param string $id
      * @param DataSourceInfo $dataSource
+     * @param string $id
      * @param array  $attrs
      * @return Message\ModifyDataSourceResponse
      */
     function modifyDataSource(
-        string $id, DataSourceInfo $dataSource, array $attrs = []
+        DataSourceInfo $dataSource, string $id, array $attrs = []
     ): ?Message\ModifyDataSourceResponse;
 
     /**
@@ -2137,7 +2137,7 @@ interface AdminApiInterface extends ApiInterface
      * @param  string $domain
      * @param  bool $applyCos
      * @param  string $sortBy
-     * @param  int $sortAscending
+     * @param  bool $sortAscending
      * @param  string $attrs
      * @return Message\SearchCalendarResourcesResponse
      */

@@ -166,7 +166,7 @@ class AutoCompleteGalResponse implements SoapResponseInterface
     /**
      * Set contacts
      *
-     * @param array $errors
+     * @param array $contacts
      * @return self
      */
     public function setContacts(array $contacts): self

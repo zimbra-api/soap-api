@@ -97,7 +97,7 @@ class DelegateAuthRequest extends SoapRequest
     /**
      * Set duration
      *
-     * @param  integer $id
+     * @param  integer $duration
      * @return self
      */
     public function setDuration(int $duration): self

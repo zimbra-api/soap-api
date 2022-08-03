@@ -125,7 +125,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
     /**
      * Get the dl.
      *
-     * @return DistributionListSelector
+     * @return DistributionList
      */
     public function getDl(): ?DistributionList
     {

@@ -76,7 +76,7 @@ class RunUnitTestsResponse implements SoapResponseInterface
     /**
      * Get results
      *
-     * @return string
+     * @return TestResultInfo
      */
     public function getResults(): ?TestResultInfo
     {

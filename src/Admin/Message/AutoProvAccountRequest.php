@@ -109,7 +109,7 @@ class AutoProvAccountRequest extends SoapRequest
     /**
      * Set the principal.
      *
-     * @param  Account $principal
+     * @param  PrincipalSelector $principal
      * @return self
      */
     public function setPrincipal(PrincipalSelector $principal): self

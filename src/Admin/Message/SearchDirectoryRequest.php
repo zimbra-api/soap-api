@@ -431,9 +431,9 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Set attrs
+     * Set isCountOnly
      *
-     * @param  bool $attrs
+     * @param  bool $isCountOnly
      * @return self
      */
     public function setCountOnly(bool $isCountOnly): self

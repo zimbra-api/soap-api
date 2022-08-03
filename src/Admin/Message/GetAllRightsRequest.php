@@ -96,7 +96,7 @@ class GetAllRightsRequest extends SoapRequest
     /**
      * Set targetType
      *
-     * @param  int $targetType
+     * @param  string $targetType
      * @return self
      */
     public function setTargetType(string $targetType): self

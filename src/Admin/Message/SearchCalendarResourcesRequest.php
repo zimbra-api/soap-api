@@ -102,7 +102,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @param  string $domain
      * @param  bool $applyCos
      * @param  string $sortBy
-     * @param  int $sortAscending
+     * @param  bool $sortAscending
      * @param  string $attrs
      * @return self
      */

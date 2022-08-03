@@ -52,7 +52,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     /**
      * Get zimbra mbox
      *
-     * @return MailboxByAccountIdSelector
+     * @return Mailbox
      */
     public function getMbox(): ?Mailbox
     {
@@ -62,7 +62,7 @@ class RecalculateMailboxCountsRequest extends SoapRequest
     /**
      * Set zimbra mbox
      *
-     * @param  MailboxByAccountIdSelector $mbox
+     * @param  Mailbox $mbox
      * @return self
      */
     public function setMbox(Mailbox $mbox): self

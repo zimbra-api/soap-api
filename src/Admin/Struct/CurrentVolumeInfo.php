@@ -77,7 +77,7 @@ class CurrentVolumeInfo
     /**
      * Get ID
      *
-     * @return string
+     * @return int
      */
     public function getId(): int
     {

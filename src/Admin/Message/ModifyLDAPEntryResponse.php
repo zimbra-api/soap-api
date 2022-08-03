@@ -60,7 +60,7 @@ class ModifyLDAPEntryResponse implements SoapResponseInterface
     /**
      * Set the LDAPEntryInfo.
      *
-     * @param  LDAPEntryInfo $LDAPEntryInfo
+     * @param  LDAPEntryInfo $LDAPEntry
      * @return self
      */
     public function setLDAPEntry(LDAPEntryInfo $LDAPEntry): self

@@ -27,6 +27,7 @@ class CreateAlwaysOnClusterResponse implements SoapResponseInterface
 {
     /**
      * Information about the newly created cluster
+     * 
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
@@ -54,18 +55,18 @@ class CreateAlwaysOnClusterResponse implements SoapResponseInterface
      */
     public function getAlwaysOnCluster(): ?AlwaysOnClusterInfo
     {
-        return $this->alwaysOnCluster;
+        return $this->cluster;
     }
 
     /**
-     * Set the alwaysOnCluster.
+     * Set the cluster.
      *
-     * @param  AlwaysOnClusterInfo $alwaysOnCluster
+     * @param  AlwaysOnClusterInfo $cluster
      * @return self
      */
-    public function setAlwaysOnCluster(AlwaysOnClusterInfo $alwaysOnCluster): self
+    public function setAlwaysOnCluster(AlwaysOnClusterInfo $cluster): self
     {
-        $this->alwaysOnCluster = $alwaysOnCluster;
+        $this->cluster = $cluster;
         return $this;
     }
 }

@@ -352,7 +352,7 @@ class ContactInfo
      * Set can expand
      *
      * @param  bool $canExpand
-     * @return bool
+     * @return self
      */
     public function setCanExpand(bool $canExpand): self
     {
@@ -815,7 +815,7 @@ class ContactInfo
     /**
      * Set contact group members
      *
-     * @param  array $attrs
+     * @param  array $members
      * @return self
      */
     public function setContactGroupMembers(array $members): self

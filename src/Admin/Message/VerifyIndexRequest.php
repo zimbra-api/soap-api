@@ -64,7 +64,7 @@ class VerifyIndexRequest extends SoapRequest
     /**
      * Get mbox
      *
-     * @return MailboxByAccountIdSelector
+     * @return Mailbox
      */
     public function getMbox(): ?Mailbox
     {

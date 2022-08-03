@@ -51,12 +51,12 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * Constructor method for ModifyDataSourceRequest
      * 
-     * @param string $id
      * @param DataSourceInfo $dataSource
+     * @param string $id
      * @param array  $attrs
      * @return self
      */
-    public function __construct(string $id = '', DataSourceInfo $dataSource, array $attrs = [])
+    public function __construct(DataSourceInfo $dataSource, string $id = '', array $attrs = [])
     {
         $this->setId($id)
              ->setDataSource($dataSource)

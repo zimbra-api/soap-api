@@ -153,9 +153,9 @@ class GetAccountInfoResponse implements SoapResponseInterface
      * @param array $attrs
      * @return self
      */
-    public function setAttrList(array $attrList): self
+    public function setAttrList(array $attrs): self
     {
-        $this->attrList = array_filter($attrList, static fn ($attr) => $attr instanceof Attr);
+        $this->attrList = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
         return $this;
     }
 
@@ -194,7 +194,7 @@ class GetAccountInfoResponse implements SoapResponseInterface
     /**
      * Add a soap URL list
      *
-     * @param  string $member
+     * @param  string $soapUrl
      * @return self
      */
     public function addSoapURL($soapUrl): self

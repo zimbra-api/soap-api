@@ -37,7 +37,7 @@ class GetIndexStatsResponse implements SoapResponseInterface
     /**
      * Constructor method for GetIndexStatsResponse
      *
-     * @param Account $stats
+     * @param IndexStats $stats
      * @return self
      */
     public function __construct(?IndexStats $stats = NULL)

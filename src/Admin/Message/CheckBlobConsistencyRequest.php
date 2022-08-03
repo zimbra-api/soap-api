@@ -124,7 +124,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     /**
      * Set report used blobs
      *
-     * @param  bool $checkSize
+     * @param  bool $reportUsedBlobs
      * @return self
      */
     public function setReportUsedBlobs(bool $reportUsedBlobs): self

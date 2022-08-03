@@ -60,7 +60,7 @@ class CheckDirectoryResponse implements SoapResponseInterface
     /**
      * Set directory array
      *
-     * @param  array $volumes
+     * @param  array $paths
      * @return self
      */
     public function setPaths(array $paths): self

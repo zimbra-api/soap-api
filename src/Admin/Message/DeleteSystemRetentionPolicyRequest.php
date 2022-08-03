@@ -95,7 +95,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     /**
      * Set policy
      *
-     * @param  Policy $id
+     * @param  Policy $policy
      * @return self
      */
     public function setPolicy(Policy $policy): self

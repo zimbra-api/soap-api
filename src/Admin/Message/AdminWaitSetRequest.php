@@ -381,7 +381,7 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Set Waitsets to remove.
      *
-     * @param  array $removeAccounts
+     * @param  array $accounts
      * @return self
      */
     public function setRemoveAccounts(array $accounts): self

@@ -174,7 +174,7 @@ class SearchGalRequest extends SoapRequest
     /**
      * Get type
      *
-     * @return string
+     * @return GalSearchType
      */
     public function getType(): ?GalSearchType
     {

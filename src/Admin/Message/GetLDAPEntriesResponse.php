@@ -48,7 +48,7 @@ class GetLDAPEntriesResponse implements SoapResponseInterface
     /**
      * Add a LDAPEntry information
      *
-     * @param  LDAPEntryInfo $LDAPEntry
+     * @param  LDAPEntryInfo $LDAPentry
      * @return self
      */
     public function addLDAPentry(LDAPEntryInfo $LDAPentry): self

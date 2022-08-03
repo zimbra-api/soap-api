@@ -56,7 +56,7 @@ class AccountsAttrib
     /**
      * Set accounts
      *
-     * @param  string $name
+     * @param  string $accounts
      * @return self
      */
     public function setAccounts(string $accounts): self

@@ -79,7 +79,7 @@ class CountObjectsResponse implements SoapResponseInterface
     /**
      * Get type
      *
-     * @return Status
+     * @return string
      */
     public function getType(): string
     {

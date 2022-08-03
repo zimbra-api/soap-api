@@ -69,7 +69,7 @@ class CosSelector
     /**
      * Set by enum
      *
-     * @param  string $by
+     * @param  CosBy $by
      * @return self
      */
     public function setBy(CosBy $by): self
