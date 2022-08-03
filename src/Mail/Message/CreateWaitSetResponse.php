@@ -77,7 +77,7 @@ class CreateWaitSetResponse implements CreateWaitSetResp, SoapResponseInterface
      * Constructor method for CreateWaitSetResponse
      *
      * @param  string $waitSetId
-     * @param  sequence $defaultInterests
+     * @param  string $defaultInterests
      * @param  int $sequence
      * @param  array $errors
      * @return self

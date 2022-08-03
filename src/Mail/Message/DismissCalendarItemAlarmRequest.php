@@ -59,7 +59,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     /**
      * Add dismiss appointment alarm
      *
-     * @param  DismissAppointmentAlarm $filterRule
+     * @param  DismissAppointmentAlarm $alarm
      * @return self
      */
     public function addApptAlarm(DismissAppointmentAlarm $alarm): self
@@ -95,7 +95,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     /**
      * Add dismiss appointment alarm
      *
-     * @param  DismissTaskAlarm $filterRule
+     * @param  DismissTaskAlarm $alarm
      * @return self
      */
     public function addTaskAlarm(DismissTaskAlarm $alarm): self

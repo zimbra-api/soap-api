@@ -100,7 +100,7 @@ class CheckPermissionRequest extends SoapRequest
     /**
      * Set rights
      *
-     * @param  string $rights
+     * @param  array $rights
      * @return self
      */
     public function setRights(array $rights): self

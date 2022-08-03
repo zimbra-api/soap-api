@@ -118,7 +118,7 @@ class CreateDataSourceResponse implements SoapResponseInterface
     /**
      * Constructor method for CreateDataSourceResponse
      *
-     * @param  DataSourceInfo $dataSource
+     * @param  Id $dataSource
      * @return self
      */
     public function __construct(?Id $dataSource = NULL)

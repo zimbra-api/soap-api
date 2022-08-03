@@ -41,7 +41,7 @@ class AddMsgResponse implements SoapResponseInterface
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?MessageSummary $chatMessage = NULL;
+    private ?ChatSummary $chatMessage = NULL;
 
     /**
      * Constructor method for AddMsgResponse

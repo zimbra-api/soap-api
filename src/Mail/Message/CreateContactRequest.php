@@ -95,7 +95,7 @@ class CreateContactRequest extends SoapRequest
     /**
      * Set wantImapUid
      *
-     * @param  array $wantImapUid
+     * @param  bool $wantImapUid
      * @return self
      */
     public function setWantImapUid(bool $wantImapUid): self
@@ -117,7 +117,7 @@ class CreateContactRequest extends SoapRequest
     /**
      * Set wantModifiedSequence
      *
-     * @param  array $wantModifiedSequence
+     * @param  bool $wantModifiedSequence
      * @return self
      */
     public function setWantModifiedSequence(bool $wantModifiedSequence): self

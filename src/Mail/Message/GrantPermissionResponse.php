@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Mail\Struct\AccountACEInfo;
+use Zimbra\Mail\Struct\AccountACEinfo;
 use Zimbra\Common\Struct\SoapResponseInterface;
 
 /**
@@ -29,7 +29,7 @@ class GrantPermissionResponse implements SoapResponseInterface
      * Permissions that were successfully granted
      * 
      * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Mail\Struct\AccountACEInfo>")
+     * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
      */
     private $aces = [];
@@ -48,10 +48,10 @@ class GrantPermissionResponse implements SoapResponseInterface
     /**
      * Add a ace
      *
-     * @param  AccountACEInfo $ace
+     * @param  AccountACEinfo $ace
      * @return self
      */
-    public function addAce(AccountACEInfo $ace): self
+    public function addAce(AccountACEinfo $ace): self
     {
         $this->aces[] = $ace;
         return $this;
@@ -65,7 +65,7 @@ class GrantPermissionResponse implements SoapResponseInterface
      */
     public function setAces(array $aces): self
     {
-        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEInfo);
+        $this->aces = array_filter($aces, static fn ($ace) => $ace instanceof AccountACEinfo);
         return $this;
     }
 

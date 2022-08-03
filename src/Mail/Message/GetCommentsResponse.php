@@ -74,7 +74,7 @@ class GetCommentsResponse implements SoapResponseInterface
     /**
      * Set users
      *
-     * @param  array $users
+     * @param  array $entries
      * @return self
      */
     public function setUsers(array $entries): self
@@ -108,7 +108,7 @@ class GetCommentsResponse implements SoapResponseInterface
     /**
      * Set comments
      *
-     * @param  array $comments
+     * @param  array $entries
      * @return self
      */
     public function setComments(array $entries): self

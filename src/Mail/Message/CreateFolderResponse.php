@@ -43,7 +43,7 @@ class CreateFolderResponse implements SoapResponseInterface
      * @Type("Zimbra\Mail\Struct\Mountpoint")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?Folder $mountpoint = NULL;
+    private ?Mountpoint $mountpoint = NULL;
 
     /**
      * Information about created search folder
@@ -52,7 +52,7 @@ class CreateFolderResponse implements SoapResponseInterface
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?Folder $searchFolder = NULL;
+    private ?SearchFolder $searchFolder = NULL;
 
     /**
      * Constructor method for CreateFolderResponse
