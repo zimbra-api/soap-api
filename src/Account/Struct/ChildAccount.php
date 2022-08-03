@@ -152,7 +152,7 @@ class ChildAccount
      * Set isVisible
      *
      * @param  bool $isVisible
-     * @return bool
+     * @return self
      */
     public function setIsVisible(bool $isVisible): self
     {

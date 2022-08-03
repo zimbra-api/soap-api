@@ -112,7 +112,7 @@ class DiscoverRightsTarget
     /**
      * Set target type
      *
-     * @param  string $type
+     * @param  TargetType $type
      * @return self
      */
     public function setType(TargetType $type): self
