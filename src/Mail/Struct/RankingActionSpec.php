@@ -31,7 +31,7 @@ class RankingActionSpec
      * 
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\RankingActionOp")
+     * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
      * @XmlAttribute
      */
     private ?RankingActionOp $operation = NULL;

@@ -70,7 +70,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
-     * @Type("Zimbra\Common\Enum\ParticipationStatus")
+     * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
      */
     private ?ParticipationStatus $partStat = NULL;

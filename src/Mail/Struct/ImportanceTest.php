@@ -28,7 +28,7 @@ class ImportanceTest extends FilterTest
      * Importance - high|normal|low
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("imp")
-     * @Type("Zimbra\Common\Enum\Importance")
+     * @Type("Enum<Zimbra\Common\Enum\Importance>")
      * @XmlAttribute
      */
     private ?Importance $importance = NULL;

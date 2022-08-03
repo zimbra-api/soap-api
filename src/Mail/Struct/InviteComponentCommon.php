@@ -112,7 +112,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * Valid values - F|B|T|U.  i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * @Accessor(getter="getFreeBusyActual", setter="setFreeBusyActual")
      * @SerializedName("fba")
-     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
+     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
      */
     private ?FreeBusyStatus $freeBusyActual = NULL;
@@ -122,7 +122,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * @Accessor(getter="getFreeBusy", setter="setFreeBusy")
      * @SerializedName("fb")
-     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
+     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
      */
     private ?FreeBusyStatus $freeBusy = NULL;
@@ -131,7 +131,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * Transparency - O|T.  i.e. Opaque or Transparent
      * @Accessor(getter="getTransparency", setter="setTransparency")
      * @SerializedName("transp")
-     * @Type("Zimbra\Common\Enum\Transparency")
+     * @Type("Enum<Zimbra\Common\Enum\Transparency>")
      * @XmlAttribute
      */
     private ?Transparency $transparency = NULL;
@@ -214,7 +214,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * where waiting and Deferred are custom values not found in the iCalendar spec.
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\InviteStatus")
+     * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
      * @XmlAttribute
      */
     private ?InviteStatus $status = NULL;
@@ -223,7 +223,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
      * @Accessor(getter="getCalClass", setter="setCalClass")
      * @SerializedName("class")
-     * @Type("Zimbra\Common\Enum\InviteClass")
+     * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
      * @XmlAttribute
      */
     private ?InviteClass $calClass = NULL;

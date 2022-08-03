@@ -28,7 +28,7 @@ class SizeTest extends FilterTest
      * Number comparison setting - over|under
      * @Accessor(getter="getNumberComparison", setter="setNumberComparison")
      * @SerializedName("numberComparison")
-     * @Type("Zimbra\Common\Enum\NumberComparison")
+     * @Type("Enum<Zimbra\Common\Enum\NumberComparison>")
      * @XmlAttribute
      */
     private ?NumberComparison $numberComparison = NULL;

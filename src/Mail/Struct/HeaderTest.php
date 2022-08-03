@@ -37,7 +37,7 @@ class HeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Common\Enum\StringComparison")
+     * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
      */
     private ?StringComparison $stringComparison = NULL;
@@ -46,7 +46,7 @@ class HeaderTest extends FilterTest
      * Value comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
-     * @Type("Zimbra\Common\Enum\ValueComparison")
+     * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
      * @XmlAttribute
      */
     private ?ValueComparison $valueComparison = NULL;
@@ -55,7 +55,7 @@ class HeaderTest extends FilterTest
      * count comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
-     * @Type("Zimbra\Common\Enum\CountComparison")
+     * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
      * @XmlAttribute
      */
     private ?CountComparison $countComparison = NULL;
@@ -64,7 +64,7 @@ class HeaderTest extends FilterTest
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
-     * @Type("Zimbra\Common\Enum\ComparisonComparator")
+     * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
      */
     private ?ComparisonComparator $valueComparisonComparator = NULL;

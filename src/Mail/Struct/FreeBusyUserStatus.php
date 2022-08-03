@@ -38,7 +38,7 @@ class FreeBusyUserStatus
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
      * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
      * @SerializedName("fb")
-     * @Type("Zimbra\Common\Enum\FreeBusyStatus")
+     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
      */
     private FreeBusyStatus $freebusyStatus;

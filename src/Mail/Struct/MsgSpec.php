@@ -170,7 +170,7 @@ class MsgSpec
      * 
      * @Accessor(getter="getWantContent", setter="setWantContent")
      * @SerializedName("wantContent")
-     * @Type("Zimbra\Common\Enum\MsgContent")
+     * @Type("Enum<Zimbra\Common\Enum\MsgContent>")
      * @XmlAttribute
      */
     private $wantContent;

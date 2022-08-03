@@ -46,7 +46,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * Frequency - SEC,MIN,HOU,DAI,WEE,MON,YEA
      * @Accessor(getter="getFrequency", setter="setFrequency")
      * @SerializedName("freq")
-     * @Type("Zimbra\Common\Enum\Frequency")
+     * @Type("Enum<Zimbra\Common\Enum\Frequency>")
      * @XmlAttribute
      */
     private Frequency $frequency;

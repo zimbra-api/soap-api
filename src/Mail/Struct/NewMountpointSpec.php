@@ -39,7 +39,7 @@ class NewMountpointSpec
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
-     * @Type("Zimbra\Common\Enum\ViewType")
+     * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
      */
     private ?ViewType $defaultView = NULL;

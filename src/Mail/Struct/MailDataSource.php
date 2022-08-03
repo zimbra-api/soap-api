@@ -95,7 +95,7 @@ class MailDataSource implements DataSource
      * If not set on data source, fallback to the id on global config.
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
-     * @Type("Zimbra\Common\Enum\ConnectionType")
+     * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
      */
     private ?ConnectionType $connectionType = NULL;
@@ -167,7 +167,7 @@ class MailDataSource implements DataSource
      * Which security layer to use for connecting to SMTP host associated with this data source.
      * @Accessor(getter="getSmtpConnectionType", setter="setSmtpConnectionType")
      * @SerializedName("smtpConnectionType")
-     * @Type("Zimbra\Common\Enum\ConnectionType")
+     * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
      */
     private ?ConnectionType $smtpConnectionType = NULL;

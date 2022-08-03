@@ -30,7 +30,7 @@ class BrowseRequest extends SoapRequest
      * Browse by setting - domains|attachments|objects
      * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
      * @SerializedName("browseBy")
-     * @Type("Zimbra\Common\Enum\BrowseBy")
+     * @Type("Enum<Zimbra\Common\Enum\BrowseBy>")
      * @XmlAttribute
      */
     private BrowseBy $browseBy;

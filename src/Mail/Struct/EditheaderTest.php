@@ -28,7 +28,7 @@ class EditheaderTest
      * matchType - is|contains|matches|count|value
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("matchType")
-     * @Type("Zimbra\Common\Enum\MatchType")
+     * @Type("Enum<Zimbra\Common\Enum\MatchType>")
      * @XmlAttribute
      */
     private ?MatchType $matchType = NULL;
@@ -55,7 +55,7 @@ class EditheaderTest
      * relational comparator - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
      * @SerializedName("relationalComparator")
-     * @Type("Zimbra\Common\Enum\RelationalComparator")
+     * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
      * @XmlAttribute
      */
     private ?RelationalComparator $relationalComparator = NULL;
@@ -64,7 +64,7 @@ class EditheaderTest
      * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getComparator", setter="setComparator")
      * @SerializedName("comparator")
-     * @Type("Zimbra\Common\Enum\ComparisonComparator")
+     * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
      */
     private ?ComparisonComparator $comparator = NULL;

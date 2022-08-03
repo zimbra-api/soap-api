@@ -38,7 +38,7 @@ class AlarmInfo implements AlarmInfoInterface
      * Possible values: DISPLAY|AUDIO|EMAIL|PROCEDURE|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
-     * @Type("Zimbra\Common\Enum\AlarmAction")
+     * @Type("Enum<Zimbra\Common\Enum\AlarmAction>")
      * @XmlAttribute
      */
     private AlarmAction $action;

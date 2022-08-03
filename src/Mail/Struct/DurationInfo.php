@@ -86,7 +86,7 @@ class DurationInfo implements DurationInfoInterface
      * Valid values are : START|END
      * @Accessor(getter="getRelated", setter="setRelated")
      * @SerializedName("related")
-     * @Type("Zimbra\Common\Enum\AlarmRelated")
+     * @Type("Enum<Zimbra\Common\Enum\AlarmRelated>")
      * @XmlAttribute
      */
     private ?AlarmRelated $related = NULL;

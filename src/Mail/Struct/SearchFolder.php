@@ -37,7 +37,7 @@ class SearchFolder extends Folder
      * Sort by
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Common\Enum\SearchSortBy")
+     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
      */
     private ?SearchSortBy $sortBy = NULL;

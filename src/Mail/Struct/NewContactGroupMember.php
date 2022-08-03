@@ -31,7 +31,7 @@ class NewContactGroupMember
      * I: inlined member (member name and email address is embeded in the contact group)
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\MemberType")
+     * @Type("Enum<Zimbra\Common\Enum\MemberType>")
      * @XmlAttribute
      */
     private MemberType $type;

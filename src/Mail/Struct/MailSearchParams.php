@@ -145,7 +145,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
-     * @Type("Zimbra\Common\Enum\SearchSortBy")
+     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
      */
     private ?SearchSortBy $sortBy = NULL;
@@ -233,7 +233,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getWantRecipients", setter="setWantRecipients")
      * @SerializedName("recip")
-     * @Type("Zimbra\Common\Enum\WantRecipsSetting")
+     * @Type("Enum<Zimbra\Common\Enum\WantRecipsSetting>")
      * @XmlAttribute
      */
     private ?WantRecipsSetting $wantRecipients = NULL;
@@ -356,7 +356,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getWantContent", setter="setWantContent")
      * @SerializedName("wantContent")
-     * @Type("Zimbra\Common\Enum\MsgContent")
+     * @Type("Enum<Zimbra\Common\Enum\MsgContent>")
      * @XmlAttribute
      */
     private ?MsgContent $wantContent = NULL;

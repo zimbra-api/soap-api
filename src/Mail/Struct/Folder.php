@@ -131,7 +131,7 @@ class Folder
      * Default type for the folder; used by web client to decide which view to use.
      * @Accessor(getter="getView", setter="setView")
      * @SerializedName("view")
-     * @Type("Zimbra\Common\Enum\ViewType")
+     * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
      */
     private ?ViewType $view = NULL;

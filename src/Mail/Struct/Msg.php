@@ -47,7 +47,7 @@ class Msg
      * Reply type - r|w.  (r)eplied or for(w)arded.
      * @Accessor(getter="getReplyType", setter="setReplyType")
      * @SerializedName("rt")
-     * @Type("Zimbra\Common\Enum\ReplyType")
+     * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
      * @XmlAttribute
      */
     private ?ReplyType $replyType = NULL;

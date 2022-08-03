@@ -38,7 +38,7 @@ class ActionGrantSelector
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
      * @Accessor(getter="getGrantType", setter="setGrantType")
      * @SerializedName("gt")
-     * @Type("Zimbra\Common\Enum\GranteeType")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
      */
     private GranteeType $grantType;

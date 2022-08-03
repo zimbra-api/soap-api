@@ -66,7 +66,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * Reply type - r|w: (r)eplied or for(w)arded.
      * @Accessor(getter="getDraftReplyType", setter="setDraftReplyType")
      * @SerializedName("rt")
-     * @Type("Zimbra\Common\Enum\ReplyType")
+     * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
      * @XmlAttribute
      */
     private $draftReplyType;

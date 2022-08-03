@@ -39,7 +39,7 @@ class EmailAddrInfo
      * (s)ender, read-receipt (n)otification, (rf) resent-from
      * @Accessor(getter="getAddressType", setter="setAddressType")
      * @SerializedName("t")
-     * @Type("Zimbra\Common\Enum\AddressType")
+     * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
      */
     private ?AddressType $addressType = NULL;

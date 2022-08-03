@@ -29,7 +29,7 @@ class TargetSpec
      * Target type
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\TargetType")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
      */
     private TargetType $targetType;
@@ -38,7 +38,7 @@ class TargetSpec
      * Select the meaning of {value}
      * @Accessor(getter="getAccountBy", setter="setAccountBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\AccountBy")
+     * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
      */
     private AccountBy $accountBy;

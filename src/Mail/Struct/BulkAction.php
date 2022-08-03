@@ -32,7 +32,7 @@ class BulkAction
      * 
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\BulkOperation")
+     * @Type("Enum<Zimbra\Common\Enum\BulkOperation>")
      * @XmlAttribute
      */
     private BulkOperation $op;

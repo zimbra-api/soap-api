@@ -39,7 +39,7 @@ class AddressTest extends FilterTest
      * Part of address to affect - all|localpart|domain
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
-     * @Type("Zimbra\Common\Enum\AddressPart")
+     * @Type("Enum<Zimbra\Common\Enum\AddressPart>")
      * @XmlAttribute
      */
     private ?AddressPart $part = NULL;
@@ -48,7 +48,7 @@ class AddressTest extends FilterTest
      * comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Common\Enum\StringComparison")
+     * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
      */
     private ?StringComparison $comparison = NULL;
@@ -75,7 +75,7 @@ class AddressTest extends FilterTest
      * Value comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
-     * @Type("Zimbra\Common\Enum\ValueComparison")
+     * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
      * @XmlAttribute
      */
     private ?ValueComparison $valueComparison = NULL;
@@ -84,7 +84,7 @@ class AddressTest extends FilterTest
      * count comparison type - gt|ge|lt|le|eq|ne
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
-     * @Type("Zimbra\Common\Enum\CountComparison")
+     * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
      * @XmlAttribute
      */
     private ?CountComparison $countComparison = NULL;
@@ -93,7 +93,7 @@ class AddressTest extends FilterTest
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
-     * @Type("Zimbra\Common\Enum\ComparisonComparator")
+     * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
      */
     private ?ComparisonComparator $valueComparisonComparator = NULL;

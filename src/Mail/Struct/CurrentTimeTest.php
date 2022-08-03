@@ -28,7 +28,7 @@ class CurrentTimeTest extends FilterTest
      * Date comparison setting - before|after
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
-     * @Type("Zimbra\Common\Enum\DateComparison")
+     * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
      * @XmlAttribute
      */
     private ?DateComparison $dateComparison = NULL;

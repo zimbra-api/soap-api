@@ -37,7 +37,7 @@ class MimeHeaderTest extends FilterTest
      * String comparison type - is|contains|matches
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
-     * @Type("Zimbra\Common\Enum\StringComparison")
+     * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
      */
     private ?StringComparison $stringComparison = NULL;

@@ -30,7 +30,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
      * 
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\ModifyGroupMemberOperation")
+     * @Type("Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>")
      * @XmlAttribute
      */
     private ?ModifyGroupMemberOperation $operation = NULL;

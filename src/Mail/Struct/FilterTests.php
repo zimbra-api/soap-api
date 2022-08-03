@@ -29,7 +29,7 @@ class FilterTests
      * 
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("condition")
-     * @Type("Zimbra\Common\Enum\FilterCondition")
+     * @Type("Enum<Zimbra\Common\Enum\FilterCondition>")
      * @XmlAttribute
      */
     private FilterCondition $condition;

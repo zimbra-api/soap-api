@@ -30,7 +30,7 @@ class MPInviteInfo
      * Calendar item type - appt|task
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\InviteType")
+     * @Type("Enum<Zimbra\Common\Enum\InviteType>")
      * @XmlAttribute
      */
     private InviteType $calItemType;

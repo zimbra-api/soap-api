@@ -42,7 +42,7 @@ class IMAPCopyRequest extends SoapRequest
      * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
-     * @Type("Zimbra\Common\Enum\MailItemType")
+     * @Type("Enum<Zimbra\Common\Enum\MailItemType>")
      * @XmlAttribute
      */
     private $type;

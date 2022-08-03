@@ -38,7 +38,7 @@ class AutoCompleteMatch
      * Match type - gal|contact|rankingTable
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\AutoCompleteMatchType")
+     * @Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")
      * @XmlAttribute
      */
     private ?MatchType $matchType = NULL;

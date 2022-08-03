@@ -30,7 +30,7 @@ class WkstRule implements WkstRuleInterface
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
      * @Accessor(getter="getDay", setter="setDay")
      * @SerializedName("day")
-     * @Type("Zimbra\Common\Enum\WeekDay")
+     * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
      * @XmlAttribute
      */
     private WeekDay $day;
