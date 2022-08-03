@@ -87,7 +87,7 @@ class KeyValuePair
     /**
      * Set value
      *
-     * @param  string $key
+     * @param  string $value
      * @return self
      */
     public function setValue(string $value): self

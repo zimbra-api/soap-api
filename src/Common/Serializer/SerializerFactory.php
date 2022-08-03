@@ -35,28 +35,28 @@ final class SerializerFactory
      *
      * @var SerializerBuilder
      */
-    private static $builder;
+    private static ?SerializerBuilder $builder = NULL;
 
     /**
      * Debug mode
      *
      * @var bool
      */
-    private static $debug = FALSE;
+    private static bool $debug = FALSE;
 
     /**
      * Cache dir
      * 
      * @var string
      */
-    private static $cacheDir = NULL;
+    private static ?string $cacheDir = NULL;
 
     /**
      * List of serializer handlers.
      *
      * @var array
      */
-    private static $serializerHandlers = [];
+    private static array $serializerHandlers = [];
 
     public static function setDebugMode(bool $debug): void
     {

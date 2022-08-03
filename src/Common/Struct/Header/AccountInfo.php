@@ -124,7 +124,7 @@ class AccountInfo
     /**
      * Set value
      *
-     * @param  string $name
+     * @param  string $value
      * @return self
      */
     public function setValue(string $value): self
