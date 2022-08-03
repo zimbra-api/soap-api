@@ -63,7 +63,7 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
     /**
      * Set subscriptions
      *
-     * @param  string $subscriptions
+     * @param  array $subscriptions
      * @return self
      */
     public function setSubscriptions(array $subscriptions): self

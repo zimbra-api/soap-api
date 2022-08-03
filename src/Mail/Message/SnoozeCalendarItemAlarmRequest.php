@@ -59,7 +59,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     /**
      * Add dismiss appointment alarm
      *
-     * @param  SnoozeAppointmentAlarm $filterRule
+     * @param  SnoozeAppointmentAlarm $alarm
      * @return self
      */
     public function addApptAlarm(SnoozeAppointmentAlarm $alarm): self
@@ -95,7 +95,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     /**
      * Add dismiss appointment alarm
      *
-     * @param  SnoozeTaskAlarm $filterRule
+     * @param  SnoozeTaskAlarm $alarm
      * @return self
      */
     public function addTaskAlarm(SnoozeTaskAlarm $alarm): self

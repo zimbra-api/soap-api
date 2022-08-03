@@ -74,7 +74,7 @@ class GetTaskSummariesResponse implements SoapResponseInterface
     /**
      * Set apptEntries
      *
-     * @param  array $apptEntries
+     * @param  array $entries
      * @return self
      */
     public function setApptEntries(array $entries): self
@@ -108,7 +108,7 @@ class GetTaskSummariesResponse implements SoapResponseInterface
     /**
      * Set taskEntries
      *
-     * @param  array $taskEntries
+     * @param  array $entries
      * @return self
      */
     public function setTaskEntries(array $entries): self

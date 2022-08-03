@@ -152,7 +152,7 @@ class GetItemResponse implements SoapResponseInterface
     /**
      * Constructor method for GetItemResponse
      *
-     * @param  mix $item
+     * @param  mixed $item
      * @return self
      */
     public function __construct($item = NULL)

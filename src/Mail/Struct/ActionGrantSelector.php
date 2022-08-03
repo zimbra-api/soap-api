@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+219<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -214,7 +214,7 @@ class ActionGrantSelector
      * Set display name
      *
      * @param  string $displayName
-     * @return string|self
+     * @return self
      */
     public function setDisplayName(string $displayName): self
     {

@@ -195,7 +195,7 @@ class SetAppointmentRequest extends SoapRequest
     /**
      * Get flags
      *
-     * @return int
+     * @return string
      */
     public function getFlags(): ?string
     {

@@ -79,7 +79,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
      * @param CalTZInfo $calTz
      * @param string $locale
      * @param CursorInfo $cursor
-     * @param string $wantContent
+     * @param MsgContent $wantContent
      * @param bool $includeMemberOf
      * @param bool $warmup
      * @return self

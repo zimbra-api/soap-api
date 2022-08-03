@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+205<?php declare(strict_types=1);
 /**
  * This file is part of the Zimbra API in PHP library.
  *
@@ -131,6 +131,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set imap data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setImapDataSources(array $dataSources): self
@@ -154,6 +155,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set pop3 data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setPop3DataSources(array $dataSources): self
@@ -177,6 +179,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set caldav data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setCaldavDataSources(array $dataSources): self
@@ -200,7 +203,8 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set yab data sources
      *
-     * @return array
+     * @param  array $dataSources
+     * @return self
      */
     public function setYabDataSources(array $dataSources): self
     {
@@ -223,6 +227,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set rss data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setRssDataSources(array $dataSources): self
@@ -246,6 +251,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set gal data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setGalDataSources(array $dataSources): self
@@ -269,6 +275,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set cal data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setCalDataSources(array $dataSources): self
@@ -292,6 +299,7 @@ class GetDataSourcesResponse implements SoapResponseInterface
     /**
      * Set unknown data sources
      *
+     * @param  array $dataSources
      * @return self
      */
     public function setUnknownDataSources(array $dataSources): self

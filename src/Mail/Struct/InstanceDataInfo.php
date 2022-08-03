@@ -96,6 +96,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * @param string $recurIdZ
      * @param int $tzOffset
      * @param FreeBusyStatus $freeBusyActual
+     * @param string $taskPercentComplete
      * @param bool $isRecurring
      * @param bool $hasExceptions
      * @param string $priority
@@ -104,6 +105,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * @param string $name
      * @param string $location
      * @param bool $hasOtherAttendees
+     * @param bool $hasAlarm
      * @param bool $isOrganizer
      * @param string $invId
      * @param int $componentNum
@@ -128,6 +130,7 @@ class InstanceDataInfo extends InstanceDataAttrs
         ?string $recurIdZ = NULL,
         ?int $tzOffset = NULL,
         ?FreeBusyStatus $freeBusyActual = NULL,
+        ?string $taskPercentComplete = NULL,
         ?bool $isRecurring = NULL,
         ?bool $hasExceptions = NULL,
         ?string $priority = NULL,
@@ -136,6 +139,7 @@ class InstanceDataInfo extends InstanceDataAttrs
         ?string $name = NULL,
         ?string $location = NULL,
         ?bool $hasOtherAttendees = NULL,
+        ?bool $hasAlarm = NULL,
         ?bool $isOrganizer = NULL,
         ?string $invId = NULL,
         ?int $componentNum = NULL,
@@ -154,6 +158,7 @@ class InstanceDataInfo extends InstanceDataAttrs
             $recurIdZ,
             $tzOffset,
             $freeBusyActual,
+            $taskPercentComplete,
             $isRecurring,
             $hasExceptions,
             $priority,
@@ -162,6 +167,7 @@ class InstanceDataInfo extends InstanceDataAttrs
             $name,
             $location,
             $hasOtherAttendees,
+            $hasAlarm,
             $isOrganizer,
             $invId,
             $componentNum,

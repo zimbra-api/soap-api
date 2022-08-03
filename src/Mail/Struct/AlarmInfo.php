@@ -50,7 +50,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?AlarmTriggerInfo $trigger = NULL;
+    private ?AlarmTriggerInfoInterface $trigger = NULL;
 
     /**
      * Alarm repeat information
@@ -59,7 +59,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?DurationInfo $repeat = NULL;
+    private ?DurationInfoInterface $repeat = NULL;
 
     /**
      * Alarm description
@@ -80,7 +80,7 @@ class AlarmInfo implements AlarmInfoInterface
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?CalendarAttach $attach = NULL;
+    private ?CalendarAttachInterface $attach = NULL;
 
     /**
      * Alarm summary

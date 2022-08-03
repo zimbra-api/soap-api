@@ -53,7 +53,7 @@ class SaveDraftResponse implements SoapResponseInterface
     /**
      * Constructor method for SaveDraftResponse
      *
-     * @param  mix $message
+     * @param  MessageInfo $message
      * @return self
      */
     public function __construct(?MessageInfo $message = NULL)

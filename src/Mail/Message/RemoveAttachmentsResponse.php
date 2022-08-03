@@ -53,7 +53,7 @@ class RemoveAttachmentsResponse implements SoapResponseInterface
     /**
      * Constructor method for RemoveAttachmentsResponse
      *
-     * @param  mix $message
+     * @param  MessageInfo $message
      * @return self
      */
     public function __construct(?MessageInfo $message = NULL)

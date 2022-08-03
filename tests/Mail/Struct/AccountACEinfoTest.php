@@ -2,17 +2,17 @@
 
 namespace Zimbra\Tests\Mail\Struct;
 
-use Zimbra\Mail\Struct\AccountACEInfo;
+use Zimbra\Mail\Struct\AccountACEinfo;
 use Zimbra\Common\Enum\AceRightType;
 use Zimbra\Common\Enum\GranteeType;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
- * Testcase class for AccountACEInfo.
+ * Testcase class for AccountACEinfo.
  */
-class AccountACEInfoTest extends ZimbraTestCase
+class AccountACEinfoTest extends ZimbraTestCase
 {
-    public function testAccountACEInfo()
+    public function testAccountACEinfo()
     {
         $zimbraId = $this->faker->uuid;
         $right = AceRightType::VIEW_FREE_BUSY()->getValue();
@@ -20,7 +20,7 @@ class AccountACEInfoTest extends ZimbraTestCase
         $accessKey = $this->faker->word;
         $password = $this->faker->sha256;
 
-        $ace = new AccountACEInfo(
+        $ace = new AccountACEinfo(
             GranteeType::ALL(), $right, $zimbraId, $displayName, $accessKey, $password, FALSE
         );
         $this->assertEquals(GranteeType::ALL(), $ace->getGranteeType());
@@ -31,7 +31,7 @@ class AccountACEInfoTest extends ZimbraTestCase
         $this->assertSame($password, $ace->getPassword());
         $this->assertFalse($ace->getDeny());
 
-        $ace = new AccountACEInfo();
+        $ace = new AccountACEinfo();
         $ace->setGranteeType(GranteeType::USR())
             ->setRight($right)
             ->setZimbraId($zimbraId)
@@ -53,6 +53,6 @@ class AccountACEInfoTest extends ZimbraTestCase
 <result gt="usr" right="$right" zid="$zimbraId" d="$displayName" key="$accessKey" pw="$password" deny="true" />
 EOT;
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($ace, 'xml'));
-        $this->assertEquals($ace, $this->serializer->deserialize($xml, AccountACEInfo::class, 'xml'));
+        $this->assertEquals($ace, $this->serializer->deserialize($xml, AccountACEinfo::class, 'xml'));
     }
 }

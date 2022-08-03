@@ -119,7 +119,7 @@ class SendShareNotificationRequest extends SoapRequest
     /**
      * Add email address
      *
-     * @param  SignatureContent $content
+     * @param  EmailAddrInfo $emailAddress
      * @return self
      */
     public function addEmailAddress(EmailAddrInfo $emailAddress): self
@@ -163,7 +163,7 @@ class SendShareNotificationRequest extends SoapRequest
     /**
      * Set action
      *
-     * @param  string $action
+     * @param  ShareAction $action
      * @return self
      */
     public function setAction(ShareAction $action): self

@@ -74,7 +74,7 @@ class GetMiniCalResponse implements SoapResponseInterface
     /**
      * Set busy dates
      *
-     * @param  array $dates busyDates
+     * @param  array $busyDates
      * @return self
      */
     public function setBusyDates(array $busyDates): self

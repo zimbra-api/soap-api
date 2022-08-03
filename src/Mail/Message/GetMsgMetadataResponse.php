@@ -59,7 +59,7 @@ class GetMsgMetadataResponse implements SoapResponseInterface
     /**
      * Add chat message
      *
-     * @param  ChatMessage $msg
+     * @param  ChatSummary $msg
      * @return self
      */
     public function addChatMessage(ChatSummary $msg): self

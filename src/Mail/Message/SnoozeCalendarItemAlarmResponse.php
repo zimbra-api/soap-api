@@ -58,7 +58,7 @@ class SnoozeCalendarItemAlarmResponse implements SoapResponseInterface
     /**
      * Add appt alarm
      *
-     * @param  UpdatedAppointmentAlarmInfo $match
+     * @param  UpdatedAppointmentAlarmInfo $alarm
      * @return self
      */
     public function addApptUpdatedAlarm(UpdatedAppointmentAlarmInfo $alarm): self
@@ -70,7 +70,7 @@ class SnoozeCalendarItemAlarmResponse implements SoapResponseInterface
     /**
      * Set apptUpdatedAlarms
      *
-     * @param  array $apptUpdatedAlarms
+     * @param  array $alarms
      * @return self
      */
     public function setApptUpdatedAlarms(array $alarms): self
@@ -94,7 +94,7 @@ class SnoozeCalendarItemAlarmResponse implements SoapResponseInterface
     /**
      * Add task alarm
      *
-     * @param  UpdatedTaskAlarmInfo $match
+     * @param  UpdatedTaskAlarmInfo $alarm
      * @return self
      */
     public function addTaskUpdatedAlarm(UpdatedTaskAlarmInfo $alarm): self
@@ -106,7 +106,7 @@ class SnoozeCalendarItemAlarmResponse implements SoapResponseInterface
     /**
      * Set taskUpdatedAlarms
      *
-     * @param  array $taskUpdatedAlarms
+     * @param  array $alarms
      * @return self
      */
     public function setTaskUpdatedAlarms(array $alarms): self

@@ -49,7 +49,6 @@ class RecoverAccountResponse implements SoapResponseInterface
      *
      * @param  string $recoveryAccount
      * @param  int $recoveryAttemptsLeft
-     * @param  array $errors
      * @return self
      */
     public function __construct(

@@ -179,7 +179,7 @@ class TestDataSourceResponse implements SoapResponseInterface
     /**
      * Set yab data sources
      *
-     * @return array
+     * @return self
      */
     public function setYabDataSources(array $dataSources): self
     {

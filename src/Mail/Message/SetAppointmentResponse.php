@@ -96,7 +96,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     /**
      * Get calItemId
      *
-     * @return int
+     * @return string
      */
     public function getCalItemId(): ?string
     {
@@ -118,7 +118,7 @@ class SetAppointmentResponse implements SoapResponseInterface
     /**
      * Get deprecatedApptId
      *
-     * @return int
+     * @return string
      */
     public function getDeprecatedApptId(): ?string
     {

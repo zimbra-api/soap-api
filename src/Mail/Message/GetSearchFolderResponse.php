@@ -48,7 +48,7 @@ class GetSearchFolderResponse implements SoapResponseInterface
     /**
      * Add search folder
      *
-     * @param  SearchFolder $searchFolder
+     * @param  SearchFolder $folder
      * @return self
      */
     public function addSearchFolder(SearchFolder $folder): self

@@ -112,7 +112,7 @@ class RecoverAccountRequest extends SoapRequest
     /**
      * Set op
      *
-     * @param  RecoverAccountOperation $type
+     * @param  RecoverAccountOperation $op
      * @return self
      */
     public function setOp(RecoverAccountOperation $op): self

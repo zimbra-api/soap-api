@@ -82,7 +82,7 @@ class CalReply extends RecurIdInfo
      * Constructor method for CalReply
      *
      * @param  int $recurrenceRangeType
-     * @param  int $recurrenceId
+     * @param  string $recurrenceId
      * @param  int $sequence
      * @param  int $date
      * @param  string $attendee

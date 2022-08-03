@@ -79,7 +79,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     /**
      * Set limit
      *
-     * @param  array $limit
+     * @param  int $limit
      * @return self
      */
     public function setLimit(int $limit): self

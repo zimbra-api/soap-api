@@ -201,7 +201,7 @@ class AccountACEinfo
      * Set display name
      *
      * @param  string $displayName
-     * @return string|self
+     * @return self
      */
     public function setDisplayName(string $displayName): self
     {

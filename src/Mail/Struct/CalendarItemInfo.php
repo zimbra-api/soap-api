@@ -333,7 +333,7 @@ class CalendarItemInfo
     /**
      * Get id
      *
-     * @return ParticipationStatus
+     * @return string
      */
     public function getId(): ?string
     {
@@ -343,7 +343,7 @@ class CalendarItemInfo
     /**
      * Set id
      *
-     * @param  string $partStat
+     * @param  string $id
      * @return self
      */
     public function setId(string $id): self

@@ -156,8 +156,8 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * @param  string $lastKnownSeqNo
      * @param  bool $block
      * @param  string $defaultInterests
-     * @param  string $timeout
-     * @param  string $expand
+     * @param  int $timeout
+     * @param  bool $expand
      * @param  array $addAccounts
      * @param  array $updateAccounts
      * @param  array $removeAccounts

@@ -380,7 +380,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set folderItems
      *
-     * @param  array $folderItems
+     * @param  array $items
      * @return self
      */
     public function setFolderItems(array $items): self
@@ -404,7 +404,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set tagItems
      *
-     * @param  array $tagItems
+     * @param  array $items
      * @return self
      */
     public function setTagItems(array $items): self
@@ -428,7 +428,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set noteItems
      *
-     * @param  array $noteItems
+     * @param  array $items
      * @return self
      */
     public function setNoteItems(array $items): self
@@ -452,7 +452,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set contactItems
      *
-     * @param  array $contactItems
+     * @param  array $items
      * @return self
      */
     public function setContactItems(array $items): self
@@ -476,7 +476,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set apptItems
      *
-     * @param  array $apptItems
+     * @param  array $items
      * @return self
      */
     public function setApptItems(array $items): self
@@ -500,7 +500,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set taskItems
      *
-     * @param  array $taskItems
+     * @param  array $items
      * @return self
      */
     public function setTaskItems(array $items): self
@@ -524,7 +524,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set convItems
      *
-     * @param  array $convItems
+     * @param  array $items
      * @return self
      */
     public function setConvItems(array $items): self
@@ -548,7 +548,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set wikiItems
      *
-     * @param  array $wikiItems
+     * @param  array $items
      * @return self
      */
     public function setWikiItems(array $items): self
@@ -572,7 +572,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set docItems
      *
-     * @param  array $docItems
+     * @param  array $items
      * @return self
      */
     public function setDocItems(array $items): self
@@ -596,7 +596,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set msgItems
      *
-     * @param  array $msgItems
+     * @param  array $items
      * @return self
      */
     public function setMsgItems(array $items): self
@@ -620,7 +620,7 @@ class SyncResponse implements SoapResponseInterface
     /**
      * Set chatItems
      *
-     * @param  array $chatItems
+     * @param  array $items
      * @return self
      */
     public function setChatItems(array $items): self

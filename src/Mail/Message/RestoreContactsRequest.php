@@ -81,7 +81,7 @@ class RestoreContactsRequest extends SoapRequest
     /**
      * Set contactsBackupFileName
      *
-     * @param  string $contactsBackupFileName
+     * @param  string $fileName
      * @return self
      */
     public function setContactsBackupFileName(string $fileName): self
