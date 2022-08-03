@@ -27,23 +27,23 @@ class GalSearchType extends Enum
      * Constant for value 'all'
      * @return string 'all'
      */
-    private const ALL = 'all';
+    protected const ALL = 'all';
 
     /**
      * Constant for value 'account'
      * @return string 'account'
      */
-    private const ACCOUNT = 'account';
+    protected const ACCOUNT = 'account';
 
     /**
      * Constant for value 'resource'
      * @return string 'resource'
      */
-    private const RESOURCE = 'resource';
+    protected const RESOURCE = 'resource';
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    private const GROUP = 'group';
+    protected const GROUP = 'group';
 }

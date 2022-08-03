@@ -27,17 +27,17 @@ class CheckLicenseStatus extends Enum
      * Constant for value 'ok'
      * @return string 'ok'
      */
-    private const OK = 'ok';
+    protected const OK = 'ok';
 
     /**
      * Constant for value 'no'
      * @return string 'no'
      */
-    private const NO = 'no';
+    protected const NO = 'no';
 
     /**
      * Constant for value 'inGracePeriod'
      * @return string 'inGracePeriod'
      */
-    private const IN_GRACE_PERIOD = 'inGracePeriod';
+    protected const IN_GRACE_PERIOD = 'inGracePeriod';
 }

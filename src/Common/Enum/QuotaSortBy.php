@@ -27,17 +27,17 @@ class QuotaSortBy extends Enum
      * Constant for value 'percentUsed'
      * @return string 'percentUsed'
      */
-    private const PERCENT_USED = 'percentUsed';
+    protected const PERCENT_USED = 'percentUsed';
 
     /**
      * Constant for value 'totalUsed'
      * @return string 'totalUsed'
      */
-    private const TOTAL_USED = 'totalUsed';
+    protected const TOTAL_USED = 'totalUsed';
 
     /**
      * Constant for value 'quotaLimit'
      * @return string 'quotaLimit'
      */
-    private const QUOTA_LIMIT = 'quotaLimit';
+    protected const QUOTA_LIMIT = 'quotaLimit';
 }

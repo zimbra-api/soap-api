@@ -27,17 +27,17 @@ class ZimletDeployAction extends Enum
      * Constant for value 'deployAll'
      * @return string 'deployAll'
      */
-    private const DEPLOY_ALL = 'deployAll';
+    protected const DEPLOY_ALL = 'deployAll';
 
     /**
      * Constant for value 'deployLocal'
      * @return string 'deployLocal'
      */
-    private const DEPLOY_LOCAL = 'deployLocal';
+    protected const DEPLOY_LOCAL = 'deployLocal';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    private const STATUS = 'status';
+    protected const STATUS = 'status';
 }

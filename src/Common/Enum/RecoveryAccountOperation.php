@@ -27,23 +27,23 @@ class RecoveryAccountOperation extends Enum
      * Constant for value 'sendCode'
      * @return string 'sendCode'
      */
-    private const SEND_CODE = 'sendCode';
+    protected const SEND_CODE = 'sendCode';
 
     /**
      * Constant for value 'validateCode'
      * @return string 'validateCode'
      */
-    private const VALIDATE_CODE = 'validateCode';
+    protected const VALIDATE_CODE = 'validateCode';
 
     /**
      * Constant for value 'resendCode'
      * @return string 'resendCode'
      */
-    private const RESEND_CODE = 'resendCode';
+    protected const RESEND_CODE = 'resendCode';
 
     /**
      * Constant for value 'reset'
      * @return string 'reset'
      */
-    private const RESET = 'reset';
+    protected const RESET = 'reset';
 }

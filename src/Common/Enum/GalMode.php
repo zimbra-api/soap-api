@@ -27,17 +27,17 @@ class GalMode extends Enum
      * Constant for value 'both'
      * @return string 'both'
      */
-    private const BOTH = 'both';
+    protected const BOTH = 'both';
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    private const LDAP = 'ldap';
+    protected const LDAP = 'ldap';
 
     /**
      * Constant for value 'zimbra'
      * @return string 'zimbra'
      */
-    private const ZIMBRA = 'zimbra';
+    protected const ZIMBRA = 'zimbra';
 }

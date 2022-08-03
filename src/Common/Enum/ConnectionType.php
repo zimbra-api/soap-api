@@ -27,23 +27,23 @@ class ConnectionType extends Enum
      * Constant for value 'cleartext'
      * @return string 'cleartext'
      */
-    private const CLEAR_TEXT = 'cleartext';
+    protected const CLEAR_TEXT = 'cleartext';
 
     /**
      * Constant for value 'ssl'
      * @return string 'ssl'
      */
-    private const SSL = 'ssl';
+    protected const SSL = 'ssl';
 
     /**
      * Constant for value 'tls'
      * @return string 'tls'
      */
-    private const TLS = 'tls';
+    protected const TLS = 'tls';
 
     /**
      * Constant for value 'tls_if_available'
      * @return string 'tls_if_available'
      */
-    private const TLS_IF_AVAILABLE = 'tls_if_available';
+    protected const TLS_IF_AVAILABLE = 'tls_if_available';
 }

@@ -27,17 +27,17 @@ class ZimletDeployStatus extends Enum
      * Constant for value 'succeeded'
      * @return string 'succeeded'
      */
-    private const SUCCEEDED = 'succeeded';
+    protected const SUCCEEDED = 'succeeded';
 
     /**
      * Constant for value 'failed'
      * @return string 'failed'
      */
-    private const FAILED = 'failed';
+    protected const FAILED = 'failed';
 
     /**
      * Constant for value 'pending'
      * @return string 'pending'
      */
-    private const PENDING = 'pending';
+    protected const PENDING = 'pending';
 }

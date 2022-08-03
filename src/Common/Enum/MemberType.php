@@ -27,17 +27,17 @@ class MemberType extends Enum
      * Constant for value 'contact'
      * @return string 'C'
      */
-    private const CONTACT = 'C';
+    protected const CONTACT = 'C';
 
     /**
      * Constant for value 'GAL entry'
      * @return string 'deny'
      */
-    private const GAL_ENTRY = 'G';
+    protected const GAL_ENTRY = 'G';
 
     /**
      * Constant for value 'inlined member'
      * @return string 'I'
      */
-    private const INLINED_MEMBER = 'I';
+    protected const INLINED_MEMBER = 'I';
 }

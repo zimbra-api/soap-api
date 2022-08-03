@@ -27,5 +27,5 @@ class ReIndexStatus extends CompactIndexStatus
      * Constant for value 'cancelled'
      * @return string 'cancelled'
      */
-    private const CANCELLED = 'cancelled';
+    protected const CANCELLED = 'cancelled';
 }

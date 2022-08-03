@@ -27,47 +27,47 @@ class AddressType extends Enum
      * Constant for value FROM
      * @return string 'f'
      */
-    private const FRO = 'f';
+    protected const FRO = 'f';
 
     /**
      * Constant for value TO
      * @return string 't'
      */
-    private const TO = 't';
+    protected const TO = 't';
 
     /**
      * Constant for value CC
      * @return string 'c'
      */
-    private const CC = 'c';
+    protected const CC = 'c';
 
     /**
      * Constant for value BCC
      * @return string 'b'
      */
-    private const BCC = 'b';
+    protected const BCC = 'b';
 
     /**
      * Constant for value REPLY_TO
      * @return string 'r'
      */
-    private const REPLY_TO = 'r';
+    protected const REPLY_TO = 'r';
 
     /**
      * Constant for value SENDER
      * @return string 's'
      */
-    private const SENDER = 's';
+    protected const SENDER = 's';
 
     /**
      * Constant for value NOTIFICATION
      * @return string 'n'
      */
-    private const NOTIFICATION = 'n';
+    protected const NOTIFICATION = 'n';
 
     /**
      * Constant for value RESENT_FROM
      * @return string 'rf'
      */
-    private const RESENT_FROM = 'rf';
+    protected const RESENT_FROM = 'rf';
 }

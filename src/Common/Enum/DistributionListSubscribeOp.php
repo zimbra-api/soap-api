@@ -27,11 +27,11 @@ class DistributionListSubscribeOp extends Enum
      * Constant for value 'subscribe'
      * @return string 'subscribe'
      */
-    private const SUBSCRIBE = 'subscribe';
+    protected const SUBSCRIBE = 'subscribe';
 
     /**
      * Constant for value 'unsubscribe'
      * @return string 'unsubscribe'
      */
-    private const UNSUBSCRIBE = 'unsubscribe';
+    protected const UNSUBSCRIBE = 'unsubscribe';
 }

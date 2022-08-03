@@ -27,53 +27,53 @@ class ActionGrantRight extends Enum
      * Constant for value 'r'
      * @return string 'r'
      */
-    private const READ = 'r';
+    protected const READ = 'r';
 
     /**
      * Constant for value 'w'
      * @return string 'w'
      */
-    private const WRITE = 'w';
+    protected const WRITE = 'w';
 
     /**
      * Constant for value 'i'
      * @return string 'i'
      */
-    private const INSERT = 'i';
+    protected const INSERT = 'i';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    private const DELETE = 'd';
+    protected const DELETE = 'd';
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    private const ADMINISTER = 'a';
+    protected const ADMINISTER = 'a';
 
     /**
      * Constant for value 'x'
      * @return string 'x'
      */
-    private const WORKFLOW_ACTION = 'x';
+    protected const WORKFLOW_ACTION = 'x';
 
     /**
      * Constant for value 'p'
      * @return string 'p'
      */
-    private const VIEW_PRIVATE = 'p';
+    protected const VIEW_PRIVATE = 'p';
 
     /**
      * Constant for value 'f'
      * @return string 'f'
      */
-    private const VIEW_FREEBUSY = 'f';
+    protected const VIEW_FREEBUSY = 'f';
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    private const CREATE_SUBFOLDER = 'c';
+    protected const CREATE_SUBFOLDER = 'c';
 }

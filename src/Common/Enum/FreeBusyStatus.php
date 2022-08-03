@@ -27,23 +27,23 @@ class FreeBusyStatus extends Enum
      * Constant for value 'Free'
      * @return string 'F'
      */
-    private const FREE = 'F';
+    protected const FREE = 'F';
 
     /**
      * Constant for value 'Busy'
      * @return string 'B'
      */
-    private const BUSY = 'B';
+    protected const BUSY = 'B';
 
     /**
      * Constant for value 'Busy-Tentative'
      * @return string 'T'
      */
-    private const TENTATIVE = 'T';
+    protected const TENTATIVE = 'T';
 
     /**
      * Constant for value 'OutOfOffice' (busy-unavailable)
      * @return string 'O'
      */
-    private const OUT_OF_OFFICE = 'O';
+    protected const OUT_OF_OFFICE = 'O';
 }

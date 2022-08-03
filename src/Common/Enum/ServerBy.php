@@ -25,5 +25,5 @@ class ServerBy extends NameIdBy
      * Constant for value 'serviceHostname'
      * @return string 'serviceHostname'
      */
-    private const SERVICE_HOSTNAME = 'serviceHostname';
+    protected const SERVICE_HOSTNAME = 'serviceHostname';
 }

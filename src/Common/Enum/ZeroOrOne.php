@@ -27,11 +27,11 @@ class ZeroOrOne extends Enum
      * Constant for value '0'
      * @return string '0'
      */
-    private const ZERO = '0';
+    protected const ZERO = '0';
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    private const ONE = '1';
+    protected const ONE = '1';
 }

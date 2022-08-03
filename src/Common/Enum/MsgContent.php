@@ -27,17 +27,17 @@ class MsgContent extends Enum
      * Constant for value 'full'
      * @return string 'full'
      */
-    private const FULL = 'full';
+    protected const FULL = 'full';
 
     /**
      * Constant for value 'original'
      * @return string 'original'
      */
-    private const ORIGINAL = 'original';
+    protected const ORIGINAL = 'original';
 
     /**
      * Constant for value 'both'
      * @return string 'both'
      */
-    private const BOTH = 'both';
+    protected const BOTH = 'both';
 }

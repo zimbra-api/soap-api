@@ -27,35 +27,35 @@ class AlarmAction extends Enum
      * Constant for value 'DISPLAY'
      * @return string 'DISPLAY'
      */
-    private const DISPLAY = 'DISPLAY';
+    protected const DISPLAY = 'DISPLAY';
 
     /**
      * Constant for value 'AUDIO'
      * @return string 'AUDIO'
      */
-    private const AUDIO = 'AUDIO';
+    protected const AUDIO = 'AUDIO';
 
     /**
      * Constant for value 'EMAIL'
      * @return string 'EMAIL'
      */
-    private const EMAIL = 'EMAIL';
+    protected const EMAIL = 'EMAIL';
 
     /**
      * Constant for value 'PROCEDURE'
      * @return string 'PROCEDURE'
      */
-    private const PROCEDURE = 'PROCEDURE';
+    protected const PROCEDURE = 'PROCEDURE';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_IM'
      * @return string 'X_YAHOO_CALENDAR_ACTION_IM'
      */
-    private const YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
+    protected const YAHOO_IM = 'X_YAHOO_CALENDAR_ACTION_IM';
 
     /**
      * Constant for value 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      * @return string 'X_YAHOO_CALENDAR_ACTION_MOBILE'
      */
-    private const YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
+    protected const YAHOO_MOBILE = 'X_YAHOO_CALENDAR_ACTION_MOBILE';
 }

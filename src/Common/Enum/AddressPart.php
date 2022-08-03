@@ -27,17 +27,17 @@ class AddressPart extends Enum
      * Constant for value 'all'
      * @return string 'all'
      */
-    private const ALL = 'all';
+    protected const ALL = 'all';
 
     /**
      * Constant for value 'localpart'
      * @return string 'localpart'
      */
-    private const LOCALPART = 'localpart';
+    protected const LOCALPART = 'localpart';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    private const DOMAIN = 'domain';
+    protected const DOMAIN = 'domain';
 }

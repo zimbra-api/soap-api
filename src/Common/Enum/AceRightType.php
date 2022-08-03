@@ -27,11 +27,11 @@ class AceRightType extends Enum
      * Constant for value 'viewFreeBusy'
      * @return string 'viewFreeBusy'
      */
-    private const VIEW_FREE_BUSY = 'viewFreeBusy';
+    protected const VIEW_FREE_BUSY = 'viewFreeBusy';
 
     /**
      * Constant for value 'invite'
      * @return string 'invite'
      */
-    private const INVITE = 'invite';
+    protected const INVITE = 'invite';
 }

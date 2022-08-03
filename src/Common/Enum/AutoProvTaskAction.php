@@ -27,17 +27,17 @@ class AutoProvTaskAction extends Enum
      * Constant for value 'start'
      * @return string 'start'
      */
-    private const START = 'start';
+    protected const START = 'start';
 
     /**
      * Constant for value 'status'
      * @return string 'status'
      */
-    private const STATUS = 'status';
+    protected const STATUS = 'status';
 
     /**
      * Constant for value 'stop'
      * @return string 'stop'
      */
-    private const STOP = 'stop';
+    protected const STOP = 'stop';
 }

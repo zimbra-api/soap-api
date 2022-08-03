@@ -27,17 +27,17 @@ class WantRecipsSetting extends Enum
      * Constant for value '0'
      * @return string '0'
      */
-    private const PUT_SENDERS = '0';
+    protected const PUT_SENDERS = '0';
 
     /**
      * Constant for value '1'
      * @return string '1'
      */
-    private const PUT_RECIPIENTS = '1';
+    protected const PUT_RECIPIENTS = '1';
 
     /**
      * Constant for value '2'
      * @return string '2'
      */
-    private const PUT_BOTH = '2';
+    protected const PUT_BOTH = '2';
 }

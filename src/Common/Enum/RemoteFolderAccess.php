@@ -27,17 +27,17 @@ class RemoteFolderAccess extends Enum
      * Constant for value 'c'
      * @return string 'c'
      */
-    private const CREATE = 'c';
+    protected const CREATE = 'c';
 
     /**
      * Constant for value 'i'
      * @return string 'i'
      */
-    private const INSERT = 'i';
+    protected const INSERT = 'i';
 
     /**
      * Constant for value 'r'
      * @return string 'r'
      */
-    private const READ = 'r';
+    protected const READ = 'r';
 }

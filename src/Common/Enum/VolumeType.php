@@ -27,17 +27,17 @@ class VolumeType extends Enum
      * Constant for value '1'
      * @return int '1'
      */
-    private const PRIMARY = 1;
+    protected const PRIMARY = 1;
 
     /**
      * Constant for value '2'
      * @return int '2'
      */
-    private const SECONDARY = 2;
+    protected const SECONDARY = 2;
 
     /**
      * Constant for value '10'
      * @return int '10'
      */
-    private const INDEX = 10;
+    protected const INDEX = 10;
 }

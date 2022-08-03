@@ -27,17 +27,17 @@ class RightClass extends Enum
      * Constant for value 'ADMIN'
      * @return string 'ADMIN'
      */
-    private const ADMIN = 'ADMIN';
+    protected const ADMIN = 'ADMIN';
 
     /**
      * Constant for value 'USER'
      * @return string 'USER'
      */
-    private const USER = 'USER';
+    protected const USER = 'USER';
 
     /**
      * Constant for value 'ALL'
      * @return string 'ALL'
      */
-    private const ALL = 'ALL';
+    protected const ALL = 'ALL';
 }

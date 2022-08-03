@@ -27,53 +27,53 @@ class InfoSection extends Enum
      * Constant for value 'mbox'
      * @return string 'mbox'
      */
-    private const MBOX = 'mbox';
+    protected const MBOX = 'mbox';
 
     /**
      * Constant for value 'prefs'
      * @return string 'prefs'
      */
-    private const PREFS = 'prefs';
+    protected const PREFS = 'prefs';
 
     /**
      * Constant for value 'attrs'
      * @return string 'attrs'
      */
-    private const ATTRS = 'attrs';
+    protected const ATTRS = 'attrs';
 
     /**
      * Constant for value 'zimlets'
      * @return string 'zimlets'
      */
-    private const ZIMLETS = 'zimlets';
+    protected const ZIMLETS = 'zimlets';
 
     /**
      * Constant for value 'props'
      * @return string 'props'
      */
-    private const PROPS = 'props';
+    protected const PROPS = 'props';
 
     /**
      * Constant for value 'idents'
      * @return string 'idents'
      */
-    private const IDENTS = 'idents';
+    protected const IDENTS = 'idents';
 
     /**
      * Constant for value 'sigs'
      * @return string 'sigs'
      */
-    private const SIGS = 'sigs';
+    protected const SIGS = 'sigs';
 
     /**
      * Constant for value 'dsrcs'
      * @return string 'dsrcs'
      */
-    private const DSRCS = 'dsrcs';
+    protected const DSRCS = 'dsrcs';
 
     /**
      * Constant for value 'children'
      * @return string 'children'
      */
-    private const CHILDREN = 'children';
+    protected const CHILDREN = 'children';
 }

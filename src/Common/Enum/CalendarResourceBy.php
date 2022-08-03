@@ -25,5 +25,5 @@ class CalendarResourceBy extends NameIdBy
      * Constant for value 'foreignPrincipal'
      * @return string 'foreignPrincipal'
      */
-    private const FOREIGN_PRINCIPAL = 'foreignPrincipal';
+    protected const FOREIGN_PRINCIPAL = 'foreignPrincipal';
 }

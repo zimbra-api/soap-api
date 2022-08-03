@@ -27,11 +27,11 @@ class AutoProvPrincipalBy extends Enum
      * Constant for value 'dn'
      * @return string 'dn'
      */
-    private const DN = 'dn';
+    protected const DN = 'dn';
 
     /**
      * Constant for value 'name'
      * @return string 'name'
      */
-    private const NAME = 'name';
+    protected const NAME = 'name';
 }

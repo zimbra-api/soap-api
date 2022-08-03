@@ -27,41 +27,41 @@ class InterestType extends Enum
      * Constant for value 'f'
      * @return string 'f'
      */
-    private const FOLDERS = 'f';
+    protected const FOLDERS = 'f';
 
     /**
      * Constant for value 'm'
      * @return string 'm'
      */
-    private const MESSAGES = 'm';
+    protected const MESSAGES = 'm';
 
     /**
      * Constant for value 'c'
      * @return string 'c'
      */
-    private const CONTACTS = 'c';
+    protected const CONTACTS = 'c';
 
     /**
      * Constant for value 'a'
      * @return string 'a'
      */
-    private const APPOINTMENTS = 'a';
+    protected const APPOINTMENTS = 'a';
 
     /**
      * Constant for value 't'
      * @return string 't'
      */
-    private const TASKS = 't';
+    protected const TASKS = 't';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    private const DOCUMENTS = 'd';
+    protected const DOCUMENTS = 'd';
 
     /**
      * Constant for value 'all'
      * @return string 'all'
      */
-    private const ALL = 'all';
+    protected const ALL = 'all';
 }

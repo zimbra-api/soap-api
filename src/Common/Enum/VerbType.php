@@ -27,29 +27,29 @@ class VerbType extends Enum
      * Constant for value 'ACCEPT'
      * @return string 'ACCEPT'
      */
-    private const ACCEPT = 'ACCEPT';
+    protected const ACCEPT = 'ACCEPT';
 
     /**
      * Constant for value 'DECLINE'
      * @return string 'DECLINE'
      */
-    private const DECLINE = 'DECLINE';
+    protected const DECLINE = 'DECLINE';
 
     /**
      * Constant for value 'TENTATIVE'
      * @return string 'TENTATIVE'
      */
-    private const TENTATIVE = 'TENTATIVE';
+    protected const TENTATIVE = 'TENTATIVE';
 
     /**
      * Constant for value 'COMPLETED'
      * @return string 'COMPLETED'
      */
-    private const COMPLETED = 'COMPLETED';
+    protected const COMPLETED = 'COMPLETED';
 
     /**
      * Constant for value 'DELEGATED'
      * @return string 'DELEGATED'
      */
-    private const DELEGATED = 'DELEGATED';
+    protected const DELEGATED = 'DELEGATED';
 }

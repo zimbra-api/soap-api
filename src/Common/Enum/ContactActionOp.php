@@ -27,35 +27,35 @@ class ContactActionOp extends Enum
      * Constant for value 'move'
      * @return string 'move'
      */
-    private const MOVE = 'move';
+    protected const MOVE = 'move';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    private const DELETE = 'delete';
+    protected const DELETE = 'delete';
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    private const FLAG = 'flag';
+    protected const FLAG = 'flag';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    private const TRASH = 'trash';
+    protected const TRASH = 'trash';
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    private const TAG = 'tag';
+    protected const TAG = 'tag';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    private const UPDATE = 'update';
+    protected const UPDATE = 'update';
 }

@@ -27,29 +27,29 @@ class VoiceMsgActionOp extends Enum
      * Constant for value 'move'
      * @return string 'move'
      */
-    private const MOVE = 'move';
+    protected const MOVE = 'move';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    private const READ = 'read';
+    protected const READ = 'read';
 
     /**
      * Constant for value '!read'
      * @return string '!read'
      */
-    private const NOT_READ = '!read';
+    protected const NOT_READ = '!read';
 
     /**
      * Constant for value 'empty'
      * @return string 'empty'
      */
-    private const IS_EMPTY = 'empty';
+    protected const IS_EMPTY = 'empty';
 
     /**
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    private const DELETE = 'delete';
+    protected const DELETE = 'delete';
 }

@@ -25,17 +25,17 @@ class DomainBy extends NameIdBy
      * Constant for value 'virtualHostname'
      * @return string 'virtualHostname'
      */
-    private const VIRTUAL_HOSTNAME = 'virtualHostname';
+    protected const VIRTUAL_HOSTNAME = 'virtualHostname';
 
     /**
      * Constant for value 'krb5Realm'
      * @return string 'krb5Realm'
      */
-    private const KRB5_REALM = 'krb5Realm';
+    protected const KRB5_REALM = 'krb5Realm';
 
     /**
      * Constant for value 'foreignName'
      * @return string 'foreignName'
      */
-    private const FOREIGN_NAME = 'foreignName';
+    protected const FOREIGN_NAME = 'foreignName';
 }

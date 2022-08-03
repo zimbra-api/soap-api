@@ -27,23 +27,23 @@ class InviteChange extends Enum
      * Constant for value 'subject'
      * @return string 'subject'
      */
-    private const SUBJECT = 'subject';
+    protected const SUBJECT = 'subject';
 
     /**
      * Constant for value 'location'
      * @return string 'location'
      */
-    private const LOCATION = 'location';
+    protected const LOCATION = 'location';
 
     /**
      * Constant for value 'time'
      * @return string 'time'
      */
-    private const TIME = 'time';
+    protected const TIME = 'time';
 
     /**
      * Constant for value 'recurrence'
      * @return string 'recurrence'
      */
-    private const RECURRENCE = 'recurrence';
+    protected const RECURRENCE = 'recurrence';
 }

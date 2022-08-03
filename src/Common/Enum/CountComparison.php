@@ -27,35 +27,35 @@ class CountComparison extends Enum
      * Constant for value 'gt'
      * @return string 'gt'
      */
-    private const GREATER_THAN = 'gt';
+    protected const GREATER_THAN = 'gt';
 
     /**
      * Constant for value 'ge'
      * @return string 'ge'
      */
-    private const GREATER_EQUAL = 'ge';
+    protected const GREATER_EQUAL = 'ge';
 
     /**
      * Constant for value 'lt'
      * @return string 'lt'
      */
-    private const LESS_THAN = 'lt';
+    protected const LESS_THAN = 'lt';
 
     /**
      * Constant for value 'le'
      * @return string 'le'
      */
-    private const LESS_EQUAL = 'le';
+    protected const LESS_EQUAL = 'le';
 
     /**
      * Constant for value 'eq'
      * @return string 'eq'
      */
-    private const EQUAL = 'eq';
+    protected const EQUAL = 'eq';
 
     /**
      * Constant for value 'ne'
      * @return string 'ne'
      */
-    private const NOT_EQUAL = 'ne';
+    protected const NOT_EQUAL = 'ne';
 }

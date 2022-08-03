@@ -27,17 +27,17 @@ class InviteClass extends Enum
      * Constant for value 'Public'
      * @return string 'PUB'
      */
-    private const PUB = 'PUB';
+    protected const PUB = 'PUB';
 
     /**
      * Constant for value 'Private'
      * @return string 'PRI'
      */
-    private const PRI = 'PRI';
+    protected const PRI = 'PRI';
 
     /**
      * Constant for value 'Confidential'
      * @return string 'CON'
      */
-    private const CON = 'CON';
+    protected const CON = 'CON';
 }

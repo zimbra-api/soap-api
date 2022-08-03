@@ -27,77 +27,77 @@ class TargetType extends Enum
      * Constant for value 'account'
      * @return string 'account'
      */
-    private const ACCOUNT = 'account';
+    protected const ACCOUNT = 'account';
 
     /**
      * Constant for value 'calresource'
      * @return string 'calresource'
      */
-    private const CALRESOURCE = 'calresource';
+    protected const CALRESOURCE = 'calresource';
 
     /**
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    private const COS = 'cos';
+    protected const COS = 'cos';
 
     /**
      * Constant for value 'dl'
      * @return string 'dl'
      */
-    private const DL = 'dl';
+    protected const DL = 'dl';
 
     /**
      * Constant for value 'group'
      * @return string 'group'
      */
-    private const GROUP = 'group';
+    protected const GROUP = 'group';
 
     /**
      * Constant for value 'domain'
      * @return string 'domain'
      */
-    private const DOMAIN = 'domain';
+    protected const DOMAIN = 'domain';
 
     /**
      * Constant for value 'server'
      * @return string 'server'
      */
-    private const SERVER = 'server';
+    protected const SERVER = 'server';
 
     /**
      * Constant for value 'alwaysoncluster'
      * @return string 'alwaysoncluster'
      */
-    private const ALWAYSONCLUSTER = 'alwaysoncluster';
+    protected const ALWAYSONCLUSTER = 'alwaysoncluster';
 
     /**
      * Constant for value 'ucservice'
      * @return string 'ucservice'
      */
-    private const UCSERVICE = 'ucservice';
+    protected const UCSERVICE = 'ucservice';
 
     /**
      * Constant for value 'xmppcomponent'
      * @return string 'xmppcomponent'
      */
-    private const XMPPCOMPONENT = 'xmppcomponent';
+    protected const XMPPCOMPONENT = 'xmppcomponent';
 
     /**
      * Constant for value 'zimlet'
      * @return string 'zimlet'
      */
-    private const ZIMLET = 'zimlet';
+    protected const ZIMLET = 'zimlet';
 
     /**
      * Constant for value 'config'
      * @return string 'config'
      */
-    private const CONFIG = 'config';
+    protected const CONFIG = 'config';
 
     /**
      * Constant for value 'global'
      * @return string 'global'
      */
-    private const GLOBALTYPE = 'global';
+    protected const GLOBALTYPE = 'global';
 }

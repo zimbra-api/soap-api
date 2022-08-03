@@ -27,41 +27,41 @@ class SearchType extends Enum
      * Constant for value 'conversation'
      * @return string 'conversation'
      */
-    private const CONVERSATION = 'conversation';
+    protected const CONVERSATION = 'conversation';
 
     /**
      * Constant for value 'message'
      * @return string 'message'
      */
-    private const MESSAGE = 'message';
+    protected const MESSAGE = 'message';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    private const CONTACT = 'contact';
+    protected const CONTACT = 'contact';
 
     /**
      * Constant for value 'appointment'
      * @return string 'appointment'
      */
-    private const APPOINTMENT = 'appointment';
+    protected const APPOINTMENT = 'appointment';
 
     /**
      * Constant for value 'task'
      * @return string 'task'
      */
-    private const TASK = 'task';
+    protected const TASK = 'task';
 
     /**
      * Constant for value 'wiki'
      * @return string 'wiki'
      */
-    private const WIKI = 'wiki';
+    protected const WIKI = 'wiki';
 
     /**
      * Constant for value 'document'
      * @return string 'document'
      */
-    private const DOCUMENT = 'document';
+    protected const DOCUMENT = 'document';
 }

@@ -27,17 +27,17 @@ class DistributionListSubscribeStatus extends Enum
      * Constant for value 'subscribe'
      * @return string 'subscribed'
      */
-    private const SUBSCRIBED = 'subscribed';
+    protected const SUBSCRIBED = 'subscribed';
 
     /**
      * Constant for value 'unsubscribed'
      * @return string 'unsubscribed'
      */
-    private const UNSUBSCRIBED = 'unsubscribed';
+    protected const UNSUBSCRIBED = 'unsubscribed';
 
     /**
      * Constant for value 'awaiting_approval'
      * @return string 'awaiting_approval'
      */
-    private const AWAITING_APPROVAL = 'awaiting_approval';
+    protected const AWAITING_APPROVAL = 'awaiting_approval';
 }

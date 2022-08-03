@@ -27,35 +27,35 @@ class CertType extends Enum
      * Constant for value 'all'
      * @return string 'all'
      */
-    private const ALL = 'all';
+    protected const ALL = 'all';
 
     /**
      * Constant for value 'mta'
      * @return string 'mta'
      */
-    private const MTA = 'mta';
+    protected const MTA = 'mta';
 
     /**
      * Constant for value 'ldap'
      * @return string 'ldap'
      */
-    private const LDAP = 'ldap';
+    protected const LDAP = 'ldap';
 
     /**
      * Constant for value 'mailboxd'
      * @return string 'mailboxd'
      */
-    private const MAILBOXD = 'mailboxd';
+    protected const MAILBOXD = 'mailboxd';
 
     /**
      * Constant for value 'proxy'
      * @return string 'proxy'
      */
-    private const PROXY = 'proxy';
+    protected const PROXY = 'proxy';
 
     /**
      * Constant for value 'staged'
      * @return string 'staged'
      */
-    private const STAGED = 'staged';
+    protected const STAGED = 'staged';
 }

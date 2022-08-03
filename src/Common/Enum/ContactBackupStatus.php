@@ -27,17 +27,17 @@ class ContactBackupStatus extends Enum
      * Constant for value 'started'
      * @return string 'started'
      */
-    private const STARTED = 'started';
+    protected const STARTED = 'started';
 
     /**
      * Constant for value 'error'
      * @return string 'error'
      */
-    private const ERROR = 'error';
+    protected const ERROR = 'error';
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    private const STOPPED = 'stopped';
+    protected const STOPPED = 'stopped';
 }

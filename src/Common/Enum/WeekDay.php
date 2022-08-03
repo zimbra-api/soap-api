@@ -27,41 +27,41 @@ class WeekDay extends Enum
      * Constant for value 'SU'
      * @return string 'SU'
      */
-    private const SU = 'SU';
+    protected const SU = 'SU';
 
     /**
      * Constant for value 'MO'
      * @return string 'MO'
      */
-    private const MO = 'MO';
+    protected const MO = 'MO';
 
     /**
      * Constant for value 'TU'
      * @return string 'TU'
      */
-    private const TU = 'TU';
+    protected const TU = 'TU';
 
     /**
      * Constant for value 'WE'
      * @return string 'WE'
      */
-    private const WE = 'WE';
+    protected const WE = 'WE';
 
     /**
      * Constant for value 'TH'
      * @return string 'TH'
      */
-    private const TH = 'TH';
+    protected const TH = 'TH';
 
     /**
      * Constant for value 'FR'
      * @return string 'FR'
      */
-    private const FR = 'FR';
+    protected const FR = 'FR';
 
     /**
      * Constant for value 'SA'
      * @return string 'SA'
      */
-    private const SA = 'SA';
+    protected const SA = 'SA';
 }

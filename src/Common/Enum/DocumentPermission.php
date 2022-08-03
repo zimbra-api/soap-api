@@ -27,17 +27,17 @@ class DocumentPermission extends Enum
      * Constant for value 'r'
      * @return string 'r'
      */
-    private const READ = 'r';
+    protected const READ = 'r';
 
     /**
      * Constant for value 'w'
      * @return string 'w'
      */
-    private const WRITE = 'w';
+    protected const WRITE = 'w';
 
     /**
      * Constant for value 'd'
      * @return string 'd'
      */
-    private const DELETE = 'd';
+    protected const DELETE = 'd';
 }

@@ -27,17 +27,17 @@ class ComparisonComparator extends Enum
      * Constant for value 'i;ascii-numeric'
      * @return string 'i;ascii-numeric'
      */
-    private const ASCII_NUMERIC = 'i;ascii-numeric';
+    protected const ASCII_NUMERIC = 'i;ascii-numeric';
 
     /**
      * Constant for value 'i;ascii-casemap'
      * @return string 'i;ascii-casemap'
      */
-    private const ASCII_CASEMAP = 'i;ascii-casemap';
+    protected const ASCII_CASEMAP = 'i;ascii-casemap';
 
     /**
      * Constant for value 'i;octet'
      * @return string 'i;octet'
      */
-    private const OCTET = 'i;octet';
+    protected const OCTET = 'i;octet';
 }

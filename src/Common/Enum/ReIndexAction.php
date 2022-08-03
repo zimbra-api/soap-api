@@ -26,5 +26,5 @@ class ReIndexAction extends CompactIndexAction
      * Constant for value 'cancel'
      * @return string 'cancel'
      */
-    private const CANCEL = 'cancel';
+    protected const CANCEL = 'cancel';
 }

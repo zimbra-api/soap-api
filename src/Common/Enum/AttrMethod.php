@@ -27,17 +27,17 @@ class AttrMethod extends Enum
      * Constant for value 'getAttrs'
      * @return string 'getAttrs'
      */
-    private const GET_ATTRS = 'getAttrs';
+    protected const GET_ATTRS = 'getAttrs';
 
     /**
      * Constant for value 'setAttrs'
      * @return string 'setAttrs'
      */
-    private const SET_ATTRS = 'setAttrs';
+    protected const SET_ATTRS = 'setAttrs';
 
     /**
      * Constant for value 'getAttrs,setAttrs'
      * @return string 'getAttrs,setAttrs'
      */
-    private const GET_SET = 'getAttrs,setAttrs';
+    protected const GET_SET = 'getAttrs,setAttrs';
 }

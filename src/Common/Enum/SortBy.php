@@ -27,89 +27,89 @@ class SortBy extends Enum
      * Constant for value 'none'
      * @return string 'none'
      */
-    private const NONE = 'none';
+    protected const NONE = 'none';
 
     /**
      * Constant for value 'dateAsc'
      * @return string 'dateAsc'
      */
-    private const DATE_ASC = 'dateAsc';
+    protected const DATE_ASC = 'dateAsc';
 
     /**
      * Constant for value 'dateDesc'
      * @return string 'dateDesc'
      */
-    private const DATE_DESC = 'dateDesc';
+    protected const DATE_DESC = 'dateDesc';
 
     /**
      * Constant for value 'subjAsc'
      * @return string 'subjAsc'
      */
-    private const SUBJ_ASC = 'subjAsc';
+    protected const SUBJ_ASC = 'subjAsc';
 
     /**
      * Constant for value 'subjDesc'
      * @return string 'subjDesc'
      */
-    private const SUBJ_DESC = 'subjDesc';
+    protected const SUBJ_DESC = 'subjDesc';
 
     /**
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    private const NAME_ASC = 'nameAsc';
+    protected const NAME_ASC = 'nameAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    private const NAME_DESC = 'nameDesc';
+    protected const NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'rcptAsc'
      * @return string 'rcptAsc'
      */
-    private const RCPT_ASC = 'rcptAsc';
+    protected const RCPT_ASC = 'rcptAsc';
 
     /**
      * Constant for value 'rcptDesc'
      * @return string 'rcptDesc'
      */
-    private const RCPT_DESC = 'rcptDesc';
+    protected const RCPT_DESC = 'rcptDesc';
 
     /**
      * Constant for value 'attachAsc'
      * @return string 'attachAsc'
      */
-    private const ATTACH_ASC = 'attachAsc';
+    protected const ATTACH_ASC = 'attachAsc';
 
     /**
      * Constant for value 'attachDesc'
      * @return string 'attachDesc'
      */
-    private const ATTACH_DESC = 'attachDesc';
+    protected const ATTACH_DESC = 'attachDesc';
 
     /**
      * Constant for value 'flagAsc'
      * @return string 'flagAsc'
      */
-    private const FLAG_ASC = 'flagAsc';
+    protected const FLAG_ASC = 'flagAsc';
 
     /**
      * Constant for value 'flagDesc'
      * @return string 'flagDesc'
      */
-    private const FLAG_DESC = 'flagDesc';
+    protected const FLAG_DESC = 'flagDesc';
 
     /**
      * Constant for value 'priorityAsc'
      * @return string 'priorityAsc'
      */
-    private const PRIORITY_ASC = 'priorityAsc';
+    protected const PRIORITY_ASC = 'priorityAsc';
 
     /**
      * Constant for value 'priorityDesc'
      * @return string 'priorityDesc'
      */
-    private const PRIORITY_DESC = 'priorityDesc';
+    protected const PRIORITY_DESC = 'priorityDesc';
 }

@@ -27,11 +27,11 @@ class AdminFilterType extends Enum
      * Constant for value 'before'
      * @return string 'before'
      */
-    private const BEFORE = 'before';
+    protected const BEFORE = 'before';
 
     /**
      * Constant for value 'after'
      * @return string 'after'
      */
-    private const AFTER = 'after';
+    protected const AFTER = 'after';
 }

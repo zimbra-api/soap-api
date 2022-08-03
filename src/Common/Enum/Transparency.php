@@ -27,11 +27,11 @@ class Transparency extends Enum
      * Constant for value 'Opaque'
      * @return string 'O'
      */
-    private const OPAQUE = 'O';
+    protected const OPAQUE = 'O';
 
     /**
      * Constant for value 'Transparent'
      * @return string 'T'
      */
-    private const TRANSPARENT = 'T';
+    protected const TRANSPARENT = 'T';
 }

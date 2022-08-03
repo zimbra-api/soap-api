@@ -28,54 +28,54 @@ class GrantGranteeType extends Enum
      * Constant for value 'usr'
      * @return string 'usr'
      */
-    private const USR = 'usr';
+    protected const USR = 'usr';
 
     /**
      * access is granted to a group of users
      * Constant for value 'grp'
      * @return string 'grp'
      */
-    private const GRP = 'grp';
+    protected const GRP = 'grp';
 
     /**
      * access is granted to users on a cos
      * Constant for value 'cos'
      * @return string 'cos'
      */
-    private const COS = 'cos';
+    protected const COS = 'cos';
 
     /**
      * access is granted to public. no authentication needed.
      * Constant for value 'pub'
      * @return string 'pub'
      */
-    private const PUB = 'pub';
+    protected const PUB = 'pub';
 
     /**
      * access is granted to all authenticated users
      * Constant for value 'all'
      * @return string 'all'
      */
-    private const ALL = 'all';
+    protected const ALL = 'all';
 
     /**
      * access is granted to all users in a domain
      * Constant for value 'dom'
      * @return string 'dom'
      */
-    private const DOM = 'dom';
+    protected const DOM = 'dom';
 
     /**
      * access is granted to a non-Zimbra email address and a password
      * Constant for value 'guest'
      * @return string 'guest'
      */
-    private const GUEST = 'guest';
+    protected const GUEST = 'guest';
 
     /**
      * access is granted to a non-Zimbra email address and an accesskey
      * Constant for value 'key'
      * @return string 'key'
      */
-    private const KEY = 'key';
+    protected const KEY = 'key';
 }

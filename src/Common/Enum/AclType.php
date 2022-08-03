@@ -27,11 +27,11 @@ class AclType extends Enum
      * Constant for value 'grant'
      * @return string 'grant'
      */
-    private const GRANT = 'grant';
+    protected const GRANT = 'grant';
 
     /**
      * Constant for value 'deny'
      * @return string 'deny'
      */
-    private const DENY = 'deny';
+    protected const DENY = 'deny';
 }

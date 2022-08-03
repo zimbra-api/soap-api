@@ -27,35 +27,35 @@ class GetSessionsSortBy extends Enum
      * Constant for value 'nameAsc'
      * @return string 'nameAsc'
      */
-    private const NAME_ASC = 'nameAsc';
+    protected const NAME_ASC = 'nameAsc';
 
     /**
      * Constant for value 'nameDesc'
      * @return string 'nameDesc'
      */
-    private const NAME_DESC = 'nameDesc';
+    protected const NAME_DESC = 'nameDesc';
 
     /**
      * Constant for value 'createdAsc'
      * @return string 'createdAsc'
      */
-    private const CREATED_ASC = 'createdAsc';
+    protected const CREATED_ASC = 'createdAsc';
 
     /**
      * Constant for value 'createdDesc'
      * @return string 'createdDesc'
      */
-    private const CREATED_DESC = 'createdDesc';
+    protected const CREATED_DESC = 'createdDesc';
 
     /**
      * Constant for value 'accessedAsc'
      * @return string 'accessedAsc'
      */
-    private const ACCESSED_ASC = 'accessedAsc';
+    protected const ACCESSED_ASC = 'accessedAsc';
 
     /**
      * Constant for value 'accessedDesc'
      * @return string 'accessedDesc'
      */
-    private const ACCESSED_DESC = 'accessedDesc';
+    protected const ACCESSED_DESC = 'accessedDesc';
 }

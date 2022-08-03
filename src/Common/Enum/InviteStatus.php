@@ -27,41 +27,41 @@ class InviteStatus extends Enum
      * Constant for value 'Tentative'
      * @return string 'TENT'
      */
-    private const TENTATIVE = 'TENT';
+    protected const TENTATIVE = 'TENT';
 
     /**
      * Constant for value 'Confirmed'
      * @return string 'CONF'
      */
-    private const CONFIRMED = 'CONF';
+    protected const CONFIRMED = 'CONF';
 
     /**
      * Constant for value 'Cancelled'
      * @return string 'CANC'
      */
-    private const CANCELLED = 'CANC';
+    protected const CANCELLED = 'CANC';
 
     /**
      * Constant for value 'Completed'
      * @return string 'COMP'
      */
-    private const COMPLETED = 'COMP';
+    protected const COMPLETED = 'COMP';
 
     /**
      * Constant for value 'Inprogress'
      * @return string 'INPR'
      */
-    private const INPROGRESS = 'INPR';
+    protected const INPROGRESS = 'INPR';
 
     /**
      * Constant for value 'Waiting'
      * @return string 'WAITING'
      */
-    private const WAITING = 'WAITING';
+    protected const WAITING = 'WAITING';
 
     /**
      * Constant for value 'Deferred'
      * @return string 'DEFERRED'
      */
-    private const DEFERRED = 'DEFERRED';
+    protected const DEFERRED = 'DEFERRED';
 }

@@ -27,11 +27,11 @@ class FilterCondition extends Enum
      * Constant for value 'allof'
      * @return string 'allof'
      */
-    private const ALL_OF = 'allof';
+    protected const ALL_OF = 'allof';
 
     /**
      * Constant for value 'anyof'
      * @return string 'anyof'
      */
-    private const ANY_OF = 'anyof';
+    protected const ANY_OF = 'anyof';
 }

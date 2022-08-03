@@ -27,17 +27,17 @@ class StringComparison extends Enum
      * Constant for value 'is'
      * @return string 'is'
      */
-    private const IS = 'is';
+    protected const IS = 'is';
 
     /**
      * Constant for value 'contains'
      * @return string 'contains'
      */
-    private const CONTAINS = 'contains';
+    protected const CONTAINS = 'contains';
 
     /**
      * Constant for value 'matches'
      * @return string 'matches'
      */
-    private const MATCHES = 'matches';
+    protected const MATCHES = 'matches';
 }

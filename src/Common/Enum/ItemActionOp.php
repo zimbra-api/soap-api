@@ -27,83 +27,83 @@ class ItemActionOp extends Enum
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    private const DELETE = 'delete';
+    protected const DELETE = 'delete';
 
     /**
      * Constant for value 'dumpsterdelete'
      * @return string 'dumpsterdelete'
      */
-    private const DUMPSTER_DELETE = 'dumpsterdelete';
+    protected const DUMPSTER_DELETE = 'dumpsterdelete';
 
     /**
      * Constant for value 'recover'
      * @return string 'recover'
      */
-    private const RECOVER = 'recover';
+    protected const RECOVER = 'recover';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    private const READ = 'read';
+    protected const READ = 'read';
     
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    private const FLAG = 'flag';
+    protected const FLAG = 'flag';
 
     /**
      * Constant for value 'priority'
      * @return string 'priority'
      */
-    private const PRIORITY = 'priority';
+    protected const PRIORITY = 'priority';
 
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    private const TAG = 'tag';
+    protected const TAG = 'tag';
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    private const MOVE = 'move';
+    protected const MOVE = 'move';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    private const TRASH = 'trash';
+    protected const TRASH = 'trash';
 
     /**
      * Constant for value 'rename'
      * @return string 'rename'
      */
-    private const RENAME = 'rename';
+    protected const RENAME = 'rename';
 
     /**
      * Constant for value 'update'
      * @return string 'update'
      */
-    private const UPDATE = 'update';
+    protected const UPDATE = 'update';
 
     /**
      * Constant for value 'color'
      * @return string 'color'
      */
-    private const COLOR = 'color';
+    protected const COLOR = 'color';
 
     /**
      * Constant for value 'lock'
      * @return string 'lock'
      */
-    private const LOCK = 'lock';
+    protected const LOCK = 'lock';
 
     /**
      * Constant for value 'unlock'
      * @return string 'unlock'
      */
-    private const UNLOCK = 'unlock';
+    protected const UNLOCK = 'unlock';
 }

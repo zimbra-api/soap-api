@@ -27,17 +27,17 @@ class AutoCompleteMatchType extends Enum
      * Constant for value 'gal'
      * @return string 'gal'
      */
-    private const GAL = 'gal';
+    protected const GAL = 'gal';
 
     /**
      * Constant for value 'contact'
      * @return string 'contact'
      */
-    private const CONTACT = 'contact';
+    protected const CONTACT = 'contact';
 
     /**
      * Constant for value 'rankingTable'
      * @return string 'rankingTable'
      */
-    private const RANKING_TABLE = 'rankingTable';
+    protected const RANKING_TABLE = 'rankingTable';
 }

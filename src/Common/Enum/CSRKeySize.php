@@ -27,11 +27,11 @@ class CSRKeySize extends Enum
      * Constant for value '1024'
      * @return string '1024'
      */
-    private const SIZE_1024 = 1024;
+    protected const SIZE_1024 = 1024;
 
     /**
      * Constant for value '2048'
      * @return string '2048'
      */
-    private const SIZE_2048 = 2048;
+    protected const SIZE_2048 = 2048;
 }

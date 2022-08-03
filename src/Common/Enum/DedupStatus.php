@@ -27,11 +27,11 @@ class DedupStatus extends Enum
      * Constant for value 'running'
      * @return string 'running'
      */
-    private const RUNNING = 'running';
+    protected const RUNNING = 'running';
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    private const STOPPED = 'stopped';
+    protected const STOPPED = 'stopped';
 }

@@ -27,17 +27,17 @@ class ZimletExcludeType extends Enum
      * Constant for value 'extension'
      * @return string 'extension'
      */
-    private const EXTENSION = 'extension';
+    protected const EXTENSION = 'extension';
 
     /**
      * Constant for value 'mail'
      * @return string 'mail'
      */
-    private const MAIL = 'mail';
+    protected const MAIL = 'mail';
 
     /**
      * Constant for value 'none'
      * @return string 'none'
      */
-    private const NONE = 'none';
+    protected const NONE = 'none';
 }

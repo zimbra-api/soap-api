@@ -27,46 +27,46 @@ class ConvActionOp extends Enum
      * Constant for value 'delete'
      * @return string 'delete'
      */
-    private const DELETE = 'delete';
+    protected const DELETE = 'delete';
 
     /**
      * Constant for value 'read'
      * @return string 'read'
      */
-    private const READ = 'read';
+    protected const READ = 'read';
 
     /**
      * Constant for value 'flag'
      * @return string 'flag'
      */
-    private const FLAG = 'flag';
+    protected const FLAG = 'flag';
 
     /**
      * Constant for value 'priority'
      * @return string 'priority'
      */
-    private const PRIORITY = 'priority';
+    protected const PRIORITY = 'priority';
     /**
      * Constant for value 'tag'
      * @return string 'tag'
      */
-    private const TAG = 'tag';
+    protected const TAG = 'tag';
 
     /**
      * Constant for value 'move'
      * @return string 'move'
      */
-    private const MOVE = 'move';
+    protected const MOVE = 'move';
 
     /**
      * Constant for value 'spam'
      * @return string 'spam'
      */
-    private const SPAM = 'spam';
+    protected const SPAM = 'spam';
 
     /**
      * Constant for value 'trash'
      * @return string 'trash'
      */
-    private const TRASH = 'trash';
+    protected const TRASH = 'trash';
 }

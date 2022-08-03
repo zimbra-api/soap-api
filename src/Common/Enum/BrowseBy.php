@@ -27,17 +27,17 @@ class BrowseBy extends Enum
      * Constant for value 'domains'
      * @return string 'domains'
      */
-    private const DOMAINS = 'domains';
+    protected const DOMAINS = 'domains';
 
     /**
      * Constant for value 'attachments'
      * @return string 'attachments'
      */
-    private const ATTACHMENTS = 'attachments';
+    protected const ATTACHMENTS = 'attachments';
 
     /**
      * Constant for value 'objects'
      * @return string 'objects'
      */
-    private const OBJECTS = 'objects';
+    protected const OBJECTS = 'objects';
 }

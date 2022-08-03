@@ -27,23 +27,23 @@ class AutoProvTaskStatus extends Enum
      * Constant for value 'started'
      * @return string 'started'
      */
-    private const STARTED = 'started';
+    protected const STARTED = 'started';
 
     /**
      * Constant for value 'running'
      * @return string 'running'
      */
-    private const RUNNING = 'running';
+    protected const RUNNING = 'running';
 
     /**
      * Constant for value 'idle'
      * @return string 'idle'
      */
-    private const IDLE = 'idle';
+    protected const IDLE = 'idle';
 
     /**
      * Constant for value 'stopped'
      * @return string 'stopped'
      */
-    private const STOPPED = 'stopped';
+    protected const STOPPED = 'stopped';
 }
