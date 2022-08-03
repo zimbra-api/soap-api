@@ -10,8 +10,7 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\Context;
-use JMS\Serializer\GraphNavigatorInterface;
+use JMS\Serializer\{Context, GraphNavigatorInterface};
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
 use JMS\Serializer\Visitor\{
     DeserializationVisitorInterface,
@@ -53,7 +52,9 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
         ];
     }
 
-    public function serializeEnum(SerializationVisitorInterface $visitor, Enum $enum, array $type, Context $context)
+    public function serializeEnum(
+        SerializationVisitorInterface $visitor, Enum $enum, array $type, Context $context
+    ): \DOMText
     {
         $mappedClass = $this->getEnumClass($type);
         $actualClass = get_class($enum);
@@ -68,7 +69,9 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
         return $visitor->visitString($enum->getValue(), $type);
     }
 
-    public function deserializeEnum(DeserializationVisitorInterface $visitor, $data, array $type, Context $context): Enum
+    public function deserializeEnum(
+        DeserializationVisitorInterface $visitor, $data, array $type, Context $context
+    ): Enum
     {
         $enumClass = $this->getEnumClass($type);
         return new $enumClass((string) $data);

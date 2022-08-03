@@ -10,9 +10,7 @@
 
 namespace Zimbra\Common\Serializer;
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
-use JMS\Serializer\Handler\HandlerRegistryInterface;
-use JMS\Serializer\Handler\SubscribingHandlerInterface;
+use JMS\Serializer\Handler\{HandlerRegistryInterface, SubscribingHandlerInterface};
 use JMS\Serializer\{SerializerBuilder, SerializerInterface};
 
 /**
@@ -79,7 +77,7 @@ final class SerializerFactory
     public static function create(): SerializerInterface
     {
         if (!(self::$builder instanceof SerializerBuilder)) {
-            AnnotationRegistry::registerLoader('class_exists');
+            self::addSerializerHandler(new EnumSerializerHandler());
             self::$builder = SerializerBuilder::create();
         }
 
@@ -91,7 +89,6 @@ final class SerializerFactory
         }
 
         return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
-            $registry->registerSubscribingHandler(new EnumSerializerHandler());
             if (!empty(self::$serializerHandlers)) {
                 foreach (self::$serializerHandlers as $key => $handler) {
                     $registry->registerSubscribingHandler($handler);
