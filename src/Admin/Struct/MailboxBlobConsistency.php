@@ -236,7 +236,7 @@ class MailboxBlobConsistency
     /**
      * Add incorrect revision
      *
-     * @param  IncorrectBlobRevisionInfo $item
+     * @param  IncorrectBlobRevisionInfo $incorrectRevision
      * @return self
      */
     public function addIncorrectRevision(IncorrectBlobRevisionInfo $incorrectRevision): self
@@ -248,7 +248,7 @@ class MailboxBlobConsistency
     /**
      * Set incorrect revisions
      *
-     * @param  IncorrectRevisionsWrapper $revisions
+     * @param  array $revisions
      * @return self
      */
     public function setIncorrectRevisions(array $revisions): self
@@ -282,7 +282,7 @@ class MailboxBlobConsistency
     /**
      * Set used blobs
      *
-     * @param  UsedBlobsWrapper $blobs
+     * @param  array $blobs
      * @return self
      */
     public function setUsedBlobs(array $blobs): self

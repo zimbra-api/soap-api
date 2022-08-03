@@ -54,8 +54,8 @@ class ReindexProgressInfo
      * Constructor method for ReindexProgressInfo
      *
      * @param int $numSucceeded
-     * @param string $numFailed
-     * @param string $numRemaining
+     * @param int $numFailed
+     * @param int $numRemaining
      * @return self
      */
     public function __construct(

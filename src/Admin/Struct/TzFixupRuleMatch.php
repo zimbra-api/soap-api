@@ -55,19 +55,19 @@ class TzFixupRuleMatch
      * Rules
      * @Accessor(getter="getRules", setter="setRules")
      * @SerializedName("rules")
-     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchRules")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?TZFixupRuleMatchRules $rules = NULL;
+    private ?TzFixupRuleMatchRules $rules = NULL;
 
     /**
      * Dates
      * @Accessor(getter="getDates", setter="setDates")
      * @SerializedName("dates")
-     * @Type("Zimbra\Admin\Struct\TZFixupRuleMatchDates")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?TZFixupRuleMatchDates $dates = NULL;
+    private ?TzFixupRuleMatchDates $dates = NULL;
 
     /**
      * Constructor method for TzFixupRuleMatch

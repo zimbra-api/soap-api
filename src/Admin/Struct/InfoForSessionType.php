@@ -105,7 +105,7 @@ class InfoForSessionType
     /**
      * Get activeSessions
      *
-     * @return string
+     * @return int
      */
     public function getActiveSessions(): int
     {

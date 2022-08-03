@@ -223,8 +223,8 @@ class MailboxInfo
     /**
      * Set groupId
      *
-     * @param  int $canExpand
-     * @return bool
+     * @param  int $groupId
+     * @return self
      */
     public function setGroupId(int $groupId): self
     {
@@ -333,7 +333,7 @@ class MailboxInfo
     /**
      * Set sizeCheckPoint
      *
-     * @param  int $tagNames
+     * @param  int $sizeCheckPoint
      * @return self
      */
     public function setSizeCheckPoint(int $sizeCheckPoint): self

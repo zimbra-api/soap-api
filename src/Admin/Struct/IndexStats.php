@@ -45,7 +45,7 @@ class IndexStats
      * Constructor method for IndexStats
      *
      * @param int $maxDocs
-     * @param string $numDeletedDocs
+     * @param int $numDeletedDocs
      * @return self
      */
     public function __construct(int $maxDocs = 0, int $numDeletedDocs = 0)

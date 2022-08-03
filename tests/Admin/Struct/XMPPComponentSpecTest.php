@@ -22,12 +22,12 @@ class XMPPComponentSpecTest extends ZimbraTestCase
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $server = new ServerSelector(ServerBy::NAME(), $value);
 
-        $xmpp = new StubXMPPComponentSpec($name, $domain, $server);
+        $xmpp = new StubXMPPComponentSpec($domain, $server, $name);
         $this->assertSame($name, $xmpp->getName());
         $this->assertSame($domain, $xmpp->getDomain());
         $this->assertSame($server, $xmpp->getServer());
 
-        $xmpp = new StubXMPPComponentSpec('', new DomainSelector(), new ServerSelector());
+        $xmpp = new StubXMPPComponentSpec(new DomainSelector(), new ServerSelector());
         $xmpp->setName($name)
              ->setDomain($domain)
              ->setServer($server)

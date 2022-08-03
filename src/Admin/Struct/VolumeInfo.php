@@ -377,7 +377,7 @@ class VolumeInfo
     /**
      * Set the root path
      *
-     * @param  string $rootpath
+     * @param  string $rootPath
      * @return self
      */
     public function setRootPath(string $rootPath): self

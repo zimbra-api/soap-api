@@ -59,7 +59,7 @@ class HostStats
     /**
      * Get hostName
      *
-     * @return hostName
+     * @return string
      */
     public function getHostName(): string
     {

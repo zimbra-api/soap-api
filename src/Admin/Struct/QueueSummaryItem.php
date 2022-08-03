@@ -70,7 +70,7 @@ class QueueSummaryItem
     /**
      * Set count
      *
-     * @param  int $target
+     * @param  int $count
      * @return self
      */
     public function setCount(int $count): self

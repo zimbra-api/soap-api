@@ -133,7 +133,7 @@ class WaitSetInfo
      * @param string $defaultInterests
      * @param int    $lastAccessDate
      * @param array $errors
-     * @param string $signalledAccounts
+     * @param AccountsAttrib $signalledAccounts
      * @param string $cbSeqNo
      * @param string $currentSeqNo
      * @param string $nextSeqNo
@@ -233,7 +233,7 @@ class WaitSetInfo
     /**
      * Set defaultInterests
      *
-     * @param  int $defaultInterests
+     * @param  string $defaultInterests
      * @return self
      */
     public function setDefaultInterests(string $defaultInterests): self

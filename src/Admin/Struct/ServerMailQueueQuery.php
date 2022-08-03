@@ -43,7 +43,7 @@ class ServerMailQueueQuery
 
     /**
      * Constructor method for ServerMailQueueQuery
-     * @param  MailQueueQuery $query
+     * @param  MailQueueQuery $queue
      * @param  string $name
      * @return self
      */

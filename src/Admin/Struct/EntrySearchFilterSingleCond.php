@@ -105,7 +105,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     /**
      * Get operator
      *
-     * @return Op
+     * @return ConditionOperator
      */
     public function getOp(): ConditionOperator
     {
@@ -115,7 +115,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     /**
      * Set operator
      *
-     * @param  string $op
+     * @param  ConditionOperator $op
      * @return self
      */
     public function setOp(ConditionOperator $op): self

@@ -1221,7 +1221,7 @@ EOT;
 
         $api = new StubAdminApi($this->mockSoapClient($xml));
         $response = $api->createXMPPComponent(new \Zimbra\Admin\Struct\XMPPComponentSpec(
-            $name, new \Zimbra\Admin\Struct\DomainSelector(), new \Zimbra\Admin\Struct\ServerSelector()
+            new \Zimbra\Admin\Struct\DomainSelector(), new \Zimbra\Admin\Struct\ServerSelector(), $name
         ));
         $xmpp = new \Zimbra\Admin\Struct\XMPPComponentInfo($name, $id, $domainName, $serverName, [
             new \Zimbra\Admin\Struct\Attr($key, $value)
@@ -3215,7 +3215,7 @@ EOT;
         $entries = new \Zimbra\Admin\Struct\RightsEntriesInfo($rights, [new \Zimbra\Common\Struct\NamedElement($name)]);
 
         $targetInfo = new \Zimbra\Admin\Struct\EffectiveRightsTargetInfo(
-            \Zimbra\Common\Enum\TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]
+            $setAttrs, $getAttrs, \Zimbra\Common\Enum\TargetType::ACCOUNT(), $id, $name, [$right]
         );
 
         $this->assertEquals($granteeInfo, $response->getGrantee());

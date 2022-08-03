@@ -70,7 +70,7 @@ class MailboxStats
     /**
      * Set numMboxes
      *
-     * @param  int $target
+     * @param  int $numMboxes
      * @return self
      */
     public function setNumMboxes(int $numMboxes): self

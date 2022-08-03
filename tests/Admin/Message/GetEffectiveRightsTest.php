@@ -68,7 +68,7 @@ class GetEffectiveRightsTest extends ZimbraTestCase
         $inDomains = new InDomainInfo($rights, [$domain]);
         $entries = new RightsEntriesInfo($rights, [$entry]);
 
-        $targetInfo = new EffectiveRightsTargetInfo(TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]);
+        $targetInfo = new EffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), $id, $name, [$right]);
 
         $request = new GetEffectiveRightsRequest($targetSelector, $granteeSelector, TRUE, TRUE);
         $this->assertSame(

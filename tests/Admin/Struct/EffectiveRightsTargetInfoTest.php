@@ -32,12 +32,12 @@ class EffectiveRightsTargetInfoTest extends ZimbraTestCase
         $setAttrs = new EffectiveAttrsInfo(TRUE, [$attr]);
         $getAttrs = new EffectiveAttrsInfo(FALSE, [$attr]);
 
-        $target = new StubEffectiveRightsTargetInfo(TargetType::ACCOUNT(), $id, $name, $setAttrs, $getAttrs, [$right]);
+        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), $id, $name, [$right]);
         $this->assertEquals(TargetType::ACCOUNT(), $target->getType());
         $this->assertSame($id, $target->getId());
         $this->assertSame($name, $target->getName());
 
-        $target = new StubEffectiveRightsTargetInfo(TargetType::ACCOUNT(), '', '', $setAttrs, $getAttrs, [$right]);
+        $target = new StubEffectiveRightsTargetInfo($setAttrs, $getAttrs, TargetType::ACCOUNT(), '', '', [$right]);
         $target->setType(TargetType::DOMAIN())
             ->setId($id)
             ->setName($name);

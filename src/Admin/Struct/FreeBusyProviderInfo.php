@@ -139,7 +139,7 @@ class FreeBusyProviderInfo
     /**
      * Set propagate
      *
-     * @param  string $propagate
+     * @param  bool $propagate
      * @return self
      */
     public function setPropagate(bool $propagate): self
@@ -205,10 +205,10 @@ class FreeBusyProviderInfo
     /**
      * Set queue
      *
-     * @param  string $target
+     * @param  string $queue
      * @return self
      */
-    public function setQueue($queue): self
+    public function setQueue(string $queue): self
     {
         $this->queue = $queue;
         return $this;
@@ -230,7 +230,7 @@ class FreeBusyProviderInfo
      * @param  string $prefix
      * @return self
      */
-    public function setPrefix($prefix): self
+    public function setPrefix(string $prefix): self
     {
         $this->prefix = $prefix;
         return $this;

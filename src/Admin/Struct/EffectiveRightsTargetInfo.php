@@ -53,20 +53,21 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 
     /**
      * Constructor method for EffectiveRightsTargetInfo
+     * 
+     * @param  EffectiveAttrsInfo $setAttrs
+     * @param  EffectiveAttrsInfo $getAttrs
      * @param  TargetType $type
      * @param  string $id
      * @param  string $name
-     * @param  EffectiveAttrsInfo $setAttrs
-     * @param  EffectiveAttrsInfo $getAttrs
      * @param  array $rights
      * @return self
      */
     public function __construct(
+        EffectiveAttrsInfo $setAttrs,
+        EffectiveAttrsInfo $getAttrs,
         ?TargetType $type = NULL,
         string $id = '',
         string $name = '',
-        EffectiveAttrsInfo $setAttrs,
-        EffectiveAttrsInfo $getAttrs,
         array $rights = []
     )
     {

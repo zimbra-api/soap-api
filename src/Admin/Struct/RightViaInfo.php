@@ -80,7 +80,7 @@ class RightViaInfo
     /**
      * Set target
      *
-     * @param  TargetWithType $query
+     * @param  TargetWithType $target
      * @return self
      */
     public function setTarget(TargetWithType $target)
@@ -102,7 +102,7 @@ class RightViaInfo
     /**
      * Set grantee
      *
-     * @param  GranteeWithType $query
+     * @param  GranteeWithType $grantee
      * @return self
      */
     public function setGrantee(GranteeWithType $grantee)

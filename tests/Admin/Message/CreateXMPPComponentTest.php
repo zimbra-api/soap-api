@@ -28,10 +28,10 @@ class CreateXMPPComponentTest extends ZimbraTestCase
         $domain = new DomainSelector(DomainBy::NAME(), $value);
         $server = new ServerSelector(ServerBy::NAME(), $value);
 
-        $xmppSpec = new XMPPComponentSpec($name, $domain, $server, [$attr]);
+        $xmppSpec = new XMPPComponentSpec($domain, $server, $name, [$attr]);
         $request = new CreateXMPPComponentRequest($xmppSpec);
         $this->assertSame($xmppSpec, $request->getComponent());
-        $request = new CreateXMPPComponentRequest(new XMPPComponentSpec($name, $domain, $server));
+        $request = new CreateXMPPComponentRequest(new XMPPComponentSpec($domain, $server));
         $request->setComponent($xmppSpec);
         $this->assertSame($xmppSpec, $request->getComponent());
 

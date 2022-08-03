@@ -92,7 +92,7 @@ class TypeIdName
     /**
      * Get name
      *
-     * @return name
+     * @return string
      */
     public function getName(): string
     {

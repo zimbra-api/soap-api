@@ -52,16 +52,17 @@ class XMPPComponentSpec extends AdminAttrsImpl
 
     /**
      * Constructor method for XmppComponentSpec
-     * @param string $name
+     * 
      * @param DomainSelector $domain
      * @param ServerSelector $server
+     * @param string $name
      * @param array $attrs
      * @return self
      */
     public function __construct(
-        string $name = '',
         DomainSelector $domain,
         ServerSelector $server,
+        string $name = '',
         array $attrs = []
     )
     {

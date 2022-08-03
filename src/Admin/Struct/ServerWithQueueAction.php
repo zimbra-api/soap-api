@@ -43,7 +43,8 @@ class ServerWithQueueAction
 
     /**
      * Constructor method for ServerWithQueueAction
-     * @param  MailQueueWithAction $query
+     * 
+     * @param  MailQueueWithAction $queue
      * @param  string $name
      * @return self
      */

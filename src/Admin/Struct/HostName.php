@@ -33,7 +33,7 @@ class HostName
 
     /**
      * Constructor method for HostName
-     * @param  string $hn Hostname
+     * @param  string $hostName
      * @return self
      */
     public function __construct($hostName = '')

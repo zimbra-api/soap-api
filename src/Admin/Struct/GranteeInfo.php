@@ -94,7 +94,7 @@ class GranteeInfo
     /**
      * Get name
      *
-     * @return name
+     * @return string
      */
     public function getName(): string
     {
