@@ -29,7 +29,7 @@ class SubscribeDistributionListResponse implements SoapResponseInterface
      * Status of subscription attempt
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
-     * @Type("Zimbra\Common\Enum\DistributionListSubscribeStatus")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>")
      * @XmlAttribute
      */
     private SubscribeStatus $status;

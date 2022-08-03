@@ -28,7 +28,7 @@ class FormatInfo
      * Desired response format. Valid values "xml" (default) and "js"
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\RequestFormat")
+     * @Type("Enum<Zimbra\Common\Enum\RequestFormat>")
      * @XmlAttribute
      */
     private ?RequestFormat $format = NULL;

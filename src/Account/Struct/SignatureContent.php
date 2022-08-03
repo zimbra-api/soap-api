@@ -27,7 +27,7 @@ class SignatureContent
     /**
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\ContentType")
+     * @Type("Enum<Zimbra\Common\Enum\ContentType>")
      * @XmlAttribute
      */
     private ?ContentType $type = NULL;

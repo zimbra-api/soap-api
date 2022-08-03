@@ -99,6 +99,7 @@ final class SerializerFactory
         }
 
         return self::$builder->configureHandlers(static function (HandlerRegistryInterface $registry) {
+            $registry->registerSubscribingHandler(new EnumSerializerHandler());
             if (!empty(self::$serializerHandlers)) {
                 foreach (self::$serializerHandlers as $key => $handler) {
                     $registry->registerSubscribingHandler($handler);

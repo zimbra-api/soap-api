@@ -28,7 +28,7 @@ class DistributionListGranteeSelector
     /**
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GranteeType")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
      */
     private GranteeType $type;
@@ -36,7 +36,7 @@ class DistributionListGranteeSelector
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
-     * @Type("Zimbra\Common\Enum\DistributionListGranteeBy")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")
      * @XmlAttribute
      */
     private GranteeBy $by;

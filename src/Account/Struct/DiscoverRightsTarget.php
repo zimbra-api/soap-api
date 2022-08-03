@@ -28,7 +28,7 @@ class DiscoverRightsTarget
      * Target type
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\TargetType")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
      */
     private TargetType $type;

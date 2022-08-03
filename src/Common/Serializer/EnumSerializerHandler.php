@@ -68,7 +68,7 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
     public function deserializeEnum(DeserializationVisitorInterface $visitor, $data, array $type, Context $context): Enum
     {
         $enumClass = $this->getEnumClass($type);
-        return new $enumClass($data);
+        return new $enumClass((string) $data);
     }
 
     private function getEnumClass(array $type): string
@@ -79,7 +79,7 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
 
         $enumClass = $type['params'][0]['name'];
         if (!is_subclass_of($enumClass, Enum::class)) {
-            throw new \TypeError(sprintf('Class "%s" is not an Enum', $enumClass);
+            throw new \TypeError(sprintf('Class "%s" is not an Enum', $enumClass));
         }
         return $enumClass;
     }

@@ -50,7 +50,7 @@ class SearchGalRequest extends SoapRequest
      * type of addresses to auto-complete on.
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("Zimbra\Common\Enum\GalSearchType")
+     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
      */
     private ?GalSearchType $type = NULL;
@@ -79,7 +79,7 @@ class SearchGalRequest extends SoapRequest
      * Specify if the "isMember" flag is needed in the response for group entries.
      * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
      * @SerializedName("needIsMember")
-     * @Type("Zimbra\Common\Enum\MemberOfSelector")
+     * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
      * @XmlAttribute
      */
     private ?MemberOfSelector $needIsMember = NULL;

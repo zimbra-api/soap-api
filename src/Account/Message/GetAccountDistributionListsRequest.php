@@ -43,7 +43,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * Possible values: all|directOnly|none
      * @Accessor(getter="getMemberOf", setter="setMemberOf")
      * @SerializedName("memberOf")
-     * @Type("Zimbra\Common\Enum\MemberOfSelector")
+     * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
      * @XmlAttribute
      */
     private ?MemberOfSelector $memberOf = NULL;

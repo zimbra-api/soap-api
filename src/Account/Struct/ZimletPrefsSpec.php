@@ -35,7 +35,7 @@ class ZimletPrefsSpec
     /**
      * @Accessor(getter="getPresence", setter="setPresence")
      * @SerializedName("presence")
-     * @Type("Zimbra\Common\Enum\ZimletStatus")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
      * @XmlAttribute
      */
     private ZimletStatus $presence;

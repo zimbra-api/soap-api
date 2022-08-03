@@ -31,7 +31,7 @@ class SubscribeDistributionListRequest extends SoapRequest
      * The operation to perform.
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
-     * @Type("Zimbra\Common\Enum\DistributionListSubscribeOp")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
      */
     private DistributionListSubscribeOp $op;

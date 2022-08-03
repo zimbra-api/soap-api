@@ -95,7 +95,7 @@ class AccountDataSource implements DataSource
      * If not set on data source, fallback to the id on global config.
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
-     * @Type("Zimbra\Common\Enum\ConnectionType")
+     * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
      */
     private ?ConnectionType $connectionType = NULL;
