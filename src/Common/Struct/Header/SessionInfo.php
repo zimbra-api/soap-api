@@ -85,9 +85,8 @@ class SessionInfo
     }
 
     /**
-     * Get an sessionProxied
+     * Get sessionProxied
      *
-     * @param  bool $sessionProxied
      * @return bool
      */
     public function getSessionProxied(): ?bool
@@ -121,7 +120,7 @@ class SessionInfo
      * Set session ID
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
     public function setSessionId(string $id): self
     {

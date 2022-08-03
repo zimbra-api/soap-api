@@ -474,7 +474,7 @@ interface MailApiInterface extends AccountApiInterface
     /**
      * Create a search folder
      *
-     * @param  NewSearchFolderSpec $note
+     * @param  NewSearchFolderSpec $searchFolder
      * @return Message\CreateSearchFolderResponse
      */
     function createSearchFolder(NewSearchFolderSpec $searchFolder): ?Message\CreateSearchFolderResponse;
@@ -500,7 +500,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param  bool $wantHtml
      * @param  bool $neuter
      * @param  bool $forceSend
-     * @return Message\CreateAppointmentExceptionResponse
+     * @return Message\CreateTaskExceptionResponse
      */
     function createTaskException(
         ?string $id = NULL,
@@ -913,7 +913,7 @@ interface MailApiInterface extends AccountApiInterface
     /**
      * Get data source usage
      *
-     * @return Message\GetDataSourcesResponse
+     * @return Message\GetDataSourceUsageResponse
      */
     function getDataSourceUsage(): ?Message\GetDataSourceUsageResponse;
 
@@ -1036,7 +1036,7 @@ interface MailApiInterface extends AccountApiInterface
     /**
      * Returns the last ID assigned to an item successfully created in the mailbox
      *
-     * @return Message\GetItemResponse
+     * @return Message\GetLastItemIdInMailboxResponse
      */
     function getLastItemIdInMailbox(): ?Message\GetLastItemIdInMailboxResponse;
 
@@ -1437,7 +1437,7 @@ interface MailApiInterface extends AccountApiInterface
      * Modify Search Folder
      *
      * @param  ModifySearchFolderSpec $searchFolder
-     * @return Message\ModifyProfileImageResponse
+     * @return Message\ModifySearchFolderResponse
      */
     function modifySearchFolder(
         ModifySearchFolderSpec $searchFolder
@@ -1690,7 +1690,7 @@ interface MailApiInterface extends AccountApiInterface
     /**
      * Search action
      *
-     * @param  SearchRequest $searchRequest
+     * @param  Message\SearchRequest $searchRequest
      * @param  BulkAction $bulkAction
      * @return Message\SearchActionResponse
      */
@@ -1731,7 +1731,7 @@ interface MailApiInterface extends AccountApiInterface
      * @param CalTZInfo $calTz
      * @param string $locale
      * @param CursorInfo $cursor
-     * @param string $wantContent
+     * @param MsgContent $wantContent
      * @param bool $includeMemberOf
      * @param bool $warmup
      * @return Message\SearchResponse
@@ -2064,8 +2064,8 @@ interface MailApiInterface extends AccountApiInterface
      * @param  string $lastKnownSeqNo
      * @param  bool $block
      * @param  string $defaultInterests
-     * @param  string $timeout
-     * @param  string $expand
+     * @param  int $timeout
+     * @param  bool $expand
      * @param  array $addAccounts
      * @param  array $updateAccounts
      * @param  array $removeAccounts

@@ -39,7 +39,7 @@ class Exception extends \RuntimeException implements ExceptionInterface
     public function __construct(SoapFaultInterface $soapFault, int $code = 0)
     {
         parent::__construct($soapFault->faultString(), $code);
-        $this->getSoapFault = $soapFault;
+        $this->soapFault = $soapFault;
     }
 
     /**
@@ -47,6 +47,6 @@ class Exception extends \RuntimeException implements ExceptionInterface
      */
     public function getSoapFault(): SoapFaultInterface
     {
-        return $this->getSoapFault;
+        return $this->soapFault;
     }
 }

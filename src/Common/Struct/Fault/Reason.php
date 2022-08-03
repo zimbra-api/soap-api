@@ -58,7 +58,7 @@ class Reason
     /**
      * Set text
      *
-     * @param  string $name
+     * @param  string $text
      * @return self
      */
     public function setText(string $text): self

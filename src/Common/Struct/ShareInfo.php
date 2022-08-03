@@ -218,7 +218,7 @@ class ShareInfo
     /**
      * Get folderUuid
      *
-     * @return int
+     * @return string
      */
     public function getFolderUuid(): string
     {
@@ -228,7 +228,7 @@ class ShareInfo
     /**
      * Set folderUuid
      *
-     * @param  int $folderUuid
+     * @param  string $folderUuid
      * @return self
      */
     public function setFolderUuid(string $folderUuid): self

@@ -44,9 +44,8 @@ class AuthTokenControl
     }
 
     /**
-     * Get an voidOnExpired
+     * Get voidOnExpired
      *
-     * @param  bool $voidOnExpired
      * @return bool
      */
     public function getVoidOnExpired(): ?bool

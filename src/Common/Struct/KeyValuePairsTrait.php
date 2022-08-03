@@ -34,9 +34,9 @@ trait KeyValuePairsTrait
     protected $keyValuePairs = [];
 
     /**
-     * Add an attr
+     * Add a kvp
      *
-     * @param  Attr $attr
+     * @param  KeyValuePair $kvp
      * @return self
      */
     public function addKeyValuePair(KeyValuePair $kvp): self

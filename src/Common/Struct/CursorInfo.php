@@ -98,7 +98,7 @@ class CursorInfo
      * Set an id
      *
      * @param  string $id
-     * @return string|self
+     * @return self
      */
     public function setId(string $id): self
     {
@@ -151,9 +151,8 @@ class CursorInfo
     }
 
     /**
-     * Get an includeOffset
+     * Get includeOffset
      *
-     * @param  bool $includeOffset
      * @return bool
      */
     public function getIncludeOffset(): ?bool

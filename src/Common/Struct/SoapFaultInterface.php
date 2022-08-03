@@ -33,7 +33,7 @@ interface SoapFaultInterface
     /**
      * Get the fault reason struct.
      *
-     * @return Code
+     * @return Reason
      */
     function getFaultReason(): ?Reason;
 
