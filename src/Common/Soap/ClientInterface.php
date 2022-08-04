@@ -13,7 +13,7 @@ namespace Zimbra\Common\Soap;
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
- * ClientInterface is a interface which provides a client for SOAP servers
+ * ClientInterface is a interface which provides a client for Zimbra SOAP service
  * 
  * @package    Zimbra
  * @subpackage Common

@@ -16,7 +16,7 @@ use Psr\Http\Message\{
 };
 
 /**
- * Client is a class which provides a http client for SOAP services
+ * Client is a class which provides a client for Zimbra SOAP service
  * 
  * @package    Zimbra
  * @subpackage Common
