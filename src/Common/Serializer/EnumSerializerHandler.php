@@ -10,11 +10,12 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\{Context, GraphNavigatorInterface};
-use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use JMS\Serializer\Visitor\{
-    DeserializationVisitorInterface,
-    SerializationVisitorInterface
+use JMS\Serializer\{
+    Handler\SubscribingHandlerInterface,
+    Visitor\DeserializationVisitorInterface,
+    Visitor\SerializationVisitorInterface,
+    Context,
+    GraphNavigatorInterface,
 };
 use MyCLabs\Enum\Enum;
 

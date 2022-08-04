@@ -10,8 +10,12 @@
 
 namespace Zimbra\Common\Serializer;
 
-use JMS\Serializer\Handler\{HandlerRegistryInterface, SubscribingHandlerInterface};
-use JMS\Serializer\{SerializerBuilder, SerializerInterface};
+use JMS\Serializer\{
+    Handler\HandlerRegistryInterface,
+    Handler\SubscribingHandlerInterface,
+    SerializerBuilder,
+    SerializerInterface,
+};
 
 /**
  * Serializer factory class.
