@@ -13,7 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\ReindexProgressInfo as Progress;
 use Zimbra\Common\Enum\ReIndexStatus  as Status;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ReIndexResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ReIndexResponse implements SoapResponseInterface
+class ReIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|cancelled|idle

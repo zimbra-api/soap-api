@@ -17,7 +17,7 @@ use Zimbra\Admin\Struct\ServerSelector as Server;
 use Zimbra\Common\Enum\AdminFilterType;
 use Zimbra\Common\Struct\AccountSelector as Account;
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetFilterRulesResponse class
@@ -28,7 +28,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GetFilterRulesResponse implements SoapResponseInterface
+class GetFilterRulesResponse extends SoapResponse
 {
     /**
      * Type can be either before or after

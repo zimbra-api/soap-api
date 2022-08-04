@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ConfigureZimletResponse class
@@ -21,6 +21,6 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van 2020 - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ConfigureZimletResponse implements SoapResponseInterface
+class ConfigureZimletResponse extends SoapResponse
 {
 }
