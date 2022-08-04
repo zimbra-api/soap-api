@@ -1,9 +1,9 @@
-Zimbra SOAP
-===========
+Zimbra SOAP API library
+=======================
 This library is a simple Object Oriented wrapper for the Zimbra SOAP API.
 
 ## Requirement
-* PHP >= 7.4.x,
+* PHP 7.4.x or later,
 * [Http Discovery](https://docs.php-http.org/en/latest/discovery.html) library for finding installed clients and message factories,
 * [Serializer](https://jmsyst.com/libs/serializer) library for (de-)serializing XML,
 * [PHP Enum](https://github.com/myclabs/php-enum) library,
@@ -39,7 +39,7 @@ $api->auth('username', 'password');
 $account = $api->getAccountInfo(new AccountSelector(AccountBy::NAME(), 'username'));
 ```
 
-From `$api` object, you can access to all zimbra admin api.
+From `$api` object, you can access to all Zimbra Admin API.
 
 ## Licensing
 [BSD 3-Clause](LICENSE)
