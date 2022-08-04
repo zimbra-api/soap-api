@@ -35,9 +35,7 @@ use Zimbra\Common\Struct\{
  */
 abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
-    const SOAP_CONTENT_TYPE = 'application/soap+xml; charset=utf-8';
     const SERIALIZE_FORMAT  = 'xml';
-    const HTTP_USER_AGENT   = 'Zimbra-Soap-Client';
 
     /**
      * Soap client
@@ -181,12 +179,7 @@ abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, Logger
 
         $requestMessage = $this->getSerializer()->serialize($requestEnvelope, self::SERIALIZE_FORMAT);
         $this->getLogger()->debug('Soap request message', ['request' => $requestMessage]);
-        $response = $this->getClient()->sendRequest(
-            $requestMessage, [
-                'Content-Type' => self::SOAP_CONTENT_TYPE,
-                'User-Agent'   => $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT,
-            ]
-        );
+        $response = $this->getClient()->sendRequest($requestMessage);
 
         $soapResponse = NULL;
         $responseMessage = $response->getBody()->getContents();

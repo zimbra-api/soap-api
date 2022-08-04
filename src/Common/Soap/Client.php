@@ -11,7 +11,6 @@
 namespace Zimbra\Common\Soap;
 
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
-use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Message\{
     RequestFactoryInterface, RequestInterface, ResponseInterface, StreamFactoryInterface
 };
@@ -27,6 +26,8 @@ use Psr\Http\Message\{
  */
 class Client implements ClientInterface
 {
+    const CONTENT_TYPE    = 'application/soap+xml; charset=utf-8';
+    const HTTP_USER_AGENT = 'PHP-Zimbra-Soap-Client';
     const REQUEST_METHOD  = 'POST';
 
     /**
@@ -106,7 +107,9 @@ class Client implements ClientInterface
     {
         $httpRequest = $this->requestFactory
             ->createRequest(self::REQUEST_METHOD, $this->serviceUrl)
-            ->withBody($this->streamFactory->createStream($soapMessage));
+            ->withBody($this->streamFactory->createStream($soapMessage))
+            ->withHeader('Content-Type', self::CONTENT_TYPE)
+            ->withHeader('User-Agent', $_SERVER['HTTP_USER_AGENT'] ?? self::HTTP_USER_AGENT);
         foreach ($headers as $name => $value) {
             $httpRequest = $httpRequest->withHeader($name, $value);
         }
@@ -114,14 +117,9 @@ class Client implements ClientInterface
             $httpRequest = $httpRequest->withHeader('Cookie', $this->cookie);
         }
         $this->httpRequest = $httpRequest;
-        try {
-            $this->httpResponse = $this->httpClient->sendRequest($this->httpRequest);
-            if ($this->httpResponse->hasHeader('Set-Cookie')) {
-                $this->cookie = implode(', ', $this->httpResponse->getHeader('Set-Cookie'));
-            }
-        }
-        catch (ClientExceptionInterface $ex) {
-            throw $ex;
+        $this->httpResponse = $this->httpClient->sendRequest($this->httpRequest);
+        if ($this->httpResponse->hasHeader('Set-Cookie')) {
+            $this->cookie = implode(', ', $this->httpResponse->getHeader('Set-Cookie'));
         }
         return $this->httpResponse;
     }
