@@ -13,7 +13,7 @@ namespace Zimbra\Account\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\ContactInfo;
 use Zimbra\Common\Struct\Id;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SyncGalResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SyncGalResponse implements SoapResponseInterface
+class SyncGalResponse extends SoapResponse
 {
     /**
      * Flags whether there are more results
