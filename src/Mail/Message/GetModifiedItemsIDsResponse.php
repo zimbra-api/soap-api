@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\MiniCalError;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetModifiedItemsIDsResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyinstance © 2020-present by Nguyen Van Nguyen.
  */
-class GetModifiedItemsIDsResponse implements SoapResponseInterface
+class GetModifiedItemsIDsResponse extends SoapResponse
 {
     /**
      * IDs of modified items

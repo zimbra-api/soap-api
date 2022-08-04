@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlValue};
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GenerateUUIDResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GenerateUUIDResponse implements SoapResponseInterface
+class GenerateUUIDResponse extends SoapResponse
 {
     /**
      * Generated globally unique UUID

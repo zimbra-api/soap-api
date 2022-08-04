@@ -17,7 +17,7 @@ use Zimbra\Mail\Struct\{
     ChatMessageInfo
 };
 
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * RemoveAttachmentsResponse class
@@ -28,7 +28,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class RemoveAttachmentsResponse implements SoapResponseInterface
+class RemoveAttachmentsResponse extends SoapResponse
 {
     /**
      * Information about the message

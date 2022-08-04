@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * ImportDataResponse class
@@ -21,6 +21,6 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ImportDataResponse implements SoapResponseInterface
+class ImportDataResponse extends SoapResponse
 {
 }

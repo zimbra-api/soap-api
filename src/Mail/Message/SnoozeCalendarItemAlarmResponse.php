@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{UpdatedAppointmentAlarmInfo, UpdatedTaskAlarmInfo};
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SnoozeCalendarItemAlarmResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class SnoozeCalendarItemAlarmResponse implements SoapResponseInterface
+class SnoozeCalendarItemAlarmResponse extends SoapResponse
 {
     /**
      * Updated appt alarm information so the client knows when to trigger the next alarm

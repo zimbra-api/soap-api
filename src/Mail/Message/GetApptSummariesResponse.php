@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 use Zimbra\Mail\Struct\{LegacyAppointmentData, LegacyTaskData};
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetApptSummariesResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyentry © 2020-present by Nguyen Van Nguyen.
  */
-class GetApptSummariesResponse implements SoapResponseInterface
+class GetApptSummariesResponse extends SoapResponse
 {
     /**
      * Appointment summaries

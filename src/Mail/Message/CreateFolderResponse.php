@@ -14,7 +14,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\Folder;
 use Zimbra\Mail\Struct\Mountpoint;
 use Zimbra\Mail\Struct\SearchFolder;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateFolderResponse class
@@ -25,7 +25,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CreateFolderResponse implements SoapResponseInterface
+class CreateFolderResponse extends SoapResponse
 {
     /**
      * Information about created folder

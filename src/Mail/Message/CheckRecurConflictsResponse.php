@@ -12,7 +12,7 @@ namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 use Zimbra\Mail\Struct\ConflictRecurrenceInstance;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CheckRecurConflictsResponse class
@@ -23,7 +23,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyinstance © 2020-present by Nguyen Van Nguyen.
  */
-class CheckRecurConflictsResponse implements SoapResponseInterface
+class CheckRecurConflictsResponse extends SoapResponse
 {
     /**
      * Information on conflicting instances

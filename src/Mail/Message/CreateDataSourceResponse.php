@@ -22,7 +22,7 @@ use Zimbra\Mail\Struct\{
     CalDataSourceId,
     UnknownDataSourceId
 };
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * CreateDataSourceResponse class
@@ -33,7 +33,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CreateDataSourceResponse implements SoapResponseInterface
+class CreateDataSourceResponse extends SoapResponse
 {
     /**
      * Imap data source

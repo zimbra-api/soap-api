@@ -11,8 +11,7 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\Id;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * CreateCalendarItemResponse class
@@ -24,7 +23,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class CreateCalendarItemResponse implements SoapResponseInterface
+class CreateCalendarItemResponse extends SoapResponse
 {
     /**
      * Appointment ID

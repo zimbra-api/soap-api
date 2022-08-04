@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Common\Struct\Id;
 use Zimbra\Mail\Struct\ExceptIdInfo;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * SetAppointmentResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyentry © 2020-present by Nguyen Van Nguyen.
  */
-class SetAppointmentResponse implements SoapResponseInterface
+class SetAppointmentResponse extends SoapResponse
 {
     /**
      * Appointment ID

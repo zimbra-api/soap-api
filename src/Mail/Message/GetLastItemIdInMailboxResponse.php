@@ -11,7 +11,7 @@
 namespace Zimbra\Mail\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * GetLastItemIdInMailboxResponse class
@@ -22,7 +22,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class GetLastItemIdInMailboxResponse implements SoapResponseInterface
+class GetLastItemIdInMailboxResponse extends SoapResponse
 {
     /**
      * ID of last item created in mailbox

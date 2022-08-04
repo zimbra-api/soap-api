@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Mail\Struct\ImapCursorInfo;
 use Zimbra\Mail\Struct\ImapMessageInfo;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * OpenIMAPFolderResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class OpenIMAPFolderResponse implements SoapResponseInterface
+class OpenIMAPFolderResponse extends SoapResponse
 {
     /**
      * Flag whether can be cached

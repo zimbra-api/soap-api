@@ -13,7 +13,7 @@ namespace Zimbra\Mail\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Common\Struct\{IdAndType, WaitSetResp};
 use Zimbra\Mail\Struct\AccountWithModifications;
-use Zimbra\Common\Struct\SoapResponseInterface;
+use Zimbra\Common\Struct\SoapResponse;
 
 /**
  * WaitSetResponse class
@@ -24,7 +24,7 @@ use Zimbra\Common\Struct\SoapResponseInterface;
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class WaitSetResponse implements WaitSetResp, SoapResponseInterface
+class WaitSetResponse extends SoapResponse implements WaitSetResp
 {
     /**
      * WaitSet ID
