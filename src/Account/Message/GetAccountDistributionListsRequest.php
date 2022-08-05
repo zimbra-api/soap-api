@@ -32,6 +32,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     /**
      * Set to 1 if the response should include groups the user is an owner of.
      * Set to 0 (default) if do not need to know which groups the user is an owner of.
+     * 
      * @Accessor(getter="getOwnerOf", setter="setOwnerOf")
      * @SerializedName("ownerOf")
      * @Type("bool")
@@ -41,6 +42,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
 
     /**
      * Possible values: all|directOnly|none
+     * 
      * @Accessor(getter="getMemberOf", setter="setMemberOf")
      * @SerializedName("memberOf")
      * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
@@ -52,6 +54,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
      * comma-seperated attributes to return.
      * Note: non-owner user can see only certain attributes of a group.
      * If a specified attribute is not visible to the user, it will not be returned.
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("string")
@@ -60,7 +63,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     private $attrs;
 
     /**
-     * Constructor method for GetAccountDistributionLists
+     * Constructor
      *
      * @param  bool $ownerOf
      * @param  MemberOfSelector $memberOf
@@ -151,9 +154,7 @@ class GetAccountDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -34,7 +34,7 @@ class DiscoverRightsResponse extends SoapResponse
     private $discoveredRights = [];
 
     /**
-     * Constructor method for DiscoverRightsResponse
+     * Constructor
      * 
      * @param  array $targets
      * @return self

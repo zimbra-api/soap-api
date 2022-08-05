@@ -26,9 +26,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetAllLocalesRequest extends SoapRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

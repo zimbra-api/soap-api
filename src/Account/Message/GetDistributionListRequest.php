@@ -31,6 +31,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
 
     /**
      * Whether to return owners, default is 0 (i.e. Don't return owners)
+     * 
      * @Accessor(getter="getNeedOwners", setter="setNeedOwners")
      * @SerializedName("needOwners")
      * @Type("bool")
@@ -40,6 +41,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
 
     /**
      * return grants for the specified (comma-seperated) rights. e.g. needRights="sendToDistList,viewDistList"
+     * 
      * @Accessor(getter="getNeedRights", setter="setNeedRights")
      * @SerializedName("needRights")
      * @Type("string")
@@ -49,6 +51,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
 
     /**
      * Specify the distribution list
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
@@ -57,7 +60,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     private DistributionListSelector $dl;
 
     /**
-     * Constructor method for GetDistributionListRequest
+     * Constructor
      * 
      * @param  DistributionListSelector $dl
      * @param  bool $needOwners
@@ -149,9 +152,7 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

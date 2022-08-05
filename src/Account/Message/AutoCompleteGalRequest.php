@@ -30,6 +30,7 @@ class AutoCompleteGalRequest extends SoapRequest
 {
     /**
      * The name to test for autocompletion
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,6 +45,7 @@ class AutoCompleteGalRequest extends SoapRequest
      * - "group" for groups 
      * - "all" for combination of all types 
      * if omitted, defaults to "account"
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
@@ -54,6 +56,7 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
+     * 
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
@@ -63,6 +66,7 @@ class AutoCompleteGalRequest extends SoapRequest
 
     /**
      * GAL Account ID
+     * 
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
@@ -72,6 +76,7 @@ class AutoCompleteGalRequest extends SoapRequest
 
     /**
      * An integer specifying the maximum number of results to return
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -80,7 +85,7 @@ class AutoCompleteGalRequest extends SoapRequest
     private $limit;
 
     /**
-     * Constructor method for AutoCompleteGal
+     * Constructor
      *
      * @param  string $name
      * @param  GalSearchType $type
@@ -223,9 +228,7 @@ class AutoCompleteGalRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

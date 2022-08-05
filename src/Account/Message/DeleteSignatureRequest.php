@@ -29,6 +29,7 @@ class DeleteSignatureRequest extends SoapRequest
 {
     /**
      * The signature to delete
+     * 
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
@@ -37,7 +38,7 @@ class DeleteSignatureRequest extends SoapRequest
     private NameId $signature;
 
     /**
-     * Constructor method for DeleteSignatureRequest
+     * Constructor
      * 
      * @param NameId $signature
      * @return self
@@ -70,9 +71,7 @@ class DeleteSignatureRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

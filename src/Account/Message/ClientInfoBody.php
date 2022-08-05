@@ -41,8 +41,10 @@ class ClientInfoBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ClientInfoBody
+     * Constructor
      *
+     * @param  ClientInfoRequest $request
+     * @param  ClientInfoResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class ClientInfoBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ClientInfoRequest) {
@@ -60,11 +65,17 @@ class ClientInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ClientInfoResponse) {
@@ -73,6 +84,9 @@ class ClientInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

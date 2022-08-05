@@ -38,6 +38,7 @@ class AuthRequest extends SoapRequest
      * Controls whether the auth token cookie in the response should be persisted when the browser exits.
      * - 0: (default) the cookie will be deleted when the Web browser exits.
      * - 1: The "Expires" attribute of the cookie will be set per rfc6265.
+     * 
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
@@ -48,7 +49,8 @@ class AuthRequest extends SoapRequest
     /**
      * Controls whether the client supports CSRF token
      * - 0: (default) Client does not support CSRF token
-     * - 1: The client supports CSRF token. 
+     * - 1: The client supports CSRF token.
+     * 
      * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
@@ -58,6 +60,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Specifies the account to authenticate against
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -67,6 +70,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Password to use in conjunction with an account
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -76,6 +80,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * RecoveryCode to use in conjunction with an account in case of forgot password flow.
+     * 
      * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
      * @SerializedName("recoveryCode")
      * @Type("string")
@@ -85,6 +90,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * The preauth
+     * 
      * @Accessor(getter="getPreauth", setter="setPreauth")
      * @SerializedName("preauth")
      * @Type("Zimbra\Account\Struct\PreAuth")
@@ -94,6 +100,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
+     * 
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("Zimbra\Account\Struct\AuthToken")
@@ -103,6 +110,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * JWT auth token
+     * 
      * @Accessor(getter="getJwtToken", setter="setJwtToken")
      * @SerializedName("jwtToken")
      * @Type("string")
@@ -112,6 +120,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
+     * 
      * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
      * @SerializedName("virtualHost")
      * @Type("string")
@@ -121,6 +130,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Requested preference settings.
+     * 
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @SerializedName("prefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
@@ -131,6 +141,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Requested attribute settings. Only attributes that are allowed to be returned by GetInfo will be returned by this call
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
@@ -141,6 +152,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * The requestedSkin. If specified the name of the skin requested by the client.
+     * 
      * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
      * @SerializedName("requestedSkin")
      * @Type("string")
@@ -150,6 +162,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * The TOTP code used for two-factor authentication
+     * 
      * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
      * @SerializedName("twoFactorCode")
      * @Type("string")
@@ -159,6 +172,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Whether the client represents a trusted device
+     * 
      * @Accessor(getter="getDeviceTrusted", setter="setDeviceTrusted")
      * @SerializedName("deviceTrusted")
      * @Type("bool")
@@ -168,6 +182,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Whether the client represents a trusted device
+     * 
      * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
      * @SerializedName("trustedToken")
      * @Type("string")
@@ -177,6 +192,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * Unique device identifier; used to verify trusted mobile devices
+     * 
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
@@ -194,6 +210,7 @@ class AuthRequest extends SoapRequest
 
     /**
      * type of token to be returned, it can be auth or jwt
+     * 
      * @Accessor(getter="getTokenType", setter="setTokenType")
      * @SerializedName("tokenType")
      * @Type("string")
@@ -202,9 +219,9 @@ class AuthRequest extends SoapRequest
     private $tokenType;
 
     /**
-     * Constructor method for AuthRequest
+     * Constructor
      *
-     * @param  AccountSelector   $account
+     * @param  AccountSelector $account
      * @param  string    $password
      * @param  string    $recoveryCode
      * @param  PreAuth   $preauth
@@ -718,9 +735,7 @@ class AuthRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

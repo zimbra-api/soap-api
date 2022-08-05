@@ -35,7 +35,7 @@ class GetIdentitiesResponse extends SoapResponse
     private $identities = [];
 
     /**
-     * Constructor method for GetIdentitiesResponse
+     * Constructor
      *
      * @param array $identities
      * @return self

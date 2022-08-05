@@ -31,6 +31,7 @@ class CreateSignatureRequest extends SoapRequest
 {
     /**
      * Details of the signature to be created
+     * 
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\Signature")
@@ -39,7 +40,7 @@ class CreateSignatureRequest extends SoapRequest
     private Signature $signature;
 
     /**
-     * Constructor method for CreateSignatureRequest
+     * Constructor
      * 
      * @param Signature $signature
      * @return self
@@ -72,9 +73,7 @@ class CreateSignatureRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

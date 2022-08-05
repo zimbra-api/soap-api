@@ -27,6 +27,7 @@ class GetAccountDistributionListsResponse extends SoapResponse
 {
     /**
      * Information on distribution lists
+     * 
      * @Accessor(getter="getDlList", setter="setDlList")
      * @Type("array<Zimbra\Account\Struct\DLInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class GetAccountDistributionListsResponse extends SoapResponse
     private $dlList = [];
 
     /**
-     * Constructor method for GetAccountDistributionListsResponse
+     * Constructor
      * 
      * @param  array $dlList
      * @return self

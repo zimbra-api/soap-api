@@ -27,6 +27,7 @@ class GetShareInfoResponse extends SoapResponse
 {
     /**
      * Shares
+     * 
      * @Accessor(getter="getShares", setter="setShares")
      * @Type("array<Zimbra\Common\Struct\ShareInfo>")
      * @XmlList(inline=true, entry="share", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class GetShareInfoResponse extends SoapResponse
     private $shares = [];
 
     /**
-     * Constructor method for GetShareInfoResponse
+     * Constructor
      * 
      * @param  array $shares
      * @return self

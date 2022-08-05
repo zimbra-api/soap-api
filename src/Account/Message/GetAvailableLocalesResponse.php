@@ -35,7 +35,7 @@ class GetAvailableLocalesResponse extends SoapResponse
     private $locales = [];
 
     /**
-     * Constructor method for GetAvailableLocalesResponse
+     * Constructor
      *
      * @param array $locales
      * @return self

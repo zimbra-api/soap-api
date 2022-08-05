@@ -25,9 +25,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetIdentitiesRequest extends SoapRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

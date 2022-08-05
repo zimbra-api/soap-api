@@ -28,6 +28,7 @@ class CheckRightsRequest extends SoapRequest
 {
     /**
      * The targets
+     * 
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
@@ -35,7 +36,7 @@ class CheckRightsRequest extends SoapRequest
     private $targets = [];
 
     /**
-     * Constructor method for CheckRightsRequest
+     * Constructor
      *
      * @param  array $targets
      * @return self
@@ -80,9 +81,7 @@ class CheckRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

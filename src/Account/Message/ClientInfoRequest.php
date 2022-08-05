@@ -27,6 +27,7 @@ class ClientInfoRequest extends SoapRequest
 {
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -35,7 +36,7 @@ class ClientInfoRequest extends SoapRequest
     private DomainSelector $domain;
 
     /**
-     * Constructor method for ClientInfoRequest
+     * Constructor
      *
      * @param  DomainSelector $domain
      * @return self
@@ -68,9 +69,7 @@ class ClientInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -26,6 +26,7 @@ class ChangePasswordResponse extends SoapResponse
 {
     /**
      * New authToken, as old authToken is invalidated on password change.
+     * 
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -35,6 +36,7 @@ class ChangePasswordResponse extends SoapResponse
 
     /**
      * Life time associated with {new-auth-token}
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
@@ -43,7 +45,7 @@ class ChangePasswordResponse extends SoapResponse
     private $lifetime;
 
     /**
-     * Constructor method for ChangePasswordResponse
+     * Constructor
      *
      * @param  string $authToken
      * @param  int $lifetime

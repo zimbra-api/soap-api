@@ -27,6 +27,7 @@ class GetAccountInfoResponse extends SoapResponse
 {
     /**
      * Account name - an email address (user@domain)
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -48,6 +49,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL to talk to for soap service for this account.
+     * 
      * @Accessor(getter="getSoapURL", setter="setSoapURL")
      * @SerializedName("soapURL")
      * @Type("string")
@@ -57,6 +59,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Base public URL for the requested account
+     * 
      * @Accessor(getter="getPublicURL", setter="setPublicURL")
      * @SerializedName("publicURL")
      * @Type("string")
@@ -67,6 +70,7 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * URL to talk to in order to change a password.
      * Not returned if not configured via domain attribute zimbraChangePasswordURL
+     * 
      * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
      * @SerializedName("changePasswordURL")
      * @Type("string")
@@ -76,6 +80,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Zimbra Community URL to load in Community tab.
+     * 
      * @Accessor(getter="getCommunityURL", setter="setCommunityURL")
      * @SerializedName("communityURL")
      * @Type("string")
@@ -85,6 +90,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * base URL for accessing the admin console
+     * 
      * @Accessor(getter="getAdminURL", setter="setAdminURL")
      * @SerializedName("adminURL")
      * @Type("string")
@@ -95,6 +101,7 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Proxy URL for accessing XMPP over BOSH.
      * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
+     * 
      * @Accessor(getter="getBoshURL", setter="setBoshURL")
      * @SerializedName("boshURL")
      * @Type("string")
@@ -103,7 +110,7 @@ class GetAccountInfoResponse extends SoapResponse
     private $boshURL;
 
     /**
-     * Constructor method for GetAccountInfoResponse
+     * Constructor
      *
      * @param string $name
      * @param array $attrs

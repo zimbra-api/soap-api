@@ -30,6 +30,7 @@ class CreateIdentityRequest extends SoapRequest
 {
     /**
      * Details of the new identity to create
+     * 
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
@@ -38,7 +39,7 @@ class CreateIdentityRequest extends SoapRequest
     private Identity $identity;
 
     /**
-     * Constructor method for CreateIdentityRequest
+     * Constructor
      * 
      * @param Identity $identity
      * @return self
@@ -71,9 +72,7 @@ class CreateIdentityRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,8 +41,10 @@ class AuthBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for AuthBody
+     * Constructor
      *
+     * @param  AuthRequest $request
+     * @param  AuthResponse $response
      * @return self
      */
     public function __construct(?AuthRequest $request = NULL, ?AuthResponse $response = NULL)
@@ -50,6 +52,9 @@ class AuthBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof AuthRequest) {
@@ -58,11 +63,17 @@ class AuthBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof AuthResponse) {
@@ -71,6 +82,9 @@ class AuthBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -27,6 +27,7 @@ class AuthResponse extends SoapResponse
 {
     /**
      * The authorization token
+     * 
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -36,6 +37,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * Life time for the authorization
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("integer")
@@ -45,6 +47,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * trust lifetime, if a trusted token is issued
+     * 
      * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
      * @SerializedName("trustLifetime")
      * @Type("integer")
@@ -54,6 +57,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * Session information
+     * 
      * @Accessor(getter="getSession", setter="setSession")
      * @SerializedName("session")
      * @Type("Zimbra\Account\Struct\Session")
@@ -64,6 +68,7 @@ class AuthResponse extends SoapResponse
     /**
      * host additional SOAP requests should be directed to.
      * Always returned, might be same as original host request was sent to.
+     * 
      * @Accessor(getter="getRefer", setter="setRefer")
      * @SerializedName("refer")
      * @Type("string")
@@ -73,6 +78,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * if requestedSkin specified, the name of the skin to use Always returned, might be same as original host request was sent to.
+     * 
      * @Accessor(getter="getSkin", setter="setSkin")
      * @SerializedName("skin")
      * @Type("string")
@@ -81,7 +87,8 @@ class AuthResponse extends SoapResponse
     private $skin;
 
     /**
-     * if client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled .
+     * if client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
+     * 
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
@@ -91,6 +98,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * random secure device ID generated for the requesting device
+     * 
      * @Accessor(getter="getDeviceId", setter="setDeviceId")
      * @SerializedName("deviceId")
      * @Type("string")
@@ -100,6 +108,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * trusted device token
+     * 
      * @Accessor(getter="getTrustedToken", setter="setTrustedToken")
      * @SerializedName("trustedToken")
      * @Type("string")
@@ -109,6 +118,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
+     * 
      * @Accessor(getter="getZmgProxy", setter="setZmgProxy")
      * @SerializedName("zmgProxy")
      * @Type("bool")
@@ -151,7 +161,7 @@ class AuthResponse extends SoapResponse
     private $trustedDevicesEnabled;
 
     /**
-     * Constructor method for AuthResponse
+     * Constructor
      *
      * @param  string  $authToken
      * @param  int     $lifetime

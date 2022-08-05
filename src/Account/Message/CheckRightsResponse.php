@@ -27,6 +27,7 @@ class CheckRightsResponse extends SoapResponse
 {
     /**
      * Rights information for targets
+     * 
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\CheckRightsTargetInfo>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class CheckRightsResponse extends SoapResponse
     private $targets = [];
 
     /**
-     * Constructor method for CheckRightsResponse
+     * Constructor
      * 
      * @param  array $targets
      * @return self

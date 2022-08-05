@@ -30,6 +30,7 @@ class GetShareInfoRequest extends SoapRequest
     /**
      * Flags that have been proxied to this server because the specified "owner account" is
      * homed here.  Do not proxy in this case. (Used internally by ZCS)
+     * 
      * @Accessor(getter="getInternal", setter="setInternal")
      * @SerializedName("internal")
      * @Type("bool")
@@ -41,6 +42,7 @@ class GetShareInfoRequest extends SoapRequest
      * Flag whether own shares should be included:
      * - 0: if shares owned by the requested account should not be included in the response
      * - 1: (default) include shares owned by the requested account 
+     * 
      * @Accessor(getter="getIncludeSelf", setter="setIncludeSelf")
      * @SerializedName("includeSelf")
      * @Type("bool")
@@ -50,6 +52,7 @@ class GetShareInfoRequest extends SoapRequest
 
     /**
      * Filter by the specified grantee type
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
@@ -59,6 +62,7 @@ class GetShareInfoRequest extends SoapRequest
 
     /**
      * Specifies the owner of the share
+     * 
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -67,7 +71,7 @@ class GetShareInfoRequest extends SoapRequest
     private ?AccountSelector $owner = NULL;
 
     /**
-     * Constructor method for GetShareInfoRequest
+     * Constructor
      *
      * @param  GranteeChooser $grantee
      * @param  AccountSelector $owner
@@ -185,9 +189,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

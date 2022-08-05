@@ -38,6 +38,7 @@ class DiscoverRightsRequest extends SoapRequest
 {
     /**
      * The rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
@@ -45,7 +46,7 @@ class DiscoverRightsRequest extends SoapRequest
     private $rights = [];
 
     /**
-     * Constructor method for DiscoverRightsRequest
+     * Constructor
      *
      * @param  array $rights
      * @return self
@@ -92,9 +93,7 @@ class DiscoverRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -35,6 +35,7 @@ class DistributionListActionRequest extends SoapRequest
 {
     /**
      * Identifies the distribution list to act upon
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
@@ -44,6 +45,7 @@ class DistributionListActionRequest extends SoapRequest
 
     /**
      * Specifies the action to perform
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Account\Struct\DistributionListAction")
@@ -52,7 +54,7 @@ class DistributionListActionRequest extends SoapRequest
     private DistributionListAction $action;
 
     /**
-     * Constructor method for DistributionListActionRequest
+     * Constructor
      * 
      * @param DistributionListSelector $dl
      * @param DistributionListAction $action
@@ -109,9 +111,7 @@ class DistributionListActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

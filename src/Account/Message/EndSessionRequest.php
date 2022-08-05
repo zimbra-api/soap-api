@@ -30,6 +30,7 @@ class EndSessionRequest extends SoapRequest
     /**
      * flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
+     * 
      * @Accessor(getter="isLogOff", setter="setLogOff")
      * @SerializedName("logoff")
      * @Type("bool")
@@ -39,6 +40,7 @@ class EndSessionRequest extends SoapRequest
 
     /**
      * flag to clear all web sessions of the user default is 0 (false)
+     * 
      * @Accessor(getter="isClearAllSoapSessions", setter="setClearAllSoapSessions")
      * @SerializedName("all")
      * @Type("bool")
@@ -48,6 +50,7 @@ class EndSessionRequest extends SoapRequest
 
     /**
      * flag to decide current session will be cleared or not default is 0 (false)
+     * 
      * @Accessor(getter="isExcludeCurrentSession", setter="setExcludeCurrentSession")
      * @SerializedName("excludeCurrent")
      * @Type("bool")
@@ -57,6 +60,7 @@ class EndSessionRequest extends SoapRequest
 
     /**
      * end session for given session id
+     * 
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sessionId")
      * @Type("string")
@@ -65,7 +69,7 @@ class EndSessionRequest extends SoapRequest
     private $sessionId;
 
     /**
-     * Constructor method for EndSession
+     * Constructor
      *
      * @param  bool $logoff
      * @param  bool $clearAllSoapSessions
@@ -183,9 +187,7 @@ class EndSessionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

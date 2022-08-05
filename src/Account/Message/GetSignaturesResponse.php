@@ -35,7 +35,7 @@ class GetSignaturesResponse extends SoapResponse
     private $signatures = [];
 
     /**
-     * Constructor method for GetSignaturesResponse
+     * Constructor
      *
      * @param array $signatures
      * @return self

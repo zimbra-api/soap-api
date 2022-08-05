@@ -27,6 +27,7 @@ class CreateIdentityResponse extends SoapResponse
 {
     /**
      * Information about created identity
+     * 
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
@@ -35,7 +36,7 @@ class CreateIdentityResponse extends SoapResponse
     private ?Identity $identity = NULL;
 
     /**
-     * Constructor method for CreateIdentityResponse
+     * Constructor
      *
      * @param Identity $identity
      * @return self

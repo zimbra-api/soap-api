@@ -27,6 +27,7 @@ class ClientInfoResponse extends SoapResponse
 {
     /**
      * Attributes
+     * 
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class ClientInfoResponse extends SoapResponse
     private $attrList = [];
 
     /**
-     * Constructor method for ClientInfoResponse
+     * Constructor
      * 
      * @param  array $attrList
      * @return self

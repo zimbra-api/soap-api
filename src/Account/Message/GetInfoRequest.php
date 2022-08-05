@@ -30,6 +30,7 @@ class GetInfoRequest extends SoapRequest
     /**
      * Comma separated list of sections to return information about.
      * Sections are: mbox,prefs,attrs,zimlets,props,idents,sigs,dsrcs,children
+     * 
      * @Accessor(getter="getSections", setter="setSections")
      * @SerializedName("sections")
      * @Type("string")
@@ -39,6 +40,7 @@ class GetInfoRequest extends SoapRequest
 
     /**
      * Comma separated list of rights to return information about.
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("string")
@@ -47,7 +49,7 @@ class GetInfoRequest extends SoapRequest
     private $rights = [];
 
     /**
-     * Constructor method for GetInfoRequest
+     * Constructor
      * 
      * @param string $sections
      * @param string $rights
@@ -147,9 +149,7 @@ class GetInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

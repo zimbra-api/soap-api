@@ -27,6 +27,7 @@ class GetPrefsResponse extends SoapResponse
 {
     /**
      * Preferences
+     * 
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class GetPrefsResponse extends SoapResponse
     private $prefs = [];
 
     /**
-     * Constructor method for GetPrefsResponse
+     * Constructor
      * 
      * @param  array $prefs
      * @return self

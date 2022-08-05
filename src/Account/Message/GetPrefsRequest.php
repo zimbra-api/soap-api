@@ -30,6 +30,7 @@ class GetPrefsRequest extends SoapRequest
 {
     /**
      * If any of these are specified then only get these preferences
+     * 
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
@@ -37,7 +38,7 @@ class GetPrefsRequest extends SoapRequest
     private $prefs = [];
 
     /**
-     * Constructor method for GetPrefsRequest
+     * Constructor
      *
      * @param  array $prefs
      * @return self
@@ -82,9 +83,7 @@ class GetPrefsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

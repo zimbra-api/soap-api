@@ -27,6 +27,7 @@ class AutoCompleteGalResponse extends SoapResponse
 {
     /**
      * Set to 1 if the results were truncated
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -40,6 +41,7 @@ class AutoCompleteGalResponse extends SoapResponse
      * - Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more generic key,
      *   and it checks cached results instead of issuing another SOAP request to the server.
      *   If search key was tokenized and expanded with AND or OR, this cannot be assumed. 
+     * 
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
@@ -49,6 +51,7 @@ class AutoCompleteGalResponse extends SoapResponse
 
     /**
      * Flag if pagination is supported
+     * 
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("paginationSupported")
      * @Type("bool")
@@ -58,6 +61,7 @@ class AutoCompleteGalResponse extends SoapResponse
 
     /**
      * Contacts matching the autocomplete request
+     * 
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
@@ -65,7 +69,7 @@ class AutoCompleteGalResponse extends SoapResponse
     private $contacts = [];
 
     /**
-     * Constructor method for AutoCompleteGalResponse
+     * Constructor
      *
      * @param  bool $more
      * @param  bool $tokenizeKey

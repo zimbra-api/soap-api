@@ -27,6 +27,7 @@ class GetDistributionListMembersRequest extends SoapRequest
 {
     /**
      * The number of members to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -36,6 +37,7 @@ class GetDistributionListMembersRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -45,6 +47,7 @@ class GetDistributionListMembersRequest extends SoapRequest
 
     /**
      * The name of the distribution list
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("string")
@@ -53,7 +56,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     private $dl;
 
     /**
-     * Constructor method for GetDistributionListMembersRequest
+     * Constructor
      * 
      * @param  string $dl
      * @param  int $limit
@@ -142,9 +145,7 @@ class GetDistributionListMembersRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

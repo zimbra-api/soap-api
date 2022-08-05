@@ -35,7 +35,7 @@ class GetOAuthConsumersResponse extends SoapResponse
     private $consumers = [];
 
     /**
-     * Constructor method for GetOAuthConsumersResponse
+     * Constructor
      *
      * @param array $consumers
      * @return self

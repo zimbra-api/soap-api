@@ -27,6 +27,7 @@ class CreateSignatureResponse extends SoapResponse
 {
     /**
      * Information about created signature
+     * 
      * @Accessor(getter="getSignature", setter="setSignature")
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
@@ -35,7 +36,7 @@ class CreateSignatureResponse extends SoapResponse
     private ?NameId $signature = NULL;
 
     /**
-     * Constructor method for CreateSignatureResponse
+     * Constructor
      *
      * @param NameId $signature
      * @return self

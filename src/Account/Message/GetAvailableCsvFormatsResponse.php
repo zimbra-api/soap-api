@@ -35,7 +35,7 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
     private $csvFormats = [];
 
     /**
-     * Constructor method for GetAvailableCsvFormatsResponse
+     * Constructor
      *
      * @param array $csvFormats
      * @return self

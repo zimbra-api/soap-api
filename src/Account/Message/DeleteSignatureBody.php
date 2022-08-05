@@ -41,8 +41,10 @@ class DeleteSignatureBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteSignatureBody
+     * Constructor
      *
+     * @param  DeleteSignatureRequest $request
+     * @param  DeleteSignatureResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class DeleteSignatureBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteSignatureRequest) {
@@ -60,11 +65,17 @@ class DeleteSignatureBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteSignatureResponse) {
@@ -73,6 +84,9 @@ class DeleteSignatureBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;
