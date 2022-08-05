@@ -92,7 +92,8 @@ use Zimbra\Common\Soap\ApiInterface;
 interface AdminApiInterface extends ApiInterface
 {
     /**
-     * Add an alias for the account 
+     * Add an alias for the account
+     * 
      * @param  string $id
      * @param  string $alias
      * @return Message\AddAccountAliasResponse
@@ -101,6 +102,7 @@ interface AdminApiInterface extends ApiInterface
 
     /**
      * Changes logging settings on a per-account basis
+     * 
      * @param  LoggerInfo $logger
      * @param  AccountSelector $account
      * @param  string $id
@@ -112,6 +114,7 @@ interface AdminApiInterface extends ApiInterface
 
     /**
      * Add an alias for a distribution list
+     * 
      * @param  string $id
      * @param  string $alias
      * @return Message\AddDistributionListAliasResponse
@@ -122,6 +125,7 @@ interface AdminApiInterface extends ApiInterface
 
     /**
      * Adding members to a distribution list
+     * 
      * @param  string $id
      * @param  array  $members
      * @return Message\AddDistributionListMemberResponse
