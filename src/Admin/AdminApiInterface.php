@@ -224,6 +224,14 @@ interface AdminApiInterface extends ApiInterface
     ): ?Message\AuthResponse;
 
     /**
+     * Authenticate by auth token
+     *
+     * @param  string $authToken
+     * @return Message\AuthResponse
+     */
+    function authByToken(string $authToken): ?Message\AuthResponse;
+
+    /**
      * Perform an autocomplete for a name against the Global Address List
      * 
      * @param string  $domain

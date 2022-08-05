@@ -225,6 +225,14 @@ class AdminApi extends AbstractApi implements AdminApiInterface
     /**
      * {@inheritdoc}
      */
+    public function authByToken(string $authToken): ?Message\AuthResponse
+    {
+        return $this->auth(NULL, NULL, $authToken);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function autoCompleteGal(
         string $domain,
         string $name,

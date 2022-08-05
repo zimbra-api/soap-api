@@ -263,6 +263,32 @@ EOT;
         $this->assertSame($lifetime, $response->getLifetime());
     }
 
+    public function testAuthByToken()
+    {
+        $authToken = $this->faker->sha256;
+        $csrfToken = $this->faker->sha256;
+        $lifetime = $this->faker->randomNumber;
+
+        $xml = <<<EOT
+<?xml version="1.0"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:urn="urn:zimbraAdmin">
+    <soap:Body>
+        <urn:AuthResponse>
+            <urn:authToken>$authToken</urn:authToken>
+            <urn:csrfToken>$csrfToken</urn:csrfToken>
+            <urn:lifetime>$lifetime</urn:lifetime>
+        </urn:AuthResponse>
+    </soap:Body>
+</soap:Envelope>
+EOT;
+
+        $api = new StubAdminApi($this->mockSoapClient($xml));
+        $response = $api->authByToken($authToken);
+        $this->assertSame($authToken, $response->getAuthToken());
+        $this->assertSame($csrfToken, $response->getCsrfToken());
+        $this->assertSame($lifetime, $response->getLifetime());
+    }
+
     public function testAutoCompleteGal()
     {
         $xml = <<<EOT
