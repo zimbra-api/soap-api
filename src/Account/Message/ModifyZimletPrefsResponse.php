@@ -26,6 +26,7 @@ class ModifyZimletPrefsResponse extends SoapResponse
 {
     /**
      * Zimlets
+     * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
@@ -33,7 +34,7 @@ class ModifyZimletPrefsResponse extends SoapResponse
     private $zimlets = [];
 
     /**
-     * Constructor method for ModifyZimletPrefsResponse
+     * Constructor
      * 
      * @param  array $zimlets
      * @return self

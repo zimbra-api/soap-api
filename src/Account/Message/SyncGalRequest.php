@@ -27,6 +27,7 @@ class SyncGalRequest extends SoapRequest
 {
     /**
      * The previous synchronization token if applicable
+     * 
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
@@ -36,6 +37,7 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * GAL sync account ID
+     * 
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
@@ -45,6 +47,7 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * Flag whether only the ID attributes for matching contacts should be returned.
+     * 
      * @Accessor(getter="getIdOnly", setter="setIdOnly")
      * @SerializedName("idOnly")
      * @Type("bool")
@@ -54,6 +57,7 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * Flag whether count of remaining records should be returned in response or not.
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("getCount")
      * @Type("bool")
@@ -63,6 +67,7 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * An integer specifying the maximum number of results to return
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -71,7 +76,7 @@ class SyncGalRequest extends SoapRequest
     private $limit;
 
     /**
-     * Constructor method for SyncGalRequest
+     * Constructor
      *
      * @param  string $token
      * @param  string $galAccountId
@@ -216,9 +221,7 @@ class SyncGalRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

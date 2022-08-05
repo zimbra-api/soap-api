@@ -28,6 +28,7 @@ class SyncGalResponse extends SoapResponse
 {
     /**
      * Flags whether there are more results
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -37,6 +38,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * New synchronization token
+     * 
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
@@ -47,6 +49,7 @@ class SyncGalResponse extends SoapResponse
     /**
      * galDefinitionLastModified is the time at which the GAL definition is last modified.
      * This is returned if the sync does not happen using GAL sync account.
+     * 
      * @Accessor(getter="getGalDefinitionLastModified", setter="setGalDefinitionLastModified")
      * @SerializedName("galDefinitionLastModified")
      * @Type("string")
@@ -56,6 +59,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * True if the SyncGal request is throttled
+     * 
      * @Accessor(getter="getThrottled", setter="setThrottled")
      * @SerializedName("throttled")
      * @Type("bool")
@@ -65,6 +69,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * True if the fullSync is recommended
+     * 
      * @Accessor(getter="getFullSyncRecommended", setter="setFullSyncRecommended")
      * @SerializedName("fullSyncRecommended")
      * @Type("bool")
@@ -74,6 +79,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * count of records still to be returned in paginated response
+     * 
      * @Accessor(getter="getRemain", setter="setRemain")
      * @SerializedName("remain")
      * @Type("integer")
@@ -83,6 +89,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * Details of contact
+     * 
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
@@ -91,6 +98,7 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * details of deleted entries
+     * 
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="deleted", namespace="urn:zimbraAccount")
@@ -98,7 +106,7 @@ class SyncGalResponse extends SoapResponse
     private $deleted = [];
 
     /**
-     * Constructor method for SyncGalResponse
+     * Constructor
      *
      * @param  bool $more
      * @param  string $token

@@ -27,6 +27,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on. If not present then sorted by the calendar resource name.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -36,6 +37,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * The 0-based offset into the results list to return as the first result for this search operation.
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -45,6 +47,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * Flags whether there are more results
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -56,6 +59,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * Flag whether the underlying search supported pagination.
      * 1 (true) - limit and offset in the request was honored
      * 0 (false) - the underlying search does not support pagination. limit and offset in the request was not honored
+     * 
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("paginationSupported")
      * @Type("bool")
@@ -73,7 +77,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     private $calendarResources = [];
 
     /**
-     * Constructor method for SearchCalendarResourcesResponse
+     * Constructor
      *
      * @param string $sortBy
      * @param int $offset

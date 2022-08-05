@@ -33,7 +33,7 @@ class RevokeOAuthConsumerRequest extends SoapRequest
     private $accessToken;
 
     /**
-     * Constructor method for RevokeOAuthConsumerRequest
+     * Constructor
      * 
      * @param string $accessToken
      * @return self
@@ -66,9 +66,7 @@ class RevokeOAuthConsumerRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

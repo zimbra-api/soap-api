@@ -37,6 +37,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * pending messages right before a search. To lower latencies, this option gives a hint to the index system not to
      * trigger this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
+     * 
      * @Accessor(getter="getQuick", setter="setQuick")
      * @SerializedName("quick")
      * @Type("bool")
@@ -46,6 +47,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -55,6 +57,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -64,6 +67,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -73,6 +77,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Client locale identification.
+     * 
      * @Accessor(getter="getLocale", setter="setLocale")
      * @SerializedName("locale")
      * @Type("string")
@@ -82,6 +87,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Cursor specification
+     * 
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
@@ -91,6 +97,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * GAL Account ID
+     * 
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
@@ -100,6 +107,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * If specified, passed through to the GAL search as the search key
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -109,6 +117,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Search Filter
+     * 
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
@@ -117,7 +126,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
-     * Constructor method for SearchCalendarResourcesRequest
+     * Constructor
      * 
      * @param  CursorInfo $cursor
      * @param  EntrySearchFilterInfo $searchFilter
@@ -375,9 +384,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

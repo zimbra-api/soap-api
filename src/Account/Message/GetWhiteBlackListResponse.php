@@ -48,7 +48,7 @@ class GetWhiteBlackListResponse extends SoapResponse
     private $blackListEntries = [];
 
     /**
-     * Constructor method for GetWhiteBlackListResponse
+     * Constructor
      *
      * @param array $whiteListEntries
      * @param array $blackListEntries

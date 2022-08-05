@@ -27,6 +27,7 @@ class SubscribeDistributionListResponse extends SoapResponse
 {
     /**
      * Status of subscription attempt
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>")
@@ -35,7 +36,7 @@ class SubscribeDistributionListResponse extends SoapResponse
     private SubscribeStatus $status;
 
     /**
-     * Constructor method for SubscribeDistributionListResponse
+     * Constructor
      *
      * @param  SubscribeStatus $status
      * @return self
@@ -46,7 +47,7 @@ class SubscribeDistributionListResponse extends SoapResponse
     }
 
     /**
-     * Get new auth token
+     * Get status
      *
      * @return SubscribeStatus
      */
@@ -56,7 +57,7 @@ class SubscribeDistributionListResponse extends SoapResponse
     }
 
     /**
-     * Set new auth token
+     * Set status
      *
      * @param  SubscribeStatus $status
      * @return self

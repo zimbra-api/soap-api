@@ -28,6 +28,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
 {
     /**
      * Modifications for WhiteList
+     * 
      * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
      * @SerializedName("whiteList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
@@ -38,6 +39,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
 
     /**
      * Modifications for BlackList
+     * 
      * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
      * @SerializedName("blackList")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
@@ -47,7 +49,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     private $blackListEntries = [];
 
     /**
-     * Constructor method for ModifyWhiteBlackListRequest
+     * Constructor
      *
      * @param  array $whiteListEntries
      * @param  array $blackListEntries
@@ -130,9 +132,7 @@ class ModifyWhiteBlackListRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

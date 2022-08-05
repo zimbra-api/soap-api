@@ -27,6 +27,7 @@ class GrantRightsResponse extends SoapResponse
 {
     /**
      * Access Control Entries
+     * 
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
@@ -34,7 +35,7 @@ class GrantRightsResponse extends SoapResponse
     private $aces = [];
 
     /**
-     * Constructor method for GrantRightsResponse
+     * Constructor
      * 
      * @param  array $aces
      * @return self

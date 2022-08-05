@@ -29,6 +29,7 @@ class SubscribeDistributionListRequest extends SoapRequest
 {
     /**
      * The operation to perform.
+     * 
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
@@ -38,6 +39,7 @@ class SubscribeDistributionListRequest extends SoapRequest
 
     /**
      * Selector for the distribution list
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
@@ -46,7 +48,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     private DistributionListSelector $dl;
 
     /**
-     * Constructor method for SubscribeDistributionListRequest
+     * Constructor
      *
      * @param  DistributionListSelector $dl
      * @param  DistributionListSubscribeOp $op
@@ -105,9 +107,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

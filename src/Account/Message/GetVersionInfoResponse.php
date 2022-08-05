@@ -36,7 +36,7 @@ class GetVersionInfoResponse extends SoapResponse
     private ?VersionInfo $versionInfo = NULL;
 
     /**
-     * Constructor method for GetVersionInfoResponse
+     * Constructor
      *
      * @param VersionInfo $versionInfo
      * @return self

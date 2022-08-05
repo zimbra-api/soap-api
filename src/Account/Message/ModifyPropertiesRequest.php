@@ -28,6 +28,7 @@ class ModifyPropertiesRequest extends SoapRequest
 {
     /**
      * Property to be modified
+     * 
      * @Accessor(getter="getProps", setter="setProps")
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline=true, entry="prop", namespace="urn:zimbraAccount")
@@ -35,7 +36,7 @@ class ModifyPropertiesRequest extends SoapRequest
     private $props = [];
 
     /**
-     * Constructor method for ModifyPropertiesRequest
+     * Constructor
      *
      * @param  array $props
      * @return self
@@ -80,9 +81,7 @@ class ModifyPropertiesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

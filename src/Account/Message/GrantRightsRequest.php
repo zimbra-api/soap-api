@@ -28,6 +28,7 @@ class GrantRightsRequest extends SoapRequest
 {
     /**
      * Specify Access Control Entries
+     * 
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
@@ -35,7 +36,7 @@ class GrantRightsRequest extends SoapRequest
     private $aces = [];
 
     /**
-     * Constructor method for GrantRightsRequest
+     * Constructor
      *
      * @param  array $aces
      * @return self
@@ -80,9 +81,7 @@ class GrantRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

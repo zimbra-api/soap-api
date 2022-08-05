@@ -41,8 +41,10 @@ class RevokeOAuthConsumerBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RevokeOAuthConsumerBody
+     * Constructor
      *
+     * @param  RevokeOAuthConsumerRequest $request
+     * @param  RevokeOAuthConsumerResponse $response
      * @return self
      */
     public function __construct(
@@ -60,11 +62,17 @@ class RevokeOAuthConsumerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RevokeOAuthConsumerResponse) {
@@ -73,6 +81,9 @@ class RevokeOAuthConsumerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

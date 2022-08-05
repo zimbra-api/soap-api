@@ -28,6 +28,7 @@ class ModifyZimletPrefsRequest extends SoapRequest
 {
     /**
      * Zimlet Preference Specifications
+     * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @Type("array<Zimbra\Account\Struct\ModifyZimletPrefsSpec>")
      * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAccount")
@@ -35,7 +36,7 @@ class ModifyZimletPrefsRequest extends SoapRequest
     private $zimlets = [];
 
     /**
-     * Constructor method for ModifyZimletPrefsRequest
+     * Constructor
      *
      * @param  array $zimlets
      * @return self
@@ -80,9 +81,7 @@ class ModifyZimletPrefsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

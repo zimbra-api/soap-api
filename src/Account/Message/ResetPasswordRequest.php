@@ -27,6 +27,7 @@ class ResetPasswordRequest extends SoapRequest
 {
     /**
      * New Password to assign
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -35,7 +36,7 @@ class ResetPasswordRequest extends SoapRequest
     private $password;
 
     /**
-     * Constructor method for ResetPasswordRequest
+     * Constructor
      * 
      * @param string $password
      * @return self
@@ -68,9 +69,7 @@ class ResetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

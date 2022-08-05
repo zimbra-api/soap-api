@@ -29,6 +29,7 @@ class ModifyIdentityRequest extends SoapRequest
     /**
      * Specify identity to be modified
      * Must specify either "name" or "id" attribute
+     * 
      * @Accessor(getter="getIdentity", setter="setIdentity")
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
@@ -37,7 +38,7 @@ class ModifyIdentityRequest extends SoapRequest
     private Identity $identity;
 
     /**
-     * Constructor method for ModifyIdentityRequest
+     * Constructor
      * 
      * @param Identity $identity
      * @return self
@@ -70,9 +71,7 @@ class ModifyIdentityRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
