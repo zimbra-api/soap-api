@@ -47,8 +47,12 @@ class AuthTest extends ZimbraTestCase
         $lifetime = $this->faker->randomNumber;
         $trustLifetime = $this->faker->randomNumber;
 
+        $computeValue = hash_hmac(
+            'sha1', $value . '|' . AccountBy::NAME() . '|' . $time . '|' . $time, $value
+        );
+
         $account = new AccountSelector(AccountBy::NAME(), $value);
-        $preauth = new PreAuth($time, $value, $time);
+        $preauth = new PreAuth($account, $value ,$time, $time);
         $authToken = new AuthToken($value, TRUE, $lifetime);
         $session = new Session($id, $type);
 
@@ -226,7 +230,7 @@ class AuthTest extends ZimbraTestCase
             <urn:account by="$by">$value</urn:account>
             <urn:password>$password</urn:password>
             <urn:recoveryCode>$recoveryCode</urn:recoveryCode>
-            <urn:preauth timestamp="$time" expiresTimestamp="$time">$value</urn:preauth>
+            <urn:preauth timestamp="$time" expires="$time">$computeValue</urn:preauth>
             <urn:authToken verifyAccount="true" lifetime="$lifetime">$value</urn:authToken>
             <urn:jwtToken>$jwtToken</urn:jwtToken>
             <urn:virtualHost>$virtualHost</urn:virtualHost>

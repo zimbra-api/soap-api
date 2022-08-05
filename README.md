@@ -34,7 +34,7 @@ use Zimbra\Admin\AdminApi;
 use Zimbra\Common\Enum\AccountBy;
 use Zimbra\Common\Struct\AccountSelector;
 
-$api = new AdminApi('https://mail.server:7071/service/admin/soap');
+$api = new AdminApi('https://zimbra.server:7071/service/admin/soap');
 $api->auth('username', 'password');
 $account = $api->getAccountInfo(new AccountSelector(AccountBy::NAME(), 'username'));
 ```

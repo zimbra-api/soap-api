@@ -96,21 +96,39 @@ interface AccountApiInterface extends ApiInterface
     ): ?Message\AuthResponse;
 
     /**
-     * Authenticate for an account
+     * Authenticate by account name
      *
      * @param  string $name
      * @param  string $password
      * @return Message\AuthResponse
      */
-    function authByName(string $name, string $password): ?Message\AuthResponse;
+    function authByAccountName(string $name, string $password): ?Message\AuthResponse;
 
     /**
-     * Authenticate for an account
+     * Authenticate by account name
+     *
+     * @param  string $name
+     * @param  string $password
+     * @return Message\AuthResponse
+     */
+    function authByAccountId(string $id, string $password): ?Message\AuthResponse;
+
+    /**
+     * Authenticate by auth token
      *
      * @param  string $authToken
      * @return Message\AuthResponse
      */
     function authByToken(string $authToken): ?Message\AuthResponse;
+
+    /**
+     * Authenticate by preauth
+     *
+     * @param  string $name
+     * @param  string $preauthKey
+     * @return Message\AuthResponse
+     */
+    function authByPreauth(string $name, string $preauthKey): ?Message\AuthResponse;
 
     /**
      * Perform an autocomplete for a name against the Global Address List

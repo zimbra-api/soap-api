@@ -3,6 +3,8 @@
 namespace Zimbra\Tests\Account\Struct;
 
 use Zimbra\Account\Struct\PreAuth;
+use Zimbra\Common\Enum\AccountBy;
+use Zimbra\Common\Struct\AccountSelector;
 use Zimbra\Tests\ZimbraTestCase;
 
 /**
@@ -12,30 +14,34 @@ class PreAuthTest extends ZimbraTestCase
 {
     public function testPreAuth()
     {
-        $now = $this->faker->unixTime();
-        $value = $this->faker->word;
-        $expire = mt_rand(0, 1000);
+        $name = $this->faker->email;
+        $preauthKey = $value = $this->faker->sha256;
+        $timestamp = $this->faker->unixTime();
+        $expire = $this->faker->randomNumber;
 
-        $pre = new PreAuth($now, $value, $expire);
-        $this->assertSame($now, $pre->getTimestamp());
-        $this->assertSame($value, $pre->getValue());
-        $this->assertSame($expire, $pre->getExpiresTimestamp());
+        $computeValue = hash_hmac(
+            'sha1', $name . '|' . AccountBy::NAME() . '|' . $expire . '|' . $timestamp, $preauthKey
+        );
+        $account = new AccountSelector(AccountBy::NAME(), $name);
 
-        $pre->setTimestamp($now + 1000)
-            ->setExpiresTimestamp($expire);
-        $this->assertSame($now + 1000, $pre->getTimestamp());
-        $this->assertSame($expire, $pre->getExpiresTimestamp());
+        $preauth = new PreAuth($account, $preauthKey, $timestamp, $expire);
+        $this->assertSame($timestamp, $preauth->getTimestamp());
+        $this->assertSame($expire, $preauth->getExpiresTimestamp());
+        $this->assertSame($computeValue, $preauth->getValue());
 
-        $preauth = 'account' . '|name|' . $pre->getExpiresTimestamp() . '|' . $pre->getTimestamp();
-        $computeValue = hash_hmac('sha1', $preauth, $value);
-        $this->assertSame($computeValue, $pre->computeValue('account', $value)->getValue());
+        $preauth->setTimestamp($timestamp + 1000)
+            ->setExpiresTimestamp($expire + 1000)
+            ->setValue($value);
+        $this->assertSame($timestamp + 1000, $preauth->getTimestamp());
+        $this->assertSame($expire + 1000, $preauth->getExpiresTimestamp());
+        $this->assertSame($value, $preauth->getValue());
 
-        $timestamp = $now + 1000;
+        $preauth = new PreAuth($account, $preauthKey, $timestamp, $expire);
         $xml = <<<EOT
 <?xml version="1.0"?>
-<result timestamp="$timestamp" expiresTimestamp="$expire">$computeValue</result>
+<result timestamp="$timestamp" expires="$expire">$computeValue</result>
 EOT;
-        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($pre, 'xml'));
-        $this->assertEquals($pre, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));
+        $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($preauth, 'xml'));
+        $this->assertEquals($preauth, $this->serializer->deserialize($xml, PreAuth::class, 'xml'));
     }
 }
