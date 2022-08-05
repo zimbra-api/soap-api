@@ -401,7 +401,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * Set can expand
      *
      * @param  bool $canExpand
-     * @return bool
+     * @return self
      */
     public function setCanExpand(bool $canExpand): self
     {

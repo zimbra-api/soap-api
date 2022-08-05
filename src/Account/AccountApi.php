@@ -106,8 +106,7 @@ class AccountApi extends AbstractApi implements AccountApiInterface
      */
     public function authByToken(string $authToken): ?Message\AuthResponse
     {
-        $token = ($authToken instanceof AuthToken) ? $authToken : new AuthToken($authToken);
-        return $this->auth(NULL, NULL, NULL, NULL, $token);
+        return $this->auth(NULL, NULL, NULL, NULL, new AuthToken($authToken));
     }
 
     /**

@@ -51,7 +51,7 @@ class BulkAction
     /**
      * Constructor method
      * 
-     * @param string $op
+     * @param BulkOperation $op
      * @param string $folder
      * @return self
      */
