@@ -40,7 +40,8 @@ class AccountZimletProperty implements ZimletProperty
     private $value;
 
     /**
-     * Constructor method for AccountZimletProperty
+     * Constructor
+     * 
      * @param  string $name
      * @param  string $value
      * @return self

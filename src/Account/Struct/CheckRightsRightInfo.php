@@ -43,7 +43,8 @@ class CheckRightsRightInfo
     private $right;
 
     /**
-     * Constructor method for CheckRightsRightInfo
+     * Constructor
+     * 
      * @param  string $right
      * @param  bool   $allow
      * @return self

@@ -34,7 +34,8 @@ class AccountZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     private $properties = [];
 
     /**
-     * Constructor method for AccountZimletHostConfigInfo
+     * Constructor
+     * 
      * @param  array $properties
      * @return self
      */

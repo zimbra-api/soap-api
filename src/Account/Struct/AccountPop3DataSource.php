@@ -26,6 +26,7 @@ class AccountPop3DataSource extends AccountDataSource implements Pop3DataSource
 {
     /**
      * Specifies whether imported POP3 messages should be left on the server or deleted.
+     * 
      * @Accessor(getter="isLeaveOnServer", setter="setLeaveOnServer")
      * @SerializedName("leaveOnServer")
      * @Type("bool")

@@ -47,7 +47,8 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     private ?SearchFilterCondition $conditions = NULL;
 
     /**
-     * Constructor method for EntrySearchFilterInfo
+     * Constructor
+     * 
      * @param SearchFilterCondition $condition
      * @return self
      */

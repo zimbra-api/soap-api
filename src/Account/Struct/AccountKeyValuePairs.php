@@ -36,7 +36,7 @@ class AccountKeyValuePairs implements KeyValuePairs
     protected $keyValuePairs = [];
 
     /**
-     * Constructor method for AccountKeyValuePairs
+     * Constructor
      *
      * @param array $keyValuePairs
      */

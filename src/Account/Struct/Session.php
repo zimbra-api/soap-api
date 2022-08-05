@@ -25,6 +25,7 @@ class Session
 {
     /**
      * Session type - currently only set if value is "admin"
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class Session
 
     /**
      * Session ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -49,7 +51,8 @@ class Session
     private $value;
 
     /**
-     * Constructor method for Session
+     * Constructor
+     * 
      * @param  string $id
      * @param  string $type
      * @return self

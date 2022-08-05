@@ -25,6 +25,7 @@ class Cos
 {
     /**
      * Class of Service (COS) ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class Cos
 
     /**
      * Class of Service (COS) name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,7 +44,7 @@ class Cos
     private $name;
 
     /**
-     * Constructor method for Cos
+     * Constructor
      *
      * @param string $id
      * @param string $name

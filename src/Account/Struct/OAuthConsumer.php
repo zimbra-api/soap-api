@@ -56,7 +56,7 @@ class OAuthConsumer
     private $device;
 
     /**
-     * Constructor method for OAuthConsumer
+     * Constructor
      *
      * @param string $accessToken
      * @param string $approvedOn

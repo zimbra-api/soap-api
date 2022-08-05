@@ -47,7 +47,8 @@ class Prop
     private $value;
 
     /**
-     * Constructor method for property
+     * Constructor
+     * 
      * @param  string $zimlet
      * @param  string $name
      * @param  string $value

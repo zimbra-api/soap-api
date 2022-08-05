@@ -26,6 +26,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 {
     /**
      * Keyword
+     * 
      * @Accessor(getter="getHasKeyword", setter="setHasKeyword")
      * @SerializedName("hasKeyword")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 
     /**
      * Extension class
+     * 
      * @Accessor(getter="getExtensionClass", setter="setExtensionClass")
      * @SerializedName("extensionClass")
      * @Type("string")
@@ -44,6 +46,7 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 
     /**
      * Regex
+     * 
      * @Accessor(getter="getRegex", setter="setRegex")
      * @SerializedName("regex")
      * @Type("string")
@@ -52,7 +55,8 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     private $regex;
 
     /**
-     * Constructor method for ZimletServerExtension
+     * Constructor
+     * 
      * @param string $hasKeyword
      * @param string $extensionClass
      * @param string $regex

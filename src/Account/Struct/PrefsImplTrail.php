@@ -24,7 +24,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlList};
 trait PrefsImplTrail
 {
     /**
-     * Prefibutes
+     * Prefs
      * 
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
@@ -33,7 +33,8 @@ trait PrefsImplTrail
     private $prefs = [];
 
     /**
-     * Constructor method for AuthPrefs
+     * Constructor
+     * 
      * @param array $prefs
      * @return self
      */

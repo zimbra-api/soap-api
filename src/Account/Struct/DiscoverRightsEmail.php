@@ -25,6 +25,7 @@ class DiscoverRightsEmail
 {
     /**
      * Email address
+     * 
      * @Accessor(getter="getAddr", setter="setAddr")
      * @SerializedName("addr")
      * @Type("string")
@@ -33,7 +34,8 @@ class DiscoverRightsEmail
     private $addr;
 
     /**
-     * Constructor method for DiscoverRightsEmail
+     * Constructor
+     * 
      * @param string $addr
      * @return self
      */

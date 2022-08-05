@@ -47,7 +47,8 @@ class Pref
     private $modified;
 
     /**
-     * Constructor method for preference
+     * Constructor
+     * 
      * @param  string $name
      * @param  string $value
      * @param  int    $modified

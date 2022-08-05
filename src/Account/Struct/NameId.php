@@ -40,7 +40,8 @@ class NameId
     private $id;
 
     /**
-     * Constructor method for NameId
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @return self

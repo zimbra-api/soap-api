@@ -25,6 +25,7 @@ class DiscoverRightsInfo
 {
     /**
      * Right the targets relate to
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("string")
@@ -34,6 +35,7 @@ class DiscoverRightsInfo
 
     /**
      * Targets
+     * 
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
@@ -41,7 +43,7 @@ class DiscoverRightsInfo
     private $targets = [];
 
     /**
-     * Constructor method for DiscoverRightsInfo
+     * Constructor
      *
      * @param  string $right
      * @param  array $targets

@@ -25,6 +25,7 @@ class DistributionListRightInfo
 {
     /**
      * Right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("string")
@@ -34,6 +35,7 @@ class DistributionListRightInfo
 
     /**
      * Grantees
+     * 
      * @Accessor(getter="getGrantees", setter="setGrantees")
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
@@ -41,7 +43,7 @@ class DistributionListRightInfo
     private $grantees = [];
 
     /**
-     * Constructor method for DistributionListRightInfo
+     * Constructor
      *
      * @param string $right
      * @param array  $grantees

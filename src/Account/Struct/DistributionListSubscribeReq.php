@@ -26,6 +26,7 @@ class DistributionListSubscribeReq
 {
     /**
      * operation
+     * 
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
@@ -42,6 +43,7 @@ class DistributionListSubscribeReq
 
     /**
      * Flag whether to bcc all other owners on the accept/reject notification emails.
+     * 
      * @Accessor(getter="getBccOwners", setter="setBccOwners")
      * @SerializedName("bccOwners")
      * @Type("bool")
@@ -50,7 +52,7 @@ class DistributionListSubscribeReq
     private $bccOwners;
 
     /**
-     * Constructor method for DistributionListSubscribeReq
+     * Constructor
      * 
      * @param  SubscribeOp $op
      * @param  string $value

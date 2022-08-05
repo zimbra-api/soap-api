@@ -32,7 +32,8 @@ class BlackList
     private $addrs = [];
 
     /**
-     * Constructor method for BlackList
+     * Constructor
+     * 
      * @param array $addrs
      * @return self
      */

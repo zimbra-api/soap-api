@@ -18,6 +18,7 @@ use Zimbra\Common\Enum\Operation;
 
 /**
  * DistributionListAction class
+ * 
  * @package    Zimbra
  * @subpackage Account
  * @category   Struct
@@ -72,7 +73,8 @@ class DistributionListAction extends AccountKeyValuePairs
     private $rights = [];
 
     /**
-     * Constructor method for DistributionListAction
+     * Constructor
+     * 
      * @param Operation $op
      * @param string $newName
      * @param Subscribe $subsReq

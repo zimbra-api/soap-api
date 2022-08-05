@@ -32,7 +32,8 @@ class Right
     private $right;
 
     /**
-     * Constructor method for Right
+     * Constructor
+     * 
      * @param string $right
      * @return self
      */

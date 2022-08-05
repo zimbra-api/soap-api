@@ -41,7 +41,8 @@ class ZimletPrefsSpec
     private ZimletStatus $presence;
 
     /**
-     * Constructor method for ZimletPrefsSpec
+     * Constructor
+     * 
      * @param  string $name
      * @param  ZimletStatus $presence
      * @return self

@@ -48,7 +48,7 @@ class Signature
     private $cid;
 
     /**
-     * Content of the signature sequence
+     * Content of the signature
      * 
      * @Accessor(getter="getContents", setter="setContents")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
@@ -57,7 +57,8 @@ class Signature
     private $contents = [];
 
     /**
-     * Constructor method for signature
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @param string $cid

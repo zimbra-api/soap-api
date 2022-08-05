@@ -40,7 +40,8 @@ class SignatureContent
     private $value;
 
     /**
-     * Constructor method for signatureContent
+     * Constructor
+     * 
      * @param string $value
      * @param ContentType $type
      * @return self

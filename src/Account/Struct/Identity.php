@@ -25,6 +25,7 @@ class Identity extends AttrsImpl
 {
     /**
      * Identity name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class Identity extends AttrsImpl
 
     /**
      * Identity ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -42,7 +44,7 @@ class Identity extends AttrsImpl
     private $id;
 
     /**
-     * Constructor method for Identity
+     * Constructor
      *
      * @param string $name
      * @param string $id

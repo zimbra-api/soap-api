@@ -34,7 +34,8 @@ class AccountZimletIncludeCSS implements ZimletIncludeCSS
     private $value;
 
     /**
-     * Constructor method for AccountZimletIncludeCSS
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

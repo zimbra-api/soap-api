@@ -27,6 +27,7 @@ class AccountZimletContext implements ZimletContextInterface
 {
     /**
      * Zimlet Base URL
+     * 
      * @Accessor(getter="getZimletBaseUrl", setter="setZimletBaseUrl")
      * @SerializedName("baseUrl")
      * @Type("string")
@@ -36,6 +37,7 @@ class AccountZimletContext implements ZimletContextInterface
 
     /**
      * Zimlet Priority
+     * 
      * @Accessor(getter="getZimletPriority", setter="setZimletPriority")
      * @SerializedName("priority")
      * @Type("int")
@@ -45,6 +47,7 @@ class AccountZimletContext implements ZimletContextInterface
 
     /**
      * Zimlet presence
+     * 
      * Valid values: mandatory | enabled | disabled
      * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
      * @SerializedName("presence")
@@ -54,7 +57,8 @@ class AccountZimletContext implements ZimletContextInterface
     private ZimletPresence $zimletPresence;
 
     /**
-     * Constructor method for AccountZimletContext
+     * Constructor
+     * 
      * @param string $baseUrl
      * @param ZimletPresence $presence
      * @param int $priority

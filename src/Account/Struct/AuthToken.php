@@ -25,6 +25,7 @@ class AuthToken
 {
     /**
      * Value for authorization token
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -34,6 +35,7 @@ class AuthToken
     /**
      * If verifyAccount="1", account is required and the account in the auth token is compared to the named account.
      * If verifyAccount="0" (default), only the auth token is verified and any account element specified is ignored.
+     * 
      * @Accessor(getter="getVerifyAccount", setter="setVerifyAccount")
      * @SerializedName("verifyAccount")
      * @Type("bool")
@@ -43,6 +45,7 @@ class AuthToken
 
     /**
      * Life time of the auth token
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
@@ -51,7 +54,7 @@ class AuthToken
     private $lifetime;
 
     /**
-     * Constructor method for AuthToken
+     * Constructor
      * 
      * @param  string $value
      * @param  bool   $verifyAccount

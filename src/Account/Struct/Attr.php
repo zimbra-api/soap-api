@@ -47,7 +47,7 @@ class Attr
     private $permDenied;
 
     /**
-     * Constructor method for Attr
+     * Constructor
      * 
      * @param  string $name
      * @param  string $value

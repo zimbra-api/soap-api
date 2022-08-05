@@ -49,7 +49,7 @@ class DistributionListGranteeSelector
     private $value;
 
     /**
-     * Constructor method for DistributionListGranteeSelector
+     * Constructor
      * 
      * @param GranteeType $type
      * @param GranteeBy $by

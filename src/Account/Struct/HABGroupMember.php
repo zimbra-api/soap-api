@@ -34,7 +34,7 @@ class HABGroupMember extends HABMember
     private $attrs = [];
 
     /**
-     * Constructor method for HABGroupMember
+     * Constructor
      * 
      * @param  string $name
      * @param  int   $seniorityIndex

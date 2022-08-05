@@ -25,6 +25,7 @@ abstract class HABMember
 {
     /**
      * HAB Member name - an email address (user@domain)
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ abstract class HABMember
 
     /**
      * seniorityIndex of the HAB group member
+     * 
      * @Accessor(getter="getSeniorityIndex", setter="setSeniorityIndex")
      * @SerializedName("seniorityIndex")
      * @Type("integer")
@@ -42,7 +44,7 @@ abstract class HABMember
     private $seniorityIndex;
 
     /**
-     * Constructor method for HABMember
+     * Constructor
      * 
      * @param  string $name
      * @param  int $seniorityIndex

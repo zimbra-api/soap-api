@@ -214,7 +214,7 @@ class ContactInfo
     private $isMember;
 
     /**
-     * Constructor method for ContactInfo
+     * Constructor
      *
      * @param string $sortField
      * @param bool $canExpand

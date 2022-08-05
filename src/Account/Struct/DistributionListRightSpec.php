@@ -42,7 +42,7 @@ class DistributionListRightSpec
     private $grantees = [];
 
     /**
-     * Constructor method for DistributionListRightSpec
+     * Constructor
      * 
      * @param string $right
      * @param array  $grantees

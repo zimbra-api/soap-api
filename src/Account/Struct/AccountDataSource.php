@@ -27,6 +27,7 @@ class AccountDataSource implements DataSource
 {
     /**
      * Unique ID for data source
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Name for data source
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -45,6 +47,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Folder ID for data source
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -54,6 +57,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Flag whether or not the data source is enabled
+     * 
      * @Accessor(getter="isEnabled", setter="setEnabled")
      * @SerializedName("isEnabled")
      * @Type("bool")
@@ -63,6 +67,7 @@ class AccountDataSource implements DataSource
 
     /**
      * indicates that this datasource is used for one way (incoming) import versus two-way sync
+     * 
      * @Accessor(getter="isImportOnly", setter="setImportOnly")
      * @SerializedName("importOnly")
      * @Type("bool")
@@ -73,6 +78,7 @@ class AccountDataSource implements DataSource
     /**
      * Name of server
      * e.g. "imap.myisp.com"
+     * 
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("string")
@@ -83,6 +89,7 @@ class AccountDataSource implements DataSource
     /**
      * Port number of server
      * e.g. "143"
+     * 
      * @Accessor(getter="getPort", setter="setPort")
      * @SerializedName("port")
      * @Type("integer")
@@ -93,6 +100,7 @@ class AccountDataSource implements DataSource
     /**
      * Which security layer to use for connection (cleartext, ssl, tls, or tls if available).
      * If not set on data source, fallback to the id on global config.
+     * 
      * @Accessor(getter="getConnectionType", setter="setConnectionType")
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
@@ -102,6 +110,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Login string on data-source-server, for example a user name
+     * 
      * @Accessor(getter="getUsername", setter="setUsername")
      * @SerializedName("username")
      * @Type("string")
@@ -111,6 +120,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Login password for data source
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -120,6 +130,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Polling interval.  For instance "10m"
+     * 
      * @Accessor(getter="getPollingInterval", setter="setPollingInterval")
      * @SerializedName("pollingInterval")
      * @Type("string")
@@ -129,6 +140,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Email address for the data-source
+     * 
      * @Accessor(getter="getEmailAddress", setter="setEmailAddress")
      * @SerializedName("emailAddress")
      * @Type("string")
@@ -140,6 +152,7 @@ class AccountDataSource implements DataSource
      * When forwarding or replying to messages sent to this data source, this flags whether
      * or not to use the email address of the data source for the from address and the designated signature/replyTo
      * of the data source for the outgoing message.
+     * 
      * @Accessor(getter="isUseAddressForForwardReply", setter="setUseAddressForForwardReply")
      * @SerializedName("useAddressForForwardReply")
      * @Type("bool")
@@ -149,6 +162,7 @@ class AccountDataSource implements DataSource
 
     /**
      * ID for default signature
+     * 
      * @Accessor(getter="getDefaultSignature", setter="setDefaultSignature")
      * @SerializedName("defaultSignature")
      * @Type("string")
@@ -158,6 +172,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Forward / Reply Signature ID for data source
+     * 
      * @Accessor(getter="getForwardReplySignature", setter="setForwardReplySignature")
      * @SerializedName("forwardReplySignature")
      * @Type("string")
@@ -167,6 +182,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Personal part of email address to put in the from header
+     * 
      * @Accessor(getter="getFromDisplay", setter="setFromDisplay")
      * @SerializedName("fromDisplay")
      * @Type("string")
@@ -176,6 +192,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Email address to put in the reply-to header
+     * 
      * @Accessor(getter="getReplyToAddress", setter="setReplyToAddress")
      * @SerializedName("replyToAddress")
      * @Type("string")
@@ -185,6 +202,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Personal part of Email address to put in the reply-to header
+     * 
      * @Accessor(getter="getReplyToDisplay", setter="setReplyToDisplay")
      * @SerializedName("replyToDisplay")
      * @Type("string")
@@ -194,6 +212,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Data import class used bt this data source
+     * 
      * @Accessor(getter="getImportClass", setter="setImportClass")
      * @SerializedName("importClass")
      * @Type("string")
@@ -203,6 +222,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Failing Since
+     * 
      * @Accessor(getter="getFailingSince", setter="setFailingSince")
      * @SerializedName("failingSince")
      * @Type("integer")
@@ -212,6 +232,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Last Error
+     * 
      * @Accessor(getter="getLastError", setter="setLastError")
      * @SerializedName("lastError")
      * @Type("string")
@@ -221,6 +242,7 @@ class AccountDataSource implements DataSource
 
     /**
      * Properties for the data source
+     * 
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
@@ -229,6 +251,7 @@ class AccountDataSource implements DataSource
 
     /**
      * refresh token for refreshing data source oauth token
+     * 
      * @Accessor(getter="getRefreshToken", setter="setRefreshToken")
      * @SerializedName("refreshToken")
      * @Type("string")
@@ -238,6 +261,7 @@ class AccountDataSource implements DataSource
 
     /**
      * refreshTokenUrl for refreshing data source oauth token
+     * 
      * @Accessor(getter="getRefreshTokenUrl", setter="setRefreshTokenUrl")
      * @SerializedName("refreshTokenUrl")
      * @Type("string")
@@ -246,7 +270,7 @@ class AccountDataSource implements DataSource
     private $refreshTokenUrl;
 
     /**
-     * Constructor method for AccountDataSource
+     * Constructor
      * 
      * @param  string $id
      * @param  string $name

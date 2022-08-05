@@ -34,7 +34,8 @@ class AccountZimletTarget implements ZimletTarget
     private $value;
 
     /**
-     * Constructor method for AccountZimletTarget
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

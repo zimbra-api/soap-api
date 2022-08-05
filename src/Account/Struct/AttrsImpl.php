@@ -24,7 +24,7 @@ abstract class AttrsImpl implements Attrs
     use AttrsImplTrait;
 
     /**
-     * Constructor method for AttrsImpl
+     * Constructor
      *
      * @param array $attrs
      * @return self

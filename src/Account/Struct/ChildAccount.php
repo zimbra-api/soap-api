@@ -25,6 +25,7 @@ class ChildAccount
 {
     /**
      * Child account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class ChildAccount
 
     /**
      * Child account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,6 +45,7 @@ class ChildAccount
 
     /**
      * Flag whether child account is visible or not
+     * 
      * @Accessor(getter="isVisible", setter="setIsVisible")
      * @SerializedName("visible")
      * @Type("bool")
@@ -52,6 +55,7 @@ class ChildAccount
 
     /**
      * Flag whether child account is active or not
+     * 
      * @Accessor(getter="isActive", setter="setIsActive")
      * @SerializedName("active")
      * @Type("bool")
@@ -61,6 +65,7 @@ class ChildAccount
 
     /**
      * Attributes of the child account, including displayName
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("array<Zimbra\Account\Struct\Attr>")
@@ -70,7 +75,7 @@ class ChildAccount
     private $attrs = [];
 
     /**
-     * Constructor method for ChildAccount
+     * Constructor
      * 
      * @param string $id
      * @param string $name

@@ -89,7 +89,8 @@ class AccountACEInfo
     private $checkGranteeType;
 
     /**
-     * Constructor method for AccountACEInfo
+     * Constructor
+     * 
      * @param GranteeType $granteeType
      * @param string $right
      * @param string $zimbraId

@@ -25,6 +25,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
 {
     /**
      * Name of calendar resource
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
 
     /**
      * ID of calendar resource
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -42,7 +44,7 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     private $id;
 
     /**
-     * Constructor method for ObjectInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

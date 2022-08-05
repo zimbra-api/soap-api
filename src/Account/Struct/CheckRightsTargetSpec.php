@@ -56,7 +56,8 @@ class CheckRightsTargetSpec
     private $rights = [];
 
     /**
-     * Constructor method for CheckRightsTargetSpec
+     * Constructor
+     * 
      * @param  TargetType $type
      * @param  TargetBy $by
      * @param  string $key

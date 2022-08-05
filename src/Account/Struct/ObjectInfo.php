@@ -27,6 +27,7 @@ abstract class ObjectInfo
 {
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ abstract class ObjectInfo
 
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -45,6 +47,7 @@ abstract class ObjectInfo
 
     /**
      * Attributes
+     * 
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
@@ -52,7 +55,7 @@ abstract class ObjectInfo
     private $attrList = [];
 
     /**
-     * Constructor method for ObjectInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

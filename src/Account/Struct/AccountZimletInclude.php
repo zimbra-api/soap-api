@@ -34,7 +34,8 @@ class AccountZimletInclude implements ZimletInclude
     private $value;
 
     /**
-     * Constructor method for AccountZimletInclude
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

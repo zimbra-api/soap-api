@@ -27,6 +27,7 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     /**
      * Designates the zimbra host name for the properties.
      * Must be a valid Zimbra host name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,7 +45,8 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
     private $properties = [];
 
     /**
-     * Constructor method for AccountZimletHostConfigInfo
+     * Constructor
+     * 
      * @param  string $name
      * @param  array $properties
      * @return self

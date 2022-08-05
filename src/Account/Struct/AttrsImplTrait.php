@@ -31,7 +31,7 @@ trait AttrsImplTrait
     private $attrs = [];
 
     /**
-     * Constructor method for AttrsImpl
+     * Constructor
      * 
      * @param array $attrs
      * @return self

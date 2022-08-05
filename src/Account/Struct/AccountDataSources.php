@@ -96,7 +96,7 @@ class AccountDataSources
     private $unknownDataSources = [];
 
     /**
-     * Constructor method for AccountDataSources
+     * Constructor
      * 
      * @param  array $dataSources
      * @return self
