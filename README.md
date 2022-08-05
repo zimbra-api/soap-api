@@ -9,8 +9,8 @@ This library is a simple Object Oriented wrapper for the Zimbra SOAP API.
 * [PHP Enum](https://github.com/myclabs/php-enum) library,
 * (optional) PHPUnit to run tests,
 
-## Install
-Via Composer
+## Installation
+Via [Composer](https://getcomposer.org)
 ```bash
 $ composer require zimbra-api/soap-api
 ```
@@ -26,7 +26,7 @@ or just add it to your `composer.json` file directly.
 ## Basic usage of admin api
 
 ```php
-<?php
+<?php declare(strict_types=1);
 
 require_once 'vendor/autoload.php';
 
