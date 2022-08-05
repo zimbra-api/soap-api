@@ -32,7 +32,8 @@ class NamedElement
     private $name;
 
     /**
-     * Constructor method for NamedElement
+     * Constructor
+     * 
      * @param string $name The name
      * @return self
      */

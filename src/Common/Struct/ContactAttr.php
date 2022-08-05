@@ -56,7 +56,8 @@ class ContactAttr extends KeyValuePair
     private $contentFilename;
 
     /**
-     * Constructor method for ContactAttr
+     * Constructor
+     * 
      * @param  string $key
      * @param  string $value
      * @param  string $part

@@ -40,7 +40,8 @@ class UserAgentInfo
     private $version;
 
     /**
-     * Constructor method for UserAgentInfo
+     * Constructor
+     * 
      * @param string $name
      * @param string $version
      * @return self

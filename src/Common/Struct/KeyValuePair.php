@@ -39,7 +39,8 @@ class KeyValuePair
     private $value;
 
     /**
-     * Constructor method for KeyValuePair
+     * Constructor
+     * 
      * @param string $key
      * @param string $value
      * @return self

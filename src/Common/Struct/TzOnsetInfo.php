@@ -24,6 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class TzOnsetInfo
 {
     /**
+     * Month; 1=January, 2=February, etc.
+     * 
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("integer")
@@ -32,6 +34,8 @@ class TzOnsetInfo
     private $month;
 
     /**
+     * Transition hour (0..23)
+     * 
      * @Accessor(getter="getHour", setter="setHour")
      * @SerializedName("hour")
      * @Type("integer")
@@ -40,6 +44,8 @@ class TzOnsetInfo
     private $hour;
 
     /**
+     * Transition minute (0..59)
+     * 
      * @Accessor(getter="getMinute", setter="setMinute")
      * @SerializedName("min")
      * @Type("integer")
@@ -48,6 +54,8 @@ class TzOnsetInfo
     private $minute;
 
     /**
+     * Transition second; 0..59, usually 0
+     * 
      * @Accessor(getter="getSecond", setter="setSecond")
      * @SerializedName("sec")
      * @Type("integer")
@@ -56,6 +64,8 @@ class TzOnsetInfo
     private $second;
 
     /**
+     * Day of month (1..31)
+     * 
      * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
      * @SerializedName("mday")
      * @Type("integer")
@@ -64,6 +74,8 @@ class TzOnsetInfo
     private $dayOfMonth;
 
     /**
+     * Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
+     * 
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
      * @Type("integer")
@@ -72,6 +84,8 @@ class TzOnsetInfo
     private $week;
 
     /**
+     * Day of week; 1=Sunday, 2=Monday, etc.
+     * 
      * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
      * @SerializedName("wkday")
      * @Type("integer")
@@ -80,14 +94,15 @@ class TzOnsetInfo
     private $dayOfWeek;
 
     /**
-     * Constructor method for TzOnsetInfo
-     * @param int $mon Month; 1=January, 2=February, etc.
-     * @param int $hour Transition hour (0..23)
-     * @param int $min Transition minute (0..59)
-     * @param int $sec Transition second; 0..59, usually 0
-     * @param int $mday Day of month (1..31)
-     * @param int $week Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
-     * @param int $wkday Day of week; 1=Sunday, 2=Monday, etc.
+     * Constructor
+     * 
+     * @param int $mon
+     * @param int $hour
+     * @param int $min
+     * @param int $sec
+     * @param int $mday
+     * @param int $week
+     * @param int $wkday
      * @return self
      */
     public function __construct(

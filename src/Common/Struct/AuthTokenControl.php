@@ -32,7 +32,8 @@ class AuthTokenControl
     private $voidOnExpired;
 
     /**
-     * Constructor method for AuthTokenControl
+     * Constructor
+     * 
      * @param bool $voidOnExpired
      * @return self
      */

@@ -48,7 +48,8 @@ class GranteeChooser
     private $name;
 
     /**
-     * Constructor method for GranteeChooser
+     * Constructor
+     * 
      * @param string $type
      * @param string $id
      * @param string $name

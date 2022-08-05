@@ -40,7 +40,8 @@ class ChangeInfo
     private $changeType;
 
     /**
-     * Constructor method for ChangeInfo
+     * Constructor
+     * 
      * @param string $changeId
      * @param string $changeType
      * @return self

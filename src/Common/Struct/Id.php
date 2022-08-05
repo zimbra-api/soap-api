@@ -24,6 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class Id
 {
     /**
+     * The id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -32,8 +34,9 @@ class Id
     private $id;
 
     /**
-     * Constructor method for Id
-     * @param  string $id The id
+     * Constructor
+     * 
+     * @param  string $id
      * @return self
      */
     public function __construct(?string $id = NULL)

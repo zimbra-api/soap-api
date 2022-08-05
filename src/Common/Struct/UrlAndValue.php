@@ -39,7 +39,8 @@ class UrlAndValue
     private $value;
 
     /**
-     * Constructor method for UrlAndValue
+     * Constructor
+     * 
      * @param  string $url
      * @param  string $value
      * @return self

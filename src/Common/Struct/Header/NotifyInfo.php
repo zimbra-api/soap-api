@@ -32,7 +32,8 @@ class NotifyInfo
     private $sequenceNum;
 
     /**
-     * Constructor method for NotifyInfo
+     * Constructor
+     * 
      * @param int $sequenceNum
      * @return self
      */

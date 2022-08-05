@@ -56,7 +56,8 @@ class CursorInfo
     private $includeOffset;
 
     /**
-     * Constructor method for CursorInfo
+     * Constructor
+     * 
      * @param string $id
      * @param string $sortVal
      * @param string $endSortVal

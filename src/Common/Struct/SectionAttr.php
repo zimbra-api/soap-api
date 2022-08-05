@@ -34,7 +34,8 @@ class SectionAttr
     private $section;
 
     /**
-     * Constructor method for SectionAttr
+     * Constructor
+     * 
      * @param string $section
      * @return self
      */

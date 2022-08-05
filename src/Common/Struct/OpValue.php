@@ -39,7 +39,8 @@ class OpValue
     private $value;
 
     /**
-     * Constructor method for OpValue
+     * Constructor
+     * 
      * @param  string $op
      * @param  string $value
      * @return self

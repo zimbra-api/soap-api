@@ -48,7 +48,8 @@ class AccountInfo
     private $value;
 
     /**
-     * Constructor method for AccountInfo
+     * Constructor
+     * 
      * @param  AccountBy $by
      * @param  string $value
      * @param  bool $mountpointTraversed

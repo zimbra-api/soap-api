@@ -39,7 +39,8 @@ class NamedValue
     private $value;
 
     /**
-     * Constructor method for NamedValue
+     * Constructor
+     * 
      * @param  string $name
      * @param  string $value
      * @return self

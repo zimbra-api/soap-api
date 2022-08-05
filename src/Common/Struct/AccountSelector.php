@@ -40,7 +40,8 @@ class AccountSelector
     private $value;
 
     /**
-     * Constructor method for AccountSelector
+     * Constructor
+     * 
      * @param  AccountBy $by
      * @param  string $value
      * @return self

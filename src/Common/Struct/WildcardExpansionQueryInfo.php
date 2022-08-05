@@ -56,8 +56,11 @@ class WildcardExpansionQueryInfo
     private $numExpanded;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param string $str
+     * @param bool $expanded
+     * @param int $numExpanded
      * @return self
      */
     public function __construct(

@@ -32,7 +32,8 @@ class AttributeName
     private $name;
 
     /**
-     * Constructor method for AttributeName
+     * Constructor
+     * 
      * @param string $name
      * @return self
      */

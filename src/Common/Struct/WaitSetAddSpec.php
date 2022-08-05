@@ -25,6 +25,8 @@ use Zimbra\Common\Enum\InterestType;
 class WaitSetAddSpec
 {
     /**
+     * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,6 +35,8 @@ class WaitSetAddSpec
     private $name;
 
     /**
+     * The id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -41,6 +45,8 @@ class WaitSetAddSpec
     private $id;
 
     /**
+     * Last known sync token
+     * 
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
@@ -64,11 +70,12 @@ class WaitSetAddSpec
     private $folderInterests = [];
 
     /**
-     * Constructor method for waitSetAddSpec
-     * @param string $name The name
-     * @param string $id The id
-     * @param string $token Last known sync token
-     * @param string $interests Comma-separated list
+     * Constructor
+     * 
+     * @param string $name
+     * @param string $id
+     * @param string $token
+     * @param string $interests
      * @return self
      */
     public function __construct(

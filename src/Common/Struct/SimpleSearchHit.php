@@ -44,7 +44,7 @@ class SimpleSearchHit implements SearchHit
     private $sortField;
 
     /**
-     * Constructor method for SimpleSearchHit
+     * Constructor
      * 
      * @param  string $id
      * @param  string $sortField
