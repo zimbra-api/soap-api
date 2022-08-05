@@ -27,6 +27,7 @@ class InheritedFlaggedValue
      * Inherited flag
      * 1 (true): inherited from a group
      * 0 (false): set directly on the entry
+     * 
      * @Accessor(getter="getInherited", setter="setInherited")
      * @SerializedName("inherited")
      * @Type("bool")
@@ -42,7 +43,8 @@ class InheritedFlaggedValue
     private $value;
 
     /**
-     * Constructor method for InheritedFlaggedValue
+     * Constructor
+     * 
      * @param  bool   $inherited
      * @param  string $value
      * @return self

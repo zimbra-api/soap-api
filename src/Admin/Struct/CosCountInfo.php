@@ -25,6 +25,7 @@ class CosCountInfo
 {
     /**
      * Class Of Service (COS) name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class CosCountInfo
 
     /**
      * Class Of Service (COS) ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -45,6 +47,7 @@ class CosCountInfo
      * Account count.
      * Note, it doesn't include any account with zimbraIsSystemResource=TRUE, 
      * nor does it include any calendar resources.
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("int")
      * @XmlValue(cdata=false)
@@ -52,7 +55,8 @@ class CosCountInfo
     private $value;
 
     /**
-     * Constructor method for CosCountInfo
+     * Constructor
+     * 
      * @param  string $name
      * @param  string $id
      * @param  int $value

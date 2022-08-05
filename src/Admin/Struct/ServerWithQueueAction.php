@@ -25,6 +25,7 @@ class ServerWithQueueAction
 {
     /**
      * Mail queue query details
+     * 
      * @Accessor(getter="getQueue", setter="setQueue")
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
@@ -34,6 +35,7 @@ class ServerWithQueueAction
 
     /**
      * MTA Server
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,7 +44,7 @@ class ServerWithQueueAction
     private $name;
 
     /**
-     * Constructor method for ServerWithQueueAction
+     * Constructor
      * 
      * @param  MailQueueWithAction $queue
      * @param  string $name

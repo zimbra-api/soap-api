@@ -25,6 +25,7 @@ class GranteeWithType
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class GranteeWithType
 
     /**
      * Target name
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -41,12 +43,13 @@ class GranteeWithType
     private $value;
 
     /**
-     * Constructor method for GranteeWithType
+     * Constructor
+     * 
      * @param  string $type
      * @param  string $value
      * @return self
      */
-    public function __construct($type = '', ?string $value = NULL)
+    public function __construct(string $type = '', ?string $value = NULL)
     {
         $this->setType($type);
         if (NULL !== $value) {

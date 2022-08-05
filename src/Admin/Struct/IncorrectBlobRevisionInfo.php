@@ -25,6 +25,7 @@ class IncorrectBlobRevisionInfo
 {
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class IncorrectBlobRevisionInfo
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
@@ -43,6 +45,7 @@ class IncorrectBlobRevisionInfo
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
@@ -52,6 +55,7 @@ class IncorrectBlobRevisionInfo
 
     /**
      * Volume ID
+     * 
      * @Accessor(getter="getVolumeId", setter="setVolumeId")
      * @SerializedName("volumeId")
      * @Type("int")
@@ -61,6 +65,7 @@ class IncorrectBlobRevisionInfo
 
     /**
      * Blob size information
+     * 
      * @Accessor(getter="getBlob", setter="setBlob")
      * @SerializedName("blob")
      * @Type("Zimbra\Admin\Struct\BlobRevisionInfo")
@@ -69,7 +74,8 @@ class IncorrectBlobRevisionInfo
     private BlobRevisionInfo $blob;
 
     /**
-     * Constructor method for IncorrectBlobRevisionInfo
+     * Constructor
+     * 
      * @param int $id
      * @param int $revision
      * @param int $size

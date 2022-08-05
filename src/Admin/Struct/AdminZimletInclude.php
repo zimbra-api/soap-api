@@ -34,7 +34,8 @@ class AdminZimletInclude implements ZimletInclude
     private $value;
 
     /**
-     * Constructor method for AdminZimletInclude
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

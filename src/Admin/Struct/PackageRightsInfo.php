@@ -25,6 +25,7 @@ class PackageRightsInfo
 {
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class PackageRightsInfo
 
     /**
      * Command cmds information
+     * 
      * @Accessor(getter="getCmds", setter="setCmds")
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
@@ -41,7 +43,7 @@ class PackageRightsInfo
     private $cmds = [];
 
     /**
-     * Constructor method for PackageRightsInfo
+     * Constructor
      *
      * @param string $name
      * @param array  $cmds

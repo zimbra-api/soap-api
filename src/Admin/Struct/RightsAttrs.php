@@ -27,6 +27,7 @@ class RightsAttrs
 
     /**
      * All flag
+     * 
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
@@ -35,7 +36,8 @@ class RightsAttrs
     private $all;
 
     /**
-     * Constructor method for RightsAttrs
+     * Constructor
+     * 
      * @param  bool $all
      * @param  array $attrs
      * @return self

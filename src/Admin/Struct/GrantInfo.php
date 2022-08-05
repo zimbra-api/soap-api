@@ -25,6 +25,7 @@ class GrantInfo
 {
     /**
      * Information on target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TypeIdName")
@@ -34,6 +35,7 @@ class GrantInfo
 
     /**
      * Information on grantee
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
@@ -43,6 +45,7 @@ class GrantInfo
 
     /**
      * Information on right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
@@ -51,7 +54,8 @@ class GrantInfo
     private RightModifierInfo $right;
 
     /**
-     * Constructor method for GrantInfo
+     * Constructor
+     * 
      * @param  TypeIdName $target
      * @param  GranteeInfo $grantee
      * @param  RightModifierInfo $right

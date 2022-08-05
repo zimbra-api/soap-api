@@ -40,7 +40,8 @@ class AdminZimletProperty implements ZimletProperty
     private $value;
 
     /**
-     * Constructor method for AdminZimletProperty
+     * Constructor
+     * 
      * @param  string $name
      * @param  string $value
      * @return self

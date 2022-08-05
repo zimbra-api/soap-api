@@ -25,6 +25,7 @@ class IndexStats
 {
     /**
      * total number of docs in this index
+     * 
      * @Accessor(getter="getMaxDocs", setter="setMaxDocs")
      * @SerializedName("maxDocs")
      * @Type("integer")
@@ -34,6 +35,7 @@ class IndexStats
 
     /**
      * number of deleted docs for the index
+     * 
      * @Accessor(getter="getNumDeletedDocs", setter="setNumDeletedDocs")
      * @SerializedName("deletedDocs")
      * @Type("integer")
@@ -42,7 +44,7 @@ class IndexStats
     private $numDeletedDocs;
 
     /**
-     * Constructor method for IndexStats
+     * Constructor
      *
      * @param int $maxDocs
      * @param int $numDeletedDocs

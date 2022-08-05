@@ -25,6 +25,7 @@ class Offset
 {
     /**
      * Offset
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -33,7 +34,8 @@ class Offset
     private $offset;
 
     /**
-     * Constructor method for Offset
+     * Constructor
+     * 
      * @param int $offset
      * @return self
      */

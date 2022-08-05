@@ -25,6 +25,7 @@ class ReindexProgressInfo
 {
     /**
      * Number of reindexes that succeeded
+     * 
      * @Accessor(getter="getNumSucceeded", setter="setNumSucceeded")
      * @SerializedName("numSucceeded")
      * @Type("integer")
@@ -34,6 +35,7 @@ class ReindexProgressInfo
 
     /**
      * Number of reindexes that failed
+     * 
      * @Accessor(getter="getNumFailed", setter="setNumFailed")
      * @SerializedName("numFailed")
      * @Type("integer")
@@ -43,6 +45,7 @@ class ReindexProgressInfo
 
     /**
      * Number of reindexes that remaining
+     * 
      * @Accessor(getter="getNumRemaining", setter="setNumRemaining")
      * @SerializedName("numRemaining")
      * @Type("integer")
@@ -51,7 +54,7 @@ class ReindexProgressInfo
     private $numRemaining;
 
     /**
-     * Constructor method for ReindexProgressInfo
+     * Constructor
      *
      * @param int $numSucceeded
      * @param int $numFailed

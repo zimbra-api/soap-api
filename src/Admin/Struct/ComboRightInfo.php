@@ -49,7 +49,7 @@ class ComboRightInfo
     private $targetType;
 
     /**
-     * Constructor method for ComboRightInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  RightType $type

@@ -26,6 +26,7 @@ class CmdRightsInfo
 {
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class CmdRightsInfo
 
     /**
      * Rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
@@ -45,6 +47,7 @@ class CmdRightsInfo
 
     /**
      * Notes
+     * 
      * @Accessor(getter="getNotes", setter="setNotes")
      * @SerializedName("desc")
      * @Type("array<string>")
@@ -54,7 +57,7 @@ class CmdRightsInfo
     private $notes = [];
 
     /**
-     * Constructor method for CmdRightsInfo
+     * Constructor
      *
      * @param string $name
      * @param array  $rights

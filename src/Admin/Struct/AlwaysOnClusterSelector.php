@@ -44,7 +44,8 @@ class AlwaysOnClusterSelector
     private $value;
 
     /**
-     * Constructor method for AlwaysOnClusterSelector
+     * Constructor
+     * 
      * @param  AlwaysOnClusterBy $by
      * @param  string $value
      * @return self

@@ -25,6 +25,7 @@ class CookieSpec
 {
     /**
      * Cookie name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,7 +34,8 @@ class CookieSpec
     private $name;
 
     /**
-     * Constructor method for CookieSpec
+     * Constructor
+     * 
      * @param  string $name
      * @return self
      */

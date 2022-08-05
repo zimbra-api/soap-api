@@ -26,6 +26,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
 {
     /**
      * Data source type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
@@ -35,6 +36,7 @@ class DataSourceSpecifier extends AdminAttrsImpl
 
     /**
      * Data source name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,7 +45,8 @@ class DataSourceSpecifier extends AdminAttrsImpl
     private $name;
 
     /**
-     * Constructor method for DataSourceSpecifier
+     * Constructor
+     * 
      * @param DataSourceType $type
      * @param string $name
      * @param array $attrs

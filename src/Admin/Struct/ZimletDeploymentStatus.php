@@ -26,6 +26,7 @@ class ZimletDeploymentStatus
 {
     /**
      * Server name
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletDeploymentStatus
 
     /**
      * Status - valid values succeeded|failed|pending
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
@@ -44,6 +46,7 @@ class ZimletDeploymentStatus
 
     /**
      * Error message
+     * 
      * @Accessor(getter="getError", setter="setError")
      * @SerializedName("error")
      * @Type("string")
@@ -52,7 +55,8 @@ class ZimletDeploymentStatus
     private $error;
 
     /**
-     * Constructor method for ZimletDeploymentStatus
+     * Constructor
+     * 
      * @param  string $server
      * @param  DeployStatus $status
      * @param  string $error

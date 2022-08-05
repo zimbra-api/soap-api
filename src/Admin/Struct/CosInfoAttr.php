@@ -25,6 +25,7 @@ class CosInfoAttr extends Attr
 {
     /**
      * Flags that this is a Class Of Service (COS) attribute.
+     * 
      * @Accessor(getter="getCosAttr", setter="setCosAttr")
      * @SerializedName("c")
      * @Type("bool")
@@ -34,6 +35,7 @@ class CosInfoAttr extends Attr
 
     /**
      * Flags that the value of this attribute has been suppressed for permissions reasons
+     * 
      * @Accessor(getter="getPermDenied", setter="setPermDenied")
      * @SerializedName("pd")
      * @Type("bool")
@@ -42,7 +44,8 @@ class CosInfoAttr extends Attr
     private $permDenied;
 
     /**
-     * Constructor method for CosInfoAttr
+     * Constructor
+     * 
      * @param  string $key
      * @param  string $value
      * @param  bool $cosAttr

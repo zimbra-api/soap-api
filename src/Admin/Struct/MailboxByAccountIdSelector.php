@@ -25,6 +25,7 @@ class MailboxByAccountIdSelector
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,7 +34,8 @@ class MailboxByAccountIdSelector
     private $id;
 
     /**
-     * Constructor method for MailboxByAccountIdSelector
+     * Constructor
+     * 
      * @param string $id
      * @return self
      */

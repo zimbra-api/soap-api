@@ -34,6 +34,7 @@ class QueueQuery
 
     /**
      * Limit the number of queue items to return in the response
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -43,6 +44,7 @@ class QueueQuery
 
     /**
      * Offset
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -51,7 +53,8 @@ class QueueQuery
     private $offset;
 
     /**
-     * Constructor method for QueueQuery
+     * Constructor
+     * 
      * @param  array $fields
      * @param  int $limit
      * @param  int $offset

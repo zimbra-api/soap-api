@@ -25,6 +25,7 @@ class DomainAggregateQuotaInfo
 {
     /**
      * Domain name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class DomainAggregateQuotaInfo
 
     /**
      * Domain id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class DomainAggregateQuotaInfo
 
     /**
      * Quota used on server
+     * 
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("int")
@@ -51,7 +54,8 @@ class DomainAggregateQuotaInfo
     private $quotaUsed;
 
     /**
-     * Constructor method for DomainAggregateQuotaInfo
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @param int    $quotaUsed

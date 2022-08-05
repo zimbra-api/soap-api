@@ -25,6 +25,7 @@ class TzFixupRuleMatchDate
 {
     /**
      * Match month. Value between 1 (January) and 12 (December)
+     * 
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
      * @Type("integer")
@@ -34,6 +35,7 @@ class TzFixupRuleMatchDate
 
     /**
      * Match day of month (1..31)
+     * 
      * @Accessor(getter="getMonthDay", setter="setMonthDay")
      * @SerializedName("mday")
      * @Type("integer")
@@ -42,7 +44,8 @@ class TzFixupRuleMatchDate
     private $monthDay;
 
     /**
-     * Constructor method for TzFixupRuleMatchDate
+     * Constructor
+     * 
      * @param int $mon
      * @param int $mday
      * @return self

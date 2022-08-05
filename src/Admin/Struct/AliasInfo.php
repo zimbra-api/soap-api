@@ -26,6 +26,7 @@ class AliasInfo extends AdminObjectInfo
 {
     /**
      * Target name
+     * 
      * @Accessor(getter="getTargetName", setter="setTargetName")
      * @SerializedName("targetName")
      * @Type("string")
@@ -35,6 +36,7 @@ class AliasInfo extends AdminObjectInfo
 
     /**
      * Target type
+     * 
      * @Accessor(getter="getTargetTyoe", setter="setTargetTyoe")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
@@ -43,7 +45,7 @@ class AliasInfo extends AdminObjectInfo
     private ?TargetType $targetType = NULL;
 
     /**
-     * Constructor method for AliasInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

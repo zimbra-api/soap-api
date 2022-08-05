@@ -41,7 +41,8 @@ class DistributionListSelector
     private $value;
 
     /**
-     * Constructor method for DistributionListSelector
+     * Constructor
+     * 
      * @param  DistributionListBy $by
      * @param  string $value
      * @return self

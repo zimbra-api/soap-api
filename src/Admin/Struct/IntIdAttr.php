@@ -32,7 +32,8 @@ class IntIdAttr
     private $id;
 
     /**
-     * Constructor method for IntIdAttr
+     * Constructor
+     * 
      * @param  int $id
      * @return self
      */

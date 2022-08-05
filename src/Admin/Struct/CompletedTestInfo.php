@@ -25,6 +25,7 @@ class CompletedTestInfo
 {
     /**
      * Test name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class CompletedTestInfo
 
     /**
      * Number of seconds to execute the test
+     * 
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
      * @Type("integer")
@@ -43,6 +45,7 @@ class CompletedTestInfo
 
     /**
      * Test class
+     * 
      * @Accessor(getter="getClassName", setter="setClassName")
      * @SerializedName("class")
      * @Type("string")
@@ -51,7 +54,7 @@ class CompletedTestInfo
     private $className;
 
     /**
-     * Constructor method for CompletedTestInfo
+     * Constructor
      *
      * @param string $name
      * @param int    $execSeconds

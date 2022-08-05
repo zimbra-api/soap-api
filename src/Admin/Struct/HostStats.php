@@ -25,6 +25,7 @@ class HostStats
 {
     /**
      * Hostname
+     * 
      * @Accessor(getter="getHostName", setter="setHostName")
      * @SerializedName("hn")
      * @Type("string")
@@ -34,6 +35,7 @@ class HostStats
 
     /**
      * Stats information
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsInfo")
@@ -42,7 +44,7 @@ class HostStats
     private ?StatsInfo $stats = NULL;
 
     /**
-     * Constructor method for HostStats
+     * Constructor
      *
      * @param  string $hostName
      * @param  StatsInfo $stats

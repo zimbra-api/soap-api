@@ -25,6 +25,7 @@ class DistributionListInfo extends AdminObjectInfo
 {
     /**
      * Flags whether this is a dynamic distribution list or not
+     * 
      * @Accessor(getter="isDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
@@ -34,6 +35,7 @@ class DistributionListInfo extends AdminObjectInfo
 
     /**
      * dl members
+     * 
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
@@ -42,6 +44,7 @@ class DistributionListInfo extends AdminObjectInfo
 
     /**
      * Owner information
+     * 
      * @Accessor(getter="getOwners", setter="setOwners")
      * @SerializedName("owners")
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
@@ -51,7 +54,8 @@ class DistributionListInfo extends AdminObjectInfo
     private $owners = [];
 
     /**
-     * Constructor method for DistributionListInfo
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @param array  $members

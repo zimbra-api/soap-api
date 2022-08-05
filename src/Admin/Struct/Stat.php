@@ -25,6 +25,7 @@ class Stat
 {
     /**
      * Stat name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class Stat
 
     /**
      * Stat description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("description")
      * @Type("string")
@@ -43,6 +45,7 @@ class Stat
 
     /**
      * Stat value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -50,7 +53,7 @@ class Stat
     private $value;
 
     /**
-     * Constructor method for Stat
+     * Constructor
      * 
      * @param  string $value
      * @param  string $name

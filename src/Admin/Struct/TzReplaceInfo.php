@@ -26,6 +26,7 @@ class TzReplaceInfo
 {
     /**
      * TzID from /opt/zimbra/conf/timezones.ics 
+     * 
      * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
      * @SerializedName("wellKnownTz")
      * @Type("Zimbra\Common\Struct\Id")
@@ -35,6 +36,7 @@ class TzReplaceInfo
 
     /**
      * Timezone
+     * 
      * @Accessor(getter="getCalTz", setter="setCalTz")
      * @SerializedName("tz")
      * @Type("Zimbra\Admin\Struct\CalTZInfo")
@@ -43,7 +45,7 @@ class TzReplaceInfo
     private ?CalTZInfo $calTz = NULL;
 
     /**
-     * Constructor method for TzReplaceInfo
+     * Constructor
      * 
      * @param Id $wellKnownTz
      * @param CalTZInfo $tz

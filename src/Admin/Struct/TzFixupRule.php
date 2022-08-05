@@ -25,6 +25,7 @@ class TzFixupRule
 {
     /**
      * Match
+     * 
      * @Accessor(getter="getMatch", setter="setMatch")
      * @SerializedName("match")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatch")
@@ -34,6 +35,7 @@ class TzFixupRule
 
     /**
      * Need either "touch" or "replace" but not both 
+     * 
      * @Accessor(getter="getTouch", setter="setTouch")
      * @SerializedName("touch")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
@@ -43,6 +45,7 @@ class TzFixupRule
 
     /**
      * Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
+     * 
      * @Accessor(getter="getReplace", setter="setReplace")
      * @SerializedName("replace")
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
@@ -51,7 +54,8 @@ class TzFixupRule
     private ?TzReplaceInfo $replace = NULL;
 
     /**
-     * Constructor method for TzFixupRule
+     * Constructor
+     * 
      * @param TzFixupRuleMatch $match
      * @param SimpleElement $touch
      * @param TzReplaceInfo $replace

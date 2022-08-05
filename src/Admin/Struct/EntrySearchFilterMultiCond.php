@@ -28,6 +28,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
 {
     /**
      * Negation flag
+     * 
      * @Accessor(getter="isNot", setter="setNot")
      * @SerializedName("not")
      * @Type("boolean")
@@ -37,6 +38,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
 
     /**
      * OR flag
+     * 
      * @Accessor(getter="isOr", setter="setOr")
      * @SerializedName("or")
      * @Type("boolean")
@@ -46,6 +48,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
 
     /**
      * The array of compound conditions
+     * 
      * @Accessor(getter="getCompoundConditions", setter="setCompoundConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")
      * @XmlList(inline=true, entry="conds", namespace="urn:zimbraAdmin")
@@ -54,6 +57,7 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
 
     /**
      * The array of simple conditions
+     * 
      * @Accessor(getter="getSingleConditions", setter="setSingleConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")
      * @XmlList(inline=true, entry="cond", namespace="urn:zimbraAdmin")
@@ -61,7 +65,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
     private $singleConditions = [];
 
     /**
-     * Constructor method for entrySearchFilterMultiCond
+     * Constructor
+     * 
      * @param bool $not
      * @param bool $or
      * @param array $conditions

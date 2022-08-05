@@ -25,6 +25,7 @@ class MailQueueCount
 {
     /**
      * Queue name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class MailQueueCount
 
     /**
      * Count of the number of files in a queue directory
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")
      * @Type("integer")
@@ -42,7 +44,7 @@ class MailQueueCount
     private $count;
 
     /**
-     * Constructor method for MailQueueCount
+     * Constructor
      *
      * @param string $name
      * @param int $count

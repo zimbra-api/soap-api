@@ -25,6 +25,7 @@ class RightViaInfo
 {
     /**
      * Target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
@@ -34,6 +35,7 @@ class RightViaInfo
 
     /**
      * Target
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
@@ -43,6 +45,7 @@ class RightViaInfo
 
     /**
      * Target
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
@@ -51,7 +54,7 @@ class RightViaInfo
     private CheckedRight $right;
 
     /**
-     * Constructor method for RightViaInfo
+     * Constructor
      * 
      * @param TargetWithType $target
      * @param GranteeWithType $grantee

@@ -26,6 +26,7 @@ class VolumeInfo
 {
     /**
      * Volume ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -35,6 +36,7 @@ class VolumeInfo
 
     /**
      * Name or description of volume
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,6 +46,7 @@ class VolumeInfo
 
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
+     * 
      * @Accessor(getter="getRootPath", setter="setRootPath")
      * @SerializedName("rootpath")
      * @Type("string")
@@ -53,6 +56,7 @@ class VolumeInfo
 
     /**
      * Volume type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("integer")
@@ -62,6 +66,7 @@ class VolumeInfo
 
     /**
      * Specifies whether blobs in this volume are compressed
+     * 
      * @Accessor(getter="getCompressBlobs", setter="setCompressBlobs")
      * @SerializedName("compressBlobs")
      * @Type("bool")
@@ -72,6 +77,7 @@ class VolumeInfo
     /**
      * Long value that specifies the maximum uncompressed file size, in bytes, of blobs
      * that will not be compressed (in other words blobs larger than this threshold are compressed)
+     * 
      * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
      * @SerializedName("compressionThreshold")
      * @Type("integer")
@@ -81,6 +87,7 @@ class VolumeInfo
 
     /**
      * The mgbits
+     * 
      * @Accessor(getter="getMgbits", setter="setMgbits")
      * @SerializedName("mgbits")
      * @Type("integer")
@@ -90,6 +97,7 @@ class VolumeInfo
 
     /**
      * The mbits
+     * 
      * @Accessor(getter="getMbits", setter="setMbits")
      * @SerializedName("mbits")
      * @Type("integer")
@@ -99,6 +107,7 @@ class VolumeInfo
 
     /**
      * The fgbits
+     * 
      * @Accessor(getter="getFgbits", setter="setFgbits")
      * @SerializedName("fgbits")
      * @Type("integer")
@@ -108,6 +117,7 @@ class VolumeInfo
 
     /**
      * The fbits
+     * 
      * @Accessor(getter="getFbits", setter="setFbits")
      * @SerializedName("fbits")
      * @Type("integer")
@@ -117,6 +127,7 @@ class VolumeInfo
 
     /**
      * Set if the volume is current.
+     * 
      * @Accessor(getter="isCurrent", setter="setCurrent")
      * @SerializedName("isCurrent")
      * @Type("bool")
@@ -125,7 +136,8 @@ class VolumeInfo
     private $current;
 
     /**
-     * Constructor method for VolumeInfo
+     * Constructor
+     * 
      * @param int    $id
      * @param string $name
      * @param string $rootPath

@@ -25,6 +25,7 @@ class QueueSummary
 {
     /**
      * Queue summary type - reason|to|from|todomain|fromdomain|addr|host
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class QueueSummary
 
     /**
      * Queue summary items
+     * 
      * @Accessor(getter="getItems", setter="setItems")
      * @Type("array<Zimbra\Admin\Struct\QueueSummaryItem>")
      * @XmlList(inline=true, entry="qsi", namespace="urn:zimbraAdmin")
@@ -41,7 +43,7 @@ class QueueSummary
     private $items = [];
 
     /**
-     * Constructor method for QueueSummary
+     * Constructor
      * 
      * @param  string $type
      * @param  array  $items

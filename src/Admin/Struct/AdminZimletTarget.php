@@ -26,6 +26,7 @@ class AdminZimletTarget implements ZimletTarget
 {
     /**
      * Zimlet target
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -33,7 +34,8 @@ class AdminZimletTarget implements ZimletTarget
     private $value;
 
     /**
-     * Constructor method for AdminZimletTarget
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

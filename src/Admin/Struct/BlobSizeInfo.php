@@ -25,6 +25,7 @@ class BlobSizeInfo
 {
     /**
      * Path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -34,6 +35,7 @@ class BlobSizeInfo
 
     /**
      * Data size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
@@ -43,6 +45,7 @@ class BlobSizeInfo
 
     /**
      * File size
+     * 
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("int")
@@ -52,6 +55,7 @@ class BlobSizeInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
+     * 
      * @Accessor(getter="getExternal", setter="setExternal")
      * @SerializedName("external")
      * @Type("bool")
@@ -60,7 +64,8 @@ class BlobSizeInfo
     private $external;
 
     /**
-     * Constructor method for BlobSizeInfo
+     * Constructor
+     * 
      * @param string $path
      * @param int $size
      * @param int $fileSize

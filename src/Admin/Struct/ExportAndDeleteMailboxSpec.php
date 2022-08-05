@@ -43,7 +43,8 @@ class ExportAndDeleteMailboxSpec
     private $items = [];
 
     /**
-     * Constructor method for ExportAndDeleteMailboxSpec
+     * Constructor
+     * 
      * @param  int $id
      * @param  array $items
      * @return self

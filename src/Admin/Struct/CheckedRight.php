@@ -33,7 +33,8 @@ class CheckedRight
     private $value;
 
     /**
-     * Constructor method for CheckedRight
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

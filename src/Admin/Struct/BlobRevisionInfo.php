@@ -25,6 +25,7 @@ class BlobRevisionInfo
 {
     /**
      * Path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -34,6 +35,7 @@ class BlobRevisionInfo
 
     /**
      * File size
+     * 
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("int")
@@ -43,6 +45,7 @@ class BlobRevisionInfo
 
     /**
      * Revision number
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
@@ -52,6 +55,7 @@ class BlobRevisionInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
+     * 
      * @Accessor(getter="getExternal", setter="setExternal")
      * @SerializedName("external")
      * @Type("bool")
@@ -60,7 +64,8 @@ class BlobRevisionInfo
     private $external;
 
     /**
-     * Constructor method for BlobRevisionInfo
+     * Constructor
+     * 
      * @param string $path
      * @param int $fileSize
      * @param int $revision

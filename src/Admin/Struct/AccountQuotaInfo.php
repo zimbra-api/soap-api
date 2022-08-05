@@ -25,6 +25,7 @@ class AccountQuotaInfo
 {
     /**
      * Account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class AccountQuotaInfo
 
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class AccountQuotaInfo
 
     /**
      * Used quota in bytes, or 0 if no quota used
+     * 
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("int")
@@ -52,6 +55,7 @@ class AccountQuotaInfo
 
     /**
      * Quota limit in bytes, or 0 if unlimited
+     * 
      * @Accessor(getter="getQuotaLimit", setter="setQuotaLimit")
      * @SerializedName("limit")
      * @Type("int")
@@ -60,7 +64,7 @@ class AccountQuotaInfo
     private $quotaLimit;
 
     /**
-     * Constructor method for AccountQuotaInfo
+     * Constructor
      *
      * @param string $name
      * @param string $id

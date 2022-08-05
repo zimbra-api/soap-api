@@ -26,6 +26,7 @@ class SyncGalAccountDataSourceSpec
 {
     /**
      * The by
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceBy>")
@@ -36,6 +37,7 @@ class SyncGalAccountDataSourceSpec
     /**
      * If fullSync is set to 0 (false) or unset the default behavior is trickle sync which will pull in any new contacts or modified contacts since last sync.
      * If fullSync is set to 1 (true), then the server will go through all the contacts that appear in GAL, and resolve deleted contacts in addition to new or modified ones.
+     * 
      * @Accessor(getter="getFullSync", setter="setFullSync")
      * @SerializedName("fullSync")
      * @Type("bool")
@@ -45,6 +47,7 @@ class SyncGalAccountDataSourceSpec
 
     /**
      * Reset flag. If set, then all the contacts will be populated again, regardless of the status since last sync.
+     * 
      * @Accessor(getter="getReset", setter="setReset")
      * @SerializedName("reset")
      * @Type("bool")
@@ -54,6 +57,7 @@ class SyncGalAccountDataSourceSpec
 
     /**
      * The value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -61,7 +65,7 @@ class SyncGalAccountDataSourceSpec
     private $value;
 
     /**
-     * Constructor method for SyncGalAccountDataSourceSpec
+     * Constructor
      * 
      * @param DataSourceBy $by
      * @param string $value

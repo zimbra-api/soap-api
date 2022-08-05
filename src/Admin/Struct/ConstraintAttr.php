@@ -25,6 +25,7 @@ class ConstraintAttr
 {
     /**
      * Constraint name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class ConstraintAttr
 
     /**
      * Constraint information
+     * 
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
@@ -42,7 +44,7 @@ class ConstraintAttr
     private ConstraintInfo $constraint;
 
     /**
-     * Constructor method for ConstraintAttr
+     * Constructor
      * 
      * @param  ConstraintInfo $constraint
      * @param  string $name

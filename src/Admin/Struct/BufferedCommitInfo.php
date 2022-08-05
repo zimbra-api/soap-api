@@ -25,6 +25,7 @@ class BufferedCommitInfo
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getAid", setter="setAid")
      * @SerializedName("aid")
      * @Type("string")
@@ -34,6 +35,7 @@ class BufferedCommitInfo
 
     /**
      * Commit ID
+     * 
      * @Accessor(getter="getCid", setter="setCid")
      * @SerializedName("cid")
      * @Type("string")
@@ -42,7 +44,7 @@ class BufferedCommitInfo
     private $cid;
 
     /**
-     * Constructor method for BufferedCommitInfo
+     * Constructor
      *
      * @param string $aid
      * @param string $cid

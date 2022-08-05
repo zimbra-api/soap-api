@@ -25,6 +25,7 @@ class LimitedQuery
 {
     /**
      * Limit. Default value 10
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -34,6 +35,7 @@ class LimitedQuery
 
     /**
      * Query string
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -41,7 +43,8 @@ class LimitedQuery
     private $value;
 
     /**
-     * Constructor method for LimitedQuery
+     * Constructor
+     * 
      * @param  int    $limit
      * @param  string $value
      * @return self

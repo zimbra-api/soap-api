@@ -26,6 +26,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
 {
     /**
      * dn
+     * 
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
@@ -35,6 +36,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
 
     /**
      * Keys
+     * 
      * @Accessor(getter="getKeys", setter="setKeys")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="key", namespace="urn:zimbraAdmin")
@@ -42,7 +44,7 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     private $keys = [];
 
     /**
-     * Constructor method for AutoProvDirectoryEntry
+     * Constructor
      *
      * @param string $dn
      * @param array $keys

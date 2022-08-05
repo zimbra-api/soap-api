@@ -24,7 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class UnexpectedBlobInfo
 {
     /**
-     * volume ID
+     * Volume ID
+     * 
      * @Accessor(getter="getVolumeId", setter="setVolumeId")
      * @SerializedName("volumeId")
      * @Type("int")
@@ -34,6 +35,7 @@ class UnexpectedBlobInfo
 
     /**
      * Path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -43,6 +45,7 @@ class UnexpectedBlobInfo
 
     /**
      * File size
+     * 
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("int")
@@ -52,6 +55,7 @@ class UnexpectedBlobInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
+     * 
      * @Accessor(getter="getExternal", setter="setExternal")
      * @SerializedName("external")
      * @Type("bool")
@@ -60,7 +64,8 @@ class UnexpectedBlobInfo
     private $external;
 
     /**
-     * Constructor method for UnexpectedBlobInfo
+     * Constructor
+     * 
      * @param int $volumeId
      * @param string $path
      * @param int $fileSize

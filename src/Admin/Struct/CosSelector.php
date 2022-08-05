@@ -26,6 +26,7 @@ class CosSelector
 {
     /**
      * Select the meaning of {cos-selector-key}
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CosBy>")
@@ -35,6 +36,7 @@ class CosSelector
 
     /**
      * The key used to identify the COS
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -42,7 +44,7 @@ class CosSelector
     private $value;
 
     /**
-     * Constructor method for CosSelector
+     * Constructor
      * 
      * @param  CosBy $by
      * @param  string $value

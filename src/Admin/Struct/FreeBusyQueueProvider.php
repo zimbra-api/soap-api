@@ -26,6 +26,7 @@ class FreeBusyQueueProvider
 {
     /**
      * Provider name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class FreeBusyQueueProvider
 
     /**
      * Information on accounts
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
@@ -42,7 +44,7 @@ class FreeBusyQueueProvider
     private $accounts = [];
 
     /**
-     * Constructor method for FreeBusyQueueProvider
+     * Constructor
      * 
      * @param  string $name 
      * @param  array  $accounts

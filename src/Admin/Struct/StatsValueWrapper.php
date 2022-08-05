@@ -34,7 +34,8 @@ class StatsValueWrapper
     private $stats = [];
 
     /**
-     * Constructor method for StatsValueWrapper
+     * Constructor
+     * 
      * @param  array $stats
      * @return self
      */

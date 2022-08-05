@@ -25,6 +25,7 @@ class TypeIdName
 {
     /**
      * Type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class TypeIdName
 
     /**
      * Id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class TypeIdName
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -51,7 +54,7 @@ class TypeIdName
     private $name;
 
     /**
-     * Constructor method for TypeIdName
+     * Constructor
      *
      * @param  string $type
      * @param  string $id

@@ -25,6 +25,7 @@ class StatsInfo
 {
     /**
      * Stat name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class StatsInfo
 
     /**
      * Stats values
+     * 
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValues")
@@ -42,7 +44,7 @@ class StatsInfo
     private ?StatsValues $values = NULL;
 
     /**
-     * Constructor method for StatsInfo
+     * Constructor
      *
      * @param  string $name
      * @param  StatsValues $values

@@ -25,6 +25,7 @@ class TimeZoneInfo
 {
     /**
      * timezone ID. e.g "America/Los_Angeles"
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class TimeZoneInfo
 
     /**
      * Timezone display name, e.g. "Pacific Standard Time"
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("displayName")
      * @Type("string")
@@ -42,7 +44,7 @@ class TimeZoneInfo
     private $displayName;
 
     /**
-     * Constructor method for TimeZoneInfo
+     * Constructor
      * 
      * @param  string $id
      * @param  string $displayName

@@ -198,7 +198,8 @@ class ContactInfo
     private $contactGroupMembers = [];
 
     /**
-     * Constructor method for ContactInfo
+     * Constructor
+     * 
      * @param string $sortField
      * @param bool $canExpand
      * @param string $id

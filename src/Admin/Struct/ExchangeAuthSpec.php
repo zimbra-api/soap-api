@@ -26,6 +26,7 @@ class ExchangeAuthSpec
 {
     /**
      * URL to Exchange server
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -35,6 +36,7 @@ class ExchangeAuthSpec
 
     /**
      * Exchange user
+     * 
      * @Accessor(getter="getAuthUserName", setter="setAuthUserName")
      * @SerializedName("user")
      * @Type("string")
@@ -44,6 +46,7 @@ class ExchangeAuthSpec
 
     /**
      * Exchange password
+     * 
      * @Accessor(getter="getAuthPassword", setter="setAuthPassword")
      * @SerializedName("pass")
      * @Type("string")
@@ -53,6 +56,7 @@ class ExchangeAuthSpec
 
     /**
      * Auth scheme
+     * 
      * @Accessor(getter="getScheme", setter="setScheme")
      * @SerializedName("scheme")
      * @Type("Enum<Zimbra\Common\Enum\AuthScheme>")
@@ -62,6 +66,7 @@ class ExchangeAuthSpec
 
     /**
      * Auth type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -70,7 +75,8 @@ class ExchangeAuthSpec
     private $type;
 
     /**
-     * Constructor method for ExchangeAuthSpec
+     * Constructor
+     * 
      * @param string $url
      * @param string $user
      * @param string $pass

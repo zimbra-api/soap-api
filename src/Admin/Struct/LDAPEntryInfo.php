@@ -25,6 +25,7 @@ class LDAPEntryInfo extends AdminAttrsImpl
 {
     /**
      * LDAP Entry name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,7 +34,7 @@ class LDAPEntryInfo extends AdminAttrsImpl
     private $name;
 
     /**
-     * Constructor method for LDAPEntryInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  array  $attrs

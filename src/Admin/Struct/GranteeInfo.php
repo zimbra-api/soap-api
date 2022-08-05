@@ -26,6 +26,7 @@ class GranteeInfo
 {
     /**
      * Grantee id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class GranteeInfo
 
     /**
      * Grantee name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,6 +46,7 @@ class GranteeInfo
 
     /**
      * Grantee type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
@@ -52,7 +55,8 @@ class GranteeInfo
     private ?GranteeType $type = NULL;
 
     /**
-     * Constructor method for GranteeInfo
+     * Constructor
+     * 
      * @param  string $id
      * @param  string $name
      * @param  GranteeType $type

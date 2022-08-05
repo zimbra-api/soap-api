@@ -25,6 +25,7 @@ class AccountSessionInfo
 {
     /**
      * Account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class AccountSessionInfo
 
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class AccountSessionInfo
 
     /**
      * Information on sessions
+     * 
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
@@ -50,7 +53,7 @@ class AccountSessionInfo
     private $sessions = [];
 
     /**
-     * Constructor method for AccountSessionInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

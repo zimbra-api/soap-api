@@ -25,6 +25,7 @@ class AttributeDescription
 {
     /**
      * Attribute name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
@@ -34,6 +35,7 @@ class AttributeDescription
 
     /**
      * Attribute description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
@@ -42,7 +44,7 @@ class AttributeDescription
     private $description;
 
     /**
-     * Constructor method for AttributeDescription
+     * Constructor
      * 
      * @param  string $name
      * @param  string $description

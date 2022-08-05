@@ -25,6 +25,7 @@ class MailQueueQuery
 {
     /**
      * Query
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
@@ -34,6 +35,7 @@ class MailQueueQuery
 
     /**
      * Queue name
+     * 
      * @Accessor(getter="getQueueName", setter="setQueueName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,6 +45,7 @@ class MailQueueQuery
 
     /**
      * To fora a queue scan, set this to 1 (true)
+     * 
      * @Accessor(getter="getScan", setter="setScan")
      * @SerializedName("scan")
      * @Type("bool")
@@ -52,6 +55,7 @@ class MailQueueQuery
 
     /**
      * Maximum time to wait for the scan to complete in seconds (default 3)
+     * 
      * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
      * @SerializedName("wait")
      * @Type("integer")
@@ -60,7 +64,8 @@ class MailQueueQuery
     private $waitSeconds;
 
     /**
-     * Constructor method for MailQueueQuery
+     * Constructor
+     * 
      * @param  QueueQuery $query
      * @param  string $name
      * @param  bool $scan

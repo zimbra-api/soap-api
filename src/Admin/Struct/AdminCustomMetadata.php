@@ -26,6 +26,7 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
 {
     /**
      * Metadata section key.
+     * 
      * @Accessor(getter="getSection", setter="setSection")
      * @SerializedName("section")
      * @Type("string")
@@ -34,7 +35,7 @@ class AdminCustomMetadata extends AdminKeyValuePairs implements CustomMetadataIn
     private $section;
 
     /**
-     * Constructor method for AdminCustomMetadata\
+     * Constructor
      * 
      * @param string $section
      * @param array  $keyValuePairs

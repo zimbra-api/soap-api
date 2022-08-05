@@ -25,6 +25,7 @@ class MailboxWithMailboxId
 {
     /**
      * Mailbox ID
+     * 
      * @Accessor(getter="getMbxid", setter="setMbxid")
      * @SerializedName("mbxid")
      * @Type("integer")
@@ -34,6 +35,7 @@ class MailboxWithMailboxId
 
     /**
      * Account ID
+     * 
      * @Accessor(getter="getAccountId", setter="setAccountId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class MailboxWithMailboxId
 
     /**
      * Size in bytes
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -51,7 +54,7 @@ class MailboxWithMailboxId
     private $size;
 
     /**
-     * Constructor method for MailboxWithMailboxId
+     * Constructor
      * 
      * @param int $mbxid
      * @param string $accountId

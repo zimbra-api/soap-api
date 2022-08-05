@@ -25,6 +25,7 @@ class LicenseExpirationInfo
 {
     /**
      * Expiration date in format : YYYYMMDD
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("date")
      * @Type("string")
@@ -33,7 +34,8 @@ class LicenseExpirationInfo
     private $date;
 
     /**
-     * Constructor method for LicenseExpirationInfo
+     * Constructor
+     * 
      * @param  string $date
      * @return self
      */

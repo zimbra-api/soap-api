@@ -25,6 +25,7 @@ class SessionInfo
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
@@ -34,6 +35,7 @@ class SessionInfo
 
     /**
      * Account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,6 +45,7 @@ class SessionInfo
 
     /**
      * Session ID
+     * 
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sid")
      * @Type("string")
@@ -52,6 +55,7 @@ class SessionInfo
 
     /**
      * Creation date
+     * 
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
      * @Type("integer")
@@ -61,6 +65,7 @@ class SessionInfo
 
     /**
      * Last accessed date
+     * 
      * @Accessor(getter="getLastAccessedDate", setter="setLastAccessedDate")
      * @SerializedName("ld")
      * @Type("integer")
@@ -70,6 +75,7 @@ class SessionInfo
 
     /**
      * Extra attributes - possibly including "push"
+     * 
      * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
      * @Type("array<string, string>")
      * @XmlAttributeMap
@@ -77,7 +83,8 @@ class SessionInfo
     private $extraAttributes = [];
 
     /**
-     * Constructor method for SessionInfo
+     * Constructor
+     * 
      * @param string $sessionId
      * @param int $createdDate
      * @param int $lastAccessedDate

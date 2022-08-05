@@ -25,6 +25,7 @@ class FailedTestInfo
 {
     /**
      * Failed test name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class FailedTestInfo
 
     /**
      * Failed test execution time
+     * 
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
      * @Type("integer")
@@ -43,6 +45,7 @@ class FailedTestInfo
 
     /**
      * Failed test class name
+     * 
      * @Accessor(getter="getClassName", setter="setClassName")
      * @SerializedName("class")
      * @Type("string")
@@ -52,6 +55,7 @@ class FailedTestInfo
 
     /**
      * Text of any exception thrown during the test
+     * 
      * @Accessor(getter="getThrowable", setter="setThrowable")
      * @SerializedName("_content")
      * @Type("string")
@@ -60,7 +64,7 @@ class FailedTestInfo
     private $throwable;
 
     /**
-     * Constructor method for FailedTestInfo
+     * Constructor
      *
      * @param string $name
      * @param int    $execSeconds

@@ -56,7 +56,7 @@ class XMPPComponentInfo extends AdminAttrsImpl
     private $serverName;
 
     /**
-     * Constructor method for XMPPComponentInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

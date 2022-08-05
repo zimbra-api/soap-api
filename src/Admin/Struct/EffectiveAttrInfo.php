@@ -25,6 +25,7 @@ class EffectiveAttrInfo
 {
     /**
      * Attribute name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
@@ -34,6 +35,7 @@ class EffectiveAttrInfo
 
     /**
      * Constraint information
+     * 
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
@@ -43,6 +45,7 @@ class EffectiveAttrInfo
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)
+     * 
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("default")
      * @Type("array<string>")
@@ -52,7 +55,8 @@ class EffectiveAttrInfo
     private $values = [];
 
     /**
-     * Constructor method for EffectiveAttrInfo
+     * Constructor
+     * 
      * @param string $name
      * @param ConstraintInfo $constraint
      * @param array $values

@@ -28,6 +28,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 {
     /**
      * Search filter simple condition
+     * 
      * @Accessor(getter="getCondition", setter="setCondition")
      * @SerializedName("cond")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterSingleCond")
@@ -37,6 +38,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 
     /**
      * Search filter compound condition
+     * 
      * @Accessor(getter="getConditions", setter="setCondition")
      * @SerializedName("conds")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterMultiCond")
@@ -45,7 +47,8 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     private ?SearchFilterCondition $conditions = NULL;
 
     /**
-     * Constructor method for EntrySearchFilterInfo
+     * Constructor
+     * 
      * @param SearchFilterCondition $condition
      * @return self
      */

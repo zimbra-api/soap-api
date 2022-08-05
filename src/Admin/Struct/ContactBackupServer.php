@@ -41,7 +41,8 @@ class ContactBackupServer
     private ContactBackupStatus $status;
 
     /**
-     * Constructor method for ContactBackupServer
+     * Constructor
+     * 
      * @param string $name
      * @param ContactBackupStatus $status
      * @return self

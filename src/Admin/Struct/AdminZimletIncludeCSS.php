@@ -34,7 +34,8 @@ class AdminZimletIncludeCSS implements ZimletIncludeCSS
     private $value;
 
     /**
-     * Constructor method for AdminZimletIncludeCSS
+     * Constructor
+     * 
      * @param string $value
      * @return self
      */

@@ -26,6 +26,7 @@ class ServiceStatus
 {
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("string")
@@ -35,6 +36,7 @@ class ServiceStatus
 
     /**
      * Service
+     * 
      * @Accessor(getter="getService", setter="setService")
      * @SerializedName("service")
      * @Type("string")
@@ -44,6 +46,7 @@ class ServiceStatus
 
     /**
      * Number of seconds since the epoch (1970), UTC time
+     * 
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("t")
      * @Type("integer")
@@ -53,6 +56,7 @@ class ServiceStatus
 
     /**
      * Status
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @Type("Enum<Zimbra\Common\Enum\ZeroOrOne>")
      * @XmlValue(cdata=false)
@@ -60,7 +64,7 @@ class ServiceStatus
     private ZeroOrOne $status;
 
     /**
-     * Constructor method for ServiceStatus
+     * Constructor
      * 
      * @param  string $server
      * @param  string $service

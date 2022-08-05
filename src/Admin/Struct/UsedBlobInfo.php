@@ -25,6 +25,7 @@ class UsedBlobInfo
 {
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class UsedBlobInfo
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
@@ -43,6 +45,7 @@ class UsedBlobInfo
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
@@ -52,6 +55,7 @@ class UsedBlobInfo
 
     /**
      * Volume ID
+     * 
      * @Accessor(getter="getVolumeId", setter="setVolumeId")
      * @SerializedName("volumeId")
      * @Type("int")
@@ -61,6 +65,7 @@ class UsedBlobInfo
 
     /**
      * Blob size information
+     * 
      * @Accessor(getter="getBlob", setter="setBlob")
      * @SerializedName("blob")
      * @Type("Zimbra\Admin\Struct\BlobSizeInfo")
@@ -69,7 +74,8 @@ class UsedBlobInfo
     private BlobSizeInfo $blob;
 
     /**
-     * Constructor method for UsedBlobInfo
+     * Constructor
+     * 
      * @param int $id
      * @param int $revision
      * @param int $size

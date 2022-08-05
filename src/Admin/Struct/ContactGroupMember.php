@@ -26,6 +26,7 @@ class ContactGroupMember
 
     /**
      * Member type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -35,6 +36,7 @@ class ContactGroupMember
 
     /**
      * Member value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -44,6 +46,7 @@ class ContactGroupMember
 
     /**
      * Contact information for dereferenced member.
+     * 
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Admin\Struct\ContactInfo")
@@ -52,7 +55,8 @@ class ContactGroupMember
     private ?ContactInfo $contact = NULL;
 
     /**
-     * Constructor method for ContactGroupMember
+     * Constructor
+     * 
      * @param  string $type
      * @param  string $value
      * @param  ContactInfo $contact

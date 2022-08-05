@@ -25,6 +25,7 @@ class MailboxQuotaInfo
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getAccountId", setter="setAccountId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class MailboxQuotaInfo
 
     /**
      * Quota used
+     * 
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
      * @Type("int")
@@ -42,7 +44,7 @@ class MailboxQuotaInfo
     private $quotaUsed;
 
     /**
-     * Constructor method for MailboxQuotaInfo
+     * Constructor
      *
      * @param string $accountId
      * @param int $quotaUsed

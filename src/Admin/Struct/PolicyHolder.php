@@ -33,7 +33,8 @@ class PolicyHolder
     private ?Policy $policy = NULL;
 
     /**
-     * Constructor method for PolicyHolder
+     * Constructor
+     * 
      * @param  Policy $policy
      * @return self
      */

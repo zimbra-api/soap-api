@@ -25,6 +25,7 @@ class MailboxInfo
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -34,6 +35,7 @@ class MailboxInfo
 
     /**
      * Group ID
+     * 
      * @Accessor(getter="getGroupId", setter="setGroupId")
      * @SerializedName("groupId")
      * @Type("integer")
@@ -43,6 +45,7 @@ class MailboxInfo
 
     /**
      * Account ID
+     * 
      * @Accessor(getter="getAccountId", setter="setAccountId")
      * @SerializedName("accountId")
      * @Type("string")
@@ -52,6 +55,7 @@ class MailboxInfo
 
     /**
      * Index volume ID
+     * 
      * @Accessor(getter="getIndexVolumeId", setter="setIndexVolumeId")
      * @SerializedName("indexVolumeId")
      * @Type("integer")
@@ -61,6 +65,7 @@ class MailboxInfo
 
     /**
      * Item ID checkpoint
+     * 
      * @Accessor(getter="getItemIdCheckPoint", setter="setItemIdCheckPoint")
      * @SerializedName("itemIdCheckPoint")
      * @Type("integer")
@@ -70,6 +75,7 @@ class MailboxInfo
 
     /**
      * Contact count
+     * 
      * @Accessor(getter="getContactCount", setter="setContactCount")
      * @SerializedName("contactCount")
      * @Type("integer")
@@ -79,6 +85,7 @@ class MailboxInfo
 
     /**
      * Size checkpoint
+     * 
      * @Accessor(getter="getSizeCheckPoint", setter="setSizeCheckPoint")
      * @SerializedName("sizeCheckPoint")
      * @Type("integer")
@@ -88,6 +95,7 @@ class MailboxInfo
 
     /**
      * Change checkpoint
+     * 
      * @Accessor(getter="getChangeCheckPoint", setter="setChangeCheckPoint")
      * @SerializedName("changeCheckPoint")
      * @Type("integer")
@@ -97,6 +105,7 @@ class MailboxInfo
 
     /**
      * Tracking Sync
+     * 
      * @Accessor(getter="getTrackingSync", setter="setTrackingSync")
      * @SerializedName("trackingSync")
      * @Type("integer")
@@ -106,6 +115,7 @@ class MailboxInfo
 
     /**
      * Tracking IMAP
+     * 
      * @Accessor(getter="isTrackingImap", setter="setTrackingImap")
      * @SerializedName("trackingImap")
      * @Type("bool")
@@ -115,6 +125,7 @@ class MailboxInfo
 
     /**
      * Last Backup At
+     * 
      * @Accessor(getter="getLastBackupAt", setter="setLastBackupAt")
      * @SerializedName("lastBackupAt")
      * @Type("integer")
@@ -124,6 +135,7 @@ class MailboxInfo
 
     /**
      * Last SOAP access
+     * 
      * @Accessor(getter="getLastSoapAccess", setter="setLastSoapAccess")
      * @SerializedName("lastSoapAccess")
      * @Type("integer")
@@ -133,6 +145,7 @@ class MailboxInfo
 
     /**
      * New Messages
+     * 
      * @Accessor(getter="getNewMessages", setter="setNewMessages")
      * @SerializedName("newMessages")
      * @Type("integer")
@@ -141,7 +154,8 @@ class MailboxInfo
     private $newMessages;
 
     /**
-     * Constructor method for MailboxInfo
+     * Constructor
+     * 
      * @param int $id
      * @param int $groupId
      * @param string $accountId

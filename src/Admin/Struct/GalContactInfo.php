@@ -25,6 +25,7 @@ class GalContactInfo extends AdminAttrsImpl
 {
     /**
      * Global Address List contact ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,7 +34,8 @@ class GalContactInfo extends AdminAttrsImpl
     private $id;
 
     /**
-     * Constructor method for GalContactInfo
+     * Constructor
+     * 
      * @param  string $id
      * @param  array $attrs
      * @return self

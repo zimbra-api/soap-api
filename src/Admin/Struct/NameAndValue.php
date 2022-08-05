@@ -40,7 +40,7 @@ class NameAndValue
     private $value;
 
     /**
-     * Constructor method for NameAndValue
+     * Constructor
      *
      * @param  string $name
      * @param  string $value

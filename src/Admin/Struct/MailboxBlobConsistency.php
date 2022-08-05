@@ -25,6 +25,7 @@ class MailboxBlobConsistency
 {
     /**
      * Mailbox ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class MailboxBlobConsistency
 
     /**
      * Information about missing blobs
+     * 
      * @Accessor(getter="getMissingBlobs", setter="setMissingBlobs")
      * @SerializedName("missingBlobs")
      * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
@@ -44,6 +46,7 @@ class MailboxBlobConsistency
 
     /**
      * Information about items with incorrect sizes
+     * 
      * @Accessor(getter="getIncorrectSizes", setter="setIncorrectSizes")
      * @SerializedName("incorrectSizes")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
@@ -54,6 +57,7 @@ class MailboxBlobConsistency
 
     /**
      * Information about unexpected blobs
+     * 
      * @Accessor(getter="getUnexpectedBlobs", setter="setUnexpectedBlobs")
      * @SerializedName("unexpectedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
@@ -64,6 +68,7 @@ class MailboxBlobConsistency
 
     /**
      * Information about items with incorrect revisions
+     * 
      * @Accessor(getter="getIncorrectRevisions", setter="setIncorrectRevisions")
      * @SerializedName("incorrectRevisions")
      * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
@@ -74,6 +79,7 @@ class MailboxBlobConsistency
 
     /**
      * Information about used blobs
+     * 
      * @Accessor(getter="getUsedBlobs", setter="setUsedBlobs")
      * @SerializedName("usedBlobs")
      * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
@@ -83,7 +89,8 @@ class MailboxBlobConsistency
     private $usedBlobs = [];
 
     /**
-     * Constructor method for MailboxBlobConsistency
+     * Constructor
+     * 
      * @param  int $id
      * @param  array  $missingBlobs
      * @param  array  $incorrectSizes

@@ -41,6 +41,7 @@ class AccountLoggerInfo
 
     /**
      * Logger information
+     * 
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
@@ -48,7 +49,7 @@ class AccountLoggerInfo
     private $loggers = [];
 
     /**
-     * Constructor method for AccountLoggerInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

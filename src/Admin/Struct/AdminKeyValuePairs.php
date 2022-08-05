@@ -36,8 +36,10 @@ class AdminKeyValuePairs implements KeyValuePairs
     protected $keyValuePairs = [];
 
     /**
-     * AdminKeyValuePairs constructor.
+     * constructor.
+     * 
      * @param array $keyValuePairs
+     * @return self
      */
     public function __construct(array $keyValuePairs = [])
     {

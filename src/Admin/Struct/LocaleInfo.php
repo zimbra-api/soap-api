@@ -26,6 +26,7 @@ class LocaleInfo implements LocaleInterface
 {
     /**
      * Locale ID.  e.g. "en_US"
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class LocaleInfo implements LocaleInterface
 
     /**
      * Locale name - the name in the locale itself.  e.g. "English (United States)"
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,6 +46,7 @@ class LocaleInfo implements LocaleInterface
 
     /**
      * Locale name in the user's locale.  e.g. "English (United States)"
+     * 
      * @Accessor(getter="getLocalName", setter="setLocalName")
      * @SerializedName("localName")
      * @Type("string")
@@ -52,7 +55,8 @@ class LocaleInfo implements LocaleInterface
     private $localName;
 
     /**
-     * Constructor method for LocaleInfo
+     * Constructor
+     * 
      * @param string $id
      * @param string $name
      * @param string $localName

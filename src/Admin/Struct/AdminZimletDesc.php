@@ -26,6 +26,7 @@ class AdminZimletDesc implements ZimletDesc
 {
     /**
      * Zimlet name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class AdminZimletDesc implements ZimletDesc
 
     /**
      * Zimlet version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("string")
@@ -44,6 +46,7 @@ class AdminZimletDesc implements ZimletDesc
 
     /**
      * Zimlet description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("description")
      * @Type("string")
@@ -53,6 +56,7 @@ class AdminZimletDesc implements ZimletDesc
 
     /**
      * Zimlet extension
+     * 
      * @Accessor(getter="getExtension", setter="setExtension")
      * @SerializedName("extension")
      * @Type("string")
@@ -62,6 +66,7 @@ class AdminZimletDesc implements ZimletDesc
 
     /**
      * Zimlet target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("string")
@@ -71,6 +76,7 @@ class AdminZimletDesc implements ZimletDesc
 
     /**
      * Zimlet label
+     * 
      * @Accessor(getter="getLabel", setter="setLabel")
      * @SerializedName("label")
      * @Type("string")
@@ -111,7 +117,8 @@ class AdminZimletDesc implements ZimletDesc
     private ?AdminZimletTarget $zimletTarget = NULL;
 
     /**
-     * Constructor method for AdminZimletDesc
+     * Constructor
+     * 
      * @param string $name
      * @param string $version
      * @param string $description

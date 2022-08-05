@@ -25,6 +25,7 @@ class ExportAndDeleteItemSpec
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -34,6 +35,7 @@ class ExportAndDeleteItemSpec
 
     /**
      * Version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("integer")
@@ -42,7 +44,7 @@ class ExportAndDeleteItemSpec
     private $version;
 
     /**
-     * Constructor method for ExportAndDeleteItemSpec
+     * Constructor
      * 
      * @param  int $id
      * @param  int $version

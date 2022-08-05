@@ -44,7 +44,7 @@ class CalendarResourceSelector
     private $value;
 
     /**
-     * Constructor method for CalendarResourceSelector
+     * Constructor
      * 
      * @param  CalendarResourceBy $by
      * @param  string $value

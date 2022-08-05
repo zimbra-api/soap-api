@@ -25,6 +25,7 @@ class QueueItem
 {
     /**
      * id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class QueueItem
 
     /**
      * Arrival time
+     * 
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("string")
@@ -43,6 +45,7 @@ class QueueItem
 
     /**
      * From domain
+     * 
      * @Accessor(getter="getFromdomain", setter="setFromdomain")
      * @SerializedName("fromdomain")
      * @Type("string")
@@ -52,6 +55,7 @@ class QueueItem
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("size")
      * @Type("string")
@@ -61,6 +65,7 @@ class QueueItem
 
     /**
      * Sender
+     * 
      * @Accessor(getter="getFrom", setter="setFrom")
      * @SerializedName("from")
      * @Type("string")
@@ -70,6 +75,7 @@ class QueueItem
 
     /**
      * Comma separated list of recipients
+     * 
      * @Accessor(getter="getTo", setter="setTo")
      * @SerializedName("to")
      * @Type("string")
@@ -79,6 +85,7 @@ class QueueItem
 
     /**
      * Hostname of origin
+     * 
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("string")
@@ -88,6 +95,7 @@ class QueueItem
 
     /**
      * IP address of origin
+     * 
      * @Accessor(getter="getAddr", setter="setAddr")
      * @SerializedName("addr")
      * @Type("string")
@@ -97,6 +105,7 @@ class QueueItem
 
     /**
      * Reason
+     * 
      * @Accessor(getter="getReason", setter="setReason")
      * @SerializedName("reason")
      * @Type("string")
@@ -106,6 +115,7 @@ class QueueItem
 
     /**
      * Content filter
+     * 
      * @Accessor(getter="getFilter", setter="setFilter")
      * @SerializedName("filter")
      * @Type("string")
@@ -115,6 +125,7 @@ class QueueItem
 
     /**
      * To domain
+     * 
      * @Accessor(getter="getTodomain", setter="setTodomain")
      * @SerializedName("todomain")
      * @Type("string")
@@ -124,6 +135,7 @@ class QueueItem
 
     /**
      * IP address message received from
+     * 
      * @Accessor(getter="getReceived", setter="setReceived")
      * @SerializedName("received")
      * @Type("string")
@@ -132,7 +144,7 @@ class QueueItem
     private $received;
 
     /**
-     * Constructor method for QueueItem
+     * Constructor
      * 
      * @param string $id
      * @param string $time

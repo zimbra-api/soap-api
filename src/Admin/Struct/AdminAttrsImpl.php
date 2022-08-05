@@ -24,7 +24,8 @@ abstract class AdminAttrsImpl implements AdminAttrs
     use AdminAttrsImplTrait;
 
     /**
-     * Constructor method for AdminAttrsImpl
+     * Constructor
+     * 
      * @param array $attrs
      * @return self
      */

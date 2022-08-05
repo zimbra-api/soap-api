@@ -32,7 +32,8 @@ class ValueAttrib
     private $value;
 
     /**
-     * Constructor method for ValueAttrib
+     * Constructor
+     * 
      * @param  string $value
      * @return self
      */

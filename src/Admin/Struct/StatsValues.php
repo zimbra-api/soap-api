@@ -25,6 +25,7 @@ class StatsValues
 {
     /**
      * t
+     * 
      * @Accessor(getter="getT", setter="setT")
      * @SerializedName("t")
      * @Type("string")
@@ -34,6 +35,7 @@ class StatsValues
 
     /**
      * Stats
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
@@ -41,7 +43,7 @@ class StatsValues
     private $stats = [];
 
     /**
-     * Constructor method for StatsValues
+     * Constructor
      *
      * @param  string $t
      * @param  array $stats

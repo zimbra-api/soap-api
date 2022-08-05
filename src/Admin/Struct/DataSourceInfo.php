@@ -26,6 +26,7 @@ class DataSourceInfo extends AdminAttrsImpl
 {
     /**
      * Data source name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class DataSourceInfo extends AdminAttrsImpl
 
     /**
      * Data source id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -44,6 +46,7 @@ class DataSourceInfo extends AdminAttrsImpl
 
     /**
      * Data source type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
@@ -52,7 +55,8 @@ class DataSourceInfo extends AdminAttrsImpl
     private DataSourceType $type;
 
     /**
-     * Constructor method for DataSourceInfo
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @param DataSourceType $type 

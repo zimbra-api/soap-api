@@ -26,6 +26,7 @@ class InDomainInfo
 {
     /**
      * Domains
+     * 
      * @Accessor(getter="getDomains", setter="setDomains")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
@@ -34,6 +35,7 @@ class InDomainInfo
 
     /**
      * Rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
@@ -42,7 +44,8 @@ class InDomainInfo
     private EffectiveRightsInfo $rights;
 
     /**
-     * Constructor method for InDomainInfo
+     * Constructor
+     * 
      * @param EffectiveRightsInfo $rights
      * @param array $domains
      * @return self

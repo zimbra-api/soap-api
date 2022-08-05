@@ -25,6 +25,7 @@ class MailQueueDetails
 {
     /**
      * Queue name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class MailQueueDetails
 
     /**
      * Scan time
+     * 
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("integer")
@@ -44,6 +46,7 @@ class MailQueueDetails
     /**
      * Indicates that the server has not completed scanning the MTA queue, and that this
      * scan is in progress, and the client should ask again in a little while.
+     * 
      * @Accessor(getter="getStillScanning", setter="setStillScanning")
      * @SerializedName("scan")
      * @Type("bool")
@@ -61,6 +64,7 @@ class MailQueueDetails
 
     /**
      * Indicates that more qi's are available past the limit specified in the request.
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -72,6 +76,7 @@ class MailQueueDetails
      * Queue summary.
      * The <qs> elements summarize the queue by various types of data (sender addresses, recipient domain, etc).
      * Only the deferred queue has error summary type.
+     * 
      * @Accessor(getter="getQueueSummaries", setter="setQueueSummaries")
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline=true, entry="qs", namespace="urn:zimbraAdmin")
@@ -80,6 +85,7 @@ class MailQueueDetails
 
     /**
      * The various queue items that match the requested query.
+     * 
      * @Accessor(getter="getQueueItems", setter="setQueueItems")
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
@@ -87,7 +93,7 @@ class MailQueueDetails
     private $queueItems = [];
 
     /**
-     * Constructor method for MailQueueDetails
+     * Constructor
      * 
      * @param  string $name
      * @param  int $time

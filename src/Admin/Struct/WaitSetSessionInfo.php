@@ -25,6 +25,7 @@ class WaitSetSessionInfo
 {
     /**
      * Interest bitmask
+     * 
      * @Accessor(getter="getInterestMask", setter="setInterestMask")
      * @SerializedName("interestMask")
      * @Type("string")
@@ -34,6 +35,7 @@ class WaitSetSessionInfo
 
     /**
      * Mailbox change ID
+     * 
      * @Accessor(getter="getHighestChangeId", setter="setHighestChangeId")
      * @SerializedName("highestChangeId")
      * @Type("integer")
@@ -43,6 +45,7 @@ class WaitSetSessionInfo
 
     /**
      * Last access time
+     * 
      * @Accessor(getter="getLastAccessTime", setter="setLastAccessTime")
      * @SerializedName("lastAccessTime")
      * @Type("integer")
@@ -52,6 +55,7 @@ class WaitSetSessionInfo
 
     /**
      * Creation time
+     * 
      * @Accessor(getter="getCreationTime", setter="setCreationTime")
      * @SerializedName("creationTime")
      * @Type("integer")
@@ -61,6 +65,7 @@ class WaitSetSessionInfo
 
     /**
      * Session ID
+     * 
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sessionId")
      * @Type("string")
@@ -70,6 +75,7 @@ class WaitSetSessionInfo
 
     /**
      * Sync Token
+     * 
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
@@ -79,6 +85,7 @@ class WaitSetSessionInfo
 
     /**
      * Comma separated list of IDs for folders.
+     * 
      * @Accessor(getter="getFolderInterests", setter="setFolderInterests")
      * @SerializedName("folderInterests")
      * @Type("string")
@@ -88,6 +95,7 @@ class WaitSetSessionInfo
 
     /**
      * Comma separated list of IDs for folders.
+     * 
      * @Accessor(getter="getChangedFolders", setter="setChangedFolders")
      * @SerializedName("changedFolders")
      * @Type("string")
@@ -96,7 +104,7 @@ class WaitSetSessionInfo
     private $changedFolders;
 
     /**
-     * Constructor method for WaitSetSessionInfo
+     * Constructor
      * 
      * @param string $interestMask
      * @param int    $highestChangeId

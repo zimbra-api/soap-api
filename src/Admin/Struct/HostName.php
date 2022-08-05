@@ -32,11 +32,12 @@ class HostName
     private $hostName;
 
     /**
-     * Constructor method for HostName
+     * Constructor
+     * 
      * @param  string $hostName
      * @return self
      */
-    public function __construct($hostName = '')
+    public function __construct(string $hostName = '')
     {
         $this->setHostName($hostName);
     }

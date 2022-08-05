@@ -26,6 +26,7 @@ class ZimletAcl
 {
     /**
      * Name of Class Of Service (COS)
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletAcl
 
     /**
      * ACL
+     * 
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Enum<Zimbra\Common\Enum\AclType>")
@@ -43,7 +45,8 @@ class ZimletAcl
     private ?AclType $acl = NULL;
 
     /**
-     * Constructor method for ZimletAcl
+     * Constructor
+     * 
      * @param  string $cos
      * @param  AclType $acl
      * @return self

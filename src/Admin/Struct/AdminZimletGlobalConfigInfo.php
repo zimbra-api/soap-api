@@ -34,7 +34,8 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     private $properties = [];
 
     /**
-     * Constructor method for AdminZimletHostConfigInfo
+     * Constructor
+     * 
      * @param  array $properties
      * @return self
      */

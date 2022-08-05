@@ -25,6 +25,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
 {
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
 
     /**
      * Domain selector
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -43,6 +45,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
 
     /**
      * Server selector
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -51,7 +54,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
     private ServerSelector $server;
 
     /**
-     * Constructor method for XmppComponentSpec
+     * Constructor
      * 
      * @param DomainSelector $domain
      * @param ServerSelector $server

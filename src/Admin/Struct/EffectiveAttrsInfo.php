@@ -26,6 +26,7 @@ class EffectiveAttrsInfo
     /**
      * Flags whether all attributes on the target entry are accessible.
      * if set, no <a> elements will appear under the <setAttrs>/<getAttrs>
+     * 
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
@@ -35,6 +36,7 @@ class EffectiveAttrsInfo
 
     /**
      * Attributes
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
@@ -42,7 +44,8 @@ class EffectiveAttrsInfo
     private $attrs = [];
 
     /**
-     * Constructor method for EffectiveAttrsInfo
+     * Constructor
+     * 
      * @param bool $all
      * @param array $attrs
      * @return self

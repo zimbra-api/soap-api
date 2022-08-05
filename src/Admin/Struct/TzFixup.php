@@ -31,7 +31,8 @@ class TzFixup
     private $fixupRules = [];
 
     /**
-     * Constructor method for TzFixup
+     * Constructor
+     * 
      * @param array $fixupRules
      * @return self
      */

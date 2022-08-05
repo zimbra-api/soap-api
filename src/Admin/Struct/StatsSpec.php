@@ -48,7 +48,8 @@ class StatsSpec
     private $limit;
 
     /**
-     * Constructor method for StatsSpec
+     * Constructor
+     * 
      * @param  StatsValueWrapper $values
      * @param  string $name
      * @param  string $limit

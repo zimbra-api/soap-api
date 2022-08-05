@@ -25,6 +25,7 @@ class PackageSelector
 {
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,7 +34,8 @@ class PackageSelector
     private $name;
 
     /**
-     * Constructor method for PackageSelector
+     * Constructor
+     * 
      * @param string $name
      * @return self
      */

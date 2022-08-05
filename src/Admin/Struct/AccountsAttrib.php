@@ -25,6 +25,7 @@ class AccountsAttrib
 {
     /**
      * Comma separated list of account IDs
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("accounts")
      * @Type("string")
@@ -33,7 +34,7 @@ class AccountsAttrib
     private $accounts;
 
     /**
-     * Constructor method for AccountsAttrib
+     * Constructor
      * 
      * @param string $accounts
      * @return self

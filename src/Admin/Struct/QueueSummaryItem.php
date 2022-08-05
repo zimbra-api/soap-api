@@ -25,6 +25,7 @@ class QueueSummaryItem
 {
     /**
      * Count
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")
      * @Type("integer")
@@ -34,6 +35,7 @@ class QueueSummaryItem
 
     /**
      * Text for item.  e.g. "connect to 10.10.20.40 failed"
+     * 
      * @Accessor(getter="getTerm", setter="setTerm")
      * @SerializedName("t")
      * @Type("string")
@@ -42,7 +44,7 @@ class QueueSummaryItem
     private $term;
 
     /**
-     * Constructor method for QueueSummaryItem
+     * Constructor
      *
      * @param int $count
      * @param string $term

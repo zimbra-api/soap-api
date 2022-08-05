@@ -47,7 +47,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     private $attrList = [];
 
     /**
-     * Constructor method for AdminObjectInfo
+     * Constructor
      * 
      * @param  string $name Name
      * @param  string $id ID

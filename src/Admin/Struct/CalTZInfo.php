@@ -25,7 +25,10 @@ use Zimbra\Common\Struct\TzOnsetInfo;
 class CalTZInfo
 {
     /**
-     * Timezone ID. If this is the only detail present then this should be an existing server-known timezone's ID Otherwise, it must be present, although it will be ignored by the server
+     * Timezone ID.
+     * If this is the only detail present then this should be an existing server-known timezone's ID Otherwise,
+     * it must be present, although it will be ignored by the server
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +38,7 @@ class CalTZInfo
 
     /**
      * Standard Time's offset in minutes from UTC; local = UTC + offset
+     * 
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
      * @SerializedName("stdoff")
      * @Type("integer")
@@ -44,6 +48,7 @@ class CalTZInfo
 
     /**
      * Daylight Saving Time's offset in minutes from UTC; present only if DST is used
+     * 
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
      * @SerializedName("dayoff")
      * @Type("integer")
@@ -53,6 +58,7 @@ class CalTZInfo
 
     /**
      * Time/rule for transitioning from daylight time to standard time. Either specify week/wkday combo, or mday.
+     * 
      * @Accessor(getter="getStandardTzOnset", setter="setStandardTzOnset")
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
@@ -62,6 +68,7 @@ class CalTZInfo
 
     /**
      * Time/rule for transitioning from standard time to daylight time
+     * 
      * @Accessor(getter="getDaylightTzOnset", setter="setDaylightTzOnset")
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
@@ -71,6 +78,7 @@ class CalTZInfo
 
     /**
      * Standard Time component's timezone name
+     * 
      * @Accessor(getter="getStandardTZName", setter="setStandardTZName")
      * @SerializedName("stdname")
      * @Type("string")
@@ -80,6 +88,7 @@ class CalTZInfo
 
     /**
      * Daylight Saving Time component's timezone name
+     * 
      * @Accessor(getter="getDaylightTZName", setter="setDaylightTZName")
      * @SerializedName("dayname")
      * @Type("string")
@@ -88,7 +97,8 @@ class CalTZInfo
     private $daylightTZName;
 
     /**
-     * Constructor method for CalTZInfo
+     * Constructor
+     * 
      * @param string $id
      * @param int $stdoff
      * @param int $dayoff

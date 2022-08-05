@@ -25,6 +25,7 @@ class DeviceId
 {
     /**
      * Device ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,7 +34,8 @@ class DeviceId
     private $id;
 
     /**
-     * Constructor method for DeviceId
+     * Constructor
+     * 
      * @param  string $id
      * @return self
      */

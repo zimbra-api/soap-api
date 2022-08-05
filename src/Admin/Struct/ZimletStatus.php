@@ -26,6 +26,7 @@ class ZimletStatus
 {
     /**
      * Zimlet name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class ZimletStatus
 
     /**
      * Status
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
@@ -44,6 +46,7 @@ class ZimletStatus
 
     /**
      * Extension
+     * 
      * @Accessor(getter="getExtension", setter="setExtension")
      * @SerializedName("extension")
      * @Type("bool")
@@ -53,6 +56,7 @@ class ZimletStatus
 
     /**
      * Priority
+     * 
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("integer")
@@ -61,7 +65,7 @@ class ZimletStatus
     private $priority;
 
     /**
-     * Constructor method for ZimletStatus
+     * Constructor
      *
      * @param  string $name
      * @param  ZimletStatusSetting $status

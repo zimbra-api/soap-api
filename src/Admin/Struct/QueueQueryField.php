@@ -25,6 +25,7 @@ class QueueQueryField
 {
     /**
      * Field name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,7 +43,8 @@ class QueueQueryField
     private $matches = [];
 
     /**
-     * Constructor method for QueueQueryField
+     * Constructor
+     * 
      * @param  string $name
      * @param  array $matches
      * @return self

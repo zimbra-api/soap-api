@@ -26,6 +26,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 {
     /**
      * Zimlet name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Version string
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("string")
@@ -44,6 +46,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("description")
      * @Type("string")
@@ -53,6 +56,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet extension
+     * 
      * @Accessor(getter="getExtension", setter="setExtension")
      * @SerializedName("extension")
      * @Type("string")
@@ -62,6 +66,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("string")
@@ -71,6 +76,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet label
+     * 
      * @Accessor(getter="getLabel", setter="setLabel")
      * @SerializedName("label")
      * @Type("string")
@@ -80,6 +86,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet global configuration information
+     * 
      * @Accessor(getter="getGlobal", setter="setGlobal")
      * @SerializedName("global")
      * @Type("Zimbra\Admin\Struct\AdminZimletGlobalConfigInfo")
@@ -89,6 +96,7 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet host configuration information
+     * 
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("Zimbra\Admin\Struct\AdminZimletHostConfigInfo")
@@ -97,7 +105,8 @@ class AdminZimletConfigInfo implements ZimletConfigInfo
     private ?ZimletHostConfigInfo $host = NULL;
 
     /**
-     * Constructor method for AdminZimletConfigInfo
+     * Constructor
+     * 
      * @param string $name
      * @param string $version
      * @param string $description

@@ -26,6 +26,7 @@ class RightInfo
 {
     /**
      * Right name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class RightInfo
 
     /**
      * Right type.  Valid values : getAttrs | setAttrs | combo | preset
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
@@ -44,6 +46,7 @@ class RightInfo
 
     /**
      * Target type.
+     * 
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("targetType")
      * @Type("string")
@@ -53,6 +56,7 @@ class RightInfo
 
     /**
      * Right class
+     * 
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
@@ -62,6 +66,7 @@ class RightInfo
 
     /**
      * Right description
+     * 
      * @Accessor(getter="getDesc", setter="setDesc")
      * @SerializedName("desc")
      * @Type("string")
@@ -71,6 +76,7 @@ class RightInfo
 
     /**
      * Attrs
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("Zimbra\Admin\Struct\RightsAttrs")
@@ -80,6 +86,7 @@ class RightInfo
 
     /**
      * Rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\ComboRights")
@@ -88,7 +95,8 @@ class RightInfo
     private ?ComboRights $rights = NULL;
 
     /**
-     * Constructor method for RightInfo
+     * Constructor
+     * 
      * @param  string $name
      * @param  RightType $type
      * @param  RightClass $rightClass

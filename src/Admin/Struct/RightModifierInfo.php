@@ -25,6 +25,7 @@ class RightModifierInfo
 {
     /**
      * Value is of the form
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -33,6 +34,7 @@ class RightModifierInfo
 
     /**
      * Deny flag - default is 0 (false)
+     * 
      * @Accessor(getter="getDeny", setter="setDeny")
      * @SerializedName("deny")
      * @Type("bool")
@@ -42,6 +44,7 @@ class RightModifierInfo
 
     /**
      * Flag whether can delegate - default is 0 (false)
+     * 
      * @Accessor(getter="getCanDelegate", setter="setCanDelegate")
      * @SerializedName("canDelegate")
      * @Type("bool")
@@ -51,6 +54,7 @@ class RightModifierInfo
 
     /**
      * disinheritSubGroups flag - default is 0 (false)
+     * 
      * @Accessor(getter="getDisinheritSubGroups", setter="setDisinheritSubGroups")
      * @SerializedName("disinheritSubGroups")
      * @Type("bool")
@@ -60,6 +64,7 @@ class RightModifierInfo
 
     /**
      * subDomain flag - default is 0 (false)
+     * 
      * @Accessor(getter="getSubDomain", setter="setSubDomain")
      * @SerializedName("subDomain")
      * @Type("bool")
@@ -68,7 +73,8 @@ class RightModifierInfo
     private $subDomain;
 
     /**
-     * Constructor method for RightModifierInfo
+     * Constructor
+     * 
      * @param string $value
      * @param bool $deny
      * @param bool $canDelegate

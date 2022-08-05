@@ -26,6 +26,7 @@ class RightsEntriesInfo
 {
     /**
      * Entries
+     * 
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
@@ -34,6 +35,7 @@ class RightsEntriesInfo
 
     /**
      * Effective rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
@@ -42,7 +44,8 @@ class RightsEntriesInfo
     private EffectiveRightsInfo $rights;
 
     /**
-     * Constructor method for RightsEntriesInfo
+     * Constructor
+     * 
      * @param EffectiveRightsInfo $rights
      * @param array $entries
      * @return self

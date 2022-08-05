@@ -26,6 +26,7 @@ class WaitSetInfo
 {
     /**
      * WaitSet ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class WaitSetInfo
 
     /**
      * WaitSet owner account ID
+     * 
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("string")
@@ -45,6 +47,7 @@ class WaitSetInfo
     /**
      * Default interest types: comma-separated list.
      * all: all types (equiv to "f,m,c,a,t,d") 
+     * 
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
@@ -54,6 +57,7 @@ class WaitSetInfo
 
     /**
      * Last access date
+     * 
      * @Accessor(getter="getLastAccessDate", setter="setLastAccessDate")
      * @SerializedName("ld")
      * @Type("integer")
@@ -63,6 +67,7 @@ class WaitSetInfo
 
     /**
      * Error information
+     * 
      * @Accessor(getter="getErrors", setter="setErrors")
      * @SerializedName("errors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
@@ -73,6 +78,7 @@ class WaitSetInfo
 
     /**
      * Comma separated list of account IDs
+     * 
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @SerializedName("ready")
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
@@ -82,6 +88,7 @@ class WaitSetInfo
 
     /**
      * CB sequence number
+     * 
      * @Accessor(getter="getCbSeqNo", setter="setCbSeqNo")
      * @SerializedName("cbSeqNo")
      * @Type("string")
@@ -91,6 +98,7 @@ class WaitSetInfo
 
     /**
      * Current sequence number
+     * 
      * @Accessor(getter="getCurrentSeqNo", setter="setCurrentSeqNo")
      * @SerializedName("currentSeqNo")
      * @Type("string")
@@ -100,6 +108,7 @@ class WaitSetInfo
 
     /**
      * Next sequence number
+     * 
      * @Accessor(getter="getNextSeqNo", setter="setNextSeqNo")
      * @SerializedName("nextSeqNo")
      * @Type("string")
@@ -109,6 +118,7 @@ class WaitSetInfo
 
     /**
      * Buffered commit information
+     * 
      * @Accessor(getter="getBufferedCommits", setter="setBufferedCommits")
      * @SerializedName("buffered")
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
@@ -119,6 +129,7 @@ class WaitSetInfo
 
     /**
      * Session information
+     * 
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionForWaitSet>")
      * @XmlList(inline=true, entry="session", namespace="urn:zimbraAdmin")
@@ -126,7 +137,7 @@ class WaitSetInfo
     private $sessions = [];
 
     /**
-     * Constructor method for WaitSetInfo
+     * Constructor
      * 
      * @param string $waitSetId
      * @param string $owner

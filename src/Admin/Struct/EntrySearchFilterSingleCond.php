@@ -58,7 +58,8 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $not;
 
     /**
-     * Constructor method for EntrySearchFilterSingleCond
+     * Constructor
+     * 
      * @param string $attr
      * @param ConditionOperator $op
      * @param string $value

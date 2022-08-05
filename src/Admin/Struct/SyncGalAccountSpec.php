@@ -26,6 +26,7 @@ class SyncGalAccountSpec
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class SyncGalAccountSpec
 
     /**
      * SyncGalAccount data source specifications
+     * 
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
@@ -42,7 +44,8 @@ class SyncGalAccountSpec
     private $dataSources = [];
 
     /**
-     * Constructor method for SyncGalAccountSpec
+     * Constructor
+     * 
      * @param string $id
      * @param array $dataSources
      * @return self

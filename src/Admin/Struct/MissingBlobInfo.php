@@ -25,6 +25,7 @@ class MissingBlobInfo
 {
     /**
      * id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class MissingBlobInfo
 
     /**
      * revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("int")
@@ -43,6 +45,7 @@ class MissingBlobInfo
 
     /**
      * Data size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("int")
@@ -52,6 +55,7 @@ class MissingBlobInfo
 
     /**
      * volume id
+     * 
      * @Accessor(getter="getVolumeId", setter="setVolumeId")
      * @SerializedName("volumeId")
      * @Type("int")
@@ -61,6 +65,7 @@ class MissingBlobInfo
 
     /**
      * Blob path
+     * 
      * @Accessor(getter="getBlobPath", setter="setBlobPath")
      * @SerializedName("blobPath")
      * @Type("string")
@@ -70,6 +75,7 @@ class MissingBlobInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
+     * 
      * @Accessor(getter="getExternal", setter="setExternal")
      * @SerializedName("external")
      * @Type("bool")
@@ -79,6 +85,7 @@ class MissingBlobInfo
 
     /**
      * version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("int")
@@ -87,7 +94,8 @@ class MissingBlobInfo
     private $version;
 
     /**
-     * Constructor method for MissingBlobInfo
+     * Constructor
+     * 
      * @param int $id
      * @param int $revision
      * @param int $size

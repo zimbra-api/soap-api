@@ -25,6 +25,7 @@ class Names
 {
     /**
      * Comma separated list of names
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -33,7 +34,8 @@ class Names
     private $name;
 
     /**
-     * Constructor method for Names
+     * Constructor
+     * 
      * @param string $name
      * @return self
      */

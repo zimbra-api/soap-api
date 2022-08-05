@@ -49,7 +49,7 @@ class MailQueueAction
     private QueueActionBy $by;
 
     /**
-     * Constructor method for MailQueueAction
+     * Constructor
      * 
      * @param  QueueQuery $query Query
      * @param  QueueAction $op Operation

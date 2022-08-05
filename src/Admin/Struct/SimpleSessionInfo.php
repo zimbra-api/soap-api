@@ -25,6 +25,7 @@ class SimpleSessionInfo
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
@@ -34,6 +35,7 @@ class SimpleSessionInfo
 
     /**
      * Account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,6 +45,7 @@ class SimpleSessionInfo
 
     /**
      * Session ID
+     * 
      * @Accessor(getter="getSessionId", setter="setSessionId")
      * @SerializedName("sid")
      * @Type("string")
@@ -52,6 +55,7 @@ class SimpleSessionInfo
 
     /**
      * Creation date
+     * 
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
      * @Type("integer")
@@ -61,6 +65,7 @@ class SimpleSessionInfo
 
     /**
      * Last accessed date
+     * 
      * @Accessor(getter="getLastAccessedDate", setter="setLastAccessedDate")
      * @SerializedName("ld")
      * @Type("integer")
@@ -69,7 +74,7 @@ class SimpleSessionInfo
     private $lastAccessedDate;
 
     /**
-     * Constructor method for SimpleSessionInfo
+     * Constructor
      *
      * @param string $zimbraId
      * @param string $name

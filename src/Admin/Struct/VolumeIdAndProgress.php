@@ -40,7 +40,7 @@ class VolumeIdAndProgress
     private $progress;
 
     /**
-     * Constructor method for VolumeInfo
+     * Constructor
      * 
      * @param string $volumeId
      * @param string $progress

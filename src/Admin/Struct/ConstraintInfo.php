@@ -25,6 +25,7 @@ class ConstraintInfo
 {
     /**
      * Minimum value
+     * 
      * @Accessor(getter="getMin", setter="setMin")
      * @SerializedName("min")
      * @Type("string")
@@ -34,6 +35,7 @@ class ConstraintInfo
 
     /**
      * Maximum value
+     * 
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("max")
      * @Type("string")
@@ -53,7 +55,8 @@ class ConstraintInfo
     private $values = [];
 
     /**
-     * Constructor method for ConstraintInfo
+     * Constructor
+     * 
      * @param  string $min
      * @param  string $max
      * @param  array $values

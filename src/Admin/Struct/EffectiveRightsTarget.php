@@ -26,6 +26,7 @@ class EffectiveRightsTarget
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
@@ -35,6 +36,7 @@ class EffectiveRightsTarget
 
     /**
      * Effective rights
+     * 
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
@@ -44,6 +46,7 @@ class EffectiveRightsTarget
 
     /**
      * Attributes
+     * 
      * @Accessor(getter="getInDomainLists", setter="setInDomainLists")
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
      * @XmlList(inline=true, entry="inDomains", namespace="urn:zimbraAdmin")
@@ -52,6 +55,7 @@ class EffectiveRightsTarget
 
     /**
      * Attributes
+     * 
      * @Accessor(getter="getEntriesLists", setter="setEntriesLists")
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
      * @XmlList(inline=true, entry="entries", namespace="urn:zimbraAdmin")
@@ -59,7 +63,8 @@ class EffectiveRightsTarget
     private $entriesLists = [];
 
     /**
-     * Constructor method for EffectiveRightsTarget
+     * Constructor
+     * 
      * @param TargetType $type
      * @param EffectiveRightsInfo $all
      * @param array $inDomainLists

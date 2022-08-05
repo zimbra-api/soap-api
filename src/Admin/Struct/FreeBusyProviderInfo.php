@@ -25,6 +25,7 @@ class FreeBusyProviderInfo
 {
     /**
      * Provider name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class FreeBusyProviderInfo
 
     /**
      * Propagate flag
+     * 
      * @Accessor(getter="getPropagate", setter="setPropagate")
      * @SerializedName("propagate")
      * @Type("bool")
@@ -43,6 +45,7 @@ class FreeBusyProviderInfo
 
     /**
      * Free/Busy cache start time in seconds since the epoch
+     * 
      * @Accessor(getter="getStart", setter="setStart")
      * @SerializedName("start")
      * @Type("integer")
@@ -52,6 +55,7 @@ class FreeBusyProviderInfo
 
     /**
      * Free/Busy cache end time in seconds since the epoch
+     * 
      * @Accessor(getter="getEnd", setter="setEnd")
      * @SerializedName("end")
      * @Type("integer")
@@ -61,6 +65,7 @@ class FreeBusyProviderInfo
 
     /**
      * Queue location
+     * 
      * @Accessor(getter="getQueue", setter="setQueue")
      * @SerializedName("queue")
      * @Type("string")
@@ -70,6 +75,7 @@ class FreeBusyProviderInfo
 
     /**
      * Prefix used in Zimbra ForeignPrincipal
+     * 
      * @Accessor(getter="getPrefix", setter="setPrefix")
      * @SerializedName("prefix")
      * @Type("string")
@@ -78,7 +84,8 @@ class FreeBusyProviderInfo
     private $prefix;
 
     /**
-     * Constructor method for FreeBusyProviderInfo
+     * Constructor
+     * 
      * @param string $name
      * @param bool $propagate
      * @param int $start

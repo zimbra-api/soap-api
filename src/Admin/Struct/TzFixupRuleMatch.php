@@ -26,6 +26,7 @@ class TzFixupRuleMatch
 {
     /**
      * Simple element
+     * 
      * @Accessor(getter="getAny", setter="setAny")
      * @SerializedName("any")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
@@ -35,6 +36,7 @@ class TzFixupRuleMatch
 
     /**
      * Tz ID
+     * 
      * @Accessor(getter="getTzid", setter="setTzid")
      * @SerializedName("tzid")
      * @Type("Zimbra\Common\Struct\Id")
@@ -43,7 +45,8 @@ class TzFixupRuleMatch
     private ?Id $tzid = NULL;
 
     /**
-    * Offset
+     * Offset
+     * 
      * @Accessor(getter="getNonDst", setter="setNonDst")
      * @SerializedName("nonDst")
      * @Type("Zimbra\Admin\Struct\Offset")
@@ -53,6 +56,7 @@ class TzFixupRuleMatch
 
     /**
      * Rules
+     * 
      * @Accessor(getter="getRules", setter="setRules")
      * @SerializedName("rules")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
@@ -62,6 +66,7 @@ class TzFixupRuleMatch
 
     /**
      * Dates
+     * 
      * @Accessor(getter="getDates", setter="setDates")
      * @SerializedName("dates")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
@@ -70,7 +75,8 @@ class TzFixupRuleMatch
     private ?TzFixupRuleMatchDates $dates = NULL;
 
     /**
-     * Constructor method for TzFixupRuleMatch
+     * Constructor
+     * 
      * @param SimpleElement $any
      * @param Id $tzid
      * @param Offset $nonDst

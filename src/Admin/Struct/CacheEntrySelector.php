@@ -26,6 +26,7 @@ class CacheEntrySelector
 {
     /**
      * Select the meaning of {cache-entry-key}
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CacheEntryBy>")
@@ -43,7 +44,8 @@ class CacheEntrySelector
     private $value;
 
     /**
-     * Constructor method for CacheEntrySelector
+     * Constructor
+     * 
      * @param  CacheEntryBy $by
      * @param  string $value
      * @return self

@@ -26,6 +26,7 @@ class ReindexMailboxInfo
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,7 +35,9 @@ class ReindexMailboxInfo
     private $id;
 
     /**
-     * Comma separated list of types. Legal values are: conversation|message|contact|appointment|task|note|wiki|document
+     * Comma separated list of types.
+     * Legal values are: conversation|message|contact|appointment|task|note|wiki|document
+     * 
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -44,6 +47,7 @@ class ReindexMailboxInfo
 
     /**
      * Comma separated list of IDs to re-index
+     * 
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
@@ -52,7 +56,8 @@ class ReindexMailboxInfo
     private $ids;
 
     /**
-     * Constructor method for ReindexMailboxInfo
+     * Constructor
+     * 
      * @param string $id
      * @param string $types
      * @param string $ids

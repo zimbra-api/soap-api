@@ -25,6 +25,7 @@ class MailboxStats
 {
     /**
      * Total number of mailboxes
+     * 
      * @Accessor(getter="getNumMboxes", setter="setNumMboxes")
      * @SerializedName("numMboxes")
      * @Type("integer")
@@ -34,6 +35,7 @@ class MailboxStats
 
     /**
      * Total size of all mailboxes
+     * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("totalSize")
      * @Type("integer")
@@ -42,7 +44,7 @@ class MailboxStats
     private $totalSize;
 
     /**
-     * Constructor method for MailboxStats
+     * Constructor
      *
      * @param int $numMboxes
      * @param int $totalSize

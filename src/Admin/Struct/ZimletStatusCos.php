@@ -25,6 +25,7 @@ class ZimletStatusCos
 {
     /**
      * Class Of Service (COS) name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,7 +43,7 @@ class ZimletStatusCos
     private $zimlets = [];
 
     /**
-     * Constructor method for ZimletStatusCos
+     * Constructor
      *
      * @param  string $name
      * @param  array $zimlets

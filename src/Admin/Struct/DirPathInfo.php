@@ -25,6 +25,7 @@ class DirPathInfo
 {
     /**
      * Path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -34,6 +35,7 @@ class DirPathInfo
 
     /**
      * Flag whether exists
+     * 
      * @Accessor(getter="isExists", setter="setExists")
      * @SerializedName("exists")
      * @Type("bool")
@@ -43,6 +45,7 @@ class DirPathInfo
 
     /**
      * Flag whether is directory
+     * 
      * @Accessor(getter="isDirectory", setter="setIsDirectory")
      * @SerializedName("isDirectory")
      * @Type("bool")
@@ -52,6 +55,7 @@ class DirPathInfo
 
     /**
      * Path is readable
+     * 
      * @Accessor(getter="isReadable", setter="setReadable")
      * @SerializedName("readable")
      * @Type("bool")
@@ -61,6 +65,7 @@ class DirPathInfo
 
     /**
      * Path is writable
+     * 
      * @Accessor(getter="isWritable", setter="setWritable")
      * @SerializedName("writable")
      * @Type("bool")
@@ -69,7 +74,8 @@ class DirPathInfo
     private $writable;
 
     /**
-     * Constructor method for DirPathInfo
+     * Constructor
+     * 
      * @param string $path
      * @param bool   $exists
      * @param bool   $directory

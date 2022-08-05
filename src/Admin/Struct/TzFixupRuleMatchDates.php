@@ -25,6 +25,7 @@ class TzFixupRuleMatchDates
 {
     /**
      * Standard match date
+     * 
      * @Accessor(getter="getStandard", setter="setStandard")
      * @SerializedName("standard")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
@@ -34,6 +35,7 @@ class TzFixupRuleMatchDates
 
     /**
      * Daylight saving match date
+     * 
      * @Accessor(getter="getDaylight", setter="setDaylight")
      * @SerializedName("daylight")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDate")
@@ -43,6 +45,7 @@ class TzFixupRuleMatchDates
 
     /**
      * Offset from UTC in standard time; local = UTC + offset
+     * 
      * @Accessor(getter="getStdOffset", setter="setStdOffset")
      * @SerializedName("stdoff")
      * @Type("integer")
@@ -52,6 +55,7 @@ class TzFixupRuleMatchDates
 
     /**
      * Offset from UTC in daylight time; present only if DST is used
+     * 
      * @Accessor(getter="getDstOffset", setter="setDstOffset")
      * @SerializedName("dayoff")
      * @Type("integer")
@@ -60,7 +64,8 @@ class TzFixupRuleMatchDates
     private $dstOffset;
 
     /**
-     * Constructor method for TzFixupRuleMatchDates
+     * Constructor
+     * 
      * @param TzFixupRuleMatchDate $standard
      * @param TzFixupRuleMatchDate $daylight
      * @param int $stdoff

@@ -25,6 +25,7 @@ class TargetWithType
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class TargetWithType
 
     /**
      * Value matching target type if this is part of a response (otherwise blank)
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -41,7 +43,7 @@ class TargetWithType
     private $value;
 
     /**
-     * Constructor method for TargetWithType
+     * Constructor
      * 
      * @param  string $type Target type
      * @param  string $value Value matching

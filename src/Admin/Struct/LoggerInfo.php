@@ -41,7 +41,7 @@ class LoggerInfo
     private ?LoggingLevel $level = NULL;
 
     /**
-     * Constructor method for loggerInfo
+     * Constructor
      * 
      * @param string $category
      * @param LoggingLevel $level

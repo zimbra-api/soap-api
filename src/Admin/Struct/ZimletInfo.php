@@ -32,7 +32,7 @@ class ZimletInfo extends AdminObjectInfo
     private $hasKeyword;
 
     /**
-     * Constructor method for ZimletInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

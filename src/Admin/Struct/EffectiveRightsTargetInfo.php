@@ -26,6 +26,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
@@ -35,6 +36,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -44,6 +46,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -52,7 +55,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     private $name;
 
     /**
-     * Constructor method for EffectiveRightsTargetInfo
+     * Constructor
      * 
      * @param  EffectiveAttrsInfo $setAttrs
      * @param  EffectiveAttrsInfo $getAttrs

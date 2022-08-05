@@ -32,7 +32,8 @@ class IntegerValueAttrib
     private $value;
 
     /**
-     * Constructor method for IntegerValueAttrib
+     * Constructor
+     * 
      * @param  int $value
      * @return self
      */

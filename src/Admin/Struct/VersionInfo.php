@@ -25,6 +25,7 @@ class VersionInfo
 {
     /**
      * Type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("string")
@@ -34,6 +35,7 @@ class VersionInfo
 
     /**
      * Version string
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("version")
      * @Type("string")
@@ -43,6 +45,7 @@ class VersionInfo
 
     /**
      * Release string
+     * 
      * @Accessor(getter="getRelease", setter="setRelease")
      * @SerializedName("release")
      * @Type("string")
@@ -52,6 +55,7 @@ class VersionInfo
 
     /**
      * Build Date - format : YYYYMMDD-hhmm
+     * 
      * @Accessor(getter="getBuildDate", setter="setBuildDate")
      * @SerializedName("buildDate")
      * @Type("string")
@@ -61,6 +65,7 @@ class VersionInfo
 
     /**
      * Host name
+     * 
      * @Accessor(getter="getHost", setter="setHost")
      * @SerializedName("host")
      * @Type("string")
@@ -70,6 +75,7 @@ class VersionInfo
 
     /**
      * Major version
+     * 
      * @Accessor(getter="getMajorVersion", setter="setMajorVersion")
      * @SerializedName("majorversion")
      * @Type("string")
@@ -79,6 +85,7 @@ class VersionInfo
 
     /**
      * Minor version
+     * 
      * @Accessor(getter="getMinorVersion", setter="setMinorVersion")
      * @SerializedName("minorversion")
      * @Type("string")
@@ -88,6 +95,7 @@ class VersionInfo
 
     /**
      * Micro version
+     * 
      * @Accessor(getter="getMicroVersion", setter="setMicroVersion")
      * @SerializedName("microversion")
      * @Type("string")
@@ -97,6 +105,7 @@ class VersionInfo
 
     /**
      * Platform
+     * 
      * @Accessor(getter="getPlatform", setter="setPlatform")
      * @SerializedName("platform")
      * @Type("string")
@@ -105,7 +114,7 @@ class VersionInfo
     private $platform;
 
     /**
-     * Constructor method for VersionInfo
+     * Constructor
      *
      * @param string $type
      * @param string $version

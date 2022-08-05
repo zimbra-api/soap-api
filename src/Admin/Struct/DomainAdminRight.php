@@ -26,6 +26,7 @@ class DomainAdminRight
 {
     /**
      * Domain admin right name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class DomainAdminRight
 
     /**
      * Right type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
@@ -44,6 +46,7 @@ class DomainAdminRight
 
     /**
      * Description
+     * 
      * @Accessor(getter="getDesc", setter="setDesc")
      * @SerializedName("desc")
      * @Type("string")
@@ -53,6 +56,7 @@ class DomainAdminRight
 
     /**
      * Rights
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("rights")
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
@@ -62,7 +66,7 @@ class DomainAdminRight
     private $rights = [];
 
     /**
-     * Constructor method for DomainAdminRight
+     * Constructor
      *
      * @param string $name
      * @param RightType $type

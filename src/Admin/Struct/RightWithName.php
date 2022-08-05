@@ -25,6 +25,7 @@ class RightWithName
 {
     /**
      * Right name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
@@ -33,7 +34,8 @@ class RightWithName
     private $name;
 
     /**
-     * Constructor method for RightWithName
+     * Constructor
+     * 
      * @param string $name
      * @return self
      */

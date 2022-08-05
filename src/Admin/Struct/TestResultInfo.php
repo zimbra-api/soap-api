@@ -42,7 +42,7 @@ class TestResultInfo
     private $failedTests = [];
 
     /**
-     * Constructor method for TestResultInfo
+     * Constructor
      *
      * @param  array $completedTests
      * @param  array $failedTests

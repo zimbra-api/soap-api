@@ -25,6 +25,7 @@ class ServerQueues
 {
     /**
      * MTA server
+     * 
      * @Accessor(getter="getServerName", setter="setServerName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class ServerQueues
 
     /**
      * Queue information
+     * 
      * @Accessor(getter="getQueues", setter="setQueues")
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
      * @XmlList(inline=true, entry="queue", namespace="urn:zimbraAdmin")
@@ -41,7 +43,7 @@ class ServerQueues
     private $queues = [];
 
     /**
-     * Constructor method for ServerQueues
+     * Constructor
      * 
      * @param  string $serverName
      * @param  array  $queues

@@ -25,6 +25,7 @@ class SessionForWaitSet
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("string")
@@ -35,6 +36,7 @@ class SessionForWaitSet
     /**
      * Interest types - Either all or some combination of the letters: 
      * mcatd Which stand for Message, Contact, Appointment, Task and Document respectively
+     * 
      * @Accessor(getter="getInterests", setter="setInterests")
      * @SerializedName("types")
      * @Type("string")
@@ -44,6 +46,7 @@ class SessionForWaitSet
 
     /**
      * Last known sync token
+     * 
      * @Accessor(getter="getToken", setter="setToken")
      * @SerializedName("token")
      * @Type("string")
@@ -53,6 +56,7 @@ class SessionForWaitSet
 
     /**
      * Mailbox sync token
+     * 
      * @Accessor(getter="getMboxSyncToken", setter="setMboxSyncToken")
      * @SerializedName("mboxSyncToken")
      * @Type("integer")
@@ -70,6 +74,7 @@ class SessionForWaitSet
 
     /**
      * Account ID stored in WaitSetAccount object.  Differs from account value.
+     * 
      * @Accessor(getter="getAcctIdError", setter="setAcctIdError")
      * @SerializedName("acctIdError")
      * @Type("string")
@@ -79,6 +84,7 @@ class SessionForWaitSet
 
     /**
      * WaitSet session Information
+     * 
      * @Accessor(getter="getWaitSetSession", setter="setWaitSetSession")
      * @SerializedName("WaitSetSession")
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
@@ -87,7 +93,7 @@ class SessionForWaitSet
     private ?WaitSetSessionInfo $waitSetSession = NULL;
 
     /**
-     * Constructor method for SessionForWaitSet
+     * Constructor
      * 
      * @param string $account
      * @param string $interests

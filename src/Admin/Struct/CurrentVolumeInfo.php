@@ -40,7 +40,7 @@ class CurrentVolumeInfo
     private $id;
 
     /**
-     * Constructor method for CurrentVolumeInfo
+     * Constructor
      * 
      * @param  int $type
      * @param  int $id

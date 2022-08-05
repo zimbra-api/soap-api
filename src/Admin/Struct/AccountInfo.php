@@ -25,6 +25,7 @@ class AccountInfo extends AdminObjectInfo
 {
     /**
      * Is external
+     * 
      * @Accessor(getter="getIsExternal", setter="setIsExternal")
      * @SerializedName("isExternal")
      * @Type("bool")
@@ -33,7 +34,7 @@ class AccountInfo extends AdminObjectInfo
     private $isExternal;
 
     /**
-     * Constructor method for AccountInfo
+     * Constructor
      * 
      * @param  string $name
      * @param  string $id

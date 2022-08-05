@@ -33,7 +33,7 @@ class ZimletStatusParent
     private $zimlets = [];
 
     /**
-     * Constructor method for ZimletStatusParent
+     * Constructor
      *
      * @param  array $zimlets
      * @return self

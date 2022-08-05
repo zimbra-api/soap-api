@@ -26,6 +26,7 @@ class ServerSelector
 {
     /**
      * Selects the meaning of {server-key}
+     * 
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\ServerBy>")
@@ -35,6 +36,7 @@ class ServerSelector
 
     /**
      * Key for choosing server
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -42,7 +44,8 @@ class ServerSelector
     private $value;
 
     /**
-     * Constructor method for ServerSelector
+     * Constructor
+     * 
      * @param  ServerBy $by
      * @param  string $value
      * @return self
