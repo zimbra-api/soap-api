@@ -28,6 +28,7 @@ class GetMailboxRequest extends SoapRequest
 {
     /**
      * Mailbox selector
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
@@ -36,7 +37,7 @@ class GetMailboxRequest extends SoapRequest
     private ?Mailbox $mbox = NULL;
 
     /**
-     * Constructor method for GetMailboxRequest
+     * Constructor
      *
      * @param  Mailbox $mbox
      * @return self
@@ -73,9 +74,7 @@ class GetMailboxRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,6 +41,7 @@ class GetMailQueueRequest extends SoapRequest
 {
     /**
      * Server Mail Queue Query
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerMailQueueQuery")
@@ -49,7 +50,7 @@ class GetMailQueueRequest extends SoapRequest
     private Server $server;
 
     /**
-     * Constructor method for GetMailQueueRequest
+     * Constructor
      *
      * @param  Server $server
      * @return self
@@ -82,9 +83,7 @@ class GetMailQueueRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

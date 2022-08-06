@@ -27,6 +27,7 @@ class SearchGalResponse extends SoapResponse
 {
     /**
      * Name of attribute sorted on.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -36,6 +37,7 @@ class SearchGalResponse extends SoapResponse
 
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -45,6 +47,7 @@ class SearchGalResponse extends SoapResponse
 
     /**
      * Set if the results are truncated
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -58,6 +61,7 @@ class SearchGalResponse extends SoapResponse
      * Some clients backtrack on GAL results assuming the results of a more specific key is the subset of a more
      *      generic key, and it checks cached results instead of issuing another SOAP request to the server.  
      *      If search key was tokenized and expanded with AND or OR, this cannot be assumed.
+     * 
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
@@ -75,7 +79,7 @@ class SearchGalResponse extends SoapResponse
     private $contacts = [];
 
     /**
-     * Constructor method for SearchGalResponse
+     * Constructor
      *
      * @param string $sortBy
      * @param int $offset

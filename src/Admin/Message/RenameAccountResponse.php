@@ -27,6 +27,7 @@ class RenameAccountResponse extends SoapResponse
 {
     /**
      * Information about account after rename
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
@@ -35,7 +36,7 @@ class RenameAccountResponse extends SoapResponse
     private ?AccountInfo $account = NULL;
 
     /**
-     * Constructor method for RenameAccountResponse
+     * Constructor
      *
      * @param AccountInfo $account
      * @return self

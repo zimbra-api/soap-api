@@ -29,6 +29,7 @@ class LockoutMailboxRequest extends SoapRequest
 {
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountNameSelector")
@@ -38,6 +39,7 @@ class LockoutMailboxRequest extends SoapRequest
 
     /**
      * one of 'start' or 'end'
+     * 
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\LockoutOperation>")
@@ -46,7 +48,7 @@ class LockoutMailboxRequest extends SoapRequest
     private ?LockoutOperation $operation = NULL;
 
     /**
-     * Constructor method for LockoutMailboxRequest
+     * Constructor
      *
      * @param  Account $account
      * @param  LockoutOperation $operation
@@ -105,9 +107,7 @@ class LockoutMailboxRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

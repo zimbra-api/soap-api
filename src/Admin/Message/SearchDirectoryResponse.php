@@ -29,6 +29,7 @@ class SearchDirectoryResponse extends SoapResponse
 {
     /**
      * number of counts
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("integer")
@@ -38,6 +39,7 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * 1 (true) if more accounts left to return
+     * 
      * @Accessor(getter="isMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -47,6 +49,7 @@ class SearchDirectoryResponse extends SoapResponse
 
     /**
      * Total number of accounts that matched search (not affected by limit/searchTotal)
+     * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("integer")
@@ -109,7 +112,7 @@ class SearchDirectoryResponse extends SoapResponse
     private $coses = [];
 
     /**
-     * Constructor method for SearchDirectoryResponse
+     * Constructor
      *
      * @param int $num
      * @param bool $more

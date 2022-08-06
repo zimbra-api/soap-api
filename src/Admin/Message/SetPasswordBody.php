@@ -41,8 +41,10 @@ class SetPasswordBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for SetPasswordBody
+     * Constructor
      *
+     * @param SetPasswordRequest $request
+     * @param SetPasswordResponse $response
      * @return self
      */
     public function __construct(?SetPasswordRequest $request = NULL, ?SetPasswordResponse $response = NULL)
@@ -50,6 +52,9 @@ class SetPasswordBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof SetPasswordRequest) {
@@ -58,11 +63,17 @@ class SetPasswordBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof SetPasswordResponse) {
@@ -71,6 +82,9 @@ class SetPasswordBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -72,9 +72,7 @@ class VerifyIndexRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

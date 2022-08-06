@@ -27,6 +27,7 @@ class GetRightResponse extends SoapResponse
 {
     /**
      * Right information
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightInfo")
@@ -35,7 +36,7 @@ class GetRightResponse extends SoapResponse
     private ?RightInfo $right = NULL;
 
     /**
-     * Constructor method for GetRightResponse
+     * Constructor
      * 
      * @param RightInfo $right
      * @return self

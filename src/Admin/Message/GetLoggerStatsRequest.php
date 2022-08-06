@@ -33,6 +33,7 @@ class GetLoggerStatsRequest extends SoapRequest
 {
     /**
      * Hostname
+     * 
      * @Accessor(getter="getHostName", setter="setHostName")
      * @SerializedName("hostname")
      * @Type("Zimbra\Admin\Struct\HostName")
@@ -42,6 +43,7 @@ class GetLoggerStatsRequest extends SoapRequest
 
     /**
      * Stats
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsSpec")
@@ -51,6 +53,7 @@ class GetLoggerStatsRequest extends SoapRequest
 
     /**
      * Start time
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("startTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
@@ -60,6 +63,7 @@ class GetLoggerStatsRequest extends SoapRequest
 
     /**
      * End time
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("endTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
@@ -68,7 +72,7 @@ class GetLoggerStatsRequest extends SoapRequest
     private ?TimeAttr $endTime = NULL;
 
     /**
-     * Constructor method for GetLoggerStatsRequest
+     * Constructor
      *
      * @param  HostName $hostName
      * @param  StatsSpec $stats
@@ -183,9 +187,7 @@ class GetLoggerStatsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

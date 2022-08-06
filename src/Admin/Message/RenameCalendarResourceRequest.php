@@ -27,6 +27,7 @@ class RenameCalendarResourceRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class RenameCalendarResourceRequest extends SoapRequest
 
     /**
      * New Calendar Resource name
+     * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
@@ -44,7 +46,7 @@ class RenameCalendarResourceRequest extends SoapRequest
     private $newName;
 
     /**
-     * Constructor method for RenameCalendarResourceRequest
+     * Constructor
      * 
      * @param string $id
      * @param string $newName
@@ -101,9 +103,7 @@ class RenameCalendarResourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

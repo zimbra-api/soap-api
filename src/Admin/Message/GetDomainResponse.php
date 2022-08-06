@@ -27,6 +27,7 @@ class GetDomainResponse extends SoapResponse
 {
     /**
      * Information about domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainInfo")
@@ -35,7 +36,7 @@ class GetDomainResponse extends SoapResponse
     private ?DomainInfo $domain = NULL;
 
     /**
-     * Constructor method for GetDomainResponse
+     * Constructor
      *
      * @param DomainInfo $domain
      * @return self

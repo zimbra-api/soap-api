@@ -30,6 +30,7 @@ class GetAttributeInfoRequest extends SoapRequest
 {
     /**
      * Comma separated list of attributes to return
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("string")
@@ -43,6 +44,7 @@ class GetAttributeInfoRequest extends SoapRequest
      *    account,alias,distributionList,cos,globalConfig,domain,server,mimeEntry,zimletEntry,
      *    calendarResource,identity,dataSource,pop3DataSource,imapDataSource,rssDataSource,
      *    liveDataSource,galDataSource,signature,xmppComponent,aclTarget,oauth2DataSource
+     * 
      * @Accessor(getter="getEntryTypes", setter="setEntryTypes")
      * @SerializedName("entryTypes")
      * @Type("string")
@@ -51,7 +53,7 @@ class GetAttributeInfoRequest extends SoapRequest
     private $entryTypes;
 
     /**
-     * Constructor method for GetAttributeInfoRequest
+     * Constructor
      * 
      * @param  string $attrs
      * @param  string $entryTypes
@@ -112,9 +114,7 @@ class GetAttributeInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

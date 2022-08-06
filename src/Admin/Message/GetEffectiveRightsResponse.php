@@ -28,6 +28,7 @@ class GetEffectiveRightsResponse extends SoapResponse
 {
     /**
      * Information about grantee
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
@@ -37,6 +38,7 @@ class GetEffectiveRightsResponse extends SoapResponse
 
     /**
      * Information about target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
@@ -45,7 +47,7 @@ class GetEffectiveRightsResponse extends SoapResponse
     private ?Target $target = NULL;
 
     /**
-     * Constructor method for GetEffectiveRightsResponse
+     * Constructor
      * 
      * @param GranteeInfo $grantee
      * @param Target $target

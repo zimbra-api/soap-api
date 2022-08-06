@@ -35,7 +35,7 @@ class PurgeMessagesResponse extends SoapResponse
     private $mailboxes = [];
 
     /**
-     * Constructor method for PurgeMessagesResponse
+     * Constructor
      *
      * @param array $mailboxes
      * @return self

@@ -26,6 +26,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 {
     /**
      * Comma separated list of host:port for memcached servers
+     * 
      * @Accessor(getter="getServerList", setter="setServerList")
      * @SerializedName("serverList")
      * @Type("string")
@@ -35,6 +36,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * KETAMA_HASH, etc.
+     * 
      * @Accessor(getter="getHashAlgorithm", setter="setHashAlgorithm")
      * @SerializedName("hashAlgorithm")
      * @Type("string")
@@ -44,6 +46,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * Flags whether memcached binary protocol is in use or not
+     * 
      * @Accessor(getter="getBinaryProtocolEnabled", setter="setBinaryProtocolEnabled")
      * @SerializedName("binaryProtocol")
      * @Type("bool")
@@ -53,6 +56,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * Default entry expiry in seconds
+     * 
      * @Accessor(getter="getDefaultExpirySeconds", setter="setDefaultExpirySeconds")
      * @SerializedName("defaultExpirySeconds")
      * @Type("integer")
@@ -62,6 +66,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * Default timeout in milliseconds
+     * 
      * @Accessor(getter="getDefaultTimeoutMillis", setter="setDefaultTimeoutMillis")
      * @SerializedName("defaultTimeoutMillis")
      * @Type("integer")
@@ -70,7 +75,7 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     private $defaultTimeoutMillis;
 
     /**
-     * Constructor method for GetMemcachedClientConfigResponse
+     * Constructor
      * 
      * @param string $serverList
      * @param string $hashAlgorithm

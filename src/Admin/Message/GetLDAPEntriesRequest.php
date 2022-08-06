@@ -27,6 +27,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 {
     /**
      * LDAP search base.  An LDAP-style filter string that defines an LDAP search base (RFC 2254)
+     * 
      * @Accessor(getter="getLdapSearchBase", setter="setLdapSearchBase")
      * @SerializedName("ldapSearchBase")
      * @Type("string")
@@ -36,6 +37,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * Name of attribute to sort on. default is null
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -45,6 +47,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * Flag whether to sort in ascending order 1 (true) is default
+     * 
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
@@ -54,6 +57,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * The number of mailboxes to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -63,6 +67,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -72,6 +77,7 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * Query string. Should be an LDAP-style filter string (RFC 2254)
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -80,7 +86,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     private $query;
 
     /**
-     * Constructor method for GetLDAPEntriesRequest
+     * Constructor
      * 
      * @param  string $ldapSearchBase
      * @param  string $sortBy
@@ -250,9 +256,7 @@ class GetLDAPEntriesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -27,6 +27,7 @@ class RenameAccountRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class RenameAccountRequest extends SoapRequest
 
     /**
      * New account name
+     * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
@@ -44,7 +46,7 @@ class RenameAccountRequest extends SoapRequest
     private $newName;
 
     /**
-     * Constructor method for RenameAccountRequest
+     * Constructor
      * 
      * @param string $id
      * @param string $newName
@@ -101,9 +103,7 @@ class RenameAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

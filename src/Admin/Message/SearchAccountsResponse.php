@@ -29,6 +29,7 @@ class SearchAccountsResponse extends SoapResponse
 {
     /**
      * 1 (true) if more accounts left to return
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -38,6 +39,7 @@ class SearchAccountsResponse extends SoapResponse
 
     /**
      * Total number of accounts that matched search (not affected by limit/searchTotal)
+     * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("integer")
@@ -100,7 +102,7 @@ class SearchAccountsResponse extends SoapResponse
     private $coses = [];
 
     /**
-     * Constructor method for SearchAccountsResponse
+     * Constructor
      *
      * @param bool $more
      * @param int $searchTotal

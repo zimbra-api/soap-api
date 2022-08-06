@@ -35,7 +35,7 @@ class GetAllZimletsResponse extends SoapResponse
     private $zimlets = [];
 
     /**
-     * Constructor method for GetAllZimletsResponse
+     * Constructor
      *
      * @param array $zimlets
      * @return self

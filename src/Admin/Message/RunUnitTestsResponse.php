@@ -27,6 +27,7 @@ class RunUnitTestsResponse extends SoapResponse
 {
     /**
      * Information about test results
+     * 
      * @Accessor(getter="getResults", setter="setResults")
      * @SerializedName("results")
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
@@ -36,6 +37,7 @@ class RunUnitTestsResponse extends SoapResponse
 
     /**
      * Number of executed tests
+     * 
      * @Accessor(getter="getNumExecuted", setter="setNumExecuted")
      * @SerializedName("numExecuted")
      * @Type("integer")
@@ -45,6 +47,7 @@ class RunUnitTestsResponse extends SoapResponse
 
     /**
      * Number of failed tests
+     * 
      * @Accessor(getter="getNumFailed", setter="setNumFailed")
      * @SerializedName("numFailed")
      * @Type("integer")
@@ -53,7 +56,7 @@ class RunUnitTestsResponse extends SoapResponse
     private $numFailed;
 
     /**
-     * Constructor method for RunUnitTestsResponse
+     * Constructor
      * 
      * @param TestResultInfo $results
      * @param int $numExecuted

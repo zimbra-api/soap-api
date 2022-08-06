@@ -28,6 +28,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
 {
     /**
      * The maximum number of accounts to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -37,6 +38,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25 etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -46,6 +48,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
 
     /**
      * Distribution List
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
@@ -54,7 +57,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
     private ?DistributionList $dl = NULL;
 
     /**
-     * Constructor method for GetDistributionListMembershipRequest
+     * Constructor
      * 
      * @param  DistributionList $dl
      * @param  int $limit
@@ -145,9 +148,7 @@ class GetDistributionListMembershipRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

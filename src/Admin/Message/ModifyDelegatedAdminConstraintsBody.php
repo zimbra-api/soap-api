@@ -41,17 +41,23 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyDelegatedAdminConstraintsBody
+     * Constructor
      *
+     * @param ModifyDelegatedAdminConstraintsRequest $request
+     * @param ModifyDelegatedAdminConstraintsResponse $response
      * @return self
      */
     public function __construct(
-        ?ModifyDelegatedAdminConstraintsRequest $request = NULL, ?ModifyDelegatedAdminConstraintsResponse $response = NULL
+        ?ModifyDelegatedAdminConstraintsRequest $request = NULL,
+        ?ModifyDelegatedAdminConstraintsResponse $response = NULL
     )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyDelegatedAdminConstraintsRequest) {
@@ -60,11 +66,17 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyDelegatedAdminConstraintsResponse) {
@@ -73,6 +85,9 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

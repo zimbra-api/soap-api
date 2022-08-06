@@ -32,6 +32,7 @@ class PushFreeBusyRequest extends SoapRequest
 {
     /**
      * Domain names specification
+     * 
      * @Accessor(getter="getDomains", setter="setDomains")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
@@ -49,7 +50,7 @@ class PushFreeBusyRequest extends SoapRequest
     private $accounts = [];
 
     /**
-     * Constructor method for PushFreeBusyRequest
+     * Constructor
      *
      * @param  Names $domains
      * @param  array $accounts
@@ -120,9 +121,7 @@ class PushFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

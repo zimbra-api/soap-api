@@ -29,6 +29,7 @@ class MailQueueFlushRequest extends SoapRequest
 {
     /**
      * Mta server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Common\Struct\NamedElement")
@@ -37,7 +38,7 @@ class MailQueueFlushRequest extends SoapRequest
     private Server $server;
 
     /**
-     * Constructor method for MailQueueFlushRequest
+     * Constructor
      *
      * @param  Server $server
      * @return self
@@ -70,9 +71,7 @@ class MailQueueFlushRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

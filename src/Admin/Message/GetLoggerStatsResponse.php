@@ -36,6 +36,7 @@ class GetLoggerStatsResponse extends SoapResponse
 
     /**
      * Note.  For instance "Logger is not enabled"
+     * 
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("string")
@@ -44,7 +45,7 @@ class GetLoggerStatsResponse extends SoapResponse
     private $note;
 
     /**
-     * Constructor method for GetLoggerStatsResponse
+     * Constructor
      *
      * @param array $hostNames
      * @param string $note

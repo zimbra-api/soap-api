@@ -30,6 +30,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
 {
     /**
      * Provider
+     * 
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
@@ -38,7 +39,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
     private ?NamedElement $provider = NULL;
 
     /**
-     * Constructor method for GetFreeBusyQueueInfoRequest
+     * Constructor
      * 
      * @param  NamedElement $provider
      * @return self
@@ -73,9 +74,7 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

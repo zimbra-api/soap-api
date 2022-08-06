@@ -32,6 +32,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -41,6 +42,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Data source specification
+     * 
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
@@ -49,7 +51,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     private DataSourceInfo $dataSource;
 
     /**
-     * Constructor method for ModifyDataSourceRequest
+     * Constructor
      * 
      * @param DataSourceInfo $dataSource
      * @param string $id
@@ -108,9 +110,7 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

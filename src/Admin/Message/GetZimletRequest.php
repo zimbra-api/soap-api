@@ -30,6 +30,7 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Zimlet selector
+     * 
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Common\Struct\NamedElement")
@@ -38,7 +39,7 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
     private NamedElement $zimlet;
 
     /**
-     * Constructor method for GetZimletRequest
+     * Constructor
      * 
      * @param  NamedElement $zimlet
      * @param  string $attrs
@@ -75,9 +76,7 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

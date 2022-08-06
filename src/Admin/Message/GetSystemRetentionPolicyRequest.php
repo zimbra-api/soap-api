@@ -37,7 +37,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     private ?CosSelector $cos = NULL;
 
     /**
-     * Constructor method for GetSystemRetentionPolicyRequest
+     * Constructor
      * 
      * @param  CosSelector $cos
      * @return self
@@ -72,9 +72,7 @@ class GetSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

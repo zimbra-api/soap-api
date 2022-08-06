@@ -28,6 +28,7 @@ class GetConfigRequest extends SoapRequest
 {
     /**
      * Attribute
+     * 
      * @Accessor(getter="getAttr", setter="setAttr")
      * @SerializedName("a")
      * @Type("Zimbra\Admin\Struct\Attr")
@@ -36,7 +37,7 @@ class GetConfigRequest extends SoapRequest
     private ?Attr $attr = NULL;
 
     /**
-     * Constructor method for GetConfigRequest
+     * Constructor
      * 
      * @param  Attr $attr
      * @return self
@@ -71,9 +72,7 @@ class GetConfigRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

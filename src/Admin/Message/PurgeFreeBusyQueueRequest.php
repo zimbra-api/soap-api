@@ -28,6 +28,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
 {
     /**
      * FreeBusy Provider specification
+     * 
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
@@ -36,7 +37,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
     private ?NamedElement $provider = NULL;
 
     /**
-     * Constructor method for PurgeFreeBusyQueueRequest
+     * Constructor
      *
      * @param  NamedElement $provider
      * @return self
@@ -71,9 +72,7 @@ class PurgeFreeBusyQueueRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

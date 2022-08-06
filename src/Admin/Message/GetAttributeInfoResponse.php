@@ -35,7 +35,7 @@ class GetAttributeInfoResponse extends SoapResponse
     private $attrs = [];
 
     /**
-     * Constructor method for GetAttributeInfoResponse
+     * Constructor
      *
      * @param array $attrs
      * @return self

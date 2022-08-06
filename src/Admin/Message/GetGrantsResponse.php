@@ -35,7 +35,7 @@ class GetGrantsResponse extends SoapResponse
     private $grants = [];
 
     /**
-     * Constructor method for GetGrantsResponse
+     * Constructor
      *
      * @param  array $grants
      * @return self

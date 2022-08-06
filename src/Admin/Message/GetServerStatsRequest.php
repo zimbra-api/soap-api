@@ -31,6 +31,7 @@ class GetServerStatsRequest extends SoapRequest
 {
     /**
      * Stats
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
@@ -38,7 +39,7 @@ class GetServerStatsRequest extends SoapRequest
     private $stats = [];
 
     /**
-     * Constructor method for GetServerStatsRequest
+     * Constructor
      * 
      * @param array $stats
      * @return self
@@ -83,9 +84,7 @@ class GetServerStatsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

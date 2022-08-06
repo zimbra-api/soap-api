@@ -27,6 +27,7 @@ class ModifyLDAPEntryResponse extends SoapResponse
 {
     /**
      * Information about LDAP entry
+     * 
      * @Accessor(getter="getLDAPEntry", setter="setLDAPEntry")
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
@@ -35,7 +36,7 @@ class ModifyLDAPEntryResponse extends SoapResponse
     private ?LDAPEntryInfo $LDAPEntry = NULL;
 
     /**
-     * Constructor method for ModifyLDAPEntryResponse
+     * Constructor
      *
      * @param LDAPEntryInfo $LDAPEntry
      * @return self

@@ -30,6 +30,7 @@ class QueryWaitSetRequest extends SoapRequest
 {
     /**
      * WaitSet ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
@@ -38,7 +39,7 @@ class QueryWaitSetRequest extends SoapRequest
     private $waitSetId;
 
     /**
-     * Constructor method for QueryWaitSetRequest
+     * Constructor
      *
      * @param  string $waitSetId
      * @return self
@@ -73,9 +74,7 @@ class QueryWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

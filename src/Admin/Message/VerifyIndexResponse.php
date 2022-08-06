@@ -26,6 +26,7 @@ class VerifyIndexResponse extends SoapResponse
 {
     /**
      * Result status of verification.  Valid values "true" and "false" (Not "1" and "0")
+     * 
      * @Accessor(getter="isStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("bool")
@@ -35,6 +36,7 @@ class VerifyIndexResponse extends SoapResponse
 
     /**
      * Verification output
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")

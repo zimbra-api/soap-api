@@ -27,6 +27,7 @@ class ModifyCalendarResourceResponse extends SoapResponse
 {
     /**
      * Information about the calendar resource
+     * 
      * @Accessor(getter="getCalResource", setter="setCalResource")
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
@@ -35,7 +36,7 @@ class ModifyCalendarResourceResponse extends SoapResponse
     private ?CalendarResourceInfo $calResource = NULL;
 
     /**
-     * Constructor method for ModifyCalendarResourceResponse
+     * Constructor
      *
      * @param CalendarResourceInfo $calResource
      * @return self

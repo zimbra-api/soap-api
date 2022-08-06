@@ -27,6 +27,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
 {
     /**
      * 1 (true) if more calendar resources to return
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -36,6 +37,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * Total number of calendar resources that matched search (not affected by limit/offset)
+     * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("integer")
@@ -53,7 +55,7 @@ class SearchCalendarResourcesResponse extends SoapResponse
     private $calResources = [];
 
     /**
-     * Constructor method for SearchCalendarResourcesResponse
+     * Constructor
      *
      * @param bool $more
      * @param int $searchTotal

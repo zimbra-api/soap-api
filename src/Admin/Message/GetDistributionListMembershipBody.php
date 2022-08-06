@@ -41,17 +41,23 @@ class GetDistributionListMembershipBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetDistributionListMembershipBody
+     * Constructor
      *
+     * @param GetDistributionListMembershipRequest $request
+     * @param GetDistributionListMembershipResponse $response
      * @return self
      */
     public function __construct(
-        ?GetDistributionListMembershipRequest $request = NULL, ?GetDistributionListMembershipResponse $response = NULL
+        ?GetDistributionListMembershipRequest $request = NULL,
+        ?GetDistributionListMembershipResponse $response = NULL
     )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetDistributionListMembershipRequest) {
@@ -60,11 +66,17 @@ class GetDistributionListMembershipBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetDistributionListMembershipResponse) {
@@ -73,6 +85,9 @@ class GetDistributionListMembershipBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

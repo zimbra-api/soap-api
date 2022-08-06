@@ -35,8 +35,10 @@ class GetDelegatedAdminConstraintsEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for GetDelegatedAdminConstraintsEnvelope
+     * Constructor
      *
+     * @param GetDelegatedAdminConstraintsBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?GetDelegatedAdminConstraintsBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -45,9 +47,7 @@ class GetDelegatedAdminConstraintsEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +55,7 @@ class GetDelegatedAdminConstraintsEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

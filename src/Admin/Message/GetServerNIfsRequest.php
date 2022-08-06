@@ -31,6 +31,7 @@ class GetServerNIfsRequest extends SoapRequest
 {
     /**
      * specifics the ipAddress type (ipV4/ipV6/both). default is ipv4
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\IpType>")
@@ -40,6 +41,7 @@ class GetServerNIfsRequest extends SoapRequest
 
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -48,7 +50,7 @@ class GetServerNIfsRequest extends SoapRequest
     private Server $server;
 
     /**
-     * Constructor method for GetServerNIfsRequest
+     * Constructor
      * 
      * @param  Server $server
      * @param  IpType $type
@@ -107,9 +109,7 @@ class GetServerNIfsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

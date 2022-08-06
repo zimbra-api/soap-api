@@ -41,8 +41,10 @@ class GetMailboxStatsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetMailboxStatsBody
+     * Constructor
      *
+     * @param GetMailboxStatsRequest $request
+     * @param GetMailboxStatsResponse $response
      * @return self
      */
     public function __construct(?GetMailboxStatsRequest $request = NULL, ?GetMailboxStatsResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetMailboxStatsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetMailboxStatsRequest) {
@@ -58,11 +63,17 @@ class GetMailboxStatsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetMailboxStatsResponse) {
@@ -71,6 +82,9 @@ class GetMailboxStatsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

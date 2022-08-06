@@ -41,8 +41,10 @@ class GetLicenseInfoBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetLicenseInfoBody
+     * Constructor
      *
+     * @param GetLicenseInfoRequest $request
+     * @param GetLicenseInfoResponse $response
      * @return self
      */
     public function __construct(?GetLicenseInfoRequest $request = NULL, ?GetLicenseInfoResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetLicenseInfoBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetLicenseInfoRequest) {
@@ -58,11 +63,17 @@ class GetLicenseInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetLicenseInfoResponse) {
@@ -71,6 +82,9 @@ class GetLicenseInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

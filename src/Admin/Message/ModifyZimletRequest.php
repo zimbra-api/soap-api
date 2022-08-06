@@ -28,6 +28,7 @@ class ModifyZimletRequest extends SoapRequest
 {
     /**
      * New Zimlet information
+     * 
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletAclStatusPri")
@@ -36,7 +37,7 @@ class ModifyZimletRequest extends SoapRequest
     private ZimletAclStatusPri $zimlet;
 
     /**
-     * Constructor method for ModifyZimletRequest
+     * Constructor
      * 
      * @param ZimletAclStatusPri $zimlet
      * @return self
@@ -69,9 +70,7 @@ class ModifyZimletRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

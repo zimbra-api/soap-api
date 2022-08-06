@@ -41,8 +41,10 @@ class ModifyAccountBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyAccountBody
+     * Constructor
      *
+     * @param ModifyAccountRequest $request
+     * @param ModifyAccountResponse $response
      * @return self
      */
     public function __construct(?ModifyAccountRequest $request = NULL, ?ModifyAccountResponse $response = NULL)
@@ -50,6 +52,9 @@ class ModifyAccountBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyAccountRequest) {
@@ -58,11 +63,17 @@ class ModifyAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyAccountResponse) {
@@ -71,6 +82,9 @@ class ModifyAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

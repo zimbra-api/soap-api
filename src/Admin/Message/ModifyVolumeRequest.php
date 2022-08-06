@@ -28,6 +28,7 @@ class ModifyVolumeRequest extends SoapRequest
 {
     /**
      * Volume ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -37,6 +38,7 @@ class ModifyVolumeRequest extends SoapRequest
 
     /**
      * Volume information
+     * 
      * @Accessor(getter="getVolume", setter="setVolume")
      * @SerializedName("volume")
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
@@ -45,7 +47,7 @@ class ModifyVolumeRequest extends SoapRequest
     private VolumeInfo $volume;
 
     /**
-     * Constructor method for ModifyVolumeRequest
+     * Constructor
      * 
      * @param int $id
      * @param VolumeInfo $volume
@@ -102,9 +104,7 @@ class ModifyVolumeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

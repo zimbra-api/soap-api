@@ -33,6 +33,7 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -41,7 +42,7 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
     private $id;
 
     /**
-     * Constructor method for ModifyServerRequest
+     * Constructor
      * 
      * @param string $id
      * @param array  $attrs
@@ -76,9 +77,7 @@ class ModifyServerRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

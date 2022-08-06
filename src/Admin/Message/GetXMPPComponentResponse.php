@@ -27,6 +27,7 @@ class GetXMPPComponentResponse extends SoapResponse
 {
     /**
      * XMPP Component Information
+     * 
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
@@ -35,7 +36,7 @@ class GetXMPPComponentResponse extends SoapResponse
     private ?XMPPComponentInfo $component = NULL;
 
     /**
-     * Constructor method for GetXMPPComponentResponse
+     * Constructor
      *
      * @param XMPPComponentInfo $component
      * @return self

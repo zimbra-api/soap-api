@@ -28,6 +28,7 @@ class SearchAccountsRequest extends SoapRequest
 {
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -37,6 +38,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -46,6 +48,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -55,6 +58,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * The domain name to limit the search to
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -65,6 +69,7 @@ class SearchAccountsRequest extends SoapRequest
     /**
      * Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
+     * 
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
@@ -74,6 +79,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Comma-seperated list of attrs to return ("displayName", "zimbraId", "zimbraAccountStatus")
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @SerializedName("attrs")
      * @Type("string")
@@ -83,6 +89,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Name of attribute to sort on. Default is the account name.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -92,6 +99,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Comma-separated list of types to return. Legal values are: accounts|resources (default is accounts)
+     * 
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -101,6 +109,7 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
+     * 
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
@@ -109,7 +118,7 @@ class SearchAccountsRequest extends SoapRequest
     private $sortAscending;
 
     /**
-     * Constructor method for SearchAccountsRequest
+     * Constructor
      * 
      * @param  string $query
      * @param  int $limit
@@ -360,9 +369,7 @@ class SearchAccountsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

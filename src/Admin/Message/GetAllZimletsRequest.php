@@ -31,6 +31,7 @@ class GetAllZimletsRequest extends SoapRequest
      * extension:    return only mail Zimlets 
      * mail:     return only admin extensions 
      * none [default]:   return both mail and admin zimlets
+     * 
      * @Accessor(getter="getExclude", setter="setExclude")
      * @SerializedName("exclude")
      * @Type("Enum<Zimbra\Common\Enum\ZimletExcludeType>")
@@ -39,7 +40,7 @@ class GetAllZimletsRequest extends SoapRequest
     private ?ZimletExcludeType $exclude = NULL;
 
     /**
-     * Constructor method for GetAllZimletsRequest
+     * Constructor
      * 
      * @param  ZimletExcludeType $exclude
      * @return self
@@ -74,9 +75,7 @@ class GetAllZimletsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

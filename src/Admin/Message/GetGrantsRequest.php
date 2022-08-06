@@ -32,6 +32,7 @@ class GetGrantsRequest extends SoapRequest
 {
     /**
      * Target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
@@ -41,6 +42,7 @@ class GetGrantsRequest extends SoapRequest
 
     /**
      * Grantee
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -49,7 +51,7 @@ class GetGrantsRequest extends SoapRequest
     private ?GranteeSelector $grantee = NULL;
 
     /**
-     * Constructor method for GetGrantsRequest
+     * Constructor
      * 
      * @param  Target $target
      * @param  GranteeSelector $grantee
@@ -113,9 +115,7 @@ class GetGrantsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

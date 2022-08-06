@@ -31,6 +31,7 @@ class SyncGalAccountRequest extends SoapRequest
 {
     /**
      * Sync GalAccount specification
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
@@ -38,7 +39,7 @@ class SyncGalAccountRequest extends SoapRequest
     private $accounts = [];
 
     /**
-     * Constructor method for SyncGalAccountRequest
+     * Constructor
      * 
      * @param array $accounts
      * @return self
@@ -83,9 +84,7 @@ class SyncGalAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

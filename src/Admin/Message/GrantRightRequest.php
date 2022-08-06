@@ -28,6 +28,7 @@ class GrantRightRequest extends SoapRequest
 {
     /**
      * Target selector
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
@@ -37,6 +38,7 @@ class GrantRightRequest extends SoapRequest
 
     /**
      * Grantee selector
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -46,6 +48,7 @@ class GrantRightRequest extends SoapRequest
 
     /**
      * Checked Right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
@@ -54,7 +57,7 @@ class GrantRightRequest extends SoapRequest
     private RightModifierInfo $right;
 
     /**
-     * Constructor method for GrantRightRequest
+     * Constructor
      * 
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
@@ -139,9 +142,7 @@ class GrantRightRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

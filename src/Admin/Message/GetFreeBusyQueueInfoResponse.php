@@ -35,7 +35,7 @@ class GetFreeBusyQueueInfoResponse extends SoapResponse
     private $providers = [];
 
     /**
-     * Constructor method for GetFreeBusyQueueInfoResponse
+     * Constructor
      *
      * @param  array $providers
      * @return self

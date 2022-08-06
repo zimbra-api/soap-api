@@ -33,6 +33,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
 {
     /**
      * Logger category
+     * 
      * @Accessor(getter="getLogger", setter="setLogger")
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
@@ -42,6 +43,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
 
     /**
      * Use to select account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -51,6 +53,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
 
     /**
      * id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -59,7 +62,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for RemoveAccountLoggerRequest
+     * Constructor
      *
      * @param  Logger $logger
      * @param  Account $account
@@ -148,9 +151,7 @@ class RemoveAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

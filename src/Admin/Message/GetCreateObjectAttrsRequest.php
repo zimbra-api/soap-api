@@ -32,6 +32,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
 {
     /**
      * Target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
@@ -45,6 +46,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * if {target-type} is account/calresource/dl: this is the domain in which the object will be in.
      * the domain can be speciffied by id or by nam
      * if {target-type} is domain, it is the domain name to be created.
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -54,6 +56,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
 
     /**
      * COS
+     * 
      * Optional if {target-type} is account/calresource, ignored otherwise
      * If missing, default cos of the domain will be used
      * @Accessor(getter="getCos", setter="setCos")
@@ -64,7 +67,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     private ?Cos $cos = NULL;
 
     /**
-     * Constructor method for GetCreateObjectAttrsRequest
+     * Constructor
      * 
      * @param  Target $target
      * @param  Domain $domain
@@ -149,9 +152,7 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

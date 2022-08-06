@@ -35,7 +35,7 @@ class GetMailQueueInfoResponse extends SoapResponse
     private ?Server $server = NULL;
 
     /**
-     * Constructor method for GetMailQueueInfoResponse
+     * Constructor
      *
      * @param Server $server
      * @return self

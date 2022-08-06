@@ -35,19 +35,21 @@ class GetDistributionListMembershipEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for GetDistributionListMembershipEnvelope
+     * Constructor
      *
+     * @param GetDistributionListMembershipBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
-    public function __construct(?GetDistributionListMembershipBody $body = NULL, ?SoapHeaderInterface $header = NULL)
+    public function __construct(
+        ?GetDistributionListMembershipBody $body = NULL, ?SoapHeaderInterface $header = NULL
+    )
     {
         parent::__construct($body, $header);
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +57,7 @@ class GetDistributionListMembershipEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

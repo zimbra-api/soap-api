@@ -25,7 +25,9 @@ use Zimbra\Common\Struct\SoapResponse;
 class SetPasswordResponse extends SoapResponse
 {
     /**
-     * If the password had violated any policy, it is returned in this> element, and the password is still set successfully.
+     * If the password had violated any policy, it is returned in this> element,
+     * and the password is still set successfully.
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -34,7 +36,7 @@ class SetPasswordResponse extends SoapResponse
     private $message;
 
     /**
-     * Constructor method for SetPasswordResponse
+     * Constructor
      *
      * @param string $message
      * @return self

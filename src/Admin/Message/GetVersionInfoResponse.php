@@ -27,6 +27,7 @@ class GetVersionInfoResponse extends SoapResponse
 {
     /**
      * Version information
+     * 
      * @Accessor(getter="getInfo", setter="setInfo")
      * @SerializedName("info")
      * @Type("Zimbra\Admin\Struct\VersionInfo")
@@ -35,7 +36,7 @@ class GetVersionInfoResponse extends SoapResponse
     private ?VersionInfo $info = NULL;
 
     /**
-     * Constructor method for GetVersionInfoResponse
+     * Constructor
      *
      * @param VersionInfo $info
      * @return self

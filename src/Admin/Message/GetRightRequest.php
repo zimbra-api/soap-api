@@ -29,6 +29,7 @@ class GetRightRequest extends SoapRequest
      * whether to include all attribute names in the <attrs> elements in the response if the right is meant for all attributes 
      * 0 (false) [default]: do not include all attribute names in the <attrs> elements 
      * 1 (true): include all attribute names in the <attrs> elements 
+     * 
      * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("bool")
@@ -38,6 +39,7 @@ class GetRightRequest extends SoapRequest
 
     /**
      * Right name
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("string")
@@ -46,7 +48,7 @@ class GetRightRequest extends SoapRequest
     private $right;
 
     /**
-     * Constructor method for GetRightRequest
+     * Constructor
      *
      * @param  string $right
      * @param  bool $expandAllAttrs
@@ -105,9 +107,7 @@ class GetRightRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

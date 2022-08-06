@@ -36,8 +36,10 @@ class ModifyFilterRulesEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for ModifyFilterRulesEnvelope
+     * Constructor
      *
+     * @param ModifyFilterRulesBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?ModifyFilterRulesBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -46,9 +48,7 @@ class ModifyFilterRulesEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -56,10 +56,7 @@ class ModifyFilterRulesEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

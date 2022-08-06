@@ -27,6 +27,7 @@ class SetPasswordRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class SetPasswordRequest extends SoapRequest
 
     /**
      * New password
+     * 
      * @Accessor(getter="getNewPassword", setter="setNewPassword")
      * @SerializedName("newPassword")
      * @Type("string")
@@ -44,7 +46,7 @@ class SetPasswordRequest extends SoapRequest
     private $newPassword;
 
     /**
-     * Constructor method for SetPasswordRequest
+     * Constructor
      * 
      * @param string $id
      * @param string $newPassword
@@ -101,9 +103,7 @@ class SetPasswordRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

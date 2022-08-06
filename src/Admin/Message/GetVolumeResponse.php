@@ -27,6 +27,7 @@ class GetVolumeResponse extends SoapResponse
 {
     /**
      * Volume information
+     * 
      * @Accessor(getter="getVolume", setter="setVolume")
      * @SerializedName("volume")
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
@@ -35,7 +36,7 @@ class GetVolumeResponse extends SoapResponse
     private ?VolumeInfo $volume = NULL;
 
     /**
-     * Constructor method for GetVolumeResponse
+     * Constructor
      *
      * @param VolumeInfo $volume
      * @return self

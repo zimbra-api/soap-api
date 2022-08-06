@@ -41,8 +41,10 @@ class ModifyVolumeBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyVolumeBody
+     * Constructor
      *
+     * @param ModifyVolumeRequest $request
+     * @param ModifyVolumeResponse $response
      * @return self
      */
     public function __construct(?ModifyVolumeRequest $request = NULL, ?ModifyVolumeResponse $response = NULL)
@@ -50,6 +52,9 @@ class ModifyVolumeBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyVolumeRequest) {
@@ -58,11 +63,17 @@ class ModifyVolumeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyVolumeResponse) {
@@ -71,6 +82,9 @@ class ModifyVolumeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -29,6 +29,7 @@ class GetShareInfoRequest extends SoapRequest
 {
     /**
      * Grantee
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
@@ -38,6 +39,7 @@ class GetShareInfoRequest extends SoapRequest
 
     /**
      * Owner
+     * 
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -46,7 +48,7 @@ class GetShareInfoRequest extends SoapRequest
     private Account $owner;
 
     /**
-     * Constructor method for GetShareInfoRequest
+     * Constructor
      *
      * @param  Account $owner
      * @param  Grantee $grantee
@@ -105,9 +107,7 @@ class GetShareInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class SetCurrentVolumeRequest extends SoapRequest
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -37,6 +38,7 @@ class SetCurrentVolumeRequest extends SoapRequest
 
     /**
      * Volume type: 1 (primary message), 2 (secondary message) or 10 (index)
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("integer")
@@ -45,7 +47,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     private $type;
 
     /**
-     * Constructor method for SetCurrentVolumeRequest
+     * Constructor
      *
      * @param  int $id
      * @param  int $type
@@ -102,9 +104,7 @@ class SetCurrentVolumeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

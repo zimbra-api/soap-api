@@ -27,6 +27,7 @@ class ModifyAlwaysOnClusterResponse extends SoapResponse
 {
     /**
      * Information about server
+     * 
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
@@ -35,7 +36,7 @@ class ModifyAlwaysOnClusterResponse extends SoapResponse
     private ?AlwaysOnClusterInfo $cluster = NULL;
 
     /**
-     * Constructor method for ModifyAlwaysOnClusterResponse
+     * Constructor
      *
      * @param AlwaysOnClusterInfo $cluster
      * @return self

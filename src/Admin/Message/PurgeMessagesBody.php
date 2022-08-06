@@ -41,8 +41,10 @@ class PurgeMessagesBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for PurgeMessagesBody
+     * Constructor
      *
+     * @param PurgeMessagesRequest $request
+     * @param PurgeMessagesResponse $response
      * @return self
      */
     public function __construct(?PurgeMessagesRequest $request = NULL, ?PurgeMessagesResponse $response = NULL)
@@ -50,6 +52,9 @@ class PurgeMessagesBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof PurgeMessagesRequest) {
@@ -58,11 +63,17 @@ class PurgeMessagesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof PurgeMessagesResponse) {
@@ -71,6 +82,9 @@ class PurgeMessagesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

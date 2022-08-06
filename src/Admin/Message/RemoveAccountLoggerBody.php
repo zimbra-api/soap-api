@@ -41,15 +41,22 @@ class RemoveAccountLoggerBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RemoveAccountLoggerBody
+     * Constructor
      *
+     * @param RemoveAccountLoggerRequest $request
+     * @param RemoveAccountLoggerResponse $response
      * @return self
      */
-    public function __construct(?RemoveAccountLoggerRequest $request = NULL, ?RemoveAccountLoggerResponse $response = NULL)
+    public function __construct(
+        ?RemoveAccountLoggerRequest $request = NULL, ?RemoveAccountLoggerResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RemoveAccountLoggerRequest) {
@@ -58,11 +65,17 @@ class RemoveAccountLoggerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RemoveAccountLoggerResponse) {
@@ -71,6 +84,9 @@ class RemoveAccountLoggerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

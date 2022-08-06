@@ -41,8 +41,10 @@ class GetConfigBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetConfigBody
+     * Constructor
      *
+     * @param GetConfigRequest $request
+     * @param GetConfigResponse $response
      * @return self
      */
     public function __construct(?GetConfigRequest $request = NULL, ?GetConfigResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetConfigBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetConfigRequest) {
@@ -58,11 +63,17 @@ class GetConfigBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetConfigResponse) {
@@ -71,6 +82,9 @@ class GetConfigBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

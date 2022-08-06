@@ -32,6 +32,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     /**
      * If {apply-config} is 1 (true), then certain unset attrs on a server will get their values from the global config. 
      * if {apply-config} is 0 (false), then only attributes directly set on the server will be returned
+     * 
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
@@ -41,6 +42,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -49,7 +51,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     private ?ServerSelector $server = NULL;
 
     /**
-     * Constructor method for GetServerRequest
+     * Constructor
      * 
      * @param  ServerSelector $server
      * @param  bool $applyConfig
@@ -118,9 +120,7 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

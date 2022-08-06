@@ -35,7 +35,7 @@ class GetDelegatedAdminConstraintsResponse extends SoapResponse
     private $attrs = [];
 
     /**
-     * Constructor method for GetDelegatedAdminConstraintsResponse
+     * Constructor
      *
      * @param array $attrs
      * @return self

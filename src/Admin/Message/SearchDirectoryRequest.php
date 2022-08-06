@@ -30,6 +30,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -39,6 +40,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
+     * 
      * @Accessor(getter="getMaxResults", setter="setMaxResults")
      * @SerializedName("maxResults")
      * @Type("integer")
@@ -48,6 +50,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -57,6 +60,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -66,6 +70,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * The domain name to limit the search to
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -76,6 +81,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * applyCos - Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
+     * 
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
@@ -86,6 +92,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * whether or not to apply the global config attrs to account.
      * specify 0 (false) if only requesting attrs that aren't inherited from global config
+     * 
      * @Accessor(getter="getApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
@@ -95,6 +102,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Name of attribute to sort on. Default is the account name.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -105,6 +113,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * Comma-separated list of types to return.
      * Legal values are: accounts|distributionlists|aliases|resources|domains|coses (default is accounts)
+     * 
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -114,6 +123,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
+     * 
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
@@ -123,6 +133,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Whether response should be count only. Default is 0 (false)
+     * 
      * @Accessor(getter="getCountOnly", setter="setCountOnly")
      * @SerializedName("countOnly")
      * @Type("bool")
@@ -131,7 +142,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     private $isCountOnly;
 
     /**
-     * Constructor method for SearchDirectoryRequest
+     * Constructor
      * 
      * @param  string $query
      * @param  int $maxResults
@@ -443,9 +454,7 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

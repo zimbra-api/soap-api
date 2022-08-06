@@ -27,6 +27,7 @@ class ModifyAccountResponse extends SoapResponse
 {
     /**
      * Information about the account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
@@ -35,7 +36,7 @@ class ModifyAccountResponse extends SoapResponse
     private ?AccountInfo $account = NULL;
 
     /**
-     * Constructor method for ModifyAccountResponse
+     * Constructor
      *
      * @param AccountInfo $account
      * @return self

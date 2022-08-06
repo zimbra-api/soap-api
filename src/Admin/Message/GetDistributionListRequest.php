@@ -31,6 +31,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -40,6 +41,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * The starting offset (0, 25 etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -49,6 +51,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * Flag whether to sort in ascending order 1 (true) is the default
+     * 
      * @Accessor(getter="isSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
@@ -58,6 +61,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * Distribution List
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
@@ -66,7 +70,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     private ?DistributionList $dl = NULL;
 
     /**
-     * Constructor method for GetDistributionListRequest
+     * Constructor
      * 
      * @param  DistributionList $dl
      * @param  int $limit
@@ -189,9 +193,7 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

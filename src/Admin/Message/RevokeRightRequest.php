@@ -29,6 +29,7 @@ class RevokeRightRequest extends SoapRequest
 
     /**
      * Target selector
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
@@ -38,6 +39,7 @@ class RevokeRightRequest extends SoapRequest
 
     /**
      * Grantee selector
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -47,6 +49,7 @@ class RevokeRightRequest extends SoapRequest
 
     /**
      * Right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
@@ -55,7 +58,7 @@ class RevokeRightRequest extends SoapRequest
     private RightModifierInfo $right;
 
     /**
-     * Constructor method for RevokeRightRequest
+     * Constructor
      * 
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
@@ -140,9 +143,7 @@ class RevokeRightRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

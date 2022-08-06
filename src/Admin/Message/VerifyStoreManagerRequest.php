@@ -27,6 +27,7 @@ class VerifyStoreManagerRequest extends SoapRequest
 {
     /**
      * fileSize
+     * 
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
      * @Type("integer")
@@ -36,6 +37,7 @@ class VerifyStoreManagerRequest extends SoapRequest
 
     /**
      * num
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("integer")
@@ -45,6 +47,7 @@ class VerifyStoreManagerRequest extends SoapRequest
 
     /**
      * checkBlobs
+     * 
      * @Accessor(getter="getCheckBlobs", setter="setCheckBlobs")
      * @SerializedName("checkBlobs")
      * @Type("bool")
@@ -144,9 +147,7 @@ class VerifyStoreManagerRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -32,6 +32,7 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
 {
     /**
      * Search information
+     * 
      * @Accessor(getter="getSearches", setter="setSearches")
      * @Type("array<Zimbra\Common\Struct\NamedValue>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
@@ -39,7 +40,7 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
     private $searches = [];
 
     /**
-     * Constructor method for ModifyAdminSavedSearchesRequest
+     * Constructor
      * 
      * @param array $searches
      * @return self
@@ -84,9 +85,7 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

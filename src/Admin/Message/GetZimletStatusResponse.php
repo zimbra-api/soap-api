@@ -28,6 +28,7 @@ class GetZimletStatusResponse extends SoapResponse
 {
     /**
      * Zimlet information
+     * 
      * @Accessor(getter="getZimlets", setter="setZimlets")
      * @SerializedName("zimlets")
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
@@ -45,7 +46,7 @@ class GetZimletStatusResponse extends SoapResponse
     private $coses = [];
 
     /**
-     * Constructor method for GetZimletStatusResponse
+     * Constructor
      *
      * @param ZimletStatusParent $zimlets
      * @param array $coses

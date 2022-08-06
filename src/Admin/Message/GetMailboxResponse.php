@@ -27,6 +27,7 @@ class GetMailboxResponse extends SoapResponse
 {
     /**
      * Information about mailbox
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
@@ -35,7 +36,7 @@ class GetMailboxResponse extends SoapResponse
     private ?Mailbox $mbox = NULL;
 
     /**
-     * Constructor method for GetMailboxResponse
+     * Constructor
      *
      * @param Mailbox $mbox
      * @return self

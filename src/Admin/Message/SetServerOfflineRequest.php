@@ -31,6 +31,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -39,7 +40,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
     private ?ServerSelector $server = NULL;
 
     /**
-     * Constructor method for SetServerOfflineRequest
+     * Constructor
      * 
      * @param  ServerSelector $server
      * @param  string $attrs
@@ -78,9 +79,7 @@ class SetServerOfflineRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

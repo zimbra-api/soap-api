@@ -27,6 +27,7 @@ class RecalculateMailboxCountsResponse extends SoapResponse
 {
     /**
      * Information about mailbox quotas
+     * 
      * @Accessor(getter="getMailbox", setter="setMailbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxQuotaInfo")
@@ -35,7 +36,7 @@ class RecalculateMailboxCountsResponse extends SoapResponse
     private ?Mailbox $mailbox = NULL;
 
     /**
-     * Constructor method for RecalculateMailboxCountsResponse
+     * Constructor
      *
      * @param Mailbox $mailbox
      * @return self

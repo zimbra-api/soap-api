@@ -29,6 +29,7 @@ class PurgeMessagesRequest extends SoapRequest
 {
     /**
      * Mailbox selector
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
@@ -37,7 +38,7 @@ class PurgeMessagesRequest extends SoapRequest
     private ?Mailbox $mbox = NULL;
 
     /**
-     * Constructor method for PurgeMessagesRequest
+     * Constructor
      *
      * @param  Mailbox $mbox
      * @return self
@@ -72,9 +73,7 @@ class PurgeMessagesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

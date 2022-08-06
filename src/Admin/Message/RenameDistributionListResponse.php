@@ -27,6 +27,7 @@ class RenameDistributionListResponse extends SoapResponse
 {
     /**
      * Information about distribution list
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListInfo")
@@ -35,7 +36,7 @@ class RenameDistributionListResponse extends SoapResponse
     private ?DLInfo $dl = NULL;
 
     /**
-     * Constructor method for RenameDistributionListResponse
+     * Constructor
      *
      * @param DLInfo $dl
      * @return self

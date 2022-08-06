@@ -31,6 +31,7 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Server
+     * 
      * @Accessor(getter="getAlwaysOnCluster", setter="setAlwaysOnCluster")
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterSelector")
@@ -39,7 +40,7 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
     private ?AlwaysOnClusterSelector $cluster = NULL;
 
     /**
-     * Constructor method for GetAlwaysOnClusterRequest
+     * Constructor
      * 
      * @param  AlwaysOnClusterSelector $cluster
      * @param  string $attrs
@@ -78,9 +79,7 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

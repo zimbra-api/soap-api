@@ -41,8 +41,10 @@ class GetServerBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetServerBody
+     * Constructor
      *
+     * @param GetServerRequest $request
+     * @param GetServerResponse $response
      * @return self
      */
     public function __construct(?GetServerRequest $request = NULL, ?GetServerResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetServerBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetServerRequest) {
@@ -58,11 +63,17 @@ class GetServerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetServerResponse) {
@@ -71,6 +82,9 @@ class GetServerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

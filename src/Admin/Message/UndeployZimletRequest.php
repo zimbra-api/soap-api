@@ -27,6 +27,7 @@ class UndeployZimletRequest extends SoapRequest
 {
     /**
      * Zimlet name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class UndeployZimletRequest extends SoapRequest
 
     /**
      * Action
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("string")
@@ -44,7 +46,7 @@ class UndeployZimletRequest extends SoapRequest
     private $action;
 
     /**
-     * Constructor method for UndeployZimletRequest
+     * Constructor
      *
      * @param  string $name
      * @param  string $action
@@ -103,9 +105,7 @@ class UndeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

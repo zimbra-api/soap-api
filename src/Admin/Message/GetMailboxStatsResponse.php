@@ -27,6 +27,7 @@ class GetMailboxStatsResponse extends SoapResponse
 {
     /**
      * Statistics about mailboxes
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\MailboxStats")
@@ -35,7 +36,7 @@ class GetMailboxStatsResponse extends SoapResponse
     private ?MailboxStats $stats = NULL;
 
     /**
-     * Constructor method for GetMailboxStatsResponse
+     * Constructor
      *
      * @param MailboxStats $stats
      * @return self

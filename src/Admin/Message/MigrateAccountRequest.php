@@ -28,6 +28,7 @@ class MigrateAccountRequest extends SoapRequest
 {
     /**
      * Specification for the migration
+     * 
      * @Accessor(getter="getMigrate", setter="setMigrate")
      * @SerializedName("migrate")
      * @Type("Zimbra\Admin\Struct\IdAndAction")
@@ -36,7 +37,7 @@ class MigrateAccountRequest extends SoapRequest
     private IdAndAction $migrate;
 
     /**
-     * Constructor method for MigrateAccountRequest
+     * Constructor
      *
      * @param  IdAndAction $migrate
      * @return self
@@ -69,9 +70,7 @@ class MigrateAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

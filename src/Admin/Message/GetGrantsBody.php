@@ -41,8 +41,10 @@ class GetGrantsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetGrantsBody
+     * Constructor
      *
+     * @param GetGrantsRequest $request
+     * @param GetGrantsResponse $response
      * @return self
      */
     public function __construct(?GetGrantsRequest $request = NULL, ?GetGrantsResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetGrantsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetGrantsRequest) {
@@ -58,11 +63,17 @@ class GetGrantsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetGrantsResponse) {
@@ -71,6 +82,9 @@ class GetGrantsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

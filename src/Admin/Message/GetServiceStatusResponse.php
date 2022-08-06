@@ -45,7 +45,7 @@ class GetServiceStatusResponse extends SoapResponse
     private $serviceStatuses = [];
 
     /**
-     * Constructor method for GetServiceStatusResponse
+     * Constructor
      *
      * @param TimeZoneInfo $timezone
      * @param array $serviceStatuses

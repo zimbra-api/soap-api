@@ -27,6 +27,7 @@ class ModifyUCServiceResponse extends SoapResponse
 {
     /**
      * Information about ucservice
+     * 
      * @Accessor(getter="getUCService", setter="setUCService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
@@ -35,7 +36,7 @@ class ModifyUCServiceResponse extends SoapResponse
     private ?UCServiceInfo $ucService = NULL;
 
     /**
-     * Constructor method for ModifyUCServiceResponse
+     * Constructor
      *
      * @param UCServiceInfo $ucService
      * @return self

@@ -29,6 +29,7 @@ class ReIndexRequest extends SoapRequest
 {
     /**
      * Specify reindexing to perform
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
@@ -41,6 +42,7 @@ class ReIndexRequest extends SoapRequest
      * start: start compact indexing
      * status: show compact indexing status
      * cancel: cancel reindexing 
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\ReIndexAction>")
@@ -49,7 +51,7 @@ class ReIndexRequest extends SoapRequest
     private ?Action $action = NULL;
 
     /**
-     * Constructor method for ReIndexRequest
+     * Constructor
      * 
      * @param  Mbox $mbox
      * @param  Action $action
@@ -108,9 +110,7 @@ class ReIndexRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

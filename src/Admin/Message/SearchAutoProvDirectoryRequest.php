@@ -37,6 +37,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * It is recommended to pick a key attribute that is single-valued and can unique identify an entry in the external auto provision directory.
      * If the key attribute contains multiple values then multiple <key> elements will appear in the response.
      * Entries are returned in ascending key order.
+     * 
      * @Accessor(getter="getKeyAttr", setter="setKeyAttr")
      * @SerializedName("keyAttr")
      * @Type("string")
@@ -46,6 +47,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -55,6 +57,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * Name to fill the auto provisioning search template configured on the domain 
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -64,6 +67,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
+     * 
      * @Accessor(getter="getMaxResults", setter="setMaxResults")
      * @SerializedName("maxResults")
      * @Type("integer")
@@ -73,6 +77,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -82,6 +87,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -92,6 +98,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     /**
      * Refresh - whether to always re-search in LDAP even when 
      * cached entries are available.  0 (false) is the default.
+     * 
      * @Accessor(getter="isRefresh", setter="setRefresh")
      * @SerializedName("refresh")
      * @Type("bool")
@@ -101,6 +108,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * The domain name to limit the search to
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -109,7 +117,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     private DomainSelector $domain;
 
     /**
-     * Constructor method for SearchAutoProvDirectoryRequest
+     * Constructor
      * 
      * @param  DomainSelector $domain
      * @param  string $keyAttr
@@ -336,9 +344,7 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

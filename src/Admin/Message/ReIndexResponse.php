@@ -28,6 +28,7 @@ class ReIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|cancelled|idle
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ReIndexStatus>")
@@ -37,6 +38,7 @@ class ReIndexResponse extends SoapResponse
 
     /**
      * Specify reindexing to perform
+     * 
      * @Accessor(getter="getProgress", setter="setProgress")
      * @SerializedName("progress")
      * @Type("Zimbra\Admin\Struct\ReindexProgressInfo")
@@ -45,10 +47,10 @@ class ReIndexResponse extends SoapResponse
     private ?Progress $progress = NULL;
 
     /**
-     * Constructor method for ReIndexResponse
+     * Constructor
      * 
-     * @param Status  $status
-     * @param Progress  $progress
+     * @param Status   $status
+     * @param Progress $progress
      * @return self
      */
     public function __construct(?Status $status = NULL, ?Progress $progress = NULL)

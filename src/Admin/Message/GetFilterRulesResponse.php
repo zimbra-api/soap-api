@@ -32,6 +32,7 @@ class GetFilterRulesResponse extends SoapResponse
 {
     /**
      * Type can be either before or after
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
@@ -41,6 +42,7 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -50,6 +52,7 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -59,6 +62,7 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * COS
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
@@ -68,6 +72,7 @@ class GetFilterRulesResponse extends SoapResponse
 
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -87,7 +92,7 @@ class GetFilterRulesResponse extends SoapResponse
     private $rules = [];
 
     /**
-     * Constructor method for GetFilterRulesResponse
+     * Constructor
      *
      * @param  AdminFilterType $type
      * @param  Account $account

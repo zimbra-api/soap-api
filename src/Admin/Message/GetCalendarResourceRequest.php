@@ -33,6 +33,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
      * Flag whether to apply Class of Service (COS)
      * 1 (true) [default]   COS rules apply and unset attrs on the calendar resource will get their value from the COS. 
      * 0 (false)   only attributes directly set on the calendar resource will be returned
+     * 
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
@@ -42,6 +43,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
 
     /**
      * Specify calendar resource
+     * 
      * @Accessor(getter="getCalResource", setter="setCalResource")
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceSelector")
@@ -50,7 +52,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     private ?CalendarResourceSelector $calResource = NULL;
 
     /**
-     * Constructor method for GetCalendarResourceRequest
+     * Constructor
      * 
      * @param  CalendarResourceSelector $calResource
      * @param  bool $applyCos
@@ -117,9 +119,7 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

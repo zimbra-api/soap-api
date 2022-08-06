@@ -41,8 +41,10 @@ class ReIndexBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ReIndexBody
+     * Constructor
      *
+     * @param ReIndexRequest $request
+     * @param ReIndexResponse $response
      * @return self
      */
     public function __construct(?ReIndexRequest $request = NULL, ?ReIndexResponse $response = NULL)
@@ -50,6 +52,9 @@ class ReIndexBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ReIndexRequest) {
@@ -58,11 +63,17 @@ class ReIndexBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ReIndexResponse) {
@@ -71,6 +82,9 @@ class ReIndexBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

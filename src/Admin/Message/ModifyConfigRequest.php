@@ -29,7 +29,7 @@ class ModifyConfigRequest extends SoapRequest implements AdminAttrs
     use AdminAttrsImplTrait;
 
     /**
-     * Constructor method for ModifyConfigRequest
+     * Constructor
      * 
      * @param array $attrs
      * @return self
@@ -40,9 +40,7 @@ class ModifyConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

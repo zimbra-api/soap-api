@@ -28,6 +28,7 @@ class GetRightsDocRequest extends SoapRequest
 {
     /**
      * Packages
+     * 
      * @Accessor(getter="getPkgs", setter="setPkgs")
      * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
      * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
@@ -35,7 +36,7 @@ class GetRightsDocRequest extends SoapRequest
     private $pkgs = [];
 
     /**
-     * Constructor method for GetRightsDocRequest
+     * Constructor
      * 
      * @param array $pkgs
      * @return self
@@ -80,9 +81,7 @@ class GetRightsDocRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

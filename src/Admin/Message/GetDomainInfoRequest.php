@@ -32,6 +32,7 @@ class GetDomainInfoRequest extends SoapRequest
     /**
      * If {apply-config} is 1 (true), then certain unset attrs on a domain will get their values from the global config. 
      * if {apply-config} is 0 (false), then only attributes directly set on the domain will be returned
+     * 
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
@@ -41,6 +42,7 @@ class GetDomainInfoRequest extends SoapRequest
 
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -49,7 +51,7 @@ class GetDomainInfoRequest extends SoapRequest
     private ?DomainSelector $domain = NULL;
 
     /**
-     * Constructor method for GetDomainInfoRequest
+     * Constructor
      * 
      * @param  DomainSelector $domain
      * @param  bool $applyConfig
@@ -113,9 +115,7 @@ class GetDomainInfoRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

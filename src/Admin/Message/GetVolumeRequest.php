@@ -27,6 +27,7 @@ class GetVolumeRequest extends SoapRequest
 {
     /**
      * ID of volume
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -35,7 +36,7 @@ class GetVolumeRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for GetVolumeRequest
+     * Constructor
      *
      * @param  int $id
      * @return self
@@ -68,9 +69,7 @@ class GetVolumeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

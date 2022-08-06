@@ -35,7 +35,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     private $tokens = [];
 
     /**
-     * Constructor method for RefreshRegisteredAuthTokensRequest
+     * Constructor
      *
      * @param  array $tokens
      * @return self
@@ -83,9 +83,7 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

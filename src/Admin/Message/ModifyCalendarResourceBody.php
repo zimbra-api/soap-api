@@ -41,15 +41,22 @@ class ModifyCalendarResourceBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyCalendarResourceBody
+     * Constructor
      *
+     * @param ModifyCalendarResourceRequest $request
+     * @param ModifyCalendarResourceResponse $response
      * @return self
      */
-    public function __construct(?ModifyCalendarResourceRequest $request = NULL, ?ModifyCalendarResourceResponse $response = NULL)
+    public function __construct(
+        ?ModifyCalendarResourceRequest $request = NULL, ?ModifyCalendarResourceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyCalendarResourceRequest) {
@@ -58,11 +65,17 @@ class ModifyCalendarResourceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyCalendarResourceResponse) {
@@ -71,6 +84,9 @@ class ModifyCalendarResourceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

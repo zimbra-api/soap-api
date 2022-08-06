@@ -35,7 +35,7 @@ class GetLDAPEntriesResponse extends SoapResponse
     private $LDAPEntries = [];
 
     /**
-     * Constructor method for GetLDAPEntriesResponse
+     * Constructor
      *
      * @param array $LDAPEntries
      * @return self

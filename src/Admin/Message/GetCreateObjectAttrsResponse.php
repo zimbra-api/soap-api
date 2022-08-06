@@ -27,6 +27,7 @@ class GetCreateObjectAttrsResponse extends SoapResponse
 {
     /**
      * Set attributes
+     * 
      * @Accessor(getter="getSetAttrs", setter="setSetAttrs")
      * @SerializedName("setAttrs")
      * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
@@ -35,7 +36,7 @@ class GetCreateObjectAttrsResponse extends SoapResponse
     private ?EffectiveAttrsInfo $setAttrs = NULL;
 
     /**
-     * Constructor method for GetCreateObjectAttrsResponse
+     * Constructor
      *
      * @param EffectiveAttrsInfo $setAttrs
      * @return self

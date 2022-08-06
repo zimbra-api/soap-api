@@ -31,6 +31,7 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
 
     /**
      * COS
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
@@ -39,7 +40,7 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
     private CosSelector $cos;
 
     /**
-     * Constructor method for GetCosRequest
+     * Constructor
      * 
      * @param  CosSelector $cos
      * @param  string $attrs
@@ -76,9 +77,7 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -27,6 +27,7 @@ class RenameCosResponse extends SoapResponse
 {
     /**
      * Information about Class Of Service (COS)
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
@@ -35,7 +36,7 @@ class RenameCosResponse extends SoapResponse
     private ?CosInfo $cos = NULL;
 
     /**
-     * Constructor method for RenameCosResponse
+     * Constructor
      *
      * @param CosInfo $cos
      * @return self

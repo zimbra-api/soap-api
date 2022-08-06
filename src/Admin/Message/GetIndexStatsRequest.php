@@ -27,6 +27,7 @@ class GetIndexStatsRequest extends SoapRequest
 {
     /**
      * Mailbox
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
@@ -35,7 +36,7 @@ class GetIndexStatsRequest extends SoapRequest
     private Mailbox $mbox;
 
     /**
-     * Constructor method for GetIndexStatsRequest
+     * Constructor
      * 
      * @param  Mailbox $mbox
      * @return self
@@ -68,9 +69,7 @@ class GetIndexStatsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

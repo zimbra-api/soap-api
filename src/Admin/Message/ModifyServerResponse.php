@@ -27,6 +27,7 @@ class ModifyServerResponse extends SoapResponse
 {
     /**
      * Information about server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
@@ -35,7 +36,7 @@ class ModifyServerResponse extends SoapResponse
     private ?ServerInfo $server = NULL;
 
     /**
-     * Constructor method for ModifyServerResponse
+     * Constructor
      *
      * @param ServerInfo $server
      * @return self

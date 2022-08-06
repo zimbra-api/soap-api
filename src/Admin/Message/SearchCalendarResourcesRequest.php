@@ -31,6 +31,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -40,6 +41,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -49,6 +51,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The domain name to limit the search to
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -59,6 +62,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     /**
      * applyCos - Flag whether or not to apply the COS policy to calendar resource.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
+     * 
      * @Accessor(getter="getApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
@@ -68,6 +72,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
@@ -77,6 +82,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
+     * 
      * @Accessor(getter="getSortAscending", setter="setSortAscending")
      * @SerializedName("sortAscending")
      * @Type("bool")
@@ -86,6 +92,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Search Filter
+     * 
      * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
@@ -94,7 +101,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     private ?EntrySearchFilterInfo $searchFilter = NULL;
 
     /**
-     * Constructor method for SearchCalendarResourcesRequest
+     * Constructor
      * 
      * @param  EntrySearchFilterInfo $searchFilter
      * @param  int $limit
@@ -298,9 +305,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

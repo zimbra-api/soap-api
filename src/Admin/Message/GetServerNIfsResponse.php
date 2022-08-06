@@ -35,7 +35,7 @@ class GetServerNIfsResponse extends SoapResponse
     private $networkInterfaces = [];
 
     /**
-     * Constructor method for GetServerNIfsResponse
+     * Constructor
      *
      * @param array $networkInterfaces
      * @return self

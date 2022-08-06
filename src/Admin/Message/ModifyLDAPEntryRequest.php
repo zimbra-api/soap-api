@@ -29,7 +29,8 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     use AdminAttrsImplTrait;
 
     /**
-     * a valid LDAP DN String (RFC 2253) that identifies the LDAP object
+     * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
+     * 
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
@@ -38,7 +39,7 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     private $dn;
 
     /**
-     * Constructor method for ModifyLDAPEntryRequest
+     * Constructor
      * 
      * @param string $dn
      * @param array  $attrs
@@ -73,9 +74,7 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,8 +41,10 @@ class GetRightBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetRightBody
+     * Constructor
      *
+     * @param GetRightRequest $request
+     * @param GetRightResponse $response
      * @return self
      */
     public function __construct(?GetRightRequest $request = NULL, ?GetRightResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetRightBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetRightRequest) {
@@ -58,11 +63,17 @@ class GetRightBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetRightResponse) {
@@ -71,6 +82,9 @@ class GetRightBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

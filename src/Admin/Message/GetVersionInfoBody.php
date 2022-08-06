@@ -41,8 +41,10 @@ class GetVersionInfoBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetVersionInfoBody
+     * Constructor
      *
+     * @param GetVersionInfoRequest $request
+     * @param GetVersionInfoResponse $response
      * @return self
      */
     public function __construct(?GetVersionInfoRequest $request = NULL, ?GetVersionInfoResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetVersionInfoBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetVersionInfoRequest) {
@@ -58,11 +63,17 @@ class GetVersionInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetVersionInfoResponse) {
@@ -71,6 +82,9 @@ class GetVersionInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

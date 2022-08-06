@@ -35,8 +35,10 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for ResetAllLoggersEnvelope
+     * Constructor
      *
+     * @param ResetAllLoggersBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?ResetAllLoggersBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -45,9 +47,7 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +55,7 @@ class ResetAllLoggersEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

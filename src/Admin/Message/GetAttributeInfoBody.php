@@ -41,15 +41,22 @@ class GetAttributeInfoBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAttributeInfoBody
+     * Constructor
      *
+     * @param GetAttributeInfoRequest $request
+     * @param GetAttributeInfoResponse $response
      * @return self
      */
-    public function __construct(?GetAttributeInfoRequest $request = NULL, ?GetAttributeInfoResponse $response = NULL)
+    public function __construct(
+        ?GetAttributeInfoRequest $request = NULL, ?GetAttributeInfoResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAttributeInfoRequest) {
@@ -58,11 +65,17 @@ class GetAttributeInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAttributeInfoResponse) {
@@ -71,6 +84,9 @@ class GetAttributeInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

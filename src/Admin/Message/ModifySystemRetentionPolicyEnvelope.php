@@ -36,8 +36,10 @@ class ModifySystemRetentionPolicyEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for ModifySystemRetentionPolicyEnvelope
+     * Constructor
      *
+     * @param ModifySystemRetentionPolicyBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?ModifySystemRetentionPolicyBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -46,9 +48,7 @@ class ModifySystemRetentionPolicyEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -56,10 +56,7 @@ class ModifySystemRetentionPolicyEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

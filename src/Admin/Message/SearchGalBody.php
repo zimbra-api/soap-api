@@ -41,8 +41,10 @@ class SearchGalBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for SearchGalBody
+     * Constructor
      *
+     * @param SearchGalRequest $request
+     * @param SearchGalResponse $response
      * @return self
      */
     public function __construct(?SearchGalRequest $request = NULL, ?SearchGalResponse $response = NULL)
@@ -50,6 +52,9 @@ class SearchGalBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof SearchGalRequest) {
@@ -58,11 +63,17 @@ class SearchGalBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof SearchGalResponse) {
@@ -71,6 +82,9 @@ class SearchGalBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

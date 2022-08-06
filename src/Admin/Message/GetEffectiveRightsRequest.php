@@ -40,6 +40,7 @@ class GetEffectiveRightsRequest extends SoapRequest
      * getAttrs:    expand attrs in getAttrs in the response
      * setAttrs:     expand attrs in setAttrs in the response
      * getAttrs,setAttrs:    expand attrs in both getAttrs and setAttrs in the response 
+     * 
      * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("string")
@@ -49,6 +50,7 @@ class GetEffectiveRightsRequest extends SoapRequest
 
     /**
      * Target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
@@ -59,6 +61,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     /**
      * Grantee
      * If <grantee> is omitted, the account identified by the auth token is regarded as the grantee.
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -67,7 +70,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     private ?Grantee $grantee = NULL;
 
     /**
-     * Constructor method for GetEffectiveRightsRequest
+     * Constructor
      * 
      * @param  Target $target
      * @param  Grantee $grantee
@@ -174,9 +177,7 @@ class GetEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

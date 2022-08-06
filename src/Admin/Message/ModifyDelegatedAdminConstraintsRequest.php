@@ -31,6 +31,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
@@ -40,6 +41,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -49,6 +51,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -58,6 +61,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * Constaint attributes
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
@@ -65,7 +69,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     private $attrs = [];
 
     /**
-     * Constructor method for ModifyDelegatedAdminConstraintsRequest
+     * Constructor
      * 
      * @param TargetType $type
      * @param string $id
@@ -188,9 +192,7 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

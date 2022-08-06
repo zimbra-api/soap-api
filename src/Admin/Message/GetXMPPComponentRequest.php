@@ -32,6 +32,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
 
     /**
      * XMPP Component selector
+     * 
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
@@ -40,7 +41,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     private XMPPComponentSelector $component;
 
     /**
-     * Constructor method for GetXMPPComponentRequest
+     * Constructor
      * 
      * @param  XMPPComponentSelector $component
      * @param  string $attrs
@@ -77,9 +78,7 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -27,6 +27,7 @@ class GetLicenseInfoResponse extends SoapResponse
 {
     /**
      * License expiration information
+     * 
      * @Accessor(getter="getExpiration", setter="setExpiration")
      * @SerializedName("expiration")
      * @Type("Zimbra\Admin\Struct\LicenseExpirationInfo")
@@ -35,7 +36,7 @@ class GetLicenseInfoResponse extends SoapResponse
     private ?LicenseExpirationInfo $expiration = NULL;
 
     /**
-     * Constructor method for GetLicenseInfoResponse
+     * Constructor
      *
      * @param LicenseExpirationInfo $expiration
      * @return self

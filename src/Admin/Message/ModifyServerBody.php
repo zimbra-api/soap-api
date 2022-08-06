@@ -41,8 +41,10 @@ class ModifyServerBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyServerBody
+     * Constructor
      *
+     * @param ModifyServerRequest $request
+     * @param ModifyServerResponse $response
      * @return self
      */
     public function __construct(?ModifyServerRequest $request = NULL, ?ModifyServerResponse $response = NULL)
@@ -50,6 +52,9 @@ class ModifyServerBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyServerRequest) {
@@ -58,11 +63,17 @@ class ModifyServerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyServerResponse) {
@@ -71,6 +82,9 @@ class ModifyServerBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

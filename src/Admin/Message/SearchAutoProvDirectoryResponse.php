@@ -27,6 +27,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
 {
     /**
      * 1 (true) if more entries to return
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -36,6 +37,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
 
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
+     * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("integer")
@@ -53,7 +55,7 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     private $entries = [];
 
     /**
-     * Constructor method for SearchAutoProvDirectoryResponse
+     * Constructor
      *
      * @param bool $more
      * @param int $searchTotal

@@ -37,7 +37,7 @@ class RunUnitTestsRequest extends SoapRequest
     private $tests;
 
     /**
-     * Constructor method for RunUnitTestsRequest
+     * Constructor
      *
      * @param  array  $tests
      * @return self
@@ -85,9 +85,7 @@ class RunUnitTestsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

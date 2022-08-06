@@ -27,6 +27,7 @@ class RenameLDAPEntryRequest extends SoapRequest
 {
     /**
      * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
+     * 
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
@@ -36,6 +37,7 @@ class RenameLDAPEntryRequest extends SoapRequest
 
     /**
      * New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object
+     * 
      * @Accessor(getter="getNewDn", setter="setNewDn")
      * @SerializedName("new_dn")
      * @Type("string")
@@ -44,7 +46,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     private $newDn;
 
     /**
-     * Constructor method for RenameLDAPEntryRequest
+     * Constructor
      * 
      * @param string $dn
      * @param string $newDn
@@ -101,9 +103,7 @@ class RenameLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

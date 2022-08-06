@@ -41,8 +41,10 @@ class RenameUCServiceBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RenameUCServiceBody
+     * Constructor
      *
+     * @param RenameUCServiceRequest $request
+     * @param RenameUCServiceResponse $response
      * @return self
      */
     public function __construct(?RenameUCServiceRequest $request = NULL, ?RenameUCServiceResponse $response = NULL)
@@ -50,6 +52,9 @@ class RenameUCServiceBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RenameUCServiceRequest) {
@@ -58,11 +63,17 @@ class RenameUCServiceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RenameUCServiceResponse) {
@@ -71,6 +82,9 @@ class RenameUCServiceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -35,8 +35,10 @@ class ModifyLDAPEntryEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for ModifyLDAPEntryEnvelope
+     * Constructor
      *
+     * @param ModifyLDAPEntryBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?ModifyLDAPEntryBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -45,9 +47,7 @@ class ModifyLDAPEntryEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +55,7 @@ class ModifyLDAPEntryEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

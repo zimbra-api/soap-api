@@ -41,15 +41,22 @@ class ModifyAlwaysOnClusterBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyAlwaysOnClusterBody
+     * Constructor
      *
+     * @param ModifyAlwaysOnClusterRequest $request
+     * @param ModifyAlwaysOnClusterResponse $response
      * @return self
      */
-    public function __construct(?ModifyAlwaysOnClusterRequest $request = NULL, ?ModifyAlwaysOnClusterResponse $response = NULL)
+    public function __construct(
+        ?ModifyAlwaysOnClusterRequest $request = NULL, ?ModifyAlwaysOnClusterResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyAlwaysOnClusterRequest) {
@@ -58,11 +65,17 @@ class ModifyAlwaysOnClusterBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyAlwaysOnClusterResponse) {
@@ -71,6 +84,9 @@ class ModifyAlwaysOnClusterBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

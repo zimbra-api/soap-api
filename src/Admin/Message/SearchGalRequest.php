@@ -29,6 +29,7 @@ class SearchGalRequest extends SoapRequest
 {
     /**
      * Domain name
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -38,6 +39,7 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -47,6 +49,7 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * The maximum number of entries to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -56,6 +59,7 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Type of addresses to search.
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
@@ -65,6 +69,7 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * GAL account ID
+     * 
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
@@ -73,7 +78,7 @@ class SearchGalRequest extends SoapRequest
     private $galAccountId;
 
     /**
-     * Constructor method for SearchGalRequest
+     * Constructor
      * 
      * @param  string $domain
      * @param  string $name
@@ -216,9 +221,7 @@ class SearchGalRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

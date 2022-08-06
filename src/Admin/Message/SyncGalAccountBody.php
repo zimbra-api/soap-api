@@ -41,8 +41,10 @@ class SyncGalAccountBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for SyncGalAccountBody
+     * Constructor
      *
+     * @param SyncGalAccountRequest $request
+     * @param SyncGalAccountResponse $response
      * @return self
      */
     public function __construct(?SyncGalAccountRequest $request = NULL, ?SyncGalAccountResponse $response = NULL)
@@ -50,6 +52,9 @@ class SyncGalAccountBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof SyncGalAccountRequest) {
@@ -58,11 +63,17 @@ class SyncGalAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof SyncGalAccountResponse) {
@@ -71,6 +82,9 @@ class SyncGalAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -27,6 +27,7 @@ class ModifySystemRetentionPolicyResponse extends SoapResponse
 {
     /**
      * Information about retention policy
+     * 
      * @Accessor(getter="getPolicy", setter="setPolicy")
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
@@ -35,7 +36,7 @@ class ModifySystemRetentionPolicyResponse extends SoapResponse
     private ?Policy $policy = NULL;
 
     /**
-     * Constructor method for ModifySystemRetentionPolicyResponse
+     * Constructor
      *
      * @param  Policy $policy
      * @return self

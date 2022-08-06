@@ -41,8 +41,10 @@ class SearchAccountsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for SearchAccountsBody
+     * Constructor
      *
+     * @param SearchAccountsRequest $request
+     * @param SearchAccountsResponse $response
      * @return self
      */
     public function __construct(?SearchAccountsRequest $request = NULL, ?SearchAccountsResponse $response = NULL)
@@ -50,6 +52,9 @@ class SearchAccountsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof SearchAccountsRequest) {
@@ -58,11 +63,17 @@ class SearchAccountsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof SearchAccountsResponse) {
@@ -71,6 +82,9 @@ class SearchAccountsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

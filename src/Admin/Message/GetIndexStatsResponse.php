@@ -27,6 +27,7 @@ class GetIndexStatsResponse extends SoapResponse
 {
     /**
      * Statistics about mailboxes
+     * 
      * @Accessor(getter="getStats", setter="setStats")
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\IndexStats")
@@ -35,7 +36,7 @@ class GetIndexStatsResponse extends SoapResponse
     private ?IndexStats $stats = NULL;
 
     /**
-     * Constructor method for GetIndexStatsResponse
+     * Constructor
      *
      * @param IndexStats $stats
      * @return self

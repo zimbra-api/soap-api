@@ -25,9 +25,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 class GetOutgoingFilterRulesRequest extends GetFilterRulesRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

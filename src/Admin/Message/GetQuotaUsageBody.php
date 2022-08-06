@@ -41,8 +41,10 @@ class GetQuotaUsageBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetQuotaUsageBody
+     * Constructor
      *
+     * @param GetQuotaUsageRequest $request
+     * @param GetQuotaUsageResponse $response
      * @return self
      */
     public function __construct(?GetQuotaUsageRequest $request = NULL, ?GetQuotaUsageResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetQuotaUsageBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetQuotaUsageRequest) {
@@ -58,11 +63,17 @@ class GetQuotaUsageBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetQuotaUsageResponse) {
@@ -71,6 +82,9 @@ class GetQuotaUsageBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

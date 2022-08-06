@@ -41,8 +41,10 @@ class GetDomainInfoBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetDomainInfoBody
+     * Constructor
      *
+     * @param GetDomainInfoRequest $request
+     * @param GetDomainInfoResponse $response
      * @return self
      */
     public function __construct(?GetDomainInfoRequest $request = NULL, ?GetDomainInfoResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetDomainInfoBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetDomainInfoRequest) {
@@ -58,11 +63,17 @@ class GetDomainInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetDomainInfoResponse) {
@@ -71,6 +82,9 @@ class GetDomainInfoBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

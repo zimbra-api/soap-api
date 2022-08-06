@@ -41,8 +41,10 @@ class RunUnitTestsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RunUnitTestsBody
+     * Constructor
      *
+     * @param RunUnitTestsRequest $request
+     * @param RunUnitTestsResponse $response
      * @return self
      */
     public function __construct(?RunUnitTestsRequest $request = NULL, ?RunUnitTestsResponse $response = NULL)
@@ -50,6 +52,9 @@ class RunUnitTestsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RunUnitTestsRequest) {
@@ -58,11 +63,17 @@ class RunUnitTestsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RunUnitTestsResponse) {
@@ -71,6 +82,9 @@ class RunUnitTestsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

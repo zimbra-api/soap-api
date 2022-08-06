@@ -27,6 +27,7 @@ class GetMailQueueResponse extends SoapResponse
 {
     /**
      * Server Mail Queue details
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerMailQueueDetails")
@@ -35,7 +36,7 @@ class GetMailQueueResponse extends SoapResponse
     private ?Server $server = NULL;
 
     /**
-     * Constructor method for GetMailQueueResponse
+     * Constructor
      *
      * @param Server $server
      * @return self

@@ -35,7 +35,7 @@ class QueryWaitSetResponse extends SoapResponse
     private $waitsets = [];
 
     /**
-     * Constructor method for QueryWaitSetResponse
+     * Constructor
      *
      * @param array $waitsets
      * @return self

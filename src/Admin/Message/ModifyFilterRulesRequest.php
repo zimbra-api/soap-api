@@ -33,6 +33,7 @@ class ModifyFilterRulesRequest extends SoapRequest
 {
     /**
      * Type can be either before or after
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
@@ -42,6 +43,7 @@ class ModifyFilterRulesRequest extends SoapRequest
 
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -51,6 +53,7 @@ class ModifyFilterRulesRequest extends SoapRequest
 
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -60,6 +63,7 @@ class ModifyFilterRulesRequest extends SoapRequest
 
     /**
      * COS
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
@@ -69,6 +73,7 @@ class ModifyFilterRulesRequest extends SoapRequest
 
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -88,7 +93,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     private $filterRules = [];
 
     /**
-     * Constructor method for ModifyFilterRulesRequest
+     * Constructor
      * 
      * @param  AdminFilterType $type
      * @param  Account $account
@@ -268,9 +273,7 @@ class ModifyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,8 +41,10 @@ class PurgeAccountCalendarCacheBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for PurgeAccountCalendarCacheBody
+     * Constructor
      *
+     * @param PurgeAccountCalendarCacheRequest $request
+     * @param PurgeAccountCalendarCacheResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class PurgeAccountCalendarCacheBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof PurgeAccountCalendarCacheRequest) {
@@ -60,11 +65,17 @@ class PurgeAccountCalendarCacheBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof PurgeAccountCalendarCacheResponse) {
@@ -73,6 +84,9 @@ class PurgeAccountCalendarCacheBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

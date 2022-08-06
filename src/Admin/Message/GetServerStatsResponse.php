@@ -35,7 +35,7 @@ class GetServerStatsResponse extends SoapResponse
     private $stats = [];
 
     /**
-     * Constructor method for GetServerStatsResponse
+     * Constructor
      *
      * @param array $stats
      * @return self

@@ -35,7 +35,7 @@ class GetDataSourcesResponse extends SoapResponse
     private $dataSources = [];
 
     /**
-     * Constructor method for GetDataSourcesResponse
+     * Constructor
      *
      * @param array $dataSources
      * @return self

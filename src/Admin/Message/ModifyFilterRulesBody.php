@@ -41,15 +41,22 @@ class ModifyFilterRulesBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyFilterRulesBody
+     * Constructor
      *
+     * @param ModifyFilterRulesRequest $request
+     * @param ModifyFilterRulesResponse $response
      * @return self
      */
-    public function __construct(?ModifyFilterRulesRequest $request = NULL, ?ModifyFilterRulesResponse $response = NULL)
+    public function __construct(
+        ?ModifyFilterRulesRequest $request = NULL, ?ModifyFilterRulesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyFilterRulesRequest) {
@@ -58,11 +65,17 @@ class ModifyFilterRulesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyFilterRulesResponse) {
@@ -71,6 +84,9 @@ class ModifyFilterRulesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

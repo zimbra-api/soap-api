@@ -41,8 +41,10 @@ class GrantRightBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GrantRightBody
+     * Constructor
      *
+     * @param GrantRightRequest $request
+     * @param GrantRightResponse $response
      * @return self
      */
     public function __construct(?GrantRightRequest $request = NULL, ?GrantRightResponse $response = NULL)
@@ -50,6 +52,9 @@ class GrantRightBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GrantRightRequest) {
@@ -58,11 +63,17 @@ class GrantRightBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GrantRightResponse) {
@@ -71,6 +82,9 @@ class GrantRightBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

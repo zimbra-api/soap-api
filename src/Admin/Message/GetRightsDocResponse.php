@@ -56,7 +56,7 @@ class GetRightsDocResponse extends SoapResponse
     private $rights = [];
 
     /**
-     * Constructor method for GetRightsDocResponse
+     * Constructor
      *
      * @param array $pkgs
      * @param array $notUsed
