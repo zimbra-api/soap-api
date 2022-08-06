@@ -41,8 +41,10 @@ class GetAllLocalesBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllLocalesBody
+     * Constructor
      *
+     * @param GetAllLocalesRequest $request
+     * @param GetAllLocalesResponse $response
      * @return self
      */
     public function __construct(?GetAllLocalesRequest $request = NULL, ?GetAllLocalesResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetAllLocalesBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllLocalesRequest) {
@@ -58,11 +63,17 @@ class GetAllLocalesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllLocalesResponse) {
@@ -71,6 +82,9 @@ class GetAllLocalesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

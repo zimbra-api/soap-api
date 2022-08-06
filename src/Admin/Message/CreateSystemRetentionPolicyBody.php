@@ -41,17 +41,23 @@ class CreateSystemRetentionPolicyBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for CreateSystemRetentionPolicyBody
+     * Constructor
      *
+     * @param CreateSystemRetentionPolicyRequest $request
+     * @param CreateSystemRetentionPolicyResponse $response
      * @return self
      */
     public function __construct(
-        ?CreateSystemRetentionPolicyRequest $request = NULL, ?CreateSystemRetentionPolicyResponse $response = NULL
+        ?CreateSystemRetentionPolicyRequest $request = NULL,
+        ?CreateSystemRetentionPolicyResponse $response = NULL
     )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof CreateSystemRetentionPolicyRequest) {
@@ -60,11 +66,17 @@ class CreateSystemRetentionPolicyBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof CreateSystemRetentionPolicyResponse) {
@@ -73,6 +85,9 @@ class CreateSystemRetentionPolicyBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

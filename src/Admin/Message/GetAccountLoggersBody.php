@@ -41,8 +41,10 @@ class GetAccountLoggersBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAccountLoggersBody
+     * Constructor
      *
+     * @param GetAccountLoggersRequest $request
+     * @param GetAccountLoggersResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class GetAccountLoggersBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAccountLoggersRequest) {
@@ -60,11 +65,17 @@ class GetAccountLoggersBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAccountLoggersResponse) {
@@ -73,6 +84,9 @@ class GetAccountLoggersBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

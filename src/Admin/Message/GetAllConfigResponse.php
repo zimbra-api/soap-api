@@ -27,9 +27,9 @@ class GetAllConfigResponse extends SoapResponse implements AdminAttrs
 	use AdminAttrsImplTrait;
 
     /**
-     * Constructor method for GetAllConfigResponse
+     * Constructor
      *
-     * @param array  $attrs
+     * @param array $attrs
      * @return self
      */
     public function __construct(array $attrs = [])

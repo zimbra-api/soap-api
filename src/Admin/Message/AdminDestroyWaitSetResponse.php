@@ -26,6 +26,7 @@ class AdminDestroyWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
@@ -34,9 +35,9 @@ class AdminDestroyWaitSetResponse extends SoapResponse
     private $waitSetId;
 
     /**
-     * Constructor method for AdminDestroyWaitSetResponse
+     * Constructor
      * 
-     * @param string  $waitSetId
+     * @param string $waitSetId
      * @return self
      */
     public function __construct(string $waitSetId = '')

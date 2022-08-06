@@ -49,7 +49,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     private $action;
 
     /**
-     * Constructor method for CheckGalConfigRequest
+     * Constructor
      * 
      * @param  LimitedQuery $query
      * @param  string $action
@@ -114,9 +114,7 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,15 +41,22 @@ class DeleteAccountBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteAccountBody
+     * Constructor
      *
+     * @param DeleteAccountRequest $request
+     * @param DeleteAccountResponse $response
      * @return self
      */
-    public function __construct(?DeleteAccountRequest $request = NULL, ?DeleteAccountResponse $response = NULL)
+    public function __construct(
+        ?DeleteAccountRequest $request = NULL, ?DeleteAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteAccountRequest) {
@@ -58,11 +65,17 @@ class DeleteAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteAccountResponse) {
@@ -71,6 +84,9 @@ class DeleteAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

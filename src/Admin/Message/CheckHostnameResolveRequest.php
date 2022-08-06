@@ -27,6 +27,7 @@ class CheckHostnameResolveRequest extends SoapRequest
 {
     /**
      * Hostname
+     * 
      * @Accessor(getter="getHostname", setter="setHostname")
      * @SerializedName("hostname")
      * @Type("string")
@@ -35,7 +36,7 @@ class CheckHostnameResolveRequest extends SoapRequest
     private $hostname;
 
     /**
-     * Constructor method for AddAccountHostnameRequest
+     * Constructor
      * 
      * @param  string $hostname
      * @return self
@@ -70,9 +71,7 @@ class CheckHostnameResolveRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

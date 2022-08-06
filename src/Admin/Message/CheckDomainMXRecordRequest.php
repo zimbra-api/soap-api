@@ -37,7 +37,7 @@ class CheckDomainMXRecordRequest extends SoapRequest
     private ?DomainSelector $domain = NULL;
 
     /**
-     * Constructor method for CheckDomainMXRecordRequest
+     * Constructor
      * 
      * @param  DomainSelector $domain
      * @return self
@@ -72,9 +72,7 @@ class CheckDomainMXRecordRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

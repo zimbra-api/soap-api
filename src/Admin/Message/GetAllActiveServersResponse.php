@@ -35,7 +35,7 @@ class GetAllActiveServersResponse extends SoapResponse
     private $serverList = [];
 
     /**
-     * Constructor method for GetAllActiveServersResponse
+     * Constructor
      *
      * @param array $serverList
      * @return self

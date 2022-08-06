@@ -41,8 +41,10 @@ class DedupeBlobsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DedupeBlobsBody
+     * Constructor
      *
+     * @param DedupeBlobsRequest $request
+     * @param DedupeBlobsResponse $response
      * @return self
      */
     public function __construct(?DedupeBlobsRequest $request = NULL, ?DedupeBlobsResponse $response = NULL)
@@ -50,6 +52,9 @@ class DedupeBlobsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DedupeBlobsRequest) {
@@ -58,11 +63,17 @@ class DedupeBlobsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DedupeBlobsResponse) {
@@ -71,6 +82,9 @@ class DedupeBlobsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

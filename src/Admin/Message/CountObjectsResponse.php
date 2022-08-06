@@ -26,6 +26,7 @@ class CountObjectsResponse extends SoapResponse
 {
     /**
      * Number of objects of the requested type
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("int")
@@ -42,10 +43,10 @@ class CountObjectsResponse extends SoapResponse
     private $type;
 
     /**
-     * Constructor method for CountObjectsResponse
+     * Constructor
      * 
-     * @param int  $num
-     * @param string  $type
+     * @param int    $num
+     * @param string $type
      * @return self
      */
     public function __construct(int $num = 0, string $type = '')

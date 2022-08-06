@@ -30,6 +30,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
 {
     /**
      * Path for export dir
+     * 
      * @Accessor(getter="getExportDir", setter="setExportDir")
      * @SerializedName("exportDir")
      * @Type("string")
@@ -39,6 +40,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
 
     /**
      * Export filename prefix
+     * 
      * @Accessor(getter="getExportFilenamePrefix", setter="setExportFilenamePrefix")
      * @SerializedName("exportFilenamePrefix")
      * @Type("string")
@@ -48,6 +50,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
 
     /**
      * Export filename prefix
+     * 
      * @Accessor(getter="getMailbox", setter="setMailbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec")
@@ -56,7 +59,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     private Mailbox $mailbox;
 
     /**
-     * Constructor method for ExportAndDeleteItemsRequest
+     * Constructor
      * 
      * @param  Mailbox $mailbox
      * @param  string $exportDir
@@ -143,9 +146,7 @@ class ExportAndDeleteItemsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

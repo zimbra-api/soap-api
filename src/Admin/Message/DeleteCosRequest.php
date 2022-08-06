@@ -27,6 +27,7 @@ class DeleteCosRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,7 +36,7 @@ class DeleteCosRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for DeleteCosRequest
+     * Constructor
      * 
      * @param  string $id
      * @return self
@@ -68,9 +69,7 @@ class DeleteCosRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

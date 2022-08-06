@@ -41,8 +41,10 @@ class ConfigureZimletBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ConfigureZimletBody
+     * Constructor
      *
+     * @param ConfigureZimletRequest $request
+     * @param ConfigureZimletResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class ConfigureZimletBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ConfigureZimletRequest) {
@@ -60,11 +65,17 @@ class ConfigureZimletBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ConfigureZimletResponse) {
@@ -73,6 +84,9 @@ class ConfigureZimletBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

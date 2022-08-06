@@ -35,7 +35,7 @@ class CountAccountResponse extends SoapResponse
     private $cos = [];
 
     /**
-     * Constructor method for CountAccountResponse
+     * Constructor
      *
      * @param array $cos
      * @return self

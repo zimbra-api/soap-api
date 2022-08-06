@@ -27,6 +27,7 @@ class AutoCompleteGalResponse extends SoapResponse
 {
     /**
      * Set to 1 if the results were truncated
+     * 
      * @Accessor(getter="getMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -36,6 +37,7 @@ class AutoCompleteGalResponse extends SoapResponse
 
     /**
      * Either "and" or "or" (if present)
+     * 
      * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
      * @SerializedName("tokenizeKey")
      * @Type("bool")
@@ -45,6 +47,7 @@ class AutoCompleteGalResponse extends SoapResponse
 
     /**
      * Flag if pagination is supported
+     * 
      * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
      * @SerializedName("paginationSupported")
      * @Type("bool")
@@ -54,6 +57,7 @@ class AutoCompleteGalResponse extends SoapResponse
 
     /**
      * Contacts matching the autocomplete request
+     * 
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Admin\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
@@ -61,7 +65,7 @@ class AutoCompleteGalResponse extends SoapResponse
     private $contacts = [];
 
     /**
-     * Constructor method for AutoCompleteGalResponse
+     * Constructor
      * 
      * @param bool  $more
      * @param bool  $tokenizeKey

@@ -37,7 +37,7 @@ class GetAdminExtensionZimletsResponse extends SoapResponse
     private $zimlets = [];
 
     /**
-     * Constructor method for GetAdminExtensionZimletsResponse
+     * Constructor
      *
      * @param array $zimlets
      * @return self

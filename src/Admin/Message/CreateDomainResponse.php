@@ -35,7 +35,7 @@ class CreateDomainResponse extends SoapResponse
     private ?DomainInfo $domain = NULL;
 
     /**
-     * Constructor method for CreateDomainResponse
+     * Constructor
      *
      * @param DomainInfo $domain
      * @return self

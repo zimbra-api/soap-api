@@ -41,8 +41,10 @@ class DeleteCalendarResourceBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteCalendarResourceBody
+     * Constructor
      *
+     * @param DeleteCalendarResourceRequest $request
+     * @param DeleteCalendarResourceResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class DeleteCalendarResourceBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteCalendarResourceRequest) {
@@ -60,11 +65,17 @@ class DeleteCalendarResourceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteCalendarResourceResponse) {
@@ -73,6 +84,9 @@ class DeleteCalendarResourceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

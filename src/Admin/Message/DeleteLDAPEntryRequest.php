@@ -27,6 +27,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
 {
     /**
      * A valid LDAP DN String (RFC 2253) that describes the DN to delete
+     * 
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
@@ -35,7 +36,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
     private $dn;
 
     /**
-     * Constructor method for DeleteLDAPEntryRequest
+     * Constructor
      * 
      * @param  string $dn
      * @return self
@@ -68,9 +69,7 @@ class DeleteLDAPEntryRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

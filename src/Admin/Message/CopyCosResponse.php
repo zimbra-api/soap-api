@@ -27,6 +27,7 @@ class CopyCosResponse extends SoapResponse
 {
     /**
      * Information about copied Class Of Service (COS)
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
@@ -35,7 +36,7 @@ class CopyCosResponse extends SoapResponse
     private ?CosInfo $cos = NULL;
 
     /**
-     * Constructor method for CopyCosResponse
+     * Constructor
      *
      * @param CosInfo $cos
      * @return self

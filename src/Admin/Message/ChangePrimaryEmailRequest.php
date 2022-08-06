@@ -28,6 +28,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
 {
     /**
      * Specifies the account to be changed
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -37,6 +38,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
 
     /**
      * New account name
+     * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
@@ -45,7 +47,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     private $newName;
 
     /**
-     * Constructor method for ChangePrimaryEmailRequest
+     * Constructor
      * 
      * @param Account $account
      * @param string  $newName
@@ -102,9 +104,7 @@ class ChangePrimaryEmailRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

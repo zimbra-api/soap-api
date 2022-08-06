@@ -35,7 +35,7 @@ class CheckBlobConsistencyResponse extends SoapResponse
     private $mailboxes = [];
 
     /**
-     * Constructor method for CheckBlobConsistencyResponse
+     * Constructor
      *
      * @param  array  $mailboxes
      * @return self

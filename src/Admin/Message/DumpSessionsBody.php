@@ -41,8 +41,10 @@ class DumpSessionsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DumpSessionsBody
+     * Constructor
      *
+     * @param DumpSessionsRequest $request
+     * @param DumpSessionsResponse $response
      * @return self
      */
     public function __construct(?DumpSessionsRequest $request = NULL, ?DumpSessionsResponse $response = NULL)
@@ -50,6 +52,9 @@ class DumpSessionsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DumpSessionsRequest) {
@@ -58,11 +63,17 @@ class DumpSessionsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DumpSessionsResponse) {
@@ -71,6 +82,9 @@ class DumpSessionsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

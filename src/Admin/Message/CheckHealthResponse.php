@@ -26,6 +26,7 @@ class CheckHealthResponse extends SoapResponse
 {
     /**
      * Flags whether healthy or not
+     * 
      * @Accessor(getter="isHealthy", setter="setHealthy")
      * @SerializedName("healthy")
      * @Type("bool")
@@ -34,7 +35,7 @@ class CheckHealthResponse extends SoapResponse
     private $healthy;
 
     /**
-     * Constructor method for CheckHealthResponse
+     * Constructor
      * 
      * @param bool $healthy
      * @return self

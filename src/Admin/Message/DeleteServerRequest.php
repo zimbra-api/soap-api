@@ -28,6 +28,7 @@ class DeleteServerRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,7 +37,7 @@ class DeleteServerRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for DeleteServerRequest
+     * Constructor
      * 
      * @param  string $id
      * @return self
@@ -69,9 +70,7 @@ class DeleteServerRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

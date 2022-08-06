@@ -54,7 +54,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     private ?PolicyHolder $purge = NULL;
 
     /**
-     * Constructor method for CreateSystemRetentionPolicyRequest
+     * Constructor
      * 
      * @param  CosSelector  $cos
      * @param  PolicyHolder $keep
@@ -153,9 +153,7 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -26,6 +26,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
 {
     /**
      * MX Record entries
+     * 
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
@@ -34,6 +35,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
 
     /**
      * Code - Ok or Failed
+     * 
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
@@ -43,6 +45,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
 
     /**
      * Message associated with code="Failed"
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -51,7 +54,7 @@ class CheckDomainMXRecordResponse extends SoapResponse
     private $message;
 
     /**
-     * Constructor method for CheckDomainMXRecordResponse
+     * Constructor
      *
      * @param array $entries
      * @param string $code

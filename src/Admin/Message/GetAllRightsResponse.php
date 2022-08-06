@@ -35,7 +35,7 @@ class GetAllRightsResponse extends SoapResponse
     private $rights = [];
 
     /**
-     * Constructor method for GetAllRightsResponse
+     * Constructor
      *
      * @param array $rights
      * @return self

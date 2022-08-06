@@ -35,7 +35,7 @@ class GetAllCalendarResourcesResponse extends SoapResponse
     private $calResources = [];
 
     /**
-     * Constructor method for GetAllCalendarResourcesResponse
+     * Constructor
      *
      * @param array $calResources
      * @return self

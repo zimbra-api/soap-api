@@ -36,6 +36,7 @@ class GetAllMailboxesResponse extends SoapResponse
 
     /**
      * 1 (true) if more mailboxes left to return
+     * 
      * @Accessor(getter="isMore", setter="setMore")
      * @SerializedName("more")
      * @Type("bool")
@@ -45,6 +46,7 @@ class GetAllMailboxesResponse extends SoapResponse
 
     /**
      * Total number of mailboxes that matched search (not affected by more/offset)
+     * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
      * @Type("integer")
@@ -53,7 +55,7 @@ class GetAllMailboxesResponse extends SoapResponse
     private $searchTotal;
 
     /**
-     * Constructor method for GetAllMailboxesResponse
+     * Constructor
      *
      * @param bool $more
      * @param integer $searchTotal

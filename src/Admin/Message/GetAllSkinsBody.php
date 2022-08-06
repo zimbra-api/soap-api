@@ -41,8 +41,10 @@ class GetAllSkinsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllSkinsBody
+     * Constructor
      *
+     * @param GetAllSkinsRequest $request
+     * @param GetAllSkinsResponse $response
      * @return self
      */
     public function __construct(?GetAllSkinsRequest $request = NULL, ?GetAllSkinsResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetAllSkinsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllSkinsRequest) {
@@ -58,11 +63,17 @@ class GetAllSkinsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllSkinsResponse) {
@@ -71,6 +82,9 @@ class GetAllSkinsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

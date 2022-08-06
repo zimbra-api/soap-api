@@ -35,7 +35,7 @@ class GetAllUCServicesResponse extends SoapResponse
     private $ucServiceList = [];
 
     /**
-     * Constructor method for GetAllUCServicesResponse
+     * Constructor
      *
      * @param array $ucServiceList
      * @return self

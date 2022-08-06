@@ -26,6 +26,7 @@ class CheckAuthConfigResponse extends SoapResponse
 {
     /**
      * Code
+     * 
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
@@ -35,6 +36,7 @@ class CheckAuthConfigResponse extends SoapResponse
 
     /**
      * DN computed from supplied bind DN and name
+     * 
      * @Accessor(getter="getBindDn", setter="setBindDn")
      * @SerializedName("bindDn")
      * @Type("string")
@@ -44,6 +46,7 @@ class CheckAuthConfigResponse extends SoapResponse
 
     /**
      * Message
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -52,7 +55,7 @@ class CheckAuthConfigResponse extends SoapResponse
     private $message;
 
     /**
-     * Constructor method for CheckAuthConfigResponse
+     * Constructor
      *
      * @param string $code
      * @param string $bindDn

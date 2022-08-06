@@ -41,8 +41,10 @@ class ClearCookieBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ClearCookieBody
+     * Constructor
      *
+     * @param ClearCookieRequest $request
+     * @param ClearCookieResponse $response
      * @return self
      */
     public function __construct(?ClearCookieRequest $request = NULL, ?ClearCookieResponse $response = NULL)
@@ -50,6 +52,9 @@ class ClearCookieBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ClearCookieRequest) {
@@ -58,11 +63,17 @@ class ClearCookieBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ClearCookieResponse) {
@@ -71,6 +82,9 @@ class ClearCookieBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

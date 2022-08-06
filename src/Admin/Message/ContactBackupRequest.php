@@ -29,6 +29,7 @@ class ContactBackupRequest extends SoapRequest
 {
     /**
      * List of servers
+     * 
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
@@ -39,6 +40,7 @@ class ContactBackupRequest extends SoapRequest
 
     /**
      * op can be either start or stop
+     * 
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
@@ -47,7 +49,7 @@ class ContactBackupRequest extends SoapRequest
     private ContactBackupOp $op;
 
     /**
-     * Constructor method for ContactBackupRequest
+     * Constructor
      * 
      * @param  array $servers
      * @param  ContactBackupOp $op
@@ -116,9 +118,7 @@ class ContactBackupRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

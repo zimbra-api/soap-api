@@ -29,6 +29,7 @@ class DeployZimletRequest extends SoapRequest
 {
     /**
      * Action - valid values : deployAll|deployLocal|status
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployAction>")
@@ -38,6 +39,7 @@ class DeployZimletRequest extends SoapRequest
 
     /**
      * Flag whether to flush the cache
+     * 
      * @Accessor(getter="getFlushCache", setter="setFlushCache")
      * @SerializedName("flush")
      * @Type("bool")
@@ -47,6 +49,7 @@ class DeployZimletRequest extends SoapRequest
 
     /**
      * Synchronous flag
+     * 
      * @Accessor(getter="getSynchronous", setter="setSynchronous")
      * @SerializedName("synchronous")
      * @Type("bool")
@@ -56,6 +59,7 @@ class DeployZimletRequest extends SoapRequest
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
@@ -64,7 +68,7 @@ class DeployZimletRequest extends SoapRequest
     private AttachmentIdAttrib $content;
 
     /**
-     * Constructor method for DeployZimletRequest
+     * Constructor
      * 
      * @param  AttachmentIdAttrib $content
      * @param  DeployAction $action
@@ -175,9 +179,7 @@ class DeployZimletRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

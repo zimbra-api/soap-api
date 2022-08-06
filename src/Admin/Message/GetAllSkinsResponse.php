@@ -35,7 +35,7 @@ class GetAllSkinsResponse extends SoapResponse
     private $skins = [];
 
     /**
-     * Constructor method for GetAllSkinsResponse
+     * Constructor
      *
      * @param array $skins
      * @return self

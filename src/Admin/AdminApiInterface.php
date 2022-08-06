@@ -894,12 +894,12 @@ interface AdminApiInterface extends ApiInterface
      * Returns custom loggers created for the given account since the last server start.
      * If the request is sent to a server other than the one that the account resides on, it is proxied to the correct server.
      * 
-     * @param  string $id
      * @param  AccountSelector $account
+     * @param  string $id
      * @return Message\GetAccountLoggersResponse
      */
     function getAccountLoggers(
-        ?string $id = NULL, ?AccountSelector $account = NULL
+        ?AccountSelector $account = NULL, ?string $id = NULL
     ): ?Message\GetAccountLoggersResponse;
 
     /**

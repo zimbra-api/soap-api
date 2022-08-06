@@ -27,6 +27,7 @@ class GetAllMailboxesRequest extends SoapRequest
 {
     /**
      * The number of mailboxes to return (0 is default and means all)
+     * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("integer")
@@ -36,6 +37,7 @@ class GetAllMailboxesRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -44,7 +46,7 @@ class GetAllMailboxesRequest extends SoapRequest
     private $offset;
 
     /**
-     * Constructor method for GetAllMailboxesRequest
+     * Constructor
      * 
      * @param  int $limit
      * @param  int $offset
@@ -105,9 +107,7 @@ class GetAllMailboxesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

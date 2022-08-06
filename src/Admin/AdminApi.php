@@ -860,10 +860,10 @@ class AdminApi extends AbstractApi implements AdminApiInterface
      * {@inheritdoc}
      */
     public function getAccountLoggers(
-        ?string $id = NULL, ?AccountSelector $account = NULL
+        ?AccountSelector $account = NULL, ?string $id = NULL
     ): ?Message\GetAccountLoggersResponse
     {
-        return $this->invoke(new Message\GetAccountLoggersRequest($id, $account));
+        return $this->invoke(new Message\GetAccountLoggersRequest($account, $id));
     }
 
     /**

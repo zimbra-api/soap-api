@@ -29,6 +29,7 @@ class GetAccountLoggersRequest extends SoapRequest
 {
     /**
      * Deprecated - use account instead
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -38,6 +39,7 @@ class GetAccountLoggersRequest extends SoapRequest
 
     /**
      * Use to select account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -46,19 +48,19 @@ class GetAccountLoggersRequest extends SoapRequest
     private ?AccountSelector $account = NULL;
 
     /**
-     * Constructor method for GetAccountLoggersRequest
+     * Constructor
      * 
-     * @param  string $id
      * @param  AccountSelector $account
+     * @param  string $id
      * @return self
      */
-    public function __construct(?string $id = NULL, ?AccountSelector $account = NULL)
+    public function __construct(?AccountSelector $account = NULL, ?string $id = NULL)
     {
-        if (NULL !== $id) {
-            $this->setId($id);
-        }
         if ($account instanceof AccountSelector) {
             $this->setAccount($account);
+        }
+        if (NULL !== $id) {
+            $this->setId($id);
         }
     }
 
@@ -107,9 +109,7 @@ class GetAccountLoggersRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -27,6 +27,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
 
     /**
      * Password
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -44,7 +46,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     private $password;
 
     /**
-     * Constructor method for CheckPasswordStrengthRequest
+     * Constructor
      * 
      * @param  string $id
      * @param  string $password
@@ -101,9 +103,7 @@ class CheckPasswordStrengthRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

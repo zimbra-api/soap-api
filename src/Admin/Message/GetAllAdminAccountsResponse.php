@@ -35,7 +35,7 @@ class GetAllAdminAccountsResponse extends SoapResponse
     private $accountList = [];
 
     /**
-     * Constructor method for GetAllAdminAccountsResponse
+     * Constructor
      *
      * @param array $accountList
      * @return self

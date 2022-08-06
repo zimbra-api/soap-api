@@ -41,8 +41,10 @@ class CountObjectsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for CountObjectsBody
+     * Constructor
      *
+     * @param CountObjectsRequest $request
+     * @param CountObjectsResponse $response
      * @return self
      */
     public function __construct(?CountObjectsRequest $request = NULL, ?CountObjectsResponse $response = NULL)
@@ -50,6 +52,9 @@ class CountObjectsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof CountObjectsRequest) {
@@ -58,11 +63,17 @@ class CountObjectsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof CountObjectsResponse) {
@@ -71,6 +82,9 @@ class CountObjectsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

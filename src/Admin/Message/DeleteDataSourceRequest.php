@@ -32,6 +32,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Id for an existing Account
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -41,6 +42,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Data source ID
+     * 
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Common\Struct\Id")
@@ -49,7 +51,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     private Id $dataSource;
 
     /**
-     * Constructor method for DeleteDataSourceRequest
+     * Constructor
      * 
      * @param Id     $dataSource
      * @param string $id
@@ -110,9 +112,7 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

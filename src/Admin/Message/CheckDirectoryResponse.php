@@ -35,9 +35,9 @@ class CheckDirectoryResponse extends SoapResponse
     private $paths = [];
 
     /**
-     * Constructor method for CheckDirectoryResponse
+     * Constructor
      *
-     * @param  array  $paths
+     * @param  array $paths
      * @return self
      */
     public function __construct(array $paths = [])

@@ -41,8 +41,10 @@ class CompactIndexBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for CompactIndexBody
+     * Constructor
      *
+     * @param CompactIndexRequest $request
+     * @param CompactIndexResponse $response
      * @return self
      */
     public function __construct(?CompactIndexRequest $request = NULL, ?CompactIndexResponse $response = NULL)
@@ -50,6 +52,9 @@ class CompactIndexBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof CompactIndexRequest) {
@@ -58,11 +63,17 @@ class CompactIndexBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof CompactIndexResponse) {
@@ -71,6 +82,9 @@ class CompactIndexBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

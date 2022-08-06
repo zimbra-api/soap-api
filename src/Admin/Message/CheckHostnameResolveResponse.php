@@ -26,6 +26,7 @@ class CheckHostnameResolveResponse extends SoapResponse
 {
     /**
      * Code
+     * 
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
@@ -35,6 +36,7 @@ class CheckHostnameResolveResponse extends SoapResponse
 
     /**
      * Message
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -43,7 +45,7 @@ class CheckHostnameResolveResponse extends SoapResponse
     private $message;
 
     /**
-     * Constructor method for CheckHostnameResolveResponse
+     * Constructor
      *
      * @param string $code
      * @param string $message

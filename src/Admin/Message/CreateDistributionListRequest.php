@@ -33,6 +33,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name for distribution list
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,6 +43,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
 
     /**
      * If 1 (true) then create a dynamic distribution list
+     * 
      * @Accessor(getter="getDynamic", setter="setDynamic")
      * @SerializedName("dynamic")
      * @Type("bool")
@@ -50,7 +52,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     private $dynamic;
 
     /**
-     * Constructor method for CreateDistributionListRequest
+     * Constructor
      * 
      * @param string $name
      * @param bool   $dynamic
@@ -113,9 +115,7 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

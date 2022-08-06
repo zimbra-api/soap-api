@@ -27,6 +27,7 @@ class CompactIndexResponse extends SoapResponse
 {
     /**
      * Status - one of started|running|idle
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")
@@ -35,7 +36,7 @@ class CompactIndexResponse extends SoapResponse
     private ?Status $status = NULL;
 
     /**
-     * Constructor method for CompactIndexResponse
+     * Constructor
      * 
      * @param Status  $status
      * @return self

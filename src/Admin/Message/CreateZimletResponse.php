@@ -27,6 +27,7 @@ class CreateZimletResponse extends SoapResponse
 {
     /**
      * Information about the newly created zimlet
+     * 
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
@@ -35,7 +36,7 @@ class CreateZimletResponse extends SoapResponse
     private ?ZimletInfo $zimlet = NULL;
 
     /**
-     * Constructor method for CreateZimletResponse
+     * Constructor
      *
      * @param ZimletInfo $zimlet
      * @return self

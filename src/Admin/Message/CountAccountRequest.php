@@ -29,6 +29,7 @@ class CountAccountRequest extends SoapRequest
 {
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -37,7 +38,7 @@ class CountAccountRequest extends SoapRequest
     private Domain $domain;
 
     /**
-     * Constructor method for CountAccountRequest
+     * Constructor
      * 
      * @param Domain $domain
      * @return self
@@ -70,9 +71,7 @@ class CountAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

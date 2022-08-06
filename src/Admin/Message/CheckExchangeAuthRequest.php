@@ -37,7 +37,7 @@ class CheckExchangeAuthRequest extends SoapRequest
     private ?ExchangeAuthSpec $auth = NULL;
 
     /**
-     * Constructor method for CheckExchangeAuthRequest
+     * Constructor
      * 
      * @param  ExchangeAuthSpec  $auth
      * @return self
@@ -72,9 +72,7 @@ class CheckExchangeAuthRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
 {
     /**
      * Grantee information
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
@@ -45,7 +46,7 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     private $targets = [];
 
     /**
-     * Constructor method for GetAllEffectiveRightsResponse
+     * Constructor
      *
      * @param GranteeInfo $grantee
      * @param array $targets

@@ -32,6 +32,7 @@ class CreateDataSourceRequest extends SoapRequest
 {
     /**
      * Id for an existing Account
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -41,6 +42,7 @@ class CreateDataSourceRequest extends SoapRequest
 
     /**
      * Details of data source
+     * 
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
@@ -49,7 +51,7 @@ class CreateDataSourceRequest extends SoapRequest
     private DataSourceSpecifier $dataSource;
 
     /**
-     * Constructor method for CreateDataSourceRequest
+     * Constructor
      * 
      * @param DataSourceSpecifier $dataSource
      * @param string $id
@@ -108,9 +110,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

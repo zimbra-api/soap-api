@@ -41,8 +41,10 @@ class DeleteMailboxBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteMailboxBody
+     * Constructor
      *
+     * @param DeleteMailboxRequest $request
+     * @param DeleteMailboxResponse $response
      * @return self
      */
     public function __construct(?DeleteMailboxRequest $request = NULL, ?DeleteMailboxResponse $response = NULL)
@@ -50,6 +52,9 @@ class DeleteMailboxBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteMailboxRequest) {
@@ -58,11 +63,17 @@ class DeleteMailboxBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteMailboxResponse) {
@@ -71,6 +82,9 @@ class DeleteMailboxBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -35,7 +35,7 @@ class GetAccountResponse extends SoapResponse
     private ?AccountInfo $account = NULL;
 
     /**
-     * Constructor method for GetAccountResponse
+     * Constructor
      *
      * @param AccountInfo $account
      * @return self

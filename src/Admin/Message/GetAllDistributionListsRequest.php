@@ -28,6 +28,7 @@ class GetAllDistributionListsRequest extends SoapRequest
 {
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -36,7 +37,7 @@ class GetAllDistributionListsRequest extends SoapRequest
     private ?Domain $domain = NULL;
 
     /**
-     * Constructor method for GetAllDistributionListsRequest
+     * Constructor
      * 
      * @param  Domain $domain
      * @return self
@@ -71,9 +72,7 @@ class GetAllDistributionListsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

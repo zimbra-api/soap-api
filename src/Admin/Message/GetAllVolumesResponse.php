@@ -35,7 +35,7 @@ class GetAllVolumesResponse extends SoapResponse
     private $volumes = [];
 
     /**
-     * Constructor method for GetAllVolumesResponse
+     * Constructor
      *
      * @param array $volumes
      * @return self

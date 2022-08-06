@@ -38,6 +38,7 @@ class FlushCacheRequest extends SoapRequest
 {
     /**
      * Cache
+     * 
      * @Accessor(getter="getCache", setter="setCache")
      * @SerializedName("cache")
      * @Type("Zimbra\Admin\Struct\CacheSelector")
@@ -46,7 +47,7 @@ class FlushCacheRequest extends SoapRequest
     private ?CacheSelector $cache = NULL;
 
     /**
-     * Constructor method for FlushCacheRequest
+     * Constructor
      * 
      * @param  CacheSelector $cache
      * @return self
@@ -81,9 +82,7 @@ class FlushCacheRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

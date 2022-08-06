@@ -30,6 +30,7 @@ class DelegateAuthRequest extends SoapRequest
 {
     /**
      * Details of target account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -40,6 +41,7 @@ class DelegateAuthRequest extends SoapRequest
     /**
      * Lifetime in seconds of the newly-created authtoken. defaults to 1 hour.
      * Can't be longer then zimbraAuthTokenLifetime.
+     * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("duration")
      * @Type("integer")
@@ -48,7 +50,7 @@ class DelegateAuthRequest extends SoapRequest
     private $duration;
 
     /**
-     * Constructor method for DelegateAuthRequest
+     * Constructor
      * 
      * @param  Account $account
      * @param  int     $duration
@@ -107,9 +109,7 @@ class DelegateAuthRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

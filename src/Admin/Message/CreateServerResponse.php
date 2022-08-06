@@ -27,6 +27,7 @@ class CreateServerResponse extends SoapResponse
 {
     /**
      * Information about the newly created server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
@@ -35,7 +36,7 @@ class CreateServerResponse extends SoapResponse
     private ?ServerInfo $server = NULL;
 
     /**
-     * Constructor method for CreateServerResponse
+     * Constructor
      *
      * @param ServerInfo $server
      * @return self

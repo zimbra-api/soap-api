@@ -35,7 +35,7 @@ class CreateSystemRetentionPolicyResponse extends SoapResponse
     private ?Policy $policy = NULL;
 
     /**
-     * Constructor method for CreateSystemRetentionPolicyResponse
+     * Constructor
      *
      * @param  Policy $policy
      * @return self

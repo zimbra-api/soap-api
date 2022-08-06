@@ -27,6 +27,7 @@ class GetAllAdminAccountsRequest extends SoapRequest
 {
     /**
      * Apply COS [default 1 (true)]
+     * 
      * @Accessor(getter="isApplyCos", setter="setApplyCos")
      * @SerializedName("applyCos")
      * @Type("bool")
@@ -35,7 +36,7 @@ class GetAllAdminAccountsRequest extends SoapRequest
     private $applyCos;
 
     /**
-     * Constructor method for GetAllAdminAccountsRequest
+     * Constructor
      * 
      * @param  bool $applyCos
      * @return self
@@ -70,9 +71,7 @@ class GetAllAdminAccountsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

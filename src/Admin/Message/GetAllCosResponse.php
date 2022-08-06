@@ -35,7 +35,7 @@ class GetAllCosResponse extends SoapResponse
     private $cosList = [];
 
     /**
-     * Constructor method for GetAllCosResponse
+     * Constructor
      *
      * @param array $cosList
      * @return self

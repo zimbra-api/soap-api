@@ -32,6 +32,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
      * Sync flag
      * 1 (true) command blocks until processing finishes 
      * 0 (false) [default]  command returns right away 
+     * 
      * @Accessor(getter="getSync", setter="setSync")
      * @SerializedName("sync")
      * @Type("bool")
@@ -41,6 +42,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
 
     /**
      * Accounts
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
@@ -48,7 +50,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     private $accounts = [];
 
     /**
-     * Constructor method for FixCalendarEndTimeRequest
+     * Constructor
      * 
      * @param  bool $sync
      * @param  array $accounts
@@ -119,9 +121,7 @@ class FixCalendarEndTimeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

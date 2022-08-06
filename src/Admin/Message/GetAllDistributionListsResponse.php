@@ -35,7 +35,7 @@ class GetAllDistributionListsResponse extends SoapResponse
     private $dls = [];
 
     /**
-     * Constructor method for GetAllDistributionListsResponse
+     * Constructor
      *
      * @param array $dls
      * @return self

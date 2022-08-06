@@ -30,6 +30,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
 {
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -39,6 +40,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
 
     /**
      * Distribution List
+     * 
      * @Accessor(getter="getDl", setter="setDl")
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
@@ -47,7 +49,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     private ?DlSelector $dl = NULL;
 
     /**
-     * Constructor method for GetAdminConsoleUICompRequest
+     * Constructor
      * 
      * @param  AccountSelector $account
      * @param  DlSelector $dl
@@ -108,9 +110,7 @@ class GetAdminConsoleUICompRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

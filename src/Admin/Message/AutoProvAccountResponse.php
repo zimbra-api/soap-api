@@ -27,7 +27,8 @@ use Zimbra\Common\Struct\SoapResponse;
 class AutoProvAccountResponse extends SoapResponse
 {
     /**
-     * Account
+     * The account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
@@ -36,9 +37,9 @@ class AutoProvAccountResponse extends SoapResponse
     private ?AccountInfo $account = NULL;
 
     /**
-     * Constructor method for AutoProvAccountResponse
+     * Constructor
      *
-     * @param AccountInfo $account The account
+     * @param AccountInfo $account
      * @return self
      */
     public function __construct(?AccountInfo $account = NULL)

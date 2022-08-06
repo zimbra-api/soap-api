@@ -35,7 +35,7 @@ class AddAccountLoggerResponse extends SoapResponse
     private $loggers = [];
 
     /**
-     * Constructor method for AddAccountLoggerResponse
+     * Constructor
      *
      * @param array $loggers
      * @return self

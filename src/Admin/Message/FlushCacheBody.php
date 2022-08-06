@@ -41,8 +41,10 @@ class FlushCacheBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for FlushCacheBody
+     * Constructor
      *
+     * @param FlushCacheRequest $request
+     * @param FlushCacheResponse $response
      * @return self
      */
     public function __construct(?FlushCacheRequest $request = NULL, ?FlushCacheResponse $response = NULL)
@@ -50,6 +52,9 @@ class FlushCacheBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof FlushCacheRequest) {
@@ -58,11 +63,17 @@ class FlushCacheBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof FlushCacheResponse) {
@@ -71,6 +82,9 @@ class FlushCacheBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

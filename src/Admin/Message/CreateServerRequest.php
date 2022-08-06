@@ -32,6 +32,7 @@ class CreateServerRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New server name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -40,7 +41,7 @@ class CreateServerRequest extends SoapRequest implements AdminAttrs
     private $name;
 
     /**
-     * Constructor method for CreateServerRequest
+     * Constructor
      * 
      * @param string $name
      * @param array  $attrs
@@ -77,9 +78,7 @@ class CreateServerRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

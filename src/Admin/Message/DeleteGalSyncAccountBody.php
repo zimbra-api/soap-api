@@ -41,15 +41,22 @@ class DeleteGalSyncAccountBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteGalSyncAccountBody
+     * Constructor
      *
+     * @param DeleteGalSyncAccountRequest $request
+     * @param DeleteGalSyncAccountResponse $response
      * @return self
      */
-    public function __construct(?DeleteGalSyncAccountRequest $request = NULL, ?DeleteGalSyncAccountResponse $response = NULL)
+    public function __construct(
+        ?DeleteGalSyncAccountRequest $request = NULL, ?DeleteGalSyncAccountResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteGalSyncAccountRequest) {
@@ -58,11 +65,17 @@ class DeleteGalSyncAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteGalSyncAccountResponse) {
@@ -71,6 +84,9 @@ class DeleteGalSyncAccountBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

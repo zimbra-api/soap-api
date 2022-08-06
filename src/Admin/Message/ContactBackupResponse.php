@@ -28,6 +28,7 @@ class ContactBackupResponse extends SoapResponse
 {
     /**
      * List of mailbox ids
+     * 
      * @Accessor(getter="getServers", setter="setServers")
      * @SerializedName("servers")
      * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
@@ -37,7 +38,7 @@ class ContactBackupResponse extends SoapResponse
     private $servers = [];
 
     /**
-     * Constructor method for ContactBackupResponse
+     * Constructor
      *
      * @param array $servers
      * @return self

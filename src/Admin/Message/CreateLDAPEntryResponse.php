@@ -35,7 +35,7 @@ class CreateLDAPEntryResponse extends SoapResponse
     private ?LDAPEntryInfo $LDAPEntry = NULL;
 
     /**
-     * Constructor method for CreateLDAPEntryResponse
+     * Constructor
      *
      * @param LDAPEntryInfo $LDAPEntry
      * @return self

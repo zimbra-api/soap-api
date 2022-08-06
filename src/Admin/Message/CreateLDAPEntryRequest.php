@@ -30,6 +30,7 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
 
     /**
      * A valid LDAP DN String (RFC 2253) that describes the new DN to create
+     * 
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
@@ -38,7 +39,7 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
     private $dn;
 
     /**
-     * Constructor method for CreateLDAPEntryRequest
+     * Constructor
      * 
      * @param string $dn
      * @param array  $attrs
@@ -75,9 +76,7 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class GetAccountInfoResponse extends SoapResponse
 {
     /**
      * Account name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Currently only these attributes are returned: zimbraId, zimbraMailHost
+     * 
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @Type("array<Zimbra\Admin\Struct\Attr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
@@ -45,6 +47,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * Class of Service (COS) information for account
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
@@ -63,6 +66,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL for the Admin SOAP service
+     * 
      * @Accessor(getter="getAdminSoapURL", setter="setAdminSoapURL")
      * @SerializedName("adminSoapURL")
      * @Type("string")
@@ -72,6 +76,7 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL for Web Mail application
+     * 
      * @Accessor(getter="getPublicMailURL", setter="setPublicMailURL")
      * @SerializedName("publicMailURL")
      * @Type("string")
@@ -80,7 +85,7 @@ class GetAccountInfoResponse extends SoapResponse
     private $publicMailURL;
 
     /**
-     * Constructor method for GetAccountInfoResponse
+     * Constructor
      *
      * @param string $name
      * @param array $attrList

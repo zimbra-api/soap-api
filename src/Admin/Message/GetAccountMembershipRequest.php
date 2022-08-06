@@ -28,6 +28,7 @@ class GetAccountMembershipRequest extends SoapRequest
 {
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -36,7 +37,7 @@ class GetAccountMembershipRequest extends SoapRequest
     private AccountSelector $account;
 
     /**
-     * Constructor method for GetAccountMembershipRequest
+     * Constructor
      * 
      * @param  AccountSelector $account
      * @return self
@@ -69,9 +70,7 @@ class GetAccountMembershipRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

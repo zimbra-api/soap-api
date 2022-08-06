@@ -29,6 +29,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
 {
     /**
      * COS
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
@@ -38,6 +39,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
 
     /**
      * Details of policy
+     * 
      * @Accessor(getter="getPolicy", setter="setPolicy")
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
@@ -46,7 +48,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     private Policy $policy;
 
     /**
-     * Constructor method for DeleteSystemRetentionPolicyRequest
+     * Constructor
      * 
      * @param  Policy $policy
      * @param  CosSelector $cos
@@ -105,9 +107,7 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

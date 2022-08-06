@@ -41,8 +41,10 @@ class GetAllDomainsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllDomainsBody
+     * Constructor
      *
+     * @param GetAllDomainsRequest $request
+     * @param GetAllDomainsResponse $response
      * @return self
      */
     public function __construct(?GetAllDomainsRequest $request = NULL, ?GetAllDomainsResponse $response = NULL)
@@ -50,6 +52,9 @@ class GetAllDomainsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllDomainsRequest) {
@@ -58,11 +63,17 @@ class GetAllDomainsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllDomainsResponse) {
@@ -71,6 +82,9 @@ class GetAllDomainsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

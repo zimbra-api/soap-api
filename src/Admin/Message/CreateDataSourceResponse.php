@@ -27,6 +27,7 @@ class CreateDataSourceResponse extends SoapResponse
 {
     /**
      * Details of created data source
+     * 
      * @Accessor(getter="getDataSource", setter="setDataSource")
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
@@ -35,7 +36,7 @@ class CreateDataSourceResponse extends SoapResponse
     private ?DataSourceInfo $dataSource = NULL;
 
     /**
-     * Constructor method for CreateDataSourceResponse
+     * Constructor
      *
      * @param DataSourceInfo $dataSource
      * @return self

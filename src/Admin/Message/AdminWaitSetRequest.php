@@ -41,6 +41,7 @@ class AdminWaitSetRequest extends SoapRequest
 {
     /**
      * Waitset ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
@@ -50,6 +51,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Last known sequence number
+     * 
      * @Accessor(getter="getLastKnownSeqNo", setter="setLastKnownSeqNo")
      * @SerializedName("seq")
      * @Type("string")
@@ -59,6 +61,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Flag whether or not to block until some account has new data
+     * 
      * @Accessor(getter="getBlock", setter="setBlock")
      * @SerializedName("block")
      * @Type("bool")
@@ -68,6 +71,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * If true, WaitSetResponse will include details of Pending Modifications.
+     * 
      * @Accessor(getter="getExpand", setter="setExpand")
      * @SerializedName("expand")
      * @Type("bool")
@@ -77,6 +81,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Default interest types: comma-separated list
+     * 
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
@@ -86,6 +91,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Timeout length
+     * 
      * @Accessor(getter="getTimeout", setter="setTimeout")
      * @SerializedName("timeout")
      * @Type("int")
@@ -95,6 +101,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to add
+     * 
      * @Accessor(getter="getAddAccounts", setter="setAddAccounts")
      * @SerializedName("add")
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
@@ -105,6 +112,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to update
+     * 
      * @Accessor(getter="getUpdateAccounts", setter="setUpdateAccounts")
      * @SerializedName("update")
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
@@ -115,6 +123,7 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to remove
+     * 
      * @Accessor(getter="getRemoveAccounts", setter="setRemoveAccounts")
      * @SerializedName("remove")
      * @Type("array<Zimbra\Common\Struct\Id>")
@@ -124,7 +133,7 @@ class AdminWaitSetRequest extends SoapRequest
     private $removeAccounts = [];
 
     /**
-     * Constructor method for AdminWaitSetRequest
+     * Constructor
      * 
      * @param string  $waitSetId
      * @param string  $lastKnownSeqNo
@@ -403,9 +412,7 @@ class AdminWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

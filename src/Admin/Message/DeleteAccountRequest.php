@@ -30,6 +30,7 @@ class DeleteAccountRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -38,7 +39,7 @@ class DeleteAccountRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for DeleteAccountRequest
+     * Constructor
      * 
      * @param  string $id
      * @return self
@@ -71,9 +72,7 @@ class DeleteAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

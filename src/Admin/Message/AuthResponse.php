@@ -25,9 +25,9 @@ use Zimbra\Common\Struct\SoapResponse;
  */
 class AuthResponse extends SoapResponse
 {
-
     /**
      * Auth token
+     * 
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -37,6 +37,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
+     * 
      * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
      * @SerializedName("csrfToken")
      * @Type("string")
@@ -46,6 +47,7 @@ class AuthResponse extends SoapResponse
 
     /**
      * Life time for the authorization
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
@@ -54,7 +56,7 @@ class AuthResponse extends SoapResponse
     private $lifetime;
 
     /**
-     * Constructor method for AuthResponse
+     * Constructor
      *
      * @param string $authToken
      * @param string $csrfToken

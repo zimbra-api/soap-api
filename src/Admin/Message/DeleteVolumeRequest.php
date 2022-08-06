@@ -27,6 +27,7 @@ class DeleteVolumeRequest extends SoapRequest
 {
     /**
      * Volume ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -35,7 +36,7 @@ class DeleteVolumeRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for DeleteVolumeRequest
+     * Constructor
      * 
      * @param  int $id
      * @return self
@@ -68,9 +69,7 @@ class DeleteVolumeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

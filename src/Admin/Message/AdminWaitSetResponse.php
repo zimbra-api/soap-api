@@ -28,6 +28,7 @@ class AdminWaitSetResponse extends SoapResponse
 {
     /**
      * WaitSet ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
@@ -37,6 +38,7 @@ class AdminWaitSetResponse extends SoapResponse
 
     /**
      * canceled flag
+     * 
      * @Accessor(getter="getCanceled", setter="setCanceled")
      * @SerializedName("canceled")
      * @Type("bool")
@@ -46,6 +48,7 @@ class AdminWaitSetResponse extends SoapResponse
 
     /**
      * Sequence number
+     * 
      * @Accessor(getter="getSeqNo", setter="setSeqNo")
      * @SerializedName("seq")
      * @Type("string")
@@ -55,6 +58,7 @@ class AdminWaitSetResponse extends SoapResponse
 
     /**
      * Information on signaled accounts.
+     * 
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
@@ -63,6 +67,7 @@ class AdminWaitSetResponse extends SoapResponse
 
     /**
      * Error information
+     * 
      * @Accessor(getter="getErrors", setter="setErrors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraAdmin")
@@ -70,7 +75,7 @@ class AdminWaitSetResponse extends SoapResponse
     private $errors = [];
 
     /**
-     * Constructor method for AdminWaitSetResponse
+     * Constructor
      * 
      * @param string $waitSetId
      * @param bool   $canceled

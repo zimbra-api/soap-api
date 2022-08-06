@@ -27,6 +27,7 @@ class DeleteMailboxResponse extends SoapResponse
 {
     /**
      * Details of the deleted mailbox.
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
@@ -35,7 +36,7 @@ class DeleteMailboxResponse extends SoapResponse
     private ?MailboxId $mbox = NULL;
 
     /**
-     * Constructor method for DeleteMailboxResponse
+     * Constructor
      *
      * @param MailboxId $mbox
      * @return self

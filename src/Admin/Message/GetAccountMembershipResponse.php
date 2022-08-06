@@ -34,7 +34,7 @@ class GetAccountMembershipResponse extends SoapResponse
     private $dlList = [];
 
     /**
-     * Constructor method for GetAccountMembershipResponse
+     * Constructor
      *
      * @param array $dlList
      * @return self

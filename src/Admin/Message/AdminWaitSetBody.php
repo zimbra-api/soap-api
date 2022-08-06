@@ -41,8 +41,10 @@ class AdminWaitSetBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for AdminWaitSetBody
+     * Constructor
      *
+     * @param AdminWaitSetRequest $request
+     * @param AdminWaitSetResponse $response
      * @return self
      */
     public function __construct(?AdminWaitSetRequest $request = NULL, ?AdminWaitSetResponse $response = NULL)
@@ -50,6 +52,9 @@ class AdminWaitSetBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof AdminWaitSetRequest) {
@@ -58,11 +63,17 @@ class AdminWaitSetBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof AdminWaitSetResponse) {
@@ -71,6 +82,9 @@ class AdminWaitSetBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

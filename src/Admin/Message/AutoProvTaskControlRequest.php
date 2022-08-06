@@ -31,6 +31,7 @@ class AutoProvTaskControlRequest extends SoapRequest
 {
     /**
      * Action to perform - one of start|status|stop
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")
@@ -39,7 +40,7 @@ class AutoProvTaskControlRequest extends SoapRequest
     private AutoProvTaskAction $action;
 
     /**
-     * Constructor method for AutoProvTaskControlRequest
+     * Constructor
      * 
      * @param AutoProvTaskAction $action
      * @return self
@@ -72,9 +73,7 @@ class AutoProvTaskControlRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

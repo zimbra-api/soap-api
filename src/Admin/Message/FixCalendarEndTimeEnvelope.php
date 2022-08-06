@@ -35,8 +35,10 @@ class FixCalendarEndTimeEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for FixCalendarEndTimeEnvelope
+     * Constructor
      *
+     * @param FixCalendarEndTimeBody $body
+     * @param SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?FixCalendarEndTimeBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -45,9 +47,7 @@ class FixCalendarEndTimeEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +55,7 @@ class FixCalendarEndTimeEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {

@@ -29,6 +29,7 @@ class AdminDestroyWaitSetRequest extends SoapRequest
 {
     /**
      * Waitset ID
+     * 
      * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
      * @SerializedName("waitSet")
      * @Type("string")
@@ -37,9 +38,9 @@ class AdminDestroyWaitSetRequest extends SoapRequest
     private $waitSetId;
 
     /**
-     * Constructor method for AdminDestroyWaitSetRequest
+     * Constructor
      * 
-     * @param string  $waitSetId
+     * @param string $waitSetId
      * @return self
      */
     public function __construct(string $waitSetId = '')
@@ -70,9 +71,7 @@ class AdminDestroyWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

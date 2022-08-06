@@ -35,7 +35,7 @@ class GetAllDomainsResponse extends SoapResponse
     private $domainList = [];
 
     /**
-     * Constructor method for GetAllDomainsResponse
+     * Constructor
      *
      * @param array $domainList
      * @return self

@@ -41,8 +41,10 @@ class GetAllXMPPComponentsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllXMPPComponentsBody
+     * Constructor
      *
+     * @param GetAllXMPPComponentsRequest $request
+     * @param GetAllXMPPComponentsResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class GetAllXMPPComponentsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllXMPPComponentsRequest) {
@@ -60,11 +65,17 @@ class GetAllXMPPComponentsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllXMPPComponentsResponse) {
@@ -73,6 +84,9 @@ class GetAllXMPPComponentsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

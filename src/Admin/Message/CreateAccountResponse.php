@@ -35,7 +35,7 @@ class CreateAccountResponse extends SoapResponse
     private ?AccountInfo $account = NULL;
 
     /**
-     * Constructor method for CreateAccountResponse
+     * Constructor
      *
      * @param AccountInfo $account
      * @return self

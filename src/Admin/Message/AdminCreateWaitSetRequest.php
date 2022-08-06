@@ -30,6 +30,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
 {
     /**
      * Default interest types: comma-separated list
+     * 
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
@@ -39,6 +40,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
 
     /**
      * All accounts
+     * 
      * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
      * @SerializedName("allAccounts")
      * @Type("bool")
@@ -48,6 +50,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to add
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @SerializedName("add")
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
@@ -57,7 +60,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
     private $accounts = [];
 
     /**
-     * Constructor method for AdminCreateWaitSetRequest
+     * Constructor
      * 
      * @param string $defaultInterests
      * @param bool $allAccounts
@@ -156,9 +159,7 @@ class AdminCreateWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

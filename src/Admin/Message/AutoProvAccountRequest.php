@@ -28,6 +28,7 @@ class AutoProvAccountRequest extends SoapRequest
 {
     /**
      * The domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -37,6 +38,7 @@ class AutoProvAccountRequest extends SoapRequest
 
     /**
      * The principal
+     * 
      * @Accessor(getter="getPrincipal", setter="setPrincipal")
      * @SerializedName("principal")
      * @Type("Zimbra\Admin\Struct\PrincipalSelector")
@@ -46,6 +48,7 @@ class AutoProvAccountRequest extends SoapRequest
 
     /**
      * Password
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -54,7 +57,7 @@ class AutoProvAccountRequest extends SoapRequest
     private $password;
 
     /**
-     * Constructor method for AutoProvAccountRequest
+     * Constructor
      * 
      * @param DomainSelector $domain
      * @param PrincipalSelector $principal
@@ -141,9 +144,7 @@ class AutoProvAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

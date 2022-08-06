@@ -35,7 +35,7 @@ class GetAllXMPPComponentsResponse extends SoapResponse
     private $components = [];
 
     /**
-     * Constructor method for GetAllXMPPComponentsResponse
+     * Constructor
      *
      * @param array $components
      * @return self

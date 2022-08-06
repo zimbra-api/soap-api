@@ -35,7 +35,7 @@ class GetAggregateQuotaUsageOnServerResponse extends SoapResponse
     private $domainQuotas = [];
 
     /**
-     * Constructor method for GetAggregateQuotaUsageOnServerResponse
+     * Constructor
      *
      * @param array $domainQuotas
      * @return self

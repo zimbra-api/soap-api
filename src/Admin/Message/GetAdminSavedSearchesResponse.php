@@ -35,7 +35,7 @@ class GetAdminSavedSearchesResponse extends SoapResponse
     private $searches = [];
 
     /**
-     * Constructor method for GetAdminSavedSearchesResponse
+     * Constructor
      *
      * @param array $searches
      * @return self

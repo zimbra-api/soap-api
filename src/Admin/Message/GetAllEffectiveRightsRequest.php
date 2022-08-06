@@ -47,7 +47,7 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     private ?Grantee $grantee = NULL;
 
     /**
-     * Constructor method for GetAllEffectiveRightsRequest
+     * Constructor
      * 
      * @param  Grantee $grantee
      * @param  bool $expandSetAttrs
@@ -130,9 +130,7 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -41,8 +41,10 @@ class FixCalendarEndTimeBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for FixCalendarEndTimeBody
+     * Constructor
      *
+     * @param FixCalendarEndTimeRequest $request
+     * @param FixCalendarEndTimeResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class FixCalendarEndTimeBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof FixCalendarEndTimeRequest) {
@@ -60,11 +65,17 @@ class FixCalendarEndTimeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof FixCalendarEndTimeResponse) {
@@ -73,6 +84,9 @@ class FixCalendarEndTimeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

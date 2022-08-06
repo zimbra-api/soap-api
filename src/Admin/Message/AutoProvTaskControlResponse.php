@@ -27,6 +27,7 @@ class AutoProvTaskControlResponse extends SoapResponse
 {
     /**
      * Auth token
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskStatus>")
@@ -35,7 +36,7 @@ class AutoProvTaskControlResponse extends SoapResponse
     private ?AutoProvTaskStatus $status = NULL;
 
     /**
-     * Constructor method for AutoProvTaskControlResponse
+     * Constructor
      *
      * @param AutoProvTaskStatus $status
      * @return self

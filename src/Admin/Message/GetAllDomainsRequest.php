@@ -27,6 +27,7 @@ class GetAllDomainsRequest extends SoapRequest
 {
     /**
      * Apply config flag
+     * 
      * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
      * @SerializedName("applyConfig")
      * @Type("bool")
@@ -35,7 +36,7 @@ class GetAllDomainsRequest extends SoapRequest
     private $applyConfig;
 
     /**
-     * Constructor method for GetAllDomainsRequest
+     * Constructor
      * 
      * @param  bool $applyConfig
      * @return self
@@ -70,9 +71,7 @@ class GetAllDomainsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

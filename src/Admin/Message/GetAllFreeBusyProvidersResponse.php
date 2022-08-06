@@ -35,7 +35,7 @@ class GetAllFreeBusyProvidersResponse extends SoapResponse
     private $providers = [];
 
     /**
-     * Constructor method for GetAllFreeBusyProvidersResponse
+     * Constructor
      *
      * @param array $providers
      * @return self

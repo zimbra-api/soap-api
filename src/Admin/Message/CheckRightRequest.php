@@ -35,6 +35,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Target
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
@@ -44,6 +45,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Grantee - valid values for type are "usr" and "email"
+     * 
      * @Accessor(getter="getGrantee", setter="setGrantee")
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
@@ -53,6 +55,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Checked Right
+     * 
      * @Accessor(getter="getRight", setter="setRight")
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
@@ -61,7 +64,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     private CheckedRight $right;
 
     /**
-     * Constructor method for CheckRightRequest
+     * Constructor
      * 
      * @param EffectiveRightsTargetSelector $target
      * @param GranteeSelector $grantee
@@ -149,9 +152,7 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

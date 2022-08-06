@@ -36,7 +36,7 @@ class CreateAlwaysOnClusterResponse extends SoapResponse
     private ?AlwaysOnClusterInfo $cluster = NULL;
 
     /**
-     * Constructor method for CreateAlwaysOnClusterResponse
+     * Constructor
      *
      * @param AlwaysOnClusterInfo $cluster
      * @return self

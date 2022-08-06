@@ -39,6 +39,7 @@ class CountObjectsRequest extends SoapRequest
 {
     /**
      * Object type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\CountObjectsType>")
@@ -57,6 +58,7 @@ class CountObjectsRequest extends SoapRequest
 
     /**
      * UCService
+     * 
      * @Accessor(getter="getUcService", setter="setUcService")
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
@@ -66,6 +68,7 @@ class CountObjectsRequest extends SoapRequest
 
     /**
      * Get only related if delegated/domain admin
+     * 
      * @Accessor(getter="getOnlyRelated", setter="setOnlyRelated")
      * @SerializedName("onlyrelated")
      * @Type("bool")
@@ -74,7 +77,7 @@ class CountObjectsRequest extends SoapRequest
     private $onlyRelated;
 
     /**
-     * Constructor method for CountObjectsRequest
+     * Constructor
      * 
      * @param  CountObjectsType $type
      * @param  array $domains
@@ -200,9 +203,7 @@ class CountObjectsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

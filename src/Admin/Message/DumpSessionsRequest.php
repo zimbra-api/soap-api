@@ -27,6 +27,7 @@ class DumpSessionsRequest extends SoapRequest
 {
     /**
      * List Sessions flag
+     * 
      * @Accessor(getter="getIncludeAccounts", setter="setIncludeAccounts")
      * @SerializedName("listSessions")
      * @Type("bool")
@@ -36,6 +37,7 @@ class DumpSessionsRequest extends SoapRequest
 
     /**
      * Group by account flag
+     * 
      * @Accessor(getter="getGroupByAccount", setter="setGroupByAccount")
      * @SerializedName("groupByAccount")
      * @Type("bool")
@@ -44,7 +46,7 @@ class DumpSessionsRequest extends SoapRequest
     private $groupByAccount;
 
     /**
-     * Constructor method for DumpSessionsRequest
+     * Constructor
      * 
      * @param  bool $includeAccounts
      * @param  bool $groupByAccount
@@ -105,9 +107,7 @@ class DumpSessionsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

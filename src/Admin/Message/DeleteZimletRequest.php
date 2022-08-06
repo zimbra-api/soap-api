@@ -28,6 +28,7 @@ class DeleteZimletRequest extends SoapRequest
 {
     /**
      * Zimlet name
+     * 
      * @Accessor(getter="getZimlet", setter="setZimlet")
      * @SerializedName("zimlet")
      * @Type("Zimbra\Common\Struct\NamedElement")
@@ -36,7 +37,7 @@ class DeleteZimletRequest extends SoapRequest
     private NamedElement $zimlet;
 
     /**
-     * Constructor method for DeleteZimletRequest
+     * Constructor
      * 
      * @param  NamedElement $zimlet
      * @return self
@@ -69,9 +70,7 @@ class DeleteZimletRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

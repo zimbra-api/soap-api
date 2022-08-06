@@ -32,6 +32,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of the data source.
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -41,6 +42,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Domain name
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -50,6 +52,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * GalMode type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
@@ -59,6 +62,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -68,6 +72,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * password
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -77,6 +82,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Contact folder name
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("string")
@@ -86,6 +92,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * The mailhost on which this account resides
+     * 
      * @Accessor(getter="getMailHost", setter="setMailHost")
      * @SerializedName("server")
      * @Type("string")
@@ -94,7 +101,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     private $mailHost;
 
     /**
-     * Constructor method for CreateGalSyncAccountRequest
+     * Constructor
      * 
      * @param AccountSelector  $account
      * @param string  $name
@@ -286,9 +293,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -32,6 +32,7 @@ class GetAllRightsRequest extends SoapRequest
      * Don't confuse this with "whether a right is executable on a target type".
      * e.g. the renameAccount right is "executable" on account entries, but it is "grantable" on account,
      * distribuiton list, domain, and globalgrant entries.
+     * 
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("targetType")
      * @Type("string")
@@ -41,6 +42,7 @@ class GetAllRightsRequest extends SoapRequest
 
     /**
      * Flags whether to include all attribute names in the <attrs> elements in GetRightResponse if the right is meant for all attributes
+     * 
      * @Accessor(getter="isExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("bool")
@@ -53,6 +55,7 @@ class GetAllRightsRequest extends SoapRequest
      * ADMIN: return admin rights only
      * USER:  return user rights only 
      * ALL:   return both admin rights and user rights
+     * 
      * @Accessor(getter="getRightClass", setter="setRightClass")
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
@@ -61,7 +64,7 @@ class GetAllRightsRequest extends SoapRequest
     private ?RightClass $rightClass = NULL;
 
     /**
-     * Constructor method for GetAllRightsRequest
+     * Constructor
      * 
      * @param  string $targetType
      * @param  bool $expandAllAttrs
@@ -150,9 +153,7 @@ class GetAllRightsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

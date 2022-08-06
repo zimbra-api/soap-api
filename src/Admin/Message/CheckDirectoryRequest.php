@@ -36,9 +36,9 @@ class CheckDirectoryRequest extends SoapRequest
     private $paths = [];
 
     /**
-     * Constructor method for CheckDirectoryRequest
+     * Constructor
      * 
-     * @param  array  $paths
+     * @param  array $paths
      * @return self
      */
     public function __construct(array $paths = [])
@@ -81,9 +81,7 @@ class CheckDirectoryRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

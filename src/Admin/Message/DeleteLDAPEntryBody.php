@@ -41,15 +41,22 @@ class DeleteLDAPEntryBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteLDAPEntryBody
+     * Constructor
      *
+     * @param DeleteLDAPEntryRequest $request
+     * @param DeleteLDAPEntryResponse $response
      * @return self
      */
-    public function __construct(?DeleteLDAPEntryRequest $request = NULL, ?DeleteLDAPEntryResponse $response = NULL)
+    public function __construct(
+        ?DeleteLDAPEntryRequest $request = NULL, ?DeleteLDAPEntryResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof DeleteLDAPEntryRequest) {
@@ -58,11 +65,17 @@ class DeleteLDAPEntryBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof DeleteLDAPEntryResponse) {
@@ -71,6 +84,9 @@ class DeleteLDAPEntryBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

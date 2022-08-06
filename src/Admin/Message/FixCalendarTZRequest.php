@@ -31,6 +31,7 @@ class FixCalendarTZRequest extends SoapRequest
      * Sync flag
      * 1 (true) command blocks until processing finishes
      * 0 (false) [default]  command returns right away 
+     * 
      * @Accessor(getter="getSync", setter="setSync")
      * @SerializedName("sync")
      * @Type("bool")
@@ -41,6 +42,7 @@ class FixCalendarTZRequest extends SoapRequest
     /**
      * Fix appts/tasks that have instances after this time
      * default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
+     * 
      * @Accessor(getter="getAfter", setter="setAfter")
      * @SerializedName("after")
      * @Type("integer")
@@ -50,6 +52,7 @@ class FixCalendarTZRequest extends SoapRequest
 
     /**
      * Accounts
+     * 
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
@@ -58,6 +61,7 @@ class FixCalendarTZRequest extends SoapRequest
 
     /**
      * Fixup rules wrapper
+     * 
      * @Accessor(getter="getTzFixup", setter="setTzFixup")
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
@@ -66,7 +70,7 @@ class FixCalendarTZRequest extends SoapRequest
     private ?TzFixup $tzFixup = NULL;
 
     /**
-     * Constructor method for FixCalendarTZRequest
+     * Constructor
      * 
      * @param  bool $sync
      * @param  int $after
@@ -191,9 +195,7 @@ class FixCalendarTZRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

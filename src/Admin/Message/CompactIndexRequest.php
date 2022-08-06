@@ -29,6 +29,7 @@ class CompactIndexRequest extends SoapRequest
 {
     /**
      * Mail box
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
@@ -40,6 +41,7 @@ class CompactIndexRequest extends SoapRequest
      * Action to perform
      * start: start compact indexing
      * status: show compact indexing status
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
@@ -48,7 +50,7 @@ class CompactIndexRequest extends SoapRequest
     private ?Action $action = NULL;
 
     /**
-     * Constructor method for CompactIndexRequest
+     * Constructor
      * 
      * @param  Mbox $mbox
      * @param  Action $action
@@ -107,9 +109,7 @@ class CompactIndexRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

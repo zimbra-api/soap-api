@@ -27,6 +27,7 @@ class CreateXMPPComponentResponse extends SoapResponse
 {
     /**
      * Information about the newly created XMPP component
+     * 
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentInfo")
@@ -35,7 +36,7 @@ class CreateXMPPComponentResponse extends SoapResponse
     private ?XMPPComponentInfo $component = NULL;
 
     /**
-     * Constructor method for CreateXMPPComponentResponse
+     * Constructor
      *
      * @param XMPPComponentInfo $component
      * @return self

@@ -32,6 +32,7 @@ class AddAccountLoggerRequest extends SoapRequest
 {
     /**
      * Logger category
+     * 
      * @Accessor(getter="getLogger", setter="setLogger")
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
@@ -41,6 +42,7 @@ class AddAccountLoggerRequest extends SoapRequest
 
     /**
      * Use to select account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -50,6 +52,7 @@ class AddAccountLoggerRequest extends SoapRequest
 
     /**
      * id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -58,7 +61,7 @@ class AddAccountLoggerRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for AddAccountLoggerRequest
+     * Constructor
      *
      * @param  Logger $logger
      * @param  Account $account
@@ -143,9 +146,7 @@ class AddAccountLoggerRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

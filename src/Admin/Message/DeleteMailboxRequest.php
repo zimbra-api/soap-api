@@ -31,6 +31,7 @@ class DeleteMailboxRequest extends SoapRequest
 {
     /**
      * Mailbox
+     * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
@@ -39,7 +40,7 @@ class DeleteMailboxRequest extends SoapRequest
     private ?Mailbox $mbox = NULL;
 
     /**
-     * Constructor method for DeleteMailboxRequest
+     * Constructor
      * 
      * @param  Mailbox $mbox
      * @return self
@@ -74,9 +75,7 @@ class DeleteMailboxRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

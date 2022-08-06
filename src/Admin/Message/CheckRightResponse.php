@@ -28,6 +28,7 @@ class CheckRightResponse extends SoapResponse
 {
     /**
      * Result of the CheckRightRequest
+     * 
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
@@ -37,6 +38,7 @@ class CheckRightResponse extends SoapResponse
 
     /**
      * Via information for the grant that decisively lead to the result
+     * 
      * @Accessor(getter="getVia", setter="setVia")
      * @SerializedName("via")
      * @Type("Zimbra\Admin\Struct\RightViaInfo")
@@ -45,7 +47,7 @@ class CheckRightResponse extends SoapResponse
     private ?RightViaInfo $via = NULL;
 
     /**
-     * Constructor method for CheckRightResponse
+     * Constructor
      *
      * @param bool $allow
      * @param RightViaInfo $via

@@ -45,7 +45,7 @@ class DedupeBlobsRequest extends SoapRequest
     private $volumes = [];
 
     /**
-     * Constructor method for DedupeBlobsRequest
+     * Constructor
      * 
      * @param  DedupAction $action
      * @param  array $volumes
@@ -114,9 +114,7 @@ class DedupeBlobsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

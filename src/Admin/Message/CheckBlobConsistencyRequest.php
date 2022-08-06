@@ -32,6 +32,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     /**
      * Set checkSize to 0 (false) to avoid the CPU overhead of uncompressing
      * compressed blobs in order to calculate size.
+     * 
      * @Accessor(getter="getCheckSize", setter="setCheckSize")
      * @SerializedName("checkSize")
      * @Type("bool")
@@ -41,6 +42,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
 
     /**
      * If set a complete list of all blobs used by the mailbox(es) is returned
+     * 
      * @Accessor(getter="getReportUsedBlobs", setter="setReportUsedBlobs")
      * @SerializedName("reportUsedBlobs")
      * @Type("bool")
@@ -67,7 +69,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     private $mailboxes = [];
 
     /**
-     * Constructor method for CheckBlobConsistencyRequest
+     * Constructor
      * 
      * @param  bool $checkSize
      * @param  bool $reportUsedBlobs
@@ -202,9 +204,7 @@ class CheckBlobConsistencyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

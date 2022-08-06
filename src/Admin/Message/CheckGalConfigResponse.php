@@ -27,6 +27,7 @@ class CheckGalConfigResponse extends SoapResponse
 {
     /**
      * Code
+     * 
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
@@ -36,6 +37,7 @@ class CheckGalConfigResponse extends SoapResponse
 
     /**
      * Message
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -45,6 +47,7 @@ class CheckGalConfigResponse extends SoapResponse
 
     /**
      * Information for GAL contacts
+     * 
      * @Accessor(getter="getGalContacts", setter="setGalContacts")
      * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
@@ -52,7 +55,7 @@ class CheckGalConfigResponse extends SoapResponse
     private $galContacts = [];
 
     /**
-     * Constructor method for CheckGalConfigResponse
+     * Constructor
      *
      * @param string $code
      * @param string $message

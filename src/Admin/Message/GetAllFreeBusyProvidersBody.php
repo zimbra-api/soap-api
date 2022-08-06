@@ -41,8 +41,10 @@ class GetAllFreeBusyProvidersBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllFreeBusyProvidersBody
+     * Constructor
      *
+     * @param GetAllFreeBusyProvidersRequest $request
+     * @param GetAllFreeBusyProvidersResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class GetAllFreeBusyProvidersBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllFreeBusyProvidersRequest) {
@@ -60,11 +65,17 @@ class GetAllFreeBusyProvidersBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllFreeBusyProvidersResponse) {
@@ -73,6 +84,9 @@ class GetAllFreeBusyProvidersBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

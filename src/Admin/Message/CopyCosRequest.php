@@ -28,6 +28,7 @@ class CopyCosRequest extends SoapRequest
 {
     /**
      * Destination name for COS
+     * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class CopyCosRequest extends SoapRequest
 
     /**
      * Source COS
+     * 
      * @Accessor(getter="getCos", setter="setCos")
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
@@ -45,7 +47,7 @@ class CopyCosRequest extends SoapRequest
     private ?CosSelector $cos = NULL;
 
     /**
-     * Constructor method for CopyCosRequest
+     * Constructor
      * 
      * @param  CosSelector $cos
      * @param  string $newName
@@ -106,9 +108,7 @@ class CopyCosRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -35,7 +35,7 @@ class CreateCalendarResourceResponse extends SoapResponse
     private ?CalendarResourceInfo $calResource = NULL;
 
     /**
-     * Constructor method for CreateCalendarResourceResponse
+     * Constructor
      *
      * @param CalendarResourceInfo $calResource
      * @return self

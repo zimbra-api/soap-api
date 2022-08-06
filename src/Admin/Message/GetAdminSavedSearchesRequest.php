@@ -29,6 +29,7 @@ class GetAdminSavedSearchesRequest extends SoapRequest
 {
     /**
      * Search information
+     * 
      * @Accessor(getter="getSearches", setter="setSearches")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
@@ -36,7 +37,7 @@ class GetAdminSavedSearchesRequest extends SoapRequest
     private $searches = [];
 
     /**
-     * Constructor method for GetAdminSavedSearchesRequest
+     * Constructor
      * 
      * @param array $searches
      * @return self
@@ -81,9 +82,7 @@ class GetAdminSavedSearchesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

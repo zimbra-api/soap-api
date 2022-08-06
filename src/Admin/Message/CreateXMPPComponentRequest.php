@@ -28,6 +28,7 @@ class CreateXMPPComponentRequest extends SoapRequest
 {
     /**
      * XMPP Component details
+     * 
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSpec")
@@ -36,7 +37,7 @@ class CreateXMPPComponentRequest extends SoapRequest
     private XMPPComponentSpec $component;
 
     /**
-     * Constructor method for CreateXMPPComponentRequest
+     * Constructor
      * 
      * @param XMPPComponentSpec $component
      * @return self
@@ -69,9 +70,7 @@ class CreateXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

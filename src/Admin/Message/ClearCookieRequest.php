@@ -28,6 +28,7 @@ class ClearCookieRequest extends SoapRequest
 {
     /**
      * Specifies cookies to clean
+     * 
      * @Accessor(getter="getCookies", setter="setCookies")
      * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
      * @XmlList(inline=true, entry="cookie", namespace="urn:zimbraAdmin")
@@ -35,7 +36,7 @@ class ClearCookieRequest extends SoapRequest
     private $cookies = [];
 
     /**
-     * Constructor method for ClearCookieRequest
+     * Constructor
      * 
      * @param array $cookies
      * @return self
@@ -80,9 +81,7 @@ class ClearCookieRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

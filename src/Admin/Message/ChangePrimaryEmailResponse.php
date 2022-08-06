@@ -27,6 +27,7 @@ class ChangePrimaryEmailResponse extends SoapResponse
 {
     /**
      * Information about account after rename
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
@@ -35,7 +36,7 @@ class ChangePrimaryEmailResponse extends SoapResponse
     private ?Account $account = NULL;
 
     /**
-     * Constructor method for ChangePrimaryEmailResponse
+     * Constructor
      *
      * @param Account $account
      * @return self

@@ -27,6 +27,7 @@ class DeleteDistributionListRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class DeleteDistributionListRequest extends SoapRequest
 
     /**
      * If true, cascade delete the hab-groups else return error
+     * 
      * @Accessor(getter="isCascadeDelete", setter="setCascadeDelete")
      * @SerializedName("cascadeDelete")
      * @Type("bool")
@@ -44,7 +46,7 @@ class DeleteDistributionListRequest extends SoapRequest
     private $cascadeDelete;
 
     /**
-     * Constructor method for DeleteDistributionListRequest
+     * Constructor
      * 
      * @param  string $id
      * @param  bool   $cascadeDelete
@@ -103,9 +105,7 @@ class DeleteDistributionListRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

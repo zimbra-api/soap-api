@@ -29,6 +29,7 @@ class GetAllAccountsRequest extends SoapRequest
 {
     /**
      * Server
+     * 
      * @Accessor(getter="getServer", setter="setServer")
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
@@ -38,6 +39,7 @@ class GetAllAccountsRequest extends SoapRequest
 
     /**
      * Domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
@@ -46,7 +48,7 @@ class GetAllAccountsRequest extends SoapRequest
     private ?Domain $domain = NULL;
 
     /**
-     * Constructor method for GetAllAccountsRequest
+     * Constructor
      * 
      * @param  Server $server
      * @param  Domain $domain
@@ -107,9 +109,7 @@ class GetAllAccountsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

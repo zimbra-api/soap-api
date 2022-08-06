@@ -41,15 +41,22 @@ class CreateUCServiceBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for CreateUCServiceBody
+     * Constructor
      *
+     * @param CreateUCServiceRequest $request
+     * @param CreateUCServiceResponse $response
      * @return self
      */
-    public function __construct(?CreateUCServiceRequest $request = NULL, ?CreateUCServiceResponse $response = NULL)
+    public function __construct(
+        ?CreateUCServiceRequest $request = NULL, ?CreateUCServiceResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof CreateUCServiceRequest) {
@@ -58,11 +65,17 @@ class CreateUCServiceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof CreateUCServiceResponse) {
@@ -71,6 +84,9 @@ class CreateUCServiceBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

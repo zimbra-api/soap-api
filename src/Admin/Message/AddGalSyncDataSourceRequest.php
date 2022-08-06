@@ -32,6 +32,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * The account
+     * 
      * @Accessor(getter="getAccount", setter="setAccount")
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
@@ -41,6 +42,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of the data source
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -50,6 +52,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of pre-existing domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
@@ -59,6 +62,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * GalMode type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
@@ -68,6 +72,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Contact folder name
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("string")
@@ -76,7 +81,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     private $folder;
 
     /**
-     * Constructor method for AddGalSyncDataSourceRequest
+     * Constructor
      * 
      * @param Account $account
      * @param string  $name
@@ -215,9 +220,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

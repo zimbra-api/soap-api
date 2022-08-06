@@ -27,6 +27,7 @@ class AddAccountAliasRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class AddAccountAliasRequest extends SoapRequest
 
     /**
      * Alias
+     * 
      * @Accessor(getter="getAlias", setter="setAlias")
      * @SerializedName("alias")
      * @Type("string")
@@ -44,7 +46,7 @@ class AddAccountAliasRequest extends SoapRequest
     private $alias;
 
     /**
-     * Constructor method for AddAccountAliasRequest
+     * Constructor
      *
      * @param  string $id
      * @param  string $alias
@@ -101,9 +103,7 @@ class AddAccountAliasRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -35,7 +35,7 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
     private $clusterList = [];
 
     /**
-     * Constructor method for GetAllAlwaysOnClustersResponse
+     * Constructor
      *
      * @param array $clusterList
      * @return self

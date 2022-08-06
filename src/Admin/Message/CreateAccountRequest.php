@@ -34,6 +34,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New account's name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -43,6 +44,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New account's password
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
@@ -51,7 +53,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
     private $password;
 
     /**
-     * Constructor method for CreateAccountRequest
+     * Constructor
      * 
      * @param string $name
      * @param string $password
@@ -114,9 +116,7 @@ class CreateAccountRequest extends SoapRequest implements AdminAttrs
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

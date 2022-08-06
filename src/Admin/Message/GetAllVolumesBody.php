@@ -41,15 +41,22 @@ class GetAllVolumesBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetAllVolumesBody
+     * Constructor
      *
+     * @param GetAllVolumesRequest $request
+     * @param GetAllVolumesResponse $response
      * @return self
      */
-    public function __construct(?GetAllVolumesRequest $request = NULL, ?GetAllVolumesResponse $response = NULL)
+    public function __construct(
+        ?GetAllVolumesRequest $request = NULL, ?GetAllVolumesResponse $response = NULL
+    )
     {
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetAllVolumesRequest) {
@@ -58,11 +65,17 @@ class GetAllVolumesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetAllVolumesResponse) {
@@ -71,6 +84,9 @@ class GetAllVolumesBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

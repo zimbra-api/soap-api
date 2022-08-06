@@ -35,7 +35,7 @@ class CreateUCServiceResponse extends SoapResponse
     private ?UCServiceInfo $ucService = NULL;
 
     /**
-     * Constructor method for CreateUCServiceResponse
+     * Constructor
      *
      * @param UCServiceInfo $ucService
      * @return self

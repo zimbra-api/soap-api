@@ -28,6 +28,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
 {
     /**
      * XMPP Component details
+     * 
      * @Accessor(getter="getComponent", setter="setComponent")
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
@@ -36,7 +37,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
     private ?Component $component = NULL;
 
     /**
-     * Constructor method for DeleteXMPPComponentRequest
+     * Constructor
      * 
      * @param  Component $component
      * @return self
@@ -71,9 +72,7 @@ class DeleteXMPPComponentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

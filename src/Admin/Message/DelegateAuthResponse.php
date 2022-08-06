@@ -26,6 +26,7 @@ class DelegateAuthResponse extends SoapResponse
 {
     /**
      * Auth token
+     * 
      * @Accessor(getter="getAuthToken", setter="setAuthToken")
      * @SerializedName("authToken")
      * @Type("string")
@@ -35,6 +36,7 @@ class DelegateAuthResponse extends SoapResponse
 
     /**
      * Life time for the authorization
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("int")
@@ -43,7 +45,7 @@ class DelegateAuthResponse extends SoapResponse
     private $lifetime;
 
     /**
-     * Constructor method for DelegateAuthResponse
+     * Constructor
      *
      * @param string $authToken
      * @param int    $lifetime

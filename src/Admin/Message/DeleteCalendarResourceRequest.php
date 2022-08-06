@@ -29,6 +29,7 @@ class DeleteCalendarResourceRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,7 +38,7 @@ class DeleteCalendarResourceRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for DeleteCalendarResourceRequest
+     * Constructor
      * 
      * @param  string $id
      * @return self
@@ -70,9 +71,7 @@ class DeleteCalendarResourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class ConfigureZimletRequest extends SoapRequest
 {
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
@@ -36,7 +37,7 @@ class ConfigureZimletRequest extends SoapRequest
     private AttachmentIdAttrib $content;
 
     /**
-     * Constructor method for ConfigureZimletRequest
+     * Constructor
      * 
      * @param  AttachmentIdAttrib $content
      * @return self
@@ -69,9 +70,7 @@ class ConfigureZimletRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

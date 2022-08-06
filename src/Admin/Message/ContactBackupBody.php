@@ -41,8 +41,10 @@ class ContactBackupBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ContactBackupBody
+     * Constructor
      *
+     * @param ContactBackupRequest $request
+     * @param ContactBackupResponse $response
      * @return self
      */
     public function __construct(?ContactBackupRequest $request = NULL, ?ContactBackupResponse $response = NULL)
@@ -50,6 +52,9 @@ class ContactBackupBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ContactBackupRequest) {
@@ -58,11 +63,17 @@ class ContactBackupBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ContactBackupResponse) {
@@ -71,6 +82,9 @@ class ContactBackupBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

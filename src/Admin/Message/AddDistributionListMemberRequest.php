@@ -27,6 +27,7 @@ class AddDistributionListMemberRequest extends SoapRequest
 {
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -44,7 +45,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     private $members = [];
 
     /**
-     * Constructor method for AddDistributionListMemberRequest
+     * Constructor
      *
      * @param  string $id
      * @param  array  $members
@@ -116,9 +117,7 @@ class AddDistributionListMemberRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
