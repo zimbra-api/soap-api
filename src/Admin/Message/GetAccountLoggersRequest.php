@@ -50,17 +50,17 @@ class GetAccountLoggersRequest extends SoapRequest
     /**
      * Constructor
      * 
-     * @param  AccountSelector $account
      * @param  string $id
+     * @param  AccountSelector $account
      * @return self
      */
-    public function __construct(?AccountSelector $account = NULL, ?string $id = NULL)
+    public function __construct(?string $id = NULL, ?AccountSelector $account = NULL)
     {
-        if ($account instanceof AccountSelector) {
-            $this->setAccount($account);
-        }
         if (NULL !== $id) {
             $this->setId($id);
+        }
+        if ($account instanceof AccountSelector) {
+            $this->setAccount($account);
         }
     }
 
