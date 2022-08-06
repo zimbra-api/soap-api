@@ -23,7 +23,7 @@ class GetAccountLoggersTest extends ZimbraTestCase
         $account = new AccountSelector(AccountBy::NAME(), $value);
         $logger = new LoggerInfo($category, LoggingLevel::INFO());
 
-        $request = new GetAccountLoggersRequest($id, $account);
+        $request = new GetAccountLoggersRequest($account, $id);
         $this->assertSame($id, $request->getId());
         $this->assertSame($account, $request->getAccount());
         $request = new GetAccountLoggersRequest();
