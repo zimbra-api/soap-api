@@ -35,8 +35,10 @@ class EmptyDumpsterEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for EmptyDumpsterEnvelope
+     * Constructor
      *
+     * @param  EmptyDumpsterBody $body
+     * @param  SoapHeaderInterface $header
      * @return self
      */
     public function __construct(?EmptyDumpsterBody $body = NULL, ?SoapHeaderInterface $header = NULL)
@@ -45,9 +47,8 @@ class EmptyDumpsterEnvelope extends SoapEnvelope
     }
 
     /**
-     * Get soap message body
-     *
-     * @return SoapBodyInterface
+    /**
+     * {@inheritdoc}
      */
     public function getBody(): ?SoapBodyInterface
     {
@@ -55,10 +56,7 @@ class EmptyDumpsterEnvelope extends SoapEnvelope
     }
 
     /**
-     * Set soap message body
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
+     * {@inheritdoc}
      */
     public function setBody(SoapBodyInterface $body): self
     {
