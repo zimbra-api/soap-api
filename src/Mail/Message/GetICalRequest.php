@@ -30,6 +30,7 @@ class GetICalRequest extends SoapRequest
 {
     /**
      * If specified, gets the iCalendar representation for one invite
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -39,6 +40,7 @@ class GetICalRequest extends SoapRequest
 
     /**
      * Range start in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -48,6 +50,7 @@ class GetICalRequest extends SoapRequest
 
     /**
      * Range end in milliseconds
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -56,7 +59,7 @@ class GetICalRequest extends SoapRequest
     private $endTime;
 
     /**
-     * Constructor method for GetICalRequest
+     * Constructor
      *
      * @param  string $id
      * @param  int $startTime
@@ -147,9 +150,7 @@ class GetICalRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

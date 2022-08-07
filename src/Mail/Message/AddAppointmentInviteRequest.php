@@ -35,7 +35,7 @@ class AddAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Constructor method for AddAppointmentInviteRequest
+     * Constructor
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg
@@ -49,9 +49,7 @@ class AddAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

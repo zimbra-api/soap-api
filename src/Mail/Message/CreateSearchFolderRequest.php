@@ -28,6 +28,7 @@ class CreateSearchFolderRequest extends SoapRequest
 {
     /**
      * New Search Folder specification
+     * 
      * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\NewSearchFolderSpec")
@@ -36,7 +37,7 @@ class CreateSearchFolderRequest extends SoapRequest
     private NewSearchFolderSpec $searchFolder;
 
     /**
-     * Constructor method for CreateSearchFolderRequest
+     * Constructor
      *
      * @param  NewSearchFolderSpec $searchFolder
      * @return self
@@ -69,9 +70,7 @@ class CreateSearchFolderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

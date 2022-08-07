@@ -156,7 +156,7 @@ class GetContactsRequest extends SoapRequest
     private $contacts = [];
 
     /**
-     * Constructor method for GetContactsRequest
+     * Constructor
      *
      * @param  bool $sync
      * @param  string $folderId
@@ -520,9 +520,7 @@ class GetContactsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

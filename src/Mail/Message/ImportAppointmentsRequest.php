@@ -58,7 +58,7 @@ class ImportAppointmentsRequest extends SoapRequest
     private ContentSpec $content;
 
     /**
-     * Constructor method for ImportAppointmentsRequest
+     * Constructor
      *
      * @param  ContentSpec $content
      * @param  string $contentType
@@ -146,9 +146,7 @@ class ImportAppointmentsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

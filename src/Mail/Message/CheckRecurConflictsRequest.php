@@ -122,7 +122,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     private $freebusyUsers = [];
 
     /**
-     * Constructor method for CheckRecurConflictsRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -430,9 +430,7 @@ class CheckRecurConflictsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

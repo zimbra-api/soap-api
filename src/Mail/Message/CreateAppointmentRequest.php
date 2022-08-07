@@ -27,9 +27,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 class CreateAppointmentRequest extends CalItemRequestBase
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

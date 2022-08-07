@@ -37,7 +37,7 @@ class PurgeRevisionRequest extends SoapRequest
     private PurgeRevisionSpec $revision;
 
     /**
-     * Constructor method for PurgeRevisionRequest
+     * Constructor
      *
      * @param  PurgeRevisionSpec $revision
      * @return self
@@ -70,9 +70,7 @@ class PurgeRevisionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

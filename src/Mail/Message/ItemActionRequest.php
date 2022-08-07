@@ -37,7 +37,7 @@ class ItemActionRequest extends SoapRequest
     private ActionSelector $action;
 
     /**
-     * Constructor method for ItemActionRequest
+     * Constructor
      *
      * @param  ActionSelector $action
      * @return self
@@ -70,9 +70,7 @@ class ItemActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

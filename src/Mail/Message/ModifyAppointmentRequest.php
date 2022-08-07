@@ -73,7 +73,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     private $revision;
 
     /**
-     * Constructor method for ModifyAppointmentRequest
+     * Constructor
      *
      * @param  string $id
      * @param  int $componentNum
@@ -211,9 +211,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

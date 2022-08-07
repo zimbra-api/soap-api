@@ -62,7 +62,7 @@ class SaveDocumentRequest extends SoapRequest
     private DocumentSpec $doc;
 
     /**
-     * Constructor method for SaveDocumentRequest
+     * Constructor
      *
      * @param  DocumentSpec $doc
      * @return self
@@ -95,9 +95,7 @@ class SaveDocumentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

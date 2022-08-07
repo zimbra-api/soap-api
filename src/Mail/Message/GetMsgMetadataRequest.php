@@ -28,6 +28,7 @@ class GetMsgMetadataRequest extends SoapRequest
 {
     /**
      * Messages selector
+     * 
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
@@ -36,7 +37,7 @@ class GetMsgMetadataRequest extends SoapRequest
     private IdsAttr $msgIds;
 
     /**
-     * Constructor method for GetMsgMetadataRequest
+     * Constructor
      *
      * @param  IdsAttr $msgIds
      * @return self
@@ -69,9 +70,7 @@ class GetMsgMetadataRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

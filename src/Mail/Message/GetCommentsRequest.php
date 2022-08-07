@@ -28,6 +28,7 @@ class GetCommentsRequest extends SoapRequest
 {
     /**
      * Select parent for comments
+     * 
      * @Accessor(getter="getComment", setter="setComment")
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\ParentId")
@@ -36,7 +37,7 @@ class GetCommentsRequest extends SoapRequest
     private ParentId $comment;
 
     /**
-     * Constructor method for GetCommentsRequest
+     * Constructor
      *
      * @param  ParentId $comment
      * @return self
@@ -69,9 +70,7 @@ class GetCommentsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

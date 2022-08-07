@@ -118,7 +118,7 @@ class CreateDataSourceRequest extends SoapRequest
     private ?MailUnknownDataSource $unknownDataSource = NULL;
 
     /**
-     * Constructor method for CreateDataSourceRequest
+     * Constructor
      *
      * @param  MailDataSource $dataSource
      * @return self
@@ -254,9 +254,7 @@ class CreateDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

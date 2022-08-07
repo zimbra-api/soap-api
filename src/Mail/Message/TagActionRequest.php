@@ -40,7 +40,7 @@ class TagActionRequest extends SoapRequest
     private TagActionSelector $action;
 
     /**
-     * Constructor method for TagActionRequest
+     * Constructor
      *
      * @param  TagActionSelector $action
      * @return self
@@ -73,9 +73,7 @@ class TagActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

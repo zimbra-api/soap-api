@@ -35,7 +35,7 @@ class RankingActionRequest extends SoapRequest
     private RankingActionSpec $action;
 
     /**
-     * Constructor method for RankingActionRequest
+     * Constructor
      *
      * @param  RankingActionSpec $action
      * @return self
@@ -68,9 +68,7 @@ class RankingActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -105,7 +105,7 @@ class SyncRequest extends SoapRequest
     private $changeLimit;
 
     /**
-     * Constructor method for AutoCompleteRequest
+     * Constructor
      *
      * @param  string $token
      * @param  int $calendarCutoff
@@ -304,9 +304,7 @@ class SyncRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

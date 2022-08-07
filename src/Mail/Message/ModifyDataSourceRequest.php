@@ -120,7 +120,7 @@ class ModifyDataSourceRequest extends SoapRequest
     private ?MailUnknownDataSource $unknownDataSource = NULL;
 
     /**
-     * Constructor method for ModifyDataSourceRequest
+     * Constructor
      *
      * @param  MailDataSource $dataSource
      * @return self
@@ -256,9 +256,7 @@ class ModifyDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -48,7 +48,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for ForwardAppointmentInviteRequest
+     * Constructor
      *
      * @param  string $id
      * @param  Msg $msg
@@ -109,9 +109,7 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

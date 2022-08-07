@@ -40,7 +40,7 @@ class MsgActionRequest extends SoapRequest
     private ActionSelector $action;
 
     /**
-     * Constructor method for MsgActionRequest
+     * Constructor
      *
      * @param  ActionSelector $action
      * @return self
@@ -73,9 +73,7 @@ class MsgActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

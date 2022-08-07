@@ -29,6 +29,7 @@ class AddMsgRequest extends SoapRequest
     /**
      * If set, then do outgoing message filtering if the msg is being added to the Sent
      * folder and has been flagged as sent. Default is unset.
+     * 
      * @Accessor(getter="getFilterSent", setter="setFilterSent")
      * @SerializedName("filterSent")
      * @Type("bool")
@@ -38,6 +39,7 @@ class AddMsgRequest extends SoapRequest
 
     /**
      * Specification of the message to add
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\AddMsgSpec")
@@ -46,7 +48,7 @@ class AddMsgRequest extends SoapRequest
     private AddMsgSpec $msg;
 
     /**
-     * Constructor method for AddMsgRequest
+     * Constructor
      *
      * @param  AddMsgSpec $msg
      * @param  bool $filterSent
@@ -105,9 +107,7 @@ class AddMsgRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

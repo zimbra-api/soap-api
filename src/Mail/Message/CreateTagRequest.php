@@ -28,6 +28,7 @@ class CreateTagRequest extends SoapRequest
 {
     /**
      * Tag specification
+     * 
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagSpec")
@@ -36,7 +37,7 @@ class CreateTagRequest extends SoapRequest
     private ?TagSpec $tag = NULL;
 
     /**
-     * Constructor method for CreateTagRequest
+     * Constructor
      *
      * @param  TagSpec $tag
      * @return self
@@ -71,9 +72,7 @@ class CreateTagRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

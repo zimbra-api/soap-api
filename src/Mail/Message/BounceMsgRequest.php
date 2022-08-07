@@ -33,6 +33,7 @@ class BounceMsgRequest extends SoapRequest
 {
     /**
      * Specification of message to be resent
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\BounceMsgSpec")
@@ -41,7 +42,7 @@ class BounceMsgRequest extends SoapRequest
     private BounceMsgSpec $msg;
 
     /**
-     * Constructor method for BounceMsgRequest
+     * Constructor
      *
      * @param  BounceMsgSpec $msg
      * @return self
@@ -74,9 +75,7 @@ class BounceMsgRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

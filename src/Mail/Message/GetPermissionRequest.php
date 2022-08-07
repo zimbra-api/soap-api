@@ -39,7 +39,7 @@ class GetPermissionRequest extends SoapRequest
     private $aces = [];
 
     /**
-     * Constructor method for GetPermissionRequest
+     * Constructor
      *
      * @param  array $aces
      * @return self
@@ -84,9 +84,7 @@ class GetPermissionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class GetCustomMetadataRequest extends SoapRequest
 {
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,6 +38,7 @@ class GetCustomMetadataRequest extends SoapRequest
 
     /**
      * Metadata section selector
+     * 
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Common\Struct\SectionAttr")
@@ -45,7 +47,7 @@ class GetCustomMetadataRequest extends SoapRequest
     private SectionAttr $metadata;
 
     /**
-     * Constructor method for GetCustomMetadataRequest
+     * Constructor
      *
      * @param  SectionAttr $metadata
      * @param  string $id
@@ -106,9 +108,7 @@ class GetCustomMetadataRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

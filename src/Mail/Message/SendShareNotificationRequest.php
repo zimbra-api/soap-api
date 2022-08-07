@@ -72,7 +72,7 @@ class SendShareNotificationRequest extends SoapRequest
     private $notes;
 
     /**
-     * Constructor method for SendShareNotificationRequest
+     * Constructor
      * 
      * @param Id $item
      * @param array $emailAddresses
@@ -195,9 +195,7 @@ class SendShareNotificationRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

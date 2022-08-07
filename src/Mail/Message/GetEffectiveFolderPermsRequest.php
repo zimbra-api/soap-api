@@ -28,6 +28,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
 {
     /**
      * Folder specification
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\FolderSpec")
@@ -36,7 +37,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     private FolderSpec $folder;
 
     /**
-     * Constructor method for GetEffectiveFolderPermsRequest
+     * Constructor
      *
      * @param  FolderSpec $folder
      * @return self
@@ -69,9 +70,7 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

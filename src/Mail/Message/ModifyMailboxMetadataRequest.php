@@ -41,7 +41,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
     private ?MailCustomMetadata $metadata = NULL;
 
     /**
-     * Constructor method for ModifyMailboxMetadataRequest
+     * Constructor
      *
      * @param  MailCustomMetadata $metadata
      * @return self
@@ -76,9 +76,7 @@ class ModifyMailboxMetadataRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

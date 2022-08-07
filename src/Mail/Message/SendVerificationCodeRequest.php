@@ -36,7 +36,7 @@ class SendVerificationCodeRequest extends SoapRequest
     private $address;
 
     /**
-     * Constructor method for SendVerificationCodeRequest
+     * Constructor
      *
      * @param  string $address
      * @return self
@@ -71,9 +71,7 @@ class SendVerificationCodeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

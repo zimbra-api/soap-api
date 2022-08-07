@@ -46,7 +46,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     private $modSeq;
 
     /**
-     * Constructor method for GetModifiedItemsIDsRequest
+     * Constructor
      *
      * @param  int $folderId
      * @param  int $modSeq
@@ -103,9 +103,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

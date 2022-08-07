@@ -36,7 +36,7 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for AnnounceOrganizerChangeRequest
+     * Constructor
      *
      * @param  string $id
      * @return self
@@ -69,9 +69,7 @@ class AnnounceOrganizerChangeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

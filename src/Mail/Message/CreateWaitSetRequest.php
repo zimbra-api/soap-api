@@ -77,7 +77,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     private $accounts = [];
 
     /**
-     * Constructor method for CreateWaitSetRequest
+     * Constructor
      *
      * @param  string $defaultInterests
      * @param  bool $allAccounts
@@ -175,9 +175,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -44,6 +44,7 @@ class ApplyFilterRulesRequest extends SoapRequest
 
     /**
      * Comma-separated list of message IDs
+     * 
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
@@ -53,6 +54,7 @@ class ApplyFilterRulesRequest extends SoapRequest
 
     /**
      * Query string
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -61,7 +63,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     private $query;
 
     /**
-     * Constructor method for ApplyFilterRulesRequest
+     * Constructor
      *
      * @param  array $filterRules
      * @param  IdsAttr $msgIds
@@ -160,9 +162,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

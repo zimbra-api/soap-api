@@ -80,7 +80,7 @@ class ImportContactsRequest extends SoapRequest
     private Content $content;
 
     /**
-     * Constructor method for ImportContactsRequest
+     * Constructor
      *
      * @param  Content $content
      * @param  string $contentType
@@ -221,9 +221,7 @@ class ImportContactsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

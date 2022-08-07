@@ -28,6 +28,7 @@ class ContactActionRequest extends SoapRequest
 {
     /**
      * Contact action selector
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ContactActionSelector")
@@ -36,7 +37,7 @@ class ContactActionRequest extends SoapRequest
     private ContactActionSelector $action;
 
     /**
-     * Constructor method for ContactActionRequest
+     * Constructor
      *
      * @param  ContactActionSelector $action
      * @return self
@@ -69,9 +70,7 @@ class ContactActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

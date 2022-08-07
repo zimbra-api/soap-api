@@ -38,7 +38,7 @@ class ModifyOutgoingFilterRulesRequest extends SoapRequest
     private $filterRules = [];
 
     /**
-     * Constructor method for ModifyOutgoingFilterRulesRequest
+     * Constructor
      *
      * @param  array $filterRules
      * @return self
@@ -85,9 +85,7 @@ class ModifyOutgoingFilterRulesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

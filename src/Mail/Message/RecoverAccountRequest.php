@@ -57,7 +57,7 @@ class RecoverAccountRequest extends SoapRequest
     private ?Channel $channel = NULL;
 
     /**
-     * Constructor method for RecoverAccountRequest
+     * Constructor
      *
      * @param  string $email
      * @param  RecoverAccountOperation $op
@@ -144,9 +144,7 @@ class RecoverAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

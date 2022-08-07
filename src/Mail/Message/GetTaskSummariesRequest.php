@@ -56,7 +56,7 @@ class GetTaskSummariesRequest extends SoapRequest
     private $folderId;
 
     /**
-     * Constructor method for GetTaskSummariesRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -143,9 +143,7 @@ class GetTaskSummariesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

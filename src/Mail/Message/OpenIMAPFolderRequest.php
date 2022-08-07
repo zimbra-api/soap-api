@@ -56,7 +56,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     private ?ImapCursorInfo $cursor = NULL;
 
     /**
-     * Constructor method for OpenIMAPFolderRequest
+     * Constructor
      *
      * @param  string $folderId
      * @param  int $limit
@@ -143,9 +143,7 @@ class OpenIMAPFolderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

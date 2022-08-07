@@ -29,6 +29,7 @@ class CheckPermissionRequest extends SoapRequest
 {
     /**
      * Target specification
+     * 
      * @Accessor(getter="getTarget", setter="setTarget")
      * @SerializedName("target")
      * @Type("Zimbra\Mail\Struct\TargetSpec")
@@ -46,7 +47,7 @@ class CheckPermissionRequest extends SoapRequest
     private $rights = [];
 
     /**
-     * Constructor method for CheckPermissionRequest
+     * Constructor
      *
      * @param  TargetSpec $target
      * @param  array $rights
@@ -123,9 +124,7 @@ class CheckPermissionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

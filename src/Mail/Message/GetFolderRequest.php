@@ -35,6 +35,7 @@ class GetFolderRequest extends SoapRequest
 {
     /**
      * If set we include all visible subfolders of the specified folder.
+     * 
      * @Accessor(getter="isVisible", setter="setVisible")
      * @SerializedName("visible")
      * @Type("bool")
@@ -43,7 +44,8 @@ class GetFolderRequest extends SoapRequest
     private $isVisible;
 
     /**
-     * If set then grantee names are supplied in the <b>d</b> attribute in <b>&lt;grant></b>.
+     * If set then grantee names are supplied in the "d" attribute in <grant>.
+     * 
      * @Accessor(getter="isNeedGranteeName", setter="setNeedGranteeName")
      * @SerializedName("needGranteeName")
      * @Type("bool")
@@ -54,6 +56,7 @@ class GetFolderRequest extends SoapRequest
     /**
      * If "view" is set then only the folders with matching view will be returned.
      * Otherwise folders with any default views will be returned.
+     * 
      * @Accessor(getter="getViewConstraint", setter="setViewConstraint")
      * @SerializedName("view")
      * @Type("string")
@@ -65,6 +68,7 @@ class GetFolderRequest extends SoapRequest
      * If "depth" is set to a non-negative number, we include that many levels of
      * subfolders in the response.  (so if depth="1", we'll include only the folder and its direct subfolders)
      * If depth is missing or negative, the entire folder hierarchy is returned
+     * 
      * @Accessor(getter="getTreeDepth", setter="setTreeDepth")
      * @SerializedName("depth")
      * @Type("integer")
@@ -77,6 +81,7 @@ class GetFolderRequest extends SoapRequest
      * applied to the local mountpoint.  if the root folder as referenced by <b>{base-folder-id}</b> and/or
      * {fully-qualified-path} is a mountpoint, "tr" is regarded as being automatically set.
      * Mountpoints under mountpoints are not themselves expanded.
+     * 
      * @Accessor(getter="isTraverseMountpoints", setter="setTraverseMountpoints")
      * @SerializedName("tr")
      * @Type("bool")
@@ -86,6 +91,7 @@ class GetFolderRequest extends SoapRequest
 
     /**
      * Folder specification
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\GetFolderSpec")
@@ -94,7 +100,7 @@ class GetFolderRequest extends SoapRequest
     private ?GetFolderSpec $folder = NULL;
 
     /**
-     * Constructor method for GetFolderRequest
+     * Constructor
      *
      * @param  GetFolderSpec $folder
      * @param  bool $isVisible
@@ -266,9 +272,7 @@ class GetFolderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

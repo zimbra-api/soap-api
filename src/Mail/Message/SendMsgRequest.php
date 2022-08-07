@@ -118,7 +118,7 @@ class SendMsgRequest extends SoapRequest
     private $deliveryReport;
 
     /**
-     * Constructor method for SendMsgRequest
+     * Constructor
      * 
      * @param MsgToSend $msg
      * @param bool $needCalendarSentbyFixup
@@ -315,9 +315,7 @@ class SendMsgRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

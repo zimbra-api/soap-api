@@ -37,7 +37,7 @@ class AddCommentRequest extends SoapRequest
     private AddedComment $comment;
 
     /**
-     * Constructor method for AddCommentRequest
+     * Constructor
      *
      * @param  AddedComment $comment
      * @return self
@@ -70,9 +70,7 @@ class AddCommentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

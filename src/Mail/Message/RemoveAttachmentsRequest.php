@@ -38,7 +38,7 @@ class RemoveAttachmentsRequest extends SoapRequest
     private MsgPartIds $msg;
 
     /**
-     * Constructor method for RemoveAttachmentsRequest
+     * Constructor
      *
      * @param  MsgPartIds $msg
      * @return self
@@ -71,9 +71,7 @@ class RemoveAttachmentsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

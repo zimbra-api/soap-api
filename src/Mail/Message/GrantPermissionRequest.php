@@ -38,7 +38,7 @@ class GrantPermissionRequest extends SoapRequest
     private $aces = [];
 
     /**
-     * Constructor method for GrantPermissionRequest
+     * Constructor
      *
      * @param  array $aces
      * @return self
@@ -83,9 +83,7 @@ class GrantPermissionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -34,6 +34,7 @@ class ExpandRecurRequest extends SoapRequest
 {
     /**
      * Start time in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -43,6 +44,7 @@ class ExpandRecurRequest extends SoapRequest
 
     /**
      * End time in milliseconds
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -52,6 +54,7 @@ class ExpandRecurRequest extends SoapRequest
 
     /**
      * Timezone definitions
+     * 
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
@@ -86,7 +89,7 @@ class ExpandRecurRequest extends SoapRequest
     private $cancelComponents = [];
 
     /**
-     * Constructor method for ExpandRecurRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -299,9 +302,7 @@ class ExpandRecurRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

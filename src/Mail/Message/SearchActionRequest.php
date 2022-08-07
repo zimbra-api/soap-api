@@ -46,7 +46,7 @@ class SearchActionRequest extends SoapRequest
     private BulkAction $bulkAction;
 
     /**
-     * Constructor method for SearchActionRequest
+     * Constructor
      *
      * @param  SearchRequest $searchRequest
      * @param  BulkAction $bulkAction
@@ -103,9 +103,7 @@ class SearchActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

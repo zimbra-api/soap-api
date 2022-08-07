@@ -58,7 +58,7 @@ class IMAPCopyRequest extends SoapRequest
     private $folder;
 
     /**
-     * Constructor method for IMAPCopyRequest
+     * Constructor
      *
      * @param  string $ids
      * @param  MailItemType $type
@@ -143,9 +143,7 @@ class IMAPCopyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

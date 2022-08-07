@@ -28,6 +28,7 @@ class BrowseRequest extends SoapRequest
 {
     /**
      * Browse by setting - domains|attachments|objects
+     * 
      * @Accessor(getter="getBrowseBy", setter="setBrowseBy")
      * @SerializedName("browseBy")
      * @Type("Enum<Zimbra\Common\Enum\BrowseBy>")
@@ -37,6 +38,7 @@ class BrowseRequest extends SoapRequest
 
     /**
      * Regex string.  Return only those results which match the specified regular expression
+     * 
      * @Accessor(getter="getRegex", setter="setRegex")
      * @SerializedName("regex")
      * @Type("string")
@@ -46,6 +48,7 @@ class BrowseRequest extends SoapRequest
 
     /**
      * Return only a maximum number of entries as requested
+     * 
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("maxToReturn")
      * @Type("integer")
@@ -54,7 +57,7 @@ class BrowseRequest extends SoapRequest
     private $max;
 
     /**
-     * Constructor method for BrowseRequest
+     * Constructor
      *
      * @param  BrowseBy $browseBy
      * @param  string $regex
@@ -141,9 +144,7 @@ class BrowseRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

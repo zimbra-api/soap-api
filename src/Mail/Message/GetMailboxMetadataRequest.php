@@ -28,6 +28,7 @@ class GetMailboxMetadataRequest extends SoapRequest
 {
     /**
      * Metadata section specification
+     * 
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Common\Struct\SectionAttr")
@@ -36,7 +37,7 @@ class GetMailboxMetadataRequest extends SoapRequest
     private SectionAttr $metadata;
 
     /**
-     * Constructor method for GetMailboxMetadataRequest
+     * Constructor
      *
      * @param  SectionAttr $metadata
      * @return self
@@ -69,9 +70,7 @@ class GetMailboxMetadataRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

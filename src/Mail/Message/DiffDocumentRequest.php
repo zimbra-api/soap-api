@@ -39,7 +39,7 @@ class DiffDocumentRequest extends SoapRequest
     private ?DiffDocumentVersionSpec $doc = NULL;
 
     /**
-     * Constructor method for DiffDocumentRequest
+     * Constructor
      *
      * @param  DiffDocumentVersionSpec $doc
      * @return self
@@ -74,9 +74,7 @@ class DiffDocumentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -51,7 +51,7 @@ class RestoreContactsRequest extends SoapRequest
     private ?RestoreResolve $resolve = NULL;
 
     /**
-     * Constructor method for RestoreContactsRequest
+     * Constructor
      *
      * @param  string $fileName
      * @param  RestoreResolve $resolve
@@ -113,9 +113,7 @@ class RestoreContactsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

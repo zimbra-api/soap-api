@@ -35,7 +35,7 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
     private $subscriptions = [];
 
     /**
-     * Constructor method for SaveIMAPSubscriptionsRequest
+     * Constructor
      *
      * @param  array $subscriptions
      * @return self
@@ -83,9 +83,7 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

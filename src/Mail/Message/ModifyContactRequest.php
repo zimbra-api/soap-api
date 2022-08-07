@@ -82,7 +82,7 @@ class ModifyContactRequest extends SoapRequest
     private ModifyContactSpec $contact;
 
     /**
-     * Constructor method for ModifyContactRequest
+     * Constructor
      *
      * @param  ModifyContactSpec $contact
      * @param  bool $replace
@@ -225,9 +225,7 @@ class ModifyContactRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

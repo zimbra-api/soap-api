@@ -31,6 +31,7 @@ class GetMiniCalRequest extends SoapRequest
 {
     /**
      * Range start time in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -40,6 +41,7 @@ class GetMiniCalRequest extends SoapRequest
 
     /**
      * Range end time in milliseconds
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -68,7 +70,7 @@ class GetMiniCalRequest extends SoapRequest
     private ?CalTZInfo $timezone = NULL;
 
     /**
-     * Constructor method for GetMiniCalRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -192,9 +194,7 @@ class GetMiniCalRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

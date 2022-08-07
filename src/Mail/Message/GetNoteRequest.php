@@ -37,7 +37,7 @@ class GetNoteRequest extends SoapRequest
     private Id $note;
 
     /**
-     * Constructor method for GetNoteRequest
+     * Constructor
      *
      * @param  Id $note
      * @return self
@@ -70,9 +70,7 @@ class GetNoteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

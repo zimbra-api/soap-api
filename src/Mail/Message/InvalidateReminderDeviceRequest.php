@@ -36,7 +36,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
     private $address;
 
     /**
-     * Constructor method for InvalidateReminderDeviceRequest
+     * Constructor
      *
      * @param  string $address
      * @return self
@@ -69,9 +69,7 @@ class InvalidateReminderDeviceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

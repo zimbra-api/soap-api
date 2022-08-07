@@ -37,7 +37,7 @@ class GetMsgRequest extends SoapRequest
     private MsgSpec $msg;
 
     /**
-     * Constructor method for GetMsgRequest
+     * Constructor
      *
      * @param  MsgSpec $msg
      * @return self
@@ -70,9 +70,7 @@ class GetMsgRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

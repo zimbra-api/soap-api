@@ -45,7 +45,7 @@ class ModifyProfileImageRequest extends SoapRequest
     private $imageB64Data;
 
     /**
-     * Constructor method for ModifyProfileImageRequest
+     * Constructor
      *
      * @param  string $uploadId
      * @param  string $imageB64Data
@@ -108,9 +108,7 @@ class ModifyProfileImageRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

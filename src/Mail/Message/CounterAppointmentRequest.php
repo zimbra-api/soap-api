@@ -53,6 +53,7 @@ class CounterAppointmentRequest extends SoapRequest
      * Used for conflict detection.  By setting this, the request indicates which version of the appointment it is
      * attempting to propose.  If the appointment was updated on the server between the fetch and modify, an
      * INVITE_OUT_OF_DATE exception will be thrown.
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -81,7 +82,7 @@ class CounterAppointmentRequest extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for CounterAppointmentRequest
+     * Constructor
      *
      * @param  string $id
      * @param  int $componentNum
@@ -226,9 +227,7 @@ class CounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

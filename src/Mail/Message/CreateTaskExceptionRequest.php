@@ -26,9 +26,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 class CreateTaskExceptionRequest extends CreateAppointmentExceptionRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

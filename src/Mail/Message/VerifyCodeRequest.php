@@ -47,7 +47,7 @@ class VerifyCodeRequest extends SoapRequest
     private $verificationCode;
 
     /**
-     * Constructor method for VerifyCodeRequest
+     * Constructor
      *
      * @param  string $address
      * @param  string $verificationCode
@@ -110,9 +110,7 @@ class VerifyCodeRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

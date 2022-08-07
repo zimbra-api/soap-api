@@ -150,7 +150,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     private $removeAccounts = [];
 
     /**
-     * Constructor method for WaitSetRequest
+     * Constructor
      *
      * @param  string $waitSetId
      * @param  string $lastKnownSeqNo
@@ -430,9 +430,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

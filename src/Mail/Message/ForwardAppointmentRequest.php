@@ -67,7 +67,7 @@ class ForwardAppointmentRequest extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for ForwardAppointmentRequest
+     * Constructor
      *
      * @param  string $id
      * @param  DtTimeInfo $exceptionId
@@ -185,9 +185,7 @@ class ForwardAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

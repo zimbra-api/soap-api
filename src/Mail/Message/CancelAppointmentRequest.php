@@ -30,6 +30,7 @@ class CancelAppointmentRequest extends SoapRequest
 {
     /**
      * ID of default invite
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -39,6 +40,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Component number of default invite
+     * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
      * @Type("integer")
@@ -48,6 +50,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -57,6 +60,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -66,6 +70,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Instance recurrence ID information
+     * 
      * @Accessor(getter="getInstance", setter="setInstance")
      * @SerializedName("inst")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
@@ -75,6 +80,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Definition for TZID referenced by DATETIME in instance
+     * 
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
@@ -84,6 +90,7 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Message
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
@@ -92,7 +99,7 @@ class CancelAppointmentRequest extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for CancelAppointmentRequest
+     * Constructor
      *
      * @param  string $id
      * @param  int $componentNum
@@ -291,9 +298,7 @@ class CancelAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

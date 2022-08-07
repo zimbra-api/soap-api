@@ -110,7 +110,7 @@ class ImportDataRequest extends SoapRequest
     private $unknownDataSources = [];
 
     /**
-     * Constructor method for ImportDataRequest
+     * Constructor
      *
      * @param  array $dataSources
      * @return self
@@ -378,9 +378,7 @@ class ImportDataRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

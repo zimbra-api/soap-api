@@ -40,7 +40,7 @@ class RecordIMAPSessionRequest extends SoapRequest
     private $folderId;
 
     /**
-     * Constructor method for RecordIMAPSessionRequest
+     * Constructor
      *
      * @param  string $folderId
      * @return self
@@ -73,9 +73,7 @@ class RecordIMAPSessionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -30,6 +30,7 @@ class GetItemRequest extends SoapRequest
 {
     /**
      * Item specification
+     * 
      * @Accessor(getter="getItem", setter="setItem")
      * @SerializedName("item")
      * @Type("Zimbra\Mail\Struct\ItemSpec")
@@ -38,7 +39,7 @@ class GetItemRequest extends SoapRequest
     private ItemSpec $item;
 
     /**
-     * Constructor method for GetItemRequest
+     * Constructor
      *
      * @param  ItemSpec $item
      * @return self
@@ -71,9 +72,7 @@ class GetItemRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

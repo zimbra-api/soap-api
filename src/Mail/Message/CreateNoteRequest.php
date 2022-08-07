@@ -28,6 +28,7 @@ class CreateNoteRequest extends SoapRequest
 {
     /**
      * New note specification
+     * 
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NewNoteSpec")
@@ -36,7 +37,7 @@ class CreateNoteRequest extends SoapRequest
     private NewNoteSpec $note;
 
     /**
-     * Constructor method for CreateNoteRequest
+     * Constructor
      *
      * @param  NewNoteSpec $note
      * @return self
@@ -69,9 +70,7 @@ class CreateNoteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

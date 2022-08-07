@@ -27,6 +27,7 @@ class GetCalendarItemSummariesRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds since the epoch GMT
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -36,6 +37,7 @@ class GetCalendarItemSummariesRequest extends SoapRequest
 
     /**
      * Range end in milliseconds since the epoch GMT
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -45,6 +47,7 @@ class GetCalendarItemSummariesRequest extends SoapRequest
 
     /**
      * Folder ID.  Optional folder to constrain requests to; otherwise, searches all folders but trash and spam
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -53,7 +56,7 @@ class GetCalendarItemSummariesRequest extends SoapRequest
     private $folderId;
 
     /**
-     * Constructor method for GetCalendarItemSummariesRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -140,9 +143,7 @@ class GetCalendarItemSummariesRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

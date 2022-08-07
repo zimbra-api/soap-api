@@ -78,7 +78,7 @@ class ExportContactsRequest extends SoapRequest
     private $csvDelimiter;
 
     /**
-     * Constructor method for ExportContactsRequest
+     * Constructor
      *
      * @param  string $contentType
      * @param  string $folderId
@@ -221,9 +221,7 @@ class ExportContactsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

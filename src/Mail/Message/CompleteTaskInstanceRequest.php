@@ -28,6 +28,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,6 +38,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
 
     /**
      * Exception ID
+     * 
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
@@ -46,6 +48,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
 
     /**
      * Timezone information
+     * 
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
@@ -54,7 +57,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     private ?CalTZInfo $timezone = NULL;
 
     /**
-     * Constructor method for CompleteTaskInstanceRequest
+     * Constructor
      *
      * @param  DtTimeInfo $exceptionId
      * @param  string $id
@@ -139,9 +142,7 @@ class CompleteTaskInstanceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

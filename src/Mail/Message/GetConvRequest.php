@@ -36,6 +36,7 @@ class GetConvRequest extends SoapRequest
 {
     /**
      * Conversation specification
+     * 
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationSpec")
@@ -44,7 +45,7 @@ class GetConvRequest extends SoapRequest
     private ConversationSpec $conversation;
 
     /**
-     * Constructor method for GetConvRequest
+     * Constructor
      *
      * @param  ConversationSpec $conversation
      * @return self
@@ -77,9 +78,7 @@ class GetConvRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -26,9 +26,7 @@ use Zimbra\Common\Struct\SoapEnvelopeInterface;
 class SetTaskRequest extends SetAppointmentRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

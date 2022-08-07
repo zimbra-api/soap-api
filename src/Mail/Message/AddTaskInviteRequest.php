@@ -31,7 +31,7 @@ class AddTaskInviteRequest extends SoapRequest
     }
 
     /**
-     * Constructor method for AddTaskInviteRequest
+     * Constructor
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg
@@ -45,9 +45,7 @@ class AddTaskInviteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

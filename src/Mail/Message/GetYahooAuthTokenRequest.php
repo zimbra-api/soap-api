@@ -46,7 +46,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     private $password;
 
     /**
-     * Constructor method for GetYahooAuthTokenRequest
+     * Constructor
      *
      * @param  string $user
      * @param  string $password
@@ -103,9 +103,7 @@ class GetYahooAuthTokenRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

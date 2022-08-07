@@ -28,6 +28,7 @@ class EnableSharedReminderRequest extends SoapRequest
 {
     /**
      * Specification for mountpoint
+     * 
      * @Accessor(getter="getMount", setter="setMount")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\SharedReminderMount")
@@ -36,7 +37,7 @@ class EnableSharedReminderRequest extends SoapRequest
     private SharedReminderMount $mount;
 
     /**
-     * Constructor method for EnableSharedReminderRequest
+     * Constructor
      *
      * @param  SharedReminderMount $mount
      * @return self
@@ -69,9 +70,7 @@ class EnableSharedReminderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

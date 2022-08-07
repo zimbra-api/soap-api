@@ -28,6 +28,7 @@ class AutoCompleteRequest extends SoapRequest
 {
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * type of addresses to auto-complete on
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
@@ -46,6 +48,7 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.
+     * 
      * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
      * @SerializedName("needExp")
      * @Type("bool")
@@ -55,6 +58,7 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * Comma separated list of folder IDs
+     * 
      * @Accessor(getter="getFolderList", setter="setFolderList")
      * @SerializedName("folders")
      * @Type("string")
@@ -64,6 +68,7 @@ class AutoCompleteRequest extends SoapRequest
 
     /**
      * Flag whether to include Global Address Book (GAL)
+     * 
      * @Accessor(getter="getIncludeGal", setter="setIncludeGal")
      * @SerializedName("includeGal")
      * @Type("bool")
@@ -72,7 +77,7 @@ class AutoCompleteRequest extends SoapRequest
     private $includeGal;
 
     /**
-     * Constructor method for AutoCompleteRequest
+     * Constructor
      *
      * @param  string $name
      * @param  GalSearchType $type
@@ -215,9 +220,7 @@ class AutoCompleteRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

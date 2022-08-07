@@ -68,7 +68,7 @@ class SaveDraftRequest extends SoapRequest
     private SaveDraftMsg $msg;
 
     /**
-     * Constructor method for SaveDraftRequest
+     * Constructor
      *
      * @param  SaveDraftMsg $msg
      * @param  bool $wantImapUid
@@ -157,9 +157,7 @@ class SaveDraftRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

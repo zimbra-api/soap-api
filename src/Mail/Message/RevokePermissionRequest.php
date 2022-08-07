@@ -38,7 +38,7 @@ class RevokePermissionRequest extends SoapRequest
     private $aces = [];
 
     /**
-     * Constructor method for RevokePermissionRequest
+     * Constructor
      *
      * @param  array $aces
      * @return self
@@ -83,9 +83,7 @@ class RevokePermissionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

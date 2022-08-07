@@ -117,6 +117,7 @@ class FolderActionRequest extends SoapRequest
 {
     /**
      * Select action to perform on folder
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionSelector")
@@ -125,7 +126,7 @@ class FolderActionRequest extends SoapRequest
     private FolderActionSelector $action;
 
     /**
-     * Constructor method for FolderActionRequest
+     * Constructor
      *
      * @param  FolderActionSelector $action
      * @return self
@@ -158,9 +159,7 @@ class FolderActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

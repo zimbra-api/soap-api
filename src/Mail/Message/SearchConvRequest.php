@@ -53,7 +53,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     private $nestMessages;
 
     /**
-     * Constructor method for SearchConvRequest
+     * Constructor
      * 
      * @param string $conversationId
      * @param string $query
@@ -263,9 +263,7 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

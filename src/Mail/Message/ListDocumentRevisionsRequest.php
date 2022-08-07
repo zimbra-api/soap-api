@@ -39,7 +39,7 @@ class ListDocumentRevisionsRequest extends SoapRequest
     private ListDocumentRevisionsSpec $doc;
 
     /**
-     * Constructor method for ListDocumentRevisionsRequest
+     * Constructor
      *
      * @param  ListDocumentRevisionsSpec $doc
      * @return self
@@ -72,9 +72,7 @@ class ListDocumentRevisionsRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

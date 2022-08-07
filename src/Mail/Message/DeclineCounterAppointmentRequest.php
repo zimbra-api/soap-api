@@ -29,6 +29,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
 {
     /**
      * Details of the Decline Counter.
+     * 
      * Should have an <inv> which encodes an iCalendar DECLINECOUNTER object
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
@@ -38,7 +39,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for DeclineCounterAppointmentRequest
+     * Constructor
      *
      * @param  Msg $msg
      * @return self
@@ -73,9 +74,7 @@ class DeclineCounterAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -45,7 +45,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     private $taskAlarms = [];
 
     /**
-     * Constructor method for DismissCalendarItemAlarmRequest
+     * Constructor
      *
      * @param  array $alarms
      * @return self
@@ -129,9 +129,7 @@ class DismissCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

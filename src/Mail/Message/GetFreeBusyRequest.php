@@ -30,6 +30,7 @@ class GetFreeBusyRequest extends SoapRequest
 {
     /**
      * Range start in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -39,6 +40,7 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * Range end in milliseconds
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -59,6 +61,7 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * Comma separated list of Zimbra IDs
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -77,6 +80,7 @@ class GetFreeBusyRequest extends SoapRequest
 
     /**
      * UID of appointment to exclude from free/busy search
+     * 
      * @Accessor(getter="getExcludeUid", setter="setExcludeUid")
      * @SerializedName("excludeUid")
      * @Type("string")
@@ -94,7 +98,7 @@ class GetFreeBusyRequest extends SoapRequest
     private $freebusyUsers = [];
 
     /**
-     * Constructor method for GetFreeBusyRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -299,9 +303,7 @@ class GetFreeBusyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

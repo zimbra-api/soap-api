@@ -96,7 +96,7 @@ class NoOpRequest extends SoapRequest
     private $timeout;
 
     /**
-     * Constructor method for NoOpRequest
+     * Constructor
      *
      * @param  bool $wait
      * @param  bool $includeDelegates
@@ -214,9 +214,7 @@ class NoOpRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

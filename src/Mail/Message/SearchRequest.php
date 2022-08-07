@@ -49,7 +49,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
     private $warmup;
 
     /**
-     * Constructor method for SearchRequest
+     * Constructor
      * 
      * @param string $query
      * @param bool $inDumpster
@@ -234,9 +234,7 @@ class SearchRequest extends SoapRequest implements SearchParameters
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

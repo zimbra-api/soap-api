@@ -45,7 +45,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     private $taskAlarms = [];
 
     /**
-     * Constructor method for SnoozeCalendarItemAlarmRequest
+     * Constructor
      *
      * @param  array $alarms
      * @return self
@@ -129,9 +129,7 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

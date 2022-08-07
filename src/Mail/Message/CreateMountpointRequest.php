@@ -28,6 +28,7 @@ class CreateMountpointRequest extends SoapRequest
 {
     /**
      * New mountpoint specification
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\NewMountpointSpec")
@@ -36,7 +37,7 @@ class CreateMountpointRequest extends SoapRequest
     private NewMountpointSpec $folder;
 
     /**
-     * Constructor method for CreateMountpointRequest
+     * Constructor
      *
      * @param  NewMountpointSpec $folder
      * @return self
@@ -69,9 +70,7 @@ class CreateMountpointRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

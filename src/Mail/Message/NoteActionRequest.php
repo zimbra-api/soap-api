@@ -37,7 +37,7 @@ class NoteActionRequest extends SoapRequest
     private NoteActionSelector $action;
 
     /**
-     * Constructor method for NoteActionRequest
+     * Constructor
      *
      * @param  NoteActionSelector $action
      * @return self
@@ -70,9 +70,7 @@ class NoteActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

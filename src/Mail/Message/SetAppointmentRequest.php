@@ -139,7 +139,7 @@ class SetAppointmentRequest extends SoapRequest
     private $replies = [];
 
     /**
-     * Constructor method for SetAppointmentRequest
+     * Constructor
      *
      * @param  string $flags
      * @param  string $tags
@@ -449,9 +449,7 @@ class SetAppointmentRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

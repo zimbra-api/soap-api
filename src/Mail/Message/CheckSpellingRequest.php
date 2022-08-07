@@ -31,6 +31,7 @@ class CheckSpellingRequest extends SoapRequest
      * The optional name of the aspell dictionary that will be used to check spelling.
      * If not specified, the the dictionary will be either zimbraPrefSpellDictionary or the one for the
      * account's locale, in that order.
+     * 
      * @Accessor(getter="getDictionary", setter="setDictionary")
      * @SerializedName("dictionary")
      * @Type("string")
@@ -41,6 +42,7 @@ class CheckSpellingRequest extends SoapRequest
     /**
      * Comma-separated list of words to ignore just for this request.  These words are added
      * to the user's personal dictionary of ignore words stored as zimbraPrefSpellIgnoreWord.
+     * 
      * @Accessor(getter="getIgnoreList", setter="setIgnoreList")
      * @SerializedName("ignore")
      * @Type("string")
@@ -50,6 +52,7 @@ class CheckSpellingRequest extends SoapRequest
 
     /**
      * Text to spell check
+     * 
      * @Accessor(getter="getText", setter="setText")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -57,7 +60,7 @@ class CheckSpellingRequest extends SoapRequest
     private $text;
 
     /**
-     * Constructor method for CheckSpellingRequest
+     * Constructor
      *
      * @param  string $dictionary
      * @param  string $ignoreList
@@ -146,9 +149,7 @@ class CheckSpellingRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -28,6 +28,7 @@ class ConvActionRequest extends SoapRequest
 {
     /**
      * Conversation action selector
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ConvActionSelector")
@@ -36,7 +37,7 @@ class ConvActionRequest extends SoapRequest
     private ConvActionSelector $action;
 
     /**
-     * Constructor method for ConvActionRequest
+     * Constructor
      *
      * @param  ConvActionSelector $action
      * @return self
@@ -69,9 +70,7 @@ class ConvActionRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

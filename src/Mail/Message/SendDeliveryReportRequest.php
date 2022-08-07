@@ -36,7 +36,7 @@ class SendDeliveryReportRequest extends SoapRequest
     private $messageId;
 
     /**
-     * Constructor method for SendDeliveryReportRequest
+     * Constructor
      *
      * @param  string $messageId
      * @return self
@@ -69,9 +69,7 @@ class SendDeliveryReportRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -26,9 +26,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetDataSourcesRequest extends SoapRequest
 {
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

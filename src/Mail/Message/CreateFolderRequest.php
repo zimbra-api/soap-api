@@ -28,6 +28,7 @@ class CreateFolderRequest extends SoapRequest
 {
     /**
      * New folder specification
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\NewFolderSpec")
@@ -36,7 +37,7 @@ class CreateFolderRequest extends SoapRequest
     private NewFolderSpec $folder;
 
     /**
-     * Constructor method for CreateFolderRequest
+     * Constructor
      *
      * @param  NewFolderSpec $folder
      * @return self
@@ -69,9 +70,7 @@ class CreateFolderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

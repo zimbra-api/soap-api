@@ -69,7 +69,7 @@ class GetWorkingHoursRequest extends SoapRequest
     private $name;
 
     /**
-     * Constructor method for GetWorkingHoursRequest
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime
@@ -183,9 +183,7 @@ class GetWorkingHoursRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

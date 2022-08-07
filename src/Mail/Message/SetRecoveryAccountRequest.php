@@ -67,7 +67,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     private ?Channel $channel = NULL;
 
     /**
-     * Constructor method for SetRecoveryAccountRequest
+     * Constructor
      *
      * @param  RecoveryAccountOperation $op
      * @param  string $recoveryAccount
@@ -183,9 +183,7 @@ class SetRecoveryAccountRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -38,7 +38,7 @@ class DestroyWaitSetRequest extends SoapRequest
     private $waitSetId;
 
     /**
-     * Constructor method for DestroyWaitSetRequest
+     * Constructor
      *
      * @param  string $waitSetId
      * @return self
@@ -71,9 +71,7 @@ class DestroyWaitSetRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -39,9 +39,7 @@ class GetAppointmentRequest extends GetCalendarItemRequestBase
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

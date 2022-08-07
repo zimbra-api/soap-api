@@ -37,7 +37,7 @@ class ModifySearchFolderRequest extends SoapRequest
     private ModifySearchFolderSpec $searchFolder;
 
     /**
-     * Constructor method for ModifySearchFolderRequest
+     * Constructor
      *
      * @param  ModifySearchFolderSpec $searchFolder
      * @return self
@@ -70,9 +70,7 @@ class ModifySearchFolderRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

@@ -108,7 +108,7 @@ class DeleteDataSourceRequest extends SoapRequest
     private $unknownDataSources = [];
 
     /**
-     * Constructor method for DeleteDataSourceRequest
+     * Constructor
      *
      * @param  array $dataSources
      * @return self
@@ -376,9 +376,7 @@ class DeleteDataSourceRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

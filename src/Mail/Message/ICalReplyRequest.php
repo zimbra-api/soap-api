@@ -36,7 +36,7 @@ class ICalReplyRequest extends SoapRequest
     private $ical;
 
     /**
-     * Constructor method for ICalReplyRequest
+     * Constructor
      *
      * @param  string $ical
      * @return self
@@ -69,9 +69,7 @@ class ICalReplyRequest extends SoapRequest
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {

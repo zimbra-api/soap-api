@@ -28,6 +28,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 {
     /**
      * ID of default invite
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,6 +38,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 
     /**
      * Component of default invite
+     * 
      * @Accessor(getter="getNumComponents", setter="setNumComponents")
      * @SerializedName("comp")
      * @Type("integer")
@@ -46,6 +48,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 
     /**
      * Change sequence of fetched series
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -55,6 +58,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 
     /**
      * Revision of fetched series
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -63,7 +67,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     private $revision;
 
     /**
-     * Constructor method for CreateAppointmentExceptionRequest
+     * Constructor
      *
      * @param  string $id
      * @param  int $numComponents
@@ -194,9 +198,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     }
 
     /**
-     * Initialize the soap envelope
-     *
-     * @return SoapEnvelopeInterface
+     * {@inheritdoc}
      */
     protected function envelopeInit(): SoapEnvelopeInterface
     {
