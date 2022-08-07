@@ -35,7 +35,7 @@ class IMAPCopyResponse extends SoapResponse
     private $items = [];
 
     /**
-     * Constructor method for IMAPCopyResponse
+     * Constructor
      *
      * @param  array $items
      * @return self

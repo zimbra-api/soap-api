@@ -44,7 +44,7 @@ class GetCommentsResponse extends SoapResponse
     private $comments = [];
 
     /**
-     * Constructor method for GetCommentsResponse
+     * Constructor
      *
      * @param  array $users
      * @param  array $comments

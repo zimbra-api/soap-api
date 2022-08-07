@@ -35,7 +35,7 @@ class NoOpResponse extends SoapResponse
     private $waitDisallowed;
 
     /**
-     * Constructor method for NoOpResponse
+     * Constructor
      *
      * @param  bool $waitDisallowed
      * @return self

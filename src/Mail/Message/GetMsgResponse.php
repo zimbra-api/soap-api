@@ -36,7 +36,7 @@ class GetMsgResponse extends SoapResponse
     private ?MsgWithGroupInfo $msg = NULL;
 
     /**
-     * Constructor method for GetMsgResponse
+     * Constructor
      *
      * @param  MsgWithGroupInfo $msg
      * @return self

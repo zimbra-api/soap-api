@@ -27,6 +27,7 @@ class CreateSearchFolderResponse extends SoapResponse
 {
     /**
      * Details of newly created search folder
+     * 
      * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
@@ -35,7 +36,7 @@ class CreateSearchFolderResponse extends SoapResponse
     private ?SearchFolder $searchFolder = NULL;
 
     /**
-     * Constructor method forCreateSearchFolderResponse
+     * Constructor
      *
      * @param  SearchFolder $searchFolder
      * @return self

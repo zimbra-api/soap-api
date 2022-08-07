@@ -35,7 +35,7 @@ class VerifyCodeResponse extends SoapResponse
     private $success = FALSE;
 
     /**
-     * Constructor method for VerifyCodeResponse
+     * Constructor
      *
      * @param  bool $success
      * @return self

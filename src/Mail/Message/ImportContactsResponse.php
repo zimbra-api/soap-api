@@ -36,7 +36,7 @@ class ImportContactsResponse extends SoapResponse
     private ?ImportContact $contact = NULL;
 
     /**
-     * Constructor method for ImportContactsResponse
+     * Constructor
      *
      * @param  ImportContact $contact
      * @return self

@@ -26,6 +26,7 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
 {
     /**
      * ID of last item created in mailbox
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -34,7 +35,7 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
     private $id;
 
     /**
-     * Constructor method for GetLastItemIdInMailboxResponse
+     * Constructor
      *
      * @param  int $id
      * @return self

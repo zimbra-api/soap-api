@@ -27,6 +27,7 @@ class ConvActionResponse extends SoapResponse
 {
     /**
      * Action result
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionResult")
@@ -35,7 +36,7 @@ class ConvActionResponse extends SoapResponse
     private ?ActionResult $action = NULL;
 
     /**
-     * Constructor method for ConvActionResponse
+     * Constructor
      *
      * @param  ActionResult $action
      * @return self

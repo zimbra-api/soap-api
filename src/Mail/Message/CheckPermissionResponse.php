@@ -27,6 +27,7 @@ class CheckPermissionResponse extends SoapResponse
 {
     /**
      * Set if the authed user has ALL the rights for each <right> element.
+     * 
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
@@ -44,7 +45,7 @@ class CheckPermissionResponse extends SoapResponse
     private $rights = [];
 
     /**
-     * Constructor method for CheckPermissionResponse
+     * Constructor
      *
      * @param  bool $allow
      * @param  array $rights

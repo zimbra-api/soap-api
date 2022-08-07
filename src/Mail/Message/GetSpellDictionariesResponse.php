@@ -34,7 +34,7 @@ class GetSpellDictionariesResponse extends SoapResponse
     private $dictionaries = [];
 
     /**
-     * Constructor method for GetSpellDictionariesResponse
+     * Constructor
      *
      * @param  array $dictionaries
      * @return self

@@ -35,7 +35,7 @@ class DestroyWaitSetResponse extends SoapResponse
     private $waitSetId;
 
     /**
-     * Constructor method for DestroyWaitSetResponse
+     * Constructor
      *
      * @param  string $waitSetId
      * @return self

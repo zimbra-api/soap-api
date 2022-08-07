@@ -36,7 +36,7 @@ class GetNoteResponse extends SoapResponse
     private ?NoteInfo $note = NULL;
 
     /**
-     * Constructor method for GetNoteResponse
+     * Constructor
      *
      * @param  NoteInfo $note
      * @return self

@@ -204,6 +204,22 @@ class SearchResponse extends SoapResponse
     /**
      * Constructor method
      *
+     * @param  SearchSortBy $sortBy
+     * @param  int $queryOffset
+     * @param  bool $queryMore
+     * @param  int $totalSize
+     * @param  array $simpleHits
+     * @param  array $conversationHits
+     * @param  array $messageHits
+     * @param  array $chatHits
+     * @param  array $messagePartHits
+     * @param  array $contactHits
+     * @param  array $noteHits
+     * @param  array $documentHits
+     * @param  array $wikiHits
+     * @param  array $appointmentHits
+     * @param  array $taskHits
+     * @param  SearchQueryInfo $queryInfo
      * @return self
      */
     public function __construct(

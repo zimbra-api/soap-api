@@ -27,6 +27,7 @@ class GetConvResponse extends SoapResponse
 {
     /**
      * Conversation information
+     * 
      * @Accessor(getter="getConversation", setter="setConversation")
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
@@ -35,7 +36,7 @@ class GetConvResponse extends SoapResponse
     private ?ConversationInfo $conversation = NULL;
 
     /**
-     * Constructor method for GetConvResponse
+     * Constructor
      *
      * @param  ConversationInfo $conversation
      * @return self

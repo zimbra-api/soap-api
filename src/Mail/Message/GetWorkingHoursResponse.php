@@ -35,7 +35,7 @@ class GetWorkingHoursResponse extends SoapResponse
     private $freebusyUsers = [];
 
     /**
-     * Constructor method for GetWorkingHoursResponse
+     * Constructor
      *
      * @param  array $freebusyUsers
      * @return self

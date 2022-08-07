@@ -36,7 +36,7 @@ class AddCommentResponse extends SoapResponse
     private ?Id $comment = NULL;
 
     /**
-     * Constructor method for AddCommentResponse
+     * Constructor
      *
      * @param  Id $comment
      * @return self

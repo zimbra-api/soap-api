@@ -37,7 +37,7 @@ class TagActionResponse extends SoapResponse
     private ?TagActionInfo $action = NULL;
 
     /**
-     * Constructor method for TagActionResponse
+     * Constructor
      *
      * @param  TagActionInfo $action
      * @return self

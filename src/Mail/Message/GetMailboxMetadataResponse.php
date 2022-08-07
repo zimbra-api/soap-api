@@ -27,6 +27,7 @@ class GetMailboxMetadataResponse extends SoapResponse
 {
     /**
      * Metadata information
+     * 
      * @Accessor(getter="getMetadata", setter="setMetadata")
      * @SerializedName("meta")
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
@@ -35,7 +36,7 @@ class GetMailboxMetadataResponse extends SoapResponse
     private ?MailCustomMetadata $metadata = NULL;
 
     /**
-     * Constructor method for GetMailboxMetadataResponse
+     * Constructor
      *
      * @param  MailCustomMetadata $metadata
      * @return self

@@ -76,7 +76,7 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     private $errors = [];
 
     /**
-     * Constructor method for WaitSetResponse
+     * Constructor
      *
      * @param  string $waitSetId
      * @param  bool $canceled

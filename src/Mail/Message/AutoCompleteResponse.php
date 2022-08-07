@@ -45,7 +45,7 @@ class AutoCompleteResponse extends SoapResponse
     private $matches = [];
 
     /**
-     * Constructor method for AutoCompleteResponse
+     * Constructor
      *
      * @param  array $matches
      * @param  bool $canBeCached

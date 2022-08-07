@@ -34,7 +34,7 @@ class GenerateUUIDResponse extends SoapResponse
     private $uuid;
 
     /**
-     * Constructor method for GenerateUUIDResponse
+     * Constructor
      *
      * @param  string $uuid
      * @return self

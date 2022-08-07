@@ -35,7 +35,7 @@ class GetFreeBusyResponse extends SoapResponse
     private $freebusyUsers = [];
 
     /**
-     * Constructor method for GetFreeBusyResponse
+     * Constructor
      *
      * @param  array $freebusyUsers
      * @return self

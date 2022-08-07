@@ -35,7 +35,7 @@ class BrowseResponse extends SoapResponse
     private $browseDatas = [];
 
     /**
-     * Constructor method for BrowseResponse
+     * Constructor
      *
      * @param  array $browseDatas
      * @return self

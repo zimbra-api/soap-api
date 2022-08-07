@@ -51,7 +51,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     private $totalQuota;
 
     /**
-     * Constructor method for GetDataSourceUsageResponse
+     * Constructor
      *
      * @param  array $usages
      * @return self

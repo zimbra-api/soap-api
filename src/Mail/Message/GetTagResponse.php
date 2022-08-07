@@ -35,7 +35,7 @@ class GetTagResponse extends SoapResponse
     private $tags = [];
 
     /**
-     * Constructor method for GetTagResponse
+     * Constructor
      *
      * @param  array $tags
      * @return self

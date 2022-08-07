@@ -116,7 +116,7 @@ class CreateDataSourceResponse extends SoapResponse
     private ?UnknownDataSourceId $unknownDataSource = NULL;
 
     /**
-     * Constructor method for CreateDataSourceResponse
+     * Constructor
      *
      * @param  Id $dataSource
      * @return self

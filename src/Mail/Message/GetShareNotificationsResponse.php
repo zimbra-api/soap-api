@@ -35,7 +35,7 @@ class GetShareNotificationsResponse extends SoapResponse
     private $shares = [];
 
     /**
-     * Constructor method for GetShareNotificationsResponse
+     * Constructor
      *
      * @param  array $shares
      * @return self

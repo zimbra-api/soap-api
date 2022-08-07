@@ -51,7 +51,7 @@ class SaveDraftResponse extends SoapResponse
     private ?ChatMessageInfo $chatMessage = NULL;
 
     /**
-     * Constructor method for SaveDraftResponse
+     * Constructor
      *
      * @param  MessageInfo $message
      * @return self

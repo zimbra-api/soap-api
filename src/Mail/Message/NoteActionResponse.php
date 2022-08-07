@@ -37,7 +37,7 @@ class NoteActionResponse extends SoapResponse
     private ?ActionResult $action = NULL;
 
     /**
-     * Constructor method for NoteActionResponse
+     * Constructor
      *
      * @param  ActionResult $action
      * @return self

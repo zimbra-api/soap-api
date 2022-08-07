@@ -37,7 +37,7 @@ class GetOutgoingFilterRulesResponse extends SoapResponse
     private $rules = [];
 
     /**
-     * Constructor method for GetOutgoingFilterRulesResponse
+     * Constructor
      *
      * @param  array $rules
      * @return self

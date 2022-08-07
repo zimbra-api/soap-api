@@ -27,6 +27,7 @@ class GetFolderResponse extends SoapResponse
 {
     /**
      * Information about created folder
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
@@ -36,6 +37,7 @@ class GetFolderResponse extends SoapResponse
 
     /**
      * Information about created mountpoint
+     * 
      * @Accessor(getter="getMountpoint", setter="setFolder")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
@@ -45,6 +47,7 @@ class GetFolderResponse extends SoapResponse
 
     /**
      * Information about created search folder
+     * 
      * @Accessor(getter="getSearchFolder", setter="setFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
@@ -53,7 +56,7 @@ class GetFolderResponse extends SoapResponse
     private ?SearchFolder $searchFolder = NULL;
 
     /**
-     * Constructor method for GetFolderResponse
+     * Constructor
      *
      * @param  Folder $folder
      * @return self

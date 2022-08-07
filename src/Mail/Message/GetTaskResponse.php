@@ -45,9 +45,10 @@ class GetTaskResponse extends SoapResponse
     private ?TaskItemInfo $task = NULL;
 
     /**
-     * Constructor method for GetTaskResponse
+     * Constructor
      *
      * @param  CalendarItemInfo $appt
+     * @param  TaskItemInfo $task
      * @return self
      */
     public function __construct(

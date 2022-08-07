@@ -35,7 +35,7 @@ class GetPermissionResponse extends SoapResponse
     private $aces = [];
 
     /**
-     * Constructor method for GetPermissionResponse
+     * Constructor
      * 
      * @param  array $aces
      * @return self

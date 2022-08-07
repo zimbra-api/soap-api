@@ -27,6 +27,7 @@ class CreateMountpointResponse extends SoapResponse
 {
     /**
      * Details of the created mountpoint
+     * 
      * @Accessor(getter="getMount", setter="setMount")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
@@ -35,7 +36,7 @@ class CreateMountpointResponse extends SoapResponse
     private ?Mountpoint $mount = NULL;
 
     /**
-     * Constructor method for CreateMountpointResponse
+     * Constructor
      *
      * @param  Mountpoint $mount
      * @return self

@@ -44,7 +44,7 @@ class GetCalendarItemSummariesResponse extends SoapResponse
     private $taskEntries = [];
 
     /**
-     * Constructor method for GetCalendarItemSummariesResponse
+     * Constructor
      *
      * @param  array $apptEntries
      * @param  array $taskEntries

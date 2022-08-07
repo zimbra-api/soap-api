@@ -32,10 +32,10 @@ class SetCustomMetadataResponse extends SoapResponse
      * @Type("string")
      * @XmlAttribute
      */
-    private $id = '';
+    private $id;
 
     /**
-     * Constructor method for SetCustomMetadataResponse
+     * Constructor
      *
      * @param  string $id
      * @return self

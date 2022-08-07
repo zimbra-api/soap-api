@@ -45,7 +45,7 @@ class RecordIMAPSessionResponse extends SoapResponse
     private $folderUuid;
 
     /**
-     * Constructor method for RecordIMAPSessionResponse
+     * Constructor
      *
      * @param  int $lastItemId
      * @param  string $folderUuid

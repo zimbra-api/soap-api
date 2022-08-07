@@ -35,7 +35,7 @@ class RevokePermissionResponse extends SoapResponse
     private $aces = [];
 
     /**
-     * Constructor method for RevokePermissionResponse
+     * Constructor
      * 
      * @param  array $aces
      * @return self

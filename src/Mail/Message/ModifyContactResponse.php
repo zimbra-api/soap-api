@@ -35,7 +35,7 @@ class ModifyContactResponse extends SoapResponse
     private ?ContactInfo $contact = NULL;
 
     /**
-     * Constructor method for ModifyContactResponse
+     * Constructor
      *
      * @param  ContactInfo $contact
      * @return self

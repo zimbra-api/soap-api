@@ -189,7 +189,7 @@ class SyncResponse extends SoapResponse
     private $chatItems = [];
 
     /**
-     * Constructor method for SyncResponse
+     * Constructor
      *
      * @param  int $changeDate
      * @param  string $token

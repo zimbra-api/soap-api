@@ -71,7 +71,7 @@ class GetRecurResponse extends SoapResponse
     private ?InviteItemRecur $inviteComponent = NULL;
 
     /**
-     * Constructor method for GetRecurResponse
+     * Constructor
      *
      * @param  CalTZInfo $timezone
      * @param  CancelItemRecur $cancelComponent

@@ -65,7 +65,7 @@ class GetYahooCookieResponse extends SoapResponse
     private $t;
 
     /**
-     * Constructor method for GetYahooCookieRequest
+     * Constructor
      *
      * @param  string $error
      * @param  string $crumb

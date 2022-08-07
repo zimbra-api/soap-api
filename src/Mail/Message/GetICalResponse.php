@@ -36,7 +36,7 @@ class GetICalResponse extends SoapResponse
     private ?ICalContent $content = NULL;
 
     /**
-     * Constructor method for GetICalResponse
+     * Constructor
      *
      * @param  ICalContent $content
      * @return self

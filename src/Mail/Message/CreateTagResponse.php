@@ -27,6 +27,7 @@ class CreateTagResponse extends SoapResponse
 {
     /**
      * Information about the newly created tag
+     * 
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
@@ -35,7 +36,7 @@ class CreateTagResponse extends SoapResponse
     private ?TagInfo $tag = NULL;
 
     /**
-     * Constructor method forCreateTagResponse
+     * Constructor
      *
      * @param  TagInfo $tag
      * @return self

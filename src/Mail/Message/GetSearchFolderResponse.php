@@ -35,7 +35,7 @@ class GetSearchFolderResponse extends SoapResponse
     private $searchFolders = [];
 
     /**
-     * Constructor method for GetSearchFolderResponse
+     * Constructor
      *
      * @param  array $searchFolders
      * @return self

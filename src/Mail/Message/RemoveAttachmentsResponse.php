@@ -51,7 +51,7 @@ class RemoveAttachmentsResponse extends SoapResponse
     private ?ChatMessageInfo $chatMessage = NULL;
 
     /**
-     * Constructor method for RemoveAttachmentsResponse
+     * Constructor
      *
      * @param  MessageInfo $message
      * @return self

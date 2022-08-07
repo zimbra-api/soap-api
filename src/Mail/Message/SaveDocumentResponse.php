@@ -36,7 +36,7 @@ class SaveDocumentResponse extends SoapResponse
     private ?IdVersionName $doc = NULL;
 
     /**
-     * Constructor method for SaveDocumentResponse
+     * Constructor
      *
      * @param  IdVersionName $doc
      * @return self

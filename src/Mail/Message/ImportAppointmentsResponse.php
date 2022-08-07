@@ -45,15 +45,13 @@ class ImportAppointmentsResponse extends SoapResponse
     private $num;
 
     /**
-     * Constructor method for ImportAppointmentsRequest
+     * Constructor
      *
      * @param  string $ids
      * @param  int $num
      * @return self
      */
-    public function __construct(
-        string $ids = '', int $num = 0
-    )
+    public function __construct(string $ids = '', int $num = 0)
     {
         $this->setIds($ids)
              ->setNum($num);

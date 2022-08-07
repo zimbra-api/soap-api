@@ -44,7 +44,7 @@ class GetApptSummariesResponse extends SoapResponse
     private $taskEntries = [];
 
     /**
-     * Constructor method for GetApptSummariesResponse
+     * Constructor
      *
      * @param  array $apptEntries
      * @param  array $taskEntries

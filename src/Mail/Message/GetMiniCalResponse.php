@@ -44,7 +44,7 @@ class GetMiniCalResponse extends SoapResponse
     private $errors = [];
 
     /**
-     * Constructor method for GetMiniCalResponse
+     * Constructor
      *
      * @param  array $busyDates
      * @param  array $errors

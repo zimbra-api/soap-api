@@ -44,7 +44,7 @@ class ListDocumentRevisionsResponse extends SoapResponse
     private $users = [];
 
     /**
-     * Constructor method for ListDocumentRevisionsResponse
+     * Constructor
      *
      * @param  array $revisions
      * @param  array $users

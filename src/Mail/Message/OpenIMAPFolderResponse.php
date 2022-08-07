@@ -58,7 +58,7 @@ class OpenIMAPFolderResponse extends SoapResponse
     private ?ImapCursorInfo $cursor = NULL;
 
     /**
-     * Constructor method for OpenIMAPFolderResponse
+     * Constructor
      *
      * @param  array $messages
      * @param  bool $hasMore

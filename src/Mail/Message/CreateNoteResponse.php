@@ -27,6 +27,7 @@ class CreateNoteResponse extends SoapResponse
 {
     /**
      * Details of the created note
+     * 
      * @Accessor(getter="getNote", setter="setNote")
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NoteInfo")
@@ -35,7 +36,7 @@ class CreateNoteResponse extends SoapResponse
     private ?NoteInfo $note = NULL;
 
     /**
-     * Constructor method forCreateNoteResponse
+     * Constructor
      *
      * @param  NoteInfo $note
      * @return self

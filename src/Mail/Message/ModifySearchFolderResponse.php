@@ -36,7 +36,7 @@ class ModifySearchFolderResponse extends SoapResponse
     private ?SearchFolder $searchFolder = NULL;
 
     /**
-     * Constructor method forModifySearchFolderResponse
+     * Constructor
      *
      * @param  SearchFolder $searchFolder
      * @return self

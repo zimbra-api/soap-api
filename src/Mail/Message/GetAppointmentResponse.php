@@ -28,6 +28,7 @@ class GetAppointmentResponse extends SoapResponse
 {
     /**
      * Appointment information
+     * 
      * @Accessor(getter="getApptItem", setter="setApptItem")
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
@@ -37,6 +38,7 @@ class GetAppointmentResponse extends SoapResponse
 
     /**
      * Task information
+     * 
      * @Accessor(getter="getTaskItem", setter="setTaskItem")
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
@@ -45,7 +47,7 @@ class GetAppointmentResponse extends SoapResponse
     private ?TaskItemInfo $task = NULL;
 
     /**
-     * Constructor method for GetAppointmentResponse
+     * Constructor
      *
      * @param  CalendarItemInfo $appt
      * @return self

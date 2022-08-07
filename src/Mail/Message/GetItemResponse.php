@@ -150,7 +150,7 @@ class GetItemResponse extends SoapResponse
     private ?ChatSummary $chatItem = NULL;
 
     /**
-     * Constructor method for GetItemResponse
+     * Constructor
      *
      * @param  mixed $item
      * @return self

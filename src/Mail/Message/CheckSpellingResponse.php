@@ -28,6 +28,7 @@ class CheckSpellingResponse extends SoapResponse
     /**
      * The "available" attribute specifies whether the server-side spell checking
      * interface is available or not.
+     * 
      * @Accessor(getter="isAvailable", setter="setAvailable")
      * @SerializedName("available")
      * @Type("bool")
@@ -45,7 +46,7 @@ class CheckSpellingResponse extends SoapResponse
     private $misspelledWords = [];
 
     /**
-     * Constructor method for CheckSpellingResponse
+     * Constructor
      *
      * @param  bool  $available
      * @param  array $misspelledWords

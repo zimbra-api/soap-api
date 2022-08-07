@@ -45,7 +45,7 @@ class RecoverAccountResponse extends SoapResponse
     private $recoveryAttemptsLeft;
 
     /**
-     * Constructor method for RecoverAccountResponse
+     * Constructor
      *
      * @param  string $recoveryAccount
      * @param  int $recoveryAttemptsLeft

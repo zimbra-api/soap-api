@@ -27,6 +27,7 @@ class ContactActionResponse extends SoapResponse
 {
     /**
      * Action result
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
@@ -35,7 +36,7 @@ class ContactActionResponse extends SoapResponse
     private ?FolderActionResult $action = NULL;
 
     /**
-     * Constructor method for ContactActionResponse
+     * Constructor
      *
      * @param  FolderActionResult $action
      * @return self

@@ -27,6 +27,7 @@ class GetIMAPRecentResponse extends SoapResponse
 {
     /**
      * Number of recent items
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
      * @Type("integer")
@@ -35,7 +36,7 @@ class GetIMAPRecentResponse extends SoapResponse
     private $num;
 
     /**
-     * Constructor method for GetIMAPRecentResponse
+     * Constructor
      *
      * @param  int $num
      * @return self

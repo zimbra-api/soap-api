@@ -44,7 +44,7 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
     private $taskUpdatedAlarms = [];
 
     /**
-     * Constructor method for DismissCalendarItemAlarmResponse
+     * Constructor
      *
      * @param  array $alarms
      * @return self

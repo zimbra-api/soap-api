@@ -29,6 +29,7 @@ class GetIMAPRecentCutoffResponse extends SoapResponse
      * The last recorded assigned item ID in the enclosing
      * Mailbox the last time the folder was accessed via a read/write IMAP session.
      * Note that this value is only updated on session closes
+     * 
      * @Accessor(getter="getCutoff", setter="setCutoff")
      * @SerializedName("cutoff")
      * @Type("integer")
@@ -37,7 +38,7 @@ class GetIMAPRecentCutoffResponse extends SoapResponse
     private $cutoff;
 
     /**
-     * Constructor method for GetIMAPRecentCutoffResponse
+     * Constructor
      *
      * @param  int $cutoff
      * @return self

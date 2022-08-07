@@ -37,7 +37,7 @@ class ItemActionResponse extends SoapResponse
     private ?ActionResult $action = NULL;
 
     /**
-     * Constructor method for ItemActionResponse
+     * Constructor
      *
      * @param  ActionResult $action
      * @return self

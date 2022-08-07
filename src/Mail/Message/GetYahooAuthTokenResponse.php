@@ -35,7 +35,7 @@ class GetYahooAuthTokenResponse extends SoapResponse
     private $failed;
 
     /**
-     * Constructor method for GetYahooAuthTokenRequest
+     * Constructor
      *
      * @param  bool $failed
      * @return self

@@ -103,8 +103,14 @@ class SearchConvResponse extends SoapResponse
     private ?SearchQueryInfo $queryInfo = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  SearchSortBy $sortBy
+     * @param  int $queryOffset
+     * @param  bool $queryMore
+     * @param  NestedSearchConversation $conversation
+     * @param  array $messages
+     * @param  SearchQueryInfo $queryInfo
      * @return self
      */
     public function __construct(

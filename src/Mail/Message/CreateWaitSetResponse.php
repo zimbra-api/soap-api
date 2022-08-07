@@ -47,6 +47,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * all: all types (equiv to "f,m,c,a,t,d")
      * 
      * This is used if types isn't specified for an account
+     * 
      * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
      * @SerializedName("defTypes")
      * @Type("string")
@@ -74,7 +75,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     private $errors = [];
 
     /**
-     * Constructor method for CreateWaitSetResponse
+     * Constructor
      *
      * @param  string $waitSetId
      * @param  string $defaultInterests

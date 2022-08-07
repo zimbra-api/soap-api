@@ -108,7 +108,7 @@ class GetImportStatusResponse extends SoapResponse
     private $unknownStatuses = [];
 
     /**
-     * Constructor method for GetImportStatusResponse
+     * Constructor
      *
      * @param  array $statuses
      * @return self

@@ -35,7 +35,7 @@ class CheckRecurConflictsResponse extends SoapResponse
     private $instances = [];
 
     /**
-     * Constructor method for CheckRecurConflictsResponse
+     * Constructor
      *
      * @param  array $instances
      * @return self

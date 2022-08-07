@@ -35,7 +35,7 @@ class DiffDocumentResponse extends SoapResponse
     private $chunks = [];
 
     /**
-     * Constructor method for DiffDocumentResponse
+     * Constructor
      *
      * @param  array $chunks
      * @return self

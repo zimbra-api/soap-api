@@ -44,7 +44,7 @@ class GetMsgMetadataResponse extends SoapResponse
     private $msgMessages = [];
 
     /**
-     * Constructor method for GetMsgMetadataResponse
+     * Constructor
      *
      * @param  array $chatMessages
      * @param  array $msgMessages

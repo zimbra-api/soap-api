@@ -26,6 +26,7 @@ class AddAppointmentInviteResponse extends SoapResponse
 {
     /**
      * Calendar item ID
+     * 
      * @Accessor(getter="getCalItemId", setter="setCalItemId")
      * @SerializedName("calItemId")
      * @Type("integer")
@@ -35,6 +36,7 @@ class AddAppointmentInviteResponse extends SoapResponse
 
     /**
      * Invite ID of the added invite
+     * 
      * @Accessor(getter="getInvId", setter="setInvId")
      * @SerializedName("invId")
      * @Type("integer")
@@ -44,6 +46,7 @@ class AddAppointmentInviteResponse extends SoapResponse
 
     /**
      * Component number of the added invite
+     * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
      * @Type("integer")
@@ -52,7 +55,7 @@ class AddAppointmentInviteResponse extends SoapResponse
     private $componentNum;
 
     /**
-     * Constructor method for AddAppointmentInviteResponse
+     * Constructor
      *
      * @param  int $calItemId
      * @param  int $invId

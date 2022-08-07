@@ -35,7 +35,7 @@ class ExportContactsResponse extends SoapResponse
     private $content;
 
     /**
-     * Constructor method for ExportContactsResponse
+     * Constructor
      *
      * @param  string $content
      * @return self

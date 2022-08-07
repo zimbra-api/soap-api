@@ -36,7 +36,7 @@ class GetContactBackupListResponse extends SoapResponse
     private $backup = [];
 
     /**
-     * Constructor method for GetContactBackupListResponse
+     * Constructor
      *
      * @param  array $backup
      * @return self

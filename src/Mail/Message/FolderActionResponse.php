@@ -27,6 +27,7 @@ class FolderActionResponse extends SoapResponse
 {
     /**
      * Folder action result
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
@@ -35,7 +36,7 @@ class FolderActionResponse extends SoapResponse
     private ?FolderActionResult $action = NULL;
 
     /**
-     * Constructor method for FolderActionResponse
+     * Constructor
      *
      * @param  FolderActionResult $action
      * @return self

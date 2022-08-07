@@ -35,7 +35,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     private $ids = [];
 
     /**
-     * Constructor method for GetModifiedItemsIDsResponse
+     * Constructor
      *
      * @param  array $ids
      * @return self

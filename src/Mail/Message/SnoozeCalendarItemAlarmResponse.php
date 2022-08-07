@@ -44,7 +44,7 @@ class SnoozeCalendarItemAlarmResponse extends SoapResponse
     private $taskUpdatedAlarms = [];
 
     /**
-     * Constructor method for SnoozeCalendarItemAlarmResponse
+     * Constructor
      *
      * @param  array $alarms
      * @return self

@@ -35,7 +35,7 @@ class GetContactsResponse extends SoapResponse
     private $contacts = [];
 
     /**
-     * Constructor method for GetContactsResponse
+     * Constructor
      *
      * @param  array $contacts
      * @return self

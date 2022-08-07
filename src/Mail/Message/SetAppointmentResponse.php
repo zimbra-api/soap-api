@@ -66,7 +66,7 @@ class SetAppointmentResponse extends SoapResponse
     private $exceptions = [];
 
     /**
-     * Constructor method for SetAppointmentResponse
+     * Constructor
      *
      * @param  string $calItemId
      * @param  string $deprecatedApptId

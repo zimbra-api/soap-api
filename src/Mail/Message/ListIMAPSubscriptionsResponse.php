@@ -34,7 +34,7 @@ class ListIMAPSubscriptionsResponse extends SoapResponse
     private $subs = [];
 
     /**
-     * Constructor method for ListIMAPSubscriptionsResponse
+     * Constructor
      *
      * @param  array $subs
      * @return self

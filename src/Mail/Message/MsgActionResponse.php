@@ -37,7 +37,7 @@ class MsgActionResponse extends SoapResponse
     private ?ActionResult $action = NULL;
 
     /**
-     * Constructor method for MsgActionResponse
+     * Constructor
      *
      * @param  ActionResult $action
      * @return self

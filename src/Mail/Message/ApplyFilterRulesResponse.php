@@ -27,6 +27,7 @@ class ApplyFilterRulesResponse extends SoapResponse
 {
     /**
      * Comma-separated list of message IDs that were affected
+     * 
      * @Accessor(getter="getMsgIds", setter="setMsgIds")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
@@ -35,7 +36,7 @@ class ApplyFilterRulesResponse extends SoapResponse
     private ?IdsAttr $msgIds = NULL;
 
     /**
-     * Constructor method for ApplyFilterRulesResponse
+     * Constructor
      *
      * @param  IdsAttr $msgIds
      * @return self

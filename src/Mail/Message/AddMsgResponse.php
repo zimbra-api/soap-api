@@ -44,7 +44,7 @@ class AddMsgResponse extends SoapResponse
     private ?ChatSummary $chatMessage = NULL;
 
     /**
-     * Constructor method for AddMsgResponse
+     * Constructor
      *
      * @param  MessageSummary $message
      * @return self

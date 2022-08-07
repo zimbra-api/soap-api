@@ -35,7 +35,7 @@ class ExpandRecurResponse extends SoapResponse
     private $instances = [];
 
     /**
-     * Constructor method for ExpandRecurResponse
+     * Constructor
      *
      * @param  array $instances
      * @return self

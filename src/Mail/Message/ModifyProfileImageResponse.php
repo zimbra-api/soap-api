@@ -35,7 +35,7 @@ class ModifyProfileImageResponse extends SoapResponse
     private $itemId;
 
     /**
-     * Constructor method for ModifyProfileImageResponse
+     * Constructor
      *
      * @param  int  $itemId
      * @return self
