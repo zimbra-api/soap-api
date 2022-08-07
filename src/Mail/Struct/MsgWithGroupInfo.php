@@ -261,7 +261,7 @@ class MsgWithGroupInfo extends MessageCommon
      * @param  int $resentDate
      * @param  string $part
      * @param  string $fragment
-     * @param  @array $emails
+     * @param  array $emails
      * @param  string $subject
      * @param  string $messageIdHeader
      * @param  string $inReplyTo
