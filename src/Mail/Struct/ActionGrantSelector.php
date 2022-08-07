@@ -27,6 +27,7 @@ class ActionGrantSelector
 {
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
+     * 
      * @Accessor(getter="getRights", setter="setRights")
      * @SerializedName("perm")
      * @Type("string")
@@ -36,6 +37,7 @@ class ActionGrantSelector
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
+     * 
      * @Accessor(getter="getGrantType", setter="setGrantType")
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
@@ -45,6 +47,7 @@ class ActionGrantSelector
 
     /**
      * Zimbra ID
+     * 
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
@@ -54,6 +57,7 @@ class ActionGrantSelector
 
     /**
      * Name or email address of the grantee. Not present if granteeType is all or pub
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
@@ -63,6 +67,7 @@ class ActionGrantSelector
 
     /**
      * Retained for backwards compatibility.  Old way of specifying password
+     * 
      * @Accessor(getter="getArgs", setter="setArgs")
      * @SerializedName("args")
      * @Type("string")
@@ -72,6 +77,7 @@ class ActionGrantSelector
 
     /**
      * Password when granteeType is gst
+     * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("pw")
      * @Type("string")
@@ -81,6 +87,7 @@ class ActionGrantSelector
 
     /**
      * Optional argument.  Access key when granteeType is "key"
+     * 
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
      * @SerializedName("key")
      * @Type("string")
@@ -89,7 +96,7 @@ class ActionGrantSelector
     private $accessKey;
 
     /**
-     * Constructor method for ActionGrantSelector
+     * Constructor
      * @param string $rights
      * @param GranteeType $grantType
      * @param string $zimbraId

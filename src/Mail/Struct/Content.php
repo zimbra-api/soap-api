@@ -43,7 +43,7 @@ class Content
     private $value;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $attachUploadId
      * @param string $value

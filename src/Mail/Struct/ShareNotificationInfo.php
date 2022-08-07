@@ -75,7 +75,7 @@ class ShareNotificationInfo
     private ?LinkInfo $link = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param string $status
      * @param string $id

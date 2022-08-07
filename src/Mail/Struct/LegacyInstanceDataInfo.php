@@ -26,6 +26,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 {
     /**
      * Start time
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -35,6 +36,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 
     /**
      * Set if is an exception
+     * 
      * @Accessor(getter="getIsException", setter="setIsException")
      * @SerializedName("ex")
      * @Type("bool")
@@ -44,6 +46,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 
     /**
      * Organizer
+     * 
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
@@ -53,6 +56,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 
     /**
      * Categories
+     * 
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
@@ -61,6 +65,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 
     /**
      * Information for iCalendar GEO property
+     * 
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
@@ -70,6 +75,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -78,8 +84,39 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
     private $fragment;
 
     /**
-     * Constructor LegacyInstanceDataInfo
+     * Constructor
      *
+     * @param  int $startTime
+     * @param  bool $isException
+     * @param  CalOrganizer $organizer
+     * @param  array $categories
+     * @param  GeoInfo $geo
+     * @param  string $fragment
+     * @param  int $duration
+     * @param  ParticipationStatus $partStat
+     * @param  string $recurIdZ
+     * @param  int $tzOffset
+     * @param  FreeBusyStatus $freeBusyActual
+     * @param  string $taskPercentComplete
+     * @param  bool $isRecurring
+     * @param  bool $hasExceptions
+     * @param  string $priority
+     * @param  FreeBusyStatus $freeBusyIntended
+     * @param  Transparency $transparency
+     * @param  string $name
+     * @param  string $location
+     * @param  bool $hasOtherAttendees
+     * @param  bool $hasAlarm
+     * @param  bool $isOrganizer
+     * @param  string $invId
+     * @param  int $componentNum
+     * @param  InviteStatus $status
+     * @param  InviteClass $calClass
+     * @param  bool $allDay
+     * @param  bool $draft
+     * @param  bool $neverSent
+     * @param  int $taskDueDate
+     * @param  int $taskTzOffsetDue
      * @return self
      */
     public function __construct(

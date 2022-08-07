@@ -27,6 +27,7 @@ class Folder
 {
     /**
      * The folder id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -36,6 +37,7 @@ class Folder
 
     /**
      * Item's UUID - a globally unique identifier
+     * 
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
@@ -46,6 +48,7 @@ class Folder
     /**
      * Name of folder; max length 128; whitespace is trimmed by server;
      * Cannot contain ':', '"', '/', or any character below 0x20
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -55,6 +58,7 @@ class Folder
 
     /**
      * Absolute Folder path
+     * 
      * @Accessor(getter="getAbsoluteFolderPath", setter="setAbsoluteFolderPath")
      * @SerializedName("absFolderPath")
      * @Type("string")
@@ -64,6 +68,7 @@ class Folder
 
     /**
      * ID of parent folder (absent for root folder)
+     * 
      * @Accessor(getter="getParentId", setter="setParentId")
      * @SerializedName("l")
      * @Type("string")
@@ -73,6 +78,7 @@ class Folder
 
     /**
      * UUID of parent folder (absent for root folder)
+     * 
      * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
      * @SerializedName("luuid")
      * @Type("string")
@@ -84,6 +90,7 @@ class Folder
      * Flags - checked in UI (#), exclude free/(b)usy info, IMAP subscribed (*),
      * does not (i)nherit rights from parent, is a s(y)nc folder with external data source,
      * sync is turned on(~), folder does n(o)t allow inferiors / children
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -93,6 +100,7 @@ class Folder
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -102,6 +110,7 @@ class Folder
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -111,6 +120,7 @@ class Folder
 
     /**
      * Number of unread messages in folder
+     * 
      * @Accessor(getter="getUnreadCount", setter="setUnreadCount")
      * @SerializedName("u")
      * @Type("integer")
@@ -120,6 +130,7 @@ class Folder
 
     /**
      * Number of unread messages with this tag, including those with the IMAP \\Deleted flag set
+     * 
      * @Accessor(getter="getImapUnreadCount", setter="setImapUnreadCount")
      * @SerializedName("i4u")
      * @Type("integer")
@@ -129,6 +140,7 @@ class Folder
 
     /**
      * Default type for the folder; used by web client to decide which view to use.
+     * 
      * @Accessor(getter="getView", setter="setView")
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
@@ -138,6 +150,7 @@ class Folder
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -147,6 +160,7 @@ class Folder
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -156,6 +170,7 @@ class Folder
 
     /**
      * Modified date in seconds
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -165,6 +180,7 @@ class Folder
 
     /**
      * Number of non-subfolder items in folder
+     * 
      * @Accessor(getter="getItemCount", setter="setItemCount")
      * @SerializedName("n")
      * @Type("integer")
@@ -174,6 +190,7 @@ class Folder
 
     /**
      * Number of non-subfolder items in folder, including those with the IMAP \\Deleted flag set
+     * 
      * @Accessor(getter="getImapItemCount", setter="setImapItemCount")
      * @SerializedName("i4n")
      * @Type("integer")
@@ -183,6 +200,7 @@ class Folder
 
     /**
      * Total size of all of non-subfolder items in folder
+     * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -192,6 +210,7 @@ class Folder
 
     /**
      * Imap modified sequence
+     * 
      * @Accessor(getter="getImapModifiedSequence", setter="setImapModifiedSequence")
      * @SerializedName("i4ms")
      * @Type("integer")
@@ -201,6 +220,7 @@ class Folder
 
     /**
      * IMAP UIDNEXT
+     * 
      * @Accessor(getter="getImapUidNext", setter="setImapUidNext")
      * @SerializedName("i4next")
      * @Type("integer")
@@ -210,6 +230,7 @@ class Folder
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -219,6 +240,7 @@ class Folder
 
     /**
      * Active sync status
+     * 
      * @Accessor(getter="isActiveSyncDisabled", setter="setActiveSyncDisabled")
      * @SerializedName("activesyncdisabled")
      * @Type("bool")
@@ -228,6 +250,7 @@ class Folder
 
     /**
      * Number of days for which web client would sync folder data for offline use
+     * 
      * @Accessor(getter="getWebOfflineSyncDays", setter="setWebOfflineSyncDays")
      * @SerializedName("webOfflineSyncDays")
      * @Type("integer")
@@ -238,6 +261,7 @@ class Folder
     /**
      * For remote folders, the access rights the authenticated user has on the folder -
      * will contain the calculated (c)reate folder permission if the user has both (i)nsert and (r)ead access on the folder
+     * 
      * @Accessor(getter="getPerm", setter="setPerm")
      * @SerializedName("perm")
      * @Type("string")
@@ -247,6 +271,7 @@ class Folder
 
     /**
      * Recursive
+     * 
      * @Accessor(getter="getRecursive", setter="setRecursive")
      * @SerializedName("recursive")
      * @Type("bool")
@@ -256,6 +281,7 @@ class Folder
 
     /**
      * URL to the folder in the REST interface for rest-enabled apps (such as notebook)
+     * 
      * @Accessor(getter="getRestUrl", setter="setRestUrl")
      * @SerializedName("rest")
      * @Type("string")
@@ -265,6 +291,7 @@ class Folder
 
     /**
      * Whether this folder can be deleted
+     * 
      * @Accessor(getter="isDeletable", setter="setDeletable")
      * @SerializedName("deletable")
      * @Type("bool")
@@ -274,6 +301,7 @@ class Folder
 
     /**
      * Custom metadata
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -282,6 +310,7 @@ class Folder
 
     /**
      * ACL for sharing
+     * 
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Mail\Struct\Acl")
@@ -291,6 +320,7 @@ class Folder
 
     /**
      * Sub folders
+     * 
      * @Accessor(getter="getSubfolders", setter="setSubfolders")
      * @Type("array<Zimbra\Mail\Struct\Folder>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
@@ -299,6 +329,7 @@ class Folder
 
     /**
      * Mount points
+     * 
      * @Accessor(getter="getMountpoints", setter="setMountpoints")
      * @Type("array<Zimbra\Mail\Struct\Mountpoint>")
      * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
@@ -307,6 +338,7 @@ class Folder
 
     /**
      * Search folders
+     * 
      * @Accessor(getter="getSearchFolders", setter="setSearchFolders")
      * @Type("array<Zimbra\Mail\Struct\SearchFolder>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
@@ -315,6 +347,7 @@ class Folder
 
     /**
      * Retention policy
+     * 
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
@@ -323,10 +356,41 @@ class Folder
     private ?RetentionPolicy $retentionPolicy = NULL;
 
     /**
-     * Constructor method for Folder
+     * Constructor
      *
      * @param  string $id
      * @param  string $uuid
+     * @param  string $name
+     * @param  string $absoluteFolderPath
+     * @param  string $parentId
+     * @param  string $folderUuid
+     * @param  string $flags
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $unreadCount
+     * @param  int $imapUnreadCount
+     * @param  ViewType $view
+     * @param  int $revision
+     * @param  int $modifiedSequence
+     * @param  int $changeDate
+     * @param  int $itemCount
+     * @param  int $imapItemCount
+     * @param  int $totalSize
+     * @param  int $imapModifiedSequence
+     * @param  int $imapUidNext
+     * @param  string $url
+     * @param  bool $activeSyncDisabled
+     * @param  int $webOfflineSyncDays
+     * @param  string $perm
+     * @param  bool $recursive
+     * @param  string $restUrl
+     * @param  bool $deletable
+     * @param  array $metadatas
+     * @param  Acl $acl
+     * @param  array $subFolders
+     * @param  array $mountpoints
+     * @param  array $searchFolders
+     * @param  RetentionPolicy $retentionPolicy
      * @return self
      */
     public function __construct(

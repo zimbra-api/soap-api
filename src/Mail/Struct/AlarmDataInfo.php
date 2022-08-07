@@ -25,6 +25,7 @@ class AlarmDataInfo
 {
     /**
      * Time in millis to show the alarm
+     * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
      * @Type("integer")
@@ -34,6 +35,7 @@ class AlarmDataInfo
 
     /**
      * Start time of the meeting instance the alarm is reminding about
+     * 
      * @Accessor(getter="getAlarmInstanceStart", setter="setAlarmInstanceStart")
      * @SerializedName("alarmInstStart")
      * @Type("integer")
@@ -43,6 +45,7 @@ class AlarmDataInfo
 
     /**
      * Mail Item ID of the invite message with detailed information
+     * 
      * @Accessor(getter="getInvId", setter="setInvId")
      * @SerializedName("invId")
      * @Type("integer")
@@ -52,6 +55,7 @@ class AlarmDataInfo
 
     /**
      * Component number
+     * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
      * @Type("integer")
@@ -61,6 +65,7 @@ class AlarmDataInfo
 
     /**
      * Meeting subject
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -70,6 +75,7 @@ class AlarmDataInfo
 
     /**
      * Meeting location
+     * 
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("loc")
      * @Type("string")
@@ -79,6 +85,7 @@ class AlarmDataInfo
 
     /**
      * Details of the alarm
+     * 
      * @Accessor(getter="getAlarm", setter="setAlarm")
      * @SerializedName("alarm")
      * @Type("Zimbra\Mail\Struct\AlarmInfo")
@@ -87,7 +94,7 @@ class AlarmDataInfo
     private ?AlarmInfo $alarm = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param int $nextAlarm
      * @param int $alarmInstanceStart

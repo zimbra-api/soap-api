@@ -27,6 +27,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
 {
     /**
      * Dates or rules which ADD instances. ADDs are evaluated before EXCLUDEs
+     * 
      * @Accessor(getter="getAdd", setter="setAdd")
      * @SerializedName("add")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
@@ -36,6 +37,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
 
     /**
      * Dates or rules which EXCLUDE instances
+     * 
      * @Accessor(getter="getExclude", setter="setExclude")
      * @SerializedName("exclude")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
@@ -44,7 +46,7 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     private ?RecurrenceInfoInterface $exclude = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param RecurrenceInfo $add
      * @param RecurrenceInfo $exclude

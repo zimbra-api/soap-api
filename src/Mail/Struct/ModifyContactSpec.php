@@ -45,6 +45,7 @@ class ModifyContactSpec
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
@@ -54,6 +55,7 @@ class ModifyContactSpec
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
+     * 
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
@@ -61,7 +63,7 @@ class ModifyContactSpec
     private $contactGroupMembers = [];
 
     /**
-     * Constructor method for ModifyContactSpec
+     * Constructor
      *
      * @param int $id
      * @param string $tagNames

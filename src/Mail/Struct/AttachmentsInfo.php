@@ -25,6 +25,7 @@ class AttachmentsInfo
 {
     /**
      * Attachment upload ID
+     * 
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
@@ -34,6 +35,7 @@ class AttachmentsInfo
 
     /**
      * Mime part attachment details
+     * 
      * @Accessor(getter="getMpAttachments", setter="setMpAttachments")
      * @Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
@@ -42,6 +44,7 @@ class AttachmentsInfo
 
     /**
      * Msg attachment details
+     * 
      * @Accessor(getter="getMsgAttachments", setter="setMsgAttachments")
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
@@ -50,6 +53,7 @@ class AttachmentsInfo
 
     /**
      * Contact attachment details
+     * 
      * @Accessor(getter="getContactAttachments", setter="setContactAttachments")
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
@@ -58,6 +62,7 @@ class AttachmentsInfo
 
     /**
      * Doc attachment details
+     * 
      * @Accessor(getter="getDocAttachments", setter="setDocAttachments")
      * @Type("array<Zimbra\Mail\Struct\DocAttachSpec>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
@@ -65,7 +70,7 @@ class AttachmentsInfo
     private $docAttachments = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param string $attachmentId
      * @param array $attachments

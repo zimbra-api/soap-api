@@ -27,6 +27,7 @@ class BySecondRule implements BySecondRuleInterface
 {
     /**
      * Comma separated list of seconds where second is a number between 0 and 59
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("seclist")
      * @Type("string")
@@ -35,7 +36,7 @@ class BySecondRule implements BySecondRuleInterface
     private $list;
 
     /**
-     * Constructor method for BySecondRule
+     * Constructor
      *
      * @param  string $list
      * @return self

@@ -25,6 +25,7 @@ class NameOrId
 {
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class NameOrId
 
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -42,7 +44,8 @@ class NameOrId
     private $id;
 
     /**
-     * Constructor method
+     * Constructor
+     * 
      * @param string $name
      * @param string $id
      * @return self

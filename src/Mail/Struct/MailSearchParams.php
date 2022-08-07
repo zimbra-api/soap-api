@@ -172,6 +172,7 @@ trait MailSearchParams
 
     /**
      * Inlined hits will be marked as read
+     * 
      * @Accessor(getter="getMarkRead", setter="setMarkRead")
      * @SerializedName("read")
      * @Type("bool")
@@ -212,6 +213,7 @@ trait MailSearchParams
 
     /**
      * Set to 0 (false) to stop images in inlined HTML parts from being "neutered"
+     * 
      * @Accessor(getter="getNeuterImages", setter="setNeuterImages")
      * @SerializedName("neuter")
      * @Type("bool")
@@ -344,6 +346,7 @@ trait MailSearchParams
 
     /**
      * Cursor specification
+     * 
      * @Accessor(getter="getCursor", setter="setCursor")
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")

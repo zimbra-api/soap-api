@@ -44,7 +44,7 @@ class ExceptIdInfo
     private $id;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $recurrenceId
      * @param string $id

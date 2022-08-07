@@ -25,6 +25,7 @@ class MessageSummary extends MessageCommon
 {
     /**
      * Message ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class MessageSummary extends MessageCommon
 
     /**
      * Auto send time
+     * 
      * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
      * @SerializedName("autoSendTime")
      * @Type("integer")
@@ -43,6 +45,7 @@ class MessageSummary extends MessageCommon
 
     /**
      * Email address information
+     * 
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
@@ -51,6 +54,7 @@ class MessageSummary extends MessageCommon
 
     /**
      * Subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -60,6 +64,7 @@ class MessageSummary extends MessageCommon
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -69,6 +74,7 @@ class MessageSummary extends MessageCommon
 
     /**
      * Invite information
+     * 
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
@@ -77,7 +83,7 @@ class MessageSummary extends MessageCommon
     private ?InviteInfo $invite = NULL;
 
     /**
-     * Constructor method for MessageSummary
+     * Constructor
      *
      * @param  string $id
      * @param  int $autoSendTime

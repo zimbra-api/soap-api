@@ -25,6 +25,7 @@ class FilterVariable
 {
     /**
      * Rule name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class FilterVariable
 
     /**
      * value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -42,7 +44,7 @@ class FilterVariable
     private $value;
 
     /**
-     * Constructor method for FilterVariable
+     * Constructor
      * 
      * @param string $name
      * @param string $value

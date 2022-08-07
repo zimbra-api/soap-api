@@ -25,6 +25,7 @@ class RejectAction extends FilterAction
 {
     /**
      * Content name
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -32,7 +33,7 @@ class RejectAction extends FilterAction
     private $content;
 
     /**
-     * Constructor method for RejectAction
+     * Constructor
      * 
      * @param int $index
      * @param string $content

@@ -26,6 +26,7 @@ class DateTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
+     * 
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
      * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
@@ -35,6 +36,7 @@ class DateTest extends FilterTest
 
     /**
      * Date
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("date")
      * @Type("integer")
@@ -43,7 +45,7 @@ class DateTest extends FilterTest
     private $date;
 
     /**
-     * Constructor method for DateTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

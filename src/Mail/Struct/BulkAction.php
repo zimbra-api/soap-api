@@ -49,7 +49,7 @@ class BulkAction
     private $folder;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param BulkOperation $op
      * @param string $folder

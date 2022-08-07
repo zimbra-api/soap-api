@@ -40,6 +40,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Recurrence-id string in UTC timezone
+     * 
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
      * @Type("string")
@@ -77,6 +78,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Percent complete - only for tasks
+     * 
      * @Accessor(getter="getTaskPercentComplete", setter="setTaskPercentComplete")
      * @SerializedName("percentComplete")
      * @Type("string")
@@ -96,6 +98,7 @@ class CommonInstanceDataAttrs
 
     /**
      * If set, this is a recurring appointment with exceptions
+     * 
      * @Accessor(getter="getHasExceptions", setter="setHasExceptions")
      * @SerializedName("hasEx")
      * @Type("bool")
@@ -105,6 +108,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Priority
+     * 
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
      * @Type("string")
@@ -124,6 +128,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
+     * 
      * @Accessor(getter="getTransparency", setter="setTransparency")
      * @SerializedName("transp")
      * @Type("Enum<Zimbra\Common\Enum\Transparency>")
@@ -133,6 +138,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -142,6 +148,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Location
+     * 
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("loc")
      * @Type("string")
@@ -151,6 +158,7 @@ class CommonInstanceDataAttrs
 
     /**
      * If set, this appointment has other attendees
+     * 
      * @Accessor(getter="getHasOtherAttendees", setter="setHasOtherAttendees")
      * @SerializedName("otherAtt")
      * @Type("bool")
@@ -160,6 +168,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Set if has alarm
+     * 
      * @Accessor(getter="getHasAlarm", setter="setHasAlarm")
      * @SerializedName("alarm")
      * @Type("bool")
@@ -169,6 +178,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Default invite "am I organizer" flag
+     * 
      * @Accessor(getter="getIsOrganizer", setter="setIsOrganizer")
      * @SerializedName("isOrg")
      * @Type("bool")
@@ -178,6 +188,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Default invite mail item ID
+     * 
      * @Accessor(getter="getInvId", setter="setInvId")
      * @SerializedName("invId")
      * @Type("string")
@@ -187,6 +198,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Default invite component number
+     * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
      * @Type("integer")
@@ -198,6 +210,7 @@ class CommonInstanceDataAttrs
      * Status - TENT|CONF|CANC|NEED|COMP|INPR|WAITING|DEFERRED
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED
      * where waiting and Deferred are custom values not found in the iCalendar spec.
+     * 
      * @Accessor(getter="getStatus", setter="setStatus")
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
@@ -207,6 +220,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
+     * 
      * @Accessor(getter="getCalClass", setter="setCalClass")
      * @SerializedName("class")
      * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
@@ -216,6 +230,7 @@ class CommonInstanceDataAttrs
 
     /**
      * If set, this is an "all day" appointment
+     * 
      * @Accessor(getter="getAllDay", setter="setAllDay")
      * @SerializedName("allDay")
      * @Type("bool")
@@ -225,6 +240,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
+     * 
      * @Accessor(getter="getDraft", setter="setDraft")
      * @SerializedName("draft")
      * @Type("bool")
@@ -234,6 +250,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
+     * 
      * @Accessor(getter="getNeverSent", setter="setNeverSent")
      * @SerializedName("neverSent")
      * @Type("bool")
@@ -243,6 +260,7 @@ class CommonInstanceDataAttrs
 
     /**
      * Due date in milliseconds.  For tasks only
+     * 
      * @Accessor(getter="getTaskDueDate", setter="setTaskDueDate")
      * @SerializedName("dueDate")
      * @Type("integer")
@@ -253,6 +271,7 @@ class CommonInstanceDataAttrs
     /**
      * Similar to the "tzo" attribute but for "dueDate".  "tzoDue" can be different from
      * "tzo" if start date and due date lie on different sides of a daylight savings transition
+     * 
      * @Accessor(getter="getTaskTzOffsetDue", setter="setTaskTzOffsetDue")
      * @SerializedName("tzoDue")
      * @Type("integer")

@@ -28,6 +28,7 @@ class AddressTest extends FilterTest
 {
     /**
      * Comma separated list of header names
+     * 
      * @Accessor(getter="getHeader", setter="setHeader")
      * @SerializedName("header")
      * @Type("string")
@@ -37,6 +38,7 @@ class AddressTest extends FilterTest
 
     /**
      * Part of address to affect - all|localpart|domain
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("Enum<Zimbra\Common\Enum\AddressPart>")
@@ -46,6 +48,7 @@ class AddressTest extends FilterTest
 
     /**
      * comparison type - is|contains|matches
+     * 
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
@@ -55,6 +58,7 @@ class AddressTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
@@ -64,6 +68,7 @@ class AddressTest extends FilterTest
 
     /**
      * Value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -73,6 +78,7 @@ class AddressTest extends FilterTest
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
+     * 
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
      * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
@@ -82,6 +88,7 @@ class AddressTest extends FilterTest
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
+     * 
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
      * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
@@ -91,6 +98,7 @@ class AddressTest extends FilterTest
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
+     * 
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
@@ -99,7 +107,7 @@ class AddressTest extends FilterTest
     private ?ComparisonComparator $valueComparisonComparator = NULL;
 
     /**
-     * Constructor method for AddressTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

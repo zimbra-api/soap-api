@@ -28,6 +28,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 {
     /**
      * Email address (without "MAILTO:")
+     * 
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
@@ -37,6 +38,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * URL - has same value as email-address.
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -46,6 +48,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * Friendly name - "CN" in iCalendar
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
@@ -55,6 +58,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar SENT-BY
+     * 
      * @Accessor(getter="getSentBy", setter="setSentBy")
      * @SerializedName("sentBy")
      * @Type("string")
@@ -64,6 +68,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
+     * 
      * @Accessor(getter="getDir", setter="setDir")
      * @SerializedName("dir")
      * @Type("string")
@@ -73,6 +78,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
+     * 
      * @Accessor(getter="getLanguage", setter="setLanguage")
      * @SerializedName("lang")
      * @Type("string")
@@ -82,6 +88,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar CUTYPE (Calendar user type)
+     * 
      * @Accessor(getter="getCuType", setter="setCuType")
      * @SerializedName("cutype")
      * @Type("string")
@@ -91,6 +98,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar ROLE
+     * 
      * @Accessor(getter="getRole", setter="setRole")
      * @SerializedName("role")
      * @Type("string")
@@ -104,6 +112,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * Meanings: 
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
+     * 
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
@@ -122,6 +131,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar MEMBER - The group or list membership of the calendar user
+     * 
      * @Accessor(getter="getMember", setter="setMember")
      * @SerializedName("member")
      * @Type("string")
@@ -131,6 +141,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar DELEGATED-TO
+     * 
      * @Accessor(getter="getDelegatedTo", setter="setDelegatedTo")
      * @SerializedName("delegatedTo")
      * @Type("string")
@@ -140,6 +151,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar DELEGATED-FROM
+     * 
      * @Accessor(getter="getDelegatedFrom", setter="setDelegatedFrom")
      * @SerializedName("delegatedFrom")
      * @Type("string")
@@ -149,6 +161,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * Non-standard parameters (XPARAMs)
+     * 
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
@@ -156,7 +169,7 @@ class CalendarAttendee implements CalendarAttendeeInterface
     private $xParams;
 
     /**
-     * Constructor mothod
+     * Constructor
      *
      * @param string $attendeeEmail
      * @param string $attendeeName

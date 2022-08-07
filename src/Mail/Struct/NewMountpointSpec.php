@@ -27,6 +27,7 @@ class NewMountpointSpec
 {
     /**
      * Mountpoint name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class NewMountpointSpec
     /**
      * (optional) Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
+     * 
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
@@ -46,6 +48,7 @@ class NewMountpointSpec
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -55,6 +58,7 @@ class NewMountpointSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -64,6 +68,7 @@ class NewMountpointSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -73,6 +78,7 @@ class NewMountpointSpec
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -82,6 +88,7 @@ class NewMountpointSpec
 
     /**
      * Parent folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -91,6 +98,7 @@ class NewMountpointSpec
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
+     * 
      * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
      * @SerializedName("fie")
      * @Type("bool")
@@ -100,6 +108,7 @@ class NewMountpointSpec
 
     /**
      * If set, client should display reminders for shared appointments/tasks
+     * 
      * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
      * @SerializedName("reminder")
      * @Type("bool")
@@ -109,6 +118,7 @@ class NewMountpointSpec
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
+     * 
      * @Accessor(getter="getOwnerId", setter="setOwnerId")
      * @SerializedName("zid")
      * @Type("string")
@@ -118,6 +128,7 @@ class NewMountpointSpec
 
     /**
      * Primary email address of the owner of the linked-to resource
+     * 
      * @Accessor(getter="getOwnerName", setter="setOwnerName")
      * @SerializedName("owner")
      * @Type("string")
@@ -127,6 +138,7 @@ class NewMountpointSpec
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
+     * 
      * @Accessor(getter="getRemoteId", setter="setRemoteId")
      * @SerializedName("rid")
      * @Type("integer")
@@ -136,6 +148,7 @@ class NewMountpointSpec
 
     /**
      * Path to shared item
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -144,7 +157,7 @@ class NewMountpointSpec
     private $path;
 
     /**
-     * Constructor method for NewMountpointSpec
+     * Constructor
      *
      * @param  string $name
      * @param  string $folderId

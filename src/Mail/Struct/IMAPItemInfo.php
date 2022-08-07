@@ -25,6 +25,7 @@ class IMAPItemInfo
 {
     /**
      * Message ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class IMAPItemInfo
 
     /**
      * IMAP UID
+     * 
      * @Accessor(getter="getImapUid", setter="setImapUid")
      * @SerializedName("i4uid")
      * @Type("int")
@@ -42,7 +44,8 @@ class IMAPItemInfo
     private $imapUid;
 
     /**
-     * Constructor method for IMAPItemInfo
+     * Constructor
+     * 
      * @param  int $id Message ID
      * @param  int $imapUid IMAP UID
      * @return self

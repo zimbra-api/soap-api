@@ -31,8 +31,9 @@ class SuggestedQueryString
     private $suggestedQueryString;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $suggestedQueryString
      * @return self
      */
     public function __construct(string $suggestedQueryString = '')

@@ -26,6 +26,7 @@ class SearchFolder extends Folder
 {
     /**
      * Query
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -35,6 +36,7 @@ class SearchFolder extends Folder
 
     /**
      * Sort by
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
@@ -45,6 +47,7 @@ class SearchFolder extends Folder
     /**
      * Comma-separated list.  Legal values in list are:
      * appointment|chat|contact|conversation|document|message|tag|task|wiki
+     * 
      * @Accessor(getter="getTypes", setter="setTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -53,10 +56,13 @@ class SearchFolder extends Folder
     private $types;
 
     /**
-     * Constructor method for SearchFolder
+     * Constructor
      * 
      * @param  string $id
      * @param  string $uuid
+     * @param  string $query
+     * @param  SearchSortBy $sortBy
+     * @param  string $types
      * @return self
      */
     public function __construct(

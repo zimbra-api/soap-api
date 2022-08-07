@@ -87,7 +87,7 @@ class ConversationSpec
     private $headers = [];
 
     /**
-     * Constructor method for ConversationSpec
+     * Constructor
      *
      * @param  string $id
      * @param  string $inlineRule

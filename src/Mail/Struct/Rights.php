@@ -25,6 +25,7 @@ class Rights
 {
     /**
      * The effective permissions of the specified folder
+     * 
      * @Accessor(getter="getEffectivePermissions", setter="setEffectivePermissions")
      * @SerializedName("perm")
      * @Type("string")
@@ -33,7 +34,7 @@ class Rights
     private $effectivePermissions;
 
     /**
-     * Constructor method for Rights
+     * Constructor
      * 
      * @param string $effectivePermissions
      * @return self

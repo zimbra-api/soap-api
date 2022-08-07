@@ -44,7 +44,7 @@ class TestDataSource
     private $error;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param int $success
      * @param string $error

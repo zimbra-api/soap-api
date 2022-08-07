@@ -26,6 +26,7 @@ class FolderActionResult extends ActionResult
 {
     /**
      * Grantee Zimbra ID
+     * 
      * @Accessor(getter="getZimbraId", setter="setZimbraId")
      * @SerializedName("zid")
      * @Type("string")
@@ -35,6 +36,7 @@ class FolderActionResult extends ActionResult
 
     /**
      * Display name
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
@@ -44,6 +46,7 @@ class FolderActionResult extends ActionResult
 
     /**
      * Access key (Password)
+     * 
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
      * @SerializedName("key")
      * @Type("string")
@@ -52,7 +55,7 @@ class FolderActionResult extends ActionResult
     private $accessKey;
 
     /**
-     * Constructor method for FolderActionResult
+     * Constructor
      *
      * @param  string $id
      * @param  string $operation

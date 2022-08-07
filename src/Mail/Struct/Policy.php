@@ -26,6 +26,7 @@ class Policy
 {
     /**
      * Retention policy type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\Type>")
@@ -35,6 +36,7 @@ class Policy
 
     /**
      * The id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -44,6 +46,7 @@ class Policy
 
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -53,6 +56,7 @@ class Policy
 
     /**
      * The duration
+     * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
      * @Type("string")
@@ -61,7 +65,7 @@ class Policy
     private $lifetime;
 
     /**
-     * Constructor method for policy
+     * Constructor
      * 
      * @param EnumType $type
      * @param string $id

@@ -25,6 +25,7 @@ class FlagAction extends FilterAction
 {
     /**
      * Flag name - flagged|read|priority
+     * 
      * @Accessor(getter="getFlag", setter="setFlag")
      * @SerializedName("flagName")
      * @Type("string")
@@ -33,7 +34,7 @@ class FlagAction extends FilterAction
     private $flag;
 
     /**
-     * Constructor method for FlagAction
+     * Constructor
      * 
      * @param int $index
      * @param string $flag

@@ -27,6 +27,7 @@ class IntervalRule implements IntervalRuleInterface
 {
     /**
      * Rule interval count - a positive integer
+     * 
      * @Accessor(getter="getIval", setter="setIval")
      * @SerializedName("ival")
      * @Type("integer")
@@ -35,7 +36,7 @@ class IntervalRule implements IntervalRuleInterface
     private $ival;
 
     /**
-     * Constructor method for IntervalRule
+     * Constructor
      *
      * @param  int $ival
      * @return self

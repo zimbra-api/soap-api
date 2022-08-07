@@ -25,6 +25,7 @@ class IdVersionName
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class IdVersionName
 
     /**
      * Version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("integer")
@@ -43,6 +45,7 @@ class IdVersionName
 
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -51,7 +54,7 @@ class IdVersionName
     private $name;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $version

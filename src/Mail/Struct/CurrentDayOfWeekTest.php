@@ -25,6 +25,7 @@ class CurrentDayOfWeekTest extends FilterTest
 {
     /**
      * Comma separated day of week indices
+     * 
      * @Accessor(getter="getValues", setter="setValues")
      * @SerializedName("value")
      * @Type("string")
@@ -33,7 +34,7 @@ class CurrentDayOfWeekTest extends FilterTest
     private $values;
 
     /**
-     * Constructor method for CurrentDayOfWeekTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

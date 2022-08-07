@@ -30,6 +30,7 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
      * end (negative) of the month - format : [[+]|-]num[,...] where num between 1 to 31
      * e.g. modaylist="1,+2,-7"
      * means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("modaylist")
      * @Type("string")
@@ -38,7 +39,7 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
     private $list;
 
     /**
-     * Constructor method for ByMonthDayRule
+     * Constructor
      *
      * @param  string $list
      * @return self

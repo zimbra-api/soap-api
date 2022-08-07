@@ -27,6 +27,7 @@ class PartInfo implements PartInfoInterface
     /**
      * MIME part name. "" means top-level part, 1 first part, 1.1 first part of a multipart
      * inside of 1.
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -36,6 +37,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * MIME Content-Type. The mime type is the content of the element.
+     * 
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
@@ -45,6 +47,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * Size in bytes
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -54,6 +57,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * MIME Content-Disposition
+     * 
      * @Accessor(getter="getContentDisposition", setter="setContentDisposition")
      * @SerializedName("cd")
      * @Type("string")
@@ -63,6 +67,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * Filename attribute from the Content-Disposition param list
+     * 
      * @Accessor(getter="getContentFilename", setter="setContentFilename")
      * @SerializedName("filename")
      * @Type("string")
@@ -72,6 +77,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * MIME Content-ID (for display of embedded images)
+     * 
      * @Accessor(getter="getContentId", setter="setContentId")
      * @SerializedName("ci")
      * @Type("string")
@@ -81,6 +87,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * MIME/Microsoft Content-Location (for display of embedded images)
+     * 
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("cl")
      * @Type("string")
@@ -90,6 +97,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * Set if this part is considered to be the "body" of the message for display purposes.
+     * 
      * @Accessor(getter="getBody", setter="setBody")
      * @SerializedName("body")
      * @Type("bool")
@@ -99,6 +107,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * Set if the content for the part is truncated
+     * 
      * @Accessor(getter="getTruncatedContent", setter="setTruncatedContent")
      * @SerializedName("truncated")
      * @Type("bool")
@@ -108,6 +117,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * The content of the part, if requested
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -117,6 +127,7 @@ class PartInfo implements PartInfoInterface
 
     /**
      * Mime parts
+     * 
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
@@ -124,7 +135,7 @@ class PartInfo implements PartInfoInterface
     private $mimeParts = [];
 
     /**
-     * Constructor method for PartInfo
+     * Constructor
      *
      * @param  string $part
      * @param  string $contentType

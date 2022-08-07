@@ -26,6 +26,7 @@ class Acl
 {
     /**
      * Time when grants to internal grantees expire.
+     * 
      * @Accessor(getter="getInternalGrantExpiry", setter="setInternalGrantExpiry")
      * @SerializedName("internalGrantExpiry")
      * @Type("integer")
@@ -35,6 +36,7 @@ class Acl
 
     /**
      * Time when grants to guest grantees expire.
+     * 
      * @Accessor(getter="getGuestGrantExpiry", setter="setGuestGrantExpiry")
      * @SerializedName("guestGrantExpiry")
      * @Type("integer")
@@ -44,6 +46,7 @@ class Acl
 
     /**
      * Grants
+     * 
      * @Accessor(getter="getGrants", setter="setGrants")
      * @Type("array<Zimbra\Mail\Struct\Grant>")
      * @XmlList(inline=true, entry="grant", namespace="urn:zimbraMail")
@@ -51,7 +54,7 @@ class Acl
     private $grants = [];
 
     /**
-     * Constructor method for Acl
+     * Constructor
      *
      * @param  int $internalGrantExpiry
      * @param  int $guestGrantExpiry

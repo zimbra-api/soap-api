@@ -25,6 +25,7 @@ class ItemSpec
 {
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class ItemSpec
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -43,6 +45,7 @@ class ItemSpec
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -52,6 +55,7 @@ class ItemSpec
 
     /**
      * Fully qualified path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -60,7 +64,8 @@ class ItemSpec
     private $path;
 
     /**
-     * Constructor method for ItemSpec
+     * Constructor
+     * 
      * @param string $id
      * @param string $folder
      * @param string $name

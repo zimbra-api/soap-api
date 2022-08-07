@@ -25,6 +25,7 @@ class BounceMsgSpec
 {
     /**
      * ID of message to resend
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class BounceMsgSpec
 
     /**
      * Email addresses
+     * 
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
@@ -41,7 +43,7 @@ class BounceMsgSpec
     private $emailAddresses = [];
 
     /**
-     * Constructor method for BounceMsgSpec
+     * Constructor
      *
      * @param  string $id
      * @param  array $emailAddresses

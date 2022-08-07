@@ -27,6 +27,7 @@ class XNameRule implements XNameRuleInterface
 {
     /**
      * XNAME Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class XNameRule implements XNameRuleInterface
 
     /**
      * XNAME value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -44,7 +46,7 @@ class XNameRule implements XNameRuleInterface
     private $value;
 
     /**
-     * Constructor method for XNameRule
+     * Constructor
      *
      * @param  string $name
      * @param  string $value

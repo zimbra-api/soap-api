@@ -25,6 +25,7 @@ class ContactRankingTest extends FilterTest
 {
     /**
      * Header name
+     * 
      * @Accessor(getter="getHeader", setter="setHeader")
      * @SerializedName("header")
      * @Type("string")
@@ -33,7 +34,7 @@ class ContactRankingTest extends FilterTest
     private $header;
 
     /**
-     * Constructor method for ContactRankingTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

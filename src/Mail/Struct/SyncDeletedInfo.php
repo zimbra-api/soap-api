@@ -151,10 +151,10 @@ class SyncDeletedInfo
     private $docTypes = [];
 
     /**
-     * Constructor method for SyncDeletedInfo
+     * Constructor
      *
      * @param  string $ids
-     * @param  array $types
+     * @param  array  $types
      * @return self
      */
     public function __construct(string $ids = '', array $types = [])

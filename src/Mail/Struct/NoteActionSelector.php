@@ -46,7 +46,7 @@ class NoteActionSelector extends ActionSelector
     private $bounds;
 
     /**
-     * Constructor method for NoteActionSelector
+     * Constructor
      *
      * @param  string $operation
      * @param  string $ids

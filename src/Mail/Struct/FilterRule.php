@@ -25,6 +25,7 @@ class FilterRule
 {
     /**
      * Rule name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -34,6 +35,7 @@ class FilterRule
 
     /**
      * Active flag.  Set by default.
+     * 
      * @Accessor(getter="isActive", setter="setActive")
      * @SerializedName("active")
      * @Type("bool")
@@ -43,6 +45,7 @@ class FilterRule
 
     /**
      * Filter Variables
+     * 
      * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
      * @SerializedName("filterVariables")
      * @Type("Zimbra\Mail\Struct\FilterVariables")
@@ -52,6 +55,7 @@ class FilterRule
 
     /**
      * Filter tests
+     * 
      * @Accessor(getter="getFilterTests", setter="setFilterTests")
      * @SerializedName("filterTests")
      * @Type("Zimbra\Mail\Struct\FilterTests")
@@ -71,6 +75,7 @@ class FilterRule
 
     /**
      * Nested Rule
+     * 
      * @Accessor(getter="getChild", setter="setChild")
      * @SerializedName("nestedRule")
      * @Type("Zimbra\Mail\Struct\NestedRule")
@@ -79,7 +84,7 @@ class FilterRule
     private ?NestedRule $child = NULL;
 
     /**
-     * Constructor method for FilterRule
+     * Constructor
      * 
      * @param FilterTests $tests
      * @param string $name

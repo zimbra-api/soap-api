@@ -27,6 +27,7 @@ class ByMonthRule implements ByMonthRuleInterface
 {
     /**
      * Comma separated list of months where month is a number between 1 and 12
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("molist")
      * @Type("string")
@@ -35,7 +36,7 @@ class ByMonthRule implements ByMonthRuleInterface
     private $list;
 
     /**
-     * Constructor method for ByMonthRule
+     * Constructor
      *
      * @param  string $list
      * @return self

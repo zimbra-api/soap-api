@@ -26,6 +26,7 @@ class TagSpec
 {
     /**
      * Tag name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class TagSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -44,6 +46,7 @@ class TagSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -52,7 +55,7 @@ class TagSpec
     private $color;
 
     /**
-     * Constructor method for TagSpec
+     * Constructor
      *
      * @param  string $name
      * @param  string $rgb

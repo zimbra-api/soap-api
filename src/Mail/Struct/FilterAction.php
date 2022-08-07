@@ -25,6 +25,7 @@ class FilterAction
 {
     /**
      * Index - specifies a guaranteed order for the action elements
+     * 
      * @Accessor(getter="getIndex", setter="setIndex")
      * @SerializedName("index")
      * @Type("integer")
@@ -33,7 +34,8 @@ class FilterAction
     private $index;
 
     /**
-     * Constructor method for FilterAction
+     * Constructor
+     * 
      * @param int $index
      * @return self
      */

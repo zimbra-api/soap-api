@@ -25,6 +25,7 @@ class Mountpoint extends Folder
 {
     /**
      * Primary email address of the owner of the linked-to resource
+     * 
      * @Accessor(getter="getOwnerEmail", setter="setOwnerEmail")
      * @SerializedName("owner")
      * @Type("string")
@@ -34,6 +35,7 @@ class Mountpoint extends Folder
 
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
+     * 
      * @Accessor(getter="getOwnerAccountId", setter="setOwnerAccountId")
      * @SerializedName("zid")
      * @Type("string")
@@ -43,6 +45,7 @@ class Mountpoint extends Folder
 
     /**
      * Item ID of the linked-to resource in the remote mailbox
+     * 
      * @Accessor(getter="getRemoteFolderId", setter="setRemoteFolderId")
      * @SerializedName("rid")
      * @Type("integer")
@@ -52,6 +55,7 @@ class Mountpoint extends Folder
 
     /**
      * UUID of the linked-to resource in the remote mailbox
+     * 
      * @Accessor(getter="getRemoteUuid", setter="setRemoteUuid")
      * @SerializedName("ruuid")
      * @Type("string")
@@ -61,6 +65,7 @@ class Mountpoint extends Folder
 
     /**
      * The name presently used for the item by the owner
+     * 
      * @Accessor(getter="getRemoteFolderName", setter="setRemoteFolderName")
      * @SerializedName("oname")
      * @Type("string")
@@ -70,6 +75,7 @@ class Mountpoint extends Folder
 
     /**
      * If set, client should display reminders for shared appointments/tasks
+     * 
      * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
      * @SerializedName("reminder")
      * @Type("bool")
@@ -79,6 +85,7 @@ class Mountpoint extends Folder
 
     /**
      * If "tr" is true in the request, broken is set if this is a broken link
+     * 
      * @Accessor(getter="getBroken", setter="setBroken")
      * @SerializedName("broken")
      * @Type("bool")
@@ -87,10 +94,17 @@ class Mountpoint extends Folder
     private $broken;
 
     /**
-     * Constructor method for Mountpoint
+     * Constructor
      * 
      * @param  string $id
      * @param  string $uuid
+     * @param  string $ownerEmail
+     * @param  string $ownerAccountId
+     * @param  int $remoteFolderId
+     * @param  string $remoteUuid
+     * @param  string $remoteFolderName
+     * @param  bool $reminderEnabled
+     * @param  bool $broken
      * @return self
      */
     public function __construct(

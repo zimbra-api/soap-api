@@ -25,6 +25,7 @@ class CreateItemNotification
 {
     /**
      * Message info of created item
+     * 
      * @Accessor(getter="getMessageInfo", setter="setMessageInfo")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
@@ -33,7 +34,8 @@ class CreateItemNotification
     private ImapMessageInfo $msgInfo;
 
     /**
-     * Constructor method for CreateItemNotification
+     * Constructor
+     * 
      * @param  ImapMessageInfo $msgInfo
      * @return self
      */

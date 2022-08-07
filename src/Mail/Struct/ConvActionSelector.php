@@ -30,6 +30,7 @@ class ConvActionSelector extends ActionSelector
      * in terms of the relative path from the account / data source's root folder. The target account / data source is
      * identified based on where the messages in this conversation already reside. If a conversation contains messages
      * belonging of multiple accounts / data sources then it would not be affected by this operation.
+     * 
      * @Accessor(getter="getAcctRelativePath", setter="setAcctRelativePath")
      * @SerializedName("acctRelPath")
      * @Type("string")

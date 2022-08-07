@@ -287,7 +287,7 @@ class FilterTests
     private $communityConnectionsTests = [];
 
     /**
-     * Constructor method for FilterTests
+     * Constructor
      * 
      * @param FilterCondition $condition
      * @param array $tests

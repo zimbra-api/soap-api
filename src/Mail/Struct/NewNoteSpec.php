@@ -26,6 +26,7 @@ class NewNoteSpec
 {
     /**
      * Parent Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -35,6 +36,7 @@ class NewNoteSpec
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -44,6 +46,7 @@ class NewNoteSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -53,6 +56,7 @@ class NewNoteSpec
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * 
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")
      * @Type("string")
@@ -61,7 +65,7 @@ class NewNoteSpec
     private $bounds;
 
     /**
-     * Constructor method for NewNoteSpec
+     * Constructor
      *
      * @param  string $folder
      * @param  string $content

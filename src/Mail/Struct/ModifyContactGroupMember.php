@@ -36,7 +36,7 @@ class ModifyContactGroupMember extends NewContactGroupMember
     private ?ModifyGroupMemberOperation $operation = NULL;
 
     /**
-     * Constructor method for ModifyContactGroupMember
+     * Constructor
      * 
      * @param ModifyGroupMemberOperation $operation
      * @param MemberType $type

@@ -26,6 +26,7 @@ class RightPermission
 {
     /**
      * If set then the authed user has the right {right-name} on the target.
+     * 
      * @Accessor(getter="getAllow", setter="setAllow")
      * @SerializedName("allow")
      * @Type("bool")
@@ -35,6 +36,7 @@ class RightPermission
 
     /**
      * Right name
+     * 
      * @Accessor(getter="getRightName", setter="setRightName")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -42,7 +44,7 @@ class RightPermission
     private $rightName;
 
     /**
-     * Constructor method for RightPermission
+     * Constructor
      *
      * @param  bool $allow
      * @param  string $rightName

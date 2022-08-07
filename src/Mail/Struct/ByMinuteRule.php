@@ -27,6 +27,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
 {
     /**
      * Comma separated list of minutes where minute is a number between 0 and 59
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("minlist")
      * @Type("string")
@@ -35,7 +36,7 @@ class ByMinuteRule implements ByMinuteRuleInterface
     private $list;
 
     /**
-     * Constructor method for ByMinuteRule
+     * Constructor
      *
      * @param  string $list
      * @return self

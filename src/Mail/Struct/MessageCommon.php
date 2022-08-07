@@ -26,6 +26,7 @@ class MessageCommon implements MessageCommonInterface
 {
     /**
      * Size in bytes
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -35,6 +36,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Date Seconds since the epoch, from the date header in the message
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -44,6 +46,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -53,6 +56,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Converstation ID
+     * 
      * @Accessor(getter="getConversationId", setter="setConversationId")
      * @SerializedName("cid")
      * @Type("string")
@@ -64,6 +68,7 @@ class MessageCommon implements MessageCommonInterface
      * Flags.  (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me,
      * for(w)arded, calendar in(v)ite, (d)raft, IMAP-\Deleted (x), (n)otification sent, urgent (!),
      * low-priority (?), priority (+)
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -73,6 +78,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -82,6 +88,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Comma separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -91,6 +98,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -100,6 +108,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Date metadata changed
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -109,6 +118,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Change sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -118,6 +128,7 @@ class MessageCommon implements MessageCommonInterface
 
     /**
      * Custom metadata information
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")

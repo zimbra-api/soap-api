@@ -186,7 +186,7 @@ class MsgSpec
     private $headers = [];
 
     /**
-     * Constructor method for MsgSpec
+     * Constructor
      *
      * @param  string $id
      * @param  string $part

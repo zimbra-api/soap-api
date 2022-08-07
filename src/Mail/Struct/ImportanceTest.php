@@ -26,6 +26,7 @@ class ImportanceTest extends FilterTest
 {
     /**
      * Importance - high|normal|low
+     * 
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("imp")
      * @Type("Enum<Zimbra\Common\Enum\Importance>")
@@ -34,7 +35,7 @@ class ImportanceTest extends FilterTest
     private ?Importance $importance = NULL;
 
     /**
-     * Constructor method for ImportanceTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

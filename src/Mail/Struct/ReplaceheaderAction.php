@@ -24,7 +24,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 class ReplaceheaderAction extends DeleteheaderAction
 {
     /**
-     * inewName
+     * New name
+     * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
@@ -33,7 +34,8 @@ class ReplaceheaderAction extends DeleteheaderAction
     private $newName;
 
     /**
-     * newValue
+     * New value
+     * 
      * @Accessor(getter="getNewValue", setter="setNewValue")
      * @SerializedName("newValue")
      * @Type("string")
@@ -42,7 +44,7 @@ class ReplaceheaderAction extends DeleteheaderAction
     private $newValue;
 
     /**
-     * Constructor method for ReplaceheaderAction
+     * Constructor
      * 
      * @param int $index
      * @param bool $last

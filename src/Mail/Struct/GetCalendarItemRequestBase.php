@@ -77,7 +77,7 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     private $id;
 
     /**
-     * Constructor method for GetCalendarItemRequestBase
+     * Constructor
      *
      * @param  bool $sync
      * @param  bool $includeContent

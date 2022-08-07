@@ -86,8 +86,14 @@ class ConversationMsgHitInfo
     private $date;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  int $size
+     * @param  string $folderId
+     * @param  string $flags
+     * @param  int $autoSendTime
+     * @param  int $date
      * @return self
      */
     public function __construct(

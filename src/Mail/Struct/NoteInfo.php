@@ -26,6 +26,7 @@ class NoteInfo
 {
     /**
      * The id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class NoteInfo
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -44,6 +46,7 @@ class NoteInfo
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -53,6 +56,7 @@ class NoteInfo
 
     /**
      * Date
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -62,6 +66,7 @@ class NoteInfo
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -71,6 +76,7 @@ class NoteInfo
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -80,6 +86,7 @@ class NoteInfo
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -89,6 +96,7 @@ class NoteInfo
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * 
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")
      * @Type("string")
@@ -98,6 +106,7 @@ class NoteInfo
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -107,6 +116,7 @@ class NoteInfo
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -116,6 +126,7 @@ class NoteInfo
 
     /**
      * Modified date in seconds
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -125,6 +136,7 @@ class NoteInfo
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -134,6 +146,7 @@ class NoteInfo
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -143,6 +156,7 @@ class NoteInfo
 
     /**
      * Custom metadata information
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -150,10 +164,22 @@ class NoteInfo
     private $metadatas = [];
 
     /**
-     * Constructor method for NoteInfo
+     * Constructor
      *
      * @param  string $id
      * @param  int $revision
+     * @param  string $folder
+     * @param  int $date
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $bounds
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  string $content
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

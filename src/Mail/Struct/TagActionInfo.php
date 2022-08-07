@@ -55,7 +55,7 @@ class TagActionInfo
     private $operation;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $successes
      * @param string $successNames

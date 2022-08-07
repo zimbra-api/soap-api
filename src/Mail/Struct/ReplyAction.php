@@ -25,6 +25,7 @@ class ReplyAction extends FilterAction
 {
     /**
      * Content name
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -33,7 +34,7 @@ class ReplyAction extends FilterAction
     private $content;
 
     /**
-     * Constructor method for ReplyAction
+     * Constructor
      * 
      * @param int $index
      * @param string $content

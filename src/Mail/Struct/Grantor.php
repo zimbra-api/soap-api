@@ -54,7 +54,7 @@ class Grantor
     private $name;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $email

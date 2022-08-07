@@ -25,6 +25,7 @@ class RFCCompliantNotifyAction extends FilterAction
 {
     /**
      * Notify Tag ":from"
+     * 
      * @Accessor(getter="getFrom", setter="setFrom")
      * @SerializedName("from")
      * @Type("string")
@@ -34,6 +35,7 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Tag ":importance"
+     * 
      * @Accessor(getter="getImportance", setter="setImportance")
      * @SerializedName("importance")
      * @Type("string")
@@ -43,6 +45,7 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Tag ":options"
+     * 
      * @Accessor(getter="getOptions", setter="setOptions")
      * @SerializedName("options")
      * @Type("string")
@@ -52,6 +55,7 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Tag ":message"
+     * 
      * @Accessor(getter="getMessage", setter="setMessage")
      * @SerializedName("message")
      * @Type("string")
@@ -61,6 +65,7 @@ class RFCCompliantNotifyAction extends FilterAction
 
     /**
      * Notify Parameter "method"
+     * 
      * @Accessor(getter="getMethod", setter="setMethod")
      * @SerializedName("method")
      * @Type("string")
@@ -69,7 +74,7 @@ class RFCCompliantNotifyAction extends FilterAction
     private $method;
 
     /**
-     * Constructor method for RFCCompliantNotifyAction
+     * Constructor
      * 
      * @param int $index
      * @param string $from

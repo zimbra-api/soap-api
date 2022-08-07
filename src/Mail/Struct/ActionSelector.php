@@ -27,6 +27,7 @@ class ActionSelector
     /**
      * Comma separated list of item IDs to act on.  Required except for TagActionRequest,
      * where the tags items can be specified using their tag names as an alternative.
+     * 
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("id")
      * @Type("string")
@@ -57,6 +58,7 @@ class ActionSelector
      *    acceptSubsReq  accept subscription/un-subscription request
      *    rejectSubsReq  reject subscription/un-subscription request
      *    resetimapuid   reset IMAP item UIDs
+     * 
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("string")
@@ -72,6 +74,7 @@ class ActionSelector
      * d:   include items in Drafts folder
      * o:   include items in any other folder
      * A leading '-' means to negate the constraint (e.g. "-t" means all messages not in Trash)
+     * 
      * @Accessor(getter="getConstraint", setter="setConstraint")
      * @SerializedName("tcon")
      * @Type("string")
@@ -81,6 +84,7 @@ class ActionSelector
 
     /**
      * Deprecated - use "tn" instead
+     * 
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
      * @Type("integer")
@@ -90,6 +94,7 @@ class ActionSelector
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -99,6 +104,7 @@ class ActionSelector
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -108,6 +114,7 @@ class ActionSelector
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -117,6 +124,7 @@ class ActionSelector
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -126,6 +134,7 @@ class ActionSelector
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -135,6 +144,7 @@ class ActionSelector
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -144,6 +154,7 @@ class ActionSelector
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -153,6 +164,7 @@ class ActionSelector
 
     /**
      * Flag to signify that any non-existent ids should be returned
+     * 
      * @Accessor(getter="getNonExistentIds", setter="setNonExistentIds")
      * @SerializedName("nei")
      * @Type("bool")
@@ -162,6 +174,7 @@ class ActionSelector
 
     /**
      * Flag to signify that ids of new items should be returned applies to COPY action
+     * 
      * @Accessor(getter="getNewlyCreatedIds", setter="setNewlyCreatedIds")
      * @SerializedName("nci")
      * @Type("bool")
@@ -170,7 +183,7 @@ class ActionSelector
     private $newlyCreatedIds;
 
     /**
-     * Constructor method for ActionSelector
+     * Constructor
      *
      * @param  string $operation
      * @param  string $ids

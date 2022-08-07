@@ -11,6 +11,6 @@ It allows you to manage easily zimbra accounts, zimbra domains and zimbra server
 which means you can easily integrate `zimbra-api/soap-api` classes loading in your own autoloader.
 
 ## Documentation
-1. [Installation](installation)
-2. [Authentication](authentication)
-3. [Usage](usage)
+1. [Installation](installation.md)
+2. [Authentication](authentication.md)
+3. [Usage](usage.md)

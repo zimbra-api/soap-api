@@ -74,7 +74,7 @@ class LinkInfo
     private $rights;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $uuid

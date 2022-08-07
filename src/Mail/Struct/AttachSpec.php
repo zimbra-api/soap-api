@@ -25,6 +25,7 @@ abstract class AttachSpec
 {
     /**
      * Optional
+     * 
      * @Accessor(getter="getOptional", setter="setOptional")
      * @SerializedName("optional")
      * @Type("bool")
@@ -33,7 +34,7 @@ abstract class AttachSpec
     private $optional;
 
     /**
-     * Constructor method for AttachSpec
+     * Constructor
      *
      * @param bool $optional
      * @return self

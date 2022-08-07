@@ -26,6 +26,7 @@ class Header
 {
     /**
      * Header name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -35,6 +36,7 @@ class Header
 
     /**
      * Header value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -42,7 +44,7 @@ class Header
     private $value;
 
     /**
-     * Constructor method for Header
+     * Constructor
      *
      * @param  string $name
      * @param  string $value

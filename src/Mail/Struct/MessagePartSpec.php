@@ -25,6 +25,7 @@ class MessagePartSpec
 {
     /**
      * Part ID
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -34,6 +35,7 @@ class MessagePartSpec
 
     /**
      * Message ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -42,7 +44,8 @@ class MessagePartSpec
     private $id;
 
     /**
-     * Constructor method for MessagePartSpec
+     * Constructor
+     * 
      * @param string $part
      * @param string $id
      * @return self

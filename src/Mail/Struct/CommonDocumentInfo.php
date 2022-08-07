@@ -25,6 +25,7 @@ class CommonDocumentInfo
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class CommonDocumentInfo
 
     /**
      * Item's UUID - a globally unique identifier
+     * 
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
@@ -43,6 +45,7 @@ class CommonDocumentInfo
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -52,6 +55,7 @@ class CommonDocumentInfo
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -62,6 +66,7 @@ class CommonDocumentInfo
     /**
      * Date the item's content was last modified in milliseconds since 1970-01-01 00:00:00 UTC.
      * For immutable objects (e.g. received messages), this will be the same as the date the item was created.
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -71,6 +76,7 @@ class CommonDocumentInfo
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -80,6 +86,7 @@ class CommonDocumentInfo
 
     /**
      * Folder UUID
+     * 
      * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
      * @SerializedName("luuid")
      * @Type("string")
@@ -89,6 +96,7 @@ class CommonDocumentInfo
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -98,6 +106,7 @@ class CommonDocumentInfo
 
     /**
      * Metadata version
+     * 
      * @Accessor(getter="getMetadataVersion", setter="setMetadataVersion")
      * @SerializedName("mdver")
      * @Type("integer")
@@ -108,6 +117,7 @@ class CommonDocumentInfo
     /**
      * The date the item's metadata and/or content was last modified in seconds since
      * 1970-01-01 00:00:00 UTC.
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -117,6 +127,7 @@ class CommonDocumentInfo
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -126,6 +137,7 @@ class CommonDocumentInfo
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -135,6 +147,7 @@ class CommonDocumentInfo
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -144,6 +157,7 @@ class CommonDocumentInfo
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -153,6 +167,7 @@ class CommonDocumentInfo
 
     /**
      * Optional description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
@@ -162,6 +177,7 @@ class CommonDocumentInfo
 
     /**
      * Content type
+     * 
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
@@ -171,6 +187,7 @@ class CommonDocumentInfo
 
     /**
      * Flags whether description is enabled or not
+     * 
      * @Accessor(getter="getDescEnabled", setter="setDescEnabled")
      * @SerializedName("descEnabled")
      * @Type("bool")
@@ -180,6 +197,7 @@ class CommonDocumentInfo
 
     /**
      * Version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("integer")
@@ -189,6 +207,7 @@ class CommonDocumentInfo
 
     /**
      * Last edited by
+     * 
      * @Accessor(getter="getLastEditedBy", setter="setLastEditedBy")
      * @SerializedName("leb")
      * @Type("string")
@@ -198,6 +217,7 @@ class CommonDocumentInfo
 
     /**
      * Revision creator
+     * 
      * @Accessor(getter="getCreator", setter="setCreator")
      * @SerializedName("cr")
      * @Type("string")
@@ -207,6 +227,7 @@ class CommonDocumentInfo
 
     /**
      * Revision creation date in milliseconds since 1970-01-01 00:00:00 UTC.
+     * 
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
      * @Type("integer")
@@ -216,6 +237,7 @@ class CommonDocumentInfo
 
     /**
      * Custom metadata information
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -224,6 +246,7 @@ class CommonDocumentInfo
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -233,6 +256,7 @@ class CommonDocumentInfo
 
     /**
      * ACL for sharing
+     * 
      * @Accessor(getter="getAcl", setter="setAcl")
      * @SerializedName("acl")
      * @Type("Zimbra\Mail\Struct\Acl")
@@ -243,6 +267,30 @@ class CommonDocumentInfo
     /**
      * Constructor method
      *
+     * @param  string $id
+     * @param  string $uuid
+     * @param  string $name
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folderId
+     * @param  string $folderUuid
+     * @param  int $modifiedSequence
+     * @param  int $metadataVersion
+     * @param  int $changeDate
+     * @param  int $revision
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $description
+     * @param  string $contentType
+     * @param  bool $descEnabled
+     * @param  int $version
+     * @param  string $lastEditedBy
+     * @param  string $creator
+     * @param  int $createdDate
+     * @param  array $metadatas
+     * @param  string $fragment
+     * @param  Acl $acl
      * @return self
      */
     public function __construct(

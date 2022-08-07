@@ -26,6 +26,7 @@ class TagInfo
 {
     /**
      * The folder id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class TagInfo
 
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -44,6 +46,7 @@ class TagInfo
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -53,6 +56,7 @@ class TagInfo
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -62,6 +66,7 @@ class TagInfo
 
     /**
      * Unread count.  Only present iff value > 0
+     * 
      * @Accessor(getter="getUnread", setter="setUnread")
      * @SerializedName("u")
      * @Type("integer")
@@ -71,6 +76,7 @@ class TagInfo
 
     /**
      * Item count.  Only present if value > 0
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")
      * @Type("integer")
@@ -80,6 +86,7 @@ class TagInfo
 
     /**
      * Date
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -89,6 +96,7 @@ class TagInfo
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -98,6 +106,7 @@ class TagInfo
 
     /**
      * Modified date in seconds
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -107,6 +116,7 @@ class TagInfo
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -116,6 +126,7 @@ class TagInfo
 
     /**
      * Custom metadata
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -124,6 +135,7 @@ class TagInfo
 
     /**
      * Retention policy
+     * 
      * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
@@ -132,10 +144,20 @@ class TagInfo
     private ?RetentionPolicy $retentionPolicy = NULL;
 
     /**
-     * Constructor method for TagInfo
+     * Constructor
      *
      * @param  string $id
      * @param  string $name
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $unread
+     * @param  int $count
+     * @param  int $date
+     * @param  int $revision
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  array $metadatas
+     * @param  RetentionPolicy $retentionPolicy
      * @return self
      */
     public function __construct(

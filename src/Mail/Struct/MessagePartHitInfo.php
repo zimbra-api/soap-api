@@ -135,8 +135,19 @@ class MessagePartHitInfo implements SearchHit
     private $subject;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  int $size
+     * @param  int $date
+     * @param  int $conversationId
+     * @param  int $messageId
+     * @param  string $contentType
+     * @param  string $contentName
+     * @param  string $part
+     * @param  EmailInfo $email
+     * @param  string $subject
      * @return self
      */
     public function __construct(

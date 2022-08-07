@@ -28,6 +28,7 @@ class DocumentSpec
 {
     /**
      * File name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class DocumentSpec
 
     /**
      * Content Type
+     * 
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
@@ -46,6 +48,7 @@ class DocumentSpec
 
     /**
      * Absolute Folder path
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
@@ -55,6 +58,7 @@ class DocumentSpec
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -64,6 +68,7 @@ class DocumentSpec
 
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -73,6 +78,7 @@ class DocumentSpec
 
     /**
      * Last known version
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("integer")
@@ -82,6 +88,7 @@ class DocumentSpec
 
     /**
      * Inlined document content string
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -91,6 +98,7 @@ class DocumentSpec
 
     /**
      * Active sync status
+     * 
      * @Accessor(getter="getDescEnabled", setter="setDescEnabled")
      * @SerializedName("descEnabled")
      * @Type("bool")
@@ -101,6 +109,7 @@ class DocumentSpec
     /**
      * Flags - Any of the flags specified in soap.txt, with the addition of <b>"t"</b>, which
      * specifies that the document is a note.
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -110,6 +119,7 @@ class DocumentSpec
 
     /**
      * Upload specification
+     * 
      * @Accessor(getter="getUpload", setter="setUpload")
      * @SerializedName("upload")
      * @Type("Zimbra\Common\Struct\Id")
@@ -119,6 +129,7 @@ class DocumentSpec
 
     /**
      * Message part specification
+     * 
      * @Accessor(getter="getMessagePart", setter="setMessagePart")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
@@ -128,6 +139,7 @@ class DocumentSpec
 
     /**
      * Information on document version to restore to
+     * 
      * @Accessor(getter="getDocRevision", setter="setDocRevision")
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersion")
@@ -136,10 +148,20 @@ class DocumentSpec
     private ?IdVersion $docRevision = NULL;
 
     /**
-     * Constructor method for Folder
+     * Constructor
      *
-     * @param  string $id
+     * @param  string $name
      * @param  string $contentType
+     * @param  string $description
+     * @param  string $folderId
+     * @param  string $id
+     * @param  int $version
+     * @param  string $content
+     * @param  bool $descEnabled
+     * @param  string $flags
+     * @param  Id $upload
+     * @param  MessagePartSpec $messagePart
+     * @param  IdVersion $docRevision
      * @return self
      */
     public function __construct(

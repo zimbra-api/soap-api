@@ -26,6 +26,7 @@ class EditheaderTest
 {
     /**
      * matchType - is|contains|matches|count|value
+     * 
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("matchType")
      * @Type("Enum<Zimbra\Common\Enum\MatchType>")
@@ -35,6 +36,7 @@ class EditheaderTest
 
     /**
      * if true count comparison will be done
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("countComparator")
      * @Type("bool")
@@ -44,6 +46,7 @@ class EditheaderTest
 
     /**
      * if true count comparison will be done
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("valueComparator")
      * @Type("bool")
@@ -53,6 +56,7 @@ class EditheaderTest
 
     /**
      * relational comparator - gt|ge|lt|le|eq|ne
+     * 
      * @Accessor(getter="getRelationalComparator", setter="setRelationalComparator")
      * @SerializedName("relationalComparator")
      * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
@@ -62,6 +66,7 @@ class EditheaderTest
 
     /**
      * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
+     * 
      * @Accessor(getter="getComparator", setter="setComparator")
      * @SerializedName("comparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
@@ -71,6 +76,7 @@ class EditheaderTest
 
     /**
      * name of the header to be compared
+     * 
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
      * @Type("string")
@@ -80,6 +86,7 @@ class EditheaderTest
 
     /**
      * value of the header to be compared
+     * 
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="headerValue", namespace="urn:zimbraMail")
@@ -87,7 +94,7 @@ class EditheaderTest
     private $headerValue = [];
 
     /**
-     * Constructor method for EditheaderTest
+     * Constructor
      * 
      * @param MatchType $matchType
      * @param bool $count

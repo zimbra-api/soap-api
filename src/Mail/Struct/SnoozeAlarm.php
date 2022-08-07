@@ -44,7 +44,7 @@ class SnoozeAlarm
     private $snoozeUntil;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $snoozeUntil

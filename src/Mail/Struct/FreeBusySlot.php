@@ -26,6 +26,7 @@ class FreeBusySlot
 {
     /**
      * GMT Start time for slot in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -35,6 +36,7 @@ class FreeBusySlot
 
     /**
      * GMT End time for slot in milliseconds
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -44,6 +46,7 @@ class FreeBusySlot
 
     /**
      * calendar event id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("eventId")
      * @Type("string")
@@ -53,6 +56,7 @@ class FreeBusySlot
 
     /**
      * Appointment subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("subject")
      * @Type("string")
@@ -62,6 +66,7 @@ class FreeBusySlot
 
     /**
      * location of meeting
+     * 
      * @Accessor(getter="getLocation", setter="setLocation")
      * @SerializedName("location")
      * @Type("string")
@@ -71,6 +76,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean value whether this calendar event is a meeting or not.
+     * 
      * @Accessor(getter="isMeeting", setter="setMeeting")
      * @SerializedName("isMeeting")
      * @Type("bool")
@@ -80,6 +86,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean indicating whether it is continuous or not.
+     * 
      * @Accessor(getter="isRecurring", setter="setRecurring")
      * @SerializedName("isRecurring")
      * @Type("bool")
@@ -89,6 +96,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean indicating whether there is any exception or not.
+     * 
      * @Accessor(getter="isException", setter="setException")
      * @SerializedName("isException")
      * @Type("bool")
@@ -98,6 +106,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean indicating whether any reminder has been set or not.
+     * 
      * @Accessor(getter="isReminderSet", setter="setReminderSet")
      * @SerializedName("isReminderSet")
      * @Type("bool")
@@ -107,6 +116,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean indicating whether this meeting is private or not.
+     * 
      * @Accessor(getter="isPrivate", setter="setPrivate")
      * @SerializedName("isPrivate")
      * @Type("bool")
@@ -116,6 +126,7 @@ class FreeBusySlot
 
     /**
      * returns a boolean indicating hasPermission to view FreeBusy information
+     * 
      * @Accessor(getter="hasPermission", setter="setHasPermission")
      * @SerializedName("hasPermission")
      * @Type("bool")
@@ -124,7 +135,7 @@ class FreeBusySlot
     private $hasPermission;
 
     /**
-     * Constructor method for FreeBusySlot
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $endTime

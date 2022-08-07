@@ -27,6 +27,7 @@ class InviteWithGroupInfo
 {
     /**
      * Invite type - appt|task
+     * 
      * @Accessor(getter="getCalItemType", setter="setCalItemType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\InviteType>")
@@ -36,6 +37,7 @@ class InviteWithGroupInfo
 
     /**
      * Timezones
+     * 
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
@@ -44,6 +46,7 @@ class InviteWithGroupInfo
 
     /**
      * Invite components
+     * 
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
      * @Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")
      * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
@@ -52,6 +55,7 @@ class InviteWithGroupInfo
 
     /**
      * Replies
+     * 
      * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
      * @SerializedName("replies")
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
@@ -61,7 +65,7 @@ class InviteWithGroupInfo
     private $calendarReplies = [];
 
     /**
-     * Constructor method for InviteWithGroupInfo
+     * Constructor
      *
      * @param  InviteType $calItemType
      * @param  array $timezones

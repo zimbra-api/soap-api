@@ -25,6 +25,7 @@ class NestedRule
 {
     /**
      * Filter Variables
+     * 
      * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
      * @SerializedName("filterVariables")
      * @Type("Zimbra\Mail\Struct\FilterVariables")
@@ -34,6 +35,7 @@ class NestedRule
 
     /**
      * Filter tests
+     * 
      * @Accessor(getter="getFilterTests", setter="setFilterTests")
      * @SerializedName("filterTests")
      * @Type("Zimbra\Mail\Struct\FilterTests")
@@ -43,6 +45,7 @@ class NestedRule
 
     /**
      * Filter actions
+     * 
      * @Accessor(getter="getActions", setter="setActions")
      * @Type("Zimbra\Mail\Struct\FilterActions")
      * @SerializedName("filterActions")
@@ -52,6 +55,7 @@ class NestedRule
 
     /**
      * NestedRule child
+     * 
      * @Accessor(getter="getChild", setter="setChild")
      * @SerializedName("nestedRule")
      * @Type("Zimbra\Mail\Struct\NestedRule")
@@ -60,7 +64,7 @@ class NestedRule
     private ?NestedRule $child = NULL;
 
     /**
-     * Constructor method for NestedRule
+     * Constructor
      * 
      * @param FilterTests $tests
      * @param FilterVariables $filterVariables

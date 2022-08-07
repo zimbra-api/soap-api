@@ -27,6 +27,7 @@ class CreateCalendarItemResponse extends SoapResponse
 {
     /**
      * Appointment ID
+     * 
      * @Accessor(getter="getCalItemId", setter="setCalItemId")
      * @SerializedName("calItemId")
      * @Type("string")
@@ -36,6 +37,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Appointment ID (deprecated)
+     * 
      * @Accessor(getter="getDeprecatedApptId", setter="setDeprecatedApptId")
      * @SerializedName("apptId")
      * @Type("string")
@@ -45,6 +47,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Invite Message ID
+     * 
      * @Accessor(getter="getCalInvId", setter="setCalInvId")
      * @SerializedName("invId")
      * @Type("string")
@@ -54,6 +57,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Change sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -63,6 +67,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Revision
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -72,6 +77,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Message information
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Common\Struct\Id")
@@ -81,6 +87,7 @@ class CreateCalendarItemResponse extends SoapResponse
 
     /**
      * Included if "echo" was set in the request
+     * 
      * @Accessor(getter="getEcho", setter="setEcho")
      * @SerializedName("echo")
      * @Type("Zimbra\Mail\Struct\CalEcho")
@@ -89,7 +96,7 @@ class CreateCalendarItemResponse extends SoapResponse
     private ?CalEcho $echo = NULL;
 
     /**
-     * Constructor method for CreateCalendarItemResponse
+     * Constructor
      *
      * @param  string $calItemId
      * @param  string $deprecatedApptId

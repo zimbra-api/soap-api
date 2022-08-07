@@ -27,6 +27,7 @@ class AutoCompleteMatch
 {
     /**
      * Comma-separated email addresses in case of group
+     * 
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -36,6 +37,7 @@ class AutoCompleteMatch
 
     /**
      * Match type - gal|contact|rankingTable
+     * 
      * @Accessor(getter="getMatchType", setter="setMatchType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")
@@ -45,6 +47,7 @@ class AutoCompleteMatch
 
     /**
      * Ranking
+     * 
      * @Accessor(getter="getRanking", setter="setRanking")
      * @SerializedName("ranking")
      * @Type("integer")
@@ -54,6 +57,7 @@ class AutoCompleteMatch
 
     /**
      * Set if the entry is a group
+     * 
      * @Accessor(getter="getGroup", setter="setGroup")
      * @SerializedName("isGroup")
      * @Type("bool")
@@ -64,6 +68,7 @@ class AutoCompleteMatch
     /**
      * Set if the user has the right to expand group members.  Returned only if
      * needExp is set in the request and only on group entries (isGroup is set).
+     * 
      * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
      * @SerializedName("exp")
      * @Type("bool")
@@ -73,6 +78,7 @@ class AutoCompleteMatch
 
     /**
      * Id
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -82,6 +88,7 @@ class AutoCompleteMatch
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -91,6 +98,7 @@ class AutoCompleteMatch
 
     /**
      * String that should be displayed by the client
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("display")
      * @Type("string")
@@ -100,6 +108,7 @@ class AutoCompleteMatch
 
     /**
      * First Name
+     * 
      * @Accessor(getter="getFirstName", setter="setFirstName")
      * @SerializedName("first")
      * @Type("string")
@@ -109,6 +118,7 @@ class AutoCompleteMatch
 
     /**
      * Middle Name
+     * 
      * @Accessor(getter="getMiddleName", setter="setMiddleName")
      * @SerializedName("middle")
      * @Type("string")
@@ -118,6 +128,7 @@ class AutoCompleteMatch
 
     /**
      * Last Name
+     * 
      * @Accessor(getter="getLastName", setter="setLastName")
      * @SerializedName("last")
      * @Type("string")
@@ -127,6 +138,7 @@ class AutoCompleteMatch
 
     /**
      * Full Name
+     * 
      * @Accessor(getter="getFullName", setter="setFullName")
      * @SerializedName("full")
      * @Type("string")
@@ -136,6 +148,7 @@ class AutoCompleteMatch
 
     /**
      * Nick Name
+     * 
      * @Accessor(getter="getNickname", setter="setNickname")
      * @SerializedName("nick")
      * @Type("string")
@@ -145,6 +158,7 @@ class AutoCompleteMatch
 
     /**
      * Company Name
+     * 
      * @Accessor(getter="getCompany", setter="setCompany")
      * @SerializedName("company")
      * @Type("string")
@@ -154,6 +168,7 @@ class AutoCompleteMatch
 
     /**
      * FileAs
+     * 
      * @Accessor(getter="getFileAs", setter="setFileAs")
      * @SerializedName("fileas")
      * @Type("string")
@@ -162,7 +177,7 @@ class AutoCompleteMatch
     private $fileAs;
 
     /**
-     * Constructor method for AutoCompleteMatch
+     * Constructor
      *
      * @param  string $email
      * @param  MatchType $matchType

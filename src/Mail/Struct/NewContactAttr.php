@@ -26,6 +26,7 @@ class NewContactAttr
 {
     /**
      * Attribute name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("n")
      * @Type("string")
@@ -35,6 +36,7 @@ class NewContactAttr
 
     /**
      * Upload ID
+     * 
      * @Accessor(getter="getAttachId", setter="setAttachId")
      * @SerializedName("aid")
      * @Type("string")
@@ -44,6 +46,7 @@ class NewContactAttr
 
     /**
      * Item ID.  Used in combination with subpart-name
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -53,6 +56,7 @@ class NewContactAttr
 
     /**
      * Subpart Name
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -62,6 +66,7 @@ class NewContactAttr
 
     /**
      * Attribute data
+     * 
      * Date related attributes like "birthday" and "anniversary" SHOULD use "yyyy-MM-dd" format or,
      * if the year isn't specified "--MM-dd" format
      * @Accessor(getter="getValue", setter="setValue")
@@ -71,7 +76,7 @@ class NewContactAttr
     private $value;
 
     /**
-     * Constructor method for NewContactAttr
+     * Constructor
      *
      * @param  string $name
      * @param  string $attachId

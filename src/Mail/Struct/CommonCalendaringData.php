@@ -26,6 +26,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 {
     /**
      * x_uid
+     * 
      * @Accessor(getter="getXUid", setter="setXUid")
      * @SerializedName("x_uid")
      * @Type("string")
@@ -35,14 +36,17 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * iCalendar UID
+     * 
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
      */
     private $uid;
+
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -52,6 +56,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -61,6 +66,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Comma separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -70,6 +76,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -79,6 +86,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -88,6 +96,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Modified date in seconds
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -97,6 +106,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -106,6 +116,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Revision number
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -115,6 +126,7 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Appointment ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -123,10 +135,44 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     private $id;
 
     /**
-     * Constructor CommonCalendaringData
+     * Constructor
      *
      * @param  string $xUid
      * @param  string $uid
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $folderId
+     * @param  int $size
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  int $revision
+     * @param  string $id
+     * @param  int $duration
+     * @param  ParticipationStatus $partStat
+     * @param  string $recurIdZ
+     * @param  int $tzOffset
+     * @param  FreeBusyStatus $freeBusyActual
+     * @param  string $taskPercentComplete
+     * @param  bool $isRecurring
+     * @param  bool $hasExceptions
+     * @param  string $priority
+     * @param  FreeBusyStatus $freeBusyIntended
+     * @param  Transparency $transparency
+     * @param  string $name
+     * @param  string $location
+     * @param  bool $hasOtherAttendees
+     * @param  bool $hasAlarm
+     * @param  bool $isOrganizer
+     * @param  string $invId
+     * @param  int $componentNum
+     * @param  InviteStatus $status
+     * @param  InviteClass $calClass
+     * @param  bool $allDay
+     * @param  bool $draft
+     * @param  bool $neverSent
+     * @param  int $taskDueDate
+     * @param  int $taskTzOffsetDue
      * @return self
      */
     public function __construct(

@@ -27,6 +27,7 @@ class WkDay implements WkDayInterface
 {
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
+     * 
      * @Accessor(getter="getDay", setter="setDay")
      * @SerializedName("day")
      * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
@@ -36,6 +37,7 @@ class WkDay implements WkDayInterface
 
     /**
      * Week number.  [[+]|-]num: 1 to 53
+     * 
      * @Accessor(getter="getOrdWk", setter="setOrdWk")
      * @SerializedName("ordwk")
      * @Type("integer")
@@ -44,7 +46,7 @@ class WkDay implements WkDayInterface
     private $ordWk;
 
     /**
-     * Constructor method for WkDay
+     * Constructor
      *
      * @param  WeekDay $day
      * @param  int $ordWk

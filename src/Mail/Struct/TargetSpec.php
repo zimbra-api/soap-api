@@ -27,6 +27,7 @@ class TargetSpec
 {
     /**
      * Target type
+     * 
      * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
@@ -36,6 +37,7 @@ class TargetSpec
 
     /**
      * Select the meaning of {value}
+     * 
      * @Accessor(getter="getAccountBy", setter="setAccountBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
@@ -46,6 +48,7 @@ class TargetSpec
     /**
      * The key used to identify the target
      * Meaning determined by {accountBy}
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -53,7 +56,7 @@ class TargetSpec
     private $value;
 
     /**
-     * Constructor method for TargetSpec
+     * Constructor
      *
      * @param  TargetType $targetType
      * @param  AccountBy $accountBy

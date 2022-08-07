@@ -27,6 +27,7 @@ class GeoInfo implements GeoInfoInterface
 {
     /**
      * Latitude (float value)
+     * 
      * @Accessor(getter="getLatitude", setter="setLatitude")
      * @SerializedName("lat")
      * @Type("string")
@@ -36,6 +37,7 @@ class GeoInfo implements GeoInfoInterface
 
     /**
      * Longitude (float value)
+     * 
      * @Accessor(getter="getLongitude", setter="setLongitude")
      * @SerializedName("lon")
      * @Type("string")
@@ -44,7 +46,7 @@ class GeoInfo implements GeoInfoInterface
     private $longitude;
 
     /**
-     * Constructor method for GeoInfo
+     * Constructor
      * 
      * @param string $latitude
      * @param string $longitude

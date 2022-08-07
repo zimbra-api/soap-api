@@ -66,7 +66,7 @@ class ModifySearchFolderSpec
     private ?SearchSortBy $sortBy = NULL;
 
     /**
-     * Constructor method for ModifySearchFolderSpec
+     * Constructor
      *
      * @param  string $id
      * @param  string $query

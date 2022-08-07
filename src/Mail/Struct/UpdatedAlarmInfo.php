@@ -25,6 +25,7 @@ class UpdatedAlarmInfo
 {
     /**
      * Calendar item ID
+     * 
      * @Accessor(getter="getCalItemId", setter="setCalItemId")
      * @SerializedName("calItemId")
      * @Type("string")
@@ -34,6 +35,7 @@ class UpdatedAlarmInfo
 
     /**
      * Updated alarm information
+     * 
      * @Accessor(getter="getAlarmData", setter="setAlarmData")
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
@@ -42,7 +44,7 @@ class UpdatedAlarmInfo
     private ?AlarmDataInfo $alarmData = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $calItemId
      * @param AlarmDataInfo $alarmData

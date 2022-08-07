@@ -27,6 +27,7 @@ class Msg
 {
     /**
      * Uploaded MIME body ID
+     * 
      * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
      * @SerializedName("aid")
      * @Type("string")
@@ -36,6 +37,7 @@ class Msg
 
     /**
      * Original ID
+     * 
      * @Accessor(getter="getOrigId", setter="setOrigId")
      * @SerializedName("origid")
      * @Type("string")
@@ -45,6 +47,7 @@ class Msg
 
     /**
      * Reply type - r|w.  (r)eplied or for(w)arded.
+     * 
      * @Accessor(getter="getReplyType", setter="setReplyType")
      * @SerializedName("rt")
      * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
@@ -54,6 +57,7 @@ class Msg
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
+     * 
      * @Accessor(getter="getIdentityId", setter="setIdentityId")
      * @SerializedName("idnt")
      * @Type("string")
@@ -63,6 +67,7 @@ class Msg
 
     /**
      * Subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -72,6 +77,7 @@ class Msg
 
     /**
      * Headers
+     * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Mail\Struct\Header>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
@@ -80,6 +86,7 @@ class Msg
 
     /**
      * Message-ID header for message being replied to
+     * 
      * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
      * @SerializedName("irt")
      * @Type("string")
@@ -89,6 +96,7 @@ class Msg
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -98,6 +106,7 @@ class Msg
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -107,6 +116,7 @@ class Msg
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -116,6 +126,7 @@ class Msg
 
     /**
      * Mime part information
+     * 
      * @Accessor(getter="getMimePart", setter="setMimePart")
      * @SerializedName("mp")
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
@@ -125,6 +136,7 @@ class Msg
 
     /**
      * Attachments information
+     * 
      * @Accessor(getter="getAttachments", setter="setAttachments")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
@@ -134,6 +146,7 @@ class Msg
 
     /**
      * Invite information
+     * 
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
@@ -143,6 +156,7 @@ class Msg
 
     /**
      * Email address information
+     * 
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
@@ -151,6 +165,7 @@ class Msg
 
     /**
      * Timezones
+     * 
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
@@ -159,6 +174,7 @@ class Msg
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -167,7 +183,7 @@ class Msg
     private $fragment;
 
     /**
-     * Constructor method for Msg
+     * Constructor
      *
      * @param  string $attachmentId
      * @param  string $origId

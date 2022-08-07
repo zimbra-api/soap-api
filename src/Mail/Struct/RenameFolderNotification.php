@@ -25,6 +25,7 @@ class RenameFolderNotification extends ModifyNotification
 {
     /**
      * ID of renamed folder
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class RenameFolderNotification extends ModifyNotification
 
     /**
      * New path of renamed folder
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -42,7 +44,7 @@ class RenameFolderNotification extends ModifyNotification
     private $path;
 
     /**
-     * Constructor method for RenameFolderNotification
+     * Constructor
      * 
      * @param  int $folderId
      * @param  string $path

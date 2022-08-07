@@ -26,6 +26,7 @@ class NoteHitInfo extends NoteInfo implements SearchHit
 {
     /**
      * Sort field value
+     * 
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
@@ -34,8 +35,23 @@ class NoteHitInfo extends NoteInfo implements SearchHit
     private $sortField;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  int $revision
+     * @param  string $folder
+     * @param  int $date
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $bounds
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  string $content
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

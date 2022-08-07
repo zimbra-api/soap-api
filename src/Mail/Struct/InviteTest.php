@@ -25,6 +25,7 @@ class InviteTest extends FilterTest
 {
     /**
      * Methods
+     * 
      * @Accessor(getter="getMethods", setter="setMethods")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="method", namespace="urn:zimbraMail")
@@ -32,7 +33,7 @@ class InviteTest extends FilterTest
     private $methods;
 
     /**
-     * Constructor method for InviteTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

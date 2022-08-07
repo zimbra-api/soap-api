@@ -28,6 +28,7 @@ class EmailInfo implements EmailInfoInterface
 {
     /**
      * Email address
+     * 
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
@@ -38,6 +39,7 @@ class EmailInfo implements EmailInfoInterface
     /**
      * Display name. If we have personal name, first word in "word1 word2" format, or last
      * word in "word1, word2" format.  If no personal name, take string before "@" in email-address.
+     * 
      * @Accessor(getter="getDisplay", setter="setDisplay")
      * @SerializedName("d")
      * @Type("string")
@@ -47,6 +49,7 @@ class EmailInfo implements EmailInfoInterface
 
     /**
      * The comment/name part of an address
+     * 
      * @Accessor(getter="getPersonal", setter="setPersonal")
      * @SerializedName("p")
      * @Type("string")
@@ -57,6 +60,7 @@ class EmailInfo implements EmailInfoInterface
     /**
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
+     * 
      * @Accessor(getter="getAddressType", setter="setAddressType")
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
@@ -66,6 +70,7 @@ class EmailInfo implements EmailInfoInterface
 
     /**
      * Set if the email address is a group
+     * 
      * @Accessor(getter="getGroup", setter="setGroup")
      * @SerializedName("isGroup")
      * @Type("bool")
@@ -75,6 +80,7 @@ class EmailInfo implements EmailInfoInterface
 
     /**
      * Flags whether can expand group members
+     * 
      * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
      * @SerializedName("exp")
      * @Type("bool")
@@ -83,12 +89,14 @@ class EmailInfo implements EmailInfoInterface
     private $canExpandGroupMembers;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param string $address
      * @param string $display
      * @param string $personal
      * @param AddressType $addressType
+     * @param bool $group
+     * @param bool $canExpandGroupMembers
      * @return self
      */
     public function __construct(

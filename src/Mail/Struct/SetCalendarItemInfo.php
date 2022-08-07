@@ -28,7 +28,7 @@ class SetCalendarItemInfo
     }
 
     /**
-     * Constructor method for SetCalendarItemInfo
+     * Constructor
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg

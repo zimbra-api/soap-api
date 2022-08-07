@@ -26,6 +26,7 @@ class MimeHeaderTest extends FilterTest
 {
     /**
      * Comma separated list of header names
+     * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("string")
@@ -35,6 +36,7 @@ class MimeHeaderTest extends FilterTest
 
     /**
      * String comparison type - is|contains|matches
+     * 
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
@@ -44,6 +46,7 @@ class MimeHeaderTest extends FilterTest
 
     /**
      * Value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -53,6 +56,7 @@ class MimeHeaderTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
@@ -61,7 +65,7 @@ class MimeHeaderTest extends FilterTest
     private $caseSensitive;
 
     /**
-     * Constructor method for MimeHeaderTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

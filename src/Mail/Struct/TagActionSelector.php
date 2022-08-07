@@ -37,7 +37,7 @@ class TagActionSelector extends ActionSelector
     private ?RetentionPolicy $retentionPolicy = NULL;
 
     /**
-     * Constructor method for TagActionSelector
+     * Constructor
      *
      * @param  string $operation
      * @param  RetentionPolicy $retentionPolicy

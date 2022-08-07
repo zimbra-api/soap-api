@@ -35,9 +35,14 @@ class ModifyContactAttr extends NewContactAttr
     private $operation;
 
     /**
-     * Constructor method for ModifyContactAttr
+     * Constructor
      * 
+     * @param string $name
      * @param string $operation
+     * @param string $attachId
+     * @param int $id
+     * @param string $part
+     * @param string $value
      * @return self
      */
     public function __construct(

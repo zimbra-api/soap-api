@@ -25,6 +25,7 @@ class ConversationInfo
 {
     /**
      * Conversation ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class ConversationInfo
 
     /**
      * Number of (nondeleted) messages
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
      * @Type("integer")
@@ -44,6 +46,7 @@ class ConversationInfo
     /**
      * Total number of messages (including deleted messages).  Only included if value
      * differs from {num-msgs}
+     * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
      * @Type("integer")
@@ -53,6 +56,7 @@ class ConversationInfo
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -62,6 +66,7 @@ class ConversationInfo
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -71,6 +76,7 @@ class ConversationInfo
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -80,6 +86,7 @@ class ConversationInfo
 
     /**
      * metadata and the subject as text
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -88,6 +95,7 @@ class ConversationInfo
 
     /**
      * Subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -97,6 +105,7 @@ class ConversationInfo
 
     /**
      * Chat messages
+     * 
      * @Accessor(getter="getChatMessages", setter="setChatMessages")
      * @Type("array<Zimbra\Mail\Struct\ChatMessageInfo>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
@@ -105,6 +114,7 @@ class ConversationInfo
 
     /**
      * Messages
+     * 
      * @Accessor(getter="getMessages", setter="setMessages")
      * @Type("array<Zimbra\Mail\Struct\MessageInfo>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
@@ -112,8 +122,18 @@ class ConversationInfo
     private $messages = [];
 
     /**
-     * Constructor method for ConversationInfo
+     * Constructor
      *
+     * @param  string $id
+     * @param  int $num
+     * @param  int $totalSize
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $subject
+     * @param  array $metadatas
+     * @param  array $chatMessages
+     * @param  array $messages
      * @return self
      */
     public function __construct(

@@ -28,6 +28,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 {
     /**
      * Sequence number
+     * 
      * @Accessor(getter="getSeq", setter="setSeq")
      * @SerializedName("seq")
      * @Type("integer")
@@ -37,6 +38,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * DTSTAMP date in milliseconds
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -46,6 +48,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * Attendee address
+     * 
      * @Accessor(getter="getAttendee", setter="setAttendee")
      * @SerializedName("at")
      * @Type("string")
@@ -55,6 +58,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * iCalendar SENT-BY
+     * 
      * @Accessor(getter="getSentBy", setter="setSentBy")
      * @SerializedName("sentBy")
      * @Type("string")
@@ -68,6 +72,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
+     * 
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
@@ -76,7 +81,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     private ?ParticipationStatus $partStat = NULL;
 
     /**
-     * Constructor method for CalendarReply
+     * Constructor
      *
      * @param  int $recurrenceRangeType
      * @param  string $recurrenceId

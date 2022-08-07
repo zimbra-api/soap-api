@@ -29,6 +29,7 @@ class NewContactGroupMember
      * C: reference to another contact
      * G: reference to a GAL entry
      * I: inlined member (member name and email address is embeded in the contact group)
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
@@ -42,6 +43,7 @@ class NewContactGroupMember
      * If the referenced contact is in a shared folder, the item ID must be qualified by zimbraId of the owner. e.g. {zimbraId}:{itemId}
      * type="G"     GAL entry reference (returned in SearchGalResponse)
      * type="I"     name and email address in the form of: "{name}" <{email}>
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -50,7 +52,8 @@ class NewContactGroupMember
     private $value;
 
     /**
-     * Constructor method for NewContactGroupMember
+     * Constructor
+     * 
      * @param  MemberType $type
      * @param  string $value
      * @return self

@@ -36,6 +36,7 @@ class AlarmInfo implements AlarmInfoInterface
     /**
      * Alarm action
      * Possible values: DISPLAY|AUDIO|EMAIL|PROCEDURE|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE
+     * 
      * @Accessor(getter="getAction", setter="setAction")
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AlarmAction>")
@@ -45,6 +46,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Alarm trigger information
+     * 
      * @Accessor(getter="getTrigger", setter="setTrigger")
      * @SerializedName("trigger")
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
@@ -54,6 +56,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Alarm repeat information
+     * 
      * @Accessor(getter="getRepeat", setter="setRepeat")
      * @SerializedName("repeat")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
@@ -66,6 +69,7 @@ class AlarmInfo implements AlarmInfoInterface
      * action=DISPLAY: Reminder text to display
      * action=EMAIL|X_YAHOO_CALENDAR_ACTION_IM|X_YAHOO_CALENDAR_ACTION_MOBILE: EMail body
      * action=PROCEDURE: Description text
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
@@ -75,6 +79,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Information on attachment
+     * 
      * @Accessor(getter="getAttach", setter="setAttach")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
@@ -84,6 +89,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Alarm summary
+     * 
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
@@ -93,6 +99,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Attendee information
+     * 
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
@@ -101,6 +108,7 @@ class AlarmInfo implements AlarmInfoInterface
 
     /**
      * Non-standard properties (see RFC2445 section 4.8.8.1)
+     * 
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
@@ -108,7 +116,7 @@ class AlarmInfo implements AlarmInfoInterface
     private $xProps = [];
 
     /**
-     * Constructor method for AlarmInfo
+     * Constructor
      *
      * @param  AlarmAction $action
      * @param  AlarmTriggerInfo $trigger

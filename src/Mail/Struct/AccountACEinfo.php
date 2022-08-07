@@ -81,7 +81,7 @@ class AccountACEinfo
     private $deny;
 
     /**
-     * Constructor method for AccountACEinfo
+     * Constructor
      * 
      * @param GranteeType $granteeType
      * @param string $right

@@ -25,6 +25,7 @@ class FolderSpec
 {
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -33,7 +34,7 @@ class FolderSpec
     private $folder;
 
     /**
-     * Constructor method for FolderSpec
+     * Constructor
      * 
      * @param string $folder
      * @return self

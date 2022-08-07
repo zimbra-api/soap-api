@@ -25,6 +25,7 @@ class AddheaderAction extends FilterAction
 {
     /**
      * new header name
+     * 
      * @Accessor(getter="getHeaderName", setter="setHeaderName")
      * @SerializedName("headerName")
      * @Type("string")
@@ -34,6 +35,7 @@ class AddheaderAction extends FilterAction
 
     /**
      * new header value
+     * 
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @SerializedName("headerValue")
      * @Type("string")
@@ -43,6 +45,7 @@ class AddheaderAction extends FilterAction
 
     /**
      * Last header
+     * 
      * @Accessor(getter="getLast", setter="setLast")
      * @SerializedName("last")
      * @Type("bool")
@@ -51,7 +54,7 @@ class AddheaderAction extends FilterAction
     private $last;
 
     /**
-     * Constructor method for AddheaderAction
+     * Constructor
      * 
      * @param int $index
      * @param string $headerName

@@ -25,6 +25,7 @@ class DeleteheaderAction extends FilterAction
 {
     /**
      * if true start from last
+     * 
      * @Accessor(getter="getLast", setter="setLast")
      * @SerializedName("last")
      * @Type("bool")
@@ -34,6 +35,7 @@ class DeleteheaderAction extends FilterAction
 
     /**
      * offset
+     * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
      * @Type("integer")
@@ -43,6 +45,7 @@ class DeleteheaderAction extends FilterAction
 
     /**
      * tests
+     * 
      * @Accessor(getter="getTest", setter="setTest")
      * @SerializedName("test")
      * @Type("Zimbra\Mail\Struct\EditheaderTest")
@@ -51,7 +54,7 @@ class DeleteheaderAction extends FilterAction
     private ?EditheaderTest $test = NULL;
 
     /**
-     * Constructor method for DeleteheaderAction
+     * Constructor
      * 
      * @param int $index
      * @param bool $last

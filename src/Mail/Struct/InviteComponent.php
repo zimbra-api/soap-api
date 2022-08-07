@@ -39,6 +39,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 {
     /**
      * Categories - for iCalendar CATEGORY properties
+     * 
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
@@ -47,6 +48,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Comments - for iCalendar COMMENT properties
+     * 
      * @Accessor(getter="getComments", setter="setComments")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
@@ -55,6 +57,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Contacts - for iCalendar CONTACT properties
+     * 
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
@@ -63,6 +66,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * for iCalendar GEO property
+     * 
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
@@ -72,6 +76,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Attendees
+     * 
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
@@ -80,6 +85,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Alarm information
+     * 
      * @Accessor(getter="getAlarms", setter="setAlarms")
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
@@ -88,6 +94,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * XPROP properties
+     * 
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
@@ -96,6 +103,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -105,6 +113,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Present if noBlob is set and invite has a plain text description
+     * 
      * @Accessor(getter="getDescription", setter="setDescription")
      * @SerializedName("desc")
      * @Type("string")
@@ -114,6 +123,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Present if noBlob is set and invite has an HTML description
+     * 
      * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
      * @SerializedName("descHtml")
      * @Type("string")
@@ -123,6 +133,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Organizer
+     * 
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
@@ -132,6 +143,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Recurrence information
+     * 
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
@@ -141,6 +153,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Recurrence id, if this is an exception
+     * 
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
@@ -150,6 +163,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Start date-time (required)
+     * 
      * @Accessor(getter="getDtStart", setter="setDtStart")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
@@ -159,6 +173,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * End date-time
+     * 
      * @Accessor(getter="getDtEnd", setter="setDtEnd")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
@@ -168,6 +183,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Duration
+     * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
@@ -178,9 +194,51 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Constructor method
      *
-     * @param string $method
-     * @param int $componentNum
-     * @param bool $rsvp
+     * @param  string $method
+     * @param  int $componentNum
+     * @param  bool $rsvp
+     * @param  string $priority
+     * @param  string $name
+     * @param  string $location
+     * @param  string $percentComplete
+     * @param  string $completed
+     * @param  bool $noBlob
+     * @param  FreeBusyStatus $freeBusyActual
+     * @param  FreeBusyStatus $freeBusy
+     * @param  Transparency $transparency
+     * @param  bool $isOrganizer
+     * @param  string $xUid
+     * @param  string $uid
+     * @param  int $sequence
+     * @param  int $dateTime
+     * @param  string $calItemId
+     * @param  string $deprecatedApptId
+     * @param  string $calItemFolder
+     * @param  InviteStatus $status
+     * @param  InviteClass $calClass
+     * @param  string $url
+     * @param  bool $isException
+     * @param  string $recurIdZ
+     * @param  bool $isAllDay
+     * @param  bool $isDraft
+     * @param  bool $neverSent
+     * @param  string $changes
+     * @param  array $categories
+     * @param  array $comments
+     * @param  array $contacts
+     * @param  GeoInfoInterface $geo
+     * @param  array $attendees
+     * @param  array $alarms
+     * @param  array $xProps
+     * @param  string $fragment
+     * @param  string $description
+     * @param  string $htmlDescription
+     * @param  CalOrganizerInterface $organizer
+     * @param  RecurrenceInfoInterface $recurrence
+     * @param  ExceptionRecurIdInfoInterface $exceptionId
+     * @param  DtTimeInfoInterface $dtStart
+     * @param  DtTimeInfoInterface $dtEnd
+     * @param  DurationInfoInterface $duration
      * @return self
      */
     public function __construct(

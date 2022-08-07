@@ -143,8 +143,21 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     private $replies = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  int $date
+     * @param  bool $contentMatched
+     * @param  int $nextAlarm
+     * @param  CalOrganizer $organizer
+     * @param  array $categories
+     * @param  GeoInfo $geo
+     * @param  string $fragment
+     * @param  array $instances
+     * @param  AlarmDataInfo $alarmData
+     * @param  array $invites
+     * @param  array $replies
      * @return self
      */
     public function __construct(

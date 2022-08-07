@@ -25,6 +25,7 @@ class CalEcho
 {
     /**
      * Invite
+     * 
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
@@ -33,7 +34,7 @@ class CalEcho
     private ?InviteAsMP $invite = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param InviteAsMP $invite
      * @return self

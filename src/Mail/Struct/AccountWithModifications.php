@@ -24,6 +24,7 @@ class AccountWithModifications
 {
     /**
      * Account ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -33,6 +34,7 @@ class AccountWithModifications
 
     /**
      * Serialized pending modifications per folder
+     * 
      * @Accessor(getter="getPendingFolderModifications", setter="setPendingFolderModifications")
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline=true, entry="mods", namespace="urn:zimbraMail")
@@ -41,6 +43,7 @@ class AccountWithModifications
 
     /**
      * ID of the last change
+     * 
      * @Accessor(getter="getLastChangeId", setter="setLastChangeId")
      * @SerializedName("changeid")
      * @Type("int")
@@ -49,7 +52,8 @@ class AccountWithModifications
     private $lastChangeId;
 
     /**
-     * Constructor method for AccountWithModifications
+     * Constructor
+     * 
      * @param  int $id
      * @param  array $mods
      * @param  int $lastChangeId

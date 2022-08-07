@@ -177,7 +177,7 @@ class FilterActions
     private $replaceheaderActions = [];
 
     /**
-     * Constructor method for FilterActions
+     * Constructor
      * 
      * @param  array $filterActions
      * @return self

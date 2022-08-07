@@ -27,6 +27,7 @@ abstract class CalItemRequestBase extends SoapRequest
     /**
      * If specified, the created appointment is echoed back in the response as if a
      * GetMsgRequest was made
+     * 
      * @Accessor(getter="getEcho", setter="setEcho")
      * @SerializedName("echo")
      * @Type("bool")
@@ -36,6 +37,7 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Maximum inlined length
+     * 
      * @Accessor(getter="getMaxSize", setter="setMaxSize")
      * @SerializedName("max")
      * @Type("integer")
@@ -45,6 +47,7 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Set if want HTML included in echoing
+     * 
      * @Accessor(getter="getWantHtml", setter="setWantHtml")
      * @SerializedName("want")
      * @Type("bool")
@@ -54,6 +57,7 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Set if want "neuter" set for echoed response
+     * 
      * @Accessor(getter="getNeuter", setter="setNeuter")
      * @SerializedName("neuter")
      * @Type("bool")
@@ -66,6 +70,7 @@ abstract class CalItemRequestBase extends SoapRequest
      * If unset, throw the soapfaultexception with invalid addresses so that client can give the forcesend option to
      * the end user.
      * The default is 1.
+     * 
      * @Accessor(getter="getForceSend", setter="setForceSend")
      * @SerializedName("forcesend")
      * @Type("bool")
@@ -75,6 +80,7 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Message information
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
@@ -83,7 +89,7 @@ abstract class CalItemRequestBase extends SoapRequest
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method for CalItemRequestBase
+     * Constructor
      *
      * @param  Msg $msg
      * @param  bool $echo

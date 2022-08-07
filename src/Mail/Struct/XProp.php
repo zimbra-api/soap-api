@@ -27,6 +27,7 @@ class XProp implements XPropInterface
 {
     /**
      * XPROP Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class XProp implements XPropInterface
 
     /**
      * XPROP value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -45,6 +47,7 @@ class XProp implements XPropInterface
 
     /**
      * XPARAMs
+     * 
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
@@ -52,7 +55,7 @@ class XProp implements XPropInterface
     private $xParams = [];
 
     /**
-     * Constructor method for XProp
+     * Constructor
      *
      * @param  string $name
      * @param  string $value

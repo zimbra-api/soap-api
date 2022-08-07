@@ -27,6 +27,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
 {
     /**
      * TZID
+     * 
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("string")
@@ -36,6 +37,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
 
     /**
      * Information on start date/time and end date/time or duration
+     * 
      * @Accessor(getter="getDtVals", setter="setDtVals")
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
      * @XmlList(inline=true, entry="dtval", namespace="urn:zimbraMail")
@@ -43,7 +45,7 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
     private $dtVals = [];
 
     /**
-     * Constructor method for SingleDates
+     * Constructor
      *
      * @param  string $timezone
      * @param  array $dtVals

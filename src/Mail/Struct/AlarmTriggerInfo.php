@@ -27,6 +27,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
 {
     /**
      * Absolute trigger information
+     * 
      * @Accessor(getter="getAbsolute", setter="setAbsolute")
      * @SerializedName("abs")
      * @Type("Zimbra\Mail\Struct\DateAttr")
@@ -36,6 +37,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
 
     /**
      * Relative trigger information
+     * 
      * @Accessor(getter="getRelative", setter="setRelative")
      * @SerializedName("rel")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
@@ -44,7 +46,7 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
     private ?DurationInfoInterface $relative = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param DateAttr $absolute
      * @param DurationInfo $relative

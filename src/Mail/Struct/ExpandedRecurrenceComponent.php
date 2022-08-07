@@ -25,7 +25,8 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class ExpandedRecurrenceComponent
 {
     /**
-     * RECURRENCE_ID
+     * Recurrence ID
+     * 
      * @Accessor(getter="getExceptionId", setter="setExceptionId")
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
@@ -35,6 +36,7 @@ class ExpandedRecurrenceComponent
 
     /**
      * DTSTART time in milliseconds since the Epoch
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -44,6 +46,7 @@ class ExpandedRecurrenceComponent
 
     /**
      * DTEND time in milliseconds since the Epoch
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("integer")
@@ -52,7 +55,8 @@ class ExpandedRecurrenceComponent
     private $endTime;
 
     /**
-     * DURATION
+     * Duration
+     * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
@@ -62,6 +66,7 @@ class ExpandedRecurrenceComponent
 
     /**
      * RRULE/RDATE/EXDATE information
+     * 
      * @Accessor(getter="getRecurrence", setter="setRecurrence")
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
@@ -70,7 +75,7 @@ class ExpandedRecurrenceComponent
     private ?RecurrenceInfo $recurrence = NULL;
 
     /**
-     * Constructor method for ExpandedRecurrenceComponent
+     * Constructor
      *
      * @param  InstanceRecurIdInfo $exceptionId
      * @param  int $startTime

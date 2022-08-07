@@ -26,6 +26,7 @@ class ContactSpec implements SpecifyContact
 {
     /**
      * ID - specified when modifying a contact
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("integer")
@@ -35,6 +36,7 @@ class ContactSpec implements SpecifyContact
 
     /**
      * ID of folder to create contact in. Un-specified means use the default Contacts folder.
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -44,6 +46,7 @@ class ContactSpec implements SpecifyContact
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -53,6 +56,7 @@ class ContactSpec implements SpecifyContact
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -62,6 +66,7 @@ class ContactSpec implements SpecifyContact
 
     /**
      * Either a vcard or attributes can be specified but not both.
+     * 
      * @Accessor(getter="getVcard", setter="setVcard")
      * @SerializedName("vcard")
      * @Type("Zimbra\Mail\Struct\VCardInfo")
@@ -71,6 +76,7 @@ class ContactSpec implements SpecifyContact
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
@@ -80,6 +86,7 @@ class ContactSpec implements SpecifyContact
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
+     * 
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
@@ -87,7 +94,7 @@ class ContactSpec implements SpecifyContact
     private $contactGroupMembers = [];
 
     /**
-     * Constructor method for ContactSpec
+     * Constructor
      *
      * @param int $id
      * @param string $folder

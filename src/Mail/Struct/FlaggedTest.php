@@ -25,6 +25,7 @@ class FlaggedTest extends FilterTest
 {
     /**
      * Flag name - flagged|read|priority
+     * 
      * @Accessor(getter="getFlag", setter="setFlag")
      * @SerializedName("flagName")
      * @Type("string")
@@ -33,7 +34,7 @@ class FlaggedTest extends FilterTest
     private $flag;
 
     /**
-     * Constructor method for FlaggedTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

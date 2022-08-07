@@ -27,6 +27,7 @@ class Grant
 {
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
+     * 
      * @Accessor(getter="getPerm", setter="setPerm")
      * @SerializedName("perm")
      * @Type("string")
@@ -36,6 +37,7 @@ class Grant
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
+     * 
      * @Accessor(getter="getGranteeType", setter="setGranteeType")
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")
@@ -45,6 +47,7 @@ class Grant
 
     /**
      * Grantee ID
+     * 
      * @Accessor(getter="getGranteeId", setter="setGranteeId")
      * @SerializedName("zid")
      * @Type("string")
@@ -54,6 +57,7 @@ class Grant
 
     /**
      * Time when this grant expires
+     * 
      * @Accessor(getter="getExpiry", setter="setExpiry")
      * @SerializedName("expiry")
      * @Type("integer")
@@ -63,6 +67,7 @@ class Grant
 
     /**
      * Name or email address of the principal being granted rights.
+     * 
      * @Accessor(getter="getGranteeName", setter="setGranteeName")
      * @SerializedName("d")
      * @Type("string")
@@ -72,6 +77,7 @@ class Grant
 
     /**
      * Password for when granteeType is guest
+     * 
      * @Accessor(getter="getGuestPassword", setter="setGuestPassword")
      * @SerializedName("pw")
      * @Type("string")
@@ -81,6 +87,7 @@ class Grant
 
     /**
      * Access key when granteeType is key
+     * 
      * @Accessor(getter="getAccessKey", setter="setAccessKey")
      * @SerializedName("key")
      * @Type("string")
@@ -89,7 +96,7 @@ class Grant
     private $accessKey;
 
     /**
-     * Constructor method for Grant
+     * Constructor
      *
      * @param string $perm
      * @param GrantGranteeType $granteeType

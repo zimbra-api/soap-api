@@ -28,6 +28,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 {
     /**
      * Message ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,6 +38,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * IMAP UID
+     * 
      * @Accessor(getter="getImapUid", setter="setImapUid")
      * @SerializedName("i4uid")
      * @Type("integer")
@@ -46,6 +48,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * X-Zimbra-Calendar-Intended-For header
+     * 
      * @Accessor(getter="getCalendarIntendedFor", setter="setCalendarIntendedFor")
      * @SerializedName("cif")
      * @Type("string")
@@ -55,6 +58,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Message id of the message being replied to/forwarded (outbound messages only)
+     * 
      * @Accessor(getter="getOrigId", setter="setOrigId")
      * @SerializedName("origid")
      * @Type("string")
@@ -64,6 +68,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Reply type - r|w: (r)eplied or for(w)arded.
+     * 
      * @Accessor(getter="getDraftReplyType", setter="setDraftReplyType")
      * @SerializedName("rt")
      * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
@@ -73,6 +78,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * If set, this specifies the identity being used to compose the message
+     * 
      * @Accessor(getter="getIdentityId", setter="setIdentityId")
      * @SerializedName("idnt")
      * @Type("string")
@@ -82,6 +88,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Draft account ID
+     * 
      * @Accessor(getter="getDraftAccountId", setter="setDraftAccountId")
      * @SerializedName("forAcct")
      * @Type("string")
@@ -92,6 +99,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     /**
      * Can optionally set this to specify the time at which the draft should be
      * automatically sent by the server
+     * 
      * @Accessor(getter="getDraftAutoSendTime", setter="setDraftAutoSendTime")
      * @SerializedName("autoSendTime")
      * @Type("integer")
@@ -101,6 +109,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Date header
+     * 
      * @Accessor(getter="getSentDate", setter="setSentDate")
      * @SerializedName("sd")
      * @Type("integer")
@@ -110,6 +119,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Resent date
+     * 
      * @Accessor(getter="getResentDate", setter="setResentDate")
      * @SerializedName("rd")
      * @Type("integer")
@@ -119,6 +129,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Part
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -128,6 +139,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -137,6 +149,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Email addresses
+     * 
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
@@ -145,6 +158,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -154,6 +168,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Message ID
+     * 
      * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
      * @SerializedName("mid")
      * @Type("string")
@@ -163,6 +178,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Message-ID header for message being replied to
+     * 
      * @Accessor(getter="getInReplyTo", setter="setInReplyTo")
      * @SerializedName("irt")
      * @Type("string")
@@ -172,6 +188,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Parsed out iCalendar invite
+     * 
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
@@ -181,6 +198,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Headers
+     * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
@@ -189,6 +207,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Part infomations
+     * 
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
@@ -197,6 +216,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * Share notifications
+     * 
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
      * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
@@ -205,6 +225,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
 
     /**
      * DL subscription notifications
+     * 
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
      * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
@@ -212,8 +233,40 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     private $dlSubs = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  int $imapUid
+     * @param  string $calendarIntendedFor
+     * @param  string $origId
+     * @param  ReplyType $draftReplyType
+     * @param  string $identityId
+     * @param  string $draftAccountId
+     * @param  int $draftAutoSendTime
+     * @param  int $sentDate
+     * @param  int $resentDate
+     * @param  string $part
+     * @param  string $fragment
+     * @param  array $emails
+     * @param  string $subject
+     * @param  string $messageIdHeader
+     * @param  string $inReplyTo
+     * @param  InviteInfo $invite
+     * @param  array $headers
+     * @param  array $partInfos
+     * @param  array $shareNotifications
+     * @param  array $dlSubs
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folder
+     * @param  string $conversationId
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  int $revision
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

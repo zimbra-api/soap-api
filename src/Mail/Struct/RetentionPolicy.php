@@ -25,6 +25,7 @@ class RetentionPolicy
 {
     /**
      * "Keep" retention policies
+     * 
      * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
      * @SerializedName("keep")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
@@ -35,6 +36,7 @@ class RetentionPolicy
 
     /**
      * "Purge" retention policies
+     * 
      * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
      * @SerializedName("purge")
      * @Type("array<Zimbra\Mail\Struct\Policy>")
@@ -44,7 +46,7 @@ class RetentionPolicy
     private $purge = [];
 
     /**
-     * Constructor method for RetentionPolicy
+     * Constructor
      *
      * @param  array $keep
      * @param  array $purge

@@ -26,6 +26,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
 {
     /**
      * Free/Busy user status
+     * 
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserStatus>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
@@ -33,7 +34,7 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     private $freebusyUsers = [];
 
     /**
-     * Constructor method for ConflictRecurrenceInstance
+     * Constructor
      *
      * @param  array $freebusyUsers
      * @param  int $startTime

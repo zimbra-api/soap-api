@@ -26,6 +26,7 @@ class ActionResult
 {
     /**
      * Comma-separated list of ids which have been successfully processed
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -35,6 +36,7 @@ class ActionResult
 
     /**
      * Operation
+     * 
      * @Accessor(getter="getOperation", setter="setOperation")
      * @SerializedName("op")
      * @Type("string")
@@ -44,6 +46,7 @@ class ActionResult
 
     /**
      * Comma-separated list of non-existent ids (if requested)
+     * 
      * @Accessor(getter="getNonExistentIds", setter="setNonExistentIds")
      * @SerializedName("nei")
      * @Type("string")
@@ -53,6 +56,7 @@ class ActionResult
 
     /**
      * Comma-separated list of newly created ids (if requested)
+     * 
      * @Accessor(getter="getNewlyCreatedIds", setter="setNewlyCreatedIds")
      * @SerializedName("nci")
      * @Type("string")
@@ -61,7 +65,7 @@ class ActionResult
     private $newlyCreatedIds;
 
     /**
-     * Constructor method for ActionResult
+     * Constructor
      *
      * @param  string $id
      * @param  string $operation

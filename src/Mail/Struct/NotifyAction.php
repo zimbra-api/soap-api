@@ -25,6 +25,7 @@ class NotifyAction extends FilterAction
 {
     /**
      * Email address
+     * 
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
@@ -36,6 +37,7 @@ class NotifyAction extends FilterAction
      * Subject template
      * Can contain variables such as ${SUBJECT}, ${TO}, ${CC}, etc
      * (basically ${any-header-name}; case not important), plus ${BODY} (text body of the message).
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -45,6 +47,7 @@ class NotifyAction extends FilterAction
 
     /**
      * Maximum body size in bytes
+     * 
      * @Accessor(getter="getMaxBodySize", setter="setMaxBodySize")
      * @SerializedName("maxBodySize")
      * @Type("integer")
@@ -56,6 +59,7 @@ class NotifyAction extends FilterAction
      * Body template
      * Can contain variables such as ${SUBJECT}, ${TO}, ${CC}, etc
      * (basically ${any-header-name}; case not important), plus ${BODY} (text body of the message).
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -65,6 +69,7 @@ class NotifyAction extends FilterAction
 
     /**
      * Optional - Either "*" or a comma-separated list of header names.
+     * 
      * @Accessor(getter="getOrigHeaders", setter="setOrigHeaders")
      * @SerializedName("origHeaders")
      * @Type("string")
@@ -73,7 +78,7 @@ class NotifyAction extends FilterAction
     private $origHeaders;
 
     /**
-     * Constructor method for NotifyAction
+     * Constructor
      * 
      * @param int $index
      * @param string $address

@@ -66,7 +66,7 @@ abstract class ImportStatusInfo
     private $error;
 
     /**
-     * Constructor mothod
+     * Constructor
      *
      * @param string $id
      * @param bool $running

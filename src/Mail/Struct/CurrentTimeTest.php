@@ -26,6 +26,7 @@ class CurrentTimeTest extends FilterTest
 {
     /**
      * Date comparison setting - before|after
+     * 
      * @Accessor(getter="getDateComparison", setter="setDateComparison")
      * @SerializedName("dateComparison")
      * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
@@ -35,6 +36,7 @@ class CurrentTimeTest extends FilterTest
 
     /**
      * Time in HHmm format
+     * 
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
      * @Type("string")
@@ -43,7 +45,7 @@ class CurrentTimeTest extends FilterTest
     private $time;
 
     /**
-     * Constructor method for CurrentTimeTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

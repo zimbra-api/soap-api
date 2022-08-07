@@ -25,6 +25,7 @@ class AddedComment
 {
     /**
      * Item ID of parent
+     * 
      * @Accessor(getter="getParentId", setter="setParentId")
      * @SerializedName("parentId")
      * @Type("string")
@@ -34,6 +35,7 @@ class AddedComment
 
     /**
      * Comment text
+     * 
      * @Accessor(getter="getText", setter="setText")
      * @SerializedName("text")
      * @Type("string")
@@ -42,7 +44,7 @@ class AddedComment
     private $text;
 
     /**
-     * Constructor method for AddedComment
+     * Constructor
      *
      * @param  string $parentId
      * @param  string $text

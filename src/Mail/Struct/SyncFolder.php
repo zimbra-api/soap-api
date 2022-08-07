@@ -115,11 +115,42 @@ class SyncFolder extends Folder
     private $docItemIds = [];
 
     /**
-     * Constructor method for SyncFolder
+     * Constructor
      *
      * @param  string $id
      * @param  string $uuid
      * @param  array $itemIds
+     * @param  string $name
+     * @param  string $absoluteFolderPath
+     * @param  string $parentId
+     * @param  string $folderUuid
+     * @param  string $flags
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $unreadCount
+     * @param  int $imapUnreadCount
+     * @param  ViewType $view
+     * @param  int $revision
+     * @param  int $modifiedSequence
+     * @param  int $changeDate
+     * @param  int $itemCount
+     * @param  int $imapItemCount
+     * @param  int $totalSize
+     * @param  int $imapModifiedSequence
+     * @param  int $imapUidNext
+     * @param  string $url
+     * @param  bool $activeSyncDisabled
+     * @param  int $webOfflineSyncDays
+     * @param  string $perm
+     * @param  bool $recursive
+     * @param  string $restUrl
+     * @param  bool $deletable
+     * @param  array $metadatas
+     * @param  Acl $acl
+     * @param  array $subFolders
+     * @param  array $mountpoints
+     * @param  array $searchFolders
+     * @param  RetentionPolicy $retentionPolicy
      * @return self
      */
     public function __construct(

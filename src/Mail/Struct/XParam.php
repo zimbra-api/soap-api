@@ -27,6 +27,7 @@ class XParam implements XParamInterface
 {
     /**
      * XPARAM Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class XParam implements XParamInterface
 
     /**
      * XPARAM value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -44,7 +46,7 @@ class XParam implements XParamInterface
     private $value;
 
     /**
-     * Constructor method for XParam
+     * Constructor
      *
      * @param  string $name
      * @param  string $value

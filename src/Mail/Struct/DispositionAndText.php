@@ -44,7 +44,7 @@ class DispositionAndText
     private $text;
 
     /**
-     * Constructor method for DispositionAndText
+     * Constructor
      *
      * @param  string $disposition
      * @param  string $text

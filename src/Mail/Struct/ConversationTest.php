@@ -25,6 +25,7 @@ class ConversationTest extends FilterTest
 {
     /**
      * Where setting - started|participated
+     * 
      * @Accessor(getter="getWhere", setter="setWhere")
      * @SerializedName("where")
      * @Type("string")
@@ -33,7 +34,7 @@ class ConversationTest extends FilterTest
     private $where;
 
     /**
-     * Constructor method for ConversationTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

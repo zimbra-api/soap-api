@@ -25,6 +25,7 @@ class BodyTest extends FilterTest
 {
     /**
      * Value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -34,6 +35,7 @@ class BodyTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
@@ -42,7 +44,7 @@ class BodyTest extends FilterTest
     private $caseSensitive;
 
     /**
-     * Constructor method for BodyTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

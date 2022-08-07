@@ -25,6 +25,7 @@ class ModifyTagNotification extends ModifyNotification
 {
     /**
      * ID of modified tag
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class ModifyTagNotification extends ModifyNotification
 
     /**
      * Name of modified tag
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -42,7 +44,8 @@ class ModifyTagNotification extends ModifyNotification
     private $name;
 
     /**
-     * Constructor method for ModifyTagNotification
+     * Constructor
+     * 
      * @param  int $id
      * @param  string $name
      * @param  int $changeBitmask

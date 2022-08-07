@@ -54,7 +54,7 @@ class ListDocumentRevisionsSpec
     private $count;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $version

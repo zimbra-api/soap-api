@@ -27,6 +27,7 @@ class NumAttr implements NumAttrInterface
 {
     /**
      * Number
+     * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
      * @Type("integer")
@@ -35,7 +36,7 @@ class NumAttr implements NumAttrInterface
     private $num;
 
     /**
-     * Constructor method for NumAttr
+     * Constructor
      *
      * @param  int $num
      * @return self

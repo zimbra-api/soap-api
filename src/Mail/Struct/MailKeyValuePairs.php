@@ -36,7 +36,7 @@ class MailKeyValuePairs implements KeyValuePairs
     protected $keyValuePairs = [];
 
     /**
-     * Constructor method for MailKeyValuePairs
+     * Constructor
      *
      * @param array $keyValuePairs
      */

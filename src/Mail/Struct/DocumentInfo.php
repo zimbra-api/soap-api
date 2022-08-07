@@ -25,6 +25,7 @@ class DocumentInfo extends CommonDocumentInfo
 {
     /**
      * Lock owner account ID
+     * 
      * @Accessor(getter="getLockOwnerId", setter="setLockOwnerId")
      * @SerializedName("loid")
      * @Type("string")
@@ -34,6 +35,7 @@ class DocumentInfo extends CommonDocumentInfo
 
     /**
      * Lock owner account email address
+     * 
      * @Accessor(getter="getLockOwnerEmail", setter="setLockOwnerEmail")
      * @SerializedName("loe")
      * @Type("string")
@@ -43,6 +45,7 @@ class DocumentInfo extends CommonDocumentInfo
 
     /**
      * Lock timestamp
+     * 
      * @Accessor(getter="getLockOwnerTimestamp", setter="setLockOwnerTimestamp")
      * @SerializedName("lt")
      * @Type("string")
@@ -51,8 +54,35 @@ class DocumentInfo extends CommonDocumentInfo
     private $lockOwnerTimestamp;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  string $lockOwnerId
+     * @param  string $lockOwnerEmail
+     * @param  string $lockOwnerTimestamp
+     * @param  string $uuid
+     * @param  string $name
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folderId
+     * @param  string $folderUuid
+     * @param  int $modifiedSequence
+     * @param  int $metadataVersion
+     * @param  int $changeDate
+     * @param  int $revision
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $description
+     * @param  string $contentType
+     * @param  bool $descEnabled
+     * @param  int $version
+     * @param  string $lastEditedBy
+     * @param  string $creator
+     * @param  int $createdDate
+     * @param  array $metadatas
+     * @param  string $fragment
+     * @param  Acl $acl
      * @return self
      */
     public function __construct(

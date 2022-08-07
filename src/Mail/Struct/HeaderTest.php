@@ -26,6 +26,7 @@ class HeaderTest extends FilterTest
 {
     /**
      * Comma separated list of header names
+     * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @SerializedName("header")
      * @Type("string")
@@ -35,6 +36,7 @@ class HeaderTest extends FilterTest
 
     /**
      * String comparison type - is|contains|matches
+     * 
      * @Accessor(getter="getStringComparison", setter="setStringComparison")
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
@@ -44,6 +46,7 @@ class HeaderTest extends FilterTest
 
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
+     * 
      * @Accessor(getter="getValueComparison", setter="setValueComparison")
      * @SerializedName("valueComparison")
      * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
@@ -53,6 +56,7 @@ class HeaderTest extends FilterTest
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
+     * 
      * @Accessor(getter="getCountComparison", setter="setCountComparison")
      * @SerializedName("countComparison")
      * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
@@ -62,6 +66,7 @@ class HeaderTest extends FilterTest
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
+     * 
      * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
      * @SerializedName("valueComparisonComparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
@@ -71,6 +76,7 @@ class HeaderTest extends FilterTest
 
     /**
      * Value
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -80,6 +86,7 @@ class HeaderTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
      * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
      * @SerializedName("caseSensitive")
      * @Type("bool")
@@ -88,7 +95,7 @@ class HeaderTest extends FilterTest
     private $caseSensitive;
 
     /**
-     * Constructor method for HeaderTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

@@ -44,6 +44,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 {
     /**
      * Frequency - SEC,MIN,HOU,DAI,WEE,MON,YEA
+     * 
      * @Accessor(getter="getFrequency", setter="setFrequency")
      * @SerializedName("freq")
      * @Type("Enum<Zimbra\Common\Enum\Frequency>")
@@ -53,6 +54,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * UNTIL date specification
+     * 
      * @Accessor(getter="getUntil", setter="setUntil")
      * @SerializedName("until")
      * @Type("Zimbra\Mail\Struct\DateTimeStringAttr")
@@ -62,6 +64,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * Count of instances to generate
+     * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("count")
      * @Type("Zimbra\Mail\Struct\NumAttr")
@@ -71,6 +74,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * Interval specification
+     * 
      * @Accessor(getter="getInterval", setter="setInterval")
      * @SerializedName("interval")
      * @Type("Zimbra\Mail\Struct\IntervalRule")
@@ -80,6 +84,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYSECOND rule
+     * 
      * @Accessor(getter="getBySecond", setter="setBySecond")
      * @SerializedName("bysecond")
      * @Type("Zimbra\Mail\Struct\BySecondRule")
@@ -89,6 +94,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYMINUTE rule
+     * 
      * @Accessor(getter="getByMinute", setter="setByMinute")
      * @SerializedName("byminute")
      * @Type("Zimbra\Mail\Struct\ByMinuteRule")
@@ -98,6 +104,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYHOUR rule
+     * 
      * @Accessor(getter="getByHour", setter="setByHour")
      * @SerializedName("byhour")
      * @Type("Zimbra\Mail\Struct\ByHourRule")
@@ -107,6 +114,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYDAY rule
+     * 
      * @Accessor(getter="getByDay", setter="setByDay")
      * @SerializedName("byday")
      * @Type("Zimbra\Mail\Struct\ByDayRule")
@@ -116,6 +124,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYMONTHDAY rule
+     * 
      * @Accessor(getter="getByMonthDay", setter="setByMonthDay")
      * @SerializedName("bymonthday")
      * @Type("Zimbra\Mail\Struct\ByMonthDayRule")
@@ -125,6 +134,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYYEARDAY rule
+     * 
      * @Accessor(getter="getByYearDay", setter="setByYearDay")
      * @SerializedName("byyearday")
      * @Type("Zimbra\Mail\Struct\ByYearDayRule")
@@ -134,6 +144,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYWEEKNO rule
+     * 
      * @Accessor(getter="getByWeekNo", setter="setByWeekNo")
      * @SerializedName("byweekno")
      * @Type("Zimbra\Mail\Struct\ByWeekNoRule")
@@ -143,6 +154,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYMONTH rule
+     * 
      * @Accessor(getter="getByMonth", setter="setByMonth")
      * @SerializedName("bymonth")
      * @Type("Zimbra\Mail\Struct\ByMonthRule")
@@ -152,6 +164,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYSETPOS rule
+     * 
      * @Accessor(getter="getBySetPos", setter="setBySetPos")
      * @SerializedName("bysetpos")
      * @Type("Zimbra\Mail\Struct\BySetPosRule")
@@ -161,6 +174,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * Week start day - SU,MO,TU,WE,TH,FR,SA
+     * 
      * @Accessor(getter="getWeekStart", setter="setWeekStart")
      * @SerializedName("wkst")
      * @Type("Zimbra\Mail\Struct\WkstRule")
@@ -170,6 +184,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * X Name rules
+     * 
      * @Accessor(getter="getXNames", setter="setXNames")
      * @Type("array<Zimbra\Mail\Struct\XNameRule>")
      * @XmlList(inline=true, entry="rule-x-name", namespace="urn:zimbraMail")
@@ -177,7 +192,7 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     private $xNames = [];
 
     /**
-     * Constructor method for SimpleRepeatingRule
+     * Constructor
      *
      * @param  Frequency $frequency
      * @param  DateTimeStringAttrInterface $until

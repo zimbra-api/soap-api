@@ -25,6 +25,7 @@ class ImapMessageInfo extends IMAPItemInfo
 {
     /**
      * Item type
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
      * @Type("string")
@@ -34,6 +35,7 @@ class ImapMessageInfo extends IMAPItemInfo
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("int")
@@ -43,6 +45,7 @@ class ImapMessageInfo extends IMAPItemInfo
 
     /**
      * Comma separated list of name of tags associated with this item
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("tn")
      * @Type("string")
@@ -51,7 +54,8 @@ class ImapMessageInfo extends IMAPItemInfo
     private $tags;
 
     /**
-     * Constructor method for ImapMessageInfo
+     * Constructor
+     * 
      * @param  int $id Message ID
      * @param  int $imapUid IMAP UID
      * @param  string $type IMAP UID

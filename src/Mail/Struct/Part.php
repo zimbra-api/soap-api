@@ -34,7 +34,7 @@ class Part
     private $part;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param string $part
      * @return self

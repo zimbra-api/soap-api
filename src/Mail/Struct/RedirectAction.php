@@ -25,6 +25,7 @@ class RedirectAction extends FilterAction
 {
     /**
      * Email address
+     * 
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
@@ -36,6 +37,7 @@ class RedirectAction extends FilterAction
      * If true, item's copy will be redirected,
      * leaving the original in place.See https://tools.ietf.org/html/rfc3894
      * "Sieve Extension: Copying Without Side Effects"
+     * 
      * @Accessor(getter="isCopy", setter="setCopy")
      * @SerializedName("copy")
      * @Type("bool")
@@ -44,7 +46,7 @@ class RedirectAction extends FilterAction
     private $copy;
 
     /**
-     * Constructor method for RedirectAction
+     * Constructor
      * 
      * @param int $index
      * @param string $address

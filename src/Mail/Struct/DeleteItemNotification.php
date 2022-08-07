@@ -25,6 +25,7 @@ class DeleteItemNotification
 {
     /**
      * ID of deleted item
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("int")
@@ -34,6 +35,7 @@ class DeleteItemNotification
 
     /**
      * Type of deleted item
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("t")
      * @Type("string")
@@ -42,7 +44,8 @@ class DeleteItemNotification
     private $type;
 
     /**
-     * Constructor method for DeleteItemNotification
+     * Constructor
+     * 
      * @param  int $id
      * @param  string $type
      * @return self

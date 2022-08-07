@@ -80,7 +80,7 @@ class FreeBusyUserInfo
     private $nodataSlots = [];
 
     /**
-     * Constructor method for FreeBusyUserInfo
+     * Constructor
      * 
      * @param  string $id
      * @param  array $elements

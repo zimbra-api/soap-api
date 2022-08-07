@@ -27,6 +27,7 @@ class InviteAsMP extends MessageCommon
 {
     /**
      * Sub-part ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -37,6 +38,7 @@ class InviteAsMP extends MessageCommon
     /**
      * If non-null, this message/rfc822 subpart of the specified Message is serialized
      * instead of the Message itself.
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -46,6 +48,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Sent date
+     * 
      * @Accessor(getter="getSentDate", setter="setSentDate")
      * @SerializedName("sd")
      * @Type("integer")
@@ -55,6 +58,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Email addresses
+     * 
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
@@ -63,6 +67,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Subject
+     * 
      * @Accessor(getter="getSubject", setter="setSubject")
      * @SerializedName("su")
      * @Type("string")
@@ -72,6 +77,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Message ID header
+     * 
      * @Accessor(getter="getMessageIdHeader", setter="setMessageIdHeader")
      * @SerializedName("mid")
      * @Type("string")
@@ -81,6 +87,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Invite
+     * 
      * @Accessor(getter="getInvite", setter="setInvite")
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\MPInviteInfo")
@@ -90,6 +97,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Headers
+     * 
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
@@ -98,6 +106,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Mime part content elements
+     * 
      * @Accessor(getter="getMpContentElems", setter="setMpContentElems")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
@@ -106,6 +115,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Share notifications
+     * 
      * @Accessor(getter="getShareContentElems", setter="setShareContentElems")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
      * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
@@ -114,6 +124,7 @@ class InviteAsMP extends MessageCommon
 
     /**
      * Distribution list subscription notifications
+     * 
      * @Accessor(getter="getDlSubsContentElems", setter="setDlSubsContentElems")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
      * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
@@ -121,7 +132,7 @@ class InviteAsMP extends MessageCommon
     private $dlSubsContentElems = [];
 
     /**
-     * Constructor method for InviteAsMP
+     * Constructor
      *
      * @param  string $id
      * @param  string $part

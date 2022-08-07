@@ -26,6 +26,7 @@ class RawInvite
 {
     /**
      * UID
+     * 
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
@@ -35,6 +36,7 @@ class RawInvite
 
     /**
      * Summary
+     * 
      * @Accessor(getter="getSummary", setter="setSummary")
      * @SerializedName("summary")
      * @Type("string")
@@ -44,6 +46,7 @@ class RawInvite
 
     /**
      * Raw iCalendar data
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -51,7 +54,7 @@ class RawInvite
     private $content;
 
     /**
-     * Constructor method for RawInvite
+     * Constructor
      * 
      * @param string $uid
      * @param string $summary

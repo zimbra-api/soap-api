@@ -26,6 +26,7 @@ class Misspelling
 {
     /**
      * Misspelled word
+     * 
      * @Accessor(getter="getWord", setter="setWord")
      * @SerializedName("word")
      * @Type("string")
@@ -36,6 +37,7 @@ class Misspelling
     /**
      * Comma separated list of suggestions.  Suggested words are listed in decreasing order
      * of their match score.
+     * 
      * @Accessor(getter="getSuggestions", setter="setSuggestions")
      * @SerializedName("suggestions")
      * @Type("string")
@@ -44,7 +46,7 @@ class Misspelling
     private $suggestions;
 
     /**
-     * Constructor method for Misspelling
+     * Constructor
      *
      * @param  string $word
      * @param  string $suggestions

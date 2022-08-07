@@ -26,6 +26,7 @@ class GetFolderSpec
 {
     /**
      * Base folder UUID
+     * 
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
@@ -35,6 +36,7 @@ class GetFolderSpec
 
     /**
      * Base folder ID
+     * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -44,6 +46,7 @@ class GetFolderSpec
 
     /**
      * Base folder fully qualified path
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -52,7 +55,8 @@ class GetFolderSpec
     private $path;
 
     /**
-     * Constructor method for GetFolderSpec
+     * Constructor
+     * 
      * @param string $uuid
      * @param string $folderId
      * @param string $path

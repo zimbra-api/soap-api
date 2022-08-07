@@ -25,6 +25,7 @@ class CommentInfo
 {
     /**
      * Item ID of parent
+     * 
      * @Accessor(getter="getParentId", setter="setParentId")
      * @SerializedName("parentId")
      * @Type("string")
@@ -34,6 +35,7 @@ class CommentInfo
 
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class CommentInfo
 
     /**
      * Item's UUID - a globally unique identifier
+     * 
      * @Accessor(getter="getUuid", setter="setUuid")
      * @SerializedName("uuid")
      * @Type("string")
@@ -52,6 +55,7 @@ class CommentInfo
 
     /**
      * Creator email address
+     * 
      * @Accessor(getter="getCreatorEmail", setter="setCreatorEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -61,6 +65,7 @@ class CommentInfo
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -70,6 +75,7 @@ class CommentInfo
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -79,6 +85,7 @@ class CommentInfo
 
     /**
      * Comma-separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -88,6 +95,7 @@ class CommentInfo
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -97,6 +105,7 @@ class CommentInfo
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -106,6 +115,7 @@ class CommentInfo
 
     /**
      * Timestamp
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -115,6 +125,7 @@ class CommentInfo
 
     /**
      * metadata and the subject as text
+     * 
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
@@ -122,8 +133,19 @@ class CommentInfo
     private $metadatas = [];
 
     /**
-     * Constructor method for CommentInfo
+     * Constructor
      *
+     * @param  string $parentId
+     * @param  string $id
+     * @param  string $uuid
+     * @param  string $creatorEmail
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  int $color
+     * @param  string $rgb
+     * @param  int $date
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

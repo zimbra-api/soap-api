@@ -55,7 +55,7 @@ class PurgeRevisionSpec
     private $includeOlderRevisions;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $version

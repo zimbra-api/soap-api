@@ -25,6 +25,7 @@ class ParentId
 {
     /**
      * Item ID of parent
+     * 
      * @Accessor(getter="getParentId", setter="setParentId")
      * @SerializedName("parentId")
      * @Type("string")
@@ -33,7 +34,7 @@ class ParentId
     private $parentId;
 
     /**
-     * Constructor method for ParentId
+     * Constructor
      *
      * @param  string $parentId
      * @return self

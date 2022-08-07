@@ -25,6 +25,7 @@ class IdsAttr
 {
     /**
      * IDs
+     * 
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
      * @Type("string")
@@ -33,7 +34,7 @@ class IdsAttr
     private $ids;
 
     /**
-     * Constructor method for IdsAttr
+     * Constructor
      *
      * @param  string $ids
      * @return self

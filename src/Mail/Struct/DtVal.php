@@ -27,6 +27,7 @@ class DtVal implements DtValInterface
 {
     /**
      * Start DATE-TIME
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
@@ -36,6 +37,7 @@ class DtVal implements DtValInterface
 
     /**
      * Start DATE-TIME
+     * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
@@ -45,6 +47,7 @@ class DtVal implements DtValInterface
 
     /**
      * Duration information
+     * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
@@ -53,7 +56,7 @@ class DtVal implements DtValInterface
     private ?DurationInfoInterface $duration = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param DtTimeInfo $startTime
      * @param DtTimeInfo $endTime

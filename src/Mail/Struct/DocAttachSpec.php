@@ -25,6 +25,7 @@ class DocAttachSpec extends AttachSpec
 {
     /**
      * Document path.  If specified "id" and "ver" attributes are ignored
+     * 
      * @Accessor(getter="getPath", setter="setPath")
      * @SerializedName("path")
      * @Type("string")
@@ -34,6 +35,7 @@ class DocAttachSpec extends AttachSpec
 
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -43,6 +45,7 @@ class DocAttachSpec extends AttachSpec
 
     /**
      * Optional Version.
+     * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
      * @Type("integer")
@@ -51,7 +54,7 @@ class DocAttachSpec extends AttachSpec
     private $version;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $path
      * @param string $id

@@ -41,6 +41,7 @@ class DtTimeInfo implements DtTimeInfoInterface
      *     e.g:
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
+     * 
      * @Accessor(getter="getDateTime", setter="setDateTime")
      * @SerializedName("d")
      * @Type("string")
@@ -50,6 +51,7 @@ class DtTimeInfo implements DtTimeInfoInterface
 
     /**
      * Java timezone identifier
+     * 
      * @Accessor(getter="getTimezone", setter="setTimezone")
      * @SerializedName("tz")
      * @Type("string")
@@ -59,6 +61,7 @@ class DtTimeInfo implements DtTimeInfoInterface
 
     /**
      * UTC time as milliseconds since the epoch.  Set if non-all-day
+     * 
      * @Accessor(getter="getUtcTime", setter="setUtcTime")
      * @SerializedName("u")
      * @Type("integer")
@@ -67,7 +70,7 @@ class DtTimeInfo implements DtTimeInfoInterface
     private $utcTime;
 
     /**
-     * Constructor mothod
+     * Constructor
      *
      * @param string $dateTime
      * @param string $timezone

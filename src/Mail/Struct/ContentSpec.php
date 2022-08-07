@@ -63,7 +63,7 @@ class ContentSpec
     private $text;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $attachmentId
      * @param string $messageId

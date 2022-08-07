@@ -27,6 +27,7 @@ class DateAttr implements DateAttrInterface
 {
     /**
      * Date in format : YYYYMMDDThhmmssZ
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("string")
@@ -35,7 +36,7 @@ class DateAttr implements DateAttrInterface
     private $date;
 
     /**
-     * Constructor method for DateAttr
+     * Constructor
      *
      * @param  string $date
      * @return self

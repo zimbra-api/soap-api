@@ -47,6 +47,23 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     /**
      * Constructor method
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  array $messageHits
+     * @param  int $num
+     * @param  int $numUnread
+     * @param  int $totalSize
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  int $date
+     * @param  bool $elided
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  array $metadatas
+     * @param  string $subject
+     * @param  string $fragment
+     * @param  array $emails
      * @return self
      */
     public function __construct(

@@ -28,6 +28,7 @@ class DurationInfo implements DurationInfoInterface
 {
     /**
      * Set if the duration is negative.
+     * 
      * @Accessor(getter="getDurationNegative", setter="setDurationNegative")
      * @SerializedName("neg")
      * @Type("bool")
@@ -38,6 +39,7 @@ class DurationInfo implements DurationInfoInterface
     /**
      * Weeks component of the duration
      * Special note: if WEEKS are specified, NO OTHER OFFSET MAY BE SPECIFIED (weeks must be alone, per RFC2445)
+     * 
      * @Accessor(getter="getWeeks", setter="setWeeks")
      * @SerializedName("w")
      * @Type("integer")
@@ -47,6 +49,7 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Days component of the duration
+     * 
      * @Accessor(getter="getDays", setter="setDays")
      * @SerializedName("d")
      * @Type("integer")
@@ -56,6 +59,7 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Hours component of the duration
+     * 
      * @Accessor(getter="getHours", setter="setHours")
      * @SerializedName("h")
      * @Type("integer")
@@ -65,6 +69,7 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Minutes component of the duration
+     * 
      * @Accessor(getter="getMinutes", setter="setMinutes")
      * @SerializedName("m")
      * @Type("integer")
@@ -74,6 +79,7 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Seconds component of the duration
+     * 
      * @Accessor(getter="getSeconds", setter="setSeconds")
      * @SerializedName("s")
      * @Type("integer")
@@ -84,6 +90,7 @@ class DurationInfo implements DurationInfoInterface
     /**
      * Specifies whether the alarm is related to the start of end.
      * Valid values are : START|END
+     * 
      * @Accessor(getter="getRelated", setter="setRelated")
      * @SerializedName("related")
      * @Type("Enum<Zimbra\Common\Enum\AlarmRelated>")
@@ -93,6 +100,7 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Alarm repeat count
+     * 
      * @Accessor(getter="getRepeatCount", setter="setRepeatCount")
      * @SerializedName("count")
      * @Type("integer")
@@ -101,7 +109,7 @@ class DurationInfo implements DurationInfoInterface
     private $repeatCount;
 
     /**
-     * Constructor method for DurationInfo
+     * Constructor
      *
      * @param  int $weeks
      * @param  int $days

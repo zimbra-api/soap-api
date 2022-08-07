@@ -58,6 +58,41 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     /**
      * Constructor method
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  bool $contentMatched
+     * @param  array $messagePartHits
+     * @param  int $imapUid
+     * @param  string $calendarIntendedFor
+     * @param  string $origId
+     * @param  ReplyType $draftReplyType
+     * @param  string $identityId
+     * @param  string $draftAccountId
+     * @param  int $draftAutoSendTime
+     * @param  int $sentDate
+     * @param  int $resentDate
+     * @param  string $part
+     * @param  string $fragment
+     * @param  array $emails
+     * @param  string $subject
+     * @param  string $messageIdHeader
+     * @param  string $inReplyTo
+     * @param  InviteInfo $invite
+     * @param  array $headers
+     * @param  array $partInfos
+     * @param  array $shareNotifications
+     * @param  array $dlSubs
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folder
+     * @param  string $conversationId
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  int $revision
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

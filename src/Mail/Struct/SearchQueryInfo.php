@@ -43,8 +43,10 @@ class SearchQueryInfo
     private $wildcards = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  array $suggests
+     * @param  array $wildcards
      * @return self
      */
     public function __construct(array $suggests = [], array $wildcards = [])

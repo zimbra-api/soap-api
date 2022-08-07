@@ -25,6 +25,7 @@ class IdEmailName
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class IdEmailName
 
     /**
      * Email
+     * 
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -43,6 +45,7 @@ class IdEmailName
 
     /**
      * The name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -51,7 +54,7 @@ class IdEmailName
     private $name;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $email

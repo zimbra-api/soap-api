@@ -27,6 +27,7 @@ class ByDayRule implements ByDayRuleInterface
 {
     /**
      * By day weekday rule specification
+     * 
      * @Accessor(getter="getDays", setter="setDays")
      * @Type("array<Zimbra\Mail\Struct\WkDay>")
      * @XmlList(inline=true, entry="wkday", namespace="urn:zimbraMail")
@@ -34,7 +35,7 @@ class ByDayRule implements ByDayRuleInterface
     private $days = [];
 
     /**
-     * Constructor method for ByDayRule
+     * Constructor
      *
      * @param  array $days
      * @return self

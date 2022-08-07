@@ -44,7 +44,7 @@ class MsgPartIds
     private $partIds;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $partIds

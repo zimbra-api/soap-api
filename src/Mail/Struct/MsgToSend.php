@@ -56,7 +56,7 @@ class MsgToSend extends Msg
     private $dataSourceId;
 
     /**
-     * Constructor method for Msg
+     * Constructor
      *
      * @param  string $attachmentId
      * @param  string $origId
@@ -74,6 +74,9 @@ class MsgToSend extends Msg
      * @param  array $emailAddresses
      * @param  array $timezones
      * @param  string $fragment
+     * @param  string $draftId
+     * @param  bool $sendFromDraft
+     * @param  string $dataSourceId
      * @return self
      */
     public function __construct(

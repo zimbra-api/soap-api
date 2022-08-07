@@ -46,6 +46,7 @@ class SaveDraftMsg extends Msg
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -55,6 +56,7 @@ class SaveDraftMsg extends Msg
 
     /**
      * Comma separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -64,6 +66,7 @@ class SaveDraftMsg extends Msg
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -73,6 +76,7 @@ class SaveDraftMsg extends Msg
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -91,7 +95,7 @@ class SaveDraftMsg extends Msg
     private $autoSendTime;
 
     /**
-     * Constructor method for Msg
+     * Constructor
      *
      * @param  string $attachmentId
      * @param  string $origId

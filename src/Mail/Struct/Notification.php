@@ -26,6 +26,7 @@ class Notification implements NotificationInterface
 {
     /**
      * Truncated flag
+     * 
      * @Accessor(getter="getTruncatedContent", setter="setTruncatedContent")
      * @SerializedName("truncated")
      * @Type("bool")
@@ -35,6 +36,7 @@ class Notification implements NotificationInterface
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -43,7 +45,7 @@ class Notification implements NotificationInterface
     private $content;
 
     /**
-     * Constructor method for Notification
+     * Constructor
      *
      * @param  bool $truncatedContent
      * @param  string $content

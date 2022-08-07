@@ -25,6 +25,7 @@ class MsgAttachSpec extends AttachSpec
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -33,7 +34,7 @@ class MsgAttachSpec extends AttachSpec
     private $id;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param bool $optional

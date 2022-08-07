@@ -27,6 +27,7 @@ class CalOrganizer implements CalOrganizerInterface
 {
     /**
      * Email address (without "MAILTO:")
+     * 
      * @Accessor(getter="getAddress", setter="setAddress")
      * @SerializedName("a")
      * @Type("string")
@@ -36,6 +37,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * URL - has same value as email-address.
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -45,6 +47,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * Friendly name - "CN" in iCalendar
+     * 
      * @Accessor(getter="getDisplayName", setter="setDisplayName")
      * @SerializedName("d")
      * @Type("string")
@@ -54,6 +57,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * iCalendar SENT-BY
+     * 
      * @Accessor(getter="getSentBy", setter="setSentBy")
      * @SerializedName("sentBy")
      * @Type("string")
@@ -63,6 +67,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user.
+     * 
      * @Accessor(getter="getDir", setter="setDir")
      * @SerializedName("dir")
      * @Type("string")
@@ -72,6 +77,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
+     * 
      * @Accessor(getter="getLanguage", setter="setLanguage")
      * @SerializedName("lang")
      * @Type("string")
@@ -81,6 +87,7 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * Non-standard parameters (XPARAMs)
+     * 
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
@@ -88,7 +95,7 @@ class CalOrganizer implements CalOrganizerInterface
     private $xParams = [];
 
     /**
-     * Constructor mothod
+     * Constructor
      *
      * @param string $address
      * @param string $url

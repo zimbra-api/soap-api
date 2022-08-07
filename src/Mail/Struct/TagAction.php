@@ -25,6 +25,7 @@ class TagAction extends FilterAction
 {
     /**
      * Tag name
+     * 
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tagName")
      * @Type("string")
@@ -33,7 +34,7 @@ class TagAction extends FilterAction
     private $tag;
 
     /**
-     * Constructor method for TagAction
+     * Constructor
      * 
      * @param int $index
      * @param string $tag

@@ -25,6 +25,7 @@ class ModifyNotification
 {
     /**
      * Bitmask of modification change
+     * 
      * @Accessor(getter="getChangeBitmask", setter="setChangeBitmask")
      * @SerializedName("change")
      * @Type("int")
@@ -33,7 +34,8 @@ class ModifyNotification
     private $changeBitmask;
 
     /**
-     * Constructor method for ModifyNotification
+     * Constructor
+     * 
      * @param  int $changeBitmask
      * @return self
      */

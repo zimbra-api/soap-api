@@ -26,6 +26,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 {
     /**
      * Organizer
+     * 
      * @Accessor(getter="getOrganizer", setter="setOrganizer")
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
@@ -35,6 +36,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Categories
+     * 
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
@@ -43,6 +45,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Information for iCalendar GEO property
+     * 
      * @Accessor(getter="getGeo", setter="setGeo")
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
@@ -52,6 +55,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
+     * 
      * @Accessor(getter="getFragment", setter="setFragment")
      * @SerializedName("fr")
      * @Type("string")
@@ -61,6 +65,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Instances
+     * 
      * @Accessor(getter="getInstances", setter="setInstances")
      * @Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
@@ -69,6 +74,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
 
     /**
      * Alarm information
+     * 
      * @Accessor(getter="getAlarmData", setter="setAlarmData")
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
@@ -77,10 +83,50 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     private ?AlarmDataInfo $alarmData = NULL;
 
     /**
-     * Constructor LegacyCalendaringData
+     * Constructor
      *
      * @param  string $xUid
      * @param  string $uid
+     * @param  CalOrganizer $organizer
+     * @param  array $categories
+     * @param  GeoInfo $geo
+     * @param  string $fragment
+     * @param  array $instances
+     * @param  AlarmDataInfo $alarmData
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $folderId
+     * @param  int $size
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  int $revision
+     * @param  string $id
+     * @param  int $duration
+     * @param  ParticipationStatus $partStat
+     * @param  string $recurIdZ
+     * @param  int $tzOffset
+     * @param  FreeBusyStatus $freeBusyActual
+     * @param  string $taskPercentComplete
+     * @param  bool $isRecurring
+     * @param  bool $hasExceptions
+     * @param  string $priority
+     * @param  FreeBusyStatus $freeBusyIntended
+     * @param  Transparency $transparency
+     * @param  string $name
+     * @param  string $location
+     * @param  bool $hasOtherAttendees
+     * @param  bool $hasAlarm
+     * @param  bool $isOrganizer
+     * @param  string $invId
+     * @param  int $componentNum
+     * @param  InviteStatus $status
+     * @param  InviteClass $calClass
+     * @param  bool $allDay
+     * @param  bool $draft
+     * @param  bool $neverSent
+     * @param  int $taskDueDate
+     * @param  int $taskTzOffsetDue
      * @return self
      */
     public function __construct(

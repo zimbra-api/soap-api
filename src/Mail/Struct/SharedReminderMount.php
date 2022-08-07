@@ -25,6 +25,7 @@ class SharedReminderMount
 {
     /**
      * Mountpoint ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class SharedReminderMount
 
     /**
      * Set to enable (or unset to disable) reminders for shared appointments/tasks
+     * 
      * @Accessor(getter="getShowReminders", setter="setShowReminders")
      * @SerializedName("reminder")
      * @Type("boolean")
@@ -42,7 +44,7 @@ class SharedReminderMount
     private $showReminders;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param bool $showReminders

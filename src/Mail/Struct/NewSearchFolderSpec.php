@@ -27,6 +27,7 @@ class NewSearchFolderSpec
 {
     /**
      * Name
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class NewSearchFolderSpec
 
     /**
      * query
+     * 
      * @Accessor(getter="getQuery", setter="setQuery")
      * @SerializedName("query")
      * @Type("string")
@@ -45,6 +47,7 @@ class NewSearchFolderSpec
 
     /**
      * Search types
+     * 
      * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
      * @SerializedName("types")
      * @Type("string")
@@ -54,6 +57,7 @@ class NewSearchFolderSpec
 
     /**
      * Sort by
+     * 
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
@@ -63,6 +67,7 @@ class NewSearchFolderSpec
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -72,6 +77,7 @@ class NewSearchFolderSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -81,6 +87,7 @@ class NewSearchFolderSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -90,6 +97,7 @@ class NewSearchFolderSpec
 
     /**
      * Parent folder ID
+     * 
      * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -98,7 +106,7 @@ class NewSearchFolderSpec
     private $parentFolderId;
 
     /**
-     * Constructor method for NewSearchFolderSpec
+     * Constructor
      *
      * @param  string $name
      * @param  string $query

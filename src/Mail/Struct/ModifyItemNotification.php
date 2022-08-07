@@ -25,6 +25,7 @@ class ModifyItemNotification extends ModifyNotification
 {
     /**
      * Modified IMAP message
+     * 
      * @Accessor(getter="getMessageInfo", setter="setMessageInfo")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
@@ -33,7 +34,8 @@ class ModifyItemNotification extends ModifyNotification
     private ImapMessageInfo $msgInfo;
 
     /**
-     * Constructor method for ModifyItemNotification
+     * Constructor
+     * 
      * @param  ImapMessageInfo $msgInfo
      * @param  int $changeBitmask
      * @return self

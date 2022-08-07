@@ -25,6 +25,7 @@ class DataSourceUsage
 {
     /**
      * ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class DataSourceUsage
 
     /**
      * Usage
+     * 
      * @Accessor(getter="getUsage", setter="setUsage")
      * @SerializedName("usage")
      * @Type("integer")
@@ -42,7 +44,7 @@ class DataSourceUsage
     private $usage;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $usage

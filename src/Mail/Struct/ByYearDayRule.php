@@ -29,6 +29,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
      * BYYEARDAY yearday list.
      * Format : [[+]|-]num[,...] where num is between 1 and 366
      * e.g. yrdaylist="1,+2,-1" means January 1st, January 2nd, and December 31st.
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("yrdaylist")
      * @Type("string")
@@ -37,7 +38,7 @@ class ByYearDayRule implements ByYearDayRuleInterface
     private $list;
 
     /**
-     * Constructor method for ByYearDayRule
+     * Constructor
      *
      * @param  string $list
      * @return self

@@ -25,6 +25,7 @@ class DismissAlarm
 {
     /**
      * Calendar item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class DismissAlarm
 
     /**
      * Time alarm was dismissed, in millis
+     * 
      * @Accessor(getter="getDismissedAt", setter="setDismissedAt")
      * @SerializedName("dismissedAt")
      * @Type("integer")
@@ -42,7 +44,8 @@ class DismissAlarm
     private $dismissedAt;
 
     /**
-     * Constructor method
+     * Constructor
+     * 
      * @param string $id
      * @param int $dismissedAt
      * @return self

@@ -25,6 +25,7 @@ class ICalContent
 {
     /**
      * Item ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class ICalContent
 
     /**
      * ICAL
+     * 
      * @Accessor(getter="getIcal", setter="setIcal")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -41,7 +43,7 @@ class ICalContent
     private $ical;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $ical

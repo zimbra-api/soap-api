@@ -25,6 +25,7 @@ class ExpandedRecurrenceInstance
 {
     /**
      * Start time in milliseconds
+     * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
      * @Type("integer")
@@ -34,6 +35,7 @@ class ExpandedRecurrenceInstance
 
     /**
      * Duration in milliseconds
+     * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
      * @Type("integer")
@@ -43,6 +45,7 @@ class ExpandedRecurrenceInstance
 
     /**
      * Set if the instance is for an all day appointment
+     * 
      * @Accessor(getter="getAllDay", setter="setAllDay")
      * @SerializedName("allDay")
      * @Type("bool")
@@ -52,6 +55,7 @@ class ExpandedRecurrenceInstance
 
     /**
      * GMT offset of start time in milliseconds; returned only when allDay is set
+     * 
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
      * @SerializedName("tzo")
      * @Type("integer")
@@ -61,6 +65,7 @@ class ExpandedRecurrenceInstance
 
     /**
      * Recurrence ID string in UTC timezone
+     * 
      * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
      * @SerializedName("ridZ")
      * @Type("string")
@@ -69,7 +74,7 @@ class ExpandedRecurrenceInstance
     private $recurIdZ;
 
     /**
-     * Constructor method for ExpandedRecurrenceInstance
+     * Constructor
      *
      * @param  int $startTime
      * @param  int $duration

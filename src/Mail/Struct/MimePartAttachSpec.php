@@ -25,6 +25,7 @@ class MimePartAttachSpec extends AttachSpec
 {
     /**
      * Message ID
+     * 
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
      * @Type("string")
@@ -34,6 +35,7 @@ class MimePartAttachSpec extends AttachSpec
 
     /**
      * Part
+     * 
      * @Accessor(getter="getPart", setter="setPart")
      * @SerializedName("part")
      * @Type("string")
@@ -42,7 +44,7 @@ class MimePartAttachSpec extends AttachSpec
     private $part;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $messageId
      * @param string $part

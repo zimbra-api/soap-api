@@ -30,6 +30,7 @@ trait SetCalendarItemInfoTrait
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
+     * 
      * @Accessor(getter="getPartStat", setter="setPartStat")
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
@@ -39,6 +40,7 @@ trait SetCalendarItemInfoTrait
 
     /**
      * Message
+     * 
      * @Accessor(getter="getMsg", setter="setMsg")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
@@ -47,7 +49,7 @@ trait SetCalendarItemInfoTrait
     private ?Msg $msg = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  ParticipationStatus $partStat
      * @param  Msg $msg

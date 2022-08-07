@@ -25,6 +25,7 @@ class CalendarItemInfo
 {
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -34,6 +35,7 @@ class CalendarItemInfo
 
     /**
      * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
      * @Type("string")
@@ -43,6 +45,7 @@ class CalendarItemInfo
 
     /**
      * Comma separated list of tag names
+     * 
      * @Accessor(getter="getTagNames", setter="setTagNames")
      * @SerializedName("tn")
      * @Type("string")
@@ -52,6 +55,7 @@ class CalendarItemInfo
 
     /**
      * iCalendar UID
+     * 
      * @Accessor(getter="getUid", setter="setUid")
      * @SerializedName("uid")
      * @Type("string")
@@ -61,6 +65,7 @@ class CalendarItemInfo
 
     /**
      * Appointment ID
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -70,6 +75,7 @@ class CalendarItemInfo
 
     /**
      * Revision number
+     * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
      * @Type("integer")
@@ -79,6 +85,7 @@ class CalendarItemInfo
 
     /**
      * Size
+     * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
      * @Type("integer")
@@ -88,6 +95,7 @@ class CalendarItemInfo
 
     /**
      * Date
+     * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
      * @Type("integer")
@@ -97,6 +105,7 @@ class CalendarItemInfo
 
     /**
      * Folder ID
+     * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
@@ -106,6 +115,7 @@ class CalendarItemInfo
 
     /**
      * Modified date in seconds
+     * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
      * @Type("integer")
@@ -115,6 +125,7 @@ class CalendarItemInfo
 
     /**
      * Modified sequence
+     * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
      * @Type("integer")
@@ -124,6 +135,7 @@ class CalendarItemInfo
 
     /**
      * Next alarm time
+     * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
      * @Type("integer")
@@ -133,6 +145,7 @@ class CalendarItemInfo
 
     /**
      * Has exceptions but no series
+     * 
      * @Accessor(getter="getOrphan", setter="setOrphan")
      * @SerializedName("orphan")
      * @Type("boolean")
@@ -170,13 +183,24 @@ class CalendarItemInfo
     private $metadatas = [];
 
     /**
-     * Constructor method for CalendarItemInfo
+     * Constructor
      *
      * @param  string $flags
      * @param  string $tags
      * @param  string $tagNames
      * @param  string $uid
      * @param  string $id
+     * @param  int $revision
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folder
+     * @param  int $changeDate
+     * @param  int $modifiedSequence
+     * @param  int $nextAlarm
+     * @param  bool $orphan
+     * @param  array $invites
+     * @param  array $calendarReplies
+     * @param  array $metadatas
      * @return self
      */
     public function __construct(

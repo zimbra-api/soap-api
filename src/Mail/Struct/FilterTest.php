@@ -25,6 +25,7 @@ class FilterTest
 {
     /**
      * Index - specifies a guaranteed order for the test elements
+     * 
      * @Accessor(getter="getIndex", setter="setIndex")
      * @SerializedName("index")
      * @Type("integer")
@@ -34,6 +35,7 @@ class FilterTest
 
     /**
      * Specifies a "not" condition for the test
+     * 
      * @Accessor(getter="isNegative", setter="setNegative")
      * @SerializedName("negative")
      * @Type("bool")
@@ -42,7 +44,7 @@ class FilterTest
     private $negative;
 
     /**
-     * Constructor method for FilterTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative

@@ -35,7 +35,7 @@ class ImapCursorInfo
     private $id;
 
     /**
-     * Constructor method for ImapCursorInfo
+     * Constructor
      *
      * @param  string $id
      * @return self

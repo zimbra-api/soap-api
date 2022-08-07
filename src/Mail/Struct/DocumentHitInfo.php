@@ -26,6 +26,7 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
 {
     /**
      * Sort field value
+     * 
      * @Accessor(getter="getSortField", setter="setSortField")
      * @SerializedName("sf")
      * @Type("string")
@@ -34,8 +35,36 @@ class DocumentHitInfo extends DocumentInfo implements SearchHit
     private $sortField;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  string $sortField
+     * @param  string $lockOwnerId
+     * @param  string $lockOwnerEmail
+     * @param  string $lockOwnerTimestamp
+     * @param  string $uuid
+     * @param  string $name
+     * @param  int $size
+     * @param  int $date
+     * @param  string $folderId
+     * @param  string $folderUuid
+     * @param  int $modifiedSequence
+     * @param  int $metadataVersion
+     * @param  int $changeDate
+     * @param  int $revision
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  string $description
+     * @param  string $contentType
+     * @param  bool $descEnabled
+     * @param  int $version
+     * @param  string $lastEditedBy
+     * @param  string $creator
+     * @param  int $createdDate
+     * @param  array $metadatas
+     * @param  string $fragment
+     * @param  Acl $acl
      * @return self
      */
     public function __construct(

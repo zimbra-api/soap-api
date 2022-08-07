@@ -38,6 +38,7 @@ class RankingActionSpec
 
     /**
      * Email
+     * 
      * @Accessor(getter="getEmail", setter="setEmail")
      * @SerializedName("email")
      * @Type("string")
@@ -46,7 +47,7 @@ class RankingActionSpec
     private $email;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param RankingActionOp $operation
      * @param string $email

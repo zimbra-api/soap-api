@@ -107,8 +107,16 @@ class NestedSearchConversation
     private ?SearchQueryInfo $queryInfo = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
+     * @param  string $id
+     * @param  int $num
+     * @param  int $totalSize
+     * @param  string $flags
+     * @param  string $tags
+     * @param  string $tagNames
+     * @param  array $messages
+     * @param  SearchQueryInfo $queryInfo
      * @return self
      */
     public function __construct(

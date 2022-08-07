@@ -25,6 +25,7 @@ class MiniCalError
 {
     /**
      * ID for calendar folder that couldn't be accessed
+     * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
@@ -34,6 +35,7 @@ class MiniCalError
 
     /**
      * ServiceException error code - service.PERM_DENIED, mail.NO_SUCH_FOLDER, account.NO_SUCH_ACCOUNT, etc.
+     * 
      * @Accessor(getter="getCode", setter="setCode")
      * @SerializedName("code")
      * @Type("string")
@@ -43,6 +45,7 @@ class MiniCalError
 
     /**
      * Error message from the exception (but no stack trace)
+     * 
      * @Accessor(getter="getErrorMessage", setter="setErrorMessage")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -50,7 +53,7 @@ class MiniCalError
     private $errorMessage;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param string $code

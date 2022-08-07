@@ -80,7 +80,7 @@ class CalendarItemRecur
     private ?RecurrenceInfoInterface $recurrence = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param ExceptionRecurIdInfoInterface $exceptionId
      * @param DtTimeInfoInterface $dtStart

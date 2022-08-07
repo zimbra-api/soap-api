@@ -30,6 +30,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * C: reference to another contact
      * G: reference to a GAL entry
      * I: inlined member (member name and email address is embeded in the contact group)
+     * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
@@ -43,6 +44,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * If the referenced contact is in a shared folder, the item ID must be qualified by zimbraId of the owner. e.g. {zimbraId}:{itemId}
      * type="G"     GAL entry reference (returned in SearchGalResponse)
      * type="I"     name and email address in the form of: "{name}" <{email}>
+     * 
      * @Accessor(getter="getValue", setter="setValue")
      * @SerializedName("value")
      * @Type("string")
@@ -52,6 +54,7 @@ class ContactGroupMember implements ContactGroupMemberInterface
 
     /**
      * Contact information for dereferenced member.
+     * 
      * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
@@ -60,7 +63,8 @@ class ContactGroupMember implements ContactGroupMemberInterface
     private ?ContactInterface $contact = NULL;
 
     /**
-     * Constructor method for ContactGroupMember
+     * Constructor
+     * 
      * @param  MemberType $type
      * @param  string $value
      * @param  ContactInterface $contact

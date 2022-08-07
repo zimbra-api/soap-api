@@ -25,6 +25,7 @@ class MimePartInfo
 {
     /**
      * Content type
+     * 
      * @Accessor(getter="getContentType", setter="setContentType")
      * @SerializedName("ct")
      * @Type("string")
@@ -34,6 +35,7 @@ class MimePartInfo
 
     /**
      * Content
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @SerializedName("content")
      * @Type("string")
@@ -43,6 +45,7 @@ class MimePartInfo
 
     /**
      * Content ID
+     * 
      * @Accessor(getter="getContentId", setter="setContentId")
      * @SerializedName("ci")
      * @Type("string")
@@ -52,6 +55,7 @@ class MimePartInfo
 
     /**
      * MIME Parts
+     * 
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
@@ -60,6 +64,7 @@ class MimePartInfo
 
     /**
      * Attachments
+     * 
      * @Accessor(getter="getAttachments", setter="setAttachments")
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
@@ -68,7 +73,7 @@ class MimePartInfo
     private ?AttachmentsInfo $attachments = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param string $contentType
      * @param string $content

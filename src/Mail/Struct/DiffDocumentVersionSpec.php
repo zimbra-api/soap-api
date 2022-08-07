@@ -54,7 +54,7 @@ class DiffDocumentVersionSpec
     private $version2;
 
     /**
-     * Constructor method
+     * Constructor
      * 
      * @param string $id
      * @param int $version1

@@ -28,6 +28,7 @@ class BySetPosRule implements BySetPosRuleInterface
     /**
      * Format <b>[[+]|-]num[,...]</b> where num is from 1 to 366
      * <bysetpos> MUST only be used in conjunction with another <byXXX> element.
+     * 
      * @Accessor(getter="getList", setter="setList")
      * @SerializedName("poslist")
      * @Type("string")
@@ -36,7 +37,7 @@ class BySetPosRule implements BySetPosRuleInterface
     private $list;
 
     /**
-     * Constructor method for BySetPosRule
+     * Constructor
      *
      * @param  string $list
      * @return self

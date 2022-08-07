@@ -26,6 +26,7 @@ class LogAction extends FilterAction
 {
     /**
      * level - fatal|error|warn|info|debug|trace, info is default if not specified.
+     * 
      * @Accessor(getter="getLevel", setter="setLevel")
      * @SerializedName("level")
      * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
@@ -35,6 +36,7 @@ class LogAction extends FilterAction
 
     /**
      * message text
+     * 
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
@@ -42,7 +44,7 @@ class LogAction extends FilterAction
     private $content;
 
     /**
-     * Constructor method for LogAction
+     * Constructor
      * 
      * @param int $index
      * @param LoggingLevel $level

@@ -27,6 +27,7 @@ class NewFolderSpec
 {
     /**
      * If parentFolderId is unset, name is the full path of the new folder; otherwise, name may not contain the folder separator '/'
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -37,6 +38,7 @@ class NewFolderSpec
     /**
      * Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
+     * 
      * @Accessor(getter="getDefaultView", setter="setDefaultView")
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
@@ -46,6 +48,7 @@ class NewFolderSpec
 
     /**
      * Flags
+     * 
      * @Accessor(getter="getFlags", setter="setFlags")
      * @SerializedName("f")
      * @Type("string")
@@ -55,6 +58,7 @@ class NewFolderSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
      * @Type("integer")
@@ -64,6 +68,7 @@ class NewFolderSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
      * @Accessor(getter="getRgb", setter="setRgb")
      * @SerializedName("rgb")
      * @Type("string")
@@ -73,6 +78,7 @@ class NewFolderSpec
 
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
+     * 
      * @Accessor(getter="getUrl", setter="setUrl")
      * @SerializedName("url")
      * @Type("string")
@@ -82,6 +88,7 @@ class NewFolderSpec
 
     /**
      * Parent folder ID
+     * 
      * @Accessor(getter="getParentFolderId", setter="setParentFolderId")
      * @SerializedName("l")
      * @Type("string")
@@ -91,6 +98,7 @@ class NewFolderSpec
 
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
+     * 
      * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
      * @SerializedName("fie")
      * @Type("bool")
@@ -100,6 +108,7 @@ class NewFolderSpec
 
     /**
      * If set (default) then if "url" is set, synchronize folder content on folder creation
+     * 
      * @Accessor(getter="getSyncToUrl", setter="setSyncToUrl")
      * @SerializedName("sync")
      * @Type("bool")
@@ -109,6 +118,7 @@ class NewFolderSpec
 
     /**
      * Grant specification
+     * 
      * @Accessor(getter="getGrants", setter="setGrants")
      * @SerializedName("acl")
      * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
@@ -118,7 +128,7 @@ class NewFolderSpec
     private $grants = [];
 
     /**
-     * Constructor method for NewFolderSpec
+     * Constructor
      *
      * @param  string $name
      * @param  string $parentFolderId

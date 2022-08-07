@@ -27,6 +27,7 @@ class FreeBusyUserStatus
 {
     /**
      * Email address for a user who has a conflict with the instance
+     * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
@@ -36,6 +37,7 @@ class FreeBusyUserStatus
 
     /**
      * Free/Busy status - B|T|O (Busy, Tentative or Out-of-office)
+     * 
      * @Accessor(getter="getFreebusyStatus", setter="setFreebusyStatus")
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
@@ -44,7 +46,7 @@ class FreeBusyUserStatus
     private FreeBusyStatus $freebusyStatus;
 
     /**
-     * Constructor method for FreeBusyUserStatus
+     * Constructor
      *
      * @param  string $name
      * @param  FreeBusyStatus $freebusyStatus

@@ -44,7 +44,7 @@ class ImportContact
     private $numImported;
 
     /**
-     * Constructor method for ImportContact
+     * Constructor
      *
      * @param  string $listOfCreatedIds
      * @param  int $numImported

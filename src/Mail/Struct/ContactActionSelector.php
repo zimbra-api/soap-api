@@ -26,6 +26,7 @@ class ContactActionSelector extends ActionSelector
 {
     /**
      * New Contact attributes
+     * 
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="attr", namespace="urn:zimbraMail")
@@ -33,7 +34,7 @@ class ContactActionSelector extends ActionSelector
     private $attrs = [];
 
     /**
-     * Constructor method for ContactActionSelector
+     * Constructor
      *
      * @param  string $operation
      * @param  string $ids

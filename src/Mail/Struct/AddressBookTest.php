@@ -25,6 +25,7 @@ class AddressBookTest extends FilterTest
 {
     /**
      * Header name
+     * 
      * @Accessor(getter="getHeader", setter="setHeader")
      * @SerializedName("header")
      * @Type("string")
@@ -33,7 +34,7 @@ class AddressBookTest extends FilterTest
     private $header;
 
     /**
-     * Constructor method for AddressBookTest
+     * Constructor
      * 
      * @param int $index
      * @param bool $negative
