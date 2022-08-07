@@ -742,7 +742,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      */
     public function getInvite(): ?InviteInfo
     {
-        return $this->getInvitInterface();
+        $invite = $this->getInvitInterface();
+        return ($invite instanceof InviteInfo) ? $invite : NULL;
     }
 
     /**
