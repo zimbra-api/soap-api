@@ -29,10 +29,3 @@ EOT;
         $this->assertEquals($hit, $this->serializer->deserialize($xml, WikiHitInfo::class, 'xml'));
     }
 }
-
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
-class StubWikiHitInfo extends WikiHitInfo
-{
-}
