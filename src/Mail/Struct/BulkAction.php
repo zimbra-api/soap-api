@@ -34,8 +34,9 @@ class BulkAction
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\BulkOperation>")
      * @XmlAttribute
+     * @var BulkOperation
      */
-    private BulkOperation $op;
+    private $op;
 
     /**
      * Folder

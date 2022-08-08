@@ -82,8 +82,9 @@ class CreateCalendarItemResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Id
      */
-    private ?Id $msg = NULL;
+    private $msg;
 
     /**
      * Included if "echo" was set in the request
@@ -92,8 +93,9 @@ class CreateCalendarItemResponse extends SoapResponse
      * @SerializedName("echo")
      * @Type("Zimbra\Mail\Struct\CalEcho")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalEcho
      */
-    private ?CalEcho $echo = NULL;
+    private $echo;
 
     /**
      * Constructor

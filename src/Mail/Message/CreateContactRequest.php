@@ -64,8 +64,9 @@ class CreateContactRequest extends SoapRequest
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContactSpec
      */
-    private ContactSpec $contact;
+    private $contact;
 
     /**
      * Constructor

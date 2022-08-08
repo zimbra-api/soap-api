@@ -35,8 +35,9 @@ class CreateIdentityRequest extends SoapRequest
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var Identity
      */
-    private Identity $identity;
+    private $identity;
 
     /**
      * Constructor

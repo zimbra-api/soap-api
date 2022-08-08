@@ -37,8 +37,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Target
      */
-    private Target $target;
+    private $target;
 
     /**
      * Domain
@@ -51,8 +52,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Domain
      */
-    private ?Domain $domain = NULL;
+    private $domain;
 
     /**
      * COS
@@ -63,8 +65,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Cos
      */
-    private ?Cos $cos = NULL;
+    private $cos;
 
     /**
      * Constructor

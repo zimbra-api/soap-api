@@ -30,7 +30,7 @@ class ModifyContactBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyContactRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifyContactBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyContactResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

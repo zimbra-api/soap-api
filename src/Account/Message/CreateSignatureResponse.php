@@ -32,8 +32,9 @@ class CreateSignatureResponse extends SoapResponse
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\NameId")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var NameId
      */
-    private ?NameId $signature = NULL;
+    private $signature;
 
     /**
      * Constructor

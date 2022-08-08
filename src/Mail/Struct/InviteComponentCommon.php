@@ -124,8 +124,9 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @SerializedName("fba")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * @var FreeBusyStatus
      */
-    private ?FreeBusyStatus $freeBusyActual = NULL;
+    private $freeBusyActual;
 
     /**
      * FreeBusy setting F|B|T|U
@@ -135,8 +136,9 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * @var FreeBusyStatus
      */
-    private ?FreeBusyStatus $freeBusy = NULL;
+    private $freeBusy;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
@@ -145,8 +147,9 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @SerializedName("transp")
      * @Type("Enum<Zimbra\Common\Enum\Transparency>")
      * @XmlAttribute
+     * @var Transparency
      */
-    private ?Transparency $transparency = NULL;
+    private $transparency;
 
     /**
      * Am I the organizer?  [default 0 (false)]
@@ -237,8 +240,9 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
      * @XmlAttribute
+     * @var InviteStatus
      */
-    private ?InviteStatus $status = NULL;
+    private $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
@@ -247,8 +251,9 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * @SerializedName("class")
      * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
      * @XmlAttribute
+     * @var InviteClass
      */
-    private ?InviteClass $calClass = NULL;
+    private $calClass;
 
     /**
      * URL

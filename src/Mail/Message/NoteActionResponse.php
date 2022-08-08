@@ -33,8 +33,9 @@ class NoteActionResponse extends SoapResponse
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ActionResult
      */
-    private ?ActionResult $action = NULL;
+    private $action;
 
     /**
      * Constructor

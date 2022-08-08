@@ -33,8 +33,9 @@ class TagActionSelector extends ActionSelector
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RetentionPolicy
      */
-    private ?RetentionPolicy $retentionPolicy = NULL;
+    private $retentionPolicy;
 
     /**
      * Constructor

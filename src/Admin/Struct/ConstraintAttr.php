@@ -40,8 +40,9 @@ class ConstraintAttr
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ConstraintInfo
      */
-    private ConstraintInfo $constraint;
+    private $constraint;
 
     /**
      * Constructor

@@ -37,8 +37,9 @@ class SaveDraftResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MessageInfo
      */
-    private ?MessageInfo $msgMessage = NULL;
+    private $msgMessage;
 
     /**
      * Information on saved chat draft
@@ -47,8 +48,9 @@ class SaveDraftResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ChatMessageInfo
      */
-    private ?ChatMessageInfo $chatMessage = NULL;
+    private $chatMessage;
 
     /**
      * Constructor

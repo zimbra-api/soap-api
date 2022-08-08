@@ -30,7 +30,7 @@ class GetIMAPRecentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetIMAPRecentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetIMAPRecentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetIMAPRecentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

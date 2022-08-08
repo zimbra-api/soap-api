@@ -44,8 +44,9 @@ class AddMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\AddMsgSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AddMsgSpec
      */
-    private AddMsgSpec $msg;
+    private $msg;
 
     /**
      * Constructor

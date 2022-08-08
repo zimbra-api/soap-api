@@ -37,8 +37,9 @@ class GetFilterRulesResponse extends SoapResponse
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
      * @XmlAttribute
+     * @var AdminFilterType
      */
-    private AdminFilterType $type;
+    private $type;
 
     /**
      * Account
@@ -47,8 +48,9 @@ class GetFilterRulesResponse extends SoapResponse
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Account
      */
-    private ?Account $account = NULL;
+    private $account;
 
     /**
      * Domain
@@ -57,8 +59,9 @@ class GetFilterRulesResponse extends SoapResponse
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Domain
      */
-    private ?Domain $domain = NULL;
+    private $domain;
 
     /**
      * COS
@@ -67,8 +70,9 @@ class GetFilterRulesResponse extends SoapResponse
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Cos
      */
-    private ?Cos $cos = NULL;
+    private $cos;
 
     /**
      * Server
@@ -77,8 +81,9 @@ class GetFilterRulesResponse extends SoapResponse
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Server
      */
-    private ?Server $server = NULL;
+    private $server;
 
     /**
      * Filter rules

@@ -30,8 +30,9 @@ class GrantInfo
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TypeIdName")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TypeIdName
      */
-    private TypeIdName $target;
+    private $target;
 
     /**
      * Information on grantee
@@ -40,8 +41,9 @@ class GrantInfo
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeInfo
      */
-    private GranteeInfo $grantee;
+    private $grantee;
 
     /**
      * Information on right
@@ -50,8 +52,9 @@ class GrantInfo
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var RightModifierInfo
      */
-    private RightModifierInfo $right;
+    private $right;
 
     /**
      * Constructor

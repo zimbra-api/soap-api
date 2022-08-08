@@ -261,8 +261,9 @@ class CommonDocumentInfo
      * @SerializedName("acl")
      * @Type("Zimbra\Mail\Struct\Acl")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Acl
      */
-    private ?Acl $acl = NULL;
+    private $acl;
 
     /**
      * Constructor

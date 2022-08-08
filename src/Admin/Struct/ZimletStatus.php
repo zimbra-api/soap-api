@@ -41,8 +41,9 @@ class ZimletStatus
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
      * @XmlAttribute
+     * @var ZimletStatusSetting
      */
-    private ZimletStatusSetting $status;
+    private $status;
 
     /**
      * Extension

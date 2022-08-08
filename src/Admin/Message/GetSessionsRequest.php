@@ -33,8 +33,9 @@ class GetSessionsRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\SessionType>")
      * @XmlAttribute
+     * @var SessionType
      */
-    private SessionType $type;
+    private $type;
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
@@ -43,8 +44,9 @@ class GetSessionsRequest extends SoapRequest
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")
      * @XmlAttribute
+     * @var GetSessionsSortBy
      */
-    private ?GetSessionsSortBy $sortBy = NULL;
+    private $sortBy;
 
     /**
      * Offset - the starting offset (0, 25, etc)

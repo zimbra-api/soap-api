@@ -70,8 +70,9 @@ class IncorrectBlobSizeInfo
      * @SerializedName("blob")
      * @Type("Zimbra\Admin\Struct\BlobSizeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var BlobSizeInfo
      */
-    private BlobSizeInfo $blob;
+    private $blob;
 
     /**
      * Constructor

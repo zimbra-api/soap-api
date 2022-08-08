@@ -26,10 +26,12 @@ abstract class SoapRequest implements SoapRequestInterface
     use WithRequestIdTrait;
 
     /**
+     * Soap envelope
+     * 
      * @Exclude
      * @var SoapEnvelopeInterface
      */
-    private ?SoapEnvelopeInterface $soapEnvelope = NULL;
+    private $soapEnvelope;
 
     /**
      * {@inheritdoc}

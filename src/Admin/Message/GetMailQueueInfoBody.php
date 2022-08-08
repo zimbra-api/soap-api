@@ -30,7 +30,7 @@ class GetMailQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMailQueueInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetMailQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetMailQueueInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

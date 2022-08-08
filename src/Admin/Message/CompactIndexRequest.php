@@ -34,8 +34,9 @@ class CompactIndexRequest extends SoapRequest
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Mbox
      */
-    private Mbox $mbox;
+    private $mbox;
 
     /**
      * Action to perform
@@ -46,8 +47,9 @@ class CompactIndexRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
      * @XmlAttribute
+     * @var Action
      */
-    private ?Action $action = NULL;
+    private $action;
 
     /**
      * Constructor

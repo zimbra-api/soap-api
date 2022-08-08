@@ -32,8 +32,9 @@ class ModifyDomainResponse extends SoapResponse
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DomainInfo
      */
-    private ?DomainInfo $domain = NULL;
+    private $domain;
 
     /**
      * Constructor

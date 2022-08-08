@@ -35,8 +35,9 @@ class InviteInfo implements InviteInfoInterface
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\InviteType>")
      * @XmlAttribute
+     * @var InviteType
      */
-    private InviteType $calItemType;
+    private $calItemType;
 
     /**
      * Timezones
@@ -54,8 +55,9 @@ class InviteInfo implements InviteInfoInterface
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteComponentInterface
      */
-    private ?InviteComponentInterface $inviteComponent = NULL;
+    private $inviteComponent;
 
     /**
      * List of replies received from attendees.

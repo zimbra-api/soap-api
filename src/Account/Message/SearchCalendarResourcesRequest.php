@@ -92,8 +92,9 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var CursorInfo
      */
-    private ?CursorInfo $cursor = NULL;
+    private $cursor;
 
     /**
      * GAL Account ID
@@ -122,8 +123,9 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var EntrySearchFilterInfo
      */
-    private ?EntrySearchFilterInfo $searchFilter = NULL;
+    private $searchFilter;
 
     /**
      * Constructor

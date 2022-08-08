@@ -53,8 +53,9 @@ class SetAppointmentResponse extends SoapResponse
      * @SerializedName("default")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Id
      */
-    private ?Id $defaultId = NULL;
+    private $defaultId;
 
     /**
      * Information about exceptions

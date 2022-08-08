@@ -124,8 +124,9 @@ class DocumentSpec
      * @SerializedName("upload")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Id
      */
-    private ?Id $upload = NULL;
+    private $upload;
 
     /**
      * Message part specification
@@ -134,8 +135,9 @@ class DocumentSpec
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MessagePartSpec
      */
-    private ?MessagePartSpec $messagePart = NULL;
+    private $messagePart;
 
     /**
      * Information on document version to restore to
@@ -144,8 +146,9 @@ class DocumentSpec
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersion")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var IdVersion
      */
-    private ?IdVersion $docRevision = NULL;
+    private $docRevision;
 
     /**
      * Constructor

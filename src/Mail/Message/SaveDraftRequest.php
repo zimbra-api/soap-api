@@ -64,8 +64,9 @@ class SaveDraftRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\SaveDraftMsg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SaveDraftMsg
      */
-    private SaveDraftMsg $msg;
+    private $msg;
 
     /**
      * Constructor

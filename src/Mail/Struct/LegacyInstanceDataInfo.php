@@ -51,8 +51,9 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalOrganizer
      */
-    private ?CalOrganizer $organizer = NULL;
+    private $organizer;
 
     /**
      * Categories
@@ -70,8 +71,9 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var GeoInfo
      */
-    private ?GeoInfo $geo = NULL;
+    private $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)

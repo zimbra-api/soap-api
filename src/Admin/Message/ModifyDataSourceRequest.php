@@ -47,8 +47,9 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DataSourceInfo
      */
-    private DataSourceInfo $dataSource;
+    private $dataSource;
 
     /**
      * Constructor

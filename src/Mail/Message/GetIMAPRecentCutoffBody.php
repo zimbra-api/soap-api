@@ -30,7 +30,7 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetIMAPRecentCutoffRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetIMAPRecentCutoffResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

@@ -31,8 +31,9 @@ class CosSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CosBy>")
      * @XmlAttribute
+     * @var CosBy
      */
-    private CosBy $by;
+    private $by;
 
     /**
      * The key used to identify the COS

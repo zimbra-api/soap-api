@@ -66,8 +66,9 @@ class FixCalendarTZRequest extends SoapRequest
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TzFixup
      */
-    private ?TzFixup $tzFixup = NULL;
+    private $tzFixup;
 
     /**
      * Constructor

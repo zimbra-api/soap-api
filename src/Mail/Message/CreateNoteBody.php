@@ -30,7 +30,7 @@ class CreateNoteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateNoteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CreateNoteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CreateNoteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

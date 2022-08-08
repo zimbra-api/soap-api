@@ -30,7 +30,7 @@ class MigrateAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\MigrateAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class MigrateAccountBody extends SoapBody
      * @Type("Zimbra\Admin\Message\MigrateAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

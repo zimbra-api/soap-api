@@ -52,8 +52,9 @@ class Msg
      * @SerializedName("rt")
      * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
      * @XmlAttribute
+     * @var ReplyType
      */
-    private ?ReplyType $replyType = NULL;
+    private $replyType;
 
     /**
      * Identity ID.  The identity referenced by {identity-id} specifies the folder where the sent message is saved.
@@ -131,8 +132,9 @@ class Msg
      * @SerializedName("mp")
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MimePartInfo
      */
-    private ?MimePartInfo $mimePart = NULL;
+    private $mimePart;
 
     /**
      * Attachments information
@@ -141,8 +143,9 @@ class Msg
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AttachmentsInfo
      */
-    private ?AttachmentsInfo $attachments = NULL;
+    private $attachments;
 
     /**
      * Invite information
@@ -151,8 +154,9 @@ class Msg
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InvitationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InvitationInfo
      */
-    private ?InvitationInfo $invite = NULL;
+    private $invite;
 
     /**
      * Email address information

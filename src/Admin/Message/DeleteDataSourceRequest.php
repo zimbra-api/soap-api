@@ -47,8 +47,9 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("dataSource")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Id
      */
-    private Id $dataSource;
+    private $dataSource;
 
     /**
      * Constructor

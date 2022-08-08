@@ -31,8 +31,9 @@ class ImportanceTest extends FilterTest
      * @SerializedName("imp")
      * @Type("Enum<Zimbra\Common\Enum\Importance>")
      * @XmlAttribute
+     * @var Importance
      */
-    private ?Importance $importance = NULL;
+    private $importance;
 
     /**
      * Constructor

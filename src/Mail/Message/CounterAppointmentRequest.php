@@ -78,8 +78,9 @@ class CounterAppointmentRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Msg
      */
-    private ?Msg $msg = NULL;
+    private $msg;
 
     /**
      * Constructor

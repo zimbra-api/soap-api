@@ -31,8 +31,9 @@ class SizeTest extends FilterTest
      * @SerializedName("numberComparison")
      * @Type("Enum<Zimbra\Common\Enum\NumberComparison>")
      * @XmlAttribute
+     * @var NumberComparison
      */
-    private ?NumberComparison $numberComparison = NULL;
+    private $numberComparison;
 
     /**
      * size value.  Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)

@@ -31,8 +31,9 @@ class TzFixupRuleMatch
      * @SerializedName("any")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var SimpleElement
      */
-    private ?SimpleElement $any = NULL;
+    private $any;
 
     /**
      * Tz ID
@@ -41,8 +42,9 @@ class TzFixupRuleMatch
      * @SerializedName("tzid")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Id
      */
-    private ?Id $tzid = NULL;
+    private $tzid;
 
     /**
      * Offset
@@ -51,8 +53,9 @@ class TzFixupRuleMatch
      * @SerializedName("nonDst")
      * @Type("Zimbra\Admin\Struct\Offset")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Offset
      */
-    private ?Offset $nonDst = NULL;
+    private $nonDst;
 
     /**
      * Rules
@@ -61,8 +64,9 @@ class TzFixupRuleMatch
      * @SerializedName("rules")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TzFixupRuleMatchRules
      */
-    private ?TzFixupRuleMatchRules $rules = NULL;
+    private $rules;
 
     /**
      * Dates
@@ -71,8 +75,9 @@ class TzFixupRuleMatch
      * @SerializedName("dates")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TzFixupRuleMatchDates
      */
-    private ?TzFixupRuleMatchDates $dates = NULL;
+    private $dates;
 
     /**
      * Constructor

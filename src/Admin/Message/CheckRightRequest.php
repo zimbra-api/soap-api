@@ -40,8 +40,9 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var EffectiveRightsTargetSelector
      */
-    private EffectiveRightsTargetSelector $target;
+    private $target;
 
     /**
      * Grantee - valid values for type are "usr" and "email"
@@ -50,8 +51,9 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeSelector
      */
-    private GranteeSelector $grantee;
+    private $grantee;
 
     /**
      * Checked Right
@@ -60,8 +62,9 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CheckedRight
      */
-    private CheckedRight $right;
+    private $right;
 
     /**
      * Constructor

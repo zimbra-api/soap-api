@@ -32,8 +32,9 @@ class CompactIndexResponse extends SoapResponse
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexStatus>")
      * @XmlAttribute
+     * @var Status
      */
-    private ?Status $status = NULL;
+    private $status;
 
     /**
      * Constructor

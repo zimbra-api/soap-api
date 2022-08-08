@@ -60,8 +60,9 @@ class ServiceStatus
      * @Accessor(getter="getStatus", setter="setStatus")
      * @Type("Enum<Zimbra\Common\Enum\ZeroOrOne>")
      * @XmlValue(cdata=false)
+     * @var ZeroOrOne
      */
-    private ZeroOrOne $status;
+    private $status;
 
     /**
      * Constructor

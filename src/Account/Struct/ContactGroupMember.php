@@ -50,8 +50,9 @@ class ContactGroupMember
      * @SerializedName("cn")
      * @Type("Zimbra\Account\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ContactInfo
      */
-    private ?ContactInfo $contact = NULL;
+    private $contact;
 
     /**
      * Constructor

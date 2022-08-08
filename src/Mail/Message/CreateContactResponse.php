@@ -33,8 +33,9 @@ class CreateContactResponse extends SoapResponse
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContactInfo
      */
-    private ?ContactInfo $contact = NULL;
+    private $contact;
 
     /**
      * Constructor

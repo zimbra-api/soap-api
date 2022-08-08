@@ -34,8 +34,9 @@ class NewContactGroupMember
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
      * @XmlAttribute
+     * @var MemberType
      */
-    private MemberType $type;
+    private $type;
 
     /**
      * Member value
@@ -71,7 +72,7 @@ class NewContactGroupMember
      *
      * @return MemberType
      */
-    public function getType(): MemberType
+    public function getType(): ?MemberType
     {
         return $this->type;
     }

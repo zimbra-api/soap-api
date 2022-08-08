@@ -45,8 +45,9 @@ class ContactBackupRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
      * @XmlAttribute
+     * @var ContactBackupOp
      */
-    private ContactBackupOp $op;
+    private $op;
 
     /**
      * Constructor

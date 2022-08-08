@@ -86,8 +86,9 @@ class SyncResponse extends SoapResponse
      * @SerializedName("deleted")
      * @Type("Zimbra\Mail\Struct\SyncDeletedInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SyncDeletedInfo
      */
-    private ?SyncDeletedInfo $deleted = NULL;
+    private $deleted;
 
     /**
      * Sync folder items

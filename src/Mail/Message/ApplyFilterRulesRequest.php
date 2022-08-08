@@ -49,8 +49,9 @@ class ApplyFilterRulesRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\IdsAttr")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var IdsAttr
      */
-    private ?IdsAttr $msgIds = NULL;
+    private $msgIds;
 
     /**
      * Query string

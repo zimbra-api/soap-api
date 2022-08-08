@@ -43,8 +43,9 @@ class NewMountpointSpec
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
+     * @var ViewType
      */
-    private ?ViewType $defaultView = NULL;
+    private $defaultView;
 
     /**
      * Flags

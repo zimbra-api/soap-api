@@ -34,8 +34,9 @@ class GetShareInfoRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Grantee
      */
-    private ?Grantee $grantee = NULL;
+    private $grantee;
 
     /**
      * Owner
@@ -44,8 +45,9 @@ class GetShareInfoRequest extends SoapRequest
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Account
      */
-    private Account $owner;
+    private $owner;
 
     /**
      * Constructor

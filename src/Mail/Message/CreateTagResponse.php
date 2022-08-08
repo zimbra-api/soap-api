@@ -32,8 +32,9 @@ class CreateTagResponse extends SoapResponse
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TagInfo
      */
-    private ?TagInfo $tag = NULL;
+    private $tag;
 
     /**
      * Constructor

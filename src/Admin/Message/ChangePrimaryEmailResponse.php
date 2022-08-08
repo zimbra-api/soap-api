@@ -32,8 +32,9 @@ class ChangePrimaryEmailResponse extends SoapResponse
      * @SerializedName("account")
      * @Type("Zimbra\Admin\Struct\AccountInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Account
      */
-    private ?Account $account = NULL;
+    private $account;
 
     /**
      * Constructor

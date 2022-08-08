@@ -30,7 +30,7 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetEffectiveFolderPermsBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

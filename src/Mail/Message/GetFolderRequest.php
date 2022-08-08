@@ -96,8 +96,9 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\GetFolderSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var GetFolderSpec
      */
-    private ?GetFolderSpec $folder = NULL;
+    private $folder;
 
     /**
      * Constructor

@@ -31,8 +31,9 @@ class DomainSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\DomainBy>")
      * @XmlAttribute
+     * @var DomainBy
      */
-    private DomainBy $by;
+    private $by;
 
     /**
      * The key used to identify the domain

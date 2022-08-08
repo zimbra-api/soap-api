@@ -31,8 +31,9 @@ class ServerSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\ServerBy>")
      * @XmlAttribute
+     * @var ServerBy
      */
-    private ServerBy $by;
+    private $by;
 
     /**
      * Key for choosing server

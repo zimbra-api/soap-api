@@ -29,8 +29,9 @@ class AccountACEinfo
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * @var GranteeType
      */
-    private GranteeType $granteeType;
+    private $granteeType;
 
     /**
      * @Accessor(getter="getRight", setter="setRight")

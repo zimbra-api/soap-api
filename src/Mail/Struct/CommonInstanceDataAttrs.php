@@ -73,8 +73,9 @@ class CommonInstanceDataAttrs
      * @SerializedName("fba")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * @var FreeBusyStatus
      */
-    private ?FreeBusyStatus $freeBusyActual = NULL;
+    private $freeBusyActual;
 
     /**
      * Percent complete - only for tasks
@@ -123,8 +124,9 @@ class CommonInstanceDataAttrs
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * @var FreeBusyStatus
      */
-    private ?FreeBusyStatus $freeBusyIntended = NULL;
+    private $freeBusyIntended;
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
@@ -133,8 +135,9 @@ class CommonInstanceDataAttrs
      * @SerializedName("transp")
      * @Type("Enum<Zimbra\Common\Enum\Transparency>")
      * @XmlAttribute
+     * @var Transparency
      */
-    private ?Transparency $transparency = NULL;
+    private $transparency;
 
     /**
      * Name
@@ -215,8 +218,9 @@ class CommonInstanceDataAttrs
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
      * @XmlAttribute
+     * @var InviteStatus
      */
-    private ?InviteStatus $status = NULL;
+    private $status;
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
@@ -225,8 +229,9 @@ class CommonInstanceDataAttrs
      * @SerializedName("class")
      * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
      * @XmlAttribute
+     * @var InviteClass
      */
-    private ?InviteClass $calClass = NULL;
+    private $calClass;
 
     /**
      * If set, this is an "all day" appointment

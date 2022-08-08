@@ -76,8 +76,9 @@ class ImportContactsRequest extends SoapRequest
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\Content")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Content
      */
-    private Content $content;
+    private $content;
 
     /**
      * Constructor

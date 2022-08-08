@@ -43,8 +43,9 @@ class CompleteTaskInstanceRequest extends SoapRequest
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfo
      */
-    private DtTimeInfo $exceptionId;
+    private $exceptionId;
 
     /**
      * Timezone information
@@ -53,8 +54,9 @@ class CompleteTaskInstanceRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalTZInfo
      */
-    private ?CalTZInfo $timezone = NULL;
+    private $timezone;
 
     /**
      * Constructor

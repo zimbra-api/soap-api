@@ -30,7 +30,7 @@ class GetAllAdminAccountsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllAdminAccountsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAllAdminAccountsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAllAdminAccountsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

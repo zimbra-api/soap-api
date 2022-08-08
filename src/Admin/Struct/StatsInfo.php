@@ -40,8 +40,9 @@ class StatsInfo
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValues")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var StatsValues
      */
-    private ?StatsValues $values = NULL;
+    private $values;
 
     /**
      * Constructor

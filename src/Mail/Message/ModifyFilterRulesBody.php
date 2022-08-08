@@ -30,7 +30,7 @@ class ModifyFilterRulesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyFilterRulesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifyFilterRulesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ModifyFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

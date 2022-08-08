@@ -31,8 +31,9 @@ class CreateUCServiceResponse extends SoapResponse
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UCServiceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var UCServiceInfo
      */
-    private ?UCServiceInfo $ucService = NULL;
+    private $ucService;
 
     /**
      * Constructor

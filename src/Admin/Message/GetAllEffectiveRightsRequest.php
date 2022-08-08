@@ -43,8 +43,9 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Grantee
      */
-    private ?Grantee $grantee = NULL;
+    private $grantee;
 
     /**
      * Constructor

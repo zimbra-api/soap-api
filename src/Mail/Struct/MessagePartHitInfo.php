@@ -121,8 +121,9 @@ class MessagePartHitInfo implements SearchHit
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\EmailInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var EmailInfo
      */
-    private ?EmailInfo $email = NULL;
+    private $email;
 
     /**
      * Subject

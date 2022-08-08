@@ -113,8 +113,9 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DomainSelector
      */
-    private DomainSelector $domain;
+    private $domain;
 
     /**
      * Constructor

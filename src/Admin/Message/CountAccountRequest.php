@@ -34,8 +34,9 @@ class CountAccountRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Domain
      */
-    private Domain $domain;
+    private $domain;
 
     /**
      * Constructor

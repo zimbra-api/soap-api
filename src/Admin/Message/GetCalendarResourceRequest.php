@@ -48,8 +48,9 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CalendarResourceSelector
      */
-    private ?CalendarResourceSelector $calResource = NULL;
+    private $calResource;
 
     /**
      * Constructor

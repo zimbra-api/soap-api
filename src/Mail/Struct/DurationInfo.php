@@ -95,8 +95,9 @@ class DurationInfo implements DurationInfoInterface
      * @SerializedName("related")
      * @Type("Enum<Zimbra\Common\Enum\AlarmRelated>")
      * @XmlAttribute
+     * @var AlarmRelated
      */
-    private ?AlarmRelated $related = NULL;
+    private $related;
 
     /**
      * Alarm repeat count

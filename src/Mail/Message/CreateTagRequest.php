@@ -33,8 +33,9 @@ class CreateTagRequest extends SoapRequest
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TagSpec
      */
-    private ?TagSpec $tag = NULL;
+    private $tag;
 
     /**
      * Constructor

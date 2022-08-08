@@ -37,8 +37,9 @@ class GetDelegatedAdminConstraintsRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * @var TargetType
      */
-    private TargetType $type;
+    private $type;
 
     /**
      * ID

@@ -33,8 +33,9 @@ class GetConfigRequest extends SoapRequest
      * @SerializedName("a")
      * @Type("Zimbra\Admin\Struct\Attr")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Attr
      */
-    private ?Attr $attr = NULL;
+    private $attr;
 
     /**
      * Constructor

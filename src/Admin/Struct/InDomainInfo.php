@@ -40,8 +40,9 @@ class InDomainInfo
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var EffectiveRightsInfo
      */
-    private EffectiveRightsInfo $rights;
+    private $rights;
 
     /**
      * Constructor

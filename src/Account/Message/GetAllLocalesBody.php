@@ -30,7 +30,7 @@ class GetAllLocalesBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAllLocalesRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAllLocalesBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetAllLocalesResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

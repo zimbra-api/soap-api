@@ -33,8 +33,9 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @SerializedName("cond")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterSingleCond")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var SearchFilterCondition
      */
-    private ?SearchFilterCondition $condition = NULL;
+    private $condition;
 
     /**
      * Search filter compound condition
@@ -43,8 +44,9 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      * @SerializedName("conds")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterMultiCond")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var SearchFilterCondition
      */
-    private ?SearchFilterCondition $conditions = NULL;
+    private $conditions;
 
     /**
      * Constructor

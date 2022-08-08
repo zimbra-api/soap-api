@@ -30,7 +30,7 @@ class ApplyOutgoingFilterRulesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ApplyOutgoingFilterRulesBody extends SoapBody
      * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

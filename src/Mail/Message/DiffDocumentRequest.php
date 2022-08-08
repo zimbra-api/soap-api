@@ -35,8 +35,9 @@ class DiffDocumentRequest extends SoapRequest
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\DiffDocumentVersionSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DiffDocumentVersionSpec
      */
-    private ?DiffDocumentVersionSpec $doc = NULL;
+    private $doc;
 
     /**
      * Constructor

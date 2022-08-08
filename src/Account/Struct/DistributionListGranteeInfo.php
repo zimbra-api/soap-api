@@ -31,8 +31,9 @@ class DistributionListGranteeInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * @var GranteeType
      */
-    private GranteeType $type;
+    private $type;
 
     /**
      * Grantee id

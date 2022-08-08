@@ -77,8 +77,9 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * @var ParticipationStatus
      */
-    private ?ParticipationStatus $partStat = NULL;
+    private $partStat;
 
     /**
      * Constructor

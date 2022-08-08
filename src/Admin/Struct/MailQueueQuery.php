@@ -30,8 +30,9 @@ class MailQueueQuery
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var QueueQuery
      */
-    private QueueQuery $query;
+    private $query;
 
     /**
      * Queue name

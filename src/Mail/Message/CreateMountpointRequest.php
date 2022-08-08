@@ -33,8 +33,9 @@ class CreateMountpointRequest extends SoapRequest
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\NewMountpointSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NewMountpointSpec
      */
-    private NewMountpointSpec $folder;
+    private $folder;
 
     /**
      * Constructor

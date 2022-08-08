@@ -26,7 +26,7 @@ interface ContactGroupMemberInterface
     function setType(MemberType $type): self;
     function setValue(string $value): self;
     function setContact(ContactInterface $contact): self;
-    function getType(): MemberType;
+    function getType(): ?MemberType;
     function getValue(): string;
     function getContact(): ?ContactInterface;
 }

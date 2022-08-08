@@ -32,8 +32,9 @@ class GetServiceStatusResponse extends SoapResponse
      * @SerializedName("timezone")
      * @Type("Zimbra\Admin\Struct\TimeZoneInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TimeZoneInfo
      */
-    private ?TimeZoneInfo $timezone = NULL;
+    private $timezone;
 
     /**
      * Service status information

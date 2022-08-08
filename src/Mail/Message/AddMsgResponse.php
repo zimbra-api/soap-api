@@ -31,8 +31,9 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MessageSummary
      */
-    private ?MessageSummary $message = NULL;
+    private $message;
 
     /**
      * Details of added chat message
@@ -40,8 +41,9 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ChatSummary
      */
-    private ?ChatSummary $chatMessage = NULL;
+    private $chatMessage;
 
     /**
      * Constructor
@@ -64,7 +66,7 @@ class AddMsgResponse extends SoapResponse
      */
     public function setMessage(MessageSummary $message): self
     {
-        $this->message = $this->chatMessage = NULL;
+        $this->message = $this->chatMessage;
         if ($message instanceof ChatSummary) {
             $this->chatMessage = $message;
         }

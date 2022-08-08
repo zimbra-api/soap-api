@@ -31,8 +31,9 @@ class DistributionListSubscribeReq
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
+     * @var DistributionListSubscribeOp
      */
-    private DistributionListSubscribeOp $op;
+    private $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

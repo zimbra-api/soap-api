@@ -33,8 +33,9 @@ class GrantRightRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var EffectiveRightsTargetSelector
      */
-    private EffectiveRightsTargetSelector $target;
+    private $target;
 
     /**
      * Grantee selector
@@ -43,8 +44,9 @@ class GrantRightRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeSelector
      */
-    private GranteeSelector $grantee;
+    private $grantee;
 
     /**
      * Checked Right
@@ -53,8 +55,9 @@ class GrantRightRequest extends SoapRequest
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var RightModifierInfo
      */
-    private RightModifierInfo $right;
+    private $right;
 
     /**
      * Constructor

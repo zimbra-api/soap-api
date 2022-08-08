@@ -65,8 +65,9 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
+     * @var AddressType
      */
-    private ?AddressType $addressType = NULL;
+    private $addressType;
 
     /**
      * Set if the email address is a group

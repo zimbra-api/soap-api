@@ -23,7 +23,7 @@ use Zimbra\Common\Enum\InviteType;
  */
 interface InviteInfoInterface
 {
-    function getCalItemType(): InviteType;
+    function getCalItemType(): ?InviteType;
 
     function setTimezones(array $timezones): self;
     function addTimezone(CalTZInfoInterface $timezone): self;

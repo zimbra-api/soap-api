@@ -78,8 +78,9 @@ class ModifyContactRequest extends SoapRequest
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ModifyContactSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ModifyContactSpec
      */
-    private ModifyContactSpec $contact;
+    private $contact;
 
     /**
      * Constructor

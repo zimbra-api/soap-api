@@ -40,8 +40,9 @@ class DistributionListActionRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var DistributionListSelector
      */
-    private DistributionListSelector $dl;
+    private $dl;
 
     /**
      * Specifies the action to perform
@@ -50,8 +51,9 @@ class DistributionListActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Account\Struct\DistributionListAction")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var DistributionListAction
      */
-    private DistributionListAction $action;
+    private $action;
 
     /**
      * Constructor

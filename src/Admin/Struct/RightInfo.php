@@ -41,8 +41,9 @@ class RightInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
+     * @var RightType
      */
-    private RightType $type;
+    private $type;
 
     /**
      * Target type.
@@ -61,8 +62,9 @@ class RightInfo
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
+     * @var RightClass
      */
-    private RightClass $rightClass;
+    private $rightClass;
 
     /**
      * Right description
@@ -81,8 +83,9 @@ class RightInfo
      * @SerializedName("attrs")
      * @Type("Zimbra\Admin\Struct\RightsAttrs")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var RightsAttrs
      */
-    private ?RightsAttrs $attrs = NULL;
+    private $attrs;
 
     /**
      * Rights
@@ -91,8 +94,9 @@ class RightInfo
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\ComboRights")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ComboRights
      */
-    private ?ComboRights $rights = NULL;
+    private $rights;
 
     /**
      * Constructor

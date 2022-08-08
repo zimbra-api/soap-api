@@ -32,8 +32,9 @@ class DtVal implements DtValInterface
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $startTime = NULL;
+    private $startTime;
 
     /**
      * Start DATE-TIME
@@ -42,8 +43,9 @@ class DtVal implements DtValInterface
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $endTime = NULL;
+    private $endTime;
 
     /**
      * Duration information
@@ -52,8 +54,9 @@ class DtVal implements DtValInterface
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DurationInfoInterface
      */
-    private ?DurationInfoInterface $duration = NULL;
+    private $duration;
 
     /**
      * Constructor

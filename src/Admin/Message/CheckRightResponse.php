@@ -43,8 +43,9 @@ class CheckRightResponse extends SoapResponse
      * @SerializedName("via")
      * @Type("Zimbra\Admin\Struct\RightViaInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var RightViaInfo
      */
-    private ?RightViaInfo $via = NULL;
+    private $via;
 
     /**
      * Constructor

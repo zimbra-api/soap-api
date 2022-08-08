@@ -33,8 +33,9 @@ class RankingActionSpec
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
      * @XmlAttribute
+     * @var RankingActionOp
      */
-    private ?RankingActionOp $operation = NULL;
+    private $operation;
 
     /**
      * Email

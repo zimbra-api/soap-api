@@ -52,8 +52,9 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MsgToSend")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MsgToSend
      */
-    private MsgToSend $msg;
+    private $msg;
 
     /**
      * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties in

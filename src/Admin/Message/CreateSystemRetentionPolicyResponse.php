@@ -31,8 +31,9 @@ class CreateSystemRetentionPolicyResponse extends SoapResponse
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Policy
      */
-    private ?Policy $policy = NULL;
+    private $policy;
 
     /**
      * Constructor

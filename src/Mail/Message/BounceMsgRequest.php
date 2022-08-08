@@ -38,8 +38,9 @@ class BounceMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\BounceMsgSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var BounceMsgSpec
      */
-    private BounceMsgSpec $msg;
+    private $msg;
 
     /**
      * Constructor

@@ -32,8 +32,9 @@ class SaveDocumentResponse extends SoapResponse
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersionName")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var IdVersionName
      */
-    private ?IdVersionName $doc = NULL;
+    private $doc;
 
     /**
      * Constructor

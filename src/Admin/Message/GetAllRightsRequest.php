@@ -60,8 +60,9 @@ class GetAllRightsRequest extends SoapRequest
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
+     * @var RightClass
      */
-    private ?RightClass $rightClass = NULL;
+    private $rightClass;
 
     /**
      * Constructor

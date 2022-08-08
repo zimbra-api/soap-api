@@ -52,8 +52,9 @@ class OpenIMAPFolderRequest extends SoapRequest
      * @SerializedName("cursor")
      * @Type("Zimbra\Mail\Struct\ImapCursorInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ImapCursorInfo
      */
-    private ?ImapCursorInfo $cursor = NULL;
+    private $cursor;
 
     /**
      * Constructor

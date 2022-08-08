@@ -32,8 +32,9 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @SerializedName("add")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RecurrenceInfoInterface
      */
-    private ?RecurrenceInfoInterface $add = NULL;
+    private $add;
 
     /**
      * Dates or rules which EXCLUDE instances
@@ -42,8 +43,9 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @SerializedName("exclude")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RecurrenceInfoInterface
      */
-    private ?RecurrenceInfoInterface $exclude = NULL;
+    private $exclude;
 
     /**
      * Constructor

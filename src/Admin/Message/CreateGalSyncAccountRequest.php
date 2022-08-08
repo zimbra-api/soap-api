@@ -57,8 +57,9 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
      * @XmlAttribute
+     * @var GalMode
      */
-    private GalMode $type;
+    private $type;
 
     /**
      * Account
@@ -67,8 +68,9 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AccountSelector
      */
-    private AccountSelector $account;
+    private $account;
 
     /**
      * password

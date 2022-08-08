@@ -51,8 +51,9 @@ class GranteeInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * @var GranteeType
      */
-    private ?GranteeType $type = NULL;
+    private $type;
 
     /**
      * Constructor

@@ -40,8 +40,9 @@ class EffectiveAttrInfo
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ConstraintInfo
      */
-    private ?ConstraintInfo $constraint = NULL;
+    private $constraint;
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)

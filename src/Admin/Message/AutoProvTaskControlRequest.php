@@ -36,8 +36,9 @@ class AutoProvTaskControlRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")
      * @XmlAttribute
+     * @var AutoProvTaskAction
      */
-    private AutoProvTaskAction $action;
+    private $action;
 
     /**
      * Constructor

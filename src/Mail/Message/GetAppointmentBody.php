@@ -30,7 +30,7 @@ class GetAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

@@ -51,8 +51,9 @@ class ContactGroupMember
      * @SerializedName("cn")
      * @Type("Zimbra\Admin\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ContactInfo
      */
-    private ?ContactInfo $contact = NULL;
+    private $contact;
 
     /**
      * Constructor

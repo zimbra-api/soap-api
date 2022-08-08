@@ -33,8 +33,9 @@ class TagActionResponse extends SoapResponse
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\TagActionInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TagActionInfo
      */
-    private ?TagActionInfo $action = NULL;
+    private $action;
 
     /**
      * Constructor

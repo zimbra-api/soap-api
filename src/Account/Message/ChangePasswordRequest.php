@@ -33,8 +33,9 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountSelector
      */
-    private AccountSelector $account;
+    private $account;
 
     /**
      * Old password

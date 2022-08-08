@@ -75,8 +75,9 @@ class CancelAppointmentRequest extends SoapRequest
      * @SerializedName("inst")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InstanceRecurIdInfo
      */
-    private ?InstanceRecurIdInfo $instance = NULL;
+    private $instance;
 
     /**
      * Definition for TZID referenced by DATETIME in instance
@@ -85,8 +86,9 @@ class CancelAppointmentRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalTZInfo
      */
-    private ?CalTZInfo $timezone = NULL;
+    private $timezone;
 
     /**
      * Message
@@ -95,8 +97,9 @@ class CancelAppointmentRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Msg
      */
-    private ?Msg $msg = NULL;
+    private $msg;
 
     /**
      * Constructor

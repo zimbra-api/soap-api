@@ -45,8 +45,9 @@ class SearchConvResponse extends SoapResponse
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * @var SearchSortBy
      */
-    private ?SearchSortBy $sortBy = NULL;
+    private $sortBy;
 
     /**
      * Offset - an integer specifying the 0-based offset into the results list returned as
@@ -76,8 +77,9 @@ class SearchConvResponse extends SoapResponse
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\NestedSearchConversation")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NestedSearchConversation
      */
-    private ?NestedSearchConversation $conversation = NULL;
+    private $conversation;
 
     /**
      * Message search hits
@@ -99,8 +101,9 @@ class SearchConvResponse extends SoapResponse
      * @SerializedName("info")
      * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SearchQueryInfo
      */
-    private ?SearchQueryInfo $queryInfo = NULL;
+    private $queryInfo;
 
     /**
      * Constructor

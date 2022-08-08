@@ -90,8 +90,9 @@ class AlarmDataInfo
      * @SerializedName("alarm")
      * @Type("Zimbra\Mail\Struct\AlarmInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AlarmInfo
      */
-    private ?AlarmInfo $alarm = NULL;
+    private $alarm;
 
     /**
      * Constructor

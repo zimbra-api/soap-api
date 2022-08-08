@@ -38,8 +38,9 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Logger
      */
-    private ?Logger $logger = NULL;
+    private $logger;
 
     /**
      * Use to select account
@@ -48,8 +49,9 @@ class RemoveAccountLoggerRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Account
      */
-    private ?Account $account = NULL;
+    private $account;
 
     /**
      * id

@@ -30,7 +30,7 @@ class WaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\WaitSetRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class WaitSetBody extends SoapBody
      * @Type("Zimbra\Mail\Message\WaitSetResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

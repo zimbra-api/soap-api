@@ -34,8 +34,9 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Folder
      */
-    private ?Folder $folder = NULL;
+    private $folder;
 
     /**
      * Information about created mountpoint
@@ -44,8 +45,9 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Mountpoint
      */
-    private ?Mountpoint $mountpoint = NULL;
+    private $mountpoint;
 
     /**
      * Information about created search folder
@@ -54,8 +56,9 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SearchFolder
      */
-    private ?SearchFolder $searchFolder = NULL;
+    private $searchFolder;
 
     /**
      * Constructor

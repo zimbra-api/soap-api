@@ -32,8 +32,9 @@ class GetIndexStatsResponse extends SoapResponse
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\IndexStats")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var IndexStats
      */
-    private ?IndexStats $stats = NULL;
+    private $stats;
 
     /**
      * Constructor

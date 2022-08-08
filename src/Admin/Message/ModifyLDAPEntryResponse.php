@@ -32,8 +32,9 @@ class ModifyLDAPEntryResponse extends SoapResponse
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var LDAPEntryInfo
      */
-    private ?LDAPEntryInfo $LDAPEntry = NULL;
+    private $LDAPEntry;
 
     /**
      * Constructor

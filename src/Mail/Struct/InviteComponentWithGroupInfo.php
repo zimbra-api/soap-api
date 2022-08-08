@@ -71,8 +71,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var GeoInfoInterface
      */
-    private ?GeoInfoInterface $geo = NULL;
+    private $geo;
 
     /**
      * Attendees
@@ -138,8 +139,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalOrganizerInterface
      */
-    private ?CalOrganizerInterface $organizer = NULL;
+    private $organizer;
 
     /**
      * Recurrence information
@@ -148,8 +150,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RecurrenceInfoInterface
      */
-    private ?RecurrenceInfoInterface $recurrence = NULL;
+    private $recurrence;
 
     /**
      * Recurrence id, if this is an exception
@@ -158,8 +161,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ExceptionRecurIdInfoInterface
      */
-    private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
+    private $exceptionId;
 
     /**
      * Start date-time (required)
@@ -168,8 +172,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $dtStart = NULL;
+    private $dtStart;
 
     /**
      * End date-time
@@ -178,8 +183,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $dtEnd = NULL;
+    private $dtEnd;
 
     /**
      * Duration
@@ -188,8 +194,9 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DurationInfoInterface
      */
-    private ?DurationInfoInterface $duration = NULL;
+    private $duration;
 
     /**
      * Constructor

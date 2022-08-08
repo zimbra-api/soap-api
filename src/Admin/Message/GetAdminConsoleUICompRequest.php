@@ -35,8 +35,9 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AccountSelector
      */
-    private ?AccountSelector $account = NULL;
+    private $account;
 
     /**
      * Distribution List
@@ -45,8 +46,9 @@ class GetAdminConsoleUICompRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DlSelector
      */
-    private ?DlSelector $dl = NULL;
+    private $dl;
 
     /**
      * Constructor

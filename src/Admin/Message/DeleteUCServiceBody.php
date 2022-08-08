@@ -30,7 +30,7 @@ class DeleteUCServiceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteUCServiceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class DeleteUCServiceBody extends SoapBody
      * @Type("Zimbra\Admin\Message\DeleteUCServiceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

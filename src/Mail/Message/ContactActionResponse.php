@@ -32,8 +32,9 @@ class ContactActionResponse extends SoapResponse
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var FolderActionResult
      */
-    private ?FolderActionResult $action = NULL;
+    private $action;
 
     /**
      * Constructor

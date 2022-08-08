@@ -61,8 +61,9 @@ class ExchangeAuthSpec
      * @SerializedName("scheme")
      * @Type("Enum<Zimbra\Common\Enum\AuthScheme>")
      * @XmlAttribute
+     * @var AuthScheme
      */
-    private AuthScheme $scheme;
+    private $scheme;
 
     /**
      * Auth type

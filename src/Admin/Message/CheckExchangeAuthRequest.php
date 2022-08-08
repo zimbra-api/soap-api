@@ -33,8 +33,9 @@ class CheckExchangeAuthRequest extends SoapRequest
      * @SerializedName("auth")
      * @Type("Zimbra\Admin\Struct\ExchangeAuthSpec")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ExchangeAuthSpec
      */
-    private ?ExchangeAuthSpec $auth = NULL;
+    private $auth;
 
     /**
      * Constructor

@@ -33,8 +33,9 @@ class GetEffectiveRightsResponse extends SoapResponse
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeInfo
      */
-    private ?GranteeInfo $grantee = NULL;
+    private $grantee;
 
     /**
      * Information about target
@@ -43,8 +44,9 @@ class GetEffectiveRightsResponse extends SoapResponse
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Target
      */
-    private ?Target $target = NULL;
+    private $target;
 
     /**
      * Constructor

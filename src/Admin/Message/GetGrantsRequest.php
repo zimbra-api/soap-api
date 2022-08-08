@@ -37,8 +37,9 @@ class GetGrantsRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Target
      */
-    private ?Target $target = NULL;
+    private $target;
 
     /**
      * Grantee
@@ -47,8 +48,9 @@ class GetGrantsRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeSelector
      */
-    private ?GranteeSelector $grantee = NULL;
+    private $grantee;
 
     /**
      * Constructor

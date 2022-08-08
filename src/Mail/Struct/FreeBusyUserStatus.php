@@ -42,8 +42,9 @@ class FreeBusyUserStatus
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * @var FreeBusyStatus
      */
-    private FreeBusyStatus $freebusyStatus;
+    private $freebusyStatus;
 
     /**
      * Constructor

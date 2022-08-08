@@ -69,8 +69,9 @@ class MimePartInfo
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AttachmentsInfo
      */
-    private ?AttachmentsInfo $attachments = NULL;
+    private $attachments;
 
     /**
      * Constructor

@@ -31,8 +31,9 @@ class GetMailQueueInfoResponse extends SoapResponse
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerQueues")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Server
      */
-    private ?Server $server = NULL;
+    private $server;
 
     /**
      * Constructor

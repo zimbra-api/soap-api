@@ -79,8 +79,9 @@ class MessageSummary extends MessageCommon
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteInfo
      */
-    private ?InviteInfo $invite = NULL;
+    private $invite;
 
     /**
      * Constructor

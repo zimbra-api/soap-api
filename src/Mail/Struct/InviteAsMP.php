@@ -92,8 +92,9 @@ class InviteAsMP extends MessageCommon
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\MPInviteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MPInviteInfo
      */
-    private ?MPInviteInfo $invite = NULL;
+    private $invite;
 
     /**
      * Headers

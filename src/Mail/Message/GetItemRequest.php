@@ -35,8 +35,9 @@ class GetItemRequest extends SoapRequest
      * @SerializedName("item")
      * @Type("Zimbra\Mail\Struct\ItemSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ItemSpec
      */
-    private ItemSpec $item;
+    private $item;
 
     /**
      * Constructor

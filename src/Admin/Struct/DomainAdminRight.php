@@ -41,8 +41,9 @@ class DomainAdminRight
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RightType>")
      * @XmlAttribute
+     * @var RightType
      */
-    private RightType $type;
+    private $type;
 
     /**
      * Description

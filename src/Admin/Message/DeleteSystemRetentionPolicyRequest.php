@@ -34,8 +34,9 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CosSelector
      */
-    private ?CosSelector $cos = NULL;
+    private $cos;
 
     /**
      * Details of policy
@@ -44,8 +45,9 @@ class DeleteSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Policy
      */
-    private Policy $policy;
+    private $policy;
 
     /**
      * Constructor

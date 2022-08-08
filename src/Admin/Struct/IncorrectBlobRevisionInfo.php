@@ -70,8 +70,9 @@ class IncorrectBlobRevisionInfo
      * @SerializedName("blob")
      * @Type("Zimbra\Admin\Struct\BlobRevisionInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var BlobRevisionInfo
      */
-    private BlobRevisionInfo $blob;
+    private $blob;
 
     /**
      * Constructor

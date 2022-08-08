@@ -41,8 +41,9 @@ class MimeHeaderTest extends FilterTest
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
+     * @var StringComparison
      */
-    private ?StringComparison $stringComparison = NULL;
+    private $stringComparison;
 
     /**
      * Value

@@ -32,8 +32,9 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DataSourceInfo
      */
-    private ?DataSourceInfo $dataSource = NULL;
+    private $dataSource;
 
     /**
      * Constructor

@@ -32,8 +32,9 @@ class GetMailboxResponse extends SoapResponse
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Mailbox
      */
-    private ?Mailbox $mbox = NULL;
+    private $mbox;
 
     /**
      * Constructor

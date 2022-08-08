@@ -55,8 +55,9 @@ class ExportAndDeleteItemsRequest extends SoapRequest
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\ExportAndDeleteMailboxSpec")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Mailbox
      */
-    private Mailbox $mailbox;
+    private $mailbox;
 
     /**
      * Constructor

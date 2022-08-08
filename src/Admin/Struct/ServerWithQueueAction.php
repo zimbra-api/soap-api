@@ -30,8 +30,9 @@ class ServerWithQueueAction
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var MailQueueWithAction
      */
-    private MailQueueWithAction $queue;
+    private $queue;
 
     /**
      * MTA Server

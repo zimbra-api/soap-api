@@ -30,7 +30,7 @@ class CancelTaskBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CancelTaskRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CancelTaskBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CancelTaskResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

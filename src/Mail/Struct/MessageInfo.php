@@ -193,8 +193,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteInfoInterface
      */
-    private ?InviteInfoInterface $invite = NULL;
+    private $invite;
 
     /**
      * Headers

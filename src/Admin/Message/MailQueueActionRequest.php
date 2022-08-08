@@ -34,8 +34,9 @@ class MailQueueActionRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerWithQueueAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Server
      */
-    private Server $server;
+    private $server;
 
     /**
      * Constructor

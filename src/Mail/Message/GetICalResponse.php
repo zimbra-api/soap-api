@@ -32,8 +32,9 @@ class GetICalResponse extends SoapResponse
      * @SerializedName("ical")
      * @Type("Zimbra\Mail\Struct\ICalContent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ICalContent
      */
-    private ?ICalContent $content = NULL;
+    private $content;
 
     /**
      * Constructor

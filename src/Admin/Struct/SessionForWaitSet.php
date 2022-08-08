@@ -89,8 +89,9 @@ class SessionForWaitSet
      * @SerializedName("WaitSetSession")
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var WaitSetSessionInfo
      */
-    private ?WaitSetSessionInfo $waitSetSession = NULL;
+    private $waitSetSession;
 
     /**
      * Constructor

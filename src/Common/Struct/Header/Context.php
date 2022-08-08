@@ -45,16 +45,18 @@ class Context
      * @SerializedName("session")
      * @Type("Zimbra\Common\Struct\Header\SessionInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var SessionInfo
      */
-    private ?SessionInfo $session = NULL;
+    private $session;
 
     /**
      * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
      * @SerializedName("sessionId")
      * @Type("Zimbra\Common\Struct\Header\SessionInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var SessionInfo
      */
-    private ?SessionInfo $legacySessionId = NULL;
+    private $legacySessionId;
 
     /**
      * @Accessor(getter="getNoSession", setter="setNoSession")
@@ -69,16 +71,18 @@ class Context
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\Header\AccountInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var AccountInfo
      */
-    private ?AccountInfo $account = NULL;
+    private $account;
 
     /**
      * @Accessor(getter="getChange", setter="setChange")
      * @SerializedName("change")
      * @Type("Zimbra\Common\Struct\Header\ChangeInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var ChangeInfo
      */
-    private ?ChangeInfo $change = NULL;
+    private $change;
 
     /**
      * @Accessor(getter="getTargetServer", setter="setTargetServer")
@@ -93,32 +97,36 @@ class Context
      * @SerializedName("userAgent")
      * @Type("Zimbra\Common\Struct\Header\UserAgentInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var UserAgentInfo
      */
-    private ?UserAgentInfo $userAgent = NULL;
+    private $userAgent;
 
     /**
      * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
      * @SerializedName("authTokenControl")
      * @Type("Zimbra\Common\Struct\AuthTokenControl")
      * @XmlElement(namespace="urn:zimbra")
+     * @var AuthTokenControl
      */
-    private ?AuthTokenControl $authTokenControl = NULL;
+    private $authTokenControl;
 
     /**
      * @Accessor(getter="getFormat", setter="setFormat")
      * @SerializedName("format")
      * @Type("Zimbra\Common\Struct\Header\FormatInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var FormatInfo
      */
-    private ?FormatInfo $format = NULL;
+    private $format;
 
     /**
      * @Accessor(getter="getNotify", setter="setNotify")
      * @SerializedName("notify")
      * @Type("Zimbra\Common\Struct\Header\NotifyInfo")
      * @XmlElement(namespace="urn:zimbra")
+     * @var NotifyInfo
      */
-    private ?NotifyInfo $notify = NULL;
+    private $notify;
 
     /**
      * @Accessor(getter="getNoNotify", setter="setNoNotify")

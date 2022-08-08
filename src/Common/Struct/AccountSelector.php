@@ -29,8 +29,9 @@ class AccountSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
+     * @var AccountBy
      */
-    private AccountBy $by;
+    private $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")

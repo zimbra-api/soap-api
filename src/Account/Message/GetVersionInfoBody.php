@@ -30,7 +30,7 @@ class GetVersionInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetVersionInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetVersionInfoBody extends SoapBody
      * @Type("Zimbra\Account\Message\GetVersionInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

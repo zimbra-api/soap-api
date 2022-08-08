@@ -32,8 +32,9 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\Operation>")
      * @XmlAttribute
+     * @var Operation
      */
-    private Operation $op;
+    private $op;
 
     /**
      * @Accessor(getter="getNewName", setter="setNewName")
@@ -48,8 +49,9 @@ class DistributionListAction extends AccountKeyValuePairs
      * @SerializedName("subsReq")
      * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var Subscribe
      */
-    private ?Subscribe $subsReq = NULL;
+    private $subsReq;
 
     /**
      * @Accessor(getter="getMembers", setter="setMembers")

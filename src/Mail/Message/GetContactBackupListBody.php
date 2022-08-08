@@ -30,7 +30,7 @@ class GetContactBackupListBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetContactBackupListRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetContactBackupListBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetContactBackupListResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

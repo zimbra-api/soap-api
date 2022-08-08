@@ -89,32 +89,36 @@ class AdminZimletDesc implements ZimletDesc
      * @SerializedName("serverExtension")
      * @Type("Zimbra\Admin\Struct\ZimletServerExtension")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ZimletServerExtension
      */
-    private ?ZimletServerExtension $serverExtension = NULL;
+    private $serverExtension;
 
     /**
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
      * @SerializedName("include")
      * @Type("Zimbra\Admin\Struct\AdminZimletInclude")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AdminZimletInclude
      */
-    private ?AdminZimletInclude $include = NULL;
+    private $include;
 
     /**
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
      * @SerializedName("includeCSS")
      * @Type("Zimbra\Admin\Struct\AdminZimletIncludeCSS")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AdminZimletIncludeCSS
      */
-    private ?AdminZimletIncludeCSS $includeCSS = NULL;
+    private $includeCSS;
 
     /**
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
      * @SerializedName("zimletTarget")
      * @Type("Zimbra\Admin\Struct\AdminZimletTarget")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AdminZimletTarget
      */
-    private ?AdminZimletTarget $zimletTarget = NULL;
+    private $zimletTarget;
 
     /**
      * Constructor

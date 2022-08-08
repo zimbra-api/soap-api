@@ -34,8 +34,9 @@ class CheckPermissionRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Mail\Struct\TargetSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TargetSpec
      */
-    private ?TargetSpec $target = NULL;
+    private $target;
 
     /**
      * Rights to check

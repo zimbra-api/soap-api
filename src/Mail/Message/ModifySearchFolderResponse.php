@@ -32,8 +32,9 @@ class ModifySearchFolderResponse extends SoapResponse
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SearchFolder
      */
-    private ?SearchFolder $searchFolder = NULL;
+    private $searchFolder;
 
     /**
      * Constructor

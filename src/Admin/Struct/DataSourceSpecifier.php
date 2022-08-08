@@ -31,8 +31,9 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
      * @XmlAttribute
+     * @var DataSourceType
      */
-    private DataSourceType $type;
+    private $type;
 
     /**
      * Data source name

@@ -36,8 +36,9 @@ class MsgActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ActionSelector
      */
-    private ActionSelector $action;
+    private $action;
 
     /**
      * Constructor

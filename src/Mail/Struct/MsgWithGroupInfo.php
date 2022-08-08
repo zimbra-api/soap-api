@@ -75,8 +75,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("rt")
      * @Type("Enum<Zimbra\Common\Enum\ReplyType>")
      * @XmlAttribute
+     * @var ReplyType
      */
-    private ?ReplyType $draftReplyType = NULL;
+    private $draftReplyType;
 
     /**
      * If set, this specifies the identity being used to compose the message
@@ -194,8 +195,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteWithGroupInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteWithGroupInfo
      */
-    private ?InviteWithGroupInfo $invite = NULL;
+    private $invite;
 
     /**
      * Headers
@@ -213,8 +215,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("mp")
      * @Type("Zimbra\Mail\Struct\MimePartInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MimePartInfo
      */
-    private ?MimePartInfo $mimePart = NULL;
+    private $mimePart;
 
     /**
      * Share Notification information
@@ -223,8 +226,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("shr")
      * @Type("Zimbra\Mail\Struct\ShareNotification")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ShareNotification
      */
-    private ?ShareNotification $shr = NULL;
+    private $shr;
 
     /**
      * DL Subscription Notification information
@@ -233,8 +237,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("dlSubs")
      * @Type("Zimbra\Mail\Struct\DLSubscriptionNotification")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DLSubscriptionNotification
      */
-    private ?DLSubscriptionNotification $dlSubs = NULL;
+    private $dlSubs;
 
     /**
      * Content
@@ -243,8 +248,9 @@ class MsgWithGroupInfo extends MessageCommon
      * @SerializedName("content")
      * @Type("Zimbra\Common\Struct\UrlAndValue")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var UrlAndValue
      */
-    private ?UrlAndValue $content = NULL;
+    private $content;
 
     /**
      * Constructor

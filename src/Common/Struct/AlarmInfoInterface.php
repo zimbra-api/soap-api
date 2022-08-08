@@ -26,7 +26,7 @@ interface AlarmInfoInterface
     function setAction(AlarmAction $action): self;
     function setDescription(string $description): self;
     function setSummary(string $summary): self;
-    function getAction(): AlarmAction;
+    function getAction(): ?AlarmAction;
     function getDescription(): ?string;
     function getSummary(): ?string;
 

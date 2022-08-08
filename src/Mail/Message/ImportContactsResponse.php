@@ -32,8 +32,9 @@ class ImportContactsResponse extends SoapResponse
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ImportContact")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ImportContact
      */
-    private ?ImportContact $contact = NULL;
+    private $contact;
 
     /**
      * Constructor

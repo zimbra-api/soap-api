@@ -32,8 +32,9 @@ class GetZimletResponse extends SoapResponse
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ZimletInfo
      */
-    private ?ZimletInfo $zimlet = NULL;
+    private $zimlet;
 
     /**
      * Constructor

@@ -47,8 +47,9 @@ class CreateDataSourceRequest extends SoapRequest
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DataSourceSpecifier
      */
-    private DataSourceSpecifier $dataSource;
+    private $dataSource;
 
     /**
      * Constructor

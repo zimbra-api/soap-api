@@ -32,8 +32,9 @@ class SearchActionRequest extends SoapRequest
      * @SerializedName("SearchRequest")
      * @Type("Zimbra\Mail\Message\SearchRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SearchRequest
      */
-    private SearchRequest $searchRequest;
+    private $searchRequest;
 
     /**
      * Bulk action
@@ -42,8 +43,9 @@ class SearchActionRequest extends SoapRequest
      * @SerializedName("BulkAction")
      * @Type("Zimbra\Mail\Struct\BulkAction")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var BulkAction
      */
-    private BulkAction $bulkAction;
+    private $bulkAction;
 
     /**
      * Constructor

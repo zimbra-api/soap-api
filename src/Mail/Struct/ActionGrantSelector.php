@@ -42,8 +42,9 @@ class ActionGrantSelector
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * @var GranteeType
      */
-    private GranteeType $grantType;
+    private $grantType;
 
     /**
      * Zimbra ID

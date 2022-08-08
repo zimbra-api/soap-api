@@ -147,8 +147,9 @@ trait MailSearchParams
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * @var SearchSortBy
      */
-    private ?SearchSortBy $sortBy = NULL;
+    private $sortBy;
 
     /**
      * Select setting for hit expansion.
@@ -237,8 +238,9 @@ trait MailSearchParams
      * @SerializedName("recip")
      * @Type("Enum<Zimbra\Common\Enum\WantRecipsSetting>")
      * @XmlAttribute
+     * @var WantRecipsSetting
      */
-    private ?WantRecipsSetting $wantRecipients = NULL;
+    private $wantRecipients;
 
     /**
      * Prefetch
@@ -325,8 +327,9 @@ trait MailSearchParams
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalTZInfoInterface
      */
-    private ?CalTZInfoInterface $calTz = NULL;
+    private $calTz;
 
     /**
      * Client locale identification.
@@ -351,8 +354,9 @@ trait MailSearchParams
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CursorInfo
      */
-    private ?CursorInfo $cursor = NULL;
+    private $cursor;
 
     /**
      * used by clients if they want mail content with/without quoted text
@@ -361,8 +365,9 @@ trait MailSearchParams
      * @SerializedName("wantContent")
      * @Type("Enum<Zimbra\Common\Enum\MsgContent>")
      * @XmlAttribute
+     * @var MsgContent
      */
-    private ?MsgContent $wantContent = NULL;
+    private $wantContent;
 
     /**
      * If set, Include the list of contact groups this contact is a member of.

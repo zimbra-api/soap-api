@@ -32,8 +32,9 @@ class CreateIdentityResponse extends SoapResponse
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var Identity
      */
-    private ?Identity $identity = NULL;
+    private $identity;
 
     /**
      * Constructor

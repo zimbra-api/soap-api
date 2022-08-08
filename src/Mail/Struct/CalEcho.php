@@ -30,8 +30,9 @@ class CalEcho
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteAsMP
      */
-    private ?InviteAsMP $invite = NULL;
+    private $invite;
 
     /**
      * Constructor

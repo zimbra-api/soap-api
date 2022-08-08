@@ -30,7 +30,7 @@ class ModifySignatureBody extends SoapBody
      * @Type("Zimbra\Account\Message\ModifySignatureRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ModifySignatureBody extends SoapBody
      * @Type("Zimbra\Account\Message\ModifySignatureResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

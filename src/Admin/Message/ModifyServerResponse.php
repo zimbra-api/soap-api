@@ -32,8 +32,9 @@ class ModifyServerResponse extends SoapResponse
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ServerInfo
      */
-    private ?ServerInfo $server = NULL;
+    private $server;
 
     /**
      * Constructor

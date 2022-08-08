@@ -44,8 +44,9 @@ class GetAccountLoggersRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AccountSelector
      */
-    private ?AccountSelector $account = NULL;
+    private $account;
 
     /**
      * Constructor

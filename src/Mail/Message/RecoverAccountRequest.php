@@ -33,8 +33,9 @@ class RecoverAccountRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RecoverAccountOperation>")
      * @XmlAttribute
+     * @var RecoverAccountOperation
      */
-    private RecoverAccountOperation $op;
+    private $op;
 
     /**
      * Email
@@ -53,8 +54,9 @@ class RecoverAccountRequest extends SoapRequest
      * @SerializedName("channel")
      * @Type("Enum<Zimbra\Common\Enum\Channel>")
      * @XmlAttribute
+     * @var Channel
      */
-    private ?Channel $channel = NULL;
+    private $channel;
 
     /**
      * Constructor

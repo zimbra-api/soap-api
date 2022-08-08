@@ -41,8 +41,9 @@ class ZimletAcl
      * @SerializedName("acl")
      * @Type("Enum<Zimbra\Common\Enum\AclType>")
      * @XmlAttribute
+     * @var AclType
      */
-    private ?AclType $acl = NULL;
+    private $acl;
 
     /**
      * Constructor

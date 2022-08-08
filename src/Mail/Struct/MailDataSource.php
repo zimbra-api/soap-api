@@ -105,8 +105,9 @@ class MailDataSource implements DataSource
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * @var ConnectionType
      */
-    private ?ConnectionType $connectionType = NULL;
+    private $connectionType;
 
     /**
      * Login string on data-source-server, for example a user name
@@ -185,8 +186,9 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpConnectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * @var ConnectionType
      */
-    private ?ConnectionType $smtpConnectionType = NULL;
+    private $smtpConnectionType;
 
     /**
      * Whether SMTP server associated with this data source requires authentication.

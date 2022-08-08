@@ -36,8 +36,9 @@ class TagActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\TagActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TagActionSelector
      */
-    private TagActionSelector $action;
+    private $action;
 
     /**
      * Constructor

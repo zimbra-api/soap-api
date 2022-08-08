@@ -36,8 +36,9 @@ class GetAlwaysOnClusterRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AlwaysOnClusterSelector
      */
-    private ?AlwaysOnClusterSelector $cluster = NULL;
+    private $cluster;
 
     /**
      * Constructor

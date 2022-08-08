@@ -105,8 +105,9 @@ class AccountDataSource implements DataSource
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * @var ConnectionType
      */
-    private ?ConnectionType $connectionType = NULL;
+    private $connectionType;
 
     /**
      * Login string on data-source-server, for example a user name

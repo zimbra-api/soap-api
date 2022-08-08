@@ -38,8 +38,9 @@ class GetLoggerStatsRequest extends SoapRequest
      * @SerializedName("hostname")
      * @Type("Zimbra\Admin\Struct\HostName")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var HostName
      */
-    private ?HostName $hostName = NULL;
+    private $hostName;
 
     /**
      * Stats
@@ -48,8 +49,9 @@ class GetLoggerStatsRequest extends SoapRequest
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsSpec")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var StatsSpec
      */
-    private ?StatsSpec $stats = NULL;
+    private $stats;
 
     /**
      * Start time
@@ -58,8 +60,9 @@ class GetLoggerStatsRequest extends SoapRequest
      * @SerializedName("startTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TimeAttr
      */
-    private ?TimeAttr $startTime = NULL;
+    private $startTime;
 
     /**
      * End time
@@ -68,8 +71,9 @@ class GetLoggerStatsRequest extends SoapRequest
      * @SerializedName("endTime")
      * @Type("Zimbra\Admin\Struct\TimeAttr")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TimeAttr
      */
-    private ?TimeAttr $endTime = NULL;
+    private $endTime;
 
     /**
      * Constructor

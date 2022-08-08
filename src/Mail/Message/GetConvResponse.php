@@ -32,8 +32,9 @@ class GetConvResponse extends SoapResponse
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ConversationInfo
      */
-    private ?ConversationInfo $conversation = NULL;
+    private $conversation;
 
     /**
      * Constructor

@@ -71,8 +71,9 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("vcard")
      * @Type("Zimbra\Mail\Struct\VCardInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var VCardInfo
      */
-    private ?VCardInfo $vcard = NULL;
+    private $vcard;
 
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these

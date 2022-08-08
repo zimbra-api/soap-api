@@ -37,8 +37,9 @@ class PushFreeBusyRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Names
      */
-    private ?Names $domains = NULL;
+    private $domains;
 
     /**
      * Account ID

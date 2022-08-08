@@ -30,7 +30,7 @@ class AddTaskInviteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddTaskInviteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AddTaskInviteBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddTaskInviteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

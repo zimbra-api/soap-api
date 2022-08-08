@@ -32,8 +32,9 @@ class GetMailboxMetadataResponse extends SoapResponse
      * @SerializedName("meta")
      * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailCustomMetadata
      */
-    private ?MailCustomMetadata $metadata = NULL;
+    private $metadata;
 
     /**
      * Constructor

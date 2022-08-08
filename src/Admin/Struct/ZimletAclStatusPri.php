@@ -41,8 +41,9 @@ class ZimletAclStatusPri
      * @SerializedName("acl")
      * @Type("Zimbra\Admin\Struct\ZimletAcl")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ZimletAcl
      */
-    private ?ZimletAcl $acl = NULL;
+    private $acl;
 
     /**
      * Status - valid values for valueattribute - enabled|disabled
@@ -51,8 +52,9 @@ class ZimletAclStatusPri
      * @SerializedName("status")
      * @Type("Zimbra\Admin\Struct\ValueAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ValueAttrib
      */
-    private ?ValueAttrib $status = NULL;
+    private $status;
 
     /**
      * Priority
@@ -61,8 +63,9 @@ class ZimletAclStatusPri
      * @SerializedName("priority")
      * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var IntegerValueAttrib
      */
-    private ?IntegerValueAttrib $priority = NULL;
+    private $priority;
 
     /**
      * Constructor

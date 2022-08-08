@@ -29,16 +29,18 @@ class CheckRightsTargetSpec
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * @var TargetType
      */
-    private TargetType $targetType;
+    private $targetType;
 
     /**
      * @Accessor(getter="getTargetBy", setter="setTargetBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
+     * @var TargetBy
      */
-    private TargetBy $targetBy;
+    private $targetBy;
 
     /**
      * @Accessor(getter="getTargetKey", setter="setTargetKey")

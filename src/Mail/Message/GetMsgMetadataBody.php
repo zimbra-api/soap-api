@@ -30,7 +30,7 @@ class GetMsgMetadataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetMsgMetadataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetMsgMetadataBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetMsgMetadataResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

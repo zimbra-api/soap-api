@@ -31,8 +31,9 @@ class Policy
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\Type>")
      * @XmlAttribute
+     * @var EnumType
      */
-    private ?EnumType $type = NULL;
+    private $type;
 
     /**
      * The id

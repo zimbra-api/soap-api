@@ -30,7 +30,7 @@ class GetYahooAuthTokenBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetYahooAuthTokenRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetYahooAuthTokenBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetYahooAuthTokenResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

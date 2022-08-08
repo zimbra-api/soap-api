@@ -31,8 +31,9 @@ class AccountZimletInfo implements ZimletInterface
      * @SerializedName("zimletContext")
      * @Type("Zimbra\Account\Struct\AccountZimletContext")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletContextInterface
      */
-    private ?ZimletContextInterface $zimletContext = NULL;
+    private $zimletContext;
 
     /**
      * Zimlet description
@@ -41,8 +42,9 @@ class AccountZimletInfo implements ZimletInterface
      * @SerializedName("zimlet")
      * @Type("Zimbra\Account\Struct\AccountZimletDesc")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletDesc
      */
-    private ?ZimletDesc $zimlet = NULL;
+    private $zimlet;
 
     /**
      * Zimlet config
@@ -51,8 +53,9 @@ class AccountZimletInfo implements ZimletInterface
      * @SerializedName("zimletConfig")
      * @Type("Zimbra\Account\Struct\AccountZimletConfigInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletConfigInfo
      */
-    private ?ZimletConfigInfo $zimletConfig = NULL;
+    private $zimletConfig;
 
     /**
      * Constructor

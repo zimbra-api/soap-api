@@ -33,8 +33,9 @@ class BrowseRequest extends SoapRequest
      * @SerializedName("browseBy")
      * @Type("Enum<Zimbra\Common\Enum\BrowseBy>")
      * @XmlAttribute
+     * @var BrowseBy
      */
-    private BrowseBy $browseBy;
+    private $browseBy;
 
     /**
      * Regex string.  Return only those results which match the specified regular expression

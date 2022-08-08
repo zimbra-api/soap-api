@@ -30,7 +30,7 @@ class GetFreeBusyQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetFreeBusyQueueInfoBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

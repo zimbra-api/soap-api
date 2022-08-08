@@ -106,7 +106,7 @@ class FooBody extends SoapBody
      * @Type("Zimbra\Tests\Common\Soap\FooRequest")
      * @XmlElement(namespace="urn:zimbra")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -114,7 +114,7 @@ class FooBody extends SoapBody
      * @Type("Zimbra\Tests\Common\Soap\FooResponse")
      * @XmlElement(namespace="urn:zimbra")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

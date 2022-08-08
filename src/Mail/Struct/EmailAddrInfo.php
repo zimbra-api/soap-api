@@ -43,8 +43,9 @@ class EmailAddrInfo
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
+     * @var AddressType
      */
-    private ?AddressType $addressType = NULL;
+    private $addressType;
 
     /**
      * The comment/name part of an address

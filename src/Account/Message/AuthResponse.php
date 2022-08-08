@@ -62,8 +62,9 @@ class AuthResponse extends SoapResponse
      * @SerializedName("session")
      * @Type("Zimbra\Account\Struct\Session")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var Session
      */
-    private ?Session $session = NULL;
+    private $session;
 
     /**
      * host additional SOAP requests should be directed to.

@@ -30,8 +30,9 @@ class ServerMailQueueDetails
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueDetails")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var MailQueueDetails
      */
-    private MailQueueDetails $queue;
+    private $queue;
 
     /**
      * MTA Server

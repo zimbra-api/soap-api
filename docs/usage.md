@@ -50,7 +50,7 @@ class BatchGetAccountInfosEnvelope extends SoapEnvelope
      * @Type("BatchGetAccountInfosBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private ?SoapBodyInterface $body = NULL;
+    private $body;
 
     public function __construct(?BatchGetAccountInfosBody $body = NULL, ?SoapHeader $header = NULL)
     {
@@ -79,7 +79,7 @@ class BatchGetAccountInfosBody extends SoapBody
      * @Type("BatchGetAccountInfosRequest")
      * @XmlElement(namespace="urn:zimbra")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -87,7 +87,7 @@ class BatchGetAccountInfosBody extends SoapBody
      * @Type("BatchGetAccountInfosResponse")
      * @XmlElement(namespace="urn:zimbra")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     public function __construct(
         ?BatchGetAccountInfosRequest $request = NULL, ?BatchGetAccountInfosResponse $response = NULL

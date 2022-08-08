@@ -30,7 +30,7 @@ class GetVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetVolumeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetVolumeBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

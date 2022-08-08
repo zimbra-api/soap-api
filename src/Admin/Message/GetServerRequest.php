@@ -47,8 +47,9 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ServerSelector
      */
-    private ?ServerSelector $server = NULL;
+    private $server;
 
     /**
      * Constructor

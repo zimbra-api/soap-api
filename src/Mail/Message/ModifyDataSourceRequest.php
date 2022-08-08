@@ -46,8 +46,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("imap")
      * @Type("Zimbra\Mail\Struct\MailImapDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailImapDataSource
      */
-    private ?MailImapDataSource $imapDataSource = NULL;
+    private $imapDataSource;
 
     /**
      * Specification of pop3 data source
@@ -56,8 +57,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("pop3")
      * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailPop3DataSource
      */
-    private ?MailPop3DataSource $pop3DataSource = NULL;
+    private $pop3DataSource;
 
     /**
      * Specification of caldav data source
@@ -66,8 +68,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("caldav")
      * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailCaldavDataSource
      */
-    private ?MailCaldavDataSource $caldavDataSource = NULL;
+    private $caldavDataSource;
 
     /**
      * Specification of yab data source
@@ -76,8 +79,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("yab")
      * @Type("Zimbra\Mail\Struct\MailYabDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailYabDataSource
      */
-    private ?MailYabDataSource $yabDataSource = NULL;
+    private $yabDataSource;
 
     /**
      * Specification of rss data source
@@ -86,8 +90,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("rss")
      * @Type("Zimbra\Mail\Struct\MailRssDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailRssDataSource
      */
-    private ?MailRssDataSource $rssDataSource = NULL;
+    private $rssDataSource;
 
     /**
      * Specification of gal data source
@@ -96,8 +101,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("gal")
      * @Type("Zimbra\Mail\Struct\MailGalDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailGalDataSource
      */
-    private ?MailGalDataSource $galDataSource = NULL;
+    private $galDataSource;
 
     /**
      * Specification of cal data source
@@ -106,8 +112,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("cal")
      * @Type("Zimbra\Mail\Struct\MailCalDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailCalDataSource
      */
-    private ?MailCalDataSource $calDataSource = NULL;
+    private $calDataSource;
 
     /**
      * Specification of unknown data source
@@ -116,8 +123,9 @@ class ModifyDataSourceRequest extends SoapRequest
      * @SerializedName("unknown")
      * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MailUnknownDataSource
      */
-    private ?MailUnknownDataSource $unknownDataSource = NULL;
+    private $unknownDataSource;
 
     /**
      * Constructor

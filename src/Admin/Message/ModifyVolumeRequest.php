@@ -43,8 +43,9 @@ class ModifyVolumeRequest extends SoapRequest
      * @SerializedName("volume")
      * @Type("Zimbra\Admin\Struct\VolumeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var VolumeInfo
      */
-    private VolumeInfo $volume;
+    private $volume;
 
     /**
      * Constructor

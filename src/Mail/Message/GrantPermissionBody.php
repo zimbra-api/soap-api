@@ -30,7 +30,7 @@ class GrantPermissionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GrantPermissionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GrantPermissionBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GrantPermissionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

@@ -41,8 +41,9 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AlarmAction>")
      * @XmlAttribute
+     * @var AlarmAction
      */
-    private AlarmAction $action;
+    private $action;
 
     /**
      * Alarm trigger information
@@ -51,8 +52,9 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("trigger")
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AlarmTriggerInfoInterface
      */
-    private ?AlarmTriggerInfoInterface $trigger = NULL;
+    private $trigger;
 
     /**
      * Alarm repeat information
@@ -61,8 +63,9 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("repeat")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DurationInfoInterface
      */
-    private ?DurationInfoInterface $repeat = NULL;
+    private $repeat;
 
     /**
      * Alarm description
@@ -84,8 +87,9 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalendarAttachInterface
      */
-    private ?CalendarAttachInterface $attach = NULL;
+    private $attach;
 
     /**
      * Alarm summary

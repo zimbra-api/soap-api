@@ -31,8 +31,9 @@ class CurrentTimeTest extends FilterTest
      * @SerializedName("dateComparison")
      * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
      * @XmlAttribute
+     * @var DateComparison
      */
-    private ?DateComparison $dateComparison = NULL;
+    private $dateComparison;
 
     /**
      * Time in HHmm format

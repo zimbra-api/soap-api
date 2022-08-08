@@ -30,7 +30,7 @@ class VerifyCodeBody extends SoapBody
      * @Type("Zimbra\Mail\Message\VerifyCodeRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class VerifyCodeBody extends SoapBody
      * @Type("Zimbra\Mail\Message\VerifyCodeResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

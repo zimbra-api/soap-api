@@ -35,8 +35,9 @@ trait SetCalendarItemInfoTrait
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * @var ParticipationStatus
      */
-    private ?ParticipationStatus $partStat = NULL;
+    private $partStat;
 
     /**
      * Message
@@ -45,8 +46,9 @@ trait SetCalendarItemInfoTrait
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Msg
      */
-    private ?Msg $msg = NULL;
+    private $msg;
 
     /**
      * Constructor

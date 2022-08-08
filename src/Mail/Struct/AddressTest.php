@@ -43,8 +43,9 @@ class AddressTest extends FilterTest
      * @SerializedName("part")
      * @Type("Enum<Zimbra\Common\Enum\AddressPart>")
      * @XmlAttribute
+     * @var AddressPart
      */
-    private ?AddressPart $part = NULL;
+    private $part;
 
     /**
      * comparison type - is|contains|matches
@@ -53,8 +54,9 @@ class AddressTest extends FilterTest
      * @SerializedName("stringComparison")
      * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
      * @XmlAttribute
+     * @var StringComparison
      */
-    private ?StringComparison $comparison = NULL;
+    private $comparison;
 
     /**
      * Case sensitive setting
@@ -83,8 +85,9 @@ class AddressTest extends FilterTest
      * @SerializedName("valueComparison")
      * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
      * @XmlAttribute
+     * @var ValueComparison
      */
-    private ?ValueComparison $valueComparison = NULL;
+    private $valueComparison;
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
@@ -93,8 +96,9 @@ class AddressTest extends FilterTest
      * @SerializedName("countComparison")
      * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
      * @XmlAttribute
+     * @var CountComparison
      */
-    private ?CountComparison $countComparison = NULL;
+    private $countComparison;
 
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
@@ -103,8 +107,9 @@ class AddressTest extends FilterTest
      * @SerializedName("valueComparisonComparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
+     * @var ComparisonComparator
      */
-    private ?ComparisonComparator $valueComparisonComparator = NULL;
+    private $valueComparisonComparator;
 
     /**
      * Constructor

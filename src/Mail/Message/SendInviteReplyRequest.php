@@ -55,8 +55,9 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("verb")
      * @Type("Enum<Zimbra\Common\Enum\VerbType>")
      * @XmlAttribute
+     * @var VerbType
      */
-    private VerbType $verb;
+    private $verb;
 
     /**
      * Update organizer. true by default. if false then only make the update locally.
@@ -88,8 +89,9 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfo
      */
-    private ?DtTimeInfo $exceptionId = NULL;
+    private $exceptionId;
 
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
@@ -98,8 +100,9 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalTZInfo
      */
-    private ?CalTZInfo $timezone = NULL;
+    private $timezone;
 
     /**
      * Embedded message, if the user wants to send a custom update message.
@@ -110,8 +113,9 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Msg
      */
-    private ?Msg $msg = NULL;
+    private $msg;
 
     /**
      * Constructor

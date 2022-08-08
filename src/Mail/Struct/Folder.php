@@ -145,8 +145,9 @@ class Folder
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
+     * @var ViewType
      */
-    private ?ViewType $view = NULL;
+    private $view;
 
     /**
      * Revision
@@ -315,8 +316,9 @@ class Folder
      * @SerializedName("acl")
      * @Type("Zimbra\Mail\Struct\Acl")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Acl
      */
-    private ?Acl $acl = NULL;
+    private $acl;
 
     /**
      * Sub folders
@@ -352,8 +354,9 @@ class Folder
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RetentionPolicy
      */
-    private ?RetentionPolicy $retentionPolicy = NULL;
+    private $retentionPolicy;
 
     /**
      * Constructor

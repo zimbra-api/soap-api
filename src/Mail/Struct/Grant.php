@@ -42,8 +42,9 @@ class Grant
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")
      * @XmlAttribute
+     * @var GrantGranteeType
      */
-    private GrantGranteeType $granteeType;
+    private $granteeType;
 
     /**
      * Grantee ID

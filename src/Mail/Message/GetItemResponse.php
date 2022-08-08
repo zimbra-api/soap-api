@@ -46,8 +46,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Folder
      */
-    private ?Folder $folderItem = NULL;
+    private $folderItem;
 
     /**
      * Tag item
@@ -56,8 +57,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TagInfo
      */
-    private ?TagInfo $tagItem = NULL;
+    private $tagItem;
 
     /**
      * Note item
@@ -66,8 +68,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NoteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NoteInfo
      */
-    private ?NoteInfo $noteItem = NULL;
+    private $noteItem;
 
     /**
      * Contact item
@@ -76,8 +79,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContactInfo
      */
-    private ?ContactInfo $contactItem = NULL;
+    private $contactItem;
 
     /**
      * Calendar item
@@ -86,8 +90,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalendarItemInfo
      */
-    private ?CalendarItemInfo $apptItem = NULL;
+    private $apptItem;
 
     /**
      * Task item
@@ -96,8 +101,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TaskItemInfo
      */
-    private ?TaskItemInfo $taskItem = NULL;
+    private $taskItem;
 
     /**
      * Conversation item
@@ -106,8 +112,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ConversationSummary
      */
-    private ?ConversationSummary $convItem = NULL;
+    private $convItem;
 
     /**
      * Wiki item
@@ -116,8 +123,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("w")
      * @Type("Zimbra\Mail\Struct\CommonDocumentInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CommonDocumentInfo
      */
-    private ?CommonDocumentInfo $wikiItem = NULL;
+    private $wikiItem;
 
     /**
      * Document item
@@ -126,8 +134,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\DocumentInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DocumentInfo
      */
-    private ?DocumentInfo $docItem = NULL;
+    private $docItem;
 
     /**
      * Message item
@@ -136,8 +145,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MessageSummary
      */
-    private ?MessageSummary $msgItem = NULL;
+    private $msgItem;
 
     /**
      * Chat item
@@ -146,8 +156,9 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ChatSummary
      */
-    private ?ChatSummary $chatItem = NULL;
+    private $chatItem;
 
     /**
      * Constructor

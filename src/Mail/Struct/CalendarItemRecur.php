@@ -36,8 +36,9 @@ class CalendarItemRecur
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ExceptionRecurIdInfoInterface
      */
-    private ?ExceptionRecurIdInfoInterface $exceptionId = NULL;
+    private $exceptionId;
 
     /**
      * Start time
@@ -46,8 +47,9 @@ class CalendarItemRecur
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $dtStart = NULL;
+    private $dtStart;
 
     /**
      * End time
@@ -56,8 +58,9 @@ class CalendarItemRecur
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfoInterface
      */
-    private ?DtTimeInfoInterface $dtEnd = NULL;
+    private $dtEnd;
 
     /**
      * Duration information
@@ -66,8 +69,9 @@ class CalendarItemRecur
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DurationInfoInterface
      */
-    private ?DurationInfoInterface $duration = NULL;
+    private $duration;
 
     /**
      * Recurrence information
@@ -76,8 +80,9 @@ class CalendarItemRecur
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RecurrenceInfoInterface
      */
-    private ?RecurrenceInfoInterface $recurrence = NULL;
+    private $recurrence;
 
     /**
      * Constructor

@@ -32,7 +32,7 @@ class CreateWaitSetEnvelope extends SoapEnvelope
      * @Type("Zimbra\Mail\Message\CreateWaitSetBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
-    private ?SoapBodyInterface $body = NULL;
+    private $body;
 
     /**
      * Constructor

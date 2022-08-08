@@ -91,8 +91,9 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @SerializedName("global")
      * @Type("Zimbra\Account\Struct\AccountZimletGlobalConfigInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletGlobalConfigInfo
      */
-    private ?ZimletGlobalConfigInfo $global = NULL;
+    private $global;
 
     /**
      * Zimlet host configuration information
@@ -101,8 +102,9 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
      * @SerializedName("host")
      * @Type("Zimbra\Account\Struct\AccountZimletHostConfigInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletHostConfigInfo
      */
-    private ?ZimletHostConfigInfo $host = NULL;
+    private $host;
 
     /**
      * Constructor

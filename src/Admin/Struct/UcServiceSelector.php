@@ -31,8 +31,9 @@ class UcServiceSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\UcServiceBy>")
      * @XmlAttribute
+     * @var UcServiceBy
      */
-    private UcServiceBy $by;
+    private $by;
 
     /**
      * Key for choosing ucservice

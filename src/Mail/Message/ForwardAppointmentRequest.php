@@ -43,8 +43,9 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DtTimeInfo
      */
-    private ?DtTimeInfo $exceptionId = NULL;
+    private $exceptionId;
 
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
@@ -53,8 +54,9 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalTZInfo
      */
-    private ?CalTZInfo $timezone = NULL;
+    private $timezone;
 
     /**
      * Details of the appointment
@@ -63,8 +65,9 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Msg
      */
-    private ?Msg $msg = NULL;
+    private $msg;
 
     /**
      * Constructor

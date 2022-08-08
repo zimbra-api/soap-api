@@ -34,8 +34,9 @@ class PurgeMessagesRequest extends SoapRequest
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Mailbox
      */
-    private ?Mailbox $mbox = NULL;
+    private $mbox;
 
     /**
      * Constructor

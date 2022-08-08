@@ -33,8 +33,9 @@ class ConvActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ConvActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ConvActionSelector
      */
-    private ConvActionSelector $action;
+    private $action;
 
     /**
      * Constructor

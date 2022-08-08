@@ -50,8 +50,9 @@ class DeleteheaderAction extends FilterAction
      * @SerializedName("test")
      * @Type("Zimbra\Mail\Struct\EditheaderTest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var EditheaderTest
      */
-    private ?EditheaderTest $test = NULL;
+    private $test;
 
     /**
      * Constructor

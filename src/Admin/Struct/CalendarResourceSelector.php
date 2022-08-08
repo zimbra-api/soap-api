@@ -31,8 +31,9 @@ class CalendarResourceSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CalendarResourceBy>")
      * @XmlAttribute
+     * @var CalendarResourceBy
      */
-    private CalendarResourceBy $by;
+    private $by;
 
     /**
      * Specify calendar resource

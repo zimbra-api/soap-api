@@ -49,8 +49,9 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AccountSelector
      */
-    private AccountSelector $account;
+    private $account;
 
     /**
      * Constructor

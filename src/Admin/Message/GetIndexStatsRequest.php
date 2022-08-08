@@ -32,8 +32,9 @@ class GetIndexStatsRequest extends SoapRequest
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Mailbox
      */
-    private Mailbox $mbox;
+    private $mbox;
 
     /**
      * Constructor

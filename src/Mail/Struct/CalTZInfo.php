@@ -65,8 +65,9 @@ class CalTZInfo implements CalTZInfoInterface
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TzOnsetInfo
      */
-    private ?TzOnsetInfo $standardTzOnset = NULL;
+    private $standardTzOnset;
 
     /**
      * Time/rule for transitioning from standard time to daylight time
@@ -75,8 +76,9 @@ class CalTZInfo implements CalTZInfoInterface
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TzOnsetInfo
      */
-    private ?TzOnsetInfo $daylightTzOnset = NULL;
+    private $daylightTzOnset;
 
     /**
      * Standard Time component's timezone name

@@ -31,8 +31,9 @@ class FilterTests
      * @SerializedName("condition")
      * @Type("Enum<Zimbra\Common\Enum\FilterCondition>")
      * @XmlAttribute
+     * @var FilterCondition
      */
-    private FilterCondition $condition;
+    private $condition;
 
     /**
      * Address book filter tests

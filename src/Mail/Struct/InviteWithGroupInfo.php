@@ -32,8 +32,9 @@ class InviteWithGroupInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\InviteType>")
      * @XmlAttribute
+     * @var InviteType
      */
-    private InviteType $calItemType;
+    private $calItemType;
 
     /**
      * Timezones

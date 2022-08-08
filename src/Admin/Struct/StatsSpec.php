@@ -28,8 +28,9 @@ class StatsSpec
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var StatsValueWrapper
      */
-    private StatsValueWrapper $values;
+    private $values;
 
     /**
      * @Accessor(getter="getName", setter="setName")

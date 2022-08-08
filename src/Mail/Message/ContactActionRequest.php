@@ -33,8 +33,9 @@ class ContactActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\ContactActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContactActionSelector
      */
-    private ContactActionSelector $action;
+    private $action;
 
     /**
      * Constructor

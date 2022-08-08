@@ -31,8 +31,9 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalOrganizer
      */
-    private ?CalOrganizer $organizer = NULL;
+    private $organizer;
 
     /**
      * Categories
@@ -50,8 +51,9 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var GeoInfo
      */
-    private ?GeoInfo $geo = NULL;
+    private $geo;
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
@@ -79,8 +81,9 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AlarmDataInfo
      */
-    private ?AlarmDataInfo $alarmData = NULL;
+    private $alarmData;
 
     /**
      * Constructor

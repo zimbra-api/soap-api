@@ -66,8 +66,9 @@ class GetDistributionListRequest extends SoapRequest implements AttributeSelecto
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DistributionList
      */
-    private ?DistributionList $dl = NULL;
+    private $dl;
 
     /**
      * Constructor

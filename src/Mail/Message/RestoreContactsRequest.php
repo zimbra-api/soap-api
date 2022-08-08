@@ -47,8 +47,9 @@ class RestoreContactsRequest extends SoapRequest
      * @SerializedName("resolve")
      * @Type("Enum<Zimbra\Common\Enum\RestoreResolve>")
      * @XmlAttribute
+     * @var RestoreResolve
      */
-    private ?RestoreResolve $resolve = NULL;
+    private $resolve;
 
     /**
      * Constructor

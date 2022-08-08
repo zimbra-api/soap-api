@@ -30,7 +30,7 @@ class VerifyStoreManagerBody extends SoapBody
      * @Type("Zimbra\Admin\Message\VerifyStoreManagerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class VerifyStoreManagerBody extends SoapBody
      * @Type("Zimbra\Admin\Message\VerifyStoreManagerResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

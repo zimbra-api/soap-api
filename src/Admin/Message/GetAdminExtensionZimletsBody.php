@@ -30,7 +30,7 @@ class GetAdminExtensionZimletsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetAdminExtensionZimletsBody extends SoapBody
      * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

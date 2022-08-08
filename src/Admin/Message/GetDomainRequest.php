@@ -47,8 +47,9 @@ class GetDomainRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var DomainSelector
      */
-    private ?DomainSelector $domain = NULL;
+    private $domain;
 
     /**
      * Constructor

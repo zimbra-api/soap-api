@@ -103,8 +103,9 @@ class NestedSearchConversation
      * @SerializedName("info")
      * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SearchQueryInfo
      */
-    private ?SearchQueryInfo $queryInfo = NULL;
+    private $queryInfo;
 
     /**
      * Constructor

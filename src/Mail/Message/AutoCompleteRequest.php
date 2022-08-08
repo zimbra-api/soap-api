@@ -43,8 +43,9 @@ class AutoCompleteRequest extends SoapRequest
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
+     * @var GalSearchType
      */
-    private ?GalSearchType $type = NULL;
+    private $type;
 
     /**
      * Set if the "exp" flag is needed in the response for group entries.  Default is unset.

@@ -29,8 +29,9 @@ class AccountInfo
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
+     * @var AccountBy
      */
-    private AccountBy $by;
+    private $by;
 
     /**
      * @Accessor(getter="getMountpointTraversed", setter="setMountpointTraversed")

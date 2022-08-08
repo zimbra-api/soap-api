@@ -31,8 +31,9 @@ class TzReplaceInfo
      * @SerializedName("wellKnownTz")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Id
      */
-    private ?Id $wellKnownTz = NULL;
+    private $wellKnownTz;
 
     /**
      * Timezone
@@ -41,8 +42,9 @@ class TzReplaceInfo
      * @SerializedName("tz")
      * @Type("Zimbra\Admin\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CalTZInfo
      */
-    private ?CalTZInfo $calTz = NULL;
+    private $calTz;
 
     /**
      * Constructor

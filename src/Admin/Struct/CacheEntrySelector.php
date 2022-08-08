@@ -31,8 +31,9 @@ class CacheEntrySelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CacheEntryBy>")
      * @XmlAttribute
+     * @var CacheEntryBy
      */
-    private CacheEntryBy $by;
+    private $by;
 
     /**
      * The key used to identify the cache entry

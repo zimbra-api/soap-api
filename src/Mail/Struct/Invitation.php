@@ -89,8 +89,9 @@ class Invitation
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteComponent
      */
-    private ?InviteComponent $inviteComponent = NULL;
+    private $inviteComponent;
 
     /**
      * Mime parts

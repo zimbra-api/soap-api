@@ -50,8 +50,9 @@ class FilterRule
      * @SerializedName("filterVariables")
      * @Type("Zimbra\Mail\Struct\FilterVariables")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var FilterVariables
      */
-    private ?FilterVariables $filterVariables = NULL;
+    private $filterVariables;
 
     /**
      * Filter tests
@@ -60,8 +61,9 @@ class FilterRule
      * @SerializedName("filterTests")
      * @Type("Zimbra\Mail\Struct\FilterTests")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var FilterTests
      */
-    private FilterTests $tests;
+    private $tests;
 
     /**
      * Filter actions
@@ -70,8 +72,9 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterActions")
      * @SerializedName("filterActions")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var FilterActions
      */
-    private ?FilterActions $actions = NULL;
+    private $actions;
 
     /**
      * Nested Rule
@@ -80,8 +83,9 @@ class FilterRule
      * @SerializedName("nestedRule")
      * @Type("Zimbra\Mail\Struct\NestedRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NestedRule
      */
-    private ?NestedRule $child = NULL;
+    private $child;
 
     /**
      * Constructor

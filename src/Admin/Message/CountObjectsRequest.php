@@ -44,8 +44,9 @@ class CountObjectsRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\CountObjectsType>")
      * @XmlAttribute
+     * @var CountObjectsType
      */
-    private CountObjectsType $type;
+    private $type;
 
     /**
      * Domain
@@ -63,8 +64,9 @@ class CountObjectsRequest extends SoapRequest
      * @SerializedName("ucservice")
      * @Type("Zimbra\Admin\Struct\UcServiceSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var UcServiceSelector
      */
-    private ?UcServiceSelector $ucService = NULL;
+    private $ucService;
 
     /**
      * Get only related if delegated/domain admin

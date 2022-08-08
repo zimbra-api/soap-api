@@ -42,8 +42,9 @@ class AutoCompleteMatch
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AutoCompleteMatchType>")
      * @XmlAttribute
+     * @var MatchType
      */
-    private ?MatchType $matchType = NULL;
+    private $matchType;
 
     /**
      * Ranking

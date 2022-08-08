@@ -55,8 +55,9 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
+     * @var GalSearchType
      */
-    private ?GalSearchType $type = NULL;
+    private $type;
 
     /**
      * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
@@ -87,8 +88,9 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("needIsMember")
      * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
      * @XmlAttribute
+     * @var MemberOfSelector
      */
-    private ?MemberOfSelector $needIsMember = NULL;
+    private $needIsMember;
 
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
@@ -172,8 +174,9 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var CursorInfo
      */
-    private ?CursorInfo $cursor = NULL;
+    private $cursor;
 
     /**
      * Search Filter
@@ -182,8 +185,9 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var EntrySearchFilterInfo
      */
-    private ?EntrySearchFilterInfo $searchFilter = NULL;
+    private $searchFilter;
 
     /**
      * Constructor

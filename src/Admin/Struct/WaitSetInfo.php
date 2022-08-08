@@ -83,8 +83,9 @@ class WaitSetInfo
      * @SerializedName("ready")
      * @Type("Zimbra\Admin\Struct\AccountsAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AccountsAttrib
      */
-    private ?AccountsAttrib $signalledAccounts = NULL;
+    private $signalledAccounts;
 
     /**
      * CB sequence number

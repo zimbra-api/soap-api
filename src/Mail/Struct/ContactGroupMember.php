@@ -35,8 +35,9 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
      * @XmlAttribute
+     * @var MemberType
      */
-    private MemberType $type;
+    private $type;
 
     /**
      * Member value
@@ -59,8 +60,9 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContactInterface
      */
-    private ?ContactInterface $contact = NULL;
+    private $contact;
 
     /**
      * Constructor

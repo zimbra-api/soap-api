@@ -32,8 +32,9 @@ class ModifyCosResponse extends SoapResponse
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CosInfo
      */
-    private ?CosInfo $cos = NULL;
+    private $cos;
 
     /**
      * Constructor

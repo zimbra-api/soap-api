@@ -54,8 +54,9 @@ class ImportAppointmentsRequest extends SoapRequest
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\ContentSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ContentSpec
      */
-    private ContentSpec $content;
+    private $content;
 
     /**
      * Constructor

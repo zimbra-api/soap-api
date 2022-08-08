@@ -33,8 +33,9 @@ class GetAllDistributionListsRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Domain
      */
-    private ?Domain $domain = NULL;
+    private $domain;
 
     /**
      * Constructor

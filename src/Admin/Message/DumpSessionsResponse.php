@@ -42,8 +42,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("soap")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $soapSessions = NULL;
+    private $soapSessions;
 
     /**
      * Information about IMAP sessions
@@ -52,8 +53,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("imap")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $imapSessions = NULL;
+    private $imapSessions;
 
     /**
      * Information about ADMIN sessions
@@ -62,8 +64,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("admin")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $adminSessions = NULL;
+    private $adminSessions;
 
     /**
      * Information about WIKI sessions
@@ -72,8 +75,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("wiki")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $wikiSessions = NULL;
+    private $wikiSessions;
 
     /**
      * Information about SYNCLISTENER sessions
@@ -82,8 +86,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("synclistener")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $synclistenerSessions = NULL;
+    private $synclistenerSessions;
 
     /**
      * Information about WaitSet sessions
@@ -92,8 +97,9 @@ class DumpSessionsResponse extends SoapResponse
      * @SerializedName("waitset")
      * @Type("Zimbra\Admin\Struct\InfoForSessionType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var InfoForSessionType
      */
-    private ?InfoForSessionType $waitsetSessions = NULL;
+    private $waitsetSessions;
 
     /**
      * Constructor

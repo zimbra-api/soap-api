@@ -32,8 +32,9 @@ class GetDistributionListResponse extends SoapResponse
      * @SerializedName("dl")
      * @Type("Zimbra\Account\Struct\DistributionListInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var DistributionListInfo
      */
-    private ?DistributionListInfo $dl = NULL;
+    private $dl;
 
     /**
      * Constructor

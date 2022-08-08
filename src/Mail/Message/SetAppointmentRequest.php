@@ -101,8 +101,9 @@ class SetAppointmentRequest extends SoapRequest
      * @SerializedName("default")
      * @Type("Zimbra\Mail\Struct\SetCalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var SetCalendarItemInfo
      */
-    private ?SetCalendarItemInfo $defaultId = NULL;
+    private $defaultId;
 
     /**
      * Calendar item information for exceptions

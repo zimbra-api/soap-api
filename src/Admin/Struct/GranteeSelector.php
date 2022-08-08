@@ -31,8 +31,9 @@ class GranteeSelector
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * @var GranteeType
      */
-    private ?GranteeType $type = NULL;
+    private $type;
 
     /**
      * Grantee by
@@ -41,8 +42,9 @@ class GranteeSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\GranteeBy>")
      * @XmlAttribute
+     * @var GranteeBy
      */
-    private ?GranteeBy $by = NULL;
+    private $by;
 
     /**
      * The key used to secretentify the grantee

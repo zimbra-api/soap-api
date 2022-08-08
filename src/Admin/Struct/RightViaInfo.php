@@ -30,8 +30,9 @@ class RightViaInfo
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TargetWithType
      */
-    private TargetWithType $target;
+    private $target;
 
     /**
      * Target
@@ -40,8 +41,9 @@ class RightViaInfo
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var GranteeWithType
      */
-    private GranteeWithType $grantee;
+    private $grantee;
 
     /**
      * Target
@@ -50,8 +52,9 @@ class RightViaInfo
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CheckedRight
      */
-    private CheckedRight $right;
+    private $right;
 
     /**
      * Constructor

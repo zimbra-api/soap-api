@@ -40,8 +40,9 @@ class HostStats
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var StatsInfo
      */
-    private ?StatsInfo $stats = NULL;
+    private $stats;
 
     /**
      * Constructor

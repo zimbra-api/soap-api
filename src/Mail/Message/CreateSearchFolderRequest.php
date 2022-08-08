@@ -33,8 +33,9 @@ class CreateSearchFolderRequest extends SoapRequest
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\NewSearchFolderSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NewSearchFolderSpec
      */
-    private NewSearchFolderSpec $searchFolder;
+    private $searchFolder;
 
     /**
      * Constructor

@@ -24,12 +24,15 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 abstract class SoapBody implements SoapBodyInterface
 {
     /**
+     * Soap fault
+     * 
      * @Accessor(getter="getSoapFault", setter="setSoapFault")
      * @SerializedName("Fault")
      * @Type("Zimbra\Common\Struct\SoapFault")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * @var SoapFaultInterface
      */
-    private ?SoapFaultInterface $soapFault = NULL;
+    private $soapFault;
 
     /**
      * Constructor

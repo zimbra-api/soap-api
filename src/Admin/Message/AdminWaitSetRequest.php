@@ -135,12 +135,12 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Constructor
      * 
-     * @param string  $waitSetId
-     * @param string  $lastKnownSeqNo
-     * @param bool  $block
-     * @param bool  $expand
-     * @param string  $defaultInterests
-     * @param int  $timeout
+     * @param string $waitSetId
+     * @param string $lastKnownSeqNo
+     * @param bool   $block
+     * @param bool   $expand
+     * @param string $defaultInterests
+     * @param int    $timeout
      * @param array  $addAccounts
      * @param array  $updateAccounts
      * @param array  $removeAccounts

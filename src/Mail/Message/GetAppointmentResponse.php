@@ -33,8 +33,9 @@ class GetAppointmentResponse extends SoapResponse
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var CalendarItemInfo
      */
-    private ?CalendarItemInfo $appt = NULL;
+    private $appt;
 
     /**
      * Task information
@@ -43,8 +44,9 @@ class GetAppointmentResponse extends SoapResponse
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var TaskItemInfo
      */
-    private ?TaskItemInfo $task = NULL;
+    private $task;
 
     /**
      * Constructor

@@ -32,8 +32,9 @@ class CreateAlwaysOnClusterResponse extends SoapResponse
      * @SerializedName("alwaysOnCluster")
      * @Type("Zimbra\Admin\Struct\AlwaysOnClusterInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var AlwaysOnClusterInfo
      */
-    private ?AlwaysOnClusterInfo $cluster = NULL;
+    private $cluster;
 
     /**
      * Constructor

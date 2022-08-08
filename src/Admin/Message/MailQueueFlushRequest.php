@@ -34,8 +34,9 @@ class MailQueueFlushRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Server
      */
-    private Server $server;
+    private $server;
 
     /**
      * Constructor

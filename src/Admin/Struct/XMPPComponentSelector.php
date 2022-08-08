@@ -31,8 +31,9 @@ class XMPPComponentSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\XmppComponentBy>")
      * @XmlAttribute
+     * @var XmppComponentBy
      */
-    private XmppComponentBy $by;
+    private $by;
 
     /**
      * The key used to identify the XMPP component

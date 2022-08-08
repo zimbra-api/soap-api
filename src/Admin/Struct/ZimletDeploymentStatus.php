@@ -41,8 +41,9 @@ class ZimletDeploymentStatus
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
      * @XmlAttribute
+     * @var ZimletDeployStatus
      */
-    private ZimletDeployStatus $status;
+    private $status;
 
     /**
      * Error message

@@ -89,32 +89,36 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("serverExtension")
      * @Type("Zimbra\Account\Struct\ZimletServerExtension")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var ZimletServerExtension
      */
-    private ?ZimletServerExtension $serverExtension = NULL;
+    private $serverExtension;
 
     /**
      * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
      * @SerializedName("include")
      * @Type("Zimbra\Account\Struct\AccountZimletInclude")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountZimletInclude
      */
-    private ?AccountZimletInclude $include = NULL;
+    private $include;
 
     /**
      * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
      * @SerializedName("includeCSS")
      * @Type("Zimbra\Account\Struct\AccountZimletIncludeCSS")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountZimletIncludeCSS
      */
-    private ?AccountZimletIncludeCSS $includeCSS = NULL;
+    private $includeCSS;
 
     /**
      * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
      * @SerializedName("zimletTarget")
      * @Type("Zimbra\Account\Struct\AccountZimletTarget")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountZimletTarget
      */
-    private ?AccountZimletTarget $zimletTarget = NULL;
+    private $zimletTarget;
 
     /**
      * Constructor

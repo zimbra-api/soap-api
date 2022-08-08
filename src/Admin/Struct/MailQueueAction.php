@@ -29,24 +29,27 @@ class MailQueueAction
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var QueueQuery
      */
-    private QueueQuery $query;
+    private $query;
 
     /**
      * @Accessor(getter="getOp", setter="setOp")
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\QueueAction>")
      * @XmlAttribute
+     * @var QueueAction
      */
-    private QueueAction $op;
+    private $op;
 
     /**
      * @Accessor(getter="getBy", setter="setBy")
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\QueueActionBy>")
      * @XmlAttribute
+     * @var QueueActionBy
      */
-    private QueueActionBy $by;
+    private $by;
 
     /**
      * Constructor

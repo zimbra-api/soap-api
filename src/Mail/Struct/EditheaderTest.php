@@ -31,8 +31,9 @@ class EditheaderTest
      * @SerializedName("matchType")
      * @Type("Enum<Zimbra\Common\Enum\MatchType>")
      * @XmlAttribute
+     * @var MatchType
      */
-    private ?MatchType $matchType = NULL;
+    private $matchType;
 
     /**
      * if true count comparison will be done
@@ -61,8 +62,9 @@ class EditheaderTest
      * @SerializedName("relationalComparator")
      * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
      * @XmlAttribute
+     * @var RelationalComparator
      */
-    private ?RelationalComparator $relationalComparator = NULL;
+    private $relationalComparator;
 
     /**
      * comparator - i;ascii-numeric|i;ascii-casemap|i;octet
@@ -71,8 +73,9 @@ class EditheaderTest
      * @SerializedName("comparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
+     * @var ComparisonComparator
      */
-    private ?ComparisonComparator $comparator = NULL;
+    private $comparator;
 
     /**
      * name of the header to be compared

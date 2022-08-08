@@ -97,8 +97,9 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var EntrySearchFilterInfo
      */
-    private ?EntrySearchFilterInfo $searchFilter = NULL;
+    private $searchFilter;
 
     /**
      * Constructor

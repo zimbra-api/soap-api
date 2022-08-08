@@ -35,8 +35,9 @@ class GetFreeBusyQueueInfoRequest extends SoapRequest
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var NamedElement
      */
-    private ?NamedElement $provider = NULL;
+    private $provider;
 
     /**
      * Constructor

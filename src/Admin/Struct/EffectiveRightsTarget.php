@@ -31,8 +31,9 @@ class EffectiveRightsTarget
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * @var TargetType
      */
-    private TargetType $type;
+    private $type;
 
     /**
      * Effective rights
@@ -41,8 +42,9 @@ class EffectiveRightsTarget
      * @SerializedName("all")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var EffectiveRightsInfo
      */
-    private ?EffectiveRightsInfo $all = NULL;
+    private $all;
 
     /**
      * Attributes

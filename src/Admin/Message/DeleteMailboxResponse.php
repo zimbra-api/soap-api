@@ -32,8 +32,9 @@ class DeleteMailboxResponse extends SoapResponse
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var MailboxId
      */
-    private ?MailboxId $mbox = NULL;
+    private $mbox;
 
     /**
      * Constructor

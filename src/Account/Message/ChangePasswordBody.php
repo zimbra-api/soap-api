@@ -30,7 +30,7 @@ class ChangePasswordBody extends SoapBody
      * @Type("Zimbra\Account\Message\ChangePasswordRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class ChangePasswordBody extends SoapBody
      * @Type("Zimbra\Account\Message\ChangePasswordResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

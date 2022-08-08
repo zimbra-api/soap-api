@@ -31,8 +31,9 @@ class PrincipalSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")
      * @XmlAttribute
+     * @var AutoProvPrincipalBy
      */
-    private AutoProvPrincipalBy $by;
+    private $by;
 
     /**
      * The key used to identify the principal

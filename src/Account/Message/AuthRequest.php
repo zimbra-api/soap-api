@@ -65,8 +65,9 @@ class AuthRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountSelector
      */
-    private ?AccountSelector $account = NULL;
+    private $account;
 
     /**
      * Password to use in conjunction with an account
@@ -95,8 +96,9 @@ class AuthRequest extends SoapRequest
      * @SerializedName("preauth")
      * @Type("Zimbra\Account\Struct\PreAuth")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var PreAuth
      */
-    private ?PreAuth $preauth = NULL;
+    private $preauth;
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
@@ -105,8 +107,9 @@ class AuthRequest extends SoapRequest
      * @SerializedName("authToken")
      * @Type("Zimbra\Account\Struct\AuthToken")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AuthToken
      */
-    private ?AuthToken $authToken = NULL;
+    private $authToken;
 
     /**
      * JWT auth token

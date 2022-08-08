@@ -61,8 +61,9 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\RawInvite")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var RawInvite
      */
-    private ?RawInvite $content = NULL;
+    private $content;
 
     /**
      * Invite component
@@ -71,8 +72,9 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var InviteComponent
      */
-    private ?InviteComponent $inviteComponent = NULL;
+    private $inviteComponent;
 
     /**
      * Timezones
@@ -99,8 +101,9 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var AttachmentsInfo
      */
-    private ?AttachmentsInfo $attachments = NULL;
+    private $attachments;
 
     /**
      * Constructor

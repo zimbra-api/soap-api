@@ -117,8 +117,9 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * @var PartStat
      */
-    private ?PartStat $partStat = NULL;
+    private $partStat;
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested

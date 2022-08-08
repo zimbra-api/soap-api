@@ -35,8 +35,9 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var LimitedQuery
      */
-    private ?LimitedQuery $query = NULL;
+    private $query;
 
     /**
      * GAL action

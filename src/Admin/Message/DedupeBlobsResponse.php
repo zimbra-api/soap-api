@@ -33,8 +33,9 @@ class DedupeBlobsResponse extends SoapResponse
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\DedupStatus>")
      * @XmlAttribute
+     * @var DedupStatus
      */
-    private ?DedupStatus $status = NULL;
+    private $status;
 
     /**
      * @Accessor(getter="getTotalSize", setter="setTotalSize")

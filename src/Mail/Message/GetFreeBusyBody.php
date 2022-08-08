@@ -30,7 +30,7 @@ class GetFreeBusyBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetFreeBusyRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class GetFreeBusyBody extends SoapBody
      * @Type("Zimbra\Mail\Message\GetFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

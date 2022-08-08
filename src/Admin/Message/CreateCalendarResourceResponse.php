@@ -31,8 +31,9 @@ class CreateCalendarResourceResponse extends SoapResponse
      * @SerializedName("calresource")
      * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var CalendarResourceInfo
      */
-    private ?CalendarResourceInfo $calResource = NULL;
+    private $calResource;
 
     /**
      * Constructor

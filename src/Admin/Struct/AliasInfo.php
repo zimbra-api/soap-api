@@ -41,8 +41,9 @@ class AliasInfo extends AdminObjectInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * @var TargetType
      */
-    private ?TargetType $targetType = NULL;
+    private $targetType;
 
     /**
      * Constructor

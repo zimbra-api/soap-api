@@ -49,8 +49,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("freq")
      * @Type("Enum<Zimbra\Common\Enum\Frequency>")
      * @XmlAttribute
+     * @var Frequency
      */
-    private Frequency $frequency;
+    private $frequency;
 
     /**
      * UNTIL date specification
@@ -59,8 +60,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("until")
      * @Type("Zimbra\Mail\Struct\DateTimeStringAttr")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DateTimeStringAttrInterface
      */
-    private ?DateTimeStringAttrInterface $until = NULL;
+    private $until;
 
     /**
      * Count of instances to generate
@@ -69,8 +71,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("count")
      * @Type("Zimbra\Mail\Struct\NumAttr")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NumAttrInterface
      */
-    private ?NumAttrInterface $count = NULL;
+    private $count;
 
     /**
      * Interval specification
@@ -79,8 +82,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("interval")
      * @Type("Zimbra\Mail\Struct\IntervalRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var IntervalRuleInterface
      */
-    private ?IntervalRuleInterface $interval = NULL;
+    private $interval;
 
     /**
      * BYSECOND rule
@@ -89,8 +93,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("bysecond")
      * @Type("Zimbra\Mail\Struct\BySecondRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var BySecondRuleInterface
      */
-    private ?BySecondRuleInterface $bySecond = NULL;
+    private $bySecond;
 
     /**
      * BYMINUTE rule
@@ -99,8 +104,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("byminute")
      * @Type("Zimbra\Mail\Struct\ByMinuteRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByMinuteRuleInterface
      */
-    private ?ByMinuteRuleInterface $byMinute = NULL;
+    private $byMinute;
 
     /**
      * BYHOUR rule
@@ -109,8 +115,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("byhour")
      * @Type("Zimbra\Mail\Struct\ByHourRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByHourRuleInterface
      */
-    private ?ByHourRuleInterface $byHour = NULL;
+    private $byHour;
 
     /**
      * BYDAY rule
@@ -119,8 +126,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("byday")
      * @Type("Zimbra\Mail\Struct\ByDayRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByDayRuleInterface
      */
-    private ?ByDayRuleInterface $byDay = NULL;
+    private $byDay;
 
     /**
      * BYMONTHDAY rule
@@ -129,8 +137,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("bymonthday")
      * @Type("Zimbra\Mail\Struct\ByMonthDayRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByMonthDayRuleInterface
      */
-    private ?ByMonthDayRuleInterface $byMonthDay = NULL;
+    private $byMonthDay;
 
     /**
      * BYYEARDAY rule
@@ -139,8 +148,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("byyearday")
      * @Type("Zimbra\Mail\Struct\ByYearDayRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByYearDayRuleInterface
      */
-    private ?ByYearDayRuleInterface $byYearDay = NULL;
+    private $byYearDay;
 
     /**
      * BYWEEKNO rule
@@ -149,8 +159,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("byweekno")
      * @Type("Zimbra\Mail\Struct\ByWeekNoRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByWeekNoRuleInterface
      */
-    private ?ByWeekNoRuleInterface $byWeekNo = NULL;
+    private $byWeekNo;
 
     /**
      * BYMONTH rule
@@ -159,8 +170,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("bymonth")
      * @Type("Zimbra\Mail\Struct\ByMonthRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ByMonthRuleInterface
      */
-    private ?ByMonthRuleInterface $byMonth = NULL;
+    private $byMonth;
 
     /**
      * BYSETPOS rule
@@ -169,8 +181,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("bysetpos")
      * @Type("Zimbra\Mail\Struct\BySetPosRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var BySetPosRuleInterface
      */
-    private ?BySetPosRuleInterface $bySetPos = NULL;
+    private $bySetPos;
 
     /**
      * Week start day - SU,MO,TU,WE,TH,FR,SA
@@ -179,8 +192,9 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
      * @SerializedName("wkst")
      * @Type("Zimbra\Mail\Struct\WkstRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var WkstRuleInterface
      */
-    private ?WkstRuleInterface $weekStart = NULL;
+    private $weekStart;
 
     /**
      * X Name rules

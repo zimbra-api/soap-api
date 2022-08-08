@@ -32,8 +32,9 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @SerializedName("abs")
      * @Type("Zimbra\Mail\Struct\DateAttr")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DateAttrInterface
      */
-    private ?DateAttrInterface $absolute = NULL;
+    private $absolute;
 
     /**
      * Relative trigger information
@@ -42,8 +43,9 @@ class AlarmTriggerInfo implements AlarmTriggerInfoInterface
      * @SerializedName("rel")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var DurationInfoInterface
      */
-    private ?DurationInfoInterface $relative = NULL;
+    private $relative;
 
     /**
      * Constructor

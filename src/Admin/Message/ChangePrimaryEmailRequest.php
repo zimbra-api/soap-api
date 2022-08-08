@@ -33,8 +33,9 @@ class ChangePrimaryEmailRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var Account
      */
-    private Account $account;
+    private $account;
 
     /**
      * New account name

@@ -32,8 +32,9 @@ class GetMailboxStatsResponse extends SoapResponse
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\MailboxStats")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var MailboxStats
      */
-    private ?MailboxStats $stats = NULL;
+    private $stats;
 
     /**
      * Constructor

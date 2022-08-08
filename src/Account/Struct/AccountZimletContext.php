@@ -53,8 +53,9 @@ class AccountZimletContext implements ZimletContextInterface
      * @SerializedName("presence")
      * @Type("Enum<Zimbra\Common\Enum\ZimletPresence>")
      * @XmlAttribute
+     * @var ZimletPresence
      */
-    private ZimletPresence $zimletPresence;
+    private $zimletPresence;
 
     /**
      * Constructor

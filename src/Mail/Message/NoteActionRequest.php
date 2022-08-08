@@ -33,8 +33,9 @@ class NoteActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\NoteActionSelector")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var NoteActionSelector
      */
-    private NoteActionSelector $action;
+    private $action;
 
     /**
      * Constructor

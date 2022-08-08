@@ -32,8 +32,9 @@ class RunUnitTestsResponse extends SoapResponse
      * @SerializedName("results")
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var TestResultInfo
      */
-    private ?TestResultInfo $results = NULL;
+    private $results;
 
     /**
      * Number of executed tests

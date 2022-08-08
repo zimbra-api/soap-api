@@ -37,8 +37,9 @@ class RemoveAttachmentsResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var MessageInfo
      */
-    private ?MessageInfo $msgMessage = NULL;
+    private $msgMessage;
 
     /**
      * Information about the chat message
@@ -47,8 +48,9 @@ class RemoveAttachmentsResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var ChatMessageInfo
      */
-    private ?ChatMessageInfo $chatMessage = NULL;
+    private $chatMessage;
 
     /**
      * Constructor

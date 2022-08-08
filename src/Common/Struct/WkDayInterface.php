@@ -24,7 +24,7 @@ use Zimbra\Common\Enum\WeekDay;
 interface WkDayInterface
 {
     function setDay(WeekDay $day): self;
-    function getDay(): WeekDay;
+    function getDay(): ?WeekDay;
 
     function setOrdWk(int $ordWk): self;
     function getOrdWk(): ?int;

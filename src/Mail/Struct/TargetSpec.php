@@ -32,8 +32,9 @@ class TargetSpec
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * @var TargetType
      */
-    private TargetType $targetType;
+    private $targetType;
 
     /**
      * Select the meaning of {value}
@@ -42,8 +43,9 @@ class TargetSpec
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
+     * @var AccountBy
      */
-    private AccountBy $accountBy;
+    private $accountBy;
 
     /**
      * The key used to identify the target

@@ -32,8 +32,9 @@ class GetRightResponse extends SoapResponse
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var RightInfo
      */
-    private ?RightInfo $right = NULL;
+    private $right;
 
     /**
      * Constructor

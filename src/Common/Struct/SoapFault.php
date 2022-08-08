@@ -33,7 +33,7 @@ class SoapFault implements SoapFaultInterface
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * @var Code
      */
-    private ?Code $faultCode = NULL;
+    private $faultCode;
 
     /**
      * Fault reason
@@ -44,7 +44,7 @@ class SoapFault implements SoapFaultInterface
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * @var Reason
      */
-    private ?Reason $faultReason = NULL;
+    private $faultReason;
 
     /**
      * Constructor

@@ -30,7 +30,7 @@ class AddCommentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddCommentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class AddCommentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\AddCommentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

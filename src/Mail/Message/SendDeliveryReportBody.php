@@ -30,7 +30,7 @@ class SendDeliveryReportBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SendDeliveryReportRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class SendDeliveryReportBody extends SoapBody
      * @Type("Zimbra\Mail\Message\SendDeliveryReportResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor

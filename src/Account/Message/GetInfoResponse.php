@@ -180,8 +180,9 @@ class GetInfoResponse extends SoapResponse
      * @SerializedName("cos")
      * @Type("Zimbra\Account\Struct\Cos")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var Cos
      */
-    private ?Cos $cos = NULL;
+    private $cos;
 
     /**
      * User-settable preferences
@@ -257,8 +258,9 @@ class GetInfoResponse extends SoapResponse
      * @SerializedName("dataSources")
      * @Type("Zimbra\Account\Struct\AccountDataSources")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var AccountDataSources
      */
-    private ?AccountDataSources $dataSources = NULL;
+    private $dataSources;
 
     /**
      * Child accounts

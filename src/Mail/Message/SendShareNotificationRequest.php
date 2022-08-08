@@ -38,8 +38,9 @@ class SendShareNotificationRequest extends SoapRequest
      * @SerializedName("item")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Id
      */
-    private Id $item;
+    private $item;
 
     /**
      * Email addresses

@@ -61,8 +61,9 @@ class ShareNotificationInfo
      * @SerializedName("grantor")
      * @Type("Zimbra\Mail\Struct\Grantor")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var Grantor
      */
-    private ?Grantor $grantor = NULL;
+    private $grantor;
 
     /**
      * Link information
@@ -71,8 +72,9 @@ class ShareNotificationInfo
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\LinkInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * @var LinkInfo
      */
-    private ?LinkInfo $link = NULL;
+    private $link;
 
     /**
      * Constructor

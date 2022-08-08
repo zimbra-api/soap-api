@@ -37,8 +37,9 @@ class LoggerInfo
      * @SerializedName("level")
      * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
      * @XmlAttribute
+     * @var LoggingLevel
      */
-    private ?LoggingLevel $level = NULL;
+    private $level;
 
     /**
      * Constructor

@@ -33,8 +33,9 @@ class GetZimletStatusResponse extends SoapResponse
      * @SerializedName("zimlets")
      * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var ZimletStatusParent
      */
-    private ?ZimletStatusParent $zimlets = NULL;
+    private $zimlets;
 
     /**
      * Class Of Service (COS) Information

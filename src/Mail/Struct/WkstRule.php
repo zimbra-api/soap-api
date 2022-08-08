@@ -33,8 +33,9 @@ class WkstRule implements WkstRuleInterface
      * @SerializedName("day")
      * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
      * @XmlAttribute
+     * @var WeekDay
      */
-    private WeekDay $day;
+    private $day;
 
     /**
      * Constructor
@@ -52,7 +53,7 @@ class WkstRule implements WkstRuleInterface
      *
      * @return WeekDay
      */
-    public function getDay(): WeekDay
+    public function getDay(): ?WeekDay
     {
         return $this->day;
     }

@@ -62,8 +62,9 @@ class NewSearchFolderSpec
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * @var SearchSortBy
      */
-    private ?SearchSortBy $sortBy = NULL;
+    private $sortBy;
 
     /**
      * Flags

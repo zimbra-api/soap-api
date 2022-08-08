@@ -34,8 +34,9 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
+     * @var DistributionListSubscribeOp
      */
-    private DistributionListSubscribeOp $op;
+    private $op;
 
     /**
      * Selector for the distribution list
@@ -44,8 +45,9 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * @var DistributionListSelector
      */
-    private DistributionListSelector $dl;
+    private $dl;
 
     /**
      * Constructor

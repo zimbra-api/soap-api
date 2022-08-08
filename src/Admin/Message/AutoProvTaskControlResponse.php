@@ -32,8 +32,9 @@ class AutoProvTaskControlResponse extends SoapResponse
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskStatus>")
      * @XmlAttribute
+     * @var AutoProvTaskStatus
      */
-    private ?AutoProvTaskStatus $status = NULL;
+    private $status;
 
     /**
      * Constructor

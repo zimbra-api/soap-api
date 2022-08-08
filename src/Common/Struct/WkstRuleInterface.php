@@ -23,5 +23,5 @@ use Zimbra\Common\Enum\WeekDay;
  */
 interface WkstRuleInterface
 {
-    function getDay(): WeekDay;
+    function getDay(): ?WeekDay;
 }

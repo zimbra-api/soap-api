@@ -30,7 +30,7 @@ class CounterAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CounterAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapRequestInterface $request = NULL;
+    private $request;
 
     /**
      * @Accessor(getter="getResponse", setter="setResponse")
@@ -38,7 +38,7 @@ class CounterAppointmentBody extends SoapBody
      * @Type("Zimbra\Mail\Message\CounterAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
      */
-    private ?SoapResponseInterface $response = NULL;
+    private $response;
 
     /**
      * Constructor
