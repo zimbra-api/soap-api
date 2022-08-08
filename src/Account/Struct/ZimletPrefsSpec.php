@@ -52,7 +52,7 @@ class ZimletPrefsSpec
     )
     {
         $this->setName($name)
-             ->setPresence($presence ?? ZimletStatus::DISABLED());
+             ->setPresence($presence ?? new ZimletStatus('enabled'));
     }
 
     /**

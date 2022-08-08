@@ -68,8 +68,8 @@ class CheckRightsTargetSpec
         ?TargetType $type = NULL, ?TargetBy $by = NULL, string $key = '', array $rights = []
     )
     {
-        $this->setTargetType($type ?? TargetType::ACCOUNT())
-             ->setTargetBy($by ?? TargetBy::ID())
+        $this->setTargetType($type ?? new TargetType('account'))
+             ->setTargetBy($by ?? new TargetBy('name'))
              ->setTargetKey($key)
              ->setRights($rights);
     }

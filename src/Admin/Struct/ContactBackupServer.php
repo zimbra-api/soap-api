@@ -78,7 +78,7 @@ class ContactBackupServer
     /**
      * Get status
      *
-     * @return string
+     * @return ContactBackupStatus
      */
     public function getStatus(): ContactBackupStatus
     {

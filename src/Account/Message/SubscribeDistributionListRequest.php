@@ -59,7 +59,7 @@ class SubscribeDistributionListRequest extends SoapRequest
     )
     {
         $this->setDl($dl)
-             ->setOp($op ?? DistributionListSubscribeOp::SUBSCRIBE());
+             ->setOp($op ?? new DistributionListSubscribeOp('subscribe'));
     }
 
     /**

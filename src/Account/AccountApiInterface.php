@@ -107,7 +107,7 @@ interface AccountApiInterface extends ApiInterface
     /**
      * Authenticate by account name
      *
-     * @param  string $name
+     * @param  string $id
      * @param  string $password
      * @return Message\AuthResponse
      */

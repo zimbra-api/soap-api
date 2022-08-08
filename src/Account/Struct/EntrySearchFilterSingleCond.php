@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\ConditionOperator as Operator;
+use Zimbra\Common\Enum\ConditionOperator;
 use Zimbra\Common\Struct\SearchFilterCondition;
 
 /**
@@ -39,7 +39,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @Type("Enum<Zimbra\Common\Enum\ConditionOperator>")
      * @XmlAttribute
      */
-    private Operator $op;
+    private ConditionOperator $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -61,20 +61,20 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * Constructor
      * 
      * @param string $attr
-     * @param Operator $op
+     * @param ConditionOperator $op
      * @param string $value
      * @param bool $not
      * @return self
      */
     public function __construct(
         string $attr = '',
-        ?Operator $op = NULL,
+        ?ConditionOperator $op = NULL,
         string $value = '',
         ?bool $not = NULL
     )
     {
         $this->setAttr($attr)
-             ->setOp($op ?? Operator::EQ())
+             ->setOp($op ?? new ConditionOperator('eq'))
              ->setValue($value);
         if (NULL !== $not) {
             $this->setNot($not);
@@ -106,9 +106,9 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     /**
      * Get operator
      *
-     * @return Operator
+     * @return ConditionOperator
      */
-    public function getOp(): Operator
+    public function getOp(): ConditionOperator
     {
         return $this->op;
     }
@@ -116,10 +116,10 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     /**
      * Set operator
      *
-     * @param  Operator $op
+     * @param  ConditionOperator $op
      * @return self
      */
-    public function setOp(Operator $op): self
+    public function setOp(ConditionOperator $op): self
     {
         $this->op = $op;
         return $this;

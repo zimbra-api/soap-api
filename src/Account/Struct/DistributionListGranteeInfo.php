@@ -66,7 +66,7 @@ class DistributionListGranteeInfo
         ?GranteeType $type = NULL, string $id = '', string $name = ''
     )
     {
-        $this->setType($type ?? GranteeType::ALL())
+        $this->setType($type ?? new GranteeType('all'))
              ->setId($id)
              ->setName($name);
     }

@@ -43,7 +43,7 @@ class SubscribeDistributionListResponse extends SoapResponse
      */
     public function __construct(?SubscribeStatus $status = NULL)
     {
-        $this->setStatus($status ?? SubscribeStatus::SUBSCRIBED());
+        $this->setStatus($status ?? new SubscribeStatus('subscribed'));
     }
 
     /**

@@ -11,7 +11,7 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Common\Enum\DistributionListSubscribeOp as SubscribeOp;
+use Zimbra\Common\Enum\DistributionListSubscribeOp;
 
 /**
  * DistributionListSubscribeReq struct class
@@ -32,7 +32,7 @@ class DistributionListSubscribeReq
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
      */
-    private SubscribeOp $op;
+    private DistributionListSubscribeOp $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -54,16 +54,16 @@ class DistributionListSubscribeReq
     /**
      * Constructor
      * 
-     * @param  SubscribeOp $op
+     * @param  DistributionListSubscribeOp $op
      * @param  string $value
      * @param  bool   $bccOwners
      * @return self
      */
     public function __construct(
-        ?SubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
+        ?DistributionListSubscribeOp $op = NULL, ?string $value = NULL, ?bool $bccOwners = NULL
     )
     {
-		$this->setOp($op ?? SubscribeOp::SUBSCRIBE());
+		$this->setOp($op ?? new DistributionListSubscribeOp('subscribe'));
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -75,9 +75,9 @@ class DistributionListSubscribeReq
     /**
      * Get operation
      *
-     * @return SubscribeOp
+     * @return DistributionListSubscribeOp
      */
-    public function getOp(): SubscribeOp
+    public function getOp(): DistributionListSubscribeOp
     {
         return $this->op;
     }
@@ -85,10 +85,10 @@ class DistributionListSubscribeReq
     /**
      * Set operation
      *
-     * @param  SubscribeOp $op
+     * @param  DistributionListSubscribeOp $op
      * @return self
      */
-    public function setOp(SubscribeOp $op): self
+    public function setOp(DistributionListSubscribeOp $op): self
     {
         $this->op = $op;
         return $this;

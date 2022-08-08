@@ -111,8 +111,10 @@ class GetFilterRulesResponse extends SoapResponse
         array $rules = []
     )
     {
-        $this->setType($type ?? AdminFilterType::BEFORE())
-             ->setFilterRules($rules);
+        $this->setFilterRules($rules);
+        if ($type instanceof AdminFilterType) {
+            $this->setType($type);
+        }
         if ($account instanceof Account) {
             $this->setAccount($account);
         }

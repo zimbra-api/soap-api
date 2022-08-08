@@ -11,8 +11,8 @@
 namespace Zimbra\Account\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
+use Zimbra\Common\Enum\DistributionListGranteeBy;
 use Zimbra\Common\Enum\GranteeType;
-use Zimbra\Common\Enum\DistributionListGranteeBy as GranteeBy;
 
 /**
  * DistributionListGranteeSelector struct class
@@ -39,7 +39,7 @@ class DistributionListGranteeSelector
      * @Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")
      * @XmlAttribute
      */
-    private GranteeBy $by;
+    private DistributionListGranteeBy $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -52,16 +52,16 @@ class DistributionListGranteeSelector
      * Constructor
      * 
      * @param GranteeType $type
-     * @param GranteeBy $by
+     * @param DistributionListGranteeBy $by
      * @param string $value
      * @return self
      */
     public function __construct(
-        ?GranteeType $type = NULL, ?GranteeBy $by = NULL, ?string $value = NULL
+        ?GranteeType $type = NULL, ?DistributionListGranteeBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setType($type ?? GranteeType::ALL())
-             ->setBy($by ?? GranteeBy::ID());
+        $this->setType($type ?? new GranteeType('all'))
+             ->setBy($by ?? new DistributionListGranteeBy('name'));
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -92,9 +92,9 @@ class DistributionListGranteeSelector
     /**
      * Get grantee by
      *
-     * @return GranteeBy
+     * @return DistributionListGranteeBy
      */
-    public function getBy(): GranteeBy
+    public function getBy(): DistributionListGranteeBy
     {
         return $this->by;
     }
@@ -102,10 +102,10 @@ class DistributionListGranteeSelector
     /**
      * Set grantee by
      *
-     * @param  GranteeBy $by
+     * @param  DistributionListGranteeBy $by
      * @return self
      */
-    public function setBy(GranteeBy $by): self
+    public function setBy(DistributionListGranteeBy $by): self
     {
         $this->by = $by;
         return $this;
