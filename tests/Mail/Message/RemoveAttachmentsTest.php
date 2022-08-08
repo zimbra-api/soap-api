@@ -110,10 +110,11 @@ class RemoveAttachmentsTest extends ZimbraTestCase
         $response = new RemoveAttachmentsResponse($chatInfo);
         $this->assertSame($chatInfo, $response->getChatMessage());
         $response = new RemoveAttachmentsResponse();
-        $response->setMessage($chatInfo);
+        $response->setChatMessage($chatInfo);
         $this->assertSame($chatInfo, $response->getChatMessage());
-        $response->setMessage($msgInfo);
+        $response->setMsgMessage($msgInfo);
         $this->assertSame($msgInfo, $response->getMsgMessage());
+        $response = new RemoveAttachmentsResponse($msgInfo);
 
         $body = new RemoveAttachmentsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

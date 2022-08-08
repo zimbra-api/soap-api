@@ -214,7 +214,7 @@ class FilterRule
      */
     public function getFilterActions(): array
     {
-        return ($this->actions instanceof FilterActions) ? $this->actions->getFilterActions() : [];
+        return $this->actions->getFilterActions();
     }
 
     /**
@@ -239,7 +239,7 @@ class FilterRule
      */
     public function addFilterAction(FilterAction $action): self
     {
-        if (empty($this->actions)) {
+        if (!($this->actions instanceof FilterActions)) {
             $this->actions = new FilterActions();
         }
         $this->actions->addFilterAction($action);

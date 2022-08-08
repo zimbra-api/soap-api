@@ -33,7 +33,7 @@ class RemoveAttachmentsResponse extends SoapResponse
     /**
      * Information about the message
      * 
-     * @Accessor(getter="getMsgMessage", setter="setMessage")
+     * @Accessor(getter="getMsgMessage", setter="setMsgMessage")
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
@@ -44,7 +44,7 @@ class RemoveAttachmentsResponse extends SoapResponse
     /**
      * Information about the chat message
      * 
-     * @Accessor(getter="getChatMessage", setter="setMessage")
+     * @Accessor(getter="getChatMessage", setter="setChatMessage")
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
@@ -76,6 +76,18 @@ class RemoveAttachmentsResponse extends SoapResponse
     }
 
     /**
+     * Set msg message
+     * 
+     * @param  MessageInfo $message
+     * @return self
+     */
+    public function setMsgMessage(MessageInfo $message): self
+    {
+        $this->msgMessage = $message;
+        return $this;
+    }
+
+    /**
      * Get chat message
      * 
      * @return ChatMessageInfo
@@ -86,15 +98,24 @@ class RemoveAttachmentsResponse extends SoapResponse
     }
 
     /**
+     * Set chat message
+     * 
+     * @param  ChatMessageInfo $message
+     * @return self
+     */
+    public function setChatMessage(ChatMessageInfo $message): self
+    {
+        $this->chatMessage = $message;
+        return $this;
+    }
+
+    /**
      * Set message
      * 
      * @return self
      */
-    public function setMessage(MessageInfo $message): self
+    private function setMessage(MessageInfo $message): self
     {
-        $this->msgMessage =
-        $this->chatMessage = NULL;
-
         if (get_class($message) === MessageInfo::class) {
             $this->msgMessage = $message;
         }

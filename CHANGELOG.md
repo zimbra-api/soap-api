@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 [Full Changelog](https://github.com/zimbra-api/soap-api/compare/2.0.0...2.0.1)
 
 ### Refactoring
-* refactor: Update PHPdoc
+* refactor: Update PHPdoc of all Struct & Message classes
 * refactor: Replace call ENUM static method to new instance in ENUM required properties
+* refactor: Replace typed properties with default property declaration of all Struct & Message classes
 
 ## 2.0.0 - 2022-08-05
 - 2.0.0 release
