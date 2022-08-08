@@ -143,10 +143,11 @@ class SaveDraftTest extends ZimbraTestCase
         $response = new SaveDraftResponse($chatInfo);
         $this->assertSame($chatInfo, $response->getChatMessage());
         $response = new SaveDraftResponse();
-        $response->setMessage($chatInfo);
+        $response->setChatMessage($chatInfo);
         $this->assertSame($chatInfo, $response->getChatMessage());
-        $response->setMessage($msgInfo);
+        $response->setMsgMessage($msgInfo);
         $this->assertSame($msgInfo, $response->getMsgMessage());
+        $response = new SaveDraftResponse($msgInfo);
 
         $body = new SaveDraftBody($request, $response);
         $this->assertSame($request, $body->getRequest());
