@@ -157,6 +157,15 @@ class GetFolderTest extends ZimbraTestCase
         $response = new GetFolderResponse($folder);
         $this->assertSame($folder, $response->getFolder());
 
+        $response = new GetFolderResponse();
+        $response->setMountpoint($mountpoint)
+            ->setSearchFolder($searchFolder)
+            ->setFolder($folder);
+        $this->assertSame($mountpoint, $response->getMountpoint());
+        $this->assertSame($searchFolder, $response->getSearchFolder());
+        $this->assertSame($folder, $response->getFolder());
+        $response = new GetFolderResponse($folder);
+
         $body = new GetFolderBody($request, $response);
         $this->assertSame($request, $body->getRequest());
         $this->assertSame($response, $body->getResponse());

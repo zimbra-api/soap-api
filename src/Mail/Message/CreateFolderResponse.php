@@ -41,7 +41,7 @@ class CreateFolderResponse extends SoapResponse
     /**
      * Information about created mountpoint
      * 
-     * @Accessor(getter="getMountpoint", setter="setFolder")
+     * @Accessor(getter="getMountpoint", setter="setMountpoint")
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
      * @XmlElement(namespace="urn:zimbraMail")
@@ -52,7 +52,7 @@ class CreateFolderResponse extends SoapResponse
     /**
      * Information about created search folder
      * 
-     * @Accessor(getter="getSearchFolder", setter="setFolder")
+     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
@@ -68,7 +68,13 @@ class CreateFolderResponse extends SoapResponse
      */
     public function __construct(?Folder $folder = NULL)
     {
-        if ($folder instanceof Folder) {
+        if ($folder instanceof Mountpoint) {
+            $this->setMountpoint($folder);
+        }
+        else if ($folder instanceof SearchFolder) {
+            $this->setSearchFolder($folder);
+        }
+        else if ($folder instanceof Folder){
             $this->setFolder($folder);
         }
     }
@@ -84,6 +90,18 @@ class CreateFolderResponse extends SoapResponse
     }
 
     /**
+     * Set mount point
+     *
+     * @param  Mountpoint $mountpoint
+     * @return self
+     */
+    public function setMountpoint(Mountpoint $mountpoint): self
+    {
+        $this->mountpoint = $mountpoint;
+        return $this;
+    }
+
+    /**
      * Get search folder
      *
      * @return SearchFolder
@@ -91,6 +109,18 @@ class CreateFolderResponse extends SoapResponse
     public function getSearchFolder(): ?SearchFolder
     {
         return $this->searchFolder;
+    }
+
+    /**
+     * Set search folder
+     *
+     * @param  SearchFolder $searchFolder
+     * @return self
+     */
+    public function setSearchFolder(SearchFolder $searchFolder): self
+    {
+        $this->searchFolder = $searchFolder;
+        return $this;
     }
 
     /**
@@ -111,16 +141,7 @@ class CreateFolderResponse extends SoapResponse
      */
     public function setFolder(Folder $folder): self
     {
-        $this->folder = $this->mountpoint = $this->searchFolder = NULL;
-        if ($folder instanceof Mountpoint) {
-            $this->mountpoint = $folder;
-        }
-        else if ($folder instanceof SearchFolder) {
-            $this->searchFolder = $folder;
-        }
-        else {
-            $this->folder = $folder;
-        }
+        $this->folder = $folder;
         return $this;
     }
 }
