@@ -231,7 +231,7 @@ class CreateDataSourceResponse extends SoapResponse
         $this->rssDataSource =
         $this->galDataSource =
         $this->calDataSource =
-        $this->unknownDataSource;
+        $this->unknownDataSource = NULL;
         if ($dataSource instanceof ImapDataSourceId) {
             $this->imapDataSource = $dataSource;
         }

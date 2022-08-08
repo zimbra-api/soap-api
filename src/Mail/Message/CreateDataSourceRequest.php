@@ -233,7 +233,7 @@ class CreateDataSourceRequest extends SoapRequest
         $this->rssDataSource =
         $this->galDataSource =
         $this->calDataSource =
-        $this->unknownDataSource;
+        $this->unknownDataSource = NULL;
         if ($dataSource instanceof MailImapDataSource) {
             $this->imapDataSource = $dataSource;
         }
