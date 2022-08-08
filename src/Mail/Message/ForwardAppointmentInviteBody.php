@@ -41,8 +41,10 @@ class ForwardAppointmentInviteBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ForwardAppointmentInviteBody
+     * Constructor
      *
+     * @param  ForwardAppointmentInviteRequest $request
+     * @param  ForwardAppointmentInviteResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class ForwardAppointmentInviteBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ForwardAppointmentInviteRequest) {
@@ -60,11 +65,17 @@ class ForwardAppointmentInviteBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ForwardAppointmentInviteResponse) {
@@ -73,6 +84,9 @@ class ForwardAppointmentInviteBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

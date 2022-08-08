@@ -41,8 +41,10 @@ class SaveIMAPSubscriptionsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for SaveIMAPSubscriptionsBody
+     * Constructor
      *
+     * @param  SaveIMAPSubscriptionsRequest $request
+     * @param  SaveIMAPSubscriptionsResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class SaveIMAPSubscriptionsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof SaveIMAPSubscriptionsRequest) {
@@ -60,11 +65,17 @@ class SaveIMAPSubscriptionsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof SaveIMAPSubscriptionsResponse) {
@@ -73,6 +84,9 @@ class SaveIMAPSubscriptionsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

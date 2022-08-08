@@ -41,8 +41,10 @@ class ModifyProfileImageBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyProfileImageBody
+     * Constructor
      *
+     * @param  ModifyProfileImageRequest $request
+     * @param  ModifyProfileImageResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class ModifyProfileImageBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyProfileImageRequest) {
@@ -60,11 +65,17 @@ class ModifyProfileImageBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyProfileImageResponse) {
@@ -73,6 +84,9 @@ class ModifyProfileImageBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

@@ -41,8 +41,10 @@ class GetYahooCookieBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetYahooCookieBody
+     * Constructor
      *
+     * @param  GetYahooCookieRequest $request
+     * @param  GetYahooCookieResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class GetYahooCookieBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetYahooCookieRequest) {
@@ -60,11 +65,17 @@ class GetYahooCookieBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetYahooCookieResponse) {
@@ -73,6 +84,9 @@ class GetYahooCookieBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

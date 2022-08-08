@@ -41,8 +41,10 @@ class ModifyMailboxMetadataBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for ModifyMailboxMetadataBody
+     * Constructor
      *
+     * @param  ModifyMailboxMetadataRequest $request
+     * @param  ModifyMailboxMetadataResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class ModifyMailboxMetadataBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof ModifyMailboxMetadataRequest) {
@@ -60,11 +65,17 @@ class ModifyMailboxMetadataBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof ModifyMailboxMetadataResponse) {
@@ -73,6 +84,9 @@ class ModifyMailboxMetadataBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

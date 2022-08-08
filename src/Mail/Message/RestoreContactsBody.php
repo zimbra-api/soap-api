@@ -41,8 +41,10 @@ class RestoreContactsBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RestoreContactsBody
+     * Constructor
      *
+     * @param  RestoreContactsRequest $request
+     * @param  RestoreContactsResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class RestoreContactsBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RestoreContactsRequest) {
@@ -60,11 +65,17 @@ class RestoreContactsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RestoreContactsResponse) {
@@ -73,6 +84,9 @@ class RestoreContactsBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

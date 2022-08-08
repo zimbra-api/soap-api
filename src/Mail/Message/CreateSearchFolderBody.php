@@ -41,8 +41,10 @@ class CreateSearchFolderBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for CreateSearchFolderBody
+     * Constructor
      *
+     * @param  CreateSearchFolderRequest $request
+     * @param  CreateSearchFolderResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class CreateSearchFolderBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof CreateSearchFolderRequest) {
@@ -60,11 +65,17 @@ class CreateSearchFolderBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof CreateSearchFolderResponse) {
@@ -73,6 +84,9 @@ class CreateSearchFolderBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

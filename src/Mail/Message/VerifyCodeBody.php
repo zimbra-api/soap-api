@@ -41,8 +41,10 @@ class VerifyCodeBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for VerifyCodeBody
+     * Constructor
      *
+     * @param  VerifyCodeRequest $request
+     * @param  VerifyCodeResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class VerifyCodeBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof VerifyCodeRequest) {
@@ -60,11 +65,17 @@ class VerifyCodeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof VerifyCodeResponse) {
@@ -73,6 +84,9 @@ class VerifyCodeBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

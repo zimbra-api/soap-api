@@ -41,8 +41,10 @@ class RevokePermissionBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for RevokePermissionBody
+     * Constructor
      *
+     * @param  RevokePermissionRequest $request
+     * @param  RevokePermissionResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class RevokePermissionBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof RevokePermissionRequest) {
@@ -60,11 +65,17 @@ class RevokePermissionBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof RevokePermissionResponse) {
@@ -73,6 +84,9 @@ class RevokePermissionBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

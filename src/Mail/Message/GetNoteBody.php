@@ -41,8 +41,10 @@ class GetNoteBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for GetNoteBody
+     * Constructor
      *
+     * @param  GetNoteRequest $request
+     * @param  GetNoteResponse $response
      * @return self
      */
     public function __construct(
@@ -52,6 +54,9 @@ class GetNoteBody extends SoapBody
         parent::__construct($request, $response);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setRequest(SoapRequestInterface $request): self
     {
         if ($request instanceof GetNoteRequest) {
@@ -60,11 +65,17 @@ class GetNoteBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequest(): ?SoapRequestInterface
     {
         return $this->request;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setResponse(SoapResponseInterface $response): self
     {
         if ($response instanceof GetNoteResponse) {
@@ -73,6 +84,9 @@ class GetNoteBody extends SoapBody
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getResponse(): ?SoapResponseInterface
     {
         return $this->response;

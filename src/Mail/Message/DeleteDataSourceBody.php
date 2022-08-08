@@ -41,8 +41,10 @@ class DeleteDataSourceBody extends SoapBody
     private ?SoapResponseInterface $response = NULL;
 
     /**
-     * Constructor method for DeleteDataSourceBody
+     * Constructor
      *
+     * @param  DeleteDataSourceRequest $request
+     * @param  DeleteDataSourceResponse $response
      * @return self
      */
     public function __construct(
