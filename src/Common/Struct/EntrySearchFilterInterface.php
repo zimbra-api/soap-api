@@ -34,12 +34,4 @@ interface EntrySearchFilterInterface
      * @return SearchFilterCondition
      */
     function getConditions(): ?SearchFilterCondition;
-
-    /**
-     * Set search filter condition
-     *
-     * @param  SearchFilterCondition $condition
-     * @return self
-     */
-    function setCondition(SearchFilterCondition $condition): self;
 }

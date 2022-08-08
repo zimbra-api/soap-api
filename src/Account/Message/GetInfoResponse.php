@@ -1052,7 +1052,7 @@ class GetInfoResponse extends SoapResponse
      */
     public function addDataSource(AccountDataSource $dataSource): self
     {
-        if (empty($this->dataSources)) {
+        if (!($this->dataSources instanceof AccountDataSources)) {
             $this->dataSources = new AccountDataSources();
         }
         $this->dataSources->addDataSource($dataSource);
@@ -1066,7 +1066,7 @@ class GetInfoResponse extends SoapResponse
      */
     public function getDataSources(): array
     {
-        return ($this->dataSources instanceof AccountDataSources) ? $this->dataSources->getDataSources() : [];
+        return $this->dataSources->getDataSources();
     }
 
     /**

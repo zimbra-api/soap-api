@@ -40,7 +40,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     /**
      * Search filter compound condition
      * 
-     * @Accessor(getter="getConditions", setter="setCondition")
+     * @Accessor(getter="getConditions", setter="setConditions")
      * @SerializedName("conds")
      * @Type("Zimbra\Admin\Struct\EntrySearchFilterMultiCond")
      * @XmlElement(namespace="urn:zimbraAdmin")
@@ -56,7 +56,10 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
      */
     public function __construct(?SearchFilterCondition $condition = NULL)
     {
-        if ($condition instanceof SearchFilterCondition) {
+        if ($condition instanceof MultiCond) {
+            $this->setConditions($condition);
+        }
+        if ($condition instanceof SingleCond) {
             $this->setCondition($condition);
         }
     }
@@ -72,6 +75,18 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     }
 
     /**
+     * Set simple search filter condition
+     *
+     * @param  SingleCond $condition
+     * @return self
+     */
+    public function setCondition(SingleCond $condition): self
+    {
+        $this->condition = $condition;
+        return $this;
+    }
+
+    /**
      * Get compound search filter condition
      *
      * @return SearchFilterCondition
@@ -82,20 +97,14 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     }
 
     /**
-     * Set search filter condition
+     * Set compound search filter condition
      *
-     * @param  SearchFilterCondition $condition
+     * @param  MultiCond $conditions
      * @return self
      */
-    public function setCondition(SearchFilterCondition $condition): self
+    public function setConditions(MultiCond $conditions): self
     {
-        $this->condition = $this->conditions = NULL;
-        if ($condition instanceof MultiCond) {
-            $this->conditions = $condition;
-        }
-        if ($condition instanceof SingleCond) {
-            $this->condition = $condition;
-        }
+        $this->conditions = $conditions;
         return $this;
     }
 }

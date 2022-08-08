@@ -25,7 +25,7 @@ class EntrySearchFilterInfoTest extends ZimbraTestCase
 
         $filter = new MockEntrySearchFilterInfo($conds);
         $this->assertSame($conds, $filter->getConditions());
-        $filter->setCondition($conds);
+        $filter->setConditions($conds);
         $this->assertSame($conds, $filter->getConditions());
 
         $xml = <<<EOT

@@ -110,7 +110,7 @@ class SoapFault implements SoapFaultInterface
      */
     public function faultCode(): ?string
     {
-        return ($this->faultCode instanceof Code) ? $this->faultCode->getValue() : NULL;
+        return $this->faultCode->getValue();
     }
 
     /**
@@ -118,6 +118,6 @@ class SoapFault implements SoapFaultInterface
      */
     public function faultString(): ?string
     {
-        return ($this->faultReason instanceof Reason) ? $this->faultReason->getText() : NULL;
+        return $this->faultReason->getText();
     }
 }
