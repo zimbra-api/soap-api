@@ -71,7 +71,7 @@ class RecoverAccountRequest extends SoapRequest
     )
     {
         $this->setEmail($email)
-             ->setOp($op ?? RecoverAccountOperation::GET_RECOVERY_ACCOUNT());
+             ->setOp($op ?? new RecoverAccountOperation('getRecoveryAccount'));
         if ($channel instanceof Channel) {
             $this->setChannel($channel);
         }

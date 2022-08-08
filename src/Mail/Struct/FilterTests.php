@@ -296,7 +296,7 @@ class FilterTests
     public function __construct(?FilterCondition $condition = NULL, array $tests = [])
     {
         $this->setTests($tests)
-             ->setCondition($condition ?? FilterCondition::ALL_OF());
+             ->setCondition($condition ?? new FilterCondition('allof'));
     }
 
     /**

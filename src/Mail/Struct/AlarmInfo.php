@@ -139,7 +139,7 @@ class AlarmInfo implements AlarmInfoInterface
         array $xProps = []
     )
     {
-        $this->setAction($action ?? AlarmAction::DISPLAY())
+        $this->setAction($action ?? new AlarmAction('DISPLAY'))
              ->setAttendees($attendees)
              ->setXProps($xProps);
         if ($trigger instanceof AlarmTriggerInfo) {

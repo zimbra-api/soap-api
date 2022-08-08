@@ -102,7 +102,7 @@ class AccountACEinfo
         ?bool $deny = NULL
     )
     {
-        $this->setGranteeType($granteeType ?? GranteeType::ALL())
+        $this->setGranteeType($granteeType ?? new GranteeType('all'))
              ->setRight($right);
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);

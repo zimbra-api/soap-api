@@ -55,7 +55,7 @@ class FreeBusyUserStatus
     public function __construct(string $name = '', ?FreeBusyStatus $freebusyStatus = NULL)
     {
         $this->setName($name)
-             ->setFreebusyStatus($freebusyStatus ?? FreeBusyStatus::FREE());
+             ->setFreebusyStatus($freebusyStatus ?? new FreeBusyStatus('F'));
     }
 
     /**

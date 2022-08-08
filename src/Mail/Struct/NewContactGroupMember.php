@@ -62,7 +62,7 @@ class NewContactGroupMember
         ?MemberType $type = NULL, string $value = ''
     )
     {
-        $this->setType($type ?? MemberType::CONTACT())
+        $this->setType($type ?? new MemberType('C'))
              ->setValue($value);
     }
 

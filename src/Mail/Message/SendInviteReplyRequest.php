@@ -137,7 +137,7 @@ class SendInviteReplyRequest extends SoapRequest
     {
         $this->setId($id)
              ->setComponentNum($componentNum)
-             ->setVerb($verb ?? VerbType::ACCEPT());
+             ->setVerb($verb ?? new VerbType('ACCEPT'));
         if (NULL !== $updateOrganizer) {
             $this->setUpdateOrganizer($updateOrganizer);
         }

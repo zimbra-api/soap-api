@@ -80,7 +80,7 @@ class InviteWithGroupInfo
         array $calendarReplies = []
     )
     {
-        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT())
+        $this->setCalItemType($calItemType ?? new InviteType('appt'))
              ->setTimezones($timezones)
              ->setInviteComponents($inviteComponents)
              ->setCalendarReplies($calendarReplies);

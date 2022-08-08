@@ -117,7 +117,7 @@ class ActionGrantSelector
     )
     {
         $this->setRights($rights)
-             ->setGrantType($grantType ?? GranteeType::ALL());
+             ->setGrantType($grantType ?? new GranteeType('all'));
         if (NULL !== $zimbraId) {
             $this->setZimbraId($zimbraId);
         }

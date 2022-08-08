@@ -60,7 +60,7 @@ class BulkAction
         ?string $folder = NULL
     )
     {
-        $this->setOp($op ?? BulkOperation::READ());
+        $this->setOp($op ?? new BulkOperation('read'));
         if (NULL !== $folder) {
             $this->setFolder($folder);
         }

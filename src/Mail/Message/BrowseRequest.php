@@ -68,7 +68,7 @@ class BrowseRequest extends SoapRequest
         ?BrowseBy $browseBy = NULL, ?string $regex = NULL, ?int $max = NULL
     )
     {
-        $this->setBrowseBy($browseBy ?? BrowseBy::DOMAINS());
+        $this->setBrowseBy($browseBy ?? new BrowseBy('domains'));
         if (NULL !== $regex) {
             $this->setRegex($regex);
         }

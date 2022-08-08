@@ -118,7 +118,7 @@ class Grant
     )
     {
         $this->setPerm($perm)
-             ->setGranteeType($granteeType ?? GrantGranteeType::ALL())
+             ->setGranteeType($granteeType ?? new GrantGranteeType('all'))
              ->setGranteeId($granteeId);
         if (NULL !== $expiry) {
             $this->setExpiry($expiry);

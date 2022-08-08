@@ -35,7 +35,7 @@ use Zimbra\Common\Struct\{
  */
 abstract class AbstractApi implements ApiInterface, HeaderAwareInterface, LoggerAwareInterface
 {
-    const SERIALIZE_FORMAT  = 'xml';
+    const SERIALIZE_FORMAT = 'xml';
 
     /**
      * Soap client

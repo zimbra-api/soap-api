@@ -84,7 +84,7 @@ class InviteInfo implements InviteInfoInterface
         array $calendarReplies = []
     )
     {
-        $this->setCalItemType($calItemType ?? InviteType::APPOINTMENT())
+        $this->setCalItemType($calItemType ?? new InviteType('appt'))
              ->setTimezones($timezones)
              ->setCalendarReplies($calendarReplies);
         if ($inviteComponent instanceof InviteComponent) {

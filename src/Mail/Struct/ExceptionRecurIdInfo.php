@@ -106,12 +106,12 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     /**
      * Set recurrenceRangeType
      *
-     * @param  int $recurrenceRangeType
+     * @param  int $rangeType
      * @return self
      */
-    public function setRecurrenceRangeType(int $recurrenceRangeType): self
+    public function setRecurrenceRangeType(int $rangeType): self
     {
-        $this->recurrenceRangeType = RangeType::isValid($recurrenceRangeType) ? $recurrenceRangeType : RangeType::NONE()->getValue();
+        $this->recurrenceRangeType = RangeType::isValid($rangeType) ? $rangeType : 1;
         return $this;
     }
 

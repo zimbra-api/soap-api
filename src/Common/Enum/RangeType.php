@@ -25,19 +25,19 @@ class RangeType extends Enum
 {
     /**
      * Constant for value 'NONE'
-     * @return string 1
+     * @return int 1
      */
     protected const NONE = 1;
 
     /**
      * Constant for value 'THISANDFUTURE'
-     * @return string 2
+     * @return int 2
      */
     protected const THISANDFUTURE = 2;
 
     /**
      * Constant for value THISANDPRIOR
-     * @return string 3
+     * @return int 3
      */
     protected const THISANDPRIOR = 3;
 }
