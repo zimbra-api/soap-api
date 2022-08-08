@@ -45,7 +45,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     private $messageHits = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  string $id
      * @param  string $sortField

@@ -136,7 +136,7 @@ class MessageCommon implements MessageCommonInterface
     private $metadatas = [];
 
     /**
-     * Constructor method for MessageCommon
+     * Constructor
      *
      * @param int $size
      * @param int $date

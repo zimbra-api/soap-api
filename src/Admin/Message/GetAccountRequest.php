@@ -53,7 +53,7 @@ class GetAccountRequest extends SoapRequest implements AttributeSelector
     private AccountSelector $account;
 
     /**
-     * Constructor method for GetAccountRequest
+     * Constructor
      * 
      * @param  AccountSelector $account
      * @param  bool $applyCos

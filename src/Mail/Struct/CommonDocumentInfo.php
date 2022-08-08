@@ -265,7 +265,7 @@ class CommonDocumentInfo
     private ?Acl $acl = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  string $id
      * @param  string $uuid

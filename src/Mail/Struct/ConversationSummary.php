@@ -173,7 +173,7 @@ class ConversationSummary
     private $emails = [];
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  string $id
      * @param  int $num

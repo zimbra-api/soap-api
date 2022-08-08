@@ -57,7 +57,7 @@ class GetAllServersRequest extends SoapRequest
     private $applyConfig;
 
     /**
-     * Constructor method for GetAllServersRequest
+     * Constructor
      * 
      * @param  string $service
      * @param  string $alwaysOnClusterId

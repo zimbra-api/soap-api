@@ -39,7 +39,7 @@ class ConvActionSelector extends ActionSelector
     private $acctRelativePath;
 
     /**
-     * Constructor method for ConvActionSelector
+     * Constructor
      *
      * @param  string $operation
      * @param  string $ids

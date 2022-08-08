@@ -202,7 +202,7 @@ class SearchResponse extends SoapResponse
     private ?SearchQueryInfo $queryInfo = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  SearchSortBy $sortBy
      * @param  int $queryOffset

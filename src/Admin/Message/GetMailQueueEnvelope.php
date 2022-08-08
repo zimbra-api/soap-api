@@ -35,7 +35,7 @@ class GetMailQueueEnvelope extends SoapEnvelope
     private ?SoapBodyInterface $body = NULL;
 
     /**
-     * Constructor method for GetMailQueueEnvelope
+     * Constructor
      *
      * @param GetMailQueueBody $body
      * @param SoapHeaderInterface $header

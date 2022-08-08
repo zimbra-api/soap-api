@@ -340,7 +340,7 @@ class MailDataSource implements DataSource
     private $attributes = [];
 
     /**
-     * Constructor method for MailDataSource
+     * Constructor
      * 
      * @param  string $id
      * @param  string $name

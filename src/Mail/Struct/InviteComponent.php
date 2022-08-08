@@ -192,7 +192,7 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     private ?DurationInfoInterface $duration = NULL;
 
     /**
-     * Constructor method
+     * Constructor
      *
      * @param  string $method
      * @param  int $componentNum
