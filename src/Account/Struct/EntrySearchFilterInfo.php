@@ -77,7 +77,7 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     /**
      * Set simple search filter condition
      *
-     * @param  SearchFilterCondition $condition
+     * @param  SingleCond $condition
      * @return self
      */
     public function setCondition(SingleCond $condition): self
