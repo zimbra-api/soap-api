@@ -74,7 +74,7 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     )
     {
         $this->setAttr($attr)
-             ->setOp($op ?? ConditionOperator::EQ())
+             ->setOp($op ?? new ConditionOperator('eq'))
              ->setValue($value);
         if (NULL !== $not) {
             $this->setNot($not);

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
-use Zimbra\Common\Enum\ZimletDeployStatus as DeployStatus;
+use Zimbra\Common\Enum\ZimletDeployStatus;
 
 /**
  * ZimletDeploymentStatus struct class
@@ -42,7 +42,7 @@ class ZimletDeploymentStatus
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployStatus>")
      * @XmlAttribute
      */
-    private DeployStatus $status;
+    private ZimletDeployStatus $status;
 
     /**
      * Error message
@@ -58,16 +58,16 @@ class ZimletDeploymentStatus
      * Constructor
      * 
      * @param  string $server
-     * @param  DeployStatus $status
+     * @param  ZimletDeployStatus $status
      * @param  string $error
      * @return self
      */
     public function __construct(
-        string $server = '', ?DeployStatus $status = NULL, ?string $error = NULL
+        string $server = '', ?ZimletDeployStatus $status = NULL, ?string $error = NULL
     )
     {
         $this->setServer($server)
-             ->setStatus($status ?? DeployStatus::PENDING());
+             ->setStatus($status ?? new ZimletDeployStatus('succeeded'));
         if (NULL !== $error) {
             $this->setError($error);
         }
@@ -98,9 +98,9 @@ class ZimletDeploymentStatus
     /**
      * Get status
      *
-     * @return DeployStatus
+     * @return ZimletDeployStatus
      */
-    public function getStatus(): DeployStatus
+    public function getStatus(): ZimletDeployStatus
     {
         return $this->status;
     }
@@ -108,10 +108,10 @@ class ZimletDeploymentStatus
     /**
      * Set status
      *
-     * @param  DeployStatus $status
+     * @param  ZimletDeployStatus $status
      * @return self
      */
-    public function setStatus(DeployStatus $status): self
+    public function setStatus(ZimletDeployStatus $status): self
     {
         $this->status = $status;
         return $this;

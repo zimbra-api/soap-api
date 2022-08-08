@@ -12,7 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\AttachmentIdAttrib;
-use Zimbra\Common\Enum\ZimletDeployAction as DeployAction;
+use Zimbra\Common\Enum\ZimletDeployAction;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -35,7 +35,7 @@ class DeployZimletRequest extends SoapRequest
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployAction>")
      * @XmlAttribute
      */
-    private DeployAction $action;
+    private ZimletDeployAction $action;
 
     /**
      * Flag whether to flush the cache
@@ -71,16 +71,19 @@ class DeployZimletRequest extends SoapRequest
      * Constructor
      * 
      * @param  AttachmentIdAttrib $content
-     * @param  DeployAction $action
+     * @param  ZimletDeployAction $action
      * @param  bool $flushCache
      * @param  bool $synchronous
      * @return self
      */
     public function __construct(
-        AttachmentIdAttrib $content, ?DeployAction $action = NULL, ?bool $flushCache = NULL, ?bool $synchronous = NULL
+        AttachmentIdAttrib $content,
+        ?ZimletDeployAction $action = NULL,
+        ?bool $flushCache = NULL,
+        ?bool $synchronous = NULL
     )
     {
-        $this->setAction($action ?? DeployAction::DEPLOY_ALL())
+        $this->setAction($action ?? new ZimletDeployAction('deployAll'))
              ->setContent($content);
         if (NULL !== $flushCache) {
             $this->setFlushCache($flushCache);
@@ -93,9 +96,9 @@ class DeployZimletRequest extends SoapRequest
     /**
      * Get action
      *
-     * @return DeployAction
+     * @return ZimletDeployAction
      */
-    public function getAction(): DeployAction
+    public function getAction(): ZimletDeployAction
     {
         return $this->action;
     }
@@ -103,10 +106,10 @@ class DeployZimletRequest extends SoapRequest
     /**
      * Set action
      *
-     * @param  DeployAction $action
+     * @param  ZimletDeployAction $action
      * @return self
      */
-    public function setAction(DeployAction $action): self
+    public function setAction(ZimletDeployAction $action): self
     {
         $this->action = $action;
         return $this;

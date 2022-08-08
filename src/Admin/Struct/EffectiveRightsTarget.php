@@ -78,7 +78,7 @@ class EffectiveRightsTarget
         array $entriesLists = []
     )
     {
-        $this->setType($type ?? TargetType::ACCOUNT())
+        $this->setType($type ?? new TargetType('account'))
              ->setInDomainLists($inDomainLists)
              ->setEntriesLists($entriesLists);
         if ($all instanceof EffectiveRightsInfo) {

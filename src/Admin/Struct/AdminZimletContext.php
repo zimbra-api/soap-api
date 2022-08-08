@@ -71,7 +71,7 @@ class AdminZimletContext implements ZimletContextInterface
     )
     {
         $this->setZimletBaseUrl($baseUrl)
-             ->setZimletPresence($presence ?? ZimletPresence::DISABLED());
+             ->setZimletPresence($presence ?? new ZimletPresence('enabled'));
         if (NULL !== $priority) {
             $this->setZimletPriority($priority);
         }

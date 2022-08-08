@@ -94,7 +94,7 @@ class GetSessionsRequest extends SoapRequest
         ?bool $refresh = NULL
     )
     {
-        $this->setType($type ?? SessionType::SOAP());
+        $this->setType($type ?? new SessionType('soap'));
         if ($sortBy instanceof GetSessionsSortBy) {
             $this->setSortBy($sortBy);
         }

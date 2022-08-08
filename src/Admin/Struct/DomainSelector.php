@@ -52,7 +52,7 @@ class DomainSelector
      */
     public function __construct(?DomainBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? DomainBy::ID());
+        $this->setBy($by ?? new DomainBy('name'));
         if (NULL !== $value) {
             $this->setValue($value);
         }

@@ -75,7 +75,7 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     )
     {
         parent::__construct($setAttrs, $getAttrs, $rights);
-        $this->setType($type ?? TargetType::ACCOUNT())
+        $this->setType($type ?? new TargetType('account'))
              ->setId($id)
              ->setName($name);
     }

@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Common\Enum\XmppComponentBy as XmppBy;
+use Zimbra\Common\Enum\XmppComponentBy;
 
 /**
  * XMPPComponentSelector struct class
@@ -32,7 +32,7 @@ class XMPPComponentSelector
      * @Type("Enum<Zimbra\Common\Enum\XmppComponentBy>")
      * @XmlAttribute
      */
-    private XmppBy $by;
+    private XmppComponentBy $by;
 
     /**
      * The key used to identify the XMPP component
@@ -46,13 +46,13 @@ class XMPPComponentSelector
     /**
      * Constructor
      * 
-     * @param  XmppBy $by
+     * @param  XmppComponentBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?XmppBy $by = NULL, ?string $value = NULL)
+    public function __construct(?XmppComponentBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? XmppBy::ID());
+        $this->setBy($by ?? new XmppComponentBy('id'));
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -61,9 +61,9 @@ class XMPPComponentSelector
     /**
      * Get by enum
      *
-     * @return XmppBy
+     * @return XmppComponentBy
      */
-    public function getBy(): XmppBy
+    public function getBy(): XmppComponentBy
     {
         return $this->by;
     }
@@ -71,10 +71,10 @@ class XMPPComponentSelector
     /**
      * Set by enum
      *
-     * @param  XmppBy $by
+     * @param  XmppComponentBy $by
      * @return self
      */
-    public function setBy(XmppBy $by): self
+    public function setBy(XmppComponentBy $by): self
     {
         $this->by = $by;
         return $this;

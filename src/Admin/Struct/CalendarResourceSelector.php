@@ -54,7 +54,7 @@ class CalendarResourceSelector
         ?CalendarResourceBy $by = NULL, ?string $value = NULL
     )
     {
-        $this->setBy($by ?? CalendarResourceBy::ID());
+        $this->setBy($by ?? new CalendarResourceBy('id'));
         if (NULL !== $value) {
             $this->setValue($value);
         }

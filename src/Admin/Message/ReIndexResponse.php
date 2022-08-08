@@ -11,8 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Admin\Struct\ReindexProgressInfo as Progress;
-use Zimbra\Common\Enum\ReIndexStatus  as Status;
+use Zimbra\Admin\Struct\ReindexProgressInfo;
+use Zimbra\Common\Enum\ReIndexStatus;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**
@@ -34,7 +34,7 @@ class ReIndexResponse extends SoapResponse
      * @Type("Enum<Zimbra\Common\Enum\ReIndexStatus>")
      * @XmlAttribute
      */
-    private Status $status;
+    private ReIndexStatus $status;
 
     /**
      * Specify reindexing to perform
@@ -44,19 +44,21 @@ class ReIndexResponse extends SoapResponse
      * @Type("Zimbra\Admin\Struct\ReindexProgressInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
-    private ?Progress $progress = NULL;
+    private ?ReindexProgressInfo $progress = NULL;
 
     /**
      * Constructor
      * 
-     * @param Status   $status
-     * @param Progress $progress
+     * @param ReIndexStatus $status
+     * @param ReindexProgressInfo $progress
      * @return self
      */
-    public function __construct(?Status $status = NULL, ?Progress $progress = NULL)
+    public function __construct(?ReIndexStatus $status = NULL, ?ReindexProgressInfo $progress = NULL)
     {
-        $this->setStatus($status ?? Status::RUNNING());
-        if ($progress instanceof Progress) {
+        if ($status instanceof ReIndexStatus) {
+            $this->setStatus($status);
+        }
+        if ($progress instanceof ReindexProgressInfo) {
             $this->setProgress($progress);
         }
     }
@@ -64,9 +66,9 @@ class ReIndexResponse extends SoapResponse
     /**
      * Get the progress.
      *
-     * @return Progress
+     * @return ReindexProgressInfo
      */
-    public function getProgress(): ?Progress
+    public function getProgress(): ?ReindexProgressInfo
     {
         return $this->progress;
     }
@@ -74,10 +76,10 @@ class ReIndexResponse extends SoapResponse
     /**
      * Set the progress.
      *
-     * @param  Progress $progress
+     * @param  ReindexProgressInfo $progress
      * @return self
      */
-    public function setProgress(Progress $progress): self
+    public function setProgress(ReindexProgressInfo $progress): self
     {
         $this->progress = $progress;
         return $this;
@@ -86,9 +88,9 @@ class ReIndexResponse extends SoapResponse
     /**
      * Get status
      *
-     * @return Status
+     * @return ReIndexStatus
      */
-    public function getStatus(): Status
+    public function getStatus(): ReIndexStatus
     {
         return $this->status;
     }
@@ -96,10 +98,10 @@ class ReIndexResponse extends SoapResponse
     /**
      * Set status
      *
-     * @param  Status $status
+     * @param  ReIndexStatus $status
      * @return self
      */
-    public function setStatus(Status $status): self
+    public function setStatus(ReIndexStatus $status): self
     {
         $this->status = $status;
         return $this;

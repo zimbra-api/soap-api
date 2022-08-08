@@ -41,7 +41,7 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
      */
     public function __construct(array $requests = [], ?OnError $onerror = NULL)
     {
-        $this->setOnError($onerror ?? OnError::CONTINUE())
+        $this->setOnError($onerror ?? new OnError('continue'))
              ->setRequests($requests);
     }
 

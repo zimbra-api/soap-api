@@ -50,7 +50,7 @@ class ContactBackupServer
     public function __construct(string $name = '', ?ContactBackupStatus $status = NULL)
     {
         $this->setName($name)
-             ->setStatus($status ?? ContactBackupStatus::STOPPED());
+             ->setStatus($status ?? new ContactBackupStatus('stopped'));
     }
 
     /**

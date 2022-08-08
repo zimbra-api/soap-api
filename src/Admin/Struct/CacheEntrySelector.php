@@ -52,7 +52,7 @@ class CacheEntrySelector
      */
     public function __construct(?CacheEntryBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? CacheEntryBy::ID());
+        $this->setBy($by ?? new CacheEntryBy('id'));
         if (NULL !== $value) {
             $this->setValue($value);
         }

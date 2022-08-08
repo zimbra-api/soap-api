@@ -52,7 +52,7 @@ class ServerSelector
      */
     public function __construct(?ServerBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? ServerBy::ID());
+        $this->setBy($by ?? new ServerBy('name'));
         if (NULL !== $value) {
             $this->setValue($value);
         }

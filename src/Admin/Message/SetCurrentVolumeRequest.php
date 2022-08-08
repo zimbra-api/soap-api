@@ -99,7 +99,7 @@ class SetCurrentVolumeRequest extends SoapRequest
      */
     public function setType(int $type): self
     {
-        $this->type = VolumeType::isValid($type) ? $type : VolumeType::PRIMARY()->getValue();
+        $this->type = VolumeType::isValid($type) ? $type : 1;
         return $this;
     }
 

@@ -59,7 +59,7 @@ class AccountNameSelector
         ?AccountBy $by = NULL, ?string $name = NULL, ?string $value = NULL
     )
     {
-        $this->setBy($by ?? AccountBy::ID());
+        $this->setBy($by ?? new AccountBy('name'));
         if (NULL !== $name) {
             $this->setName($name);
         }

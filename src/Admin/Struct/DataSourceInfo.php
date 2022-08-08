@@ -70,7 +70,7 @@ class DataSourceInfo extends AdminAttrsImpl
         parent::__construct($attrs);
         $this->setName($name)
              ->setId($id)
-             ->setType($type ?? DataSourceType::IMAP());
+             ->setType($type ?? new DataSourceType('unknown'));
     }
 
     /**

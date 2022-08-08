@@ -48,7 +48,7 @@ class AccountSelector
      */
     public function __construct(?AccountBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? AccountBy::ID());
+        $this->setBy($by ?? new AccountBy('name'));
         if (NULL !== $value) {
             $this->setValue($value);
         }

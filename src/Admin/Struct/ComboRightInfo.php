@@ -61,7 +61,7 @@ class ComboRightInfo
     )
     {
         $this->setName($name)
-             ->setType($type ?? RightType::PRESET());
+             ->setType($type ?? new RightType('preset'));
         if (NULL !== $targetType) {
             $this->setTargetType($targetType);
         }

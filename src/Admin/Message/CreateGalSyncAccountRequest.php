@@ -128,7 +128,7 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
              ->setDomain($domain)
              ->setAccount($account)
              ->setMailHost($mailHost)
-             ->setType($type ?? GalMode::BOTH())
+             ->setType($type ?? new GalMode('both'))
              ->setAttrs($attrs);
         if (NULL !== $password) {
             $this->setPassword($password);

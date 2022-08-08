@@ -11,7 +11,7 @@
 namespace Zimbra\Common\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlValue};
-use Zimbra\Common\Enum\DistributionListBy as DLBy;
+use Zimbra\Common\Enum\DistributionListBy;
 
 /**
  * DistributionListSelector class
@@ -30,7 +30,7 @@ class DistributionListSelector
      * @Type("Enum<Zimbra\Common\Enum\DistributionListBy>")
      * @XmlAttribute
      */
-    private DLBy $by;
+    private DistributionListBy $by;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
@@ -43,13 +43,13 @@ class DistributionListSelector
     /**
      * Constructor
      * 
-     * @param  DLBy $by
+     * @param  DistributionListBy $by
      * @param  string $value
      * @return self
      */
-    public function __construct(?DLBy $by = NULL, ?string $value = NULL)
+    public function __construct(?DistributionListBy $by = NULL, ?string $value = NULL)
     {
-        $this->setBy($by ?? DLBy::ID());
+        $this->setBy($by ?? new DistributionListBy('name'));
         if (NULL !== $value) {
             $this->setValue($value);
         }
@@ -58,9 +58,9 @@ class DistributionListSelector
     /**
      * Get by selector
      *
-     * @return DLBy
+     * @return DistributionListBy
      */
-    public function getBy(): DLBy
+    public function getBy(): DistributionListBy
     {
         return $this->by;
     }
@@ -68,10 +68,10 @@ class DistributionListSelector
     /**
      * Set by selector
      *
-     * @param  DLBy $by
+     * @param  DistributionListBy $by
      * @return self
      */
-    public function setBy(DLBy $by): self
+    public function setBy(DistributionListBy $by): self
     {
         $this->by = $by;
         return $this;
