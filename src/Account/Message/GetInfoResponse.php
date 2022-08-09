@@ -12,8 +12,16 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Account\Struct\{
-    AccountDataSource, AccountDataSources, AccountZimletInfo, Attr,
-    ChildAccount, Cos, DiscoverRightsInfo, Identity, Pref, Prop, Signature
+    AccountDataSources,
+    AccountZimletInfo,
+    Attr,
+    ChildAccount,
+    Cos,
+    DiscoverRightsInfo,
+    Identity,
+    Pref,
+    Prop,
+    Signature
 };
 use Zimbra\Common\Struct\SoapResponse;
 

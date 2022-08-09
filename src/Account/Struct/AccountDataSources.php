@@ -299,41 +299,6 @@ class AccountDataSources
     }
 
     /**
-     * Add data source
-     *
-     * @param  AccountDataSource $dataSource
-     * @return self
-     */
-    public function addDataSource(AccountDataSource $dataSource): self
-    {
-        if ($dataSource instanceof AccountImapDataSource) {
-            $this->imapDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountPop3DataSource) {
-            $this->pop3DataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountCaldavDataSource) {
-            $this->caldavDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountYabDataSource) {
-            $this->yabDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountRssDataSource) {
-            $this->rssDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountGalDataSource) {
-            $this->galDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountCalDataSource) {
-            $this->calDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof AccountUnknownDataSource) {
-            $this->unknownDataSources[] = $dataSource;
-        }
-        return $this;
-    }
-
-    /**
      * Set dataSources
      *
      * @param  array $dataSources
