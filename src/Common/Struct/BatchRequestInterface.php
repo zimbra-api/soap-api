@@ -10,6 +10,8 @@
 
 namespace Zimbra\Common\Struct;
 
+use Zimbra\Common\Enum\OnError;
+
 /**
  * BatchRequestInterface interface
  *
@@ -21,6 +23,13 @@ namespace Zimbra\Common\Struct;
  */
 interface BatchRequestInterface extends SoapRequestInterface
 {
+    /**
+     * Get on error
+     *
+     * @return OnError
+     */
+    function getOnError(): OnError;
+
     /**
      * Get soap requests
      *

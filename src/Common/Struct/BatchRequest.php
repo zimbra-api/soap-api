@@ -54,9 +54,7 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
     abstract public function setRequests(array $requests): self;
 
     /**
-     * Get on error
-     *
-     * @return OnError
+     * {@inheritdoc}
      */
     public function getOnError(): OnError
     {
