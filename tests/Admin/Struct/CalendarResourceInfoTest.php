@@ -34,8 +34,7 @@ class CalendarResourceInfoTest extends ZimbraTestCase
         $info = new StubCalendarResourceInfo();
         $info->setName($name)
              ->setId($id)
-             ->setAttrList([$attr1])
-             ->addAttr($attr2);
+             ->setAttrList([$attr1, $attr2]);
         $this->assertSame($name, $info->getName());
         $this->assertSame($id, $info->getId());
         $this->assertSame([$attr1, $attr2], $info->getAttrList());
