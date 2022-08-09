@@ -56,22 +56,46 @@ final class SerializerFactory
      */
     private static array $serializerHandlers = [];
 
+    /**
+     * Set serializer debug mode
+     *
+     * @param  bool $debug
+     * @return bool
+     */
     public static function setDebugMode(bool $debug = FALSE): bool
     {
         return self::$debug = $debug;
     }
 
+    /**
+     * Set serializer cache dir
+     *
+     * @param  string $cacheDir
+     * @return string
+     */
     public static function setCacheDir(?string $cacheDir = NULL): ?string
     {
         return self::$cacheDir = $cacheDir;
     }
 
+    /**
+     * Add serializer handler
+     *
+     * @param  SubscribingHandlerInterface $handler
+     * @return array
+     */
     public static function addSerializerHandler(SubscribingHandlerInterface $handler): array
     {
         self::$serializerHandlers[] = $handler;
         return self::$serializerHandlers;
     }
 
+    /**
+     * Set serializer handlers
+     *
+     * @param  array $handlers
+     * @return array
+     */
     public static function setSerializerHandlers(array $handlers = []): array
     {
         self::$serializerHandlers = array_filter(
@@ -80,6 +104,11 @@ final class SerializerFactory
         return self::$serializerHandlers;
     }
 
+    /**
+     * Create serializer
+     *
+     * @return SerializerInterface
+     */
     public static function create(): SerializerInterface
     {
         if (!(self::$builder instanceof SerializerBuilder)) {

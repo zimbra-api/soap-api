@@ -53,11 +53,16 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
         ];
     }
 
-    public function serializeEnum(
+    /**
+     * Serialize Enum type
+     *
+     * @return \DOMText
+     */
+    public static function serializeEnum(
         SerializationVisitorInterface $visitor, Enum $enum, array $type, Context $context
     ): \DOMText
     {
-        $mappedClass = $this->getEnumClass($type);
+        $mappedClass = self::getEnumClass($type);
         $actualClass = get_class($enum);
         if ($mappedClass !== $actualClass) {
             throw new \TypeError(sprintf(
@@ -70,15 +75,20 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
         return $visitor->visitString($enum->getValue(), $type);
     }
 
-    public function deserializeEnum(
+    /**
+     * Deserialize Enum type
+     *
+     * @return Enum
+     */
+    public static function deserializeEnum(
         DeserializationVisitorInterface $visitor, $data, array $type, Context $context
     ): Enum
     {
-        $enumClass = $this->getEnumClass($type);
+        $enumClass = self::getEnumClass($type);
         return new $enumClass((string) $data);
     }
 
-    private function getEnumClass(array $type): string
+    private static function getEnumClass(array $type): string
     {
         if (!(isset($type['params'][0]) && isset($type['params'][0]['name']))) {
             throw new \InvalidArgumentException('Missing enum class name');
