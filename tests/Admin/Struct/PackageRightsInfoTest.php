@@ -28,11 +28,9 @@ class PackageRightsInfoTest extends ZimbraTestCase
 
         $package = new StubPackageRightsInfo();
         $package->setName($name)
-            ->setCmds([$cmd])
-            ->addCmd($cmd);
+            ->setCmds([$cmd]);
         $this->assertSame($name, $package->getName());
-        $this->assertSame([$cmd, $cmd], $package->getCmds());
-        $package->setCmds([$cmd]);
+        $this->assertSame([$cmd], $package->getCmds());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

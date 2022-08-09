@@ -78,18 +78,6 @@ class ServerQueues
     }
 
     /**
-     * Add queue
-     *
-     * @param  MailQueueCount $queue
-     * @return self
-     */
-    public function addQueue(MailQueueCount $queue): self
-    {
-        $this->queues[] = $queue;
-        return $this;
-    }
-
-    /**
      * Set queues
      *
      * @param array $queues

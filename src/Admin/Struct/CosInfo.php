@@ -148,18 +148,6 @@ class CosInfo implements AdminObjectInterface
     }
 
     /**
-     * Add an attr
-     *
-     * @param  CosInfoAttr $attr
-     * @return self
-     */
-    public function addAttr(CosInfoAttr $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attributes
      *
      * @param array $attrs

@@ -31,8 +31,7 @@ class EffectiveAttrInfoTest extends ZimbraTestCase
         $attr = new StubEffectiveAttrInfo();
         $attr->setName($name)
             ->setConstraint($constraint)
-            ->setValues([$value1])
-            ->addValue($value2);
+            ->setValues([$value1, $value2]);
         $this->assertSame($name, $attr->getName());
         $this->assertSame($constraint, $attr->getConstraint());
         $this->assertSame([$value1, $value2], $attr->getValues());

@@ -32,10 +32,8 @@ class DistributionListInfoTest extends ZimbraTestCase
 
         $dl = new StubDistributionListInfo($name, $id);
         $dl->setDynamic(TRUE)
-           ->setMembers([$member1])
-           ->addMember($member2)
-           ->setOwners([$owner])
-           ->addOwner($owner);
+           ->setMembers([$member1, $member2])
+           ->setOwners([$owner, $owner]);
         $this->assertTrue($dl->isDynamic());
         $this->assertSame([$member1, $member2], $dl->getMembers());
         $this->assertSame([$owner, $owner], $dl->getOwners());

@@ -44,18 +44,6 @@ class ZimletStatusParent
     }
 
     /**
-     * Add a zimlet
-     *
-     * @param  ZimletStatus $zimlet
-     * @return self
-     */
-    public function addZimlet(ZimletStatus $zimlet): self
-    {
-        $this->zimlets[] = $zimlet;
-        return $this;
-    }
-
-    /**
      * Set zimlets
      *
      * @param  array $zimlets

@@ -139,18 +139,6 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Add missing blob
-     *
-     * @param  MissingBlobInfo $missingBlob
-     * @return self
-     */
-    public function addMissingBlob(MissingBlobInfo $missingBlob): self
-    {
-        $this->missingBlobs[] = $missingBlob;
-        return $this;
-    }
-
-    /**
      * Set missing blobs
      *
      * @param  array $blobs
@@ -170,18 +158,6 @@ class MailboxBlobConsistency
     public function getMissingBlobs(): array
     {
         return $this->missingBlobs;
-    }
-
-    /**
-     * Add incorrect size item
-     *
-     * @param  IncorrectBlobSizeInfo $incorrectSize
-     * @return self
-     */
-    public function addIncorrectSize(IncorrectBlobSizeInfo $incorrectSize): self
-    {
-        $this->incorrectSizes[] = $incorrectSize;
-        return $this;
     }
 
     /**
@@ -207,18 +183,6 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Add unexpected blob
-     *
-     * @param  UnexpectedBlobInfo $unexpectedBlob
-     * @return self
-     */
-    public function addUnexpectedBlob(UnexpectedBlobInfo $unexpectedBlob): self
-    {
-        $this->unexpectedBlobs[] = $unexpectedBlob;
-        return $this;
-    }
-
-    /**
      * Set unexpected blobs
      *
      * @param  array $blobs
@@ -241,18 +205,6 @@ class MailboxBlobConsistency
     }
 
     /**
-     * Add incorrect revision
-     *
-     * @param  IncorrectBlobRevisionInfo $incorrectRevision
-     * @return self
-     */
-    public function addIncorrectRevision(IncorrectBlobRevisionInfo $incorrectRevision): self
-    {
-        $this->incorrectRevisions[] = $incorrectRevision;
-        return $this;
-    }
-
-    /**
      * Set incorrect revisions
      *
      * @param  array $revisions
@@ -272,18 +224,6 @@ class MailboxBlobConsistency
     public function getIncorrectRevisions(): array
     {
         return $this->incorrectRevisions;
-    }
-
-    /**
-     * Add used blob
-     *
-     * @param  UsedBlobInfo $usedBlob
-     * @return self
-     */
-    public function addUsedBlob(UsedBlobInfo $usedBlob): self
-    {
-        $this->usedBlobs[] = $usedBlob;
-        return $this;
     }
 
     /**

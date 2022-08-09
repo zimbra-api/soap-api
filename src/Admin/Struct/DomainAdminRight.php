@@ -175,16 +175,4 @@ class DomainAdminRight
         $this->rights = array_filter($rights, static fn ($right) => $right instanceof RightWithName);
         return $this;
     }
-
-    /**
-     * Add right
-     *
-     * @param  RightWithName $right
-     * @return self
-     */
-    public function addRight(RightWithName $right)
-    {
-        $this->rights[] = $right;
-        return $this;
-    }
 }

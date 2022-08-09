@@ -11,7 +11,6 @@
 namespace Zimbra\Admin\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Struct\CustomMetadataInterface;
 
 /**
  * AutoProvDirectoryEntry struct class
@@ -101,21 +100,6 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     public function setKeys(array $keys)
     {
         $this->keys = array_unique(array_map(static fn ($key) => trim($key), $keys));
-        return $this;
-    }
-
-    /**
-     * add key
-     *
-     * @param  string $key
-     * @return self
-     */
-    public function addKey(string $key)
-    {
-        $key = trim($key);
-        if (!in_array($key, $this->keys)) {
-            $this->keys[] = $key;
-        }
         return $this;
     }
 }

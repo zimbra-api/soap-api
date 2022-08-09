@@ -758,18 +758,6 @@ class ContactInfo
     }
 
     /**
-     * Add custom metadata information
-     *
-     * @param  AdminCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(AdminCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
-
-    /**
      * Get attributes
      *
      * @return array
@@ -792,18 +780,6 @@ class ContactInfo
     }
 
     /**
-     * Add an contact attribute
-     *
-     * @param  ContactAttr $attr
-     * @return self
-     */
-    public function addAttr(ContactAttr $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Get contact group members
      *
      * @return array
@@ -822,18 +798,6 @@ class ContactInfo
     public function setContactGroupMembers(array $members): self
     {
         $this->contactGroupMembers = array_filter($members, static fn ($member) => $member instanceof ContactGroupMember);
-        return $this;
-    }
-
-    /**
-     * Add contact group member
-     *
-     * @param  ContactGroupMember $contactGroupMember
-     * @return self
-     */
-    public function addContactGroupMember(ContactGroupMember $contactGroupMember): self
-    {
-        $this->contactGroupMembers[] = $contactGroupMember;
         return $this;
     }
 }

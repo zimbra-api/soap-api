@@ -387,18 +387,6 @@ class WaitSetInfo
     }
 
     /**
-     * Add error information
-     *
-     * @param  IdAndType $error
-     * @return self
-     */
-    public function addError(IdAndType $error): self
-    {
-        $this->errors[] = $error;
-        return $this;
-    }
-
-    /**
      * Get buffered commit information
      *
      * @return array
@@ -421,18 +409,6 @@ class WaitSetInfo
     }
 
     /**
-     * Add buffered commit information
-     *
-     * @param  BufferedCommitInfo $commit
-     * @return self
-     */
-    public function addBufferedCommit(BufferedCommitInfo $commit): self
-    {
-        $this->bufferedCommits[] = $commit;
-        return $this;
-    }
-
-    /**
      * Get session information
      *
      * @return array
@@ -451,18 +427,6 @@ class WaitSetInfo
     public function setSessions(array $sessions): self
     {
         $this->sessions = array_filter($sessions, static fn ($session) => $session instanceof SessionForWaitSet);
-        return $this;
-    }
-
-    /**
-     * Add session information
-     *
-     * @param  SessionForWaitSet $session
-     * @return self
-     */
-    public function addSession(SessionForWaitSet $session): self
-    {
-        $this->sessions[] = $session;
         return $this;
     }
 }

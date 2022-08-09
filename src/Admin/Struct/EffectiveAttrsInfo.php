@@ -101,16 +101,4 @@ class EffectiveAttrsInfo
         $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof EffectiveAttrInfo);
         return $this;
     }
-
-    /**
-     * Adds an attr
-     *
-     * @param  EffectiveAttrInfo $attr
-     * @return self
-     */
-    public function addAttr(EffectiveAttrInfo $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
 }

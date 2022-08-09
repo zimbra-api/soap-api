@@ -31,10 +31,9 @@ class EffectiveAttrsInfoTest extends ZimbraTestCase
 
         $attrs = new StubEffectiveAttrsInfo();
         $attrs->setAll(TRUE)
-            ->setAttrs([$attr])
-            ->addAttr($attr);
+            ->setAttrs([$attr]);
         $this->assertTrue($attrs->getAll());
-        $this->assertSame([$attr, $attr], $attrs->getAttrs());
+        $this->assertSame([$attr], $attrs->getAttrs());
         $attrs = new StubEffectiveAttrsInfo(TRUE, [$attr]);
 
         $xml = <<<EOT

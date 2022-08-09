@@ -36,8 +36,7 @@ class CosInfoTest extends ZimbraTestCase
         $cos->setName($name)
              ->setId($id)
              ->setIsDefaultCos(TRUE)
-             ->setAttrList([$attr1])
-             ->addAttr($attr2);
+             ->setAttrList([$attr1, $attr2]);
         $this->assertSame($name, $cos->getName());
         $this->assertSame($id, $cos->getId());
         $this->assertTrue($cos->getIsDefaultCos());

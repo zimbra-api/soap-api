@@ -108,18 +108,6 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Add an attr
-     *
-     * @param  Attr $attr
-     * @return self
-     */
-    public function addAttr(Attr $attr): self
-    {
-        $this->attrList[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attribute sequence
      *
      * @param array $attrs

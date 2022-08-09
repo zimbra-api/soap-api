@@ -30,13 +30,9 @@ class TestResultInfoTest extends ZimbraTestCase
 
         $results = new StubTestResultInfo();
         $results->setCompletedTests([$completed])
-             ->addCompletedTest($completed)
-             ->setFailedTests([$failure])
-             ->addFailedTest($failure);
-        $this->assertSame([$completed, $completed], $results->getCompletedTests());
-        $this->assertSame([$failure, $failure], $results->getFailedTests());
-        $results->setCompletedTests([$completed])
              ->setFailedTests([$failure]);
+        $this->assertSame([$completed], $results->getCompletedTests());
+        $this->assertSame([$failure], $results->getFailedTests());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

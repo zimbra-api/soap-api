@@ -34,8 +34,7 @@ class AdminObjectInfoTest extends ZimbraTestCase
         $stub = new StubAdminObjectInfo();
         $stub->setName($name)
              ->setId($id)
-             ->setAttrList([$attr1])
-             ->addAttr($attr2);
+             ->setAttrList([$attr1, $attr2]);
         $this->assertSame($name, $stub->getName());
         $this->assertSame($id, $stub->getId());
         $this->assertSame([$attr1, $attr2], $stub->getAttrList());

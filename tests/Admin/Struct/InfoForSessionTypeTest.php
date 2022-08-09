@@ -40,13 +40,11 @@ class InfoForSessionTypeTest extends ZimbraTestCase
         $infoSession->setActiveSessions($activeSessions)
             ->setActiveAccounts($activeAccounts)
             ->setAccounts([$account])
-            ->addAccount($account)
-            ->setSessions([$session])
-            ->addSession($session);
+            ->setSessions([$session]);
         $this->assertSame($activeSessions, $infoSession->getActiveSessions());
         $this->assertSame($activeAccounts, $infoSession->getActiveAccounts());
-        $this->assertSame([$account, $account], $infoSession->getAccounts());
-        $this->assertSame([$session, $session], $infoSession->getSessions());
+        $this->assertSame([$account], $infoSession->getAccounts());
+        $this->assertSame([$session], $infoSession->getSessions());
 
         $infoSession = new StubInfoForSessionType($activeSessions, $activeAccounts, [$account], [$session]);
         $xml = <<<EOT

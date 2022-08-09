@@ -79,18 +79,6 @@ class FreeBusyQueueProvider
     }
 
     /**
-     * Add an account
-     *
-     * @param  Id $account
-     * @return self
-     */
-    public function addAccount(Id $account): self
-    {
-        $this->accounts[] = $account;
-        return $this;
-    }
-
-    /**
      * Set accountibutes
      *
      * @param array $accounts

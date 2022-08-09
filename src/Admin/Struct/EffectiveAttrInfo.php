@@ -139,18 +139,4 @@ class EffectiveAttrInfo
         $this->values = array_unique(array_map(static fn ($value) => trim($value), $values));
         return $this;
     }
-
-    /**
-     * Adds a value
-     *
-     * @param  string $value
-     * @return self
-     */
-    public function addValue(string $value): self
-    {
-        if (!empty($value) && !in_array($value, $this->values)) {
-            $this->values[] = $value;
-        }
-        return $this;
-    }
 }

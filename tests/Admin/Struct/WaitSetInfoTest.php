@@ -78,29 +78,23 @@ class WaitSetInfoTest extends ZimbraTestCase
             ->setDefaultInterests($defaultInterests)
             ->setLastAccessDate($lastAccessDate)
             ->setErrors([$error])
-            ->addError($error)
             ->setSignalledAccounts($signalledAccounts)
             ->setCbSeqNo($cbSeqNo)
             ->setCurrentSeqNo($currentSeqNo)
             ->setNextSeqNo($nextSeqNo)
             ->setBufferedCommits([$commit])
-            ->addBufferedCommit($commit)
-            ->setSessions([$session])
-            ->addSession($session);
+            ->setSessions([$session]);
         $this->assertSame($waitSetId, $waitSet->getWaitSetId());
         $this->assertSame($owner, $waitSet->getOwner());
         $this->assertSame($defaultInterests, $waitSet->getDefaultInterests());
         $this->assertSame($lastAccessDate, $waitSet->getLastAccessDate());
-        $this->assertSame([$error, $error], $waitSet->getErrors());
+        $this->assertSame([$error], $waitSet->getErrors());
         $this->assertSame($signalledAccounts, $waitSet->getSignalledAccounts());
         $this->assertSame($cbSeqNo, $waitSet->getCbSeqNo());
         $this->assertSame($currentSeqNo, $waitSet->getCurrentSeqNo());
         $this->assertSame($nextSeqNo, $waitSet->getNextSeqNo());
-        $this->assertSame([$commit, $commit], $waitSet->getBufferedCommits());
-        $this->assertSame([$session, $session], $waitSet->getSessions());
-        $waitSet->setErrors([$error])
-            ->setBufferedCommits([$commit])
-            ->setSessions([$session]);
+        $this->assertSame([$commit], $waitSet->getBufferedCommits());
+        $this->assertSame([$session], $waitSet->getSessions());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

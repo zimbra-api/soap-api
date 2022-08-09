@@ -100,16 +100,4 @@ class PackageRightsInfo
         $this->cmds = array_filter($cmds, static fn ($cmd) => $cmd instanceof CmdRightsInfo);
         return $this;
     }
-
-    /**
-     * Add cmd
-     *
-     * @param  CmdRightsInfo $cmd
-     * @return self
-     */
-    public function addCmd(CmdRightsInfo $cmd)
-    {
-        $this->cmds[] = $cmd;
-        return $this;
-    }
 }

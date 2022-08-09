@@ -26,11 +26,9 @@ class ServerQueuesTest extends ZimbraTestCase
 
         $server = new StubServerQueues();
         $server->setServerName($name)
-            ->setQueues([$queue])
-            ->addQueue($queue);
+            ->setQueues([$queue]);
         $this->assertSame($name, $server->getServerName());
-        $this->assertSame([$queue, $queue], $server->getQueues());
-        $server->setQueues([$queue]);
+        $this->assertSame([$queue], $server->getQueues());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

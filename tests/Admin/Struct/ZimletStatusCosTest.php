@@ -27,11 +27,9 @@ class ZimletStatusCosTest extends ZimbraTestCase
 
         $cos = new StubZimletStatusCos();
         $cos->setName($name)
-            ->setZimlets([$zimlet])
-            ->addZimlet($zimlet);
+            ->setZimlets([$zimlet]);
         $this->assertSame($name, $cos->getName());
-        $this->assertSame([$zimlet, $zimlet], $cos->getZimlets());
-        $cos->setZimlets([$zimlet]);
+        $this->assertSame([$zimlet], $cos->getZimlets());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

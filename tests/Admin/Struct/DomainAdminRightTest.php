@@ -31,13 +31,11 @@ class DomainAdminRightTest extends ZimbraTestCase
         $right->setName($name)
             ->setType(RightType::PRESET())
             ->setDesc($desc)
-            ->setRights([$r])
-            ->addRight($r);
+            ->setRights([$r]);
         $this->assertSame($name, $right->getName());
         $this->assertEquals(RightType::PRESET(), $right->getType());
         $this->assertSame($desc, $right->getDesc());
-        $this->assertSame([$r, $r], $right->getRights());
-        $right->setRights([$r]);
+        $this->assertSame([$r], $right->getRights());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

@@ -25,11 +25,9 @@ class FreeBusyQueueProviderTest extends ZimbraTestCase
 
         $provider = new StubFreeBusyQueueProvider();
         $provider->setName($name)
-             ->setAccounts([$account])
-             ->addAccount($account);
+             ->setAccounts([$account]);
         $this->assertSame($name, $provider->getName());
-        $this->assertSame([$account, $account], $provider->getAccounts());
-        $provider->setAccounts([$account]);
+        $this->assertSame([$account], $provider->getAccounts());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

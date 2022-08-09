@@ -27,8 +27,7 @@ class AutoProvDirectoryEntryTest extends ZimbraTestCase
 
         $entry = new StubAutoProvDirectoryEntry();
         $entry->setDn($dn)
-             ->setKeys([$key1])
-             ->addKey($key2)
+             ->setKeys([$key1, $key2])
              ->setKeyValuePairs([new KeyValuePair($key, $value)]);
         $this->assertSame($dn, $entry->getDn());
         $this->assertSame([$key1, $key2], $entry->getKeys());

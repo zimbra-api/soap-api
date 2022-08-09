@@ -126,21 +126,6 @@ class DistributionListInfo extends AdminObjectInfo
     }
 
     /**
-     * add member
-     *
-     * @param  string $member
-     * @return self
-     */
-    public function addMember(string $member)
-    {
-        $member = trim($member);
-        if (!in_array($member, $this->members)) {
-            $this->members[] = $member;
-        }
-        return $this;
-    }
-
-    /**
      * Get owners
      *
      * @return array
@@ -159,18 +144,6 @@ class DistributionListInfo extends AdminObjectInfo
     public function setOwners(array $owners)
     {
         $this->owners = array_filter($owners, static fn ($owner) => $owner instanceof GranteeInfo);
-        return $this;
-    }
-
-    /**
-     * Add owner
-     *
-     * @param  GranteeInfo $owner
-     * @return self
-     */
-    public function addOwner(GranteeInfo $owner)
-    {
-        $this->owners[] = $owner;
         return $this;
     }
 }

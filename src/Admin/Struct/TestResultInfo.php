@@ -55,18 +55,6 @@ class TestResultInfo
     }
 
     /**
-     * Add a completed test
-     *
-     * @param  CompletedTestInfo $completed
-     * @return self
-     */
-    public function addCompletedTest(CompletedTestInfo $completed): self
-    {
-        $this->completedTests[] = $completed;
-        return $this;
-    }
-
-    /**
      * Set completedTests
      *
      * @param  array $tests
@@ -86,18 +74,6 @@ class TestResultInfo
     public function getCompletedTests(): array
     {
         return $this->completedTests;
-    }
-
-    /**
-     * Add a failure test
-     *
-     * @param  FailedTestInfo $failure
-     * @return self
-     */
-    public function addFailedTest(FailedTestInfo $failure): self
-    {
-        $this->failedTests[] = $failure;
-        return $this;
     }
 
     /**

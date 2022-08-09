@@ -77,21 +77,16 @@ class MailboxBlobConsistencyTest extends ZimbraTestCase
         $mbox = new StubMailboxBlobConsistency();
         $mbox->setId($id)
              ->setMissingBlobs([$missingBlob])
-             ->addMissingBlob($missingBlob)
              ->setIncorrectSizes([$incorrectSize])
-             ->addIncorrectSize($incorrectSize)
              ->setUnexpectedBlobs([$unexpectedBlob])
-             ->addUnexpectedBlob($unexpectedBlob)
              ->setIncorrectRevisions([$incorrectRevision])
-             ->addIncorrectRevision($incorrectRevision)
-             ->setUsedBlobs([$usedBlob])
-             ->addUsedBlob($usedBlob);
+             ->setUsedBlobs([$usedBlob]);
         $this->assertSame($id, $mbox->getId());
-        $this->assertSame([$missingBlob, $missingBlob], $mbox->getMissingBlobs());
-        $this->assertSame([$incorrectSize, $incorrectSize], $mbox->getIncorrectSizes());
-        $this->assertSame([$unexpectedBlob, $unexpectedBlob], $mbox->getUnexpectedBlobs());
-        $this->assertSame([$incorrectRevision, $incorrectRevision], $mbox->getIncorrectRevisions());
-        $this->assertSame([$usedBlob, $usedBlob], $mbox->getUsedBlobs());
+        $this->assertSame([$missingBlob], $mbox->getMissingBlobs());
+        $this->assertSame([$incorrectSize], $mbox->getIncorrectSizes());
+        $this->assertSame([$unexpectedBlob], $mbox->getUnexpectedBlobs());
+        $this->assertSame([$incorrectRevision], $mbox->getIncorrectRevisions());
+        $this->assertSame([$usedBlob], $mbox->getUsedBlobs());
 
         $mbox = new StubMailboxBlobConsistency(
             $id, [$missingBlob], [$incorrectSize], [$unexpectedBlob], [$incorrectRevision], [$usedBlob]

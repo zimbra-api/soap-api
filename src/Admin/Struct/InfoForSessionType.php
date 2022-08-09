@@ -129,18 +129,6 @@ class InfoForSessionType
     }
 
     /**
-     * Add account
-     *
-     * @param  AccountSessionInfo $account
-     * @return self
-     */
-    public function addAccount(AccountSessionInfo $account): self
-    {
-        $this->accounts[] = $account;
-        return $this;
-    }
-
-    /**
      * Set accounts
      *
      * @param array $accounts
@@ -160,18 +148,6 @@ class InfoForSessionType
     public function getAccounts(): array
     {
         return $this->accounts;
-    }
-
-    /**
-     * Add session
-     *
-     * @param  SessionInfo $session
-     * @return self
-     */
-    public function addSession(SessionInfo $session): self
-    {
-        $this->sessions[] = $session;
-        return $this;
     }
 
     /**

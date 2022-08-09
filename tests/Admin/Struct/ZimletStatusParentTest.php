@@ -25,10 +25,8 @@ class ZimletStatusParentTest extends ZimbraTestCase
         $this->assertSame([$zimlet], $zimlets->getZimlets());
 
         $zimlets = new StubZimletStatusParent();
-        $zimlets->setZimlets([$zimlet])
-             ->addZimlet($zimlet);
-        $this->assertSame([$zimlet, $zimlet], $zimlets->getZimlets());
         $zimlets->setZimlets([$zimlet]);
+        $this->assertSame([$zimlet], $zimlets->getZimlets());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

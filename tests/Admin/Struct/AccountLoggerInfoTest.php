@@ -29,12 +29,10 @@ class AccountLoggerInfoTest extends ZimbraTestCase
         $accountLogger = new StubAccountLoggerInfo();
         $accountLogger->setName($name)
              ->setId($id)
-             ->setLoggers([$logger])
-             ->addLogger($logger);
+             ->setLoggers([$logger]);
         $this->assertSame($name, $accountLogger->getName());
         $this->assertSame($id, $accountLogger->getId());
-        $this->assertSame([$logger, $logger], $accountLogger->getLoggers());
-        $accountLogger->setLoggers([$logger]);
+        $this->assertSame([$logger], $accountLogger->getLoggers());
 
         $xml = <<<EOT
 <?xml version="1.0"?>
