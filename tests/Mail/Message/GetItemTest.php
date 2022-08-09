@@ -78,6 +78,7 @@ class GetItemTest extends ZimbraTestCase
         $this->assertSame($chat, $response->getChatItem());
         $response->setItem($folder);
         $this->assertSame($folder, $response->getFolderItem());
+        $response = new GetItemResponse($folder);
 
         $body = new GetItemBody($request, $response);
         $this->assertSame($request, $body->getRequest());
