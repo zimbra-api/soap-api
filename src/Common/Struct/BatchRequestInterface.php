@@ -22,14 +22,6 @@ namespace Zimbra\Common\Struct;
 interface BatchRequestInterface extends SoapRequestInterface
 {
     /**
-     * Add a soap request
-     *
-     * @param  SoapRequestInterface $request
-     * @return self
-     */
-    function addRequest(SoapRequestInterface $request): self;
-
-    /**
      * Get soap requests
      *
      * @return array

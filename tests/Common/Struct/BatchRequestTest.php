@@ -47,9 +47,7 @@ class BatchRequestTest extends ZimbraTestCase
 
         $batchResponse = new FooBatchResponse([$response]);
         $this->assertSame([$response], $batchResponse->getResponses());
-        $batchResponse = new FooBatchResponse();
-        $batchResponse->setResponses([$response])
-            ->addResponse($response);
+        $batchResponse->setResponses([$response, $response]);
         $this->assertSame([$response, $response], $batchResponse->getResponses());
 
         $envelope = new BatchEnvelope(new BatchBody($batchRequest, $batchResponse));
@@ -198,14 +196,6 @@ class FooBatchResponse implements BatchResponseInterface
     public function __construct(array $responses = [])
     {
         $this->setResponses($responses);
-    }
-
-    public function addResponse(SoapResponseInterface $response): self
-    {
-        if ($response instanceof FooResponse) {
-            $this->responses[] = $response;
-        }
-        return $this;
     }
 
     public function setResponses(array $responses): self

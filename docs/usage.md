@@ -176,14 +176,6 @@ class BatchGetAccountInfosResponse implements BatchResponseInterface
         $this->setResponses($responses);
     }
 
-    public function addResponse(SoapResponseInterface $response): self
-    {
-        if ($response instanceof GetAccountInfoResponse) {
-            $this->responses[] = $response;
-        }
-        return $this;
-    }
-
     public function setResponses(array $responses): self
     {
         $this->responses = array_filter($responses, static fn($response) => $response instanceof GetAccountInfoResponse);

@@ -22,14 +22,6 @@ namespace Zimbra\Common\Struct;
 interface BatchResponseInterface extends SoapResponseInterface
 {
     /**
-     * Add a soap response
-     *
-     * @param  SoapResponseInterface $response
-     * @return self
-     */
-    function addResponse(SoapResponseInterface $response): self;
-
-    /**
      * Get soap responses
      *
      * @return array
