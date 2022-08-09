@@ -1,4 +1,8 @@
 parameters:
     level: 5
+    excludePaths:
+        - src/Account/AccountApi.php
+        - src/Admin/AdminApi.php
+        - src/Mail/MailApi.php
     paths:
         - src
