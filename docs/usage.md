@@ -136,14 +136,6 @@ class BatchGetAccountInfosRequest extends BatchRequest
         $this->setRequests($requests);
     }
 
-    public function addRequest(SoapRequestInterface $request): self
-    {
-        if ($request instanceof GetAccountInfoRequest) {
-            $this->requests[] = $request;
-        }
-        return $this;
-    }
-
     public function setRequests(array $requests): self
     {
         $this->requests = array_filter($requests, static fn($request) => $request instanceof GetAccountInfoRequest);

@@ -35,13 +35,11 @@ class BatchRequestTest extends ZimbraTestCase
         $response->setRequestId($requestId);
         $this->assertSame($requestId, $response->getRequestId());
 
-        $batchRequest = new FooBatchRequest([$request]);
+        $batchRequest = new FooBatchRequest([$request], OnError::STOP());
         $this->assertSame([$request], $batchRequest->getRequests());
-        $this->assertEquals(OnError::CONTINUE(), $batchRequest->getOnError());
-        $batchRequest = new FooBatchRequest();
+        $this->assertEquals(OnError::STOP(), $batchRequest->getOnError());
         $batchRequest->setOnError(OnError::CONTINUE())
-            ->setRequests([$request])
-            ->addRequest($request);
+            ->setRequests([$request, $request]);
         $this->assertSame([$request, $request], $batchRequest->getRequests());
         $this->assertEquals(OnError::CONTINUE(), $batchRequest->getOnError());
 
@@ -156,14 +154,6 @@ class FooBatchRequest extends BatchRequest
      * @XmlList(inline=true, entry="FooRequest", namespace="urn:zimbra")
      */
     private $requests = [];
-
-    public function addRequest(SoapRequestInterface $request): self
-    {
-        if ($request instanceof FooRequest) {
-            $this->requests[] = $request;
-        }
-        return $this;
-    }
 
     public function setRequests(array $requests): self
     {

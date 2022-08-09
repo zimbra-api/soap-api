@@ -45,13 +45,6 @@ abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
         $this->setOnError($onerror ?? new OnError('continue'))
              ->setRequests($requests);
     }
-    /**
-     * Add a soap request
-     *
-     * @param  SoapRequestInterface $request
-     * @return self
-     */
-    abstract public function addRequest(SoapRequestInterface $request): self;
 
     /**
      * Set the soap requests
