@@ -28,7 +28,7 @@ class HABGroupMemberTest extends ZimbraTestCase
 
         $groupMember = new MockHABGroupMember($name, $seniorityIndex, [$attr1]);
         $this->assertSame([$attr1], $groupMember->getAttrs());
-        $groupMember->setAttrs([$attr1])->addAttr($attr2);
+        $groupMember->setAttrs([$attr1, $attr2]);
         $this->assertSame([$attr1, $attr2], $groupMember->getAttrs());
 
         $xml = <<<EOT

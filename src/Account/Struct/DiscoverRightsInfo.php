@@ -81,18 +81,6 @@ class DiscoverRightsInfo
     }
 
     /**
-     * Add a target
-     *
-     * @param  DiscoverRightsTarget $target
-     * @return self
-     */
-    public function addTarget(DiscoverRightsTarget $target): self
-    {
-        $this->targets[] = $target;
-        return $this;
-    }
-
-    /**
      * Set targets
      *
      * @param  array $targets

@@ -11,7 +11,6 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Account\Struct\WhiteListEntry;
 use Zimbra\Common\Struct\SoapResponse;
 
 /**

@@ -32,11 +32,9 @@ class DiscoverRightsInfoTest extends ZimbraTestCase
 
         $targets = new MockDiscoverRightsInfo();
         $targets->setRight($right)
-            ->setTargets([$target])
-            ->addTarget($target);
+            ->setTargets([$target]);
         $this->assertSame($right, $targets->getRight());
-        $this->assertSame([$target, $target], $targets->getTargets());
-        $targets->setTargets([$target]);
+        $this->assertSame([$target], $targets->getTargets());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

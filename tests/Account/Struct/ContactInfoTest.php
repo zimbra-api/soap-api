@@ -125,13 +125,6 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertFalse($contact->isOwner());
         $this->assertTrue($contact->isMember());
 
-        $contact->addMetadata($meta)
-            ->addAttr($attr)
-            ->addContactGroupMember($member);
-        $this->assertSame([$meta, $meta], $contact->getMetadatas());
-        $this->assertSame([$attr, $attr], $contact->getAttrs());
-        $this->assertSame([$member, $member], $contact->getContactGroupMembers());
-
         $contact = new MockContactInfo(
             $sortField, TRUE, $id, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], TRUE, FALSE
         );

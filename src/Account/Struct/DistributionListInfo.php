@@ -216,21 +216,6 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * add member
-     *
-     * @param  string $member
-     * @return self
-     */
-    public function addMember(string $member)
-    {
-        $member = trim($member);
-        if (!in_array($member, $this->members)) {
-            $this->members[] = $member;
-        }
-        return $this;
-    }
-
-    /**
      * Get owners
      *
      * @return array
@@ -253,18 +238,6 @@ class DistributionListInfo extends ObjectInfo
     }
 
     /**
-     * Add owner
-     *
-     * @param  DistributionListGranteeInfo $owner
-     * @return self
-     */
-    public function addOwner(DistributionListGranteeInfo $owner)
-    {
-        $this->owners[] = $owner;
-        return $this;
-    }
-
-    /**
      * Get rights
      *
      * @return array
@@ -283,18 +256,6 @@ class DistributionListInfo extends ObjectInfo
     public function setRights(array $rights)
     {
         $this->rights = array_filter($rights, static fn ($right) => $right instanceof DistributionListRightInfo);
-        return $this;
-    }
-
-    /**
-     * Add right
-     *
-     * @param  DistributionListRightInfo $right
-     * @return self
-     */
-    public function addRight(DistributionListRightInfo $right)
-    {
-        $this->rights[] = $right;
         return $this;
     }
 }

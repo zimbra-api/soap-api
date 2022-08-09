@@ -52,18 +52,6 @@ class HABGroupMember extends HABMember
     }
 
     /**
-     * Add an attr
-     *
-     * @param  NamedValue $attr
-     * @return self
-     */
-    public function addAttr(NamedValue $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attribute sequence
      *
      * @param array $attrs

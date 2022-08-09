@@ -37,7 +37,7 @@ class CheckRightsTargetInfoTest extends ZimbraTestCase
                ->setTargetBy(TargetBy::NAME())
                ->setTargetKey($key)
                ->setAllow(TRUE)
-               ->addRight($rightInfo2);
+               ->setRights([$rightInfo1, $rightInfo2]);
 
         $this->assertEquals(TargetType::ACCOUNT(), $target->getTargetType());
         $this->assertEquals(TargetBy::NAME(), $target->getTargetBy());

@@ -175,18 +175,6 @@ class CheckRightsTargetInfo
     }
 
     /**
-     * Add a right
-     *
-     * @param  CheckRightsRightInfo $right
-     * @return self
-     */
-    public function addRight(CheckRightsRightInfo $right): self
-    {
-        $this->rights[] = $right;
-        return $this;
-    }
-
-    /**
      * Set rights
      *
      * @param  array $rights

@@ -41,22 +41,18 @@ class DistributionListInfoTest extends ZimbraTestCase
         $this->assertFalse($dl->isDynamic());
 
         $dl = new MockDistributionListInfo($name, $id, [new KeyValuePair($key, $value)]);
-        $dl->setMembers([$member1])
-            ->addMember($member2)
+        $dl->setMembers([$member1, $member2])
             ->setOwners([$owner])
-            ->addOwner($owner)
             ->setRights([$right])
-            ->addRight($right)
             ->setIsOwner(TRUE)
             ->setIsMember(TRUE)
             ->setDynamic(TRUE);
         $this->assertSame([$member1, $member2], $dl->getMembers());
-        $this->assertSame([$owner, $owner], $dl->getOwners());
-        $this->assertSame([$right, $right], $dl->getRights());
+        $this->assertSame([$owner], $dl->getOwners());
+        $this->assertSame([$right], $dl->getRights());
         $this->assertTrue($dl->isOwner());
         $this->assertTrue($dl->isMember());
         $this->assertTrue($dl->isDynamic());
-        $dl->setOwners([$owner])->setRights([$right]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>

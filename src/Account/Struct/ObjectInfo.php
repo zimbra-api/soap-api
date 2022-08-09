@@ -116,18 +116,6 @@ abstract class ObjectInfo
     }
 
     /**
-     * Add an attr
-     *
-     * @param  KeyValuePair $attr
-     * @return self
-     */
-    public function addAttr(KeyValuePair $attr): self
-    {
-        $this->attrList[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attribute sequence
      *
      * @param array $attrs
