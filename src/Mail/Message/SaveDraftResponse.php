@@ -115,11 +115,11 @@ class SaveDraftResponse extends SoapResponse
      */
     private function setMessage(MessageInfo $message): self
     {
-        if (get_class($message) === MessageInfo::class) {
-            $this->msgMessage = $message;
-        }
         if ($message instanceof ChatMessageInfo) {
             $this->chatMessage = $message;
+        }
+        else {
+            $this->msgMessage = $message;
         }
         return $this;
     }
