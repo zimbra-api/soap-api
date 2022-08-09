@@ -251,17 +251,11 @@ class GetInfoTest extends ZimbraTestCase
             ->setRecentMessageCount($recentMessageCount)
             ->setCos($cos)
             ->setPrefs([$pref])
-            ->addPref($pref)
             ->setAttrs([$attr])
-            ->addAttr($attr)
             ->setZimlets([$zimlet])
-            ->addZimlet($zimlet)
             ->setProps([$prop])
-            ->addProp($prop)
             ->setIdentities([$identity])
-            ->addIdentity($identity)
             ->setSignatures([$signature])
-            ->addSignature($signature)
             ->setDataSources([
                 $imap,
                 $pop3,
@@ -270,12 +264,10 @@ class GetInfoTest extends ZimbraTestCase
                 $rss,
                 $gal,
                 $cal,
+                $unknown,
             ])
-            ->addDataSource($unknown)
             ->setChildAccounts([$childAccount])
-            ->addChildAccount($childAccount)
             ->setDiscoveredRights([$rightsInfo])
-            ->addDiscoveredRight($rightsInfo)
             ->setSoapURL($soapURL)
             ->setPublicURL($publicURL)
             ->setChangePasswordURL($changePasswordURL)
@@ -297,15 +289,15 @@ class GetInfoTest extends ZimbraTestCase
         $this->assertSame($lastWriteAccessTime, $response->getLastWriteAccessTime());
         $this->assertSame($recentMessageCount, $response->getRecentMessageCount());
         $this->assertSame($cos, $response->getCos());
-        $this->assertSame([$pref, $pref], $response->getPrefs());
-        $this->assertSame([$attr, $attr], $response->getAttrs());
-        $this->assertSame([$zimlet, $zimlet], $response->getZimlets());
-        $this->assertSame([$prop, $prop], $response->getProps());
-        $this->assertSame([$identity, $identity], $response->getIdentities());
-        $this->assertSame([$signature, $signature], $response->getSignatures());
+        $this->assertSame([$pref], $response->getPrefs());
+        $this->assertSame([$attr], $response->getAttrs());
+        $this->assertSame([$zimlet], $response->getZimlets());
+        $this->assertSame([$prop], $response->getProps());
+        $this->assertSame([$identity], $response->getIdentities());
+        $this->assertSame([$signature], $response->getSignatures());
         $this->assertEquals($dataSources, $response->getDataSources());
-        $this->assertSame([$childAccount, $childAccount], $response->getChildAccounts());
-        $this->assertSame([$rightsInfo, $rightsInfo], $response->getDiscoveredRights());
+        $this->assertSame([$childAccount], $response->getChildAccounts());
+        $this->assertSame([$rightsInfo], $response->getDiscoveredRights());
         $this->assertSame($soapURL, $response->getSoapURL());
         $this->assertSame($publicURL, $response->getPublicURL());
         $this->assertSame($changePasswordURL, $response->getChangePasswordURL());

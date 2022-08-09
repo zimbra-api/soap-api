@@ -26,10 +26,8 @@ class GetAggregateQuotaUsageOnServerTest extends ZimbraTestCase
         $response = new GetAggregateQuotaUsageOnServerResponse([$domain]);
         $this->assertSame([$domain], $response->getDomainQuotas());
         $response = new GetAggregateQuotaUsageOnServerResponse();
-        $response->setDomainQuotas([$domain])
-            ->addDomainQuota($domain);
-        $this->assertSame([$domain, $domain], $response->getDomainQuotas());
         $response->setDomainQuotas([$domain]);
+        $this->assertSame([$domain], $response->getDomainQuotas());
 
         $body = new GetAggregateQuotaUsageOnServerBody($request, $response);
         $this->assertSame($request, $body->getRequest());

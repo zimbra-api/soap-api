@@ -46,18 +46,6 @@ class GetAllCosResponse extends SoapResponse
     }
 
     /**
-     * Add cos
-     *
-     * @param  CosInfo $cos
-     * @return self
-     */
-    public function addCos(CosInfo $cos): self
-    {
-        $this->cosList[] = $cos;
-        return $this;
-    }
-
-    /**
      * Set cosList
      *
      * @param  array $cosList

@@ -23,8 +23,7 @@ class GetSpellDictionariesTest extends ZimbraTestCase
         $response = new GetSpellDictionariesResponse([$dictionary1, $dictionary2]);
         $this->assertSame([$dictionary1, $dictionary2], $response->getDictionaries());
         $response = new GetSpellDictionariesResponse();
-        $response->setDictionaries([$dictionary1])
-            ->addDictionary($dictionary2);
+        $response->setDictionaries([$dictionary1, $dictionary2]);
         $this->assertSame([$dictionary1, $dictionary2], $response->getDictionaries());
 
         $body = new GetSpellDictionariesBody($request, $response);

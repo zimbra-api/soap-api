@@ -45,21 +45,6 @@ class ListIMAPSubscriptionsResponse extends SoapResponse
     }
 
     /**
-     * Add subscription
-     *
-     * @param  string $sub
-     * @return self
-     */
-    public function addSubscription(string $sub): self
-    {
-        $sub = trim($sub);
-        if (!empty($sub) && !in_array($sub, $this->subs)) {
-            $this->subs[] = $sub;
-        }
-        return $this;
-    }
-
-    /**
      * Set subscriptions
      *
      * @param  array $subs

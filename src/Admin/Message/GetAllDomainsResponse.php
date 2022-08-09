@@ -46,18 +46,6 @@ class GetAllDomainsResponse extends SoapResponse
     }
 
     /**
-     * Add a domain information
-     *
-     * @param  DomainInfo $domain
-     * @return self
-     */
-    public function addDomain(DomainInfo $domain): self
-    {
-        $this->domainList[] = $domain;
-        return $this;
-    }
-
-    /**
      * Set domain informations
      *
      * @param  array $domainList

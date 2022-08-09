@@ -480,18 +480,6 @@ class AuthResponse extends SoapResponse
     }
 
     /**
-     * Add a pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref): self
-    {
-        $this->prefs[] = $pref;
-        return $this;
-    }
-
-    /**
      * Get requested attribute settings
      *
      * @return array
@@ -510,18 +498,6 @@ class AuthResponse extends SoapResponse
     public function setAttrs(array $attrs): self
     {
         $this->attrs = array_filter($attrs, static fn ($attr) => $attr instanceof Attr);
-        return $this;
-    }
-
-    /**
-     * Add an attr
-     *
-     * @param  Attr $attr
-     * @return self
-     */
-    public function addAttr(Attr $attr): self
-    {
-        $this->attrs[] = $attr;
         return $this;
     }
 

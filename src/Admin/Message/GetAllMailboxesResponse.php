@@ -114,18 +114,6 @@ class GetAllMailboxesResponse extends SoapResponse
     }
 
     /**
-     * Add a mbox information
-     *
-     * @param  MailboxInfo $mbox
-     * @return self
-     */
-    public function addMbox(MailboxInfo $mbox): self
-    {
-        $this->mboxes[] = $mbox;
-        return $this;
-    }
-
-    /**
      * Set mbox informations
      *
      * @param  array $mboxes

@@ -58,10 +58,8 @@ class GetGrantsTest extends ZimbraTestCase
         $response = new GetGrantsResponse([$grant]);
         $this->assertSame([$grant], $response->getGrants());
         $response = new GetGrantsResponse();
-        $response->setGrants([$grant])
-            ->addGrant($grant);
-        $this->assertSame([$grant, $grant], $response->getGrants());
         $response->setGrants([$grant]);
+        $this->assertSame([$grant], $response->getGrants());
 
         $body = new GetGrantsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

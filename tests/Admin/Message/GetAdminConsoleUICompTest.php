@@ -35,10 +35,8 @@ class GetAdminConsoleUICompTest extends ZimbraTestCase
         $response = new GetAdminConsoleUICompResponse([$val]);
         $this->assertSame([$val], $response->getValues());
         $response = new GetAdminConsoleUICompResponse();
-        $response->setValues([$val])
-            ->addValue($val);
-        $this->assertSame([$val, $val], $response->getValues());
         $response->setValues([$val]);
+        $this->assertSame([$val], $response->getValues());
 
         $body = new GetAdminConsoleUICompBody($request, $response);
         $this->assertSame($request, $body->getRequest());

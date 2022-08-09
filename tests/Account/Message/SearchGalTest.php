@@ -145,7 +145,6 @@ class SearchGalTest extends ZimbraTestCase
 
         $response = new SearchGalResponse();
         $response->setContacts([$contact])
-            ->addContact($contact)
             ->setSortBy($sortBy)
             ->setOffset($offset)
             ->setMore(TRUE)
@@ -156,8 +155,7 @@ class SearchGalTest extends ZimbraTestCase
         $this->assertTrue($response->getMore());
         $this->assertTrue($response->getPagingSupported());
         $this->assertTrue($response->getTokenizeKey());
-        $this->assertSame([$contact, $contact], $response->getContacts());
-        $response->setContacts([$contact]);
+        $this->assertSame([$contact], $response->getContacts());
 
         $body = new SearchGalBody($request, $response);
         $this->assertSame($request, $body->getRequest());

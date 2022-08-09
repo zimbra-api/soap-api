@@ -57,21 +57,6 @@ class GetMiniCalResponse extends SoapResponse
     }
 
     /**
-     * Add a busy date
-     *
-     * @param  string $date
-     * @return self
-     */
-    public function addBusyDate(string $date): self
-    {
-        $date = trim($date);
-        if (!empty($date) && !in_array($date, $this->busyDates)) {
-            $this->busyDates[] = $date;
-        }
-        return $this;
-    }
-
-    /**
      * Set busy dates
      *
      * @param  array $busyDates
@@ -91,18 +76,6 @@ class GetMiniCalResponse extends SoapResponse
     public function getBusyDates(): array
     {
         return $this->busyDates;
-    }
-
-    /**
-     * Add error
-     *
-     * @param  MiniCalError $error
-     * @return self
-     */
-    public function addError(MiniCalError $error): self
-    {
-        $this->errors[] = $error;
-        return $this;
     }
 
     /**

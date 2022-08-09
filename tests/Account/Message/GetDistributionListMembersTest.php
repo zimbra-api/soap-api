@@ -51,17 +51,14 @@ class GetDistributionListMembersTest extends ZimbraTestCase
         $this->assertFalse($response->getMore());
         $this->assertSame($total, $response->getTotal());
         $response = new GetDistributionListMembersResponse();
-        $response->setDlMembers([$member1])
-            ->addDlMember($member2)
+        $response->setDlMembers([$member1, $member2])
             ->setHABGroupMembers([$groupMember])
-            ->addHABGroupMember($groupMember)
             ->setMore(TRUE)
             ->setTotal($total);
         $this->assertSame([$member1, $member2], $response->getDlMembers());
-        $this->assertSame([$groupMember, $groupMember], $response->getHABGroupMembers());
+        $this->assertSame([$groupMember], $response->getHABGroupMembers());
         $this->assertTrue($response->getMore());
         $this->assertSame($total, $response->getTotal());
-        $response->setHABGroupMembers([$groupMember]);
 
         $body = new GetDistributionListMembersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

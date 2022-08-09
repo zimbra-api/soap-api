@@ -27,10 +27,8 @@ class GetIdentitiesTest extends ZimbraTestCase
         $response = new GetIdentitiesResponse([$identity]);
         $this->assertSame([$identity], $response->getIdentities());
         $response = new GetIdentitiesResponse();
-        $response->setIdentities([$identity])
-            ->addIdentity($identity);
-        $this->assertSame([$identity, $identity], $response->getIdentities());
         $response->setIdentities([$identity]);
+        $this->assertSame([$identity], $response->getIdentities());
 
         $body = new GetIdentitiesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

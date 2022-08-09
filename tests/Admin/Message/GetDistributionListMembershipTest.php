@@ -48,10 +48,8 @@ class GetDistributionListMembershipTest extends ZimbraTestCase
         $response = new GetDistributionListMembershipResponse([$dlmInfo]);
         $this->assertSame([$dlmInfo], $response->getDls());
         $response = new GetDistributionListMembershipResponse();
-        $response->setDls([$dlmInfo])
-            ->addDl($dlmInfo);
-        $this->assertSame([$dlmInfo, $dlmInfo], $response->getDls());
         $response->setDls([$dlmInfo]);
+        $this->assertSame([$dlmInfo], $response->getDls());
 
         $body = new GetDistributionListMembershipBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -25,10 +25,8 @@ class GetAllSkinsTest extends ZimbraTestCase
         $response = new GetAllSkinsResponse([$skin]);
         $this->assertSame([$skin], $response->getSkins());
         $response = new GetAllSkinsResponse();
-        $response->setSkins([$skin])
-            ->addSkin($skin);
-        $this->assertSame([$skin, $skin], $response->getSkins());
         $response->setSkins([$skin]);
+        $this->assertSame([$skin], $response->getSkins());
 
         $body = new GetAllSkinsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

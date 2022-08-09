@@ -30,7 +30,7 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
         );
         $this->assertSame($domain, $request->getDomain());
         $request = new CheckDomainMXRecordRequest(
-            new DomainSelector(DomainBy::NAME(), '')
+            new DomainSelector()
         );
         $request->setDomain($domain);
         $this->assertSame($domain, $request->getDomain());
@@ -47,8 +47,7 @@ class CheckDomainMXRecordTest extends ZimbraTestCase
         $response = new CheckDomainMXRecordResponse();
         $response->setCode($code)
             ->setMessage($message)
-            ->setEntries([$entry1])
-            ->addEntry($entry2);
+            ->setEntries([$entry1, $entry2]);
         $this->assertSame([$entry1, $entry2], $response->getEntries());
         $this->assertSame($code, $response->getCode());
         $this->assertSame($message, $response->getMessage());

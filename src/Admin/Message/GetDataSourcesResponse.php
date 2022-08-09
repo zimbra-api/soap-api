@@ -46,18 +46,6 @@ class GetDataSourcesResponse extends SoapResponse
     }
 
     /**
-     * Add a dataSource information
-     *
-     * @param  DataSourceInfo $dataSource
-     * @return self
-     */
-    public function addDataSource(DataSourceInfo $dataSource): self
-    {
-        $this->dataSources[] = $dataSource;
-        return $this;
-    }
-
-    /**
      * Set dataSource informations
      *
      * @param  array $sources

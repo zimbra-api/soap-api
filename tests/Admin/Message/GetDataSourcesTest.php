@@ -34,10 +34,8 @@ class GetDataSourcesTest extends ZimbraTestCase
         $response = new GetDataSourcesResponse([$dataSource]);
         $this->assertSame([$dataSource], $response->getDataSources());
         $response = new GetDataSourcesResponse();
-        $response->setDataSources([$dataSource])
-            ->addDataSource($dataSource);
-        $this->assertSame([$dataSource, $dataSource], $response->getDataSources());
         $response->setDataSources([$dataSource]);
+        $this->assertSame([$dataSource], $response->getDataSources());
 
         $body = new GetDataSourcesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

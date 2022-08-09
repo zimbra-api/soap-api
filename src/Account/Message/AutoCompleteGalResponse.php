@@ -183,16 +183,4 @@ class AutoCompleteGalResponse extends SoapResponse
         $this->contacts = array_filter($contacts, static fn ($contact) => $contact instanceof ContactInfo);
         return $this;
     }
-
-    /**
-     * Add contact matching the autocomplete request
-     *
-     * @param  ContactInfo $contact
-     * @return self
-     */
-    public function addContact(ContactInfo $contact): self
-    {
-        $this->contacts[] = $contact;
-        return $this;
-    }
 }

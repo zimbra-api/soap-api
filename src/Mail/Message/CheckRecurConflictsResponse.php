@@ -46,18 +46,6 @@ class CheckRecurConflictsResponse extends SoapResponse
     }
 
     /**
-     * Add instance
-     *
-     * @param  ConflictRecurrenceInstance $instance
-     * @return self
-     */
-    public function addInstance(ConflictRecurrenceInstance $instance): self
-    {
-        $this->instances[] = $instance;
-        return $this;
-    }
-
-    /**
      * Set instances
      *
      * @param  array $instances

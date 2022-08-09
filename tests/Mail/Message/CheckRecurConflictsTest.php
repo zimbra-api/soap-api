@@ -90,9 +90,8 @@ class CheckRecurConflictsTest extends ZimbraTestCase
         $response = new CheckRecurConflictsResponse([$instance]);
         $this->assertSame([$instance], $response->getInstances());
         $response = new CheckRecurConflictsResponse();
-        $response->setInstances([$instance])
-            ->addInstance($instance);
-        $this->assertSame([$instance, $instance], $response->getInstances());
+        $response->setInstances([$instance]);
+        $this->assertSame([$instance], $response->getInstances());
 
         $request = new CheckRecurConflictsRequest(
             $startTime, $endTime, TRUE, $excludeUid, [$timezone], $components, [$fbUser]

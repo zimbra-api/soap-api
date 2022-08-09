@@ -46,20 +46,6 @@ class GetModifiedItemsIDsResponse extends SoapResponse
     }
 
     /**
-     * Add id
-     *
-     * @param  int $id
-     * @return self
-     */
-    public function addId(int $id): self
-    {
-        if (!empty($id) && !in_array($id, $this->ids)) {
-            $this->ids[] = $id;
-        }
-        return $this;
-    }
-
-    /**
      * Set ids
      *
      * @param  array $ids

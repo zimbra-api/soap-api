@@ -32,8 +32,7 @@ class ModifyZimletPrefsTest extends ZimbraTestCase
         $response = new ModifyZimletPrefsResponse([$name]);
         $this->assertSame([$name], $response->getZimlets());
         $response = new ModifyZimletPrefsResponse();
-        $response->setZimlets([$name])
-            ->addZimlet($name);
+        $response->setZimlets([$name]);
         $this->assertSame([$name], $response->getZimlets());
 
         $body = new ModifyZimletPrefsBody($request, $response);

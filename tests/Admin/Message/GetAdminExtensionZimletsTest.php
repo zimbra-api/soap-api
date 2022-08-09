@@ -70,10 +70,8 @@ class GetAdminExtensionZimletsTest extends ZimbraTestCase
         $response = new GetAdminExtensionZimletsResponse([$zimlet]);
         $this->assertSame([$zimlet], $response->getZimlets());
         $response = new GetAdminExtensionZimletsResponse();
-        $response->setZimlets([$zimlet])
-            ->addZimlet($zimlet);
-        $this->assertSame([$zimlet, $zimlet], $response->getZimlets());
         $response->setZimlets([$zimlet]);
+        $this->assertSame([$zimlet], $response->getZimlets());
 
         $body = new GetAdminExtensionZimletsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -29,10 +29,8 @@ class GetAllCosTest extends ZimbraTestCase
         $response = new GetAllCosResponse([$cos]);
         $this->assertSame([$cos], $response->getCosList());
         $response = new GetAllCosResponse();
-        $response->setCosList([$cos])
-            ->addCos($cos);
-        $this->assertSame([$cos, $cos], $response->getCosList());
         $response->setCosList([$cos]);
+        $this->assertSame([$cos], $response->getCosList());
 
         $body = new GetAllCosBody($request, $response);
         $this->assertSame($request, $body->getRequest());

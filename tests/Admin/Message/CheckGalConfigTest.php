@@ -50,12 +50,10 @@ class CheckGalConfigTest extends ZimbraTestCase
         $response = new CheckGalConfigResponse();
         $response->setCode($code)
             ->setMessage($message)
-            ->setGalContacts([$cn])
-            ->addGalContact($cn);
+            ->setGalContacts([$cn]);
         $this->assertSame($code, $response->getCode());
         $this->assertSame($message, $response->getMessage());
-        $this->assertSame([$cn, $cn], $response->getGalContacts());
-        $response->setGalContacts([$cn]);
+        $this->assertSame([$cn], $response->getGalContacts());
 
         $body = new CheckGalConfigBody($request, $response);
         $this->assertSame($request, $body->getRequest());

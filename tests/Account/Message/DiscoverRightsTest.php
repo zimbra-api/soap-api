@@ -44,10 +44,8 @@ class DiscoverRightsTest extends ZimbraTestCase
         $this->assertSame([$targets], $response->getDiscoveredRights());
 
         $response = new DiscoverRightsResponse();
-        $response->setDiscoveredRights([$targets])
-            ->addDiscoveredRight($targets);
-        $this->assertSame([$targets, $targets], $response->getDiscoveredRights());
         $response->setDiscoveredRights([$targets]);
+        $this->assertSame([$targets], $response->getDiscoveredRights());
 
         $body = new DiscoverRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

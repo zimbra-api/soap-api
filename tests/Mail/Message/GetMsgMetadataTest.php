@@ -59,12 +59,9 @@ class GetMsgMetadataTest extends ZimbraTestCase
         $this->assertSame([$msg], $response->getMsgMessages());
         $response = new GetMsgMetadataResponse();
         $response->setChatMessages([$chat])
-            ->addChatMessage($chat)
-            ->setMsgMessages([$msg])
-            ->addMsgMessage($msg);
-        $this->assertSame([$chat, $chat], $response->getChatMessages());
-        $this->assertSame([$msg, $msg], $response->getMsgMessages());
-        $response = new GetMsgMetadataResponse([$chat], [$msg]);
+            ->setMsgMessages([$msg]);
+        $this->assertSame([$chat], $response->getChatMessages());
+        $this->assertSame([$msg], $response->getMsgMessages());
 
         $body = new GetMsgMetadataBody($request, $response);
         $this->assertSame($request, $body->getRequest());

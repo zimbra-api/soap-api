@@ -360,18 +360,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add simple hit
-     *
-     * @param  SimpleSearchHit $hit
-     * @return self
-     */
-    public function addSimpleHit(SimpleSearchHit $hit): self
-    {
-        $this->simpleHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set simpleHits
      *
      * @param  array $hits
@@ -391,18 +379,6 @@ class SearchResponse extends SoapResponse
     public function getSimpleHits(): array
     {
         return $this->simpleHits;
-    }
-
-    /**
-     * Add conversation hit
-     *
-     * @param  ConversationHitInfo $hit
-     * @return self
-     */
-    public function addConversationHit(ConversationHitInfo $hit): self
-    {
-        $this->conversationHits[] = $hit;
-        return $this;
     }
 
     /**
@@ -428,18 +404,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add message hit
-     *
-     * @param  MessageHitInfo $hit
-     * @return self
-     */
-    public function addMessageHit(MessageHitInfo $hit): self
-    {
-        $this->messageHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set messageHits
      *
      * @param  array $hits
@@ -459,18 +423,6 @@ class SearchResponse extends SoapResponse
     public function getMessageHits(): array
     {
         return $this->messageHits;
-    }
-
-    /**
-     * Add chat hit
-     *
-     * @param  ChatHitInfo $hit
-     * @return self
-     */
-    public function addChatHit(ChatHitInfo $hit): self
-    {
-        $this->chatHits[] = $hit;
-        return $this;
     }
 
     /**
@@ -496,18 +448,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add message part hit
-     *
-     * @param  MessagePartHitInfo $hit
-     * @return self
-     */
-    public function addMessagePartHit(MessagePartHitInfo $hit): self
-    {
-        $this->messagePartHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set messagePartHits
      *
      * @param  array $hits
@@ -527,18 +467,6 @@ class SearchResponse extends SoapResponse
     public function getMessagePartHits(): array
     {
         return $this->messagePartHits;
-    }
-
-    /**
-     * Add contact hit
-     *
-     * @param  ContactInfo $hit
-     * @return self
-     */
-    public function addContactHit(ContactInfo $hit): self
-    {
-        $this->contactHits[] = $hit;
-        return $this;
     }
 
     /**
@@ -564,18 +492,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add note hit
-     *
-     * @param  NoteHitInfo $hit
-     * @return self
-     */
-    public function addNoteHit(NoteHitInfo $hit): self
-    {
-        $this->noteHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set noteHits
      *
      * @param  array $hits
@@ -595,18 +511,6 @@ class SearchResponse extends SoapResponse
     public function getNoteHits(): array
     {
         return $this->noteHits;
-    }
-
-    /**
-     * Add document hit
-     *
-     * @param  DocumentHitInfo $hit
-     * @return self
-     */
-    public function addDocumentHit(DocumentHitInfo $hit): self
-    {
-        $this->documentHits[] = $hit;
-        return $this;
     }
 
     /**
@@ -632,18 +536,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add wiki hit
-     *
-     * @param  WikiHitInfo $hit
-     * @return self
-     */
-    public function addWikiHit(WikiHitInfo $hit): self
-    {
-        $this->wikiHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set wikiHits
      *
      * @param  array $hits
@@ -666,18 +558,6 @@ class SearchResponse extends SoapResponse
     }
 
     /**
-     * Add appointment hit
-     *
-     * @param  AppointmentHitInfo $hit
-     * @return self
-     */
-    public function addAppointmentHit(AppointmentHitInfo $hit): self
-    {
-        $this->appointmentHits[] = $hit;
-        return $this;
-    }
-
-    /**
      * Set appointmentHits
      *
      * @param  array $hits
@@ -697,18 +577,6 @@ class SearchResponse extends SoapResponse
     public function getAppointmentHits(): array
     {
         return $this->appointmentHits;
-    }
-
-    /**
-     * Add task hit
-     *
-     * @param  TaskHitInfo $hit
-     * @return self
-     */
-    public function addTaskHit(TaskHitInfo $hit): self
-    {
-        $this->taskHits[] = $hit;
-        return $this;
     }
 
     /**

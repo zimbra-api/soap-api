@@ -46,18 +46,6 @@ class GetAvailableSkinsResponse extends SoapResponse
     }
 
     /**
-     * Add skin
-     *
-     * @param  NamedElement $skin
-     * @return self
-     */
-    public function addSkin(NamedElement $skin): self
-    {
-        $this->skins[] = $skin;
-        return $this;
-    }
-
-    /**
      * Set skins
      *
      * @param  array $skins

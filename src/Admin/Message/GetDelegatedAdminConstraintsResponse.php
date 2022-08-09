@@ -46,18 +46,6 @@ class GetDelegatedAdminConstraintsResponse extends SoapResponse
     }
 
     /**
-     * Add a constraint attribute
-     *
-     * @param  ConstraintAttr $attr
-     * @return self
-     */
-    public function addAttr(ConstraintAttr $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set constraint attributes
      *
      * @param  array $attrs

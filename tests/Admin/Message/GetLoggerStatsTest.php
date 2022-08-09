@@ -62,11 +62,9 @@ class GetLoggerStatsTest extends ZimbraTestCase
         $this->assertSame($note, $response->getNote());
         $response = new GetLoggerStatsResponse([]);
         $response->setHostNames([$hostStats])
-            ->addHostName($hostStats)
             ->setNote($note);
-        $this->assertSame([$hostStats, $hostStats], $response->getHostNames());
+        $this->assertSame([$hostStats], $response->getHostNames());
         $this->assertSame($note, $response->getNote());
-        $response->setHostNames([$hostStats]);
 
         $body = new GetLoggerStatsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

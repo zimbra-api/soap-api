@@ -62,13 +62,11 @@ class AutoCompleteGalTest extends ZimbraTestCase
         $response->setMore(TRUE)
             ->setTokenizeKey(FALSE)
             ->setPagingSupported(TRUE)
-            ->setContacts([$contact])
-            ->addContact($contact);
+            ->setContacts([$contact]);
         $this->assertTrue($response->getMore());
         $this->assertFalse($response->getTokenizeKey());
         $this->assertTrue($response->getPagingSupported());
-        $this->assertSame([$contact, $contact], $response->getContacts());
-        $response->setContacts([$contact]);
+        $this->assertSame([$contact], $response->getContacts());
 
         $body = new AutoCompleteGalBody($request, $response);
         $this->assertSame($request, $body->getRequest());

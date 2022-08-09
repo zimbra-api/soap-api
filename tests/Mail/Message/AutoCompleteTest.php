@@ -64,11 +64,9 @@ class AutoCompleteTest extends ZimbraTestCase
         $this->assertFalse($response->getCanBeCached());
         $response = new AutoCompleteResponse();
         $response->setMatches([$match])
-            ->addMatch($match)
             ->setCanBeCached(TRUE);
-        $this->assertSame([$match, $match], $response->getMatches());
+        $this->assertSame([$match], $response->getMatches());
         $this->assertTrue($response->getCanBeCached());
-        $response->setMatches([$match]);
 
         $body = new AutoCompleteBody($request, $response);
         $this->assertSame($request, $body->getRequest());

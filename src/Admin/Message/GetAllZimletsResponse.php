@@ -46,18 +46,6 @@ class GetAllZimletsResponse extends SoapResponse
     }
 
     /**
-     * Add a zimlet information
-     *
-     * @param  ZimletInfo $zimlet
-     * @return self
-     */
-    public function addZimlet(ZimletInfo $zimlet): self
-    {
-        $this->zimlets[] = $zimlet;
-        return $this;
-    }
-
-    /**
      * Set zimlet informations
      *
      * @param  array $zimlets

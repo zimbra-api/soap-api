@@ -48,18 +48,6 @@ class GetOutgoingFilterRulesResponse extends SoapResponse
     }
 
     /**
-     * Add a filter rule
-     *
-     * @param  FilterRule $rule
-     * @return self
-     */
-    public function addFilterRule(FilterRule $rule): self
-    {
-        $this->rules[] = $rule;
-        return $this;
-    }
-
-    /**
      * Set filter rules
      *
      * @param  array $rules

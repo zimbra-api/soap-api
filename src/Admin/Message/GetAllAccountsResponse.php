@@ -46,18 +46,6 @@ class GetAllAccountsResponse extends SoapResponse
     }
 
     /**
-     * Add an account
-     *
-     * @param  AccountInfo $account
-     * @return self
-     */
-    public function addAccount(AccountInfo $account): self
-    {
-        $this->accounts[] = $account;
-        return $this;
-    }
-
-    /**
      * Set accounts
      *
      * @param  array $accounts

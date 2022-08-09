@@ -32,10 +32,8 @@ class GetAllAdminAccountsTest extends ZimbraTestCase
         $response = new GetAllAdminAccountsResponse([$account]);
         $this->assertSame([$account], $response->getAccountList());
         $response = new GetAllAdminAccountsResponse();
-        $response->setAccountList([$account])
-            ->addAccount($account);
-        $this->assertSame([$account, $account], $response->getAccountList());
         $response->setAccountList([$account]);
+        $this->assertSame([$account], $response->getAccountList());
 
         $body = new GetAllAdminAccountsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

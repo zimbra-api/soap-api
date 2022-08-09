@@ -34,10 +34,8 @@ class GetFreeBusyQueueInfoTest extends ZimbraTestCase
         $response = new GetFreeBusyQueueInfoResponse([$provider]);
         $this->assertSame([$provider], $response->getProviders());
         $response = new GetFreeBusyQueueInfoResponse();
-        $response->setProviders([$provider])
-            ->addProvider($provider);
-        $this->assertSame([$provider, $provider], $response->getProviders());
         $response->setProviders([$provider]);
+        $this->assertSame([$provider], $response->getProviders());
 
         $body = new GetFreeBusyQueueInfoBody($request, $response);
         $this->assertSame($request, $body->getRequest());

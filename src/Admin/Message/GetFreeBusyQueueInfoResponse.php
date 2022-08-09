@@ -46,18 +46,6 @@ class GetFreeBusyQueueInfoResponse extends SoapResponse
     }
 
     /**
-     * Add a provider
-     *
-     * @param  FreeBusyQueueProvider $provider
-     * @return self
-     */
-    public function addProvider(FreeBusyQueueProvider $provider): self
-    {
-        $this->providers[] = $provider;
-        return $this;
-    }
-
-    /**
      * Set providers
      *
      * @param  array $providers

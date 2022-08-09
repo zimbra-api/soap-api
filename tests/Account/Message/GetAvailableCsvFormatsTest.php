@@ -24,10 +24,8 @@ class GetAvailableCsvFormatsTest extends ZimbraTestCase
         $response = new GetAvailableCsvFormatsResponse([$csv]);
         $this->assertSame([$csv], $response->getCsvFormats());
         $response = new GetAvailableCsvFormatsResponse();
-        $response->setCsvFormats([$csv])
-            ->addCsvFormat($csv);
-        $this->assertSame([$csv, $csv], $response->getCsvFormats());
         $response->setCsvFormats([$csv]);
+        $this->assertSame([$csv], $response->getCsvFormats());
 
         $body = new GetAvailableCsvFormatsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

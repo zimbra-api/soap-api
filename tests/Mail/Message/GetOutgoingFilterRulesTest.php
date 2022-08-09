@@ -272,10 +272,8 @@ class GetOutgoingFilterRulesTest extends ZimbraTestCase
         $response = new GetOutgoingFilterRulesResponse([$filterRule]);
         $this->assertSame([$filterRule], $response->getFilterRules());
         $response = new GetOutgoingFilterRulesResponse();
-        $response->setFilterRules([$filterRule])
-            ->addFilterRule($filterRule);
-        $this->assertSame([$filterRule, $filterRule], $response->getFilterRules());
-        $response = new GetOutgoingFilterRulesResponse([$filterRule]);
+        $response->setFilterRules([$filterRule]);
+        $this->assertSame([$filterRule], $response->getFilterRules());
 
         $body = new GetOutgoingFilterRulesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

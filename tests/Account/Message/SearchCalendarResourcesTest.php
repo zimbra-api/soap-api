@@ -93,7 +93,6 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
 
         $response = new SearchCalendarResourcesResponse();
         $response->setCalendarResources([$calResource])
-            ->addCalendarResource($calResource)
             ->setSortBy($sortBy)
             ->setOffset($offset)
             ->setMore(TRUE)
@@ -102,8 +101,7 @@ class SearchCalendarResourcesTest extends ZimbraTestCase
         $this->assertSame($offset, $response->getOffset());
         $this->assertTrue($response->getMore());
         $this->assertTrue($response->getPagingSupported());
-        $this->assertSame([$calResource, $calResource], $response->getCalendarResources());
-        $response->setCalendarResources([$calResource]);
+        $this->assertSame([$calResource], $response->getCalendarResources());
 
         $body = new SearchCalendarResourcesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

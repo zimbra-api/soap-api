@@ -303,41 +303,6 @@ class GetImportStatusResponse extends SoapResponse
     }
 
     /**
-     * Add status
-     *
-     * @param  ImportStatusInfo $status
-     * @return self
-     */
-    public function addStatus(ImportStatusInfo $status): self
-    {
-        if ($status instanceof ImapImportStatusInfo) {
-            $this->imapStatuses[] = $status;
-        }
-        if ($status instanceof Pop3ImportStatusInfo) {
-            $this->pop3Statuses[] = $status;
-        }
-        if ($status instanceof CaldavImportStatusInfo) {
-            $this->caldavStatuses[] = $status;
-        }
-        if ($status instanceof YabImportStatusInfo) {
-            $this->yabStatuses[] = $status;
-        }
-        if ($status instanceof RssImportStatusInfo) {
-            $this->rssStatuses[] = $status;
-        }
-        if ($status instanceof GalImportStatusInfo) {
-            $this->galStatuses[] = $status;
-        }
-        if ($status instanceof CalImportStatusInfo) {
-            $this->calStatuses[] = $status;
-        }
-        if ($status instanceof UnknownImportStatusInfo) {
-            $this->unknownStatuses[] = $status;
-        }
-        return $this;
-    }
-
-    /**
      * Set statuses
      *
      * @param  array $statuses

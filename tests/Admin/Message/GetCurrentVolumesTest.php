@@ -26,10 +26,8 @@ class GetCurrentVolumesTest extends ZimbraTestCase
         $response = new GetCurrentVolumesResponse([$volume]);
         $this->assertSame([$volume], $response->getVolumes());
         $response = new GetCurrentVolumesResponse();
-        $response->setVolumes([$volume])
-            ->addVolume($volume);
-        $this->assertSame([$volume, $volume], $response->getVolumes());
         $response->setVolumes([$volume]);
+        $this->assertSame([$volume], $response->getVolumes());
 
         $body = new GetCurrentVolumesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

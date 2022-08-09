@@ -215,18 +215,6 @@ class SearchDirectoryResponse extends SoapResponse
     }
 
     /**
-     * Add cal resource
-     *
-     * @param  CalendarResourceInfo $resource
-     * @return self
-     */
-    public function addCalendarResource(CalendarResourceInfo $resource): self
-    {
-        $this->calResources[] = $resource;
-        return $this;
-    }
-
-    /**
      * Set calResources
      *
      * @param  array $resources
@@ -246,18 +234,6 @@ class SearchDirectoryResponse extends SoapResponse
     public function getCalendarResources(): array
     {
         return $this->calResources;
-    }
-
-    /**
-     * Add dl
-     *
-     * @param  DistributionListInfo $dl
-     * @return self
-     */
-    public function addDistributionList(DistributionListInfo $dl): self
-    {
-        $this->dls[] = $dl;
-        return $this;
     }
 
     /**
@@ -283,18 +259,6 @@ class SearchDirectoryResponse extends SoapResponse
     }
 
     /**
-     * Add alias
-     *
-     * @param  AliasInfo $alias
-     * @return self
-     */
-    public function addAlias(AliasInfo $alias): self
-    {
-        $this->aliases[] = $alias;
-        return $this;
-    }
-
-    /**
      * Set aliases
      *
      * @param  array $aliases
@@ -314,18 +278,6 @@ class SearchDirectoryResponse extends SoapResponse
     public function getAliases(): array
     {
         return $this->aliases;
-    }
-
-    /**
-     * Add an account
-     *
-     * @param  AccountInfo $account
-     * @return self
-     */
-    public function addAccount(AccountInfo $account): self
-    {
-        $this->accounts[] = $account;
-        return $this;
     }
 
     /**
@@ -351,18 +303,6 @@ class SearchDirectoryResponse extends SoapResponse
     }
 
     /**
-     * Add a domain information
-     *
-     * @param  DomainInfo $domain
-     * @return self
-     */
-    public function addDomain(DomainInfo $domain): self
-    {
-        $this->domains[] = $domain;
-        return $this;
-    }
-
-    /**
      * Set domain informations
      *
      * @param  array $domains
@@ -382,18 +322,6 @@ class SearchDirectoryResponse extends SoapResponse
     public function getDomains(): array
     {
         return $this->domains;
-    }
-
-    /**
-     * Add cos
-     *
-     * @param  CosInfo $cos
-     * @return self
-     */
-    public function addCos(CosInfo $cos): self
-    {
-        $this->coses[] = $cos;
-        return $this;
     }
 
     /**

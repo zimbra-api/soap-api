@@ -118,18 +118,6 @@ class SearchCalendarResourcesResponse extends SoapResponse
     }
 
     /**
-     * Add calResource
-     *
-     * @param  CalendarResourceInfo $calResource
-     * @return self
-     */
-    public function addCalendarResource(CalendarResourceInfo $calResource): self
-    {
-        $this->calResources[] = $calResource;
-        return $this;
-    }
-
-    /**
      * Set calResources
      *
      * @param  array $resources

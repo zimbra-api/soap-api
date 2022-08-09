@@ -46,18 +46,6 @@ class BrowseResponse extends SoapResponse
     }
 
     /**
-     * Add browseData
-     *
-     * @param  BrowseData $browseData
-     * @return self
-     */
-    public function addBrowseData(BrowseData $browseData): self
-    {
-        $this->browseDatas[] = $browseData;
-        return $this;
-    }
-
-    /**
      * Set browseDatas
      *
      * @param  array $datas

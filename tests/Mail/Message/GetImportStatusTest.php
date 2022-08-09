@@ -83,8 +83,8 @@ class GetImportStatusTest extends ZimbraTestCase
             $rss,
             $gal,
             $cal,
-        ])
-        ->addStatus($unknown);
+            $unknown,
+        ]);
         $this->assertEquals([
             $imap,
             $pop3,

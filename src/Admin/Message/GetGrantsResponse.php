@@ -46,18 +46,6 @@ class GetGrantsResponse extends SoapResponse
     }
 
     /**
-     * Add a grant
-     *
-     * @param  GrantInfo $grant
-     * @return self
-     */
-    public function addGrant(GrantInfo $grant): self
-    {
-        $this->grants[] = $grant;
-        return $this;
-    }
-
-    /**
      * Set grants
      *
      * @param  array $grants

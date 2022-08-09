@@ -33,13 +33,9 @@ class GetAccountMembershipTest extends ZimbraTestCase
         $this->assertSame($account, $request->getAccount());
 
         $response = new GetAccountMembershipResponse([$dl]);
-        $this->assertSame([$dl], $response->getDlList());
-
         $response = new GetAccountMembershipResponse();
-        $response->setDlList([$dl])
-            ->addDl($dl);
-        $this->assertSame([$dl, $dl], $response->getDlList());
         $response->setDlList([$dl]);
+        $this->assertSame([$dl], $response->getDlList());
 
         $body = new GetAccountMembershipBody($request, $response);
         $this->assertSame($request, $body->getRequest());

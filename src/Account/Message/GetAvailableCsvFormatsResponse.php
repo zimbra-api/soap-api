@@ -46,18 +46,6 @@ class GetAvailableCsvFormatsResponse extends SoapResponse
     }
 
     /**
-     * Add csvFormat
-     *
-     * @param  NamedElement $csvFormat
-     * @return self
-     */
-    public function addCsvFormat(NamedElement $csvFormat): self
-    {
-        $this->csvFormats[] = $csvFormat;
-        return $this;
-    }
-
-    /**
      * Set csvFormats
      *
      * @param  array $formats

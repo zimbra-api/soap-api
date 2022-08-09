@@ -71,18 +71,6 @@ class GetRightsDocResponse extends SoapResponse
     }
 
     /**
-     * Add a package
-     *
-     * @param  Package $pkg
-     * @return self
-     */
-    public function addPackage(Package $pkg): self
-    {
-        $this->pkgs[] = $pkg;
-        return $this;
-    }
-
-    /**
      * Set packages
      *
      * @param  array $pkgs
@@ -124,18 +112,6 @@ class GetRightsDocResponse extends SoapResponse
     public function getNotUsed(): array
     {
         return $this->notUsed;
-    }
-
-    /**
-     * Add a right
-     *
-     * @param  Right $right
-     * @return self
-     */
-    public function addRight(Right $right): self
-    {
-        $this->rights[] = $right;
-        return $this;
     }
 
     /**

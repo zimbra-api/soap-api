@@ -83,18 +83,6 @@ class CheckPermissionResponse extends SoapResponse
     }
 
     /**
-     * Add right
-     *
-     * @param  RightPermission $right
-     * @return self
-     */
-    public function addRight(RightPermission $right): self
-    {
-        $this->rights[] = $right;
-        return $this;
-    }
-
-    /**
      * Set rights
      *
      * @param  array $rights

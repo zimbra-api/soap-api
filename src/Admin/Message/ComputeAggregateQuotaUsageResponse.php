@@ -46,18 +46,6 @@ class ComputeAggregateQuotaUsageResponse extends SoapResponse
     }
 
     /**
-     * Add a domain quota
-     *
-     * @param  QuotaInfo $domainQuota
-     * @return self
-     */
-    public function addDomainQuota(QuotaInfo $domainQuota): self
-    {
-        $this->domainQuotas[] = $domainQuota;
-        return $this;
-    }
-
-    /**
      * Set domain quotas
      *
      * @param  array $quotas

@@ -46,18 +46,6 @@ class CheckRightsResponse extends SoapResponse
     }
 
     /**
-     * Add a target
-     *
-     * @param  CheckRightsTargetInfo $target
-     * @return self
-     */
-    public function addTarget(CheckRightsTargetInfo $target): self
-    {
-        $this->targets[] = $target;
-        return $this;
-    }
-
-    /**
      * Set targets
      *
      * @param  array $targets

@@ -32,10 +32,8 @@ class GetAllDomainsTest extends ZimbraTestCase
         $response = new GetAllDomainsResponse([$domain]);
         $this->assertSame([$domain], $response->getDomainList());
         $response = new GetAllDomainsResponse();
-        $response->setDomainList([$domain])
-            ->addDomain($domain);
-        $this->assertSame([$domain, $domain], $response->getDomainList());
         $response->setDomainList([$domain]);
+        $this->assertSame([$domain], $response->getDomainList());
 
         $body = new GetAllDomainsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

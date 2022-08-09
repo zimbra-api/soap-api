@@ -46,18 +46,6 @@ class GetIdentitiesResponse extends SoapResponse
     }
 
     /**
-     * Add identity
-     *
-     * @param  Identity $identity
-     * @return self
-     */
-    public function addIdentity(Identity $identity): self
-    {
-        $this->identities[] = $identity;
-        return $this;
-    }
-
-    /**
      * Set identities
      *
      * @param  array $identities

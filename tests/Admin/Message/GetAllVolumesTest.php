@@ -36,10 +36,8 @@ class GetAllVolumesTest extends ZimbraTestCase
         $response = new GetAllVolumesResponse([$volume]);
         $this->assertSame([$volume], $response->getVolumes());
         $response = new GetAllVolumesResponse();
-        $response->setVolumes([$volume])
-            ->addVolume($volume);
-        $this->assertSame([$volume, $volume], $response->getVolumes());
         $response->setVolumes([$volume]);
+        $this->assertSame([$volume], $response->getVolumes());
 
         $body = new GetAllVolumesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

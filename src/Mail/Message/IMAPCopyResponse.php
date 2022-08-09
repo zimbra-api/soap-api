@@ -46,18 +46,6 @@ class IMAPCopyResponse extends SoapResponse
     }
 
     /**
-     * Add item
-     *
-     * @param  IMAPItemInfo $item
-     * @return self
-     */
-    public function addItem(IMAPItemInfo $item): self
-    {
-        $this->items[] = $item;
-        return $this;
-    }
-
-    /**
      * Set items
      *
      * @param  array $items

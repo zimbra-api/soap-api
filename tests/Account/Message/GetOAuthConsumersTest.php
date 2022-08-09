@@ -27,10 +27,8 @@ class GetOAuthConsumersTest extends ZimbraTestCase
         $response = new GetOAuthConsumersResponse([$consumer]);
         $this->assertSame([$consumer], $response->getConsumers());
         $response = new GetOAuthConsumersResponse();
-        $response->setConsumers([$consumer])
-            ->addConsumer($consumer);
-        $this->assertSame([$consumer, $consumer], $response->getConsumers());
         $response->setConsumers([$consumer]);
+        $this->assertSame([$consumer], $response->getConsumers());
 
         $body = new GetOAuthConsumersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

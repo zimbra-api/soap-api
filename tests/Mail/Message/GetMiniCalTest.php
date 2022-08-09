@@ -57,13 +57,10 @@ class GetMiniCalTest extends ZimbraTestCase
         $this->assertSame([$date1, $date2], $response->getBusyDates());
         $this->assertSame([$error], $response->getErrors());
         $response = new GetMiniCalResponse();
-        $response->setBusyDates([$date1])
-            ->addBusyDate($date2)
-            ->setErrors([$error])
-            ->addError($error);
+        $response->setBusyDates([$date1, $date2])
+            ->setErrors([$error]);
         $this->assertSame([$date1, $date2], $response->getBusyDates());
-        $this->assertSame([$error, $error], $response->getErrors());
-        $response = new GetMiniCalResponse([$date1, $date2], [$error]);
+        $this->assertSame([$error], $response->getErrors());
 
         $body = new GetMiniCalBody($request, $response);
         $this->assertSame($request, $body->getRequest());

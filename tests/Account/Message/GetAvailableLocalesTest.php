@@ -26,10 +26,8 @@ class GetAvailableLocalesTest extends ZimbraTestCase
         $response = new GetAvailableLocalesResponse([$locale]);
         $this->assertSame([$locale], $response->getLocales());
         $response = new GetAvailableLocalesResponse();
-        $response->setLocales([$locale])
-            ->addLocale($locale);
-        $this->assertSame([$locale, $locale], $response->getLocales());
         $response->setLocales([$locale]);
+        $this->assertSame([$locale], $response->getLocales());
 
         $body = new GetAvailableLocalesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

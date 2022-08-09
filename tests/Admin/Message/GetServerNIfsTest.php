@@ -41,10 +41,8 @@ class GetServerNIfsTest extends ZimbraTestCase
         $response = new GetServerNIfsResponse([$ni]);
         $this->assertSame([$ni], $response->getNetworkInterfaces());
         $response = new GetServerNIfsResponse();
-        $response->setNetworkInterfaces([$ni])
-            ->addNetworkInterface($ni);
-        $this->assertSame([$ni, $ni], $response->getNetworkInterfaces());
         $response->setNetworkInterfaces([$ni]);
+        $this->assertSame([$ni], $response->getNetworkInterfaces());
 
         $body = new GetServerNIfsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

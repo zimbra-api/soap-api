@@ -29,10 +29,8 @@ class GetSignaturesTest extends ZimbraTestCase
         $response = new GetSignaturesResponse([$signature]);
         $this->assertSame([$signature], $response->getSignatures());
         $response = new GetSignaturesResponse();
-        $response->setSignatures([$signature])
-            ->addSignature($signature);
-        $this->assertSame([$signature, $signature], $response->getSignatures());
         $response->setSignatures([$signature]);
+        $this->assertSame([$signature], $response->getSignatures());
 
         $body = new GetSignaturesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

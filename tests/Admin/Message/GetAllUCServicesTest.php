@@ -29,10 +29,8 @@ class GetAllUCServicesTest extends ZimbraTestCase
         $response = new GetAllUCServicesResponse([$ucservice]);
         $this->assertSame([$ucservice], $response->getUCServiceList());
         $response = new GetAllUCServicesResponse();
-        $response->setUCServiceList([$ucservice])
-            ->addUCService($ucservice);
-        $this->assertSame([$ucservice, $ucservice], $response->getUCServiceList());
         $response->setUCServiceList([$ucservice]);
+        $this->assertSame([$ucservice], $response->getUCServiceList());
 
         $body = new GetAllUCServicesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

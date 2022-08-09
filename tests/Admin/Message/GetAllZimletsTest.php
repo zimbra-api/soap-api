@@ -34,10 +34,8 @@ class GetAllZimletsTest extends ZimbraTestCase
         $response = new GetAllZimletsResponse([$zimlet]);
         $this->assertSame([$zimlet], $response->getZimlets());
         $response = new GetAllZimletsResponse();
-        $response->setZimlets([$zimlet])
-            ->addZimlet($zimlet);
-        $this->assertSame([$zimlet, $zimlet], $response->getZimlets());
         $response->setZimlets([$zimlet]);
+        $this->assertSame([$zimlet], $response->getZimlets());
 
         $body = new GetAllZimletsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

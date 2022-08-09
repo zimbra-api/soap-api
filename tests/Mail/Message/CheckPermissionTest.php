@@ -47,11 +47,9 @@ class CheckPermissionTest extends ZimbraTestCase
         $this->assertSame([$right], $response->getRights());
         $response = new CheckPermissionResponse();
         $response->setAllow(TRUE)
-            ->setRights([$right])
-            ->addRight($right);
+            ->setRights([$right]);
         $this->assertTrue($response->getAllow());
-        $this->assertSame([$right, $right], $response->getRights());
-        $response->setRights([$right]);
+        $this->assertSame([$right], $response->getRights());
 
         $body = new CheckPermissionBody($request, $response);
         $this->assertSame($request, $body->getRequest());

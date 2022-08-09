@@ -81,18 +81,6 @@ class CheckSpellingResponse extends SoapResponse
     }
 
     /**
-     * Add misspelledWord
-     *
-     * @param  Misspelling $misspelledWord
-     * @return self
-     */
-    public function addMisspelledWord(Misspelling $misspelledWord): self
-    {
-        $this->misspelledWords[] = $misspelledWord;
-        return $this;
-    }
-
-    /**
      * Set misspelledWords
      *
      * @param  array $words

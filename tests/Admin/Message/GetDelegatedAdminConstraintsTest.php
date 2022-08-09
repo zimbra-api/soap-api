@@ -50,10 +50,8 @@ class GetDelegatedAdminConstraintsTest extends ZimbraTestCase
         $response = new GetDelegatedAdminConstraintsResponse([$constraintAttr]);
         $this->assertSame([$constraintAttr], $response->getAttrs());
         $response = new GetDelegatedAdminConstraintsResponse();
-        $response->setAttrs([$constraintAttr])
-            ->addAttr($constraintAttr);
-        $this->assertSame([$constraintAttr, $constraintAttr], $response->getAttrs());
         $response->setAttrs([$constraintAttr]);
+        $this->assertSame([$constraintAttr], $response->getAttrs());
 
         $body = new GetDelegatedAdminConstraintsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

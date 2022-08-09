@@ -60,18 +60,6 @@ class GetCommentsResponse extends SoapResponse
     }
 
     /**
-     * Add user
-     *
-     * @param  IdEmailName $user
-     * @return self
-     */
-    public function addUser(IdEmailName $user): self
-    {
-        $this->users[] = $user;
-        return $this;
-    }
-
-    /**
      * Set users
      *
      * @param  array $entries
@@ -91,18 +79,6 @@ class GetCommentsResponse extends SoapResponse
     public function getUsers(): array
     {
         return $this->users;
-    }
-
-    /**
-     * Add comment
-     *
-     * @param  CommentInfo $comment
-     * @return self
-     */
-    public function addComment(CommentInfo $comment): self
-    {
-        $this->comments[] = $comment;
-        return $this;
     }
 
     /**

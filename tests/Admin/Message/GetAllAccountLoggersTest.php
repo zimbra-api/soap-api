@@ -29,10 +29,8 @@ class GetAllAccountLoggersTest extends ZimbraTestCase
         $response = new GetAllAccountLoggersResponse([$logger]);
         $this->assertSame([$logger], $response->getLoggers());
         $response = new GetAllAccountLoggersResponse();
-        $response->setLoggers([$logger])
-            ->addLogger($logger);
-        $this->assertSame([$logger, $logger], $response->getLoggers());
         $response->setLoggers([$logger]);
+        $this->assertSame([$logger], $response->getLoggers());
 
         $body = new GetAllAccountLoggersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

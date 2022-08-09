@@ -48,12 +48,9 @@ class GetAllRightsTest extends ZimbraTestCase
 
         $response = new GetAllRightsResponse([$right]);
         $this->assertSame([$right], $response->getRights());
-
         $response = new GetAllRightsResponse();
-        $response->setRights([$right])
-            ->addRight($right);
-        $this->assertSame([$right, $right], $response->getRights());
         $response->setRights([$right]);
+        $this->assertSame([$right], $response->getRights());
 
         $body = new GetAllRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

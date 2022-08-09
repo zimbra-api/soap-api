@@ -85,18 +85,6 @@ class GetServiceStatusResponse extends SoapResponse
     }
 
     /**
-     * Add status
-     *
-     * @param  ServiceStatus $status
-     * @return self
-     */
-    public function addServiceStatus(ServiceStatus $status): self
-    {
-        $this->serviceStatuses[] = $status;
-        return $this;
-    }
-
-    /**
      * Set status
      *
      * @param  array $statuses

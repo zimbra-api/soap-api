@@ -60,18 +60,6 @@ class GetCalendarItemSummariesResponse extends SoapResponse
     }
 
     /**
-     * Add appt entry
-     *
-     * @param  LegacyAppointmentData $entry
-     * @return self
-     */
-    public function addApptEntry(LegacyAppointmentData $entry): self
-    {
-        $this->apptEntries[] = $entry;
-        return $this;
-    }
-
-    /**
      * Set apptEntries
      *
      * @param  array $entries
@@ -91,18 +79,6 @@ class GetCalendarItemSummariesResponse extends SoapResponse
     public function getApptEntries(): array
     {
         return $this->apptEntries;
-    }
-
-    /**
-     * Add task entry
-     *
-     * @param  LegacyTaskData $entry
-     * @return self
-     */
-    public function addTaskEntry(LegacyTaskData $entry): self
-    {
-        $this->taskEntries[] = $entry;
-        return $this;
     }
 
     /**

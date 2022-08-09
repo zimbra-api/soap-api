@@ -50,7 +50,6 @@ class GetAccountInfoTest extends ZimbraTestCase
         $response = new GetAccountInfoResponse();
         $response->setName($name)
             ->setAttrs([$attr])
-            ->addAttr($attr)
             ->setSoapURL($soapURL)
             ->setPublicURL($publicURL)
             ->setChangePasswordURL($changePasswordURL)
@@ -58,14 +57,13 @@ class GetAccountInfoTest extends ZimbraTestCase
             ->setAdminURL($adminURL)
             ->setBoshURL($boshURL);
         $this->assertSame($name, $response->getName());
-        $this->assertSame([$attr, $attr], $response->getAttrs());
+        $this->assertSame([$attr], $response->getAttrs());
         $this->assertSame($soapURL, $response->getSoapURL());
         $this->assertSame($publicURL, $response->getPublicURL());
         $this->assertSame($changePasswordURL, $response->getChangePasswordURL());
         $this->assertSame($communityURL, $response->getCommunityURL());
         $this->assertSame($adminURL, $response->getAdminURL());
         $this->assertSame($boshURL, $response->getBoshURL());
-        $response->setAttrs([$attr]);
 
         $body = new GetAccountInfoBody($request, $response);
         $this->assertSame($request, $body->getRequest());

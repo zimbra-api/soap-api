@@ -34,10 +34,8 @@ class PurgeMessagesTest extends ZimbraTestCase
         $response = new PurgeMessagesResponse([$mbox]);
         $this->assertSame([$mbox], $response->getMailboxes());
         $response = new PurgeMessagesResponse();
-        $response->setMailboxes([$mbox])
-            ->addMailbox($mbox);
-        $this->assertSame([$mbox, $mbox], $response->getMailboxes());
         $response->setMailboxes([$mbox]);
+        $this->assertSame([$mbox], $response->getMailboxes());
 
         $body = new PurgeMessagesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

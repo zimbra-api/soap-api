@@ -35,11 +35,9 @@ class GetZimletStatusTest extends ZimbraTestCase
         $this->assertSame([$cos], $response->getCoses());
         $response = new GetZimletStatusResponse();
         $response->setZimlets($zimlets)
-            ->setCoses([$cos])
-            ->addCos($cos);
+            ->setCoses([$cos]);
         $this->assertSame($zimlets, $response->getZimlets());
-        $this->assertSame([$cos, $cos], $response->getCoses());
-        $response->setCoses([$cos]);
+        $this->assertSame([$cos], $response->getCoses());
 
         $body = new GetZimletStatusBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -46,18 +46,6 @@ class GetAllActiveServersResponse extends SoapResponse
     }
 
     /**
-     * Add a server information
-     *
-     * @param  ServerInfo $server
-     * @return self
-     */
-    public function addServer(ServerInfo $server): self
-    {
-        $this->serverList[] = $server;
-        return $this;
-    }
-
-    /**
      * Set server informations
      *
      * @param  array $list

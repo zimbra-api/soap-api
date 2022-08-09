@@ -46,18 +46,6 @@ class GetSignaturesResponse extends SoapResponse
     }
 
     /**
-     * Add signature
-     *
-     * @param  Signature $signature
-     * @return self
-     */
-    public function addSignature(Signature $signature): self
-    {
-        $this->signatures[] = $signature;
-        return $this;
-    }
-
-    /**
      * Set signatures
      *
      * @param  array $signatures

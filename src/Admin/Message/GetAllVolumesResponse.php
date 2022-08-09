@@ -46,18 +46,6 @@ class GetAllVolumesResponse extends SoapResponse
     }
 
     /**
-     * Add a volume
-     *
-     * @param  VolumeInfo $volume
-     * @return self
-     */
-    public function addVolume(VolumeInfo $volume): self
-    {
-        $this->volumes[] = $volume;
-        return $this;
-    }
-
-    /**
      * Set volumes
      *
      * @param  array $volumes

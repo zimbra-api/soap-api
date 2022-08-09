@@ -45,11 +45,9 @@ class CheckSpellingTest extends ZimbraTestCase
         $this->assertSame([$missed], $response->getMisspelledWords());
         $response = new CheckSpellingResponse();
         $response->setMisspelledWords([$missed])
-            ->addMisspelledWord($missed)
             ->setAvailable(TRUE);
         $this->assertTrue($response->isAvailable());
-        $this->assertSame([$missed, $missed], $response->getMisspelledWords());
-        $response->setMisspelledWords([$missed]);
+        $this->assertSame([$missed], $response->getMisspelledWords());
 
         $body = new CheckSpellingBody($request, $response);
         $this->assertSame($request, $body->getRequest());

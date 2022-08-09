@@ -31,10 +31,8 @@ class GetAllXMPPComponentsTest extends ZimbraTestCase
         $response = new GetAllXMPPComponentsResponse([$xmpp]);
         $this->assertSame([$xmpp], $response->getComponents());
         $response = new GetAllXMPPComponentsResponse();
-        $response->setComponents([$xmpp])
-            ->addComponent($xmpp);
-        $this->assertSame([$xmpp, $xmpp], $response->getComponents());
         $response->setComponents([$xmpp]);
+        $this->assertSame([$xmpp], $response->getComponents());
 
         $body = new GetAllXMPPComponentsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

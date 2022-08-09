@@ -46,18 +46,6 @@ class GetAdminConsoleUICompResponse extends SoapResponse
     }
 
     /**
-     * Add a value
-     *
-     * @param  InheritedFlaggedValue $value
-     * @return self
-     */
-    public function addValue(InheritedFlaggedValue $value): self
-    {
-        $this->values[] = $value;
-        return $this;
-    }
-
-    /**
      * Set values
      *
      * @param array $values

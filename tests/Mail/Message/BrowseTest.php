@@ -42,10 +42,8 @@ class BrowseTest extends ZimbraTestCase
         $response = new BrowseResponse([$browseData]);
         $this->assertSame([$browseData], $response->getBrowseDatas());
         $response = new BrowseResponse();
-        $response->setBrowseDatas([$browseData])
-            ->addBrowseData($browseData);
-        $this->assertSame([$browseData, $browseData], $response->getBrowseDatas());
         $response->setBrowseDatas([$browseData]);
+        $this->assertSame([$browseData], $response->getBrowseDatas());
 
         $body = new BrowseBody($request, $response);
         $this->assertSame($request, $body->getRequest());

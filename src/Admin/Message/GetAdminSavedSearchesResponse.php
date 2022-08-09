@@ -46,18 +46,6 @@ class GetAdminSavedSearchesResponse extends SoapResponse
     }
 
     /**
-     * Add a saved search
-     *
-     * @param  NamedValue $search
-     * @return self
-     */
-    public function addSearch(NamedValue $search): self
-    {
-        $this->searches[] = $search;
-        return $this;
-    }
-
-    /**
      * Set saved searches
      *
      * @param  array $searches

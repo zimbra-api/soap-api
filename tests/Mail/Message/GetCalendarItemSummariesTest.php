@@ -119,12 +119,9 @@ class GetCalendarItemSummariesTest extends ZimbraTestCase
         $this->assertSame([$task], $response->getTaskEntries());
         $response = new GetCalendarItemSummariesResponse();
         $response->setApptEntries([$appt])
-            ->addApptEntry($appt)
-            ->setTaskEntries([$task])
-            ->addTaskEntry($task);
-        $this->assertSame([$appt, $appt], $response->getApptEntries());
-        $this->assertSame([$task, $task], $response->getTaskEntries());
-        $response = new GetCalendarItemSummariesResponse([$appt], [$task]);
+            ->setTaskEntries([$task]);
+        $this->assertSame([$appt], $response->getApptEntries());
+        $this->assertSame([$task], $response->getTaskEntries());
 
         $body = new GetCalendarItemSummariesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

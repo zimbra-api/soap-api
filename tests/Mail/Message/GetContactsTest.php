@@ -119,10 +119,8 @@ class GetContactsTest extends ZimbraTestCase
         $response = new GetContactsResponse([$contact]);
         $this->assertSame([$contact], $response->getContacts());
         $response = new GetContactsResponse();
-        $response->setContacts([$contact])
-            ->addContact($contact);
-        $this->assertSame([$contact, $contact], $response->getContacts());
         $response->setContacts([$contact]);
+        $this->assertSame([$contact], $response->getContacts());
 
         $body = new GetContactsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

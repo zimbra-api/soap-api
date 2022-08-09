@@ -33,12 +33,9 @@ class CountAccountTest extends ZimbraTestCase
         $cos = new CosCountInfo($name, $id, $count);
         $response = new CountAccountResponse([$cos]);
         $this->assertSame([$cos], $response->getCos());
-
         $response = new CountAccountResponse();
-        $response->setCos([$cos])
-            ->addCos($cos);
-        $this->assertSame([$cos, $cos], $response->getCos());
         $response->setCos([$cos]);
+        $this->assertSame([$cos], $response->getCos());
 
         $body = new CountAccountBody($request, $response);
         $this->assertSame($request, $body->getRequest());

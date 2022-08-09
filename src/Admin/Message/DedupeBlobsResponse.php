@@ -191,18 +191,6 @@ class DedupeBlobsResponse extends SoapResponse
     }
 
     /**
-     * Add a progress
-     *
-     * @param  VolumeIdAndProgress $progress
-     * @return self
-     */
-    public function addVolumeBlobsProgress(VolumeIdAndProgress $progress): self
-    {
-        $this->volumeBlobsProgress[] = $progress;
-        return $this;
-    }
-
-    /**
      * Get setBlobDigestsProgress
      *
      * @return array
@@ -221,18 +209,6 @@ class DedupeBlobsResponse extends SoapResponse
     public function setBlobDigestsProgress(array $progress): self
     {
         $this->blobDigestsProgress = array_filter($progress, static fn ($progress) => $progress instanceof VolumeIdAndProgress);
-        return $this;
-    }
-
-    /**
-     * Add a progress
-     *
-     * @param  VolumeIdAndProgress $progress
-     * @return self
-     */
-    public function addBlobDigestsProgress(VolumeIdAndProgress $progress): self
-    {
-        $this->blobDigestsProgress[] = $progress;
         return $this;
     }
 }

@@ -36,8 +36,8 @@ class GetShareNotificationsTest extends ZimbraTestCase
         $response = new GetShareNotificationsResponse([$share]);
         $this->assertSame([$share], $response->getShares());
         $response = new GetShareNotificationsResponse();
-        $response->setShares([$share])->addShare($share);
-        $this->assertSame([$share, $share], $response->getShares());
+        $response->setShares([$share]);
+        $this->assertSame([$share], $response->getShares());
 
         $request = new GetShareNotificationsRequest();
         $response = new GetShareNotificationsResponse([$share]);

@@ -46,18 +46,6 @@ class GetAllRightsResponse extends SoapResponse
     }
 
     /**
-     * Add a right information
-     *
-     * @param  RightInfo $right
-     * @return self
-     */
-    public function addRight(RightInfo $right): self
-    {
-        $this->rights[] = $right;
-        return $this;
-    }
-
-    /**
      * Set right informations
      *
      * @param  array $rights

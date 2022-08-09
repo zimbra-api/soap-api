@@ -45,10 +45,8 @@ class GetAllCalendarResourcesTest extends ZimbraTestCase
         $response = new GetAllCalendarResourcesResponse([$resource]);
         $this->assertSame([$resource], $response->getCalendarResourceList());
         $response = new GetAllCalendarResourcesResponse();
-        $response->setCalendarResourceList([$resource])
-            ->addCalendarResource($resource);
-        $this->assertSame([$resource, $resource], $response->getCalendarResourceList());
         $response->setCalendarResourceList([$resource]);
+        $this->assertSame([$resource], $response->getCalendarResourceList());
 
         $body = new GetAllCalendarResourcesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

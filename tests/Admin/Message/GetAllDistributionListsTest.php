@@ -46,10 +46,8 @@ class GetAllDistributionListsTest extends ZimbraTestCase
         $response = new GetAllDistributionListsResponse([$dl]);
         $this->assertSame([$dl], $response->getDls());
         $response = new GetAllDistributionListsResponse();
-        $response->setDls([$dl])
-            ->addDl($dl);
-        $this->assertSame([$dl, $dl], $response->getDls());
         $response->setDls([$dl]);
+        $this->assertSame([$dl], $response->getDls());
 
         $body = new GetAllDistributionListsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

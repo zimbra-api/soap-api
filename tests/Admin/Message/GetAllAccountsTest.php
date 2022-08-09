@@ -45,10 +45,8 @@ class GetAllAccountsTest extends ZimbraTestCase
         $response = new GetAllAccountsResponse([$account]);
         $this->assertSame([$account], $response->getAccountList());
         $response = new GetAllAccountsResponse();
-        $response->setAccountList([$account])
-            ->addAccount($account);
-        $this->assertSame([$account, $account], $response->getAccountList());
         $response->setAccountList([$account]);
+        $this->assertSame([$account], $response->getAccountList());
 
         $body = new GetAllAccountsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

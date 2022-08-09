@@ -46,18 +46,6 @@ class PurgeMessagesResponse extends SoapResponse
     }
 
     /**
-     * Add mailboxes
-     *
-     * @param  MailboxWithMailboxId $mbox
-     * @return self
-     */
-    public function addMailbox(MailboxWithMailboxId $mbox): self
-    {
-        $this->mailboxes[] = $mbox;
-        return $this;
-    }
-
-    /**
      * Set mailboxes
      *
      * @param  array $mailboxes

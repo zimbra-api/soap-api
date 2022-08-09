@@ -23,8 +23,7 @@ class ListIMAPSubscriptionsTest extends ZimbraTestCase
         $response = new ListIMAPSubscriptionsResponse([$subscription1, $subscription2]);
         $this->assertSame([$subscription1, $subscription2], $response->getSubscriptions());
         $response = new ListIMAPSubscriptionsResponse();
-        $response->setSubscriptions([$subscription1])
-            ->addSubscription($subscription2);
+        $response->setSubscriptions([$subscription1, $subscription2]);
         $this->assertSame([$subscription1, $subscription2], $response->getSubscriptions());
 
         $body = new ListIMAPSubscriptionsBody($request, $response);

@@ -63,10 +63,8 @@ class GetShareInfoTest extends ZimbraTestCase
         $response = new GetShareInfoResponse([$share]);
         $this->assertSame([$share], $response->getShares());
         $response = new GetShareInfoResponse();
-        $response->setShares([$share])
-            ->addShare($share);
-        $this->assertSame([$share, $share], $response->getShares());
         $response->setShares([$share]);
+        $this->assertSame([$share], $response->getShares());
 
         $body = new GetShareInfoBody($request, $response);
         $this->assertSame($request, $body->getRequest());

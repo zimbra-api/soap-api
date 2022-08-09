@@ -118,18 +118,6 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     }
 
     /**
-     * Add entry
-     *
-     * @param  AutoProvDirectoryEntry $entry
-     * @return self
-     */
-    public function addEntry(AutoProvDirectoryEntry $entry): self
-    {
-        $this->entries[] = $entry;
-        return $this;
-    }
-
-    /**
      * Set entries
      *
      * @param  array $entries

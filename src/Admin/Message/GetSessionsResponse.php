@@ -118,18 +118,6 @@ class GetSessionsResponse extends SoapResponse
     }
 
     /**
-     * Add session information
-     *
-     * @param  SimpleSessionInfo $session
-     * @return self
-     */
-    public function addSession(SimpleSessionInfo $session): self
-    {
-        $this->sessions[] = $session;
-        return $this;
-    }
-
-    /**
      * Set session information
      *
      * @param array $sessions

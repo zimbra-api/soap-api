@@ -140,8 +140,8 @@ class GetDataSourcesTest extends ZimbraTestCase
             $rss,
             $gal,
             $cal,
-        ])
-        ->addDataSource($unknown);
+            $unknown,
+        ]);
         $this->assertEquals([
             $imap,
             $pop3,

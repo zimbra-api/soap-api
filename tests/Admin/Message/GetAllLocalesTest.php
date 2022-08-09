@@ -27,10 +27,8 @@ class GetAllLocalesTest extends ZimbraTestCase
         $response = new GetAllLocalesResponse([$locale]);
         $this->assertSame([$locale], $response->getLocales());
         $response = new GetAllLocalesResponse();
-        $response->setLocales([$locale])
-            ->addLocale($locale);
-        $this->assertSame([$locale, $locale], $response->getLocales());
         $response->setLocales([$locale]);
+        $this->assertSame([$locale], $response->getLocales());
 
         $body = new GetAllLocalesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

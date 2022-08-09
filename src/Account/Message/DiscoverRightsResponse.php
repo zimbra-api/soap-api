@@ -45,18 +45,6 @@ class DiscoverRightsResponse extends SoapResponse
     }
 
     /**
-     * Add discoveredRight
-     *
-     * @param  DiscoverRightsInfo $discoveredRight
-     * @return self
-     */
-    public function addDiscoveredRight(DiscoverRightsInfo $discoveredRight): self
-    {
-        $this->discoveredRights[] = $discoveredRight;
-        return $this;
-    }
-
-    /**
      * Set discoveredRights
      *
      * @param  array $rights

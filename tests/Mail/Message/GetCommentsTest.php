@@ -67,12 +67,9 @@ class GetCommentsTest extends ZimbraTestCase
         $this->assertSame([$comment], $response->getComments());
         $response = new GetCommentsResponse();
         $response->setUsers([$user])
-            ->addUser($user)
-            ->setComments([$comment])
-            ->addComment($comment);
-        $this->assertSame([$user, $user], $response->getUsers());
-        $this->assertSame([$comment, $comment], $response->getComments());
-        $response = new GetCommentsResponse([$user], [$comment]);
+            ->setComments([$comment]);
+        $this->assertSame([$user], $response->getUsers());
+        $this->assertSame([$comment], $response->getComments());
 
         $body = new GetCommentsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

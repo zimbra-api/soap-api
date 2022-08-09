@@ -40,10 +40,8 @@ class RevokePermissionTest extends ZimbraTestCase
         $response = new RevokePermissionResponse([$ace]);
         $this->assertSame([$ace], $response->getAces());
         $response = new RevokePermissionResponse();
-        $response->setAces([$ace])
-            ->addAce($ace);
-        $this->assertSame([$ace, $ace], $response->getAces());
         $response->setAces([$ace]);
+        $this->assertSame([$ace], $response->getAces());
 
         $body = new RevokePermissionBody($request, $response);
         $this->assertSame($request, $body->getRequest());

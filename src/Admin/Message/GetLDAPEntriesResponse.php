@@ -46,18 +46,6 @@ class GetLDAPEntriesResponse extends SoapResponse
     }
 
     /**
-     * Add a LDAPEntry information
-     *
-     * @param  LDAPEntryInfo $LDAPentry
-     * @return self
-     */
-    public function addLDAPentry(LDAPEntryInfo $LDAPentry): self
-    {
-        $this->LDAPEntries[] = $LDAPentry;
-        return $this;
-    }
-
-    /**
      * Set LDAPEntry informations
      *
      * @param  array $LDAPEntries

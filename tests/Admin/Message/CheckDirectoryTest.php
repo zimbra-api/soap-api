@@ -34,10 +34,8 @@ class CheckDirectoryTest extends ZimbraTestCase
         );
         $this->assertSame([$dirInfo], $response->getPaths());
         $response = new CheckDirectoryResponse();
-        $response->setPaths([$dirInfo])
-            ->addPath($dirInfo);
-        $this->assertSame([$dirInfo, $dirInfo], $response->getPaths());
         $response->setPaths([$dirInfo]);
+        $this->assertSame([$dirInfo], $response->getPaths());
 
         $body = new CheckDirectoryBody($request, $response);
         $this->assertSame($request, $body->getRequest());

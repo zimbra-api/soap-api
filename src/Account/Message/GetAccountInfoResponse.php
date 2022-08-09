@@ -178,18 +178,6 @@ class GetAccountInfoResponse extends SoapResponse
     }
 
     /**
-     * Add attr
-     *
-     * @param  NamedValue $attr
-     * @return self
-     */
-    public function addAttr(NamedValue $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attrs
      *
      * @param  array $attrs

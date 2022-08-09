@@ -148,18 +148,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     }
 
     /**
-     * Add error
-     *
-     * @param  IdAndType $error
-     * @return self
-     */
-    public function addError(IdAndType $error): self
-    {
-        $this->errors[] = $error;
-        return $this;
-    }
-
-    /**
      * Set errors
      *
      * @param  array $errors

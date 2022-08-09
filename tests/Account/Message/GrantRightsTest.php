@@ -38,10 +38,8 @@ class GrantRightsTest extends ZimbraTestCase
         $response = new GrantRightsResponse([$ace]);
         $this->assertSame([$ace], $response->getAces());
         $response = new GrantRightsResponse();
-        $response->setAces([$ace])
-            ->addAce($ace);
-        $this->assertSame([$ace, $ace], $response->getAces());
         $response->setAces([$ace]);
+        $this->assertSame([$ace], $response->getAces());
 
         $body = new GrantRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

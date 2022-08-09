@@ -46,18 +46,6 @@ class GetSearchFolderResponse extends SoapResponse
     }
 
     /**
-     * Add search folder
-     *
-     * @param  SearchFolder $folder
-     * @return self
-     */
-    public function addSearchFolder(SearchFolder $folder): self
-    {
-        $this->searchFolders[] = $folder;
-        return $this;
-    }
-
-    /**
      * Set search folders
      *
      * @param  array $folders

@@ -47,10 +47,8 @@ class CheckRightsTest extends ZimbraTestCase
         $this->assertSame([$targetInfo], $response->getTargets());
 
         $response = new CheckRightsResponse();
-        $response->setTargets([$targetInfo])
-            ->addTarget($targetInfo);
-        $this->assertSame([$targetInfo, $targetInfo], $response->getTargets());
         $response->setTargets([$targetInfo]);
+        $this->assertSame([$targetInfo], $response->getTargets());
 
         $body = new CheckRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

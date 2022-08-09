@@ -111,14 +111,12 @@ class WaitSetResponseTest extends ZimbraTestCase
             ->setCanceled(TRUE)
             ->setSeqNo($seqNo)
             ->setSignalledAccounts([$account])
-            ->addSignalledAccount($account)
-            ->setErrors([$error])
-            ->addError($error);
+            ->setErrors([$error]);
         $this->assertSame($waitSetId, $response->getWaitSetId());
         $this->assertTrue($response->getCanceled());
         $this->assertSame($seqNo, $response->getSeqNo());
-        $this->assertSame([$account, $account], $response->getSignalledAccounts());
-        $this->assertSame([$error, $error], $response->getErrors());
+        $this->assertSame([$account], $response->getSignalledAccounts());
+        $this->assertSame([$error], $response->getErrors());
 
         $request = new WaitSetRequest(
             $waitSetId, $lastKnownSeqNo, TRUE, $defaultInterests, $timeout, TRUE, [$add], [$update], [$remove]

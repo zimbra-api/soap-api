@@ -46,18 +46,6 @@ class GetAllDistributionListsResponse extends SoapResponse
     }
 
     /**
-     * Add dl
-     *
-     * @param  DistributionListInfo $dl
-     * @return self
-     */
-    public function addDl(DistributionListInfo $dl): self
-    {
-        $this->dls[] = $dl;
-        return $this;
-    }
-
-    /**
      * Set dls
      *
      * @param  array $dls

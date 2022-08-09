@@ -141,18 +141,6 @@ class GetAccountInfoResponse extends SoapResponse
     }
 
     /**
-     * Add an attribute
-     *
-     * @param  Attr $attr
-     * @return self
-     */
-    public function addAttr(Attr $attr): self
-    {
-        $this->attrList[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attributes
      *
      * @param array $attrs
@@ -193,21 +181,6 @@ class GetAccountInfoResponse extends SoapResponse
     public function setCos(CosInfo $cos): self
     {
         $this->cos = $cos;
-        return $this;
-    }
-
-    /**
-     * Add a soap URL list
-     *
-     * @param  string $soapUrl
-     * @return self
-     */
-    public function addSoapURL($soapUrl): self
-    {
-        $soapUrl = trim($soapUrl);
-        if (!empty($soapUrl) && !in_array($soapUrl, $this->soapURLList)) {
-            $this->soapURLList[] = $soapUrl;
-        }
         return $this;
     }
 

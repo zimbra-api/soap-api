@@ -66,18 +66,6 @@ class GetDataSourceUsageResponse extends SoapResponse
     }
 
     /**
-     * Add usage
-     *
-     * @param  DataSourceUsage $usage
-     * @return self
-     */
-    public function addDataSourceUsage(DataSourceUsage $usage): self
-    {
-        $this->usages[] = $usage;
-        return $this;
-    }
-
-    /**
      * Set usages
      *
      * @param  array $usages

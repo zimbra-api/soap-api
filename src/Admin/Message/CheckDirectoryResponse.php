@@ -46,18 +46,6 @@ class CheckDirectoryResponse extends SoapResponse
     }
 
     /**
-     * Add a directory
-     *
-     * @param  DirPathInfo $path
-     * @return self
-     */
-    public function addPath(DirPathInfo $path): self
-    {
-        $this->paths[] = $path;
-        return $this;
-    }
-
-    /**
      * Set directory array
      *
      * @param  array $paths

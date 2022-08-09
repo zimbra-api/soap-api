@@ -117,18 +117,6 @@ class GetQuotaUsageResponse extends SoapResponse
     }
 
     /**
-     * Add account quota information
-     *
-     * @param  AccountQuotaInfo $quota
-     * @return self
-     */
-    public function addAccountQuota(AccountQuotaInfo $quota): self
-    {
-        $this->accountQuotas[] = $quota;
-        return $this;
-    }
-
-    /**
      * Set account quota information
      *
      * @param array $quotas

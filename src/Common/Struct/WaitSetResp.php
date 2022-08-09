@@ -25,9 +25,7 @@ interface WaitSetResp
     function setCanceled(bool $canceled): self;
     function setSeqNo(string $seqNo): self;
     function setSignalledAccounts(array $signalledAccounts): self;
-    function addSignalledAccount(AccountWithModifications $signalledAccount): self;
     function setErrors(array $errors): self;
-    function addError(IdAndType $error): self;
     function setWaitSetId(string $waitSetId): self;
 
     function getWaitSetId(): ?string;

@@ -33,10 +33,8 @@ class GetPrefsTest extends ZimbraTestCase
         $response = new GetPrefsResponse([$pref]);
         $this->assertSame([$pref], $response->getPrefs());
         $response = new GetPrefsResponse();
-        $response->setPrefs([$pref])
-            ->addPref($pref);
-        $this->assertSame([$pref, $pref], $response->getPrefs());
         $response->setPrefs([$pref]);
+        $this->assertSame([$pref], $response->getPrefs());
 
         $body = new GetPrefsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

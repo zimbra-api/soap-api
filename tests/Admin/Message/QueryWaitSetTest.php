@@ -70,10 +70,8 @@ class QueryWaitSetTest extends ZimbraTestCase
         $response = new QueryWaitSetResponse([$waitSet]);
         $this->assertSame([$waitSet], $response->getWaitsets());
         $response = new QueryWaitSetResponse();
-        $response->setWaitsets([$waitSet])
-            ->addWaitset($waitSet);
-        $this->assertSame([$waitSet, $waitSet], $response->getWaitsets());
         $response->setWaitsets([$waitSet]);
+        $this->assertSame([$waitSet], $response->getWaitsets());
 
         $body = new QueryWaitSetBody($request, $response);
         $this->assertSame($request, $body->getRequest());

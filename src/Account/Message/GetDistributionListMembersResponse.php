@@ -159,33 +159,6 @@ class GetDistributionListMembersResponse extends SoapResponse
     }
 
     /**
-     * add dlMember
-     *
-     * @param  string $member
-     * @return self
-     */
-    public function addDlMember(string $member): self
-    {
-        $dlMember = trim($member);
-        if (!empty($dlMember) && !in_array($dlMember, $this->dlMembers)) {
-            $this->dlMembers[] = $dlMember;
-        }
-        return $this;
-    }
-
-    /**
-     * Add habGroupMember
-     *
-     * @param  HABGroupMember $habGroupMember
-     * @return self
-     */
-    public function addHABGroupMember(HABGroupMember $habGroupMember): self
-    {
-        $this->habGroupMembers[] = $habGroupMember;
-        return $this;
-    }
-
-    /**
      * Set habGroupMembers
      *
      * @param  array $members

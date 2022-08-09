@@ -43,10 +43,8 @@ class IMAPCopyTest extends ZimbraTestCase
         $response = new IMAPCopyResponse([$item]);
         $this->assertSame([$item], $response->getItems());
         $response = new IMAPCopyResponse();
-        $response->setItems([$item])
-            ->addItem($item);
-        $this->assertSame([$item, $item], $response->getItems());
-        $response = new IMAPCopyResponse([$item]);
+        $response->setItems([$item]);
+        $this->assertSame([$item], $response->getItems());
 
         $body = new IMAPCopyBody($request, $response);
         $this->assertSame($request, $body->getRequest());

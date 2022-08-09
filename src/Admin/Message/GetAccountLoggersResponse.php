@@ -46,18 +46,6 @@ class GetAccountLoggersResponse extends SoapResponse
     }
 
     /**
-     * Add a logger
-     *
-     * @param  LoggerInfo $logger
-     * @return self
-     */
-    public function addLogger(LoggerInfo $logger): self
-    {
-        $this->loggers[] = $logger;
-        return $this;
-    }
-
-    /**
      * Set loggers
      *
      * @param array $loggers

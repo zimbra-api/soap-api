@@ -45,10 +45,8 @@ class DeployZimletTest extends ZimbraTestCase
         $response = new DeployZimletResponse([$progress]);
         $this->assertSame([$progress], $response->getProgresses());
         $response = new DeployZimletResponse();
-        $response->setProgresses([$progress])
-            ->addProgress($progress);
-        $this->assertSame([$progress, $progress], $response->getProgresses());
         $response->setProgresses([$progress]);
+        $this->assertSame([$progress], $response->getProgresses());
 
         $body = new DeployZimletBody($request, $response);
         $this->assertSame($request, $body->getRequest());

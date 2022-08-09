@@ -50,10 +50,8 @@ class GetAccountDistributionListsTest extends ZimbraTestCase
         $response = new GetAccountDistributionListsResponse([$dl]);
         $this->assertSame([$dl], $response->getDlList());
         $response = new GetAccountDistributionListsResponse();
-        $response->setDlList([$dl])
-            ->addDl($dl);
-        $this->assertSame([$dl, $dl], $response->getDlList());
         $response->setDlList([$dl]);
+        $this->assertSame([$dl], $response->getDlList());
 
         $body = new GetAccountDistributionListsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

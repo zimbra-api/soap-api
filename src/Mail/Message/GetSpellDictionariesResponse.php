@@ -45,21 +45,6 @@ class GetSpellDictionariesResponse extends SoapResponse
     }
 
     /**
-     * Add dictionary
-     *
-     * @param  string $dictionary
-     * @return self
-     */
-    public function addDictionary(string $dictionary): self
-    {
-        $dictionary = trim($dictionary);
-        if (!empty($dictionary) && !in_array($dictionary, $this->dictionaries)) {
-            $this->dictionaries[] = $dictionary;
-        }
-        return $this;
-    }
-
-    /**
      * Set dictionaries
      *
      * @param  array $dictionaries

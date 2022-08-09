@@ -46,18 +46,6 @@ class RevokePermissionResponse extends SoapResponse
     }
 
     /**
-     * Add a ace
-     *
-     * @param  AccountACEinfo $ace
-     * @return self
-     */
-    public function addAce(AccountACEinfo $ace): self
-    {
-        $this->aces[] = $ace;
-        return $this;
-    }
-
-    /**
      * Set aces
      *
      * @param  array $aces

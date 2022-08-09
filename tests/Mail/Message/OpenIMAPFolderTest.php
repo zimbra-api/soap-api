@@ -49,13 +49,11 @@ class OpenIMAPFolderTest extends ZimbraTestCase
         $this->assertSame($cursor, $response->getCursor());
         $response = new OpenIMAPFolderResponse();
         $response->setMessages([$message])
-            ->addMessage($message)
             ->setHasMore(TRUE)
             ->setCursor($cursor);
-        $this->assertSame([$message, $message], $response->getMessages());
+        $this->assertSame([$message], $response->getMessages());
         $this->assertTrue($response->getHasMore());
         $this->assertSame($cursor, $response->getCursor());
-        $response->setMessages([$message]);
 
         $body = new OpenIMAPFolderBody($request, $response);
         $this->assertSame($request, $body->getRequest());

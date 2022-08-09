@@ -232,18 +232,6 @@ class SearchConvResponse extends SoapResponse
     }
 
     /**
-     * Add message
-     *
-     * @param  MessageHitInfo $message
-     * @return self
-     */
-    public function addMessage(MessageHitInfo $message): self
-    {
-        $this->messages[] = $message;
-        return $this;
-    }
-
-    /**
      * Set messages
      *
      * @param  array $messages

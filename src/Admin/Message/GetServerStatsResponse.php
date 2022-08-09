@@ -46,18 +46,6 @@ class GetServerStatsResponse extends SoapResponse
     }
 
     /**
-     * Add stat
-     *
-     * @param  Stat $stat
-     * @return self
-     */
-    public function addStat(Stat $stat): self
-    {
-        $this->stats[] = $stat;
-        return $this;
-    }
-
-    /**
      * Set statistics
      *
      * @param  array $stats

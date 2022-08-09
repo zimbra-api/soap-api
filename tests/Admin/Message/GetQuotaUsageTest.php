@@ -62,12 +62,10 @@ class GetQuotaUsageTest extends ZimbraTestCase
         $response = new GetQuotaUsageResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
-            ->setAccountQuotas([$account])
-            ->addAccountQuota($account);
+            ->setAccountQuotas([$account]);
         $this->assertTrue($response->isMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
-        $this->assertSame([$account, $account], $response->getAccountQuotas());
-        $response->setAccountQuotas([$account]);
+        $this->assertSame([$account], $response->getAccountQuotas());
 
         $body = new GetQuotaUsageBody($request, $response);
         $this->assertSame($request, $body->getRequest());

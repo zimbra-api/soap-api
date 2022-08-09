@@ -46,18 +46,6 @@ class DiffDocumentResponse extends SoapResponse
     }
 
     /**
-     * Add chunk
-     *
-     * @param  DispositionAndText $chunk
-     * @return self
-     */
-    public function addChunk(DispositionAndText $chunk): self
-    {
-        $this->chunks[] = $chunk;
-        return $this;
-    }
-
-    /**
      * Set chunks
      *
      * @param  array $chunks

@@ -46,18 +46,6 @@ class GetAllFreeBusyProvidersResponse extends SoapResponse
     }
 
     /**
-     * Add a provider
-     *
-     * @param  FreeBusyProviderInfo $provider
-     * @return self
-     */
-    public function addProvider(FreeBusyProviderInfo $provider): self
-    {
-        $this->providers[] = $provider;
-        return $this;
-    }
-
-    /**
      * Set providers
      *
      * @param  array $providers

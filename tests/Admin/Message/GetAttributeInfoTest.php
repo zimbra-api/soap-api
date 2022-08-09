@@ -37,10 +37,8 @@ class GetAttributeInfoTest extends ZimbraTestCase
         $response = new GetAttributeInfoResponse([$attr]);
         $this->assertSame([$attr], $response->getAttrs());
         $response = new GetAttributeInfoResponse();
-        $response->setAttrs([$attr])
-            ->addAttr($attr);
-        $this->assertSame([$attr, $attr], $response->getAttrs());
         $response->setAttrs([$attr]);
+        $this->assertSame([$attr], $response->getAttrs());
 
         $body = new GetAttributeInfoBody($request, $response);
         $this->assertSame($request, $body->getRequest());

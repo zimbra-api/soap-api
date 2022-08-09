@@ -183,9 +183,7 @@ class AuthTest extends ZimbraTestCase
             ->setTrustLifetime($trustLifetime)
             ->setZmgProxy(TRUE)
             ->setPrefs([$pref])
-            ->addPref($pref)
             ->setAttrs([$attr])
-            ->addAttr($attr)
             ->setTwoFactorAuthRequired(TRUE)
             ->setTrustedDevicesEnabled(TRUE);
         $this->assertSame($token, $response->getAuthToken());
@@ -198,11 +196,10 @@ class AuthTest extends ZimbraTestCase
         $this->assertSame($trustedToken, $response->getTrustedToken());
         $this->assertSame($trustLifetime, $response->getTrustLifetime());
         $this->assertTrue($response->getZmgProxy());
-        $this->assertSame([$pref, $pref], $response->getPrefs());
-        $this->assertSame([$attr, $attr], $response->getAttrs());
+        $this->assertSame([$pref], $response->getPrefs());
+        $this->assertSame([$attr], $response->getAttrs());
         $this->assertTrue($response->getTwoFactorAuthRequired());
         $this->assertTrue($response->getTrustedDevicesEnabled());
-        $response->setPrefs([$pref])->setAttrs([$attr]);
 
         $body = new AuthBody($request, $response);
         $this->assertSame($request, $body->getRequest());

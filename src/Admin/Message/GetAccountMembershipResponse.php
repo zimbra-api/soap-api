@@ -45,18 +45,6 @@ class GetAccountMembershipResponse extends SoapResponse
     }
 
     /**
-     * Add a dl
-     *
-     * @param  DLInfo $dl
-     * @return self
-     */
-    public function addDl(DLInfo $dl): self
-    {
-        $this->dlList[] = $dl;
-        return $this;
-    }
-
-    /**
      * Set dlList
      *
      * @param array $dlList

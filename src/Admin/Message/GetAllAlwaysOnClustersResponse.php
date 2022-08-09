@@ -46,18 +46,6 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
     }
 
     /**
-     * Add alwaysOnCluster
-     *
-     * @param  AlwaysOnClusterInfo $alwaysOnCluster
-     * @return self
-     */
-    public function addAlwaysOnCluster(AlwaysOnClusterInfo $alwaysOnCluster): self
-    {
-        $this->clusterList[] = $alwaysOnCluster;
-        return $this;
-    }
-
-    /**
      * Set alwaysOnClusters
      *
      * @param  array $list

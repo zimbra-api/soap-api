@@ -75,21 +75,6 @@ class CheckDomainMXRecordResponse extends SoapResponse
     }
 
     /**
-     * Add a MX Record entry
-     *
-     * @param  string $entry
-     * @return self
-     */
-    public function addEntry($entry): self
-    {
-        $entry = trim($entry);
-        if (!empty($entry) && !in_array($entry, $this->entries)) {
-            $this->entries[] = $entry;
-        }
-        return $this;
-    }
-
-    /**
      * Get MX Record entries
      *
      * @return array

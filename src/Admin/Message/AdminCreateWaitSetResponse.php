@@ -152,18 +152,6 @@ class AdminCreateWaitSetResponse extends SoapResponse
     }
 
     /**
-     * Add error information
-     *
-     * @param  IdAndType $error
-     * @return self
-     */
-    public function addError(IdAndType $error): self
-    {
-        $this->errors[] = $error;
-        return $this;
-    }
-
-    /**
      * Set error information
      *
      * @param array $errors

@@ -102,10 +102,8 @@ class AdminWaitSetResponseTest extends ZimbraTestCase
         $response->setWaitSetId($waitSetId)
             ->setCanceled(TRUE)
             ->setSeqNo($seqNo)
-            ->setSignalledAccounts([$account])
-            ->addSignalledAccount($account)
-            ->setErrors([$error])
-            ->addError($error);
+            ->setSignalledAccounts([$account, $account])
+            ->setErrors([$error, $error]);
         $this->assertSame($waitSetId, $response->getWaitSetId());
         $this->assertTrue($response->getCanceled());
         $this->assertSame($seqNo, $response->getSeqNo());

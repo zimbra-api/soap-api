@@ -171,18 +171,6 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     }
 
     /**
-     * Add signalled account
-     *
-     * @param  AccountWithModifications $account
-     * @return self
-     */
-    public function addSignalledAccount(AccountWithModifications $account): self
-    {
-        $this->signalledAccounts[] = $account;
-        return $this;
-    }
-
-    /**
      * Set signalledAccounts
      *
      * @param  array $accounts
@@ -202,18 +190,6 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     public function getSignalledAccounts(): array
     {
         return $this->signalledAccounts;
-    }
-
-    /**
-     * Add error
-     *
-     * @param  IdAndType $error
-     * @return self
-     */
-    public function addError(IdAndType $error): self
-    {
-        $this->errors[] = $error;
-        return $this;
     }
 
     /**

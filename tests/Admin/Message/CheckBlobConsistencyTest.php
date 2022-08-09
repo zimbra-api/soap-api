@@ -93,10 +93,8 @@ class CheckBlobConsistencyTest extends ZimbraTestCase
         $response = new CheckBlobConsistencyResponse([$mbox]);
         $this->assertSame([$mbox], $response->getMailboxes());
         $response = new CheckBlobConsistencyResponse();
-        $response->setMailboxes([$mbox])
-            ->addMailbox($mbox);
-        $this->assertSame([$mbox, $mbox], $response->getMailboxes());
         $response->setMailboxes([$mbox]);
+        $this->assertSame([$mbox], $response->getMailboxes());
 
         $body = new CheckBlobConsistencyBody($request, $response);
         $this->assertSame($request, $body->getRequest());

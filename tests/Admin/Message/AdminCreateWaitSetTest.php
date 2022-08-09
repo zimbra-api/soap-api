@@ -63,13 +63,11 @@ class AdminCreateWaitSetTest extends ZimbraTestCase
         $response->setWaitSetId($waitSetId)
             ->setDefaultInterests($defaultInterests)
             ->setSequence($sequence)
-            ->setErrors([$error])
-            ->addError($error);
+            ->setErrors([$error]);
         $this->assertSame($waitSetId, $response->getWaitSetId());
         $this->assertSame($defaultInterests, $response->getDefaultInterests());
         $this->assertSame($sequence, $response->getSequence());
-        $this->assertSame([$error, $error], $response->getErrors());
-        $response->setErrors([$error]);
+        $this->assertSame([$error], $response->getErrors());
 
         $body = new AdminCreateWaitSetBody($request, $response);
         $this->assertSame($request, $body->getRequest());

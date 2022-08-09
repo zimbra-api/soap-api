@@ -48,18 +48,6 @@ class GetAdminExtensionZimletsResponse extends SoapResponse
     }
 
     /**
-     * Add a zimlet
-     *
-     * @param  AdminZimletInfo $zimlet
-     * @return self
-     */
-    public function addZimlet(AdminZimletInfo $zimlet): self
-    {
-        $this->zimlets[] = $zimlet;
-        return $this;
-    }
-
-    /**
      * Set zimlet sequence
      *
      * @param  array $zimlets

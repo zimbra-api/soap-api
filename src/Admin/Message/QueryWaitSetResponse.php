@@ -46,18 +46,6 @@ class QueryWaitSetResponse extends SoapResponse
     }
 
     /**
-     * Add waitset
-     *
-     * @param  WaitSetInfo $waitset
-     * @return self
-     */
-    public function addWaitset(WaitSetInfo $waitset): self
-    {
-        $this->waitsets[] = $waitset;
-        return $this;
-    }
-
-    /**
      * Set waitsets
      *
      * @param  array $waitsets

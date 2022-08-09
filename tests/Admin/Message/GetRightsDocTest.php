@@ -47,15 +47,11 @@ class GetRightsDocTest extends ZimbraTestCase
         $this->assertSame([$right], $response->getRights());
         $response = new GetRightsDocResponse();
         $response->setPackages([$package])
-            ->addPackage($package)
             ->setNotUsed([$notUsed])
-            ->setRights([$right])
-            ->addRight($right);
-        $this->assertSame([$package, $package], $response->getPackages());
-        $this->assertSame([$notUsed], $response->getNotUsed());
-        $this->assertSame([$right, $right], $response->getRights());
-        $response->setPackages([$package])
             ->setRights([$right]);
+        $this->assertSame([$package], $response->getPackages());
+        $this->assertSame([$notUsed], $response->getNotUsed());
+        $this->assertSame([$right], $response->getRights());
 
         $body = new GetRightsDocBody($request, $response);
         $this->assertSame($request, $body->getRequest());

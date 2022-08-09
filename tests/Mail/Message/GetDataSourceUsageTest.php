@@ -35,11 +35,10 @@ class GetDataSourceUsageTest extends ZimbraTestCase
         $response = new GetDataSourceUsageResponse();
         $response->setDataSourceQuota($dataSourceQuota)
             ->setDataSourceTotalQuota($totalQuota)
-            ->setUsages([$dsUsage])
-            ->addDataSourceUsage($dsUsage);
+            ->setUsages([$dsUsage]);
         $this->assertSame($dataSourceQuota, $response->getDataSourceQuota());
         $this->assertSame($totalQuota, $response->getDataSourceTotalQuota());
-        $this->assertSame([$dsUsage, $dsUsage], $response->getUsages());
+        $this->assertSame([$dsUsage], $response->getUsages());
         $response = new GetDataSourceUsageResponse($dataSourceQuota, $totalQuota, [$dsUsage]);
 
         $body = new GetDataSourceUsageBody($request, $response);

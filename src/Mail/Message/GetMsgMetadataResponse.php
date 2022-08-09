@@ -57,18 +57,6 @@ class GetMsgMetadataResponse extends SoapResponse
     }
 
     /**
-     * Add chat message
-     *
-     * @param  ChatSummary $msg
-     * @return self
-     */
-    public function addChatMessage(ChatSummary $msg): self
-    {
-        $this->chatMessages[] = $msg;
-        return $this;
-    }
-
-    /**
      * Set chatMessages
      *
      * @param  array $messages
@@ -88,18 +76,6 @@ class GetMsgMetadataResponse extends SoapResponse
     public function getChatMessages(): array
     {
         return $this->chatMessages;
-    }
-
-    /**
-     * Add msg message
-     *
-     * @param  MessageSummary $msg
-     * @return self
-     */
-    public function addMsgMessage(MessageSummary $msg): self
-    {
-        $this->msgMessages[] = $msg;
-        return $this;
     }
 
     /**

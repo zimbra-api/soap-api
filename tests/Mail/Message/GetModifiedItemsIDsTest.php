@@ -33,8 +33,7 @@ class GetModifiedItemsIDsTest extends ZimbraTestCase
         $response = new GetModifiedItemsIDsResponse([$id1, $id2]);
         $this->assertSame([$id1, $id2], $response->getIds());
         $response = new GetModifiedItemsIDsResponse();
-        $response->setIds([$id1])
-            ->addId($id2);
+        $response->setIds([$id1, $id2]);
         $this->assertSame([$id1, $id2], $response->getIds());
 
         $body = new GetModifiedItemsIDsBody($request, $response);

@@ -46,8 +46,7 @@ class AddAccountLoggerTest extends ZimbraTestCase
         $response = new AddAccountLoggerResponse([$logger1]);
         $this->assertSame([$logger1], $response->getLoggers());
         $response = new AddAccountLoggerResponse();
-        $response->setLoggers([$logger1])
-            ->addLogger($logger2);
+        $response->setLoggers([$logger1, $logger2]);
         $this->assertSame([$logger1, $logger2], $response->getLoggers());
         $response->setLoggers([$logger]);
 

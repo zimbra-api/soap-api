@@ -120,18 +120,6 @@ class CheckGalConfigResponse extends SoapResponse
     }
 
     /**
-     * Add a GAL contact
-     *
-     * @param  GalContactInfo $contact
-     * @return self
-     */
-    public function addGalContact(GalContactInfo $contact): self
-    {
-        $this->galContacts[] = $contact;
-        return $this;
-    }
-
-    /**
      * Set GAL contacts
      *
      * @param  array $contacts

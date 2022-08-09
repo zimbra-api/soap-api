@@ -29,10 +29,8 @@ class GetAllAlwaysOnClustersTest extends ZimbraTestCase
         $response = new GetAllAlwaysOnClustersResponse([$cluster]);
         $this->assertSame([$cluster], $response->getAlwaysOnClusterList());
         $response = new GetAllAlwaysOnClustersResponse();
-        $response->setAlwaysOnClusterList([$cluster])
-            ->addAlwaysOnCluster($cluster);
-        $this->assertSame([$cluster, $cluster], $response->getAlwaysOnClusterList());
         $response->setAlwaysOnClusterList([$cluster]);
+        $this->assertSame([$cluster], $response->getAlwaysOnClusterList());
 
         $body = new GetAllAlwaysOnClustersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

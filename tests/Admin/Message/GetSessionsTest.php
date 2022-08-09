@@ -56,15 +56,13 @@ class GetSessionsTest extends ZimbraTestCase
         $this->assertFalse($response->getMore());
         $this->assertSame($total, $response->getTotal());
         $this->assertSame([$session], $response->getSessions());
-        $response = new GetSessionsResponse(FALSE, 0);
+        $response = new GetSessionsResponse();
         $response->setMore(TRUE)
             ->setTotal($total)
-            ->setSessions([$session])
-            ->addSession($session);
+            ->setSessions([$session]);
         $this->assertTrue($response->getMore());
         $this->assertSame($total, $response->getTotal());
-        $this->assertSame([$session, $session], $response->getSessions());
-        $response->setSessions([$session]);
+        $this->assertSame([$session], $response->getSessions());
 
         $body = new GetSessionsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

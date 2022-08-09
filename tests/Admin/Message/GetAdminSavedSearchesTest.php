@@ -33,10 +33,8 @@ class GetAdminSavedSearchesTest extends ZimbraTestCase
         $response = new GetAdminSavedSearchesResponse([$search]);
         $this->assertSame([$search], $response->getSearches());
         $response = new GetAdminSavedSearchesResponse();
-        $response->setSearches([$search])
-            ->addSearch($search);
-        $this->assertSame([$search, $search], $response->getSearches());
         $response->setSearches([$search]);
+        $this->assertSame([$search], $response->getSearches());
 
         $body = new GetAdminSavedSearchesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

@@ -46,18 +46,6 @@ class ExpandRecurResponse extends SoapResponse
     }
 
     /**
-     * Add instance
-     *
-     * @param  ExpandedRecurrenceInstance $instance
-     * @return self
-     */
-    public function addInstance(ExpandedRecurrenceInstance $instance): self
-    {
-        $this->instances[] = $instance;
-        return $this;
-    }
-
-    /**
      * Set instances
      *
      * @param  array $instances

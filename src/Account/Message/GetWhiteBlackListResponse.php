@@ -63,21 +63,6 @@ class GetWhiteBlackListResponse extends SoapResponse
     }
 
     /**
-     * Add whiteListEntry
-     *
-     * @param  string $entry
-     * @return self
-     */
-    public function addWhiteListEntry(string $entry): self
-    {
-        $entry = trim($entry);
-        if (!in_array($entry, $this->whiteListEntries)) {
-            $this->whiteListEntries[] = $entry;
-        }
-        return $this;
-    }
-
-    /**
      * Set whiteListEntries
      *
      * @param  array $entries
@@ -97,21 +82,6 @@ class GetWhiteBlackListResponse extends SoapResponse
     public function getWhiteListEntries(): array
     {
         return $this->whiteListEntries;
-    }
-
-    /**
-     * Add blackListEntry
-     *
-     * @param  string $entry
-     * @return self
-     */
-    public function addBlackListEntry(string $entry): self
-    {
-        $entry = trim($entry);
-        if (!in_array($entry, $this->blackListEntries)) {
-            $this->blackListEntries[] = $entry;
-        }
-        return $this;
     }
 
     /**

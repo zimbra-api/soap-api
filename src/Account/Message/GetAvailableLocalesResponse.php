@@ -46,18 +46,6 @@ class GetAvailableLocalesResponse extends SoapResponse
     }
 
     /**
-     * Add a locale
-     *
-     * @param  LocaleInfo $locale
-     * @return self
-     */
-    public function addLocale(LocaleInfo $locale): self
-    {
-        $this->locales[] = $locale;
-        return $this;
-    }
-
-    /**
      * Set locales
      *
      * @param  array $locales

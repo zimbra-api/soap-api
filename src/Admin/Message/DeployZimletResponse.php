@@ -66,16 +66,4 @@ class DeployZimletResponse extends SoapResponse
         $this->progresses = array_filter($progresses, static fn ($progress) => $progress instanceof ZimletDeploymentStatus);
         return $this;
     }
-
-    /**
-     * Add a progress
-     *
-     * @param  ZimletDeploymentStatus $progress
-     * @return self
-     */
-    public function addProgress(ZimletDeploymentStatus $progress): self
-    {
-        $this->progresses[] = $progress;
-        return $this;
-    }
 }

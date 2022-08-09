@@ -63,9 +63,8 @@ class GetTagTest extends ZimbraTestCase
         $response = new GetTagResponse([$tag]);
         $this->assertSame([$tag], $response->getTags());
         $response = new GetTagResponse();
-        $response->setTags([$tag])
-            ->addTag($tag);
-        $this->assertSame([$tag, $tag], $response->getTags());
+        $response->setTags([$tag]);
+        $this->assertSame([$tag], $response->getTags());
         $request = new GetTagRequest();
         $response = new GetTagResponse([$tag]);
 

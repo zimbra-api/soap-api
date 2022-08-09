@@ -75,8 +75,7 @@ class ExpandRecurTest extends ZimbraTestCase
         $response = new ExpandRecurResponse([$instance]);
         $this->assertSame([$instance], $response->getInstances());
         $response = new ExpandRecurResponse();
-        $response->setInstances([$instance])
-            ->addInstance($instance);
+        $response->setInstances([$instance, $instance]);
         $this->assertSame([$instance, $instance], $response->getInstances());
 
         $request = new ExpandRecurRequest(

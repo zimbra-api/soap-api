@@ -161,18 +161,6 @@ class SetAppointmentResponse extends SoapResponse
     }
 
     /**
-     * Add exception
-     *
-     * @param  ExceptIdInfo $except
-     * @return self
-     */
-    public function addException(ExceptIdInfo $except): self
-    {
-        $this->exceptions[] = $except;
-        return $this;
-    }
-
-    /**
      * Set exceptions
      *
      * @param  array $exceptions

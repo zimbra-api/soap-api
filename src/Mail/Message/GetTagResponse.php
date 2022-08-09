@@ -46,18 +46,6 @@ class GetTagResponse extends SoapResponse
     }
 
     /**
-     * Add tag
-     *
-     * @param  TagInfo $tag
-     * @return self
-     */
-    public function addTag(TagInfo $tag): self
-    {
-        $this->tags[] = $tag;
-        return $this;
-    }
-
-    /**
      * Set tags
      *
      * @param  array $tags

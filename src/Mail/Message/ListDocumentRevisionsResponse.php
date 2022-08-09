@@ -57,18 +57,6 @@ class ListDocumentRevisionsResponse extends SoapResponse
     }
 
     /**
-     * Add revision
-     *
-     * @param  DocumentInfo $revision
-     * @return self
-     */
-    public function addRevision(DocumentInfo $revision): self
-    {
-        $this->revisions[] = $revision;
-        return $this;
-    }
-
-    /**
      * Set revisions
      *
      * @param  array $revisions
@@ -88,18 +76,6 @@ class ListDocumentRevisionsResponse extends SoapResponse
     public function getRevisions(): array
     {
         return $this->revisions;
-    }
-
-    /**
-     * Add user
-     *
-     * @param  IdEmailName $user
-     * @return self
-     */
-    public function addUser(IdEmailName $user): self
-    {
-        $this->users[] = $user;
-        return $this;
     }
 
     /**

@@ -311,41 +311,6 @@ class GetDataSourcesResponse extends SoapResponse
     }
 
     /**
-     * Add dataSource
-     *
-     * @param  MailDataSource $dataSource
-     * @return self
-     */
-    public function addDataSource(MailDataSource $dataSource): self
-    {
-        if ($dataSource instanceof MailImapDataSource) {
-            $this->imapDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailPop3DataSource) {
-            $this->pop3DataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailCaldavDataSource) {
-            $this->caldavDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailYabDataSource) {
-            $this->yabDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailRssDataSource) {
-            $this->rssDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailGalDataSource) {
-            $this->galDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailCalDataSource) {
-            $this->calDataSources[] = $dataSource;
-        }
-        if ($dataSource instanceof MailUnknownDataSource) {
-            $this->unknownDataSources[] = $dataSource;
-        }
-        return $this;
-    }
-
-    /**
      * Set dataSources
      *
      * @param  array $dataSources

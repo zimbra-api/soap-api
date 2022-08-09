@@ -26,10 +26,8 @@ class GetWhiteBlackListTest extends ZimbraTestCase
         $this->assertSame([$white1, $white2], $response->getWhiteListEntries());
         $this->assertSame([$black1, $black2], $response->getBlackListEntries());
         $response = new GetWhiteBlackListResponse();
-        $response->setWhiteListEntries([$white1])
-            ->addWhiteListEntry($white2)
-            ->setBlackListEntries([$black1])
-            ->addBlackListEntry($black2);
+        $response->setWhiteListEntries([$white1, $white2])
+            ->setBlackListEntries([$black1, $black2]);
         $this->assertSame([$white1, $white2], $response->getWhiteListEntries());
         $this->assertSame([$black1, $black2], $response->getBlackListEntries());
 

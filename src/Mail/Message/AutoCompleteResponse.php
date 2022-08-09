@@ -63,18 +63,6 @@ class AutoCompleteResponse extends SoapResponse
     }
 
     /**
-     * Add match
-     *
-     * @param  AutoCompleteMatch $match
-     * @return self
-     */
-    public function addMatch(AutoCompleteMatch $match): self
-    {
-        $this->matches[] = $match;
-        return $this;
-    }
-
-    /**
      * Set matches
      *
      * @param  array $matches

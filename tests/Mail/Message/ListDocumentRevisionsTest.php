@@ -45,13 +45,9 @@ class ListDocumentRevisionsTest extends ZimbraTestCase
         $this->assertSame([$revision], $response->getRevisions());
         $this->assertSame([$user], $response->getUsers());
         $response = new ListDocumentRevisionsResponse();
-        $response->setRevisions([$revision])
-            ->addRevision($revision)
-            ->setUsers([$user])
-            ->addUser($user);
-        $this->assertSame([$revision, $revision], $response->getRevisions());
-        $this->assertSame([$user, $user], $response->getUsers());
         $response->setRevisions([$revision])->setUsers([$user]);
+        $this->assertSame([$revision], $response->getRevisions());
+        $this->assertSame([$user], $response->getUsers());
 
         $body = new ListDocumentRevisionsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

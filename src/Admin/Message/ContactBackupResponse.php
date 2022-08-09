@@ -69,16 +69,4 @@ class ContactBackupResponse extends SoapResponse
         $this->servers = array_filter($servers, static fn ($server) => $server instanceof ContactBackupServer);
         return $this;
     }
-
-    /**
-     * Add server.
-     *
-     * @param  ContactBackupServer $server
-     * @return self
-     */
-    public function addServer(ContactBackupServer $server): self
-    {
-        $this->servers[] = $server;
-        return $this;
-    }
 }

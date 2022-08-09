@@ -56,18 +56,6 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
     }
 
     /**
-     * Add appt alarm
-     *
-     * @param  UpdatedAppointmentAlarmInfo $alarm
-     * @return self
-     */
-    public function addApptUpdatedAlarm(UpdatedAppointmentAlarmInfo $alarm): self
-    {
-        $this->apptUpdatedAlarms[] = $alarm;
-        return $this;
-    }
-
-    /**
      * Set apptUpdatedAlarms
      *
      * @param  array $alarms
@@ -89,18 +77,6 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
     public function getApptUpdatedAlarms(): array
     {
         return $this->apptUpdatedAlarms;
-    }
-
-    /**
-     * Add task alarm
-     *
-     * @param  UpdatedTaskAlarmInfo $alarm
-     * @return self
-     */
-    public function addTaskUpdatedAlarm(UpdatedTaskAlarmInfo $alarm): self
-    {
-        $this->taskUpdatedAlarms[] = $alarm;
-        return $this;
     }
 
     /**

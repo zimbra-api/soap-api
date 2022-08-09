@@ -46,18 +46,6 @@ class CheckBlobConsistencyResponse extends SoapResponse
     }
 
     /**
-     * Add a mailbox
-     *
-     * @param  MailboxBlobConsistency $mailbox
-     * @return self
-     */
-    public function addMailbox(MailboxBlobConsistency $mailbox): self
-    {
-        $this->mailboxes[] = $mailbox;
-        return $this;
-    }
-
-    /**
      * Set mailbox array
      *
      * @param  array $mailboxes

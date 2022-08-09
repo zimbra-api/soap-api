@@ -43,10 +43,8 @@ class GetPermissionTest extends ZimbraTestCase
         $response = new GetPermissionResponse([$ace]);
         $this->assertSame([$ace], $response->getAces());
         $response = new GetPermissionResponse();
-        $response->setAces([$ace])
-            ->addAce($ace);
-        $this->assertSame([$ace, $ace], $response->getAces());
         $response->setAces([$ace]);
+        $this->assertSame([$ace], $response->getAces());
 
         $body = new GetPermissionBody($request, $response);
         $this->assertSame($request, $body->getRequest());

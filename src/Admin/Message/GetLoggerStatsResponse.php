@@ -60,18 +60,6 @@ class GetLoggerStatsResponse extends SoapResponse
     }
 
     /**
-     * Add a hostname
-     *
-     * @param  HostStats $hostname
-     * @return self
-     */
-    public function addHostName(HostStats $hostname): self
-    {
-        $this->hostNames[] = $hostname;
-        return $this;
-    }
-
-    /**
      * Set hostNames
      *
      * @param  array $hostNames

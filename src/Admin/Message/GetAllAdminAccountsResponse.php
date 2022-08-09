@@ -46,18 +46,6 @@ class GetAllAdminAccountsResponse extends SoapResponse
     }
 
     /**
-     * Add an account information
-     *
-     * @param  AccountInfo $account
-     * @return self
-     */
-    public function addAccount(AccountInfo $account): self
-    {
-        $this->accountList[] = $account;
-        return $this;
-    }
-
-    /**
      * Set account informations
      *
      * @param  array $list

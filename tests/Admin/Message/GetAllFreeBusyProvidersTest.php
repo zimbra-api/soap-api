@@ -29,10 +29,8 @@ class GetAllFreeBusyProvidersTest extends ZimbraTestCase
         $response = new GetAllFreeBusyProvidersResponse([$provider]);
         $this->assertSame([$provider], $response->getProviders());
         $response = new GetAllFreeBusyProvidersResponse();
-        $response->setProviders([$provider])
-            ->addProvider($provider);
-        $this->assertSame([$provider, $provider], $response->getProviders());
         $response->setProviders([$provider]);
+        $this->assertSame([$provider], $response->getProviders());
 
         $body = new GetAllFreeBusyProvidersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

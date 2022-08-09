@@ -36,9 +36,8 @@ class DiffDocumentTest extends ZimbraTestCase
         $response = new DiffDocumentResponse([$chunk]);
         $this->assertSame([$chunk], $response->getChunks());
         $response = new DiffDocumentResponse();
-        $response->setChunks([$chunk])->addChunk($chunk);
-        $this->assertSame([$chunk, $chunk], $response->getChunks());
         $response->setChunks([$chunk]);
+        $this->assertSame([$chunk], $response->getChunks());
 
         $body = new DiffDocumentBody($request, $response);
         $this->assertSame($request, $body->getRequest());

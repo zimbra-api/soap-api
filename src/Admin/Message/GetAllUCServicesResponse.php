@@ -46,18 +46,6 @@ class GetAllUCServicesResponse extends SoapResponse
     }
 
     /**
-     * Add a ucService
-     *
-     * @param  UCServiceInfo $ucService
-     * @return self
-     */
-    public function addUCService(UCServiceInfo $ucService): self
-    {
-        $this->ucServiceList[] = $ucService;
-        return $this;
-    }
-
-    /**
      * Set ucServiceList
      *
      * @param  array $list

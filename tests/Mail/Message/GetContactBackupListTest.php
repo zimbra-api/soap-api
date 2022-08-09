@@ -23,8 +23,8 @@ class GetContactBackupListTest extends ZimbraTestCase
         $response = new GetContactBackupListResponse([$backup1, $backup2]);
         $this->assertSame([$backup1, $backup2], $response->getBackup());
         $response = new GetContactBackupListResponse();
-        $response->setBackup([$backup1])
-            ->addBackup($backup2);
+        $response->setBackup([$backup1, $backup2]);
+        $this->assertSame([$backup1, $backup2], $response->getBackup());
 
         $body = new GetContactBackupListBody($request, $response);
         $this->assertSame($request, $body->getRequest());

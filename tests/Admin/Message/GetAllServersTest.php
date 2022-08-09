@@ -40,12 +40,9 @@ class GetAllServersTest extends ZimbraTestCase
 
         $response = new GetAllServersResponse([$server]);
         $this->assertSame([$server], $response->getServerList());
-
         $response = new GetAllServersResponse();
-        $response->setServerList([$server])
-            ->addServer($server);
-        $this->assertSame([$server, $server], $response->getServerList());
         $response->setServerList([$server]);
+        $this->assertSame([$server], $response->getServerList());
 
         $body = new GetAllServersBody($request, $response);
         $this->assertSame($request, $body->getRequest());

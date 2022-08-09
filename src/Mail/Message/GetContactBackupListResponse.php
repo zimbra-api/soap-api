@@ -47,21 +47,6 @@ class GetContactBackupListResponse extends SoapResponse
     }
 
     /**
-     * Add backup
-     *
-     * @param  string $data
-     * @return self
-     */
-    public function addBackup(string $data): self
-    {
-        $data = trim($data);
-        if (!empty($data) && !in_array($data, $this->backup)) {
-            $this->backup[] = $data;
-        }
-        return $this;
-    }
-
-    /**
      * Set backup
      *
      * @param  array $backup

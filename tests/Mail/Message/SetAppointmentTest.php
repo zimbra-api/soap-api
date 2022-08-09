@@ -133,13 +133,11 @@ class SetAppointmentTest extends ZimbraTestCase
         $response->setCalItemId($calItemId)
             ->setDeprecatedApptId($deprecatedApptId)
             ->setDefaultId($default)
-            ->setExceptions([$except])
-            ->addException($except);
+            ->setExceptions([$except]);
         $this->assertSame($calItemId, $response->getCalItemId());
         $this->assertSame($deprecatedApptId, $response->getDeprecatedApptId());
         $this->assertSame($default, $response->getDefaultId());
-        $this->assertSame([$except, $except], $response->getExceptions());
-        $response->setExceptions([$except]);
+        $this->assertSame([$except], $response->getExceptions());
 
         $body = new SetAppointmentBody($request, $response);
         $this->assertSame($request, $body->getRequest());

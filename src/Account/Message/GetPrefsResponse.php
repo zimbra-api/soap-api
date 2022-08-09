@@ -46,18 +46,6 @@ class GetPrefsResponse extends SoapResponse
     }
 
     /**
-     * Add a pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref): self
-    {
-        $this->prefs[] = $pref;
-        return $this;
-    }
-
-    /**
      * Set prefs
      *
      * @param  array $prefs

@@ -46,18 +46,6 @@ class GetAllXMPPComponentsResponse extends SoapResponse
     }
 
     /**
-     * Add a component
-     *
-     * @param  XMPPComponentInfo $component
-     * @return self
-     */
-    public function addComponent(XMPPComponentInfo $component): self
-    {
-        $this->components[] = $component;
-        return $this;
-    }
-
-    /**
      * Set components
      *
      * @param  array $components

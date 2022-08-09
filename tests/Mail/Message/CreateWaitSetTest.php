@@ -56,13 +56,11 @@ class CreateWaitSetTest extends ZimbraTestCase
         $response->setWaitSetId($id)
             ->setDefaultInterests($interests)
             ->setSequence($sequence)
-            ->setErrors([$error])
-            ->addError($error);
+            ->setErrors([$error]);
         $this->assertSame($id, $response->getWaitSetId());
         $this->assertSame($interests, $response->getDefaultInterests());
         $this->assertSame($sequence, $response->getSequence());
-        $this->assertSame([$error, $error], $response->getErrors());
-        $response->setErrors([$error]);
+        $this->assertSame([$error], $response->getErrors());
 
         $body = new CreateWaitSetBody($request, $response);
         $this->assertSame($request, $body->getRequest());

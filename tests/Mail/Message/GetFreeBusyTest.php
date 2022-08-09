@@ -88,10 +88,8 @@ class GetFreeBusyTest extends ZimbraTestCase
         $response = new GetFreeBusyResponse([$usr]);
         $this->assertSame([$usr], $response->getFreebusyUsers());
         $response = new GetFreeBusyResponse();
-        $response->setFreebusyUsers([$usr])
-            ->addFreebusyUser($usr);
-        $this->assertSame([$usr, $usr], $response->getFreebusyUsers());
         $response->setFreebusyUsers([$usr]);
+        $this->assertSame([$usr], $response->getFreebusyUsers());
 
         $body = new GetFreeBusyBody($request, $response);
         $this->assertSame($request, $body->getRequest());

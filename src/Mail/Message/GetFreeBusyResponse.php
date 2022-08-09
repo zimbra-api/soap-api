@@ -46,18 +46,6 @@ class GetFreeBusyResponse extends SoapResponse
     }
 
     /**
-     * Add freebusyUser
-     *
-     * @param  FreeBusyUserInfo $freebusyUser
-     * @return self
-     */
-    public function addFreebusyUser(FreeBusyUserInfo $freebusyUser): self
-    {
-        $this->freebusyUsers[] = $freebusyUser;
-        return $this;
-    }
-
-    /**
      * Set freebusyUsers
      *
      * @param  array $users

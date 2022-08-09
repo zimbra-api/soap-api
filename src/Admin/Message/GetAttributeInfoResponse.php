@@ -46,18 +46,6 @@ class GetAttributeInfoResponse extends SoapResponse
     }
 
     /**
-     * Add an attribute description
-     *
-     * @param  AttributeDescription $attr
-     * @return self
-     */
-    public function addAttr(AttributeDescription $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
-    }
-
-    /**
      * Set attribute descriptions
      *
      * @param  array $attrs

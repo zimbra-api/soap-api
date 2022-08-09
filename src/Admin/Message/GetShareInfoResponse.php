@@ -46,18 +46,6 @@ class GetShareInfoResponse extends SoapResponse
     }
 
     /**
-     * Add share information
-     *
-     * @param  ShareInfo $share
-     * @return self
-     */
-    public function addShare(ShareInfo $share): self
-    {
-        $this->shares[] = $share;
-        return $this;
-    }
-
-    /**
      * Set share information
      *
      * @param array $shares

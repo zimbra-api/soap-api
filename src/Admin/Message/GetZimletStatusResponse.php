@@ -84,18 +84,6 @@ class GetZimletStatusResponse extends SoapResponse
     }
 
     /**
-     * Add a cos
-     *
-     * @param  ZimletStatusCos $cos
-     * @return self
-     */
-    public function addCos(ZimletStatusCos $cos): self
-    {
-        $this->coses[] = $cos;
-        return $this;
-    }
-
-    /**
      * Set coses
      *
      * @param  array $coses

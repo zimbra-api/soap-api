@@ -35,11 +35,9 @@ class GetServiceStatusTest extends ZimbraTestCase
         $this->assertSame([$status], $response->getServiceStatuses());
         $response = new GetServiceStatusResponse();
         $response->setTimezone($timezone)
-            ->setServiceStatuses([$status])
-            ->addServiceStatus($status);
+            ->setServiceStatuses([$status]);
         $this->assertSame($timezone, $response->getTimezone());
-        $this->assertSame([$status, $status], $response->getServiceStatuses());
-        $response->setServiceStatuses([$status]);
+        $this->assertSame([$status], $response->getServiceStatuses());
 
         $body = new GetServiceStatusBody($request, $response);
         $this->assertSame($request, $body->getRequest());

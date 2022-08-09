@@ -72,10 +72,8 @@ class GetWorkingHoursTest extends ZimbraTestCase
         $response = new GetWorkingHoursResponse([$usr]);
         $this->assertSame([$usr], $response->getFreebusyUsers());
         $response = new GetWorkingHoursResponse();
-        $response->setFreebusyUsers([$usr])
-            ->addFreebusyUser($usr);
-        $this->assertSame([$usr, $usr], $response->getFreebusyUsers());
         $response->setFreebusyUsers([$usr]);
+        $this->assertSame([$usr], $response->getFreebusyUsers());
 
         $body = new GetWorkingHoursBody($request, $response);
         $this->assertSame($request, $body->getRequest());

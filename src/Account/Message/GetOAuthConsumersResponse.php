@@ -46,18 +46,6 @@ class GetOAuthConsumersResponse extends SoapResponse
     }
 
     /**
-     * Add consumer
-     *
-     * @param  OAuthConsumer $consumer
-     * @return self
-     */
-    public function addConsumer(OAuthConsumer $consumer): self
-    {
-        $this->consumers[] = $consumer;
-        return $this;
-    }
-
-    /**
      * Set consumers
      *
      * @param  array $consumers

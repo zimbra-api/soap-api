@@ -82,18 +82,6 @@ class OpenIMAPFolderResponse extends SoapResponse
     }
 
     /**
-     * Add message
-     *
-     * @param  ImapMessageInfo $message
-     * @return self
-     */
-    public function addMessage(ImapMessageInfo $message): self
-    {
-        $this->messages[] = $message;
-        return $this;
-    }
-
-    /**
      * Set messages
      *
      * @param  array $messages

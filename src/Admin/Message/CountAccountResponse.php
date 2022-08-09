@@ -46,18 +46,6 @@ class CountAccountResponse extends SoapResponse
     }
 
     /**
-     * Add a cos quota
-     *
-     * @param  CosCountInfo $cos
-     * @return self
-     */
-    public function addCos(CosCountInfo $cos): self
-    {
-        $this->cos[] = $cos;
-        return $this;
-    }
-
-    /**
      * Set cos quotas
      *
      * @param  array $coses

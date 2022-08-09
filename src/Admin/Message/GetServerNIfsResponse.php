@@ -46,18 +46,6 @@ class GetServerNIfsResponse extends SoapResponse
     }
 
     /**
-     * Add a network information
-     *
-     * @param  NetworkInformation $ni
-     * @return self
-     */
-    public function addNetworkInterface(NetworkInformation $ni): self
-    {
-        $this->networkInterfaces[] = $ni;
-        return $this;
-    }
-
-    /**
      * Set network informations
      *
      * @param  array $interfaces

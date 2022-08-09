@@ -819,18 +819,6 @@ class GetInfoResponse extends SoapResponse
     }
 
     /**
-     * Add pref
-     *
-     * @param  Pref $pref
-     * @return self
-     */
-    public function addPref(Pref $pref): self
-    {
-        $this->prefs[] = $pref;
-        return $this;
-    }
-
-    /**
      * Set prefs
      *
      * @param  array $prefs
@@ -850,18 +838,6 @@ class GetInfoResponse extends SoapResponse
     public function getPrefs(): array
     {
         return $this->prefs;
-    }
-
-    /**
-     * Add attr
-     *
-     * @param  Attr $attr
-     * @return self
-     */
-    public function addAttr(Attr $attr): self
-    {
-        $this->attrs[] = $attr;
-        return $this;
     }
 
     /**
@@ -887,18 +863,6 @@ class GetInfoResponse extends SoapResponse
     }
 
     /**
-     * Add zimlet
-     *
-     * @param  AccountZimletInfo $zimlet
-     * @return self
-     */
-    public function addZimlet(AccountZimletInfo $zimlet): self
-    {
-        $this->zimlets[] = $zimlet;
-        return $this;
-    }
-
-    /**
      * Set zimlets
      *
      * @param  array $zimlets
@@ -918,18 +882,6 @@ class GetInfoResponse extends SoapResponse
     public function getZimlets(): array
     {
         return $this->zimlets;
-    }
-
-    /**
-     * Add prop
-     *
-     * @param  Prop $prop
-     * @return self
-     */
-    public function addProp(Prop $prop): self
-    {
-        $this->props[] = $prop;
-        return $this;
     }
 
     /**
@@ -955,18 +907,6 @@ class GetInfoResponse extends SoapResponse
     }
 
     /**
-     * Add identity
-     *
-     * @param  Identity $identity
-     * @return self
-     */
-    public function addIdentity(Identity $identity): self
-    {
-        $this->identities[] = $identity;
-        return $this;
-    }
-
-    /**
      * Set identities
      *
      * @param  array $identities
@@ -986,18 +926,6 @@ class GetInfoResponse extends SoapResponse
     public function getIdentities(): array
     {
         return $this->identities;
-    }
-
-    /**
-     * Add signature
-     *
-     * @param  Signature $signature
-     * @return self
-     */
-    public function addSignature(Signature $signature): self
-    {
-        $this->signatures[] = $signature;
-        return $this;
     }
 
     /**
@@ -1045,21 +973,6 @@ class GetInfoResponse extends SoapResponse
     }
 
     /**
-     * Add dataSource
-     *
-     * @param  AccountDataSource $dataSource
-     * @return self
-     */
-    public function addDataSource(AccountDataSource $dataSource): self
-    {
-        if (!($this->dataSources instanceof AccountDataSources)) {
-            $this->dataSources = new AccountDataSources();
-        }
-        $this->dataSources->addDataSource($dataSource);
-        return $this;
-    }
-
-    /**
      * Get the data sources.
      *
      * @return array
@@ -1078,18 +991,6 @@ class GetInfoResponse extends SoapResponse
     public function setDataSources(array $dataSources): self
     {
         $this->dataSources = new AccountDataSources($dataSources);
-        return $this;
-    }
-
-    /**
-     * Add childAccount
-     *
-     * @param  ChildAccount $childAccount
-     * @return self
-     */
-    public function addChildAccount(ChildAccount $childAccount): self
-    {
-        $this->childAccounts[] = $childAccount;
         return $this;
     }
 
@@ -1113,18 +1014,6 @@ class GetInfoResponse extends SoapResponse
     public function getChildAccounts(): array
     {
         return $this->childAccounts;
-    }
-
-    /**
-     * Add discoveredRight
-     *
-     * @param  DiscoverRightsInfo $discoveredRight
-     * @return self
-     */
-    public function addDiscoveredRight(DiscoverRightsInfo $discoveredRight): self
-    {
-        $this->discoveredRights[] = $discoveredRight;
-        return $this;
     }
 
     /**

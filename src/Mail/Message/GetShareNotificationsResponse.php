@@ -46,18 +46,6 @@ class GetShareNotificationsResponse extends SoapResponse
     }
 
     /**
-     * Add share notification
-     *
-     * @param  ShareNotificationInfo $share
-     * @return self
-     */
-    public function addShare(ShareNotificationInfo $share): self
-    {
-        $this->shares[] = $share;
-        return $this;
-    }
-
-    /**
      * Set shares
      *
      * @param  array $shares

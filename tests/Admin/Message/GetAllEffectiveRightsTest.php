@@ -84,11 +84,9 @@ class GetAllEffectiveRightsTest extends ZimbraTestCase
         $this->assertSame([$target], $response->getTargets());
         $response = new GetAllEffectiveRightsResponse();
         $response->setGrantee($granteeInfo)
-            ->setTargets([$target])
-            ->addTarget($target);
+            ->setTargets([$target]);
         $this->assertSame($granteeInfo, $response->getGrantee());
-        $this->assertSame([$target, $target], $response->getTargets());
-        $response->setTargets([$target]);
+        $this->assertSame([$target], $response->getTargets());
 
         $body = new GetAllEffectiveRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

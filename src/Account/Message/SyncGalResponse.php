@@ -306,18 +306,6 @@ class SyncGalResponse extends SoapResponse
     }
 
     /**
-     * Add contact matching the autocomplete request
-     *
-     * @param  ContactInfo $contact
-     * @return self
-     */
-    public function addContact(ContactInfo $contact): self
-    {
-        $this->contacts[] = $contact;
-        return $this;
-    }
-
-    /**
      * Get deleted
      *
      * @return array

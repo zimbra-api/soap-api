@@ -40,10 +40,8 @@ class GetRightsTest extends ZimbraTestCase
         $response = new GetRightsResponse([$ace]);
         $this->assertSame([$ace], $response->getAces());
         $response = new GetRightsResponse();
-        $response->setAces([$ace])
-            ->addAce($ace);
-        $this->assertSame([$ace, $ace], $response->getAces());
         $response->setAces([$ace]);
+        $this->assertSame([$ace], $response->getAces());
 
         $body = new GetRightsBody($request, $response);
         $this->assertSame($request, $body->getRequest());

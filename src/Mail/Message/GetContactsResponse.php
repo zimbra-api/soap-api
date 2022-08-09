@@ -46,18 +46,6 @@ class GetContactsResponse extends SoapResponse
     }
 
     /**
-     * Add contact
-     *
-     * @param  ContactInfo $contact
-     * @return self
-     */
-    public function addContact(ContactInfo $contact): self
-    {
-        $this->contacts[] = $contact;
-        return $this;
-    }
-
-    /**
      * Set contacts
      *
      * @param  array $contacts

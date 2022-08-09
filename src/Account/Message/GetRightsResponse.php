@@ -46,18 +46,6 @@ class GetRightsResponse extends SoapResponse
     }
 
     /**
-     * Add a ace
-     *
-     * @param  AccountACEInfo $ace
-     * @return self
-     */
-    public function addAce(AccountACEInfo $ace): self
-    {
-        $this->aces[] = $ace;
-        return $this;
-    }
-
-    /**
      * Set aces
      *
      * @param  array $aces

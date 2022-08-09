@@ -84,18 +84,6 @@ class GetAllEffectiveRightsResponse extends SoapResponse
     }
 
     /**
-     * Add a target
-     *
-     * @param  EffectiveRightsTarget $target
-     * @return self
-     */
-    public function addTarget(EffectiveRightsTarget $target): self
-    {
-        $this->targets[] = $target;
-        return $this;
-    }
-
-    /**
      * Set targets
      *
      * @param  array $targets

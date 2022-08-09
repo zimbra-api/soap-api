@@ -119,12 +119,9 @@ class GetApptSummariesTest extends ZimbraTestCase
         $this->assertSame([$task], $response->getTaskEntries());
         $response = new GetApptSummariesResponse();
         $response->setApptEntries([$appt])
-            ->addApptEntry($appt)
-            ->setTaskEntries([$task])
-            ->addTaskEntry($task);
-        $this->assertSame([$appt, $appt], $response->getApptEntries());
-        $this->assertSame([$task, $task], $response->getTaskEntries());
-        $response = new GetApptSummariesResponse([$appt], [$task]);
+            ->setTaskEntries([$task]);
+        $this->assertSame([$appt], $response->getApptEntries());
+        $this->assertSame([$task], $response->getTaskEntries());
 
         $body = new GetApptSummariesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

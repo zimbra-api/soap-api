@@ -55,12 +55,10 @@ class GetAllMailboxesTest extends ZimbraTestCase
         $response = new GetAllMailboxesResponse();
         $response->setMore(TRUE)
             ->setSearchTotal($searchTotal)
-            ->setMboxes([$mbox])
-            ->addMbox($mbox);
+            ->setMboxes([$mbox]);
         $this->assertTrue($response->isMore());
         $this->assertSame($searchTotal, $response->getSearchTotal());
-        $this->assertSame([$mbox, $mbox], $response->getMboxes());
-        $response->setMboxes([$mbox]);
+        $this->assertSame([$mbox], $response->getMboxes());
 
         $body = new GetAllMailboxesBody($request, $response);
         $this->assertSame($request, $body->getRequest());

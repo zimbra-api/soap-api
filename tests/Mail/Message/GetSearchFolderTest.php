@@ -38,10 +38,8 @@ class GetSearchFolderTest extends ZimbraTestCase
         $response = new GetSearchFolderResponse([$search]);
         $this->assertSame([$search], $response->getSearchFolders());
         $response = new GetSearchFolderResponse();
-        $response->setSearchFolders([$search])
-            ->addSearchFolder($search);
-        $this->assertSame([$search, $search], $response->getSearchFolders());
-        $response = new GetSearchFolderResponse([$search]);
+        $response->setSearchFolders([$search]);
+        $this->assertSame([$search], $response->getSearchFolders());
 
         $body = new GetSearchFolderBody($request, $response);
         $this->assertSame($request, $body->getRequest());
