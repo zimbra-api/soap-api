@@ -68,12 +68,4 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
         $this->header = $header;
         return $this;
     }
-
-    /**
-     * Set soap body message
-     *
-     * @param  SoapBodyInterface $body
-     * @return self
-     */
-    abstract public function setBody(SoapBodyInterface $body): self;
 }

@@ -29,9 +29,25 @@ interface SoapEnvelopeInterface
     function getHeader(): ?SoapHeaderInterface;
 
     /**
+     * Set soap header message
+     *
+     * @param  SoapHeaderInterface $header
+     * @return self
+     */
+    function setHeader(SoapHeaderInterface $header): self;
+
+    /**
      * Get soap body message
      *
      * @return SoapBodyInterface
      */
     function getBody(): ?SoapBodyInterface;
+
+    /**
+     * Set soap body message
+     *
+     * @param  SoapBodyInterface $body
+     * @return self
+     */
+    function setBody(SoapBodyInterface $body): self;
 }
