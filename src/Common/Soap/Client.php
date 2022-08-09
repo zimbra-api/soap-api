@@ -127,6 +127,14 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
+    public function getHttpClient(): HttpClientInterface
+    {
+        return $this->httpClient;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getHttpRequest(): ?RequestInterface
     {
         return $this->httpRequest;

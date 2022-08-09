@@ -10,6 +10,7 @@
 
 namespace Zimbra\Common\Soap;
 
+use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 
 /**
@@ -31,6 +32,13 @@ interface ClientInterface
      * @return ResponseInterface
      */
     function sendRequest(string $soapMessage, array $headers = []): ?ResponseInterface;
+
+    /**
+     * Get http client.
+     *
+     * @return HttpClientInterface
+     */
+    function getHttpClient(): HttpClientInterface;
 
     /**
      * Get http request.
