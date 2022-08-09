@@ -122,13 +122,11 @@ class MsgWithGroupInfoTest extends ZimbraTestCase
             ->setPart($part)
             ->setFragment($fragment)
             ->setEmails([$email])
-            ->addEmail($email)
             ->setSubject($subject)
             ->setMessageIdHeader($messageIdHeader)
             ->setInReplyTo($inReplyTo)
             ->setInvite($invite)
             ->setHeaders([$header])
-            ->addHeader($header)
             ->setMimePart($mimePart)
             ->setShareNotification($shr)
             ->setDLSubscription($dlSubs)
@@ -145,12 +143,12 @@ class MsgWithGroupInfoTest extends ZimbraTestCase
         $this->assertSame($resentDate, $msg->getResentDate());
         $this->assertSame($part, $msg->getPart());
         $this->assertSame($fragment, $msg->getFragment());
-        $this->assertSame([$email, $email], $msg->getEmails());
+        $this->assertSame([$email], $msg->getEmails());
         $this->assertSame($subject, $msg->getSubject());
         $this->assertSame($messageIdHeader, $msg->getMessageIdHeader());
         $this->assertSame($inReplyTo, $msg->getInReplyTo());
         $this->assertSame($invite, $msg->getInvite());
-        $this->assertSame([$header, $header], $msg->getHeaders());
+        $this->assertSame([$header], $msg->getHeaders());
         $this->assertSame($mimePart, $msg->getMimePart());
         $this->assertSame($shr, $msg->getShareNotification());
         $this->assertSame($dlSubs, $msg->getDLSubscription());

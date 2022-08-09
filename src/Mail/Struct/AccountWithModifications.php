@@ -119,18 +119,6 @@ class AccountWithModifications
     }
 
     /**
-     * Add pending modification folder
-     *
-     * @param  PendingFolderModifications $item
-     * @return self
-     */
-    public function addPendingFolderModification(PendingFolderModifications $item): self
-    {
-        $this->mods[] = $item;
-        return $this;
-    }
-
-    /**
      * Set pending modification folders
      *
      * @param array $mods

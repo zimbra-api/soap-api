@@ -50,10 +50,9 @@ class AccountWithModificationsTest extends ZimbraTestCase
         $account = new StubAccountWithModifications();
         $account->setId($id)
                 ->setPendingFolderModifications([$mod])
-                ->addPendingFolderModification($mod)
                 ->setLastChangeId($lastChangeId);
         $this->assertSame($id, $account->getId());
-        $this->assertSame([$mod, $mod], $account->getPendingFolderModifications());
+        $this->assertSame([$mod], $account->getPendingFolderModifications());
         $this->assertSame($lastChangeId, $account->getLastChangeId());
 
         $account = new StubAccountWithModifications($id, [$mod], $lastChangeId);

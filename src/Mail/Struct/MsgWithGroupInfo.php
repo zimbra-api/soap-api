@@ -655,18 +655,6 @@ class MsgWithGroupInfo extends MessageCommon
     }
 
     /**
-     * Add email
-     *
-     * @param  EmailInfo $email
-     * @return self
-     */
-    public function addEmail(EmailInfo $email): self
-    {
-        $this->emails[] = $email;
-        return $this;
-    }
-
-    /**
      * Get subject
      *
      * @return string
@@ -774,18 +762,6 @@ class MsgWithGroupInfo extends MessageCommon
     public function getHeaders(): array
     {
         return $this->headers;
-    }
-
-    /**
-     * Add header
-     *
-     * @param  KeyValuePair $header
-     * @return self
-     */
-    public function addHeader(KeyValuePair $header): self
-    {
-        $this->headers[] = $header;
-        return $this;
     }
 
     /**
