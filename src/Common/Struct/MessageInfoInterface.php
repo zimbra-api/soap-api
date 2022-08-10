@@ -38,7 +38,6 @@ interface MessageInfoInterface extends MessageCommonInterface
     function setMessageIdHeader(string $messageIdHeader): self;
     function setInReplyTo(string $inReplyTo): self;
     function setHeaders(array $headers): self;
-    function addHeader(KeyValuePair $header): self;
 
     function getId(): ?string;
     function getCalendarIntendedFor(): ?string;
@@ -57,7 +56,6 @@ interface MessageInfoInterface extends MessageCommonInterface
     function getHeaders(): array;
 
     function setEmailInterfaces(array $emails): self;
-    function addEmailInterface(EmailInfoInterface $email): self;
     function setInviteInterface(InviteInfoInterface $invite): self;
     function getEmailInterfaces(): array;
     function getInvitInterface(): ?InviteInfoInterface;

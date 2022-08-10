@@ -56,18 +56,6 @@ class SearchQueryInfo
     }
 
     /**
-     * Add suggest
-     *
-     * @param  SuggestedQueryString $suggest
-     * @return self
-     */
-    public function addSuggest(SuggestedQueryString $suggest): self
-    {
-        $this->suggests[] = $suggest;
-        return $this;
-    }
-
-    /**
      * Set suggests
      *
      * @param  array $suggests
@@ -87,18 +75,6 @@ class SearchQueryInfo
     public function getSuggests(): array
     {
         return $this->suggests;
-    }
-
-    /**
-     * Add wildcard
-     *
-     * @param  WildcardExpansionQueryInfo $wildcard
-     * @return self
-     */
-    public function addWildcard(WildcardExpansionQueryInfo $wildcard): self
-    {
-        $this->wildcards[] = $wildcard;
-        return $this;
     }
 
     /**

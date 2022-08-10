@@ -115,7 +115,14 @@ class GetDataSourcesResponse extends SoapResponse
      */
     public function __construct(array $dataSources = [])
     {
-        $this->setDataSources($dataSources);
+        $this->setImapDataSources($dataSources)
+             ->setPop3DataSources($dataSources)
+             ->setCaldavDataSources($dataSources)
+             ->setYabDataSources($dataSources)
+             ->setRssDataSources($dataSources)
+             ->setGalDataSources($dataSources)
+             ->setCalDataSources($dataSources)
+             ->setUnknownDataSources($dataSources);
     }
 
     /**
@@ -307,25 +314,6 @@ class GetDataSourcesResponse extends SoapResponse
         $this->unknownDataSources = array_values(
             array_filter($dataSources, static fn ($unknown) => $unknown instanceof MailUnknownDataSource)
         );
-        return $this;
-    }
-
-    /**
-     * Set dataSources
-     *
-     * @param  array $dataSources
-     * @return self
-     */
-    public function setDataSources(array $dataSources): self
-    {
-        $this->setImapDataSources($dataSources)
-             ->setPop3DataSources($dataSources)
-             ->setCaldavDataSources($dataSources)
-             ->setYabDataSources($dataSources)
-             ->setRssDataSources($dataSources)
-             ->setGalDataSources($dataSources)
-             ->setCalDataSources($dataSources)
-             ->setUnknownDataSources($dataSources);
         return $this;
     }
 

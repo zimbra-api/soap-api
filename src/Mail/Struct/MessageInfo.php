@@ -660,17 +660,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Add email
-     *
-     * @param  EmailInfo $email
-     * @return self
-     */
-    public function addEmail(EmailInfo $email): self
-    {
-        return $this->addEmailInterface($email);
-    }
-
-    /**
      * Get subject
      *
      * @return string
@@ -781,18 +770,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Add header
-     *
-     * @param  KeyValuePair $header
-     * @return self
-     */
-    public function addHeader(KeyValuePair $header): self
-    {
-        $this->headers[] = $header;
-        return $this;
-    }
-
-    /**
      * Set partInfos
      *
      * @param  array $partInfos
@@ -812,18 +789,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     public function getPartInfos(): array
     {
         return $this->partInfos;
-    }
-
-    /**
-     * Add partInfo
-     *
-     * @param  PartInfo $partInfo
-     * @return self
-     */
-    public function addPartInfo(PartInfo $partInfo): self
-    {
-        $this->partInfos[] = $partInfo;
-        return $this;
     }
 
     /**
@@ -849,18 +814,6 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
     }
 
     /**
-     * Add shr
-     *
-     * @param  ShareNotification $shr
-     * @return self
-     */
-    public function addShareNotification(ShareNotification $shr): self
-    {
-        $this->shareNotifications[] = $shr;
-        return $this;
-    }
-
-    /**
      * Set dlSubs
      *
      * @param  array $dlSubs
@@ -882,27 +835,9 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
         return $this->dlSubs;
     }
 
-    /**
-     * Add dlSub
-     *
-     * @param  DLSubscriptionNotification $dlSub
-     * @return self
-     */
-    public function addDlSub(DLSubscriptionNotification $dlSub): self
-    {
-        $this->dlSubs[] = $dlSub;
-        return $this;
-    }
-
     public function setEmailInterfaces(array $emails): self
     {
         $this->emails = array_filter($emails, static fn($email) => $email instanceof EmailInfoInterface);
-        return $this;
-    }
-
-    public function addEmailInterface(EmailInfoInterface $email): self
-    {
-        $this->emails[] = $email;
         return $this;
     }
 

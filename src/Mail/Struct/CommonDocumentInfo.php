@@ -878,18 +878,6 @@ class CommonDocumentInfo
     }
 
     /**
-     * Add metadata
-     *
-     * @param  MailCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
-
-    /**
      * Get fragment
      *
      * @return string

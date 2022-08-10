@@ -131,44 +131,30 @@ class CreateDataSourceResponse extends SoapResponse
      */
     public function __construct(?Id $dataSource = NULL)
     {
-        if ($dataSource instanceof Id) {
-            $this->setDataSource($dataSource);
-        }
-    }
-
-    /**
-     * Set dataSource
-     *
-     * @param  Id $dataSource
-     * @return self
-     */
-    public function setDataSource(Id $dataSource): self
-    {
         if ($dataSource instanceof ImapDataSourceId) {
-            return $this->setImapDataSource($dataSource);
+            $this->setImapDataSource($dataSource);
         }
         if ($dataSource instanceof Pop3DataSourceId) {
-            return $this->setPop3DataSource($dataSource);
+            $this->setPop3DataSource($dataSource);
         }
         if ($dataSource instanceof CaldavDataSourceId) {
-            return $this->setCaldavDataSource($dataSource);
+            $this->setCaldavDataSource($dataSource);
         }
         if ($dataSource instanceof YabDataSourceId) {
-            return $this->setYabDataSource($dataSource);
+            $this->setYabDataSource($dataSource);
         }
         if ($dataSource instanceof RssDataSourceId) {
-            return $this->setRssDataSource($dataSource);
+            $this->setRssDataSource($dataSource);
         }
         if ($dataSource instanceof GalDataSourceId) {
-            return $this->setGalDataSource($dataSource);
+            $this->setGalDataSource($dataSource);
         }
         if ($dataSource instanceof CalDataSourceId) {
-            return $this->setCalDataSource($dataSource);
+            $this->setCalDataSource($dataSource);
         }
         if ($dataSource instanceof UnknownDataSourceId) {
-            return $this->setUnknownDataSource($dataSource);
+            $this->setUnknownDataSource($dataSource);
         }
-        return $this;
     }
 
     /**

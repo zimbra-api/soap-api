@@ -116,7 +116,6 @@ class CommonDocumentInfoTest extends ZimbraTestCase
             ->setCreator($creator)
             ->setCreatedDate($createdDate)
             ->setMetadatas([$metadata])
-            ->addMetadata($metadata)
             ->setFragment($fragment)
             ->setAcl($acl);
         $this->assertSame($id, $doc->getId());
@@ -140,7 +139,7 @@ class CommonDocumentInfoTest extends ZimbraTestCase
         $this->assertSame($lastEditedBy, $doc->getLastEditedBy());
         $this->assertSame($creator, $doc->getCreator());
         $this->assertSame($createdDate, $doc->getCreatedDate());
-        $this->assertSame([$metadata, $metadata], $doc->getMetadatas());
+        $this->assertSame([$metadata], $doc->getMetadatas());
         $this->assertSame($fragment, $doc->getFragment());
         $this->assertSame($acl, $doc->getAcl());
         $doc = new StubCommonDocumentInfo(

@@ -58,8 +58,7 @@ class MessageCommonTest extends ZimbraTestCase
             ->setRevision($revision)
             ->setChangeDate($changeDate)
             ->setModifiedSequence($modifiedSequence)
-            ->setMetadatas([$metadata])
-            ->addMetadata($metadata);
+            ->setMetadatas([$metadata]);
         $this->assertSame($size, $msg->getSize());
         $this->assertSame($date, $msg->getDate());
         $this->assertSame($folder, $msg->getFolder());
@@ -70,8 +69,7 @@ class MessageCommonTest extends ZimbraTestCase
         $this->assertSame($revision, $msg->getRevision());
         $this->assertSame($changeDate, $msg->getChangeDate());
         $this->assertSame($modifiedSequence, $msg->getModifiedSequence());
-        $this->assertSame([$metadata, $metadata], $msg->getMetadatas());
-        $msg->setMetadatas([$metadata]);
+        $this->assertSame([$metadata], $msg->getMetadatas());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

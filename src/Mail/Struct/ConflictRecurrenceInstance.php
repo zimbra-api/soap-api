@@ -78,16 +78,4 @@ class ConflictRecurrenceInstance extends ExpandedRecurrenceInstance
     {
         return $this->freebusyUsers;
     }
-
-    /**
-     * Add freebusyUser
-     *
-     * @param  FreeBusyUserStatus $freebusyUser
-     * @return self
-     */
-    public function addFreebusyUser(FreeBusyUserStatus $freebusyUser): self
-    {
-        $this->freebusyUsers[] = $freebusyUser;
-        return $this;
-    }
 }

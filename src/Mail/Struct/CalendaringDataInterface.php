@@ -24,13 +24,11 @@ interface CalendaringDataInterface extends CommonInstanceDataAttrsInterface
     // function setDate(int $date);
     function setOrganizer(CalOrganizer $organizer);
     function setCategories(array $categories);
-    function addCategory(string $category);
     function setGeo(GeoInfo $geo);
     function setFragment(string $fragment);
     // used in interface instead of methods related to JAXB field
     function setInstances(array $instances);
     // used in interface instead of methods related to JAXB field
-    function addInstance(InstanceDataInterface $instance);
     function setAlarmData(AlarmDataInfo $alarmData);
 
     // function getDate(): ?int;

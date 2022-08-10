@@ -436,16 +436,4 @@ class CommentInfo
     {
         return $this->metadatas;
     }
-
-    /**
-     * Add metadata
-     *
-     * @param  MailCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
 }

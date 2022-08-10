@@ -352,18 +352,6 @@ class ConversationInfo
     }
 
     /**
-     * Add metadata
-     *
-     * @param  MailCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
-
-    /**
      * Set chatMessages
      *
      * @param  array $messages
@@ -386,18 +374,6 @@ class ConversationInfo
     }
 
     /**
-     * Add chat message
-     *
-     * @param  ChatMessageInfo $msg
-     * @return self
-     */
-    public function addChatMessage(ChatMessageInfo $msg): self
-    {
-        $this->chatMessages[] = $msg;
-        return $this;
-    }
-
-    /**
      * Set messages
      *
      * @param  array $messages
@@ -417,17 +393,5 @@ class ConversationInfo
     public function getMessages(): array
     {
         return $this->messages;
-    }
-
-    /**
-     * Add chat message
-     *
-     * @param  MessageInfo $msg
-     * @return self
-     */
-    public function addMessage(MessageInfo $msg): self
-    {
-        $this->messages[] = $msg;
-        return $this;
     }
 }

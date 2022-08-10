@@ -132,16 +132,30 @@ class GetDataSourcesTest extends ZimbraTestCase
             $unknown,
         ], $response->getDataSources());
         $response = new GetDataSourcesResponse();
-        $response->setDataSources([
-            $imap,
-            $pop3,
-            $caldav,
-            $yab,
-            $rss,
-            $gal,
-            $cal,
-            $unknown,
-        ]);
+        $response->setImapDataSources([
+                $imap,
+            ])
+            ->setPop3DataSources([
+                $pop3,
+            ])
+            ->setCaldavDataSources([
+                $caldav,
+            ])
+            ->setYabDataSources([
+                $yab,
+            ])
+            ->setRssDataSources([
+                $rss,
+            ])
+            ->setGalDataSources([
+                $gal,
+            ])
+            ->setCalDataSources([
+                $cal,
+            ])
+            ->setUnknownDataSources([
+                $unknown,
+            ]);
         $this->assertEquals([
             $imap,
             $pop3,

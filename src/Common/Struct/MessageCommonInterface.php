@@ -32,7 +32,6 @@ interface MessageCommonInterface
     function setChangeDate(int $changeDate): self;
     function setModifiedSequence(int $modifiedSequence): self;
     function setMetadatas(array $metadatas): self;
-    function addMetadata(CustomMetadataInterface $metadata): self;
 
     function getSize(): ?int;
     function getDate(): ?int;

@@ -31,11 +31,10 @@ class MessageHitInfoTest extends ZimbraTestCase
         $hit = new StubMessageHitInfo();
         $hit->setSortField($sortField)
             ->setContentMatched(TRUE)
-            ->setMessagePartHits([$hp])
-            ->addMessagePartHit($hp);
+            ->setMessagePartHits([$hp]);
         $this->assertSame($sortField, $hit->getSortField());
         $this->assertTrue($hit->getContentMatched());
-        $this->assertSame([$hp, $hp], $hit->getMessagePartHits());
+        $this->assertSame([$hp], $hit->getMessagePartHits());
         $hit = new StubMessageHitInfo(
             $id, $sortField, TRUE, [$hp]
         );

@@ -575,18 +575,6 @@ class CalendarItemInfo
     }
 
     /**
-     * Add invite
-     *
-     * @param  Invitation $invite
-     * @return self
-     */
-    public function addInvite(Invitation $invite): self
-    {
-        $this->invites[] = $invite;
-        return $this;
-    }
-
-    /**
      * Set calendarReplies
      *
      * @param  array $replies
@@ -609,18 +597,6 @@ class CalendarItemInfo
     }
 
     /**
-     * Add reply
-     *
-     * @param  CalendarReply $reply
-     * @return self
-     */
-    public function addCalendarReply(CalendarReply $reply): self
-    {
-        $this->calendarReplies[] = $reply;
-        return $this;
-    }
-
-    /**
      * Set metadatas
      *
      * @param  array $metadatas
@@ -640,17 +616,5 @@ class CalendarItemInfo
     public function getMetadatas(): array
     {
         return $this->metadatas;
-    }
-
-    /**
-     * Add meta
-     *
-     * @param  MailCustomMetadata $meta
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $meta): self
-    {
-        $this->metadatas[] = $meta;
-        return $this;
     }
 }

@@ -15,7 +15,7 @@ use Zimbra\Mail\Struct\{
     CalTZInfo,
     CancelItemRecur,
     ExceptionItemRecur,
-    InviteItemRecur,
+    InviteItemRecur
 };
 use Zimbra\Common\Struct\SoapResponse;
 

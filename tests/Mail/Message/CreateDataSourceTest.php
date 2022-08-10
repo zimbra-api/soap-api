@@ -187,21 +187,21 @@ class CreateDataSourceTest extends ZimbraTestCase
         $response = new CreateDataSourceResponse($unknownId);
         $this->assertSame($unknownId, $response->getUnknownDataSource());
 
-        $response->setDataSource($imapId);
+        $response->setImapDataSource($imapId);
         $this->assertSame($imapId, $response->getImapDataSource());
-        $response->setDataSource($pop3Id);
+        $response->setPop3DataSource($pop3Id);
         $this->assertSame($pop3Id, $response->getPop3DataSource());
-        $response->setDataSource($caldavId);
+        $response->setCaldavDataSource($caldavId);
         $this->assertSame($caldavId, $response->getCaldavDataSource());
-        $response->setDataSource($yabId);
+        $response->setYabDataSource($yabId);
         $this->assertSame($yabId, $response->getYabDataSource());
-        $response->setDataSource($rssId);
+        $response->setRssDataSource($rssId);
         $this->assertSame($rssId, $response->getRssDataSource());
-        $response->setDataSource($galId);
+        $response->setGalDataSource($galId);
         $this->assertSame($galId, $response->getGalDataSource());
-        $response->setDataSource($calId);
+        $response->setCalDataSource($calId);
         $this->assertSame($calId, $response->getCalDataSource());
-        $response->setDataSource($unknownId);
+        $response->setUnknownDataSource($unknownId);
         $this->assertSame($unknownId, $response->getUnknownDataSource());
 
         $request = new CreateDataSourceRequest($imap);

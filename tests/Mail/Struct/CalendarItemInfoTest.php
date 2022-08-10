@@ -135,11 +135,8 @@ class CalendarItemInfoTest extends ZimbraTestCase
             ->setNextAlarm($nextAlarm)
             ->setOrphan(TRUE)
             ->setInvites([$inv])
-            ->addInvite($inv)
             ->setCalendarReplies([$reply])
-            ->addCalendarReply($reply)
-            ->setMetadatas([$meta])
-            ->addMetadata($meta);
+            ->setMetadatas([$meta]);
         $this->assertSame($flags, $item->getFlags());
         $this->assertSame($tags, $item->getTags());
         $this->assertSame($tagNames, $item->getTagNames());
@@ -153,12 +150,9 @@ class CalendarItemInfoTest extends ZimbraTestCase
         $this->assertSame($modifiedSequence, $item->getModifiedSequence());
         $this->assertSame($nextAlarm, $item->getNextAlarm());
         $this->assertTrue($item->getOrphan());
-        $this->assertSame([$inv, $inv], $item->getInvites());
-        $this->assertSame([$reply, $reply], $item->getCalendarReplies());
-        $this->assertSame([$meta, $meta], $item->getMetadatas());
-        $item->setInvites([$inv])
-            ->setCalendarReplies([$reply])
-            ->setMetadatas([$meta]);
+        $this->assertSame([$inv], $item->getInvites());
+        $this->assertSame([$reply], $item->getCalendarReplies());
+        $this->assertSame([$meta], $item->getMetadatas());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

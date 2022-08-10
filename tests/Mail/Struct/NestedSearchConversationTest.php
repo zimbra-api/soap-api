@@ -59,7 +59,6 @@ class NestedSearchConversationTest extends ZimbraTestCase
             ->setTags($tags)
             ->setTagNames($tagNames)
             ->setMessages([$msgHit])
-            ->addMessage($msgHit)
             ->setQueryInfo($queryInfo);
         $this->assertSame($id, $conv->getId());
         $this->assertSame($num, $conv->getNum());
@@ -67,9 +66,8 @@ class NestedSearchConversationTest extends ZimbraTestCase
         $this->assertSame($flags, $conv->getFlags());
         $this->assertSame($tags, $conv->getTags());
         $this->assertSame($tagNames, $conv->getTagNames());
-        $this->assertSame([$msgHit, $msgHit], $conv->getMessages());
+        $this->assertSame([$msgHit], $conv->getMessages());
         $this->assertSame($queryInfo, $conv->getQueryInfo());
-        $conv->setMessages([$msgHit]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>

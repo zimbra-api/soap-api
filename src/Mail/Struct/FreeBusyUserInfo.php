@@ -89,7 +89,11 @@ class FreeBusyUserInfo
     public function __construct(string $id = '', array $elements = [])
     {
         $this->setId($id)
-             ->setElements($elements);
+             ->setFreeSlots($elements)
+             ->setBusySlots($elements)
+             ->setTentativeSlots($elements)
+             ->setUnavailableSlots($elements)
+             ->setNodataSlots($elements);
     }
 
     /**
@@ -227,48 +231,6 @@ class FreeBusyUserInfo
         $this->nodataSlots = array_values(
             array_filter($slots, static fn ($slot) => $slot instanceof FreeBusyNODATAslot)
         );
-        return $this;
-    }
-
-    /**
-     * Add free busy slot
-     *
-     * @param  FreeBusySlot $element
-     * @return self
-     */
-    public function addElement(FreeBusySlot $element): self
-    {
-        if ($element instanceof FreeBusyFREEslot) {
-            $this->freeSlots[] = $element;
-        }
-        if ($element instanceof FreeBusyBUSYslot) {
-            $this->busySlots[] = $element;
-        }
-        if ($element instanceof FreeBusyBUSYTENTATIVEslot) {
-            $this->tentativeSlots[] = $element;
-        }
-        if ($element instanceof FreeBusyBUSYUNAVAILABLEslot) {
-            $this->unavailableSlots[] = $element;
-        }
-        if ($element instanceof FreeBusyNODATAslot) {
-            $this->nodataSlots[] = $element;
-        }
-        return $this;
-    }
-
-    /**
-     * Set free busy slots
-     *
-     * @param  array $elements
-     * @return self
-     */
-    public function setElements(array $elements): self
-    {
-        $this->setFreeSlots($elements)
-             ->setBusySlots($elements)
-             ->setTentativeSlots($elements)
-             ->setUnavailableSlots($elements)
-             ->setNodataSlots($elements);
         return $this;
     }
 

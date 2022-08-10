@@ -41,11 +41,8 @@ interface ContactInterface
     function setReference(string $reference): self;
     function setTooManyMembers(bool $tooManyMembers): self;
     function setMetadatas(array $metadatas): self;
-    function addMetadata(CustomMetadataInterface $metadata): self;
     function setAttrs(array $attrs): self;
-    function addAttr(ContactAttr $attr): self;
     function setContactGroupMembers(array $contactGroupMembers): self;
-    function addContactGroupMember(ContactGroupMemberInterface $contactGroupMember): self;
 
     function getId(): string;
     function getSortField(): ?string;

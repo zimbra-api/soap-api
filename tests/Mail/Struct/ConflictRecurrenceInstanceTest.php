@@ -28,9 +28,8 @@ class ConflictRecurrenceInstanceTest extends ZimbraTestCase
         $this->assertSame([$freebusyUser], $inst->getFreebusyUsers());
 
         $inst = new StubConflictRecurrenceInstance();
-        $inst->setFreebusyUsers([$freebusyUser])
-            ->addFreebusyUser($freebusyUser);
-        $this->assertSame([$freebusyUser, $freebusyUser], $inst->getFreebusyUsers());
+        $inst->setFreebusyUsers([$freebusyUser]);
+        $this->assertSame([$freebusyUser], $inst->getFreebusyUsers());
         $inst->setStartTime($startTime)
             ->setDuration($duration)
             ->setAllDay(TRUE)

@@ -271,25 +271,7 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      */
     public function setCategories(array $categories): self
     {
-        $this->categories = [];
-        foreach ($categories as $category) {
-            $this->addCategory($category);
-        }
-        return $this;
-    }
-
-    /**
-     * add category
-     *
-     * @param  string $category
-     * @return self
-     */
-    public function addCategory(string $category): self
-    {
-        $category = trim($category);
-        if (!in_array($category, $this->categories)) {
-            $this->categories[] = $category;
-        }
+        $this->categories = array_unique(array_map(static fn ($category) => trim($category), $categories));
         return $this;
     }
 
@@ -357,18 +339,6 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
     public function getInstances(): array
     {
         return $this->instances;
-    }
-
-    /**
-     * Add instance
-     *
-     * @param  LegacyInstanceDataInfo $instance
-     * @return self
-     */
-    public function addInstance(InstanceDataInterface $instance): self
-    {
-        $this->instances[] = $instance;
-        return $this;
     }
 
     /**

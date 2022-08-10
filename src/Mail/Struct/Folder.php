@@ -1141,18 +1141,6 @@ class Folder
     }
 
     /**
-     * Add metadata
-     *
-     * @param  MailCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
-
-    /**
      * Get acl
      *
      * @return Acl

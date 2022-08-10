@@ -346,25 +346,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      */
     public function setCategories(array $categories)
     {
-        $this->categories = [];
-        foreach ($categories as $category) {
-            $this->addCategory($category);
-        }
-        return $this;
-    }
-
-    /**
-     * add category
-     *
-     * @param  string $category
-     * @return self
-     */
-    public function addCategory(string $category)
-    {
-        $category = trim($category);
-        if (!in_array($category, $this->categories)) {
-            $this->categories[] = $category;
-        }
+        $this->categories = array_unique(array_map(static fn ($category) => trim($category), $categories));
         return $this;
     }
 
@@ -413,18 +395,6 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Add instance
-     *
-     * @param  InstanceDataInfo $instance
-     * @return self
-     */
-    public function addInstance(InstanceDataInfo $instance): self
-    {
-        $this->instances[] = $instance;
-        return $this;
-    }
-
-    /**
      * Set instances
      *
      * @param  array $instances
@@ -469,18 +439,6 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     }
 
     /**
-     * Add invite
-     *
-     * @param  Invitation $invite
-     * @return self
-     */
-    public function addInvite(Invitation $invite): self
-    {
-        $this->invites[] = $invite;
-        return $this;
-    }
-
-    /**
      * Set invites
      *
      * @param  array $invites
@@ -500,18 +458,6 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     public function getInvites(): array
     {
         return $this->invites;
-    }
-
-    /**
-     * Add reply
-     *
-     * @param  CalReply $reply
-     * @return self
-     */
-    public function addReply(CalReply $reply): self
-    {
-        $this->replies[] = $reply;
-        return $this;
     }
 
     /**

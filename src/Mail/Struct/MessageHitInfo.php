@@ -247,16 +247,4 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     {
         return $this->messagePartHits;
     }
-
-    /**
-     * Add part
-     *
-     * @param  Part $hp
-     * @return self
-     */
-    public function addMessagePartHit(Part $hp): self
-    {
-        $this->messagePartHits[] = $hp;
-        return $this;
-    }
 }

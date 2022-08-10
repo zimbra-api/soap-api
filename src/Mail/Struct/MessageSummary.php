@@ -186,18 +186,6 @@ class MessageSummary extends MessageCommon
     }
 
     /**
-     * Add email
-     *
-     * @param  EmailInfo $email
-     * @return self
-     */
-    public function addEmail(EmailInfo $email): self
-    {
-        $this->emails[] = $email;
-        return $this;
-    }
-
-    /**
      * Get subject
      *
      * @return string

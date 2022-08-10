@@ -158,16 +158,4 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     {
         return $this->messageHits;
     }
-
-    /**
-     * Add message hit
-     *
-     * @param  ConversationMsgHitInfo $hit
-     * @return self
-     */
-    public function addMessageHit(ConversationMsgHitInfo $hit): self
-    {
-        $this->messageHits[] = $hit;
-        return $this;
-    }
 }

@@ -518,18 +518,6 @@ class ConversationSummary
     }
 
     /**
-     * Add metadata
-     *
-     * @param  MailCustomMetadata $metadata
-     * @return self
-     */
-    public function addMetadata(MailCustomMetadata $metadata): self
-    {
-        $this->metadatas[] = $metadata;
-        return $this;
-    }
-
-    /**
      * Get subject
      *
      * @return string
@@ -594,17 +582,4 @@ class ConversationSummary
     {
         return $this->emails;
     }
-
-    /**
-     * Add email
-     *
-     * @param  EmailInfo $email
-     * @return self
-     */
-    public function addEmail(EmailInfo $email): self
-    {
-        $this->emails[] = $email;
-        return $this;
-    }
-
 }

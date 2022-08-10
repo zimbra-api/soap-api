@@ -29,11 +29,9 @@ class SearchQueryInfoTest extends ZimbraTestCase
 
         $info = new StubSearchQueryInfo();
         $info->setSuggests([$suggest])
-            ->addSuggest($suggest)
-            ->setWildcards([$wildcard])
-            ->addWildcard($wildcard);
-        $this->assertSame([$suggest, $suggest], $info->getSuggests());
-        $this->assertSame([$wildcard, $wildcard], $info->getWildcards());
+            ->setWildcards([$wildcard]);
+        $this->assertSame([$suggest], $info->getSuggests());
+        $this->assertSame([$wildcard], $info->getWildcards());
         $info = new StubSearchQueryInfo([$suggest], [$wildcard]);
 
         $xml = <<<EOT

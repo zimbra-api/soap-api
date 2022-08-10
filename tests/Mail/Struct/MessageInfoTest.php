@@ -124,19 +124,14 @@ class MessageInfoTest extends ZimbraTestCase
             ->setPart($part)
             ->setFragment($fragment)
             ->setEmails([$email])
-            ->addEmail($email)
             ->setSubject($subject)
             ->setMessageIdHeader($messageIdHeader)
             ->setInReplyTo($inReplyTo)
             ->setInvite($invite)
             ->setHeaders([$header])
-            ->addHeader($header)
             ->setPartInfos([$mp])
-            ->addPartInfo($mp)
             ->setShareNotifications([$shr])
-            ->addShareNotification($shr)
-            ->setDlSubs([$dlSubs])
-            ->addDlSub($dlSubs);
+            ->setDlSubs([$dlSubs]);
         $this->assertSame($id, $msg->getId());
         $this->assertSame($imapUid, $msg->getImapUid());
         $this->assertSame($calendarIntendedFor, $msg->getCalendarIntendedFor());
@@ -149,20 +144,15 @@ class MessageInfoTest extends ZimbraTestCase
         $this->assertSame($resentDate, $msg->getResentDate());
         $this->assertSame($part, $msg->getPart());
         $this->assertSame($fragment, $msg->getFragment());
-        $this->assertSame([$email, $email], $msg->getEmails());
+        $this->assertSame([$email], $msg->getEmails());
         $this->assertSame($subject, $msg->getSubject());
         $this->assertSame($messageIdHeader, $msg->getMessageIdHeader());
         $this->assertSame($inReplyTo, $msg->getInReplyTo());
         $this->assertSame($invite, $msg->getInvite());
-        $this->assertSame([$header, $header], $msg->getHeaders());
-        $this->assertSame([$mp, $mp], $msg->getPartInfos());
-        $this->assertSame([$shr, $shr], $msg->getShareNotifications());
-        $this->assertSame([$dlSubs, $dlSubs], $msg->getDlSubs());
-        $msg->setEmails([$email])
-            ->setHeaders([$header])
-            ->setPartInfos([$mp])
-            ->setShareNotifications([$shr])
-            ->setDlSubs([$dlSubs]);
+        $this->assertSame([$header], $msg->getHeaders());
+        $this->assertSame([$mp], $msg->getPartInfos());
+        $this->assertSame([$shr], $msg->getShareNotifications());
+        $this->assertSame([$dlSubs], $msg->getDlSubs());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

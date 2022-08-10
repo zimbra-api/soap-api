@@ -103,21 +103,18 @@ class LegacyCalendaringDataTest extends ZimbraTestCase
         $this->assertSame($alarmData, $data->getAlarmData());
 
         $data = new StubLegacyCalendaringData($xUid, $uid);
-        $data->setCategories([$category1])
-            ->addCategory($category2)
+        $data->setCategories([$category1, $category2])
             ->setOrganizer($organizer)
             ->setGeo($geo)
             ->setFragment($fragment)
             ->setAlarmData($alarmData)
-            ->setInstances([$inst])
-            ->addInstance($inst);
+            ->setInstances([$inst]);
         $this->assertSame($organizer, $data->getOrganizer());
         $this->assertSame([$category1, $category2], $data->getCategories());
         $this->assertSame($geo, $data->getGeo());
         $this->assertSame($fragment, $data->getFragment());
-        $this->assertSame([$inst, $inst], $data->getInstances());
+        $this->assertSame([$inst], $data->getInstances());
         $this->assertSame($alarmData, $data->getAlarmData());
-        $data->setInstances([$inst]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>

@@ -45,17 +45,15 @@ class MessageSummaryTest extends ZimbraTestCase
         $msg->setId($id)
             ->setAutoSendTime($autoSendTime)
             ->setEmails([$email])
-            ->addEmail($email)
             ->setSubject($subject)
             ->setFragment($fragment)
             ->setInvite($invite);
         $this->assertSame($id, $msg->getId());
         $this->assertSame($autoSendTime, $msg->getAutoSendTime());
-        $this->assertSame([$email, $email], $msg->getEmails());
+        $this->assertSame([$email], $msg->getEmails());
         $this->assertSame($subject, $msg->getSubject());
         $this->assertSame($fragment, $msg->getFragment());
         $this->assertSame($invite, $msg->getInvite());
-        $msg->setEmails([$email]);
 
         $xml = <<<EOT
 <?xml version="1.0"?>

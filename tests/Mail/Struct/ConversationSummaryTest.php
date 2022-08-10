@@ -76,11 +76,9 @@ class ConversationSummaryTest extends ZimbraTestCase
             ->setChangeDate($changeDate)
             ->setModifiedSequence($modifiedSequence)
             ->setMetadatas([$metadata])
-            ->addMetadata($metadata)
             ->setSubject($subject)
             ->setFragment($fragment)
-            ->setEmails([$email])
-            ->addEmail($email);
+            ->setEmails([$email]);
         $this->assertSame($id, $conv->getId());
         $this->assertSame($num, $conv->getNum());
         $this->assertSame($numUnread, $conv->getNumUnread());
@@ -92,10 +90,10 @@ class ConversationSummaryTest extends ZimbraTestCase
         $this->assertTrue($conv->getElided());
         $this->assertSame($changeDate, $conv->getChangeDate());
         $this->assertSame($modifiedSequence, $conv->getModifiedSequence());
-        $this->assertSame([$metadata, $metadata], $conv->getMetadatas());
+        $this->assertSame([$metadata], $conv->getMetadatas());
         $this->assertSame($subject, $conv->getSubject());
         $this->assertSame($fragment, $conv->getFragment());
-        $this->assertSame([$email, $email], $conv->getEmails());
+        $this->assertSame([$email], $conv->getEmails());
         $conv = new StubConversationSummary(
             $id, $num, $numUnread, $totalSize, $flags, $tags, $tagNames, $date, TRUE, $changeDate, $modifiedSequence, [$metadata], $subject, $fragment, [$email]
         );

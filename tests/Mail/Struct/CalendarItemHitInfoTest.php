@@ -96,17 +96,13 @@ class CalendarItemHitInfoTest extends ZimbraTestCase
             ->setContentMatched(TRUE)
             ->setNextAlarm($nextAlarm)
             ->setOrganizer($organizer)
-            ->setCategories([$category1])
-            ->addCategory($category2)
+            ->setCategories([$category1, $category2])
             ->setGeo($geo)
             ->setFragment($fragment)
             ->setInstances([$inst])
-            ->addInstance($inst)
             ->setAlarmData($alarmData)
             ->setInvites([$invite])
-            ->addInvite($invite)
-            ->setReplies([$reply])
-            ->addReply($reply);
+            ->setReplies([$reply]);
         $this->assertSame($sortField, $hit->getSortField());
         $this->assertSame($date, $hit->getDate());
         $this->assertTrue($hit->getContentMatched());
@@ -115,10 +111,10 @@ class CalendarItemHitInfoTest extends ZimbraTestCase
         $this->assertSame([$category1, $category2], $hit->getCategories());
         $this->assertSame($geo, $hit->getGeo());
         $this->assertSame($fragment, $hit->getFragment());
-        $this->assertSame([$inst, $inst], $hit->getInstances());
+        $this->assertSame([$inst], $hit->getInstances());
         $this->assertSame($alarmData, $hit->getAlarmData());
-        $this->assertSame([$invite, $invite], $hit->getInvites());
-        $this->assertSame([$reply, $reply], $hit->getReplies());
+        $this->assertSame([$invite], $hit->getInvites());
+        $this->assertSame([$reply], $hit->getReplies());
         $hit = new StubCalendarItemHitInfo(
             $id, $sortField, $date, TRUE, $nextAlarm, $organizer, [$category1, $category2], $geo, $fragment, [$inst], $alarmData, [$invite], [$reply]
         );

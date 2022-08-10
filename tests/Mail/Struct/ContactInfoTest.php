@@ -128,13 +128,6 @@ class ContactInfoTest extends ZimbraTestCase
         $this->assertSame([$member], $contact->getContactGroupMembers());
         $this->assertSame($memberOf, $contact->getMemberOf());
 
-        $contact->addMetadata($meta)
-            ->addAttr($attr)
-            ->addContactGroupMember($member);
-        $this->assertSame([$meta, $meta], $contact->getMetadatas());
-        $this->assertSame([$attr, $attr], $contact->getAttrs());
-        $this->assertSame([$member, $member], $contact->getContactGroupMembers());
-
         $contact = new StubContactInfo(
             $id, $sortField, TRUE, $imapUid, $folder, $flags, $tags, $tagNames, $changeDate, $modifiedSequenceId, $date, $revisionId, $fileAs, $email, $email2, $email3, $type, $dlist, $reference, FALSE, [$meta], [$attr], [$member], $memberOf
         );

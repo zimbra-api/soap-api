@@ -35,11 +35,9 @@ class ConversationHitInfoTest extends ZimbraTestCase
 
         $hit = new StubConversationHitInfo($id);
         $hit->setSortField($sortField)
-            ->setMessageHits([$msgHit])
-            ->addMessageHit($msgHit);
+            ->setMessageHits([$msgHit]);
         $this->assertSame($sortField, $hit->getSortField());
-        $this->assertSame([$msgHit, $msgHit], $hit->getMessageHits());
-        $hit->setMessageHits([$msgHit]);
+        $this->assertSame([$msgHit], $hit->getMessageHits());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

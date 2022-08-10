@@ -60,13 +60,21 @@ class FreeBusyUserInfoTest extends ZimbraTestCase
 
         $usr = new StubFreeBusyUserInfo();
         $usr->setId($id)
-            ->setElements([
+            ->setFreeSlots([
                 $freeSlot,
+            ])
+            ->setBusySlots([
                 $busySlot,
+            ])
+            ->setTentativeSlots([
                 $tentativeSlot,
+            ])
+            ->setUnavailableSlots([
                 $unavailableSlot,
             ])
-            ->addElement($nodataSlot);
+            ->setNodataSlots([
+                $nodataSlot,
+            ]);
         $this->assertSame($id, $usr->getId());
         $this->assertSame([
             $freeSlot,
