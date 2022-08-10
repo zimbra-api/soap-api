@@ -28,8 +28,13 @@ class Reason
      * @SerializedName("Text")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var string
      */
+    #[Accessor(getter: 'getText', setter: 'setText')]
+    #[SerializedName(name: 'Text')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $text;
 
     /**

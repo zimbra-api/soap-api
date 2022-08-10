@@ -28,7 +28,13 @@ class CursorInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -36,7 +42,13 @@ class CursorInfo
      * @SerializedName("sortVal")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortVal', setter: 'setSortVal')]
+    #[SerializedName(name: 'sortVal')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortVal;
 
     /**
@@ -44,7 +56,13 @@ class CursorInfo
      * @SerializedName("endSortVal")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEndSortVal', setter: 'setEndSortVal')]
+    #[SerializedName(name: 'endSortVal')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $endSortVal;
 
     /**
@@ -52,7 +70,13 @@ class CursorInfo
      * @SerializedName("includeOffset")
      * @Type("boolean")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIncludeOffset', setter: 'setIncludeOffset')]
+    #[SerializedName(name: 'includeOffset')]
+    #[Type(name: 'boolean')]
+    #[XmlAttribute]
     private $includeOffset;
 
     /**

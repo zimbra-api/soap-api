@@ -30,7 +30,13 @@ class WildcardExpansionQueryInfo
      * @SerializedName("str")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getStr', setter: 'setStr')]
+    #[SerializedName(name: 'str')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $str;
 
     /**
@@ -40,9 +46,15 @@ class WildcardExpansionQueryInfo
      * 
      * @Accessor(getter="getExpanded", setter="setExpanded")
      * @SerializedName("expanded")
-     * @Type("bool")
+     * @Type("boolean")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExpanded', setter: 'setExpanded')]
+    #[SerializedName(name: 'expanded')]
+    #[Type(name: 'boolean')]
+    #[XmlAttribute]
     private $expanded;
 
     /**
@@ -52,7 +64,13 @@ class WildcardExpansionQueryInfo
      * @SerializedName("numExpanded")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumExpanded', setter: 'setNumExpanded')]
+    #[SerializedName(name: 'numExpanded')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $numExpanded;
 
     /**

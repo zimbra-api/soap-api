@@ -31,8 +31,13 @@ class SoapFault implements SoapFaultInterface
      * @SerializedName("Code")
      * @Type("Zimbra\Common\Struct\Fault\Code")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var Code
      */
+    #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
+    #[SerializedName(name: 'Code')]
+    #[Type(name: Code::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $faultCode;
 
     /**
@@ -42,8 +47,13 @@ class SoapFault implements SoapFaultInterface
      * @SerializedName("Reason")
      * @Type("Zimbra\Common\Struct\Fault\Reason")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var Reason
      */
+    #[Accessor(getter: 'getFaultReason', setter: 'setFaultReason')]
+    #[SerializedName(name: 'Reason')]
+    #[Type(name: Reason::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $faultReason;
 
     /**

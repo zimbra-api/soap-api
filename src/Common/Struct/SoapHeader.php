@@ -23,6 +23,7 @@ use Zimbra\Common\Struct\Header\Context;
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="urn:zimbra", prefix="zm")
  */
+#[XmlNamespace(uri: 'urn:zimbra', prefix: "zm")]
 class SoapHeader implements SoapHeaderInterface
 {
     /**
@@ -32,7 +33,13 @@ class SoapHeader implements SoapHeaderInterface
      * @SerializedName("context")
      * @Type("Zimbra\Common\Struct\Header\Context")
      * @XmlElement(namespace="urn:zimbra")
+     * 
+     * var Context
      */
+    #[Accessor(getter: 'getContext', setter: 'setContext')]
+    #[SerializedName(name: 'context')]
+    #[Type(name: Context::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private $context;
 
     /**

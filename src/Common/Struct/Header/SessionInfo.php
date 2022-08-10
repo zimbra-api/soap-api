@@ -28,7 +28,13 @@ class SessionInfo
      * @SerializedName("proxy")
      * @Type("boolean")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSessionProxied', setter: 'setSessionProxied')]
+    #[SerializedName(name: 'proxy')]
+    #[Type(name: 'boolean')]
+    #[XmlAttribute]
     private $sessionProxied;
 
     /**
@@ -36,7 +42,13 @@ class SessionInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sessionId;
 
     /**
@@ -44,14 +56,25 @@ class SessionInfo
      * @SerializedName("seq")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $sequenceNum;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

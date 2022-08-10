@@ -30,7 +30,13 @@ trait WithRequestIdTrait
      * @SerializedName("requestId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRequestId', setter: 'setRequestId')]
+    #[SerializedName(name: 'requestId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $requestId;
 
     /**

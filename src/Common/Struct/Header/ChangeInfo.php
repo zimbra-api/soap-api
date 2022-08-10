@@ -28,7 +28,13 @@ class ChangeInfo
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getChangeId', setter: 'setChangeId')]
+    #[SerializedName(name: 'token')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $changeId;
 
     /**
@@ -36,7 +42,13 @@ class ChangeInfo
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getChangeType', setter: 'setChangeType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $changeType;
 
     /**

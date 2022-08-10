@@ -29,8 +29,13 @@ class AccountInfo
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
      * @XmlAttribute
+     * 
      * @var AccountBy
      */
+    #[Accessor(getter: 'getBy', setter: 'setBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AccountBy>')]
+    #[XmlAttribute]
     private $by;
 
     /**
@@ -38,14 +43,25 @@ class AccountInfo
      * @SerializedName("link")
      * @Type("boolean")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
+    #[SerializedName(name: 'link')]
+    #[Type(name: 'boolean')]
+    #[XmlAttribute]
     private $mountpointTraversed;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

@@ -28,7 +28,13 @@ class NotifyInfo
      * @SerializedName("seq")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $sequenceNum;
 
     /**

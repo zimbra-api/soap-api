@@ -31,8 +31,13 @@ class FormatInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\RequestFormat>")
      * @XmlAttribute
+     * 
      * @var RequestFormat
      */
+    #[Accessor(getter: 'getFormat', setter: 'setFormat')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RequestFormat>')]
+    #[XmlAttribute]
     private $format;
 
     /**

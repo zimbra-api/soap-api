@@ -21,6 +21,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNa
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  * @XmlNamespace(uri="http://www.w3.org/2003/05/soap-envelope", prefix="soap")
  */
+#[XmlNamespace(uri: 'http://www.w3.org/2003/05/soap-envelope', prefix: "soap")]
 abstract class SoapEnvelope implements SoapEnvelopeInterface
 {
     /**
@@ -28,8 +29,13 @@ abstract class SoapEnvelope implements SoapEnvelopeInterface
      * @SerializedName("Header")
      * @Type("Zimbra\Common\Struct\SoapHeader")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var SoapHeaderInterface
      */
+    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
+    #[SerializedName(name: 'Header')]
+    #[Type(name: SoapHeader::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $header;
 
     /**

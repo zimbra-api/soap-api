@@ -27,7 +27,13 @@ trait AttributeSelectorTrait
      * @SerializedName("attrs")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[SerializedName(name: 'attrs')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attrs;
 
     /**

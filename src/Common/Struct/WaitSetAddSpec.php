@@ -10,7 +10,9 @@
 
 namespace Zimbra\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, Exclude, SerializedName, SkipWhenEmpty, Type, VirtualProperty, XmlAttribute};
+use JMS\Serializer\Annotation\{
+    Accessor, Exclude, SerializedName, SkipWhenEmpty, Type, VirtualProperty, XmlAttribute
+};
 use Zimbra\Common\Enum\InterestType;
 
 /**
@@ -31,7 +33,13 @@ class WaitSetAddSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -41,7 +49,13 @@ class WaitSetAddSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -51,7 +65,13 @@ class WaitSetAddSpec
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getToken', setter: 'setToken')]
+    #[SerializedName(name: 'token')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $token;
 
     /**
@@ -61,12 +81,21 @@ class WaitSetAddSpec
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getInterests', setter: 'setInterests')]
+    #[SerializedName(name: 'types')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $interests;
 
     /**
      * @Exclude
+     * 
+     * @var array
      */
+    #[Exclude]
     private $folderInterests = [];
 
     /**
@@ -212,14 +241,19 @@ class WaitSetAddSpec
     }
 
     /**
-     * @VirtualProperty
-     * @Type("string")
      * @SerializedName("folderInterests")
      * @SkipWhenEmpty
+     * @Type("string")
+     * @VirtualProperty
      * @XmlAttribute
      *
      * @return string
      */
+    #[SerializedName(name: 'folderInterests')]
+    #[SkipWhenEmpty]
+    #[Type(name: 'string')]
+    #[VirtualProperty]
+    #[XmlAttribute]
     public function getFolderInterests(): ?string
     {
         return !empty($this->folderInterests) ? implode(',', $this->folderInterests) : NULL;

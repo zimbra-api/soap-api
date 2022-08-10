@@ -30,8 +30,13 @@ abstract class SoapBody implements SoapBodyInterface
      * @SerializedName("Fault")
      * @Type("Zimbra\Common\Struct\SoapFault")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var SoapFaultInterface
      */
+    #[Accessor(getter: 'getSoapFault', setter: 'setSoapFault')]
+    #[SerializedName(name: 'Fault')]
+    #[Type(name: SoapFault::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $soapFault;
 
     /**

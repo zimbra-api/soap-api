@@ -28,7 +28,13 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
@@ -36,15 +42,27 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'ct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentType;
 
     /**
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("int")
+     * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -52,7 +70,13 @@ class ContactAttr extends KeyValuePair
      * @SerializedName("filename")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
+    #[SerializedName(name: 'filename')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentFilename;
 
     /**

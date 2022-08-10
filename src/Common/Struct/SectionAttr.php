@@ -30,7 +30,13 @@ class SectionAttr
      * @SerializedName("section")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSection', setter: 'setSection')]
+    #[SerializedName(name: 'section')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $section;
 
     /**

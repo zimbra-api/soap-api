@@ -26,7 +26,12 @@ trait AttrsImplTrait
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[Type(name: 'array<Zimbra\Common\Struct\KeyValuePair>')]
+    #[XmlList(inline: true, entry: 'a')]
     protected $attrs = [];
 
     /**

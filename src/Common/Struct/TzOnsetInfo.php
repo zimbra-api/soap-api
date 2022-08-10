@@ -30,7 +30,13 @@ class TzOnsetInfo
      * @SerializedName("mon")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
+    #[SerializedName(name: 'mon')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $month;
 
     /**
@@ -40,7 +46,13 @@ class TzOnsetInfo
      * @SerializedName("hour")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getHour', setter: 'setHour')]
+    #[SerializedName(name: 'hour')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $hour;
 
     /**
@@ -50,7 +62,13 @@ class TzOnsetInfo
      * @SerializedName("min")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMinute', setter: 'setMinute')]
+    #[SerializedName(name: 'min')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $minute;
 
     /**
@@ -60,7 +78,13 @@ class TzOnsetInfo
      * @SerializedName("sec")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSecond', setter: 'setSecond')]
+    #[SerializedName(name: 'sec')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $second;
 
     /**
@@ -70,7 +94,13 @@ class TzOnsetInfo
      * @SerializedName("mday")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDayOfMonth', setter: 'setDayOfMonth')]
+    #[SerializedName(name: 'mday')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $dayOfMonth;
 
     /**
@@ -80,7 +110,13 @@ class TzOnsetInfo
      * @SerializedName("week")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getWeek', setter: 'setWeek')]
+    #[SerializedName(name: 'week')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $week;
 
     /**
@@ -90,7 +126,13 @@ class TzOnsetInfo
      * @SerializedName("wkday")
      * @Type("integer")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDayOfWeek', setter: 'setDayOfWeek')]
+    #[SerializedName(name: 'wkday')]
+    #[Type(name: 'integer')]
+    #[XmlAttribute]
     private $dayOfWeek;
 
     /**
