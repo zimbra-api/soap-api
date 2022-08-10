@@ -29,7 +29,12 @@ class AccountDataSources
      * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountImapDataSource>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountImapDataSource>')]
+    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraAccount')]
     private $imapDataSources = [];
 
     /**
@@ -38,7 +43,12 @@ class AccountDataSources
      * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
      * @Type("array<Zimbra\Account\Struct\AccountPop3DataSource>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountPop3DataSource>')]
+    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraAccount')]
     private $pop3DataSources = [];
 
     /**
@@ -47,7 +57,12 @@ class AccountDataSources
      * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountCaldavDataSource>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountCaldavDataSource>')]
+    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraAccount')]
     private $caldavDataSources = [];
 
     /**
@@ -56,7 +71,12 @@ class AccountDataSources
      * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountYabDataSource>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountYabDataSource>')]
+    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraAccount')]
     private $yabDataSources = [];
 
     /**
@@ -65,7 +85,12 @@ class AccountDataSources
      * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountRssDataSource>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountRssDataSource>')]
+    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraAccount')]
     private $rssDataSources = [];
 
     /**
@@ -74,7 +99,12 @@ class AccountDataSources
      * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountGalDataSource>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountGalDataSource>')]
+    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraAccount')]
     private $galDataSources = [];
 
     /**
@@ -83,7 +113,12 @@ class AccountDataSources
      * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountCalDataSource>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountCalDataSource>')]
+    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraAccount')]
     private $calDataSources = [];
 
     /**
@@ -92,7 +127,12 @@ class AccountDataSources
      * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
      * @Type("array<Zimbra\Account\Struct\AccountUnknownDataSource>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountUnknownDataSource>')]
+    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraAccount')]
     private $unknownDataSources = [];
 
     /**

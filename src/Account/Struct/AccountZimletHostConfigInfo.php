@@ -32,7 +32,13 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -41,7 +47,12 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
      * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
      * @XmlList(inline=true, entry="property", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]
+    #[Type(name: 'array<Zimbra\Account\Struct\AccountZimletProperty>')]
+    #[XmlList(inline: true, entry: 'property', namespace: 'urn:zimbraAccount')]
     private $properties = [];
 
     /**

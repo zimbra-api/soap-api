@@ -30,7 +30,13 @@ class DiscoverRightsInfo
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $right;
 
     /**
@@ -39,7 +45,12 @@ class DiscoverRightsInfo
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
+    #[Type(name: 'array<Zimbra\Account\Struct\DiscoverRightsTarget>')]
+    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAccount')]
     private $targets = [];
 
     /**

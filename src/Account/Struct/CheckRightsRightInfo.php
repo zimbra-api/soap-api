@@ -30,7 +30,13 @@ class CheckRightsRightInfo
      * @SerializedName("allow")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
+    #[SerializedName(name: 'allow')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allow;
 
     /**
@@ -39,7 +45,12 @@ class CheckRightsRightInfo
      * @Accessor(getter="getRight", setter="setRight")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $right;
 
     /**

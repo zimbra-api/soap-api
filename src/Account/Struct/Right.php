@@ -28,7 +28,13 @@ class Right
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $right;
 
     /**

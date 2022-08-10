@@ -41,14 +41,14 @@ class AccountInfo
     /**
      * @Accessor(getter="getMountpointTraversed", setter="setMountpointTraversed")
      * @SerializedName("link")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      * 
      * @var bool
      */
     #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
     #[SerializedName(name: 'link')]
-    #[Type(name: 'boolean')]
+    #[Type(name: 'bool')]
     #[XmlAttribute]
     private $mountpointTraversed;
 

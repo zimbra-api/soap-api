@@ -30,7 +30,12 @@ class PreAuth
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**
@@ -38,9 +43,15 @@ class PreAuth
      * 
      * @Accessor(getter="getTimestamp", setter="setTimestamp")
      * @SerializedName("timestamp")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTimestamp', setter: 'setTimestamp')]
+    #[SerializedName(name: 'timestamp')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $timestamp;
 
     /**
@@ -51,9 +62,15 @@ class PreAuth
      * 
      * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
      * @SerializedName("expires")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getExpiresTimestamp', setter: 'setExpiresTimestamp')]
+    #[SerializedName(name: 'expires')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $expiresTimestamp;
 
     /**

@@ -30,7 +30,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("ref")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRef', setter: 'setRef')]
+    #[SerializedName(name: 'ref')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ref;
 
     /**
@@ -40,7 +46,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**
@@ -50,7 +62,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
+    #[SerializedName(name: 'dynamic')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $dynamic;
 
     /**
@@ -62,7 +80,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("via")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVia', setter: 'setVia')]
+    #[SerializedName(name: 'via')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $via;
 
     /**
@@ -73,7 +97,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("isOwner")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
+    #[SerializedName(name: 'isOwner')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isOwner;
 
     /**
@@ -84,7 +114,13 @@ class DLInfo extends ObjectInfo
      * @SerializedName("isMember")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isMember', setter: 'setIsMember')]
+    #[SerializedName(name: 'isMember')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isMember;
 
     /**

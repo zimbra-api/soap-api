@@ -26,14 +26,14 @@ class AuthTokenControl
     /**
      * @Accessor(getter="getVoidOnExpired", setter="setVoidOnExpired")
      * @SerializedName("voidOnExpired")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      * 
      * @var bool
      */
     #[Accessor(getter: 'getVoidOnExpired', setter: 'setVoidOnExpired')]
     #[SerializedName(name: 'voidOnExpired')]
-    #[Type(name: 'boolean')]
+    #[Type(name: 'bool')]
     #[XmlAttribute]
     private $voidOnExpired;
 

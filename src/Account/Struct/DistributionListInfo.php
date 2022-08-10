@@ -31,7 +31,13 @@ class DistributionListInfo extends ObjectInfo
      * @SerializedName("isOwner")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
+    #[SerializedName(name: 'isOwner')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isOwner;
 
     /**
@@ -42,7 +48,13 @@ class DistributionListInfo extends ObjectInfo
      * @SerializedName("isMember")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isMember', setter: 'setIsMember')]
+    #[SerializedName(name: 'isMember')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isMember;
 
     /**
@@ -52,7 +64,13 @@ class DistributionListInfo extends ObjectInfo
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
+    #[SerializedName(name: 'dynamic')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $dynamic;
 
     /**
@@ -61,7 +79,12 @@ class DistributionListInfo extends ObjectInfo
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAccount')]
     private $members = [];
 
     /**
@@ -72,7 +95,14 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getOwners', setter: 'setOwners')]
+    #[SerializedName(name: 'owners')]
+    #[Type(name: 'array<Zimbra\Account\Struct\DistributionListGranteeInfo>')]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlList(inline: false, entry: 'owner', namespace: 'urn:zimbraAccount')]
     private $owners = [];
 
     /**
@@ -83,7 +113,14 @@ class DistributionListInfo extends ObjectInfo
      * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'rights')]
+    #[Type(name: 'array<Zimbra\Account\Struct\DistributionListRightInfo>')]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
+    #[XmlList(inline: false, entry: 'right', namespace: 'urn:zimbraAccount')]
     private $rights = [];
 
     /**

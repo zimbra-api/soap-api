@@ -54,14 +54,14 @@ class ContactAttr extends KeyValuePair
     /**
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
     #[SerializedName(name: 's')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $size;
 

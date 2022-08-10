@@ -29,8 +29,13 @@ class CheckRightsTargetSpec
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * 
      * @var TargetType
      */
+    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[XmlAttribute]
     private $targetType;
 
     /**
@@ -38,8 +43,13 @@ class CheckRightsTargetSpec
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
+     * 
      * @var TargetBy
      */
+    #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetBy>')]
+    #[XmlAttribute]
     private $targetBy;
 
     /**
@@ -47,7 +57,13 @@ class CheckRightsTargetSpec
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
+    #[SerializedName(name: 'key')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $targetKey;
 
     /**
@@ -55,6 +71,9 @@ class CheckRightsTargetSpec
      * @Type("array<string>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
     private $rights = [];
 
     /**

@@ -76,14 +76,14 @@ class ShareInfo
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("folderId")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
     #[SerializedName(name: 'folderId')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $folderId;
 

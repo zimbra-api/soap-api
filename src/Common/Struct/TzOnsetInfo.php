@@ -28,14 +28,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getMonth', setter: 'setMonth')]
     #[SerializedName(name: 'mon')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $month;
 
@@ -44,14 +44,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getHour", setter="setHour")
      * @SerializedName("hour")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getHour', setter: 'setHour')]
     #[SerializedName(name: 'hour')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $hour;
 
@@ -60,14 +60,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getMinute", setter="setMinute")
      * @SerializedName("min")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getMinute', setter: 'setMinute')]
     #[SerializedName(name: 'min')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $minute;
 
@@ -76,14 +76,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getSecond", setter="setSecond")
      * @SerializedName("sec")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getSecond', setter: 'setSecond')]
     #[SerializedName(name: 'sec')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $second;
 
@@ -92,14 +92,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
      * @SerializedName("mday")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getDayOfMonth', setter: 'setDayOfMonth')]
     #[SerializedName(name: 'mday')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $dayOfMonth;
 
@@ -108,14 +108,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getWeek', setter: 'setWeek')]
     #[SerializedName(name: 'week')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $week;
 
@@ -124,14 +124,14 @@ class TzOnsetInfo
      * 
      * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
      * @SerializedName("wkday")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getDayOfWeek', setter: 'setDayOfWeek')]
     #[SerializedName(name: 'wkday')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $dayOfWeek;
 

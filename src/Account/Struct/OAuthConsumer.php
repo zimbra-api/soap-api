@@ -28,7 +28,13 @@ class OAuthConsumer
      * @SerializedName("accessToken")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
+    #[SerializedName(name: 'accessToken')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accessToken;
 
     /**
@@ -36,7 +42,13 @@ class OAuthConsumer
      * @SerializedName("approvedOn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getApprovedOn', setter: 'setApprovedOn')]
+    #[SerializedName(name: 'approvedOn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $approvedOn;
 
     /**
@@ -44,7 +56,13 @@ class OAuthConsumer
      * @SerializedName("appName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getApplicationName', setter: 'setApplicationName')]
+    #[SerializedName(name: 'appName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $applicationName;
 
     /**
@@ -52,7 +70,13 @@ class OAuthConsumer
      * @SerializedName("device")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDevice', setter: 'setDevice')]
+    #[SerializedName(name: 'device')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $device;
 
     /**

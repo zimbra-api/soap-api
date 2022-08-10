@@ -29,8 +29,13 @@ class CheckRightsTargetInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * 
      * @var TargetType
      */
+    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[XmlAttribute]
     private $targetType;
 
     /**
@@ -38,8 +43,13 @@ class CheckRightsTargetInfo
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
      * @XmlAttribute
+     * 
      * @var TargetBy
      */
+    #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetBy>')]
+    #[XmlAttribute]
     private $targetBy;
 
     /**
@@ -47,7 +57,13 @@ class CheckRightsTargetInfo
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
+    #[SerializedName(name: 'key')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $targetKey;
 
     /**
@@ -55,7 +71,13 @@ class CheckRightsTargetInfo
      * @SerializedName("allow")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAllow', setter: 'setAllow')]
+    #[SerializedName(name: 'allow')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allow;
 
     /**
@@ -63,6 +85,9 @@ class CheckRightsTargetInfo
      * @Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[Type(name: 'array<Zimbra\Account\Struct\CheckRightsRightInfo>')]
+    #[XmlList(inline: true, entry: 'right', namespace: 'urn:zimbraAccount')]
     private $rights = [];
 
     /**

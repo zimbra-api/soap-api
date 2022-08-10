@@ -68,14 +68,14 @@ class CursorInfo
     /**
      * @Accessor(getter="getIncludeOffset", setter="setIncludeOffset")
      * @SerializedName("includeOffset")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      * 
      * @var bool
      */
     #[Accessor(getter: 'getIncludeOffset', setter: 'setIncludeOffset')]
     #[SerializedName(name: 'includeOffset')]
-    #[Type(name: 'boolean')]
+    #[Type(name: 'bool')]
     #[XmlAttribute]
     private $includeOffset;
 

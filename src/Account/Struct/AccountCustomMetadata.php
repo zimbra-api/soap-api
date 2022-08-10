@@ -29,7 +29,13 @@ class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetada
      * @SerializedName("section")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSection', setter: 'setSection')]
+    #[SerializedName(name: 'section')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $section;
 
     /**

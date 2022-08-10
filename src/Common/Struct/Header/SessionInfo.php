@@ -26,14 +26,14 @@ class SessionInfo
     /**
      * @Accessor(getter="getSessionProxied", setter="setSessionProxied")
      * @SerializedName("proxy")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      * 
      * @var bool
      */
     #[Accessor(getter: 'getSessionProxied', setter: 'setSessionProxied')]
     #[SerializedName(name: 'proxy')]
-    #[Type(name: 'boolean')]
+    #[Type(name: 'bool')]
     #[XmlAttribute]
     private $sessionProxied;
 
@@ -54,14 +54,14 @@ class SessionInfo
     /**
      * @Accessor(getter="getSequenceNum", setter="setSequenceNum")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
     #[SerializedName(name: 'seq')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $sequenceNum;
 

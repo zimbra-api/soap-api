@@ -31,7 +31,13 @@ class ModifyZimletPrefsSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,8 +48,13 @@ class ModifyZimletPrefsSpec
      * @SerializedName("presence")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
      * @XmlAttribute
+     * 
      * @var ZimletStatus
      */
+    #[Accessor(getter: 'getPresence', setter: 'setPresence')]
+    #[SerializedName(name: 'presence')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletStatus>')]
+    #[XmlAttribute]
     private $presence;
 
     /**

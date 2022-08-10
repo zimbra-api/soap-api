@@ -31,15 +31,25 @@ class DistributionListSubscribeReq
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
+     * 
      * @var DistributionListSubscribeOp
      */
+    #[Accessor(getter: 'getOp', setter: 'setOp')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
+    #[XmlAttribute]
     private $op;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**
@@ -49,7 +59,13 @@ class DistributionListSubscribeReq
      * @SerializedName("bccOwners")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getBccOwners', setter: 'setBccOwners')]
+    #[SerializedName(name: 'bccOwners')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $bccOwners;
 
     /**

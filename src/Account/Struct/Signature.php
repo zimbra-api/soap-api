@@ -28,7 +28,13 @@ class Signature
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -36,7 +42,13 @@ class Signature
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -44,7 +56,13 @@ class Signature
      * @SerializedName("cid")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCid', setter: 'setCid')]
+    #[SerializedName(name: 'cid')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $cid;
 
     /**
@@ -53,7 +71,12 @@ class Signature
      * @Accessor(getter="getContents", setter="setContents")
      * @Type("array<Zimbra\Account\Struct\SignatureContent>")
      * @XmlList(inline=true, entry="content", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContents', setter: 'setContents')]
+    #[Type(name: 'array<Zimbra\Account\Struct\SignatureContent>')]
+    #[XmlList(inline: true, entry: 'content', namespace: 'urn:zimbraAccount')]
     private $contents = [];
 
     /**

@@ -31,7 +31,13 @@ class ZmgDeviceSpec
      * @SerializedName("appId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAppId', setter: 'setAppId')]
+    #[SerializedName(name: 'appId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $appId;
 
     /**
@@ -41,7 +47,13 @@ class ZmgDeviceSpec
      * @SerializedName("registrationId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRegistrationId', setter: 'setRegistrationId')]
+    #[SerializedName(name: 'registrationId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $registrationId;
 
     /**
@@ -50,7 +62,13 @@ class ZmgDeviceSpec
      * @SerializedName("pushProvider")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPushProvider', setter: 'setPushProvider')]
+    #[SerializedName(name: 'pushProvider')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $pushProvider;
 
     /**
@@ -60,7 +78,13 @@ class ZmgDeviceSpec
      * @SerializedName("osName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOSName', setter: 'setOSName')]
+    #[SerializedName(name: 'osName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $osName;
 
     /**
@@ -74,7 +98,13 @@ class ZmgDeviceSpec
      * @SerializedName("osVersion")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOSVersion', setter: 'setOSVersion')]
+    #[SerializedName(name: 'osVersion')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $osVersion;
 
     /**
@@ -86,7 +116,13 @@ class ZmgDeviceSpec
      * @SerializedName("maxPayloadSize")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxPayloadSize', setter: 'setMaxPayloadSize')]
+    #[SerializedName(name: 'maxPayloadSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxPayloadSize;
 
     /**

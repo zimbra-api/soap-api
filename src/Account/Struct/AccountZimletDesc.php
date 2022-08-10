@@ -31,7 +31,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -41,7 +47,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("version")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
+    #[SerializedName(name: 'version')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $version;
 
     /**
@@ -51,7 +63,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("description")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
+    #[SerializedName(name: 'description')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $description;
 
     /**
@@ -61,7 +79,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("extension")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
+    #[SerializedName(name: 'extension')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $extension;
 
     /**
@@ -71,7 +95,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("target")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $target;
 
     /**
@@ -81,7 +111,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("label")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLabel', setter: 'setLabel')]
+    #[SerializedName(name: 'label')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $label;
 
     /**
@@ -89,8 +125,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("serverExtension")
      * @Type("Zimbra\Account\Struct\ZimletServerExtension")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ZimletServerExtension
      */
+    #[Accessor(getter: 'getServerExtension', setter: 'setServerExtension')]
+    #[SerializedName(name: 'serverExtension')]
+    #[Type(name: ZimletServerExtension::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $serverExtension;
 
     /**
@@ -98,8 +139,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("include")
      * @Type("Zimbra\Account\Struct\AccountZimletInclude")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletInclude
      */
+    #[Accessor(getter: 'getZimletInclude', setter: 'setZimletInclude')]
+    #[SerializedName(name: 'include')]
+    #[Type(name: AccountZimletInclude::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $include;
 
     /**
@@ -107,8 +153,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("includeCSS")
      * @Type("Zimbra\Account\Struct\AccountZimletIncludeCSS")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletIncludeCSS
      */
+    #[Accessor(getter: 'getZimletIncludeCSS', setter: 'setZimletIncludeCSS')]
+    #[SerializedName(name: 'includeCSS')]
+    #[Type(name: AccountZimletIncludeCSS::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $includeCSS;
 
     /**
@@ -116,8 +167,13 @@ class AccountZimletDesc implements ZimletDesc
      * @SerializedName("zimletTarget")
      * @Type("Zimbra\Account\Struct\AccountZimletTarget")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletTarget
      */
+    #[Accessor(getter: 'getZimletTarget', setter: 'setZimletTarget')]
+    #[SerializedName(name: 'zimletTarget')]
+    #[Type(name: AccountZimletTarget::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $zimletTarget;
 
     /**

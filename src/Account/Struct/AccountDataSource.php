@@ -32,7 +32,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -52,7 +64,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -62,7 +80,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("isEnabled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isEnabled', setter: 'setEnabled')]
+    #[SerializedName(name: 'isEnabled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $enabled;
 
     /**
@@ -72,7 +96,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("importOnly")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isImportOnly', setter: 'setImportOnly')]
+    #[SerializedName(name: 'importOnly')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $importOnly;
 
     /**
@@ -83,7 +113,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("host")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHost', setter: 'setHost')]
+    #[SerializedName(name: 'host')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $host;
 
     /**
@@ -92,9 +128,15 @@ class AccountDataSource implements DataSource
      * 
      * @Accessor(getter="getPort", setter="setPort")
      * @SerializedName("port")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getPort', setter: 'setPort')]
+    #[SerializedName(name: 'port')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $port;
 
     /**
@@ -105,8 +147,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * 
      * @var ConnectionType
      */
+    #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
+    #[SerializedName(name: 'connectionType')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[XmlAttribute]
     private $connectionType;
 
     /**
@@ -116,7 +163,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("username")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUsername', setter: 'setUsername')]
+    #[SerializedName(name: 'username')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $username;
 
     /**
@@ -126,7 +179,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $password;
 
     /**
@@ -136,7 +195,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("pollingInterval")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPollingInterval', setter: 'setPollingInterval')]
+    #[SerializedName(name: 'pollingInterval')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $pollingInterval;
 
     /**
@@ -146,7 +211,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("emailAddress")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmailAddress', setter: 'setEmailAddress')]
+    #[SerializedName(name: 'emailAddress')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $emailAddress;
 
     /**
@@ -158,7 +229,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("useAddressForForwardReply")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isUseAddressForForwardReply', setter: 'setUseAddressForForwardReply')]
+    #[SerializedName(name: 'useAddressForForwardReply')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $useAddressForForwardReply;
 
     /**
@@ -168,7 +245,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("defaultSignature")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultSignature', setter: 'setDefaultSignature')]
+    #[SerializedName(name: 'defaultSignature')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultSignature;
 
     /**
@@ -178,7 +261,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("forwardReplySignature")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getForwardReplySignature', setter: 'setForwardReplySignature')]
+    #[SerializedName(name: 'forwardReplySignature')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $forwardReplySignature;
 
     /**
@@ -188,7 +277,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("fromDisplay")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFromDisplay', setter: 'setFromDisplay')]
+    #[SerializedName(name: 'fromDisplay')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $fromDisplay;
 
     /**
@@ -198,7 +293,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("replyToAddress")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReplyToAddress', setter: 'setReplyToAddress')]
+    #[SerializedName(name: 'replyToAddress')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $replyToAddress;
 
     /**
@@ -208,7 +309,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("replyToDisplay")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReplyToDisplay', setter: 'setReplyToDisplay')]
+    #[SerializedName(name: 'replyToDisplay')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $replyToDisplay;
 
     /**
@@ -218,7 +325,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("importClass")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getImportClass', setter: 'setImportClass')]
+    #[SerializedName(name: 'importClass')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $importClass;
 
     /**
@@ -226,9 +339,15 @@ class AccountDataSource implements DataSource
      * 
      * @Accessor(getter="getFailingSince", setter="setFailingSince")
      * @SerializedName("failingSince")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFailingSince', setter: 'setFailingSince')]
+    #[SerializedName(name: 'failingSince')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $failingSince;
 
     /**
@@ -238,7 +357,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("lastError")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLastError', setter: 'setLastError')]
+    #[SerializedName(name: 'lastError')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $lastError;
 
     /**
@@ -247,7 +372,12 @@ class AccountDataSource implements DataSource
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
     private $attributes;
 
     /**
@@ -257,7 +387,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("refreshToken")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRefreshToken', setter: 'setRefreshToken')]
+    #[SerializedName(name: 'refreshToken')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $refreshToken;
 
     /**
@@ -267,7 +403,13 @@ class AccountDataSource implements DataSource
      * @SerializedName("refreshTokenUrl")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRefreshTokenUrl', setter: 'setRefreshTokenUrl')]
+    #[SerializedName(name: 'refreshTokenUrl')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $refreshTokenUrl;
 
     /**

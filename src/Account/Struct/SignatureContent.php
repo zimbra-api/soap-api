@@ -29,15 +29,25 @@ class SignatureContent
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\ContentType>")
      * @XmlAttribute
+     * 
      * @var ContentType
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ContentType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

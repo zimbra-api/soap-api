@@ -28,7 +28,13 @@ class Prop
      * @SerializedName("zimlet")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
+    #[SerializedName(name: 'zimlet')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $zimlet;
 
     /**
@@ -36,14 +42,25 @@ class Prop
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

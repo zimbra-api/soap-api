@@ -27,14 +27,14 @@ class Context
     /**
      * @Accessor(getter="getHopCount", setter="setHopCount")
      * @SerializedName("hops")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      * 
      * @var int
      */
     #[Accessor(getter: 'getHopCount', setter: 'setHopCount')]
     #[SerializedName(name: 'hops')]
-    #[Type(name: 'integer')]
+    #[Type(name: 'int')]
     #[XmlAttribute]
     private $hopCount;
 
@@ -62,7 +62,7 @@ class Context
      */
     #[Accessor(getter: 'getSession', setter: 'setSession')]
     #[SerializedName(name: 'session')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\SessionInfo')]
+    #[Type(name: SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $session;
 
@@ -76,7 +76,7 @@ class Context
      */
     #[Accessor(getter: 'getLegacySessionId', setter: 'setLegacySessionId')]
     #[SerializedName(name: 'sessionId')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\SessionInfo')]
+    #[Type(name: SessionInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $legacySessionId;
 
@@ -104,7 +104,7 @@ class Context
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
     #[SerializedName(name: 'account')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\AccountInfo')]
+    #[Type(name: AccountInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $account;
 
@@ -118,7 +118,7 @@ class Context
      */
     #[Accessor(getter: 'getChange', setter: 'setChange')]
     #[SerializedName(name: 'change')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\ChangeInfo')]
+    #[Type(name: ChangeInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $change;
 
@@ -146,7 +146,7 @@ class Context
      */
     #[Accessor(getter: 'getUserAgent', setter: 'setUserAgent')]
     #[SerializedName(name: 'userAgent')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\UserAgentInfo')]
+    #[Type(name: UserAgentInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $userAgent;
 
@@ -160,7 +160,7 @@ class Context
      */
     #[Accessor(getter: 'getAuthTokenControl', setter: 'setAuthTokenControl')]
     #[SerializedName(name: 'authTokenControl')]
-    #[Type(name: 'Zimbra\Common\Struct\AuthTokenControl')]
+    #[Type(name: AuthTokenControl::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $authTokenControl;
 
@@ -174,7 +174,7 @@ class Context
      */
     #[Accessor(getter: 'getFormat', setter: 'setFormat')]
     #[SerializedName(name: 'format')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\FormatInfo')]
+    #[Type(name: FormatInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $format;
 
@@ -188,7 +188,7 @@ class Context
      */
     #[Accessor(getter: 'getNotify', setter: 'setNotify')]
     #[SerializedName(name: 'notify')]
-    #[Type(name: 'Zimbra\Common\Struct\Header\NotifyInfo')]
+    #[Type(name: NotifyInfo::class)]
     #[XmlElement(namespace: 'urn:zimbra')]
     private $notify;
 

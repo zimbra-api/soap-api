@@ -30,7 +30,13 @@ class Session
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -40,14 +46,25 @@ class Session
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

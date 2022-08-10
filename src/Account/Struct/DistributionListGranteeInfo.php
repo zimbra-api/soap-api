@@ -31,8 +31,13 @@ class DistributionListGranteeInfo
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * 
      * @var GranteeType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -42,7 +47,13 @@ class DistributionListGranteeInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -52,7 +63,13 @@ class DistributionListGranteeInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
