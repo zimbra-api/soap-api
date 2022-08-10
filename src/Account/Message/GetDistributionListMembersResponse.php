@@ -41,7 +41,7 @@ class GetDistributionListMembersResponse extends SoapResponse
      * 
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $total;

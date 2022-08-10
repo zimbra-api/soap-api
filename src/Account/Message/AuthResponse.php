@@ -40,7 +40,7 @@ class AuthResponse extends SoapResponse
      * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
@@ -50,7 +50,7 @@ class AuthResponse extends SoapResponse
      * 
      * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
      * @SerializedName("trustLifetime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $trustLifetime;

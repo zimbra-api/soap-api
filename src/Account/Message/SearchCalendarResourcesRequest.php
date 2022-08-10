@@ -60,7 +60,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $limit;
@@ -70,7 +70,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $offset;

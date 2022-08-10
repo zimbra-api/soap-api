@@ -40,7 +40,7 @@ class SearchGalResponse extends SoapResponse
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $offset;

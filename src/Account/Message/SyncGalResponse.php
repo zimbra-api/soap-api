@@ -82,7 +82,7 @@ class SyncGalResponse extends SoapResponse
      * 
      * @Accessor(getter="getRemain", setter="setRemain")
      * @SerializedName("remain")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $remain;

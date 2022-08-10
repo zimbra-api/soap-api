@@ -41,7 +41,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getAttachmentSizeLimit", setter="setAttachmentSizeLimit")
      * @SerializedName("attSizeLimit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $attachmentSizeLimit;
@@ -51,7 +51,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getDocumentSizeLimit", setter="setDocumentSizeLimit")
      * @SerializedName("docSizeLimit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $documentSizeLimit;
@@ -81,7 +81,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getProfileImageId", setter="setProfileImageId")
      * @SerializedName("profileImageId")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $profileImageId;
@@ -111,7 +111,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
@@ -142,7 +142,7 @@ class GetInfoResponse extends SoapResponse
      * Returned only if the command successfully executes on the target user's home mail server
      * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
      * @SerializedName("used")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $quotaUsed;
@@ -153,7 +153,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getPreviousSessionTime", setter="setPreviousSessionTime")
      * @SerializedName("prevSession")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $previousSessionTime;
@@ -165,7 +165,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getLastWriteAccessTime", setter="setLastWriteAccessTime")
      * @SerializedName("accessed")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lastWriteAccessTime;
@@ -176,7 +176,7 @@ class GetInfoResponse extends SoapResponse
      * 
      * @Accessor(getter="getRecentMessageCount", setter="setRecentMessageCount")
      * @SerializedName("recent")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $recentMessageCount;

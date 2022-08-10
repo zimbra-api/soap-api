@@ -66,11 +66,11 @@ class SyncGalRequest extends SoapRequest
     private $getCount;
 
     /**
-     * An integer specifying the maximum number of results to return
+     * An int specifying the maximum number of results to return
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $limit;

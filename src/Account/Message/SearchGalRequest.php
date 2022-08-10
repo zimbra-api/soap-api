@@ -142,7 +142,7 @@ class SearchGalRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $limit;
@@ -152,7 +152,7 @@ class SearchGalRequest extends SoapRequest
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $offset;

@@ -39,7 +39,7 @@ class ChangePasswordResponse extends SoapResponse
      * 
      * @Accessor(getter="getLifetime", setter="setLifetime")
      * @SerializedName("lifetime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      */
     private $lifetime;
