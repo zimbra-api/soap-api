@@ -29,7 +29,13 @@ class DeleteIdentityBody extends SoapBody
      * @SerializedName("DeleteIdentityRequest")
      * @Type("Zimbra\Account\Message\DeleteIdentityRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var DeleteIdentityRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteIdentityRequest')]
+    #[Type(name: DeleteIdentityRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class DeleteIdentityBody extends SoapBody
      * @SerializedName("DeleteIdentityResponse")
      * @Type("Zimbra\Account\Message\DeleteIdentityResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var DeleteIdentityResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteIdentityResponse')]
+    #[Type(name: DeleteIdentityResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

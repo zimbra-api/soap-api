@@ -29,7 +29,13 @@ class GetAvailableSkinsBody extends SoapBody
      * @SerializedName("GetAvailableSkinsRequest")
      * @Type("Zimbra\Account\Message\GetAvailableSkinsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetAvailableSkinsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAvailableSkinsRequest')]
+    #[Type(name: GetAvailableSkinsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class GetAvailableSkinsBody extends SoapBody
      * @SerializedName("GetAvailableSkinsResponse")
      * @Type("Zimbra\Account\Message\GetAvailableSkinsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetAvailableSkinsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAvailableSkinsResponse')]
+    #[Type(name: GetAvailableSkinsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

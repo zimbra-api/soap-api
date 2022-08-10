@@ -29,7 +29,13 @@ class RevokeRightsBody extends SoapBody
      * @SerializedName("RevokeRightsRequest")
      * @Type("Zimbra\Account\Message\RevokeRightsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var RevokeRightsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RevokeRightsRequest')]
+    #[Type(name: RevokeRightsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class RevokeRightsBody extends SoapBody
      * @SerializedName("RevokeRightsResponse")
      * @Type("Zimbra\Account\Message\RevokeRightsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var RevokeRightsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RevokeRightsResponse')]
+    #[Type(name: RevokeRightsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

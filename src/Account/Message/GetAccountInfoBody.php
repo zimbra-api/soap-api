@@ -29,7 +29,13 @@ class GetAccountInfoBody extends SoapBody
      * @SerializedName("GetAccountInfoRequest")
      * @Type("Zimbra\Account\Message\GetAccountInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetAccountInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAccountInfoRequest')]
+    #[Type(name: GetAccountInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class GetAccountInfoBody extends SoapBody
      * @SerializedName("GetAccountInfoResponse")
      * @Type("Zimbra\Account\Message\GetAccountInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetAccountInfoResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAccountInfoResponse')]
+    #[Type(name: GetAccountInfoResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

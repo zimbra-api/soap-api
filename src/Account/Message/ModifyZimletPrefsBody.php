@@ -30,6 +30,10 @@ class ModifyZimletPrefsBody extends SoapBody
      * @Type("Zimbra\Account\Message\ModifyZimletPrefsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyZimletPrefsRequest')]
+    #[Type(name: ModifyZimletPrefsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +41,13 @@ class ModifyZimletPrefsBody extends SoapBody
      * @SerializedName("ModifyZimletPrefsResponse")
      * @Type("Zimbra\Account\Message\ModifyZimletPrefsResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var ModifyZimletPrefsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyZimletPrefsResponse')]
+    #[Type(name: ModifyZimletPrefsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

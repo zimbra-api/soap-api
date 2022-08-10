@@ -30,6 +30,10 @@ class ResetPasswordBody extends SoapBody
      * @Type("Zimbra\Account\Message\ResetPasswordRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ResetPasswordRequest')]
+    #[Type(name: ResetPasswordRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +41,13 @@ class ResetPasswordBody extends SoapBody
      * @SerializedName("ResetPasswordResponse")
      * @Type("Zimbra\Account\Message\ResetPasswordResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var ResetPasswordResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ResetPasswordResponse')]
+    #[Type(name: ResetPasswordResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

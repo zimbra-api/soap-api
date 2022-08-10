@@ -29,7 +29,13 @@ class SearchGalBody extends SoapBody
      * @SerializedName("SearchGalRequest")
      * @Type("Zimbra\Account\Message\SearchGalRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var SearchGalRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SearchGalRequest')]
+    #[Type(name: SearchGalRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class SearchGalBody extends SoapBody
      * @SerializedName("SearchGalResponse")
      * @Type("Zimbra\Account\Message\SearchGalResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var SearchGalResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SearchGalResponse')]
+    #[Type(name: SearchGalResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

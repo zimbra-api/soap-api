@@ -24,6 +24,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class GetDistributionListMembersEnvelope extends SoapEnvelope
 {
     /**
@@ -32,6 +34,10 @@ class GetDistributionListMembersEnvelope extends SoapEnvelope
      * @Type("Zimbra\Account\Message\GetDistributionListMembersBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: GetDistributionListMembersBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

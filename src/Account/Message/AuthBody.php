@@ -29,7 +29,13 @@ class AuthBody extends SoapBody
      * @SerializedName("AuthRequest")
      * @Type("Zimbra\Account\Message\AuthRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var AuthRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AuthRequest')]
+    #[Type(name: AuthRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class AuthBody extends SoapBody
      * @SerializedName("AuthResponse")
      * @Type("Zimbra\Account\Message\AuthResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var AuthResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AuthResponse')]
+    #[Type(name: AuthResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

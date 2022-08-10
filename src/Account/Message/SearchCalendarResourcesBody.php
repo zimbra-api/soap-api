@@ -29,7 +29,13 @@ class SearchCalendarResourcesBody extends SoapBody
      * @SerializedName("SearchCalendarResourcesRequest")
      * @Type("Zimbra\Account\Message\SearchCalendarResourcesRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var SearchCalendarResourcesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SearchCalendarResourcesRequest')]
+    #[Type(name: SearchCalendarResourcesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class SearchCalendarResourcesBody extends SoapBody
      * @SerializedName("SearchCalendarResourcesResponse")
      * @Type("Zimbra\Account\Message\SearchCalendarResourcesResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var SearchCalendarResourcesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SearchCalendarResourcesResponse')]
+    #[Type(name: SearchCalendarResourcesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

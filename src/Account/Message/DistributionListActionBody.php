@@ -29,7 +29,13 @@ class DistributionListActionBody extends SoapBody
      * @SerializedName("DistributionListActionRequest")
      * @Type("Zimbra\Account\Message\DistributionListActionRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var DistributionListActionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DistributionListActionRequest')]
+    #[Type(name: DistributionListActionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class DistributionListActionBody extends SoapBody
      * @SerializedName("DistributionListActionResponse")
      * @Type("Zimbra\Account\Message\DistributionListActionResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var DistributionListActionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DistributionListActionResponse')]
+    #[Type(name: DistributionListActionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

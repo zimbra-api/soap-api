@@ -29,7 +29,13 @@ class GetSignaturesBody extends SoapBody
      * @SerializedName("GetSignaturesRequest")
      * @Type("Zimbra\Account\Message\GetSignaturesRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetSignaturesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetSignaturesRequest')]
+    #[Type(name: GetSignaturesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class GetSignaturesBody extends SoapBody
      * @SerializedName("GetSignaturesResponse")
      * @Type("Zimbra\Account\Message\GetSignaturesResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetSignaturesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetSignaturesResponse')]
+    #[Type(name: GetSignaturesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**

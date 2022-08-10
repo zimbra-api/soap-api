@@ -29,7 +29,13 @@ class GetShareInfoBody extends SoapBody
      * @SerializedName("GetShareInfoRequest")
      * @Type("Zimbra\Account\Message\GetShareInfoRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetShareInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetShareInfoRequest')]
+    #[Type(name: GetShareInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $request;
 
     /**
@@ -37,7 +43,13 @@ class GetShareInfoBody extends SoapBody
      * @SerializedName("GetShareInfoResponse")
      * @Type("Zimbra\Account\Message\GetShareInfoResponse")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var GetShareInfoResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetShareInfoResponse')]
+    #[Type(name: GetShareInfoResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $response;
 
     /**
