@@ -25,6 +25,10 @@
         "phpunit/phpunit": "^7.0 | ^8.0 | ^9.0",
         "fakerphp/faker": "^1.0"
     },
+    "suggest": {
+        "guzzlehttp/guzzle": "Required if you like to use Guzzle PSR-18 HTTP Client & PSR-7 HTTP message factories",
+        "symfony/cache": "Required if you like to use Serializer Annotations & Metadata caching"
+    },
     "autoload": {
         "psr-4": {
             "Zimbra\\": "src/"
