@@ -29,7 +29,13 @@ class GetYahooCookieBody extends SoapBody
      * @SerializedName("GetYahooCookieRequest")
      * @Type("Zimbra\Mail\Message\GetYahooCookieRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetYahooCookieRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetYahooCookieRequest')]
+    #[Type(name: GetYahooCookieRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

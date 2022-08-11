@@ -29,7 +29,13 @@ class GetShareNotificationsBody extends SoapBody
      * @SerializedName("GetShareNotificationsRequest")
      * @Type("Zimbra\Mail\Message\GetShareNotificationsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetShareNotificationsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetShareNotificationsRequest')]
+    #[Type(name: GetShareNotificationsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class EnableSharedReminderBody extends SoapBody
      * @SerializedName("EnableSharedReminderRequest")
      * @Type("Zimbra\Mail\Message\EnableSharedReminderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var EnableSharedReminderRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'EnableSharedReminderRequest')]
+    #[Type(name: EnableSharedReminderRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

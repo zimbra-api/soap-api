@@ -29,7 +29,13 @@ class SetTaskBody extends SoapBody
      * @SerializedName("SetTaskRequest")
      * @Type("Zimbra\Mail\Message\SetTaskRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SetTaskRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SetTaskRequest')]
+    #[Type(name: SetTaskRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

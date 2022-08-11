@@ -29,7 +29,13 @@ class GetTagBody extends SoapBody
      * @SerializedName("GetTagRequest")
      * @Type("Zimbra\Mail\Message\GetTagRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetTagRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetTagRequest')]
+    #[Type(name: GetTagRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

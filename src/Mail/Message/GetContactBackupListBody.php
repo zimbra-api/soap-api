@@ -29,7 +29,13 @@ class GetContactBackupListBody extends SoapBody
      * @SerializedName("GetContactBackupListRequest")
      * @Type("Zimbra\Mail\Message\GetContactBackupListRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetContactBackupListRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetContactBackupListRequest')]
+    #[Type(name: GetContactBackupListRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

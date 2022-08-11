@@ -29,7 +29,13 @@ class GetLastItemIdInMailboxBody extends SoapBody
      * @SerializedName("GetLastItemIdInMailboxRequest")
      * @Type("Zimbra\Mail\Message\GetLastItemIdInMailboxRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetLastItemIdInMailboxRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetLastItemIdInMailboxRequest')]
+    #[Type(name: GetLastItemIdInMailboxRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class BeginTrackingIMAPBody extends SoapBody
      * @SerializedName("BeginTrackingIMAPRequest")
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var BeginTrackingIMAPRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'BeginTrackingIMAPRequest')]
+    #[Type(name: BeginTrackingIMAPRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class RankingActionBody extends SoapBody
      * @SerializedName("RankingActionRequest")
      * @Type("Zimbra\Mail\Message\RankingActionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RankingActionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RankingActionRequest')]
+    #[Type(name: RankingActionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

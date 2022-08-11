@@ -29,7 +29,13 @@ class CounterAppointmentBody extends SoapBody
      * @SerializedName("CounterAppointmentRequest")
      * @Type("Zimbra\Mail\Message\CounterAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CounterAppointmentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CounterAppointmentRequest')]
+    #[Type(name: CounterAppointmentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

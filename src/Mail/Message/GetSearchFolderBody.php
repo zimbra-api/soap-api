@@ -29,7 +29,13 @@ class GetSearchFolderBody extends SoapBody
      * @SerializedName("GetSearchFolderRequest")
      * @Type("Zimbra\Mail\Message\GetSearchFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetSearchFolderRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetSearchFolderRequest')]
+    #[Type(name: GetSearchFolderRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

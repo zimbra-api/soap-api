@@ -29,7 +29,13 @@ class ExpandRecurBody extends SoapBody
      * @SerializedName("ExpandRecurRequest")
      * @Type("Zimbra\Mail\Message\ExpandRecurRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ExpandRecurRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ExpandRecurRequest')]
+    #[Type(name: ExpandRecurRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

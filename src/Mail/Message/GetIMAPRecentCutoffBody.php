@@ -29,7 +29,13 @@ class GetIMAPRecentCutoffBody extends SoapBody
      * @SerializedName("GetIMAPRecentCutoffRequest")
      * @Type("Zimbra\Mail\Message\GetIMAPRecentCutoffRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetIMAPRecentCutoffRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetIMAPRecentCutoffRequest')]
+    #[Type(name: GetIMAPRecentCutoffRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

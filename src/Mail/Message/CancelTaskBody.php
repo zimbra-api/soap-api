@@ -29,7 +29,13 @@ class CancelTaskBody extends SoapBody
      * @SerializedName("CancelTaskRequest")
      * @Type("Zimbra\Mail\Message\CancelTaskRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CancelTaskRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CancelTaskRequest')]
+    #[Type(name: CancelTaskRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

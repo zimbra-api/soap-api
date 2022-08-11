@@ -29,7 +29,13 @@ class SaveDocumentBody extends SoapBody
      * @SerializedName("SaveDocumentRequest")
      * @Type("Zimbra\Mail\Message\SaveDocumentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SaveDocumentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SaveDocumentRequest')]
+    #[Type(name: SaveDocumentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

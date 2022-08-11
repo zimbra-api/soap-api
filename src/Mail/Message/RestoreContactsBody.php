@@ -29,7 +29,13 @@ class RestoreContactsBody extends SoapBody
      * @SerializedName("RestoreContactsRequest")
      * @Type("Zimbra\Mail\Message\RestoreContactsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RestoreContactsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RestoreContactsRequest')]
+    #[Type(name: RestoreContactsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

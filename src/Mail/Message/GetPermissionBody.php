@@ -29,7 +29,13 @@ class GetPermissionBody extends SoapBody
      * @SerializedName("GetPermissionRequest")
      * @Type("Zimbra\Mail\Message\GetPermissionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetPermissionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetPermissionRequest')]
+    #[Type(name: GetPermissionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

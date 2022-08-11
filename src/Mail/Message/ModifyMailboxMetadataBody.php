@@ -29,7 +29,13 @@ class ModifyMailboxMetadataBody extends SoapBody
      * @SerializedName("ModifyMailboxMetadataRequest")
      * @Type("Zimbra\Mail\Message\ModifyMailboxMetadataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyMailboxMetadataRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyMailboxMetadataRequest')]
+    #[Type(name: ModifyMailboxMetadataRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

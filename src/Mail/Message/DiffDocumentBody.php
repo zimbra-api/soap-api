@@ -29,7 +29,13 @@ class DiffDocumentBody extends SoapBody
      * @SerializedName("DiffDocumentRequest")
      * @Type("Zimbra\Mail\Message\DiffDocumentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var DiffDocumentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DiffDocumentRequest')]
+    #[Type(name: DiffDocumentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

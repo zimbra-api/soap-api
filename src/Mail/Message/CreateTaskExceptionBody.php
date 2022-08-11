@@ -29,7 +29,13 @@ class CreateTaskExceptionBody extends SoapBody
      * @SerializedName("CreateTaskExceptionRequest")
      * @Type("Zimbra\Mail\Message\CreateTaskExceptionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateTaskExceptionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateTaskExceptionRequest')]
+    #[Type(name: CreateTaskExceptionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class RevokePermissionBody extends SoapBody
      * @SerializedName("RevokePermissionRequest")
      * @Type("Zimbra\Mail\Message\RevokePermissionRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RevokePermissionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RevokePermissionRequest')]
+    #[Type(name: RevokePermissionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

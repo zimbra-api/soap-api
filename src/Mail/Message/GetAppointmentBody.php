@@ -29,7 +29,13 @@ class GetAppointmentBody extends SoapBody
      * @SerializedName("GetAppointmentRequest")
      * @Type("Zimbra\Mail\Message\GetAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetAppointmentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAppointmentRequest')]
+    #[Type(name: GetAppointmentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

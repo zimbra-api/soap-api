@@ -29,7 +29,13 @@ class CreateTagBody extends SoapBody
      * @SerializedName("CreateTagRequest")
      * @Type("Zimbra\Mail\Message\CreateTagRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateTagRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateTagRequest')]
+    #[Type(name: CreateTagRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

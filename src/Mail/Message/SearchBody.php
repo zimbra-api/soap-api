@@ -29,7 +29,13 @@ class SearchBody extends SoapBody
      * @SerializedName("SearchRequest")
      * @Type("Zimbra\Mail\Message\SearchRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SearchRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SearchRequest')]
+    #[Type(name: SearchRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

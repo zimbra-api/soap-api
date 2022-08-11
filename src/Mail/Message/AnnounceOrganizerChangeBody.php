@@ -29,7 +29,13 @@ class AnnounceOrganizerChangeBody extends SoapBody
      * @SerializedName("AnnounceOrganizerChangeRequest")
      * @Type("Zimbra\Mail\Message\AnnounceOrganizerChangeRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var AnnounceOrganizerChangeRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AnnounceOrganizerChangeRequest')]
+    #[Type(name: AnnounceOrganizerChangeRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

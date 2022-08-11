@@ -29,7 +29,13 @@ class SyncBody extends SoapBody
      * @SerializedName("SyncRequest")
      * @Type("Zimbra\Mail\Message\SyncRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SyncRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SyncRequest')]
+    #[Type(name: SyncRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class AddCommentBody extends SoapBody
      * @SerializedName("AddCommentRequest")
      * @Type("Zimbra\Mail\Message\AddCommentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var AddCommentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AddCommentRequest')]
+    #[Type(name: AddCommentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

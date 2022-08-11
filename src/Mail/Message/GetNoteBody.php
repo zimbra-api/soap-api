@@ -29,7 +29,13 @@ class GetNoteBody extends SoapBody
      * @SerializedName("GetNoteRequest")
      * @Type("Zimbra\Mail\Message\GetNoteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetNoteRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetNoteRequest')]
+    #[Type(name: GetNoteRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

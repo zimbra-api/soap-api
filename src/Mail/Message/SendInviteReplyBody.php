@@ -29,7 +29,13 @@ class SendInviteReplyBody extends SoapBody
      * @SerializedName("SendInviteReplyRequest")
      * @Type("Zimbra\Mail\Message\SendInviteReplyRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SendInviteReplyRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SendInviteReplyRequest')]
+    #[Type(name: SendInviteReplyRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

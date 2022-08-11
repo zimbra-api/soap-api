@@ -29,7 +29,13 @@ class DestroyWaitSetBody extends SoapBody
      * @SerializedName("DestroyWaitSetRequest")
      * @Type("Zimbra\Mail\Message\DestroyWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var DestroyWaitSetRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DestroyWaitSetRequest')]
+    #[Type(name: DestroyWaitSetRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

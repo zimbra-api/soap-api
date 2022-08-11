@@ -29,7 +29,13 @@ class AutoCompleteBody extends SoapBody
      * @SerializedName("AutoCompleteRequest")
      * @Type("Zimbra\Mail\Message\AutoCompleteRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var AutoCompleteRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AutoCompleteRequest')]
+    #[Type(name: AutoCompleteRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

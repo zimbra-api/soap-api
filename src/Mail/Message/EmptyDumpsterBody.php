@@ -29,7 +29,13 @@ class EmptyDumpsterBody extends SoapBody
      * @SerializedName("EmptyDumpsterRequest")
      * @Type("Zimbra\Mail\Message\EmptyDumpsterRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var EmptyDumpsterRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'EmptyDumpsterRequest')]
+    #[Type(name: EmptyDumpsterRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

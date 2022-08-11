@@ -29,7 +29,13 @@ class IMAPCopyBody extends SoapBody
      * @SerializedName("IMAPCopyRequest")
      * @Type("Zimbra\Mail\Message\IMAPCopyRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var IMAPCopyRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'IMAPCopyRequest')]
+    #[Type(name: IMAPCopyRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

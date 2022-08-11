@@ -29,7 +29,13 @@ class ImportContactsBody extends SoapBody
      * @SerializedName("ImportContactsRequest")
      * @Type("Zimbra\Mail\Message\ImportContactsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ImportContactsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ImportContactsRequest')]
+    #[Type(name: ImportContactsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

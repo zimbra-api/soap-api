@@ -29,7 +29,13 @@ class ModifyContactBody extends SoapBody
      * @SerializedName("ModifyContactRequest")
      * @Type("Zimbra\Mail\Message\ModifyContactRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyContactRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyContactRequest')]
+    #[Type(name: ModifyContactRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

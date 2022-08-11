@@ -29,7 +29,13 @@ class DeclineCounterAppointmentBody extends SoapBody
      * @SerializedName("DeclineCounterAppointmentRequest")
      * @Type("Zimbra\Mail\Message\DeclineCounterAppointmentRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var DeclineCounterAppointmentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeclineCounterAppointmentRequest')]
+    #[Type(name: DeclineCounterAppointmentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

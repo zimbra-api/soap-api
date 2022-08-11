@@ -29,7 +29,13 @@ class BrowseBody extends SoapBody
      * @SerializedName("BrowseRequest")
      * @Type("Zimbra\Mail\Message\BrowseRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var BrowseRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'BrowseRequest')]
+    #[Type(name: BrowseRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

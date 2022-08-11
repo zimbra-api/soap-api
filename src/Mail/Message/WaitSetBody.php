@@ -29,7 +29,13 @@ class WaitSetBody extends SoapBody
      * @SerializedName("WaitSetRequest")
      * @Type("Zimbra\Mail\Message\WaitSetRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var WaitSetRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'WaitSetRequest')]
+    #[Type(name: WaitSetRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

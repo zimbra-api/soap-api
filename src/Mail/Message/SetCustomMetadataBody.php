@@ -29,7 +29,13 @@ class SetCustomMetadataBody extends SoapBody
      * @SerializedName("SetCustomMetadataRequest")
      * @Type("Zimbra\Mail\Message\SetCustomMetadataRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SetCustomMetadataRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SetCustomMetadataRequest')]
+    #[Type(name: SetCustomMetadataRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

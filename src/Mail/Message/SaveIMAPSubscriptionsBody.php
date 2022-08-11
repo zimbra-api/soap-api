@@ -29,7 +29,13 @@ class SaveIMAPSubscriptionsBody extends SoapBody
      * @SerializedName("SaveIMAPSubscriptionsRequest")
      * @Type("Zimbra\Mail\Message\SaveIMAPSubscriptionsRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SaveIMAPSubscriptionsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SaveIMAPSubscriptionsRequest')]
+    #[Type(name: SaveIMAPSubscriptionsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

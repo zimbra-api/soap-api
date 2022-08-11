@@ -29,7 +29,13 @@ class SendMsgBody extends SoapBody
      * @SerializedName("SendMsgRequest")
      * @Type("Zimbra\Mail\Message\SendMsgRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SendMsgRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SendMsgRequest')]
+    #[Type(name: SendMsgRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

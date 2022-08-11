@@ -29,7 +29,13 @@ class CreateContactBody extends SoapBody
      * @SerializedName("CreateContactRequest")
      * @Type("Zimbra\Mail\Message\CreateContactRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateContactRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateContactRequest')]
+    #[Type(name: CreateContactRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

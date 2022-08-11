@@ -29,7 +29,13 @@ class ModifyProfileImageBody extends SoapBody
      * @SerializedName("ModifyProfileImageRequest")
      * @Type("Zimbra\Mail\Message\ModifyProfileImageRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyProfileImageRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyProfileImageRequest')]
+    #[Type(name: ModifyProfileImageRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**

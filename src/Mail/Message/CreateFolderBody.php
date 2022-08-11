@@ -29,7 +29,13 @@ class CreateFolderBody extends SoapBody
      * @SerializedName("CreateFolderRequest")
      * @Type("Zimbra\Mail\Message\CreateFolderRequest")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateFolderRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateFolderRequest')]
+    #[Type(name: CreateFolderRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $request;
 
     /**
