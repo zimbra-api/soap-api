@@ -43,7 +43,13 @@ class CreateSearchFolderBody extends SoapBody
      * @SerializedName("CreateSearchFolderResponse")
      * @Type("Zimbra\Mail\Message\CreateSearchFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateSearchFolderResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateSearchFolderResponse')]
+    #[Type(name: CreateSearchFolderResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

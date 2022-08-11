@@ -43,7 +43,13 @@ class CheckSpellingBody extends SoapBody
      * @SerializedName("CheckSpellingResponse")
      * @Type("Zimbra\Mail\Message\CheckSpellingResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CheckSpellingResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckSpellingResponse')]
+    #[Type(name: CheckSpellingResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

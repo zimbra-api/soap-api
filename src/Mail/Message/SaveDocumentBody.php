@@ -43,7 +43,13 @@ class SaveDocumentBody extends SoapBody
      * @SerializedName("SaveDocumentResponse")
      * @Type("Zimbra\Mail\Message\SaveDocumentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SaveDocumentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SaveDocumentResponse')]
+    #[Type(name: SaveDocumentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

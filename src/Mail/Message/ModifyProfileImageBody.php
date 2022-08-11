@@ -43,7 +43,13 @@ class ModifyProfileImageBody extends SoapBody
      * @SerializedName("ModifyProfileImageResponse")
      * @Type("Zimbra\Mail\Message\ModifyProfileImageResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyProfileImageResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyProfileImageResponse')]
+    #[Type(name: ModifyProfileImageResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

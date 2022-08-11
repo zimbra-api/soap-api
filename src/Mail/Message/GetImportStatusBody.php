@@ -43,7 +43,13 @@ class GetImportStatusBody extends SoapBody
      * @SerializedName("GetImportStatusResponse")
      * @Type("Zimbra\Mail\Message\GetImportStatusResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetImportStatusResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetImportStatusResponse')]
+    #[Type(name: GetImportStatusResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

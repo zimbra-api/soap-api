@@ -43,7 +43,13 @@ class GetMailboxMetadataBody extends SoapBody
      * @SerializedName("GetMailboxMetadataResponse")
      * @Type("Zimbra\Mail\Message\GetMailboxMetadataResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetMailboxMetadataResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetMailboxMetadataResponse')]
+    #[Type(name: GetMailboxMetadataResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CreateNoteBody extends SoapBody
      * @SerializedName("CreateNoteResponse")
      * @Type("Zimbra\Mail\Message\CreateNoteResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateNoteResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateNoteResponse')]
+    #[Type(name: CreateNoteResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

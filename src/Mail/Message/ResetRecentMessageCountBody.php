@@ -43,7 +43,13 @@ class ResetRecentMessageCountBody extends SoapBody
      * @SerializedName("ResetRecentMessageCountResponse")
      * @Type("Zimbra\Mail\Message\ResetRecentMessageCountResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ResetRecentMessageCountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ResetRecentMessageCountResponse')]
+    #[Type(name: ResetRecentMessageCountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

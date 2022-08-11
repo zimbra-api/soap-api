@@ -43,7 +43,13 @@ class GrantPermissionBody extends SoapBody
      * @SerializedName("GrantPermissionResponse")
      * @Type("Zimbra\Mail\Message\GrantPermissionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GrantPermissionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GrantPermissionResponse')]
+    #[Type(name: GrantPermissionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

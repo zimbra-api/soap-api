@@ -43,7 +43,13 @@ class GetIMAPRecentBody extends SoapBody
      * @SerializedName("GetIMAPRecentResponse")
      * @Type("Zimbra\Mail\Message\GetIMAPRecentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetIMAPRecentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetIMAPRecentResponse')]
+    #[Type(name: GetIMAPRecentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

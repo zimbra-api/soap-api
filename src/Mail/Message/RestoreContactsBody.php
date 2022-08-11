@@ -43,7 +43,13 @@ class RestoreContactsBody extends SoapBody
      * @SerializedName("RestoreContactsResponse")
      * @Type("Zimbra\Mail\Message\RestoreContactsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RestoreContactsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RestoreContactsResponse')]
+    #[Type(name: RestoreContactsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

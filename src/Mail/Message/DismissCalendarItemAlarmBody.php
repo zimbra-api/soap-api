@@ -43,7 +43,13 @@ class DismissCalendarItemAlarmBody extends SoapBody
      * @SerializedName("DismissCalendarItemAlarmResponse")
      * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var DismissCalendarItemAlarmResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DismissCalendarItemAlarmResponse')]
+    #[Type(name: DismissCalendarItemAlarmResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

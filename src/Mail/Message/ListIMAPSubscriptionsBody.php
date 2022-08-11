@@ -43,7 +43,13 @@ class ListIMAPSubscriptionsBody extends SoapBody
      * @SerializedName("ListIMAPSubscriptionsResponse")
      * @Type("Zimbra\Mail\Message\ListIMAPSubscriptionsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ListIMAPSubscriptionsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ListIMAPSubscriptionsResponse')]
+    #[Type(name: ListIMAPSubscriptionsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

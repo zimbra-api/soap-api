@@ -43,7 +43,13 @@ class BounceMsgBody extends SoapBody
      * @SerializedName("BounceMsgResponse")
      * @Type("Zimbra\Mail\Message\BounceMsgResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var BounceMsgResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'BounceMsgResponse')]
+    #[Type(name: BounceMsgResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

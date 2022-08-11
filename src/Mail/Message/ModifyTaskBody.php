@@ -43,7 +43,13 @@ class ModifyTaskBody extends SoapBody
      * @SerializedName("ModifyTaskResponse")
      * @Type("Zimbra\Mail\Message\ModifyTaskResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyTaskResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyTaskResponse')]
+    #[Type(name: ModifyTaskResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

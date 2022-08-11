@@ -43,7 +43,13 @@ class GetWorkingHoursBody extends SoapBody
      * @SerializedName("GetWorkingHoursResponse")
      * @Type("Zimbra\Mail\Message\GetWorkingHoursResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetWorkingHoursResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetWorkingHoursResponse')]
+    #[Type(name: GetWorkingHoursResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

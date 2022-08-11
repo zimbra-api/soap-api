@@ -43,7 +43,13 @@ class CreateAppointmentExceptionBody extends SoapBody
      * @SerializedName("CreateAppointmentExceptionResponse")
      * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateAppointmentExceptionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateAppointmentExceptionResponse')]
+    #[Type(name: CreateAppointmentExceptionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class OpenIMAPFolderBody extends SoapBody
      * @SerializedName("OpenIMAPFolderResponse")
      * @Type("Zimbra\Mail\Message\OpenIMAPFolderResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var OpenIMAPFolderResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'OpenIMAPFolderResponse')]
+    #[Type(name: OpenIMAPFolderResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

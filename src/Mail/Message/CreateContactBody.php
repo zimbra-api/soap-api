@@ -43,7 +43,13 @@ class CreateContactBody extends SoapBody
      * @SerializedName("CreateContactResponse")
      * @Type("Zimbra\Mail\Message\CreateContactResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateContactResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateContactResponse')]
+    #[Type(name: CreateContactResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

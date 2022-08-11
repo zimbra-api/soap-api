@@ -43,7 +43,13 @@ class GenerateUUIDBody extends SoapBody
      * @SerializedName("GenerateUUIDResponse")
      * @Type("Zimbra\Mail\Message\GenerateUUIDResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GenerateUUIDResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GenerateUUIDResponse')]
+    #[Type(name: GenerateUUIDResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

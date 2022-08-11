@@ -43,7 +43,13 @@ class ICalReplyBody extends SoapBody
      * @SerializedName("ICalReplyResponse")
      * @Type("Zimbra\Mail\Message\ICalReplyResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ICalReplyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ICalReplyResponse')]
+    #[Type(name: ICalReplyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CompleteTaskInstanceBody extends SoapBody
      * @SerializedName("CompleteTaskInstanceResponse")
      * @Type("Zimbra\Mail\Message\CompleteTaskInstanceResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CompleteTaskInstanceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CompleteTaskInstanceResponse')]
+    #[Type(name: CompleteTaskInstanceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

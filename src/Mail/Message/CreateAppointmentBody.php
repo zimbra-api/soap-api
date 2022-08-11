@@ -43,7 +43,13 @@ class CreateAppointmentBody extends SoapBody
      * @SerializedName("CreateAppointmentResponse")
      * @Type("Zimbra\Mail\Message\CreateAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateAppointmentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateAppointmentResponse')]
+    #[Type(name: CreateAppointmentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

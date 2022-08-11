@@ -43,7 +43,13 @@ class GetModifiedItemsIDsBody extends SoapBody
      * @SerializedName("GetModifiedItemsIDsResponse")
      * @Type("Zimbra\Mail\Message\GetModifiedItemsIDsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetModifiedItemsIDsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetModifiedItemsIDsResponse')]
+    #[Type(name: GetModifiedItemsIDsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class GetFreeBusyBody extends SoapBody
      * @SerializedName("GetFreeBusyResponse")
      * @Type("Zimbra\Mail\Message\GetFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetFreeBusyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetFreeBusyResponse')]
+    #[Type(name: GetFreeBusyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

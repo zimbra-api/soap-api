@@ -43,7 +43,13 @@ class NoOpBody extends SoapBody
      * @SerializedName("NoOpResponse")
      * @Type("Zimbra\Mail\Message\NoOpResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var NoOpResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'NoOpResponse')]
+    #[Type(name: NoOpResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

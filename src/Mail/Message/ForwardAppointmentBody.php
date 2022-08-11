@@ -43,7 +43,13 @@ class ForwardAppointmentBody extends SoapBody
      * @SerializedName("ForwardAppointmentResponse")
      * @Type("Zimbra\Mail\Message\ForwardAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ForwardAppointmentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ForwardAppointmentResponse')]
+    #[Type(name: ForwardAppointmentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

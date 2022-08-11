@@ -43,7 +43,13 @@ class GetMsgBody extends SoapBody
      * @SerializedName("GetMsgResponse")
      * @Type("Zimbra\Mail\Message\GetMsgResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetMsgResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetMsgResponse')]
+    #[Type(name: GetMsgResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

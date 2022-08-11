@@ -43,7 +43,13 @@ class CreateMountpointBody extends SoapBody
      * @SerializedName("CreateMountpointResponse")
      * @Type("Zimbra\Mail\Message\CreateMountpointResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateMountpointResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateMountpointResponse')]
+    #[Type(name: CreateMountpointResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

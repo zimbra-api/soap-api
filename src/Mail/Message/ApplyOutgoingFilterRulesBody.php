@@ -43,7 +43,13 @@ class ApplyOutgoingFilterRulesBody extends SoapBody
      * @SerializedName("ApplyOutgoingFilterRulesResponse")
      * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ApplyOutgoingFilterRulesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ApplyOutgoingFilterRulesResponse')]
+    #[Type(name: ApplyOutgoingFilterRulesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

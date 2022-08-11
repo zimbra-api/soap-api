@@ -43,7 +43,13 @@ class SendShareNotificationBody extends SoapBody
      * @SerializedName("SendShareNotificationResponse")
      * @Type("Zimbra\Mail\Message\SendShareNotificationResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SendShareNotificationResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SendShareNotificationResponse')]
+    #[Type(name: SendShareNotificationResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

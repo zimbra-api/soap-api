@@ -43,7 +43,13 @@ class ListDocumentRevisionsBody extends SoapBody
      * @SerializedName("ListDocumentRevisionsResponse")
      * @Type("Zimbra\Mail\Message\ListDocumentRevisionsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ListDocumentRevisionsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ListDocumentRevisionsResponse')]
+    #[Type(name: ListDocumentRevisionsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

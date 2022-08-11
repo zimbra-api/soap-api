@@ -43,7 +43,13 @@ class GetApptSummariesBody extends SoapBody
      * @SerializedName("GetApptSummariesResponse")
      * @Type("Zimbra\Mail\Message\GetApptSummariesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetApptSummariesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetApptSummariesResponse')]
+    #[Type(name: GetApptSummariesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

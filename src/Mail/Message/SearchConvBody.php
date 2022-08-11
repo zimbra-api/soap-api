@@ -43,7 +43,13 @@ class SearchConvBody extends SoapBody
      * @SerializedName("SearchConvResponse")
      * @Type("Zimbra\Mail\Message\SearchConvResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SearchConvResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SearchConvResponse')]
+    #[Type(name: SearchConvResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class TagActionBody extends SoapBody
      * @SerializedName("TagActionResponse")
      * @Type("Zimbra\Mail\Message\TagActionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var TagActionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'TagActionResponse')]
+    #[Type(name: TagActionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

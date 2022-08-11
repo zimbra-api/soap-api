@@ -43,7 +43,13 @@ class CheckRecurConflictsBody extends SoapBody
      * @SerializedName("CheckRecurConflictsResponse")
      * @Type("Zimbra\Mail\Message\CheckRecurConflictsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CheckRecurConflictsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckRecurConflictsResponse')]
+    #[Type(name: CheckRecurConflictsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

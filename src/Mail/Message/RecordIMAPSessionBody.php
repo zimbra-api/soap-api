@@ -43,7 +43,13 @@ class RecordIMAPSessionBody extends SoapBody
      * @SerializedName("RecordIMAPSessionResponse")
      * @Type("Zimbra\Mail\Message\RecordIMAPSessionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RecordIMAPSessionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RecordIMAPSessionResponse')]
+    #[Type(name: RecordIMAPSessionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

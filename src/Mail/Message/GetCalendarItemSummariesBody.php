@@ -43,7 +43,13 @@ class GetCalendarItemSummariesBody extends SoapBody
      * @SerializedName("GetCalendarItemSummariesResponse")
      * @Type("Zimbra\Mail\Message\GetCalendarItemSummariesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetCalendarItemSummariesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetCalendarItemSummariesResponse')]
+    #[Type(name: GetCalendarItemSummariesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

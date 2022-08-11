@@ -43,7 +43,13 @@ class BeginTrackingIMAPBody extends SoapBody
      * @SerializedName("BeginTrackingIMAPResponse")
      * @Type("Zimbra\Mail\Message\BeginTrackingIMAPResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var BeginTrackingIMAPResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'BeginTrackingIMAPResponse')]
+    #[Type(name: BeginTrackingIMAPResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

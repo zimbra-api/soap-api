@@ -43,7 +43,13 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
      * @SerializedName("SnoozeCalendarItemAlarmResponse")
      * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SnoozeCalendarItemAlarmResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SnoozeCalendarItemAlarmResponse')]
+    #[Type(name: SnoozeCalendarItemAlarmResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class SendVerificationCodeBody extends SoapBody
      * @SerializedName("SendVerificationCodeResponse")
      * @Type("Zimbra\Mail\Message\SendVerificationCodeResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var SendVerificationCodeResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SendVerificationCodeResponse')]
+    #[Type(name: SendVerificationCodeResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

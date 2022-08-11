@@ -43,7 +43,13 @@ class ExportContactsBody extends SoapBody
      * @SerializedName("ExportContactsResponse")
      * @Type("Zimbra\Mail\Message\ExportContactsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ExportContactsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ExportContactsResponse')]
+    #[Type(name: ExportContactsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

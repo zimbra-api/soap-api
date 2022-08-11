@@ -43,7 +43,13 @@ class GetCommentsBody extends SoapBody
      * @SerializedName("GetCommentsResponse")
      * @Type("Zimbra\Mail\Message\GetCommentsResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetCommentsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetCommentsResponse')]
+    #[Type(name: GetCommentsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

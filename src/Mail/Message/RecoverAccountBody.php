@@ -43,7 +43,13 @@ class RecoverAccountBody extends SoapBody
      * @SerializedName("RecoverAccountResponse")
      * @Type("Zimbra\Mail\Message\RecoverAccountResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var RecoverAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RecoverAccountResponse')]
+    #[Type(name: RecoverAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

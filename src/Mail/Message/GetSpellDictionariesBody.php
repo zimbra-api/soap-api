@@ -43,7 +43,13 @@ class GetSpellDictionariesBody extends SoapBody
      * @SerializedName("GetSpellDictionariesResponse")
      * @Type("Zimbra\Mail\Message\GetSpellDictionariesResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetSpellDictionariesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetSpellDictionariesResponse')]
+    #[Type(name: GetSpellDictionariesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CreateDataSourceBody extends SoapBody
      * @SerializedName("CreateDataSourceResponse")
      * @Type("Zimbra\Mail\Message\CreateDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CreateDataSourceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateDataSourceResponse')]
+    #[Type(name: CreateDataSourceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

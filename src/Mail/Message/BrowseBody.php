@@ -43,7 +43,13 @@ class BrowseBody extends SoapBody
      * @SerializedName("BrowseResponse")
      * @Type("Zimbra\Mail\Message\BrowseResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var BrowseResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'BrowseResponse')]
+    #[Type(name: BrowseResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

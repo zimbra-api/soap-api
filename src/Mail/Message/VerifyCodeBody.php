@@ -43,7 +43,13 @@ class VerifyCodeBody extends SoapBody
      * @SerializedName("VerifyCodeResponse")
      * @Type("Zimbra\Mail\Message\VerifyCodeResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var VerifyCodeResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'VerifyCodeResponse')]
+    #[Type(name: VerifyCodeResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

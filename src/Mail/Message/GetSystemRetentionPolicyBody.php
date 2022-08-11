@@ -43,7 +43,13 @@ class GetSystemRetentionPolicyBody extends SoapBody
      * @SerializedName("GetSystemRetentionPolicyResponse")
      * @Type("Zimbra\Mail\Message\GetSystemRetentionPolicyResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var GetSystemRetentionPolicyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetSystemRetentionPolicyResponse')]
+    #[Type(name: GetSystemRetentionPolicyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CheckPermissionBody extends SoapBody
      * @SerializedName("CheckPermissionResponse")
      * @Type("Zimbra\Mail\Message\CheckPermissionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CheckPermissionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckPermissionResponse')]
+    #[Type(name: CheckPermissionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

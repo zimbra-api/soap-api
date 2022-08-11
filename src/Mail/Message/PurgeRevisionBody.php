@@ -43,7 +43,13 @@ class PurgeRevisionBody extends SoapBody
      * @SerializedName("PurgeRevisionResponse")
      * @Type("Zimbra\Mail\Message\PurgeRevisionResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var PurgeRevisionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'PurgeRevisionResponse')]
+    #[Type(name: PurgeRevisionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

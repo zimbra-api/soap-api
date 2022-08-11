@@ -43,7 +43,13 @@ class AddCommentBody extends SoapBody
      * @SerializedName("AddCommentResponse")
      * @Type("Zimbra\Mail\Message\AddCommentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var AddCommentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AddCommentResponse')]
+    #[Type(name: AddCommentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

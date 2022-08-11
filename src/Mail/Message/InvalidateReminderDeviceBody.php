@@ -43,7 +43,13 @@ class InvalidateReminderDeviceBody extends SoapBody
      * @SerializedName("InvalidateReminderDeviceResponse")
      * @Type("Zimbra\Mail\Message\InvalidateReminderDeviceResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var InvalidateReminderDeviceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'InvalidateReminderDeviceResponse')]
+    #[Type(name: InvalidateReminderDeviceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**

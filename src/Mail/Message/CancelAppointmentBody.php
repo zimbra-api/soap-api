@@ -43,7 +43,13 @@ class CancelAppointmentBody extends SoapBody
      * @SerializedName("CancelAppointmentResponse")
      * @Type("Zimbra\Mail\Message\CancelAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var CancelAppointmentResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CancelAppointmentResponse')]
+    #[Type(name: CancelAppointmentResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $response;
 
     /**
