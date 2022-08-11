@@ -24,6 +24,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class AddAccountLoggerEnvelope extends SoapEnvelope
 {
     /**
@@ -31,7 +33,13 @@ class AddAccountLoggerEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Admin\Message\AddAccountLoggerBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
+     * @var AddAccountLoggerBody
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: AddAccountLoggerBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

@@ -25,6 +25,9 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn1")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn1")]
+#[XmlRoot(name: 'soap:Envelope')]
 class DeleteSystemRetentionPolicyEnvelope extends SoapEnvelope
 {
     /**
@@ -32,7 +35,13 @@ class DeleteSystemRetentionPolicyEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Admin\Message\DeleteSystemRetentionPolicyBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
+     * @var DeleteSystemRetentionPolicyBody
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: DeleteSystemRetentionPolicyBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**
