@@ -24,6 +24,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class InvalidateReminderDeviceEnvelope extends SoapEnvelope
 {
     /**

@@ -24,6 +24,8 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class AddAppointmentInviteEnvelope extends SoapEnvelope
 {
     /**
@@ -31,7 +33,13 @@ class AddAppointmentInviteEnvelope extends SoapEnvelope
      * @SerializedName("Body")
      * @Type("Zimbra\Mail\Message\AddAppointmentInviteBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
+     * @var AddAppointmentInviteBody
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: AddAppointmentInviteBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**
