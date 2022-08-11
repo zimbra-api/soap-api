@@ -43,7 +43,13 @@ class AddDistributionListAliasBody extends SoapBody
      * @SerializedName("AddDistributionListAliasResponse")
      * @Type("Zimbra\Admin\Message\AddDistributionListAliasResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AddDistributionListAliasResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AddDistributionListAliasResponse')]
+    #[Type(name: AddDistributionListAliasResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

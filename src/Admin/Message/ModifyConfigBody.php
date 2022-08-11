@@ -43,7 +43,13 @@ class ModifyConfigBody extends SoapBody
      * @SerializedName("ModifyConfigResponse")
      * @Type("Zimbra\Admin\Message\ModifyConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyConfigResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyConfigResponse')]
+    #[Type(name: ModifyConfigResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

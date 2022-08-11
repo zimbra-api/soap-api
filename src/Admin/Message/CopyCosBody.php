@@ -43,7 +43,13 @@ class CopyCosBody extends SoapBody
      * @SerializedName("CopyCosResponse")
      * @Type("Zimbra\Admin\Message\CopyCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CopyCosResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CopyCosResponse')]
+    #[Type(name: CopyCosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

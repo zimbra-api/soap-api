@@ -43,7 +43,13 @@ class GetRightBody extends SoapBody
      * @SerializedName("GetRightResponse")
      * @Type("Zimbra\Admin\Message\GetRightResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetRightResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetRightResponse')]
+    #[Type(name: GetRightResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

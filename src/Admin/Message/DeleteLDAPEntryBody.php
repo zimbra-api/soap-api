@@ -43,7 +43,13 @@ class DeleteLDAPEntryBody extends SoapBody
      * @SerializedName("DeleteLDAPEntryResponse")
      * @Type("Zimbra\Admin\Message\DeleteLDAPEntryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteLDAPEntryResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteLDAPEntryResponse')]
+    #[Type(name: DeleteLDAPEntryResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

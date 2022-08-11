@@ -43,7 +43,13 @@ class DeleteAlwaysOnClusterBody extends SoapBody
      * @SerializedName("DeleteAlwaysOnClusterResponse")
      * @Type("Zimbra\Admin\Message\DeleteAlwaysOnClusterResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteAlwaysOnClusterResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteAlwaysOnClusterResponse')]
+    #[Type(name: DeleteAlwaysOnClusterResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

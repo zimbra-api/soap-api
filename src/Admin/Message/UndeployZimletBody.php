@@ -43,7 +43,13 @@ class UndeployZimletBody extends SoapBody
      * @SerializedName("UndeployZimletResponse")
      * @Type("Zimbra\Admin\Message\UndeployZimletResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var UndeployZimletResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'UndeployZimletResponse')]
+    #[Type(name: UndeployZimletResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

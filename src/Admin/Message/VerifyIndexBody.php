@@ -43,7 +43,13 @@ class VerifyIndexBody extends SoapBody
      * @SerializedName("VerifyIndexResponse")
      * @Type("Zimbra\Admin\Message\VerifyIndexResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var VerifyIndexResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'VerifyIndexResponse')]
+    #[Type(name: VerifyIndexResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

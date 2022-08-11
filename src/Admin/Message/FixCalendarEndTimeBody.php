@@ -43,7 +43,13 @@ class FixCalendarEndTimeBody extends SoapBody
      * @SerializedName("FixCalendarEndTimeResponse")
      * @Type("Zimbra\Admin\Message\FixCalendarEndTimeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var FixCalendarEndTimeResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'FixCalendarEndTimeResponse')]
+    #[Type(name: FixCalendarEndTimeResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

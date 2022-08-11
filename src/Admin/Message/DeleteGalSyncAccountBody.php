@@ -43,7 +43,13 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @SerializedName("DeleteGalSyncAccountResponse")
      * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteGalSyncAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteGalSyncAccountResponse')]
+    #[Type(name: DeleteGalSyncAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

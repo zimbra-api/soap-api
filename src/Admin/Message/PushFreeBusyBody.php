@@ -43,7 +43,13 @@ class PushFreeBusyBody extends SoapBody
      * @SerializedName("PushFreeBusyResponse")
      * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PushFreeBusyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'PushFreeBusyResponse')]
+    #[Type(name: PushFreeBusyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

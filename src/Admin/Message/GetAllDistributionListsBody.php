@@ -43,7 +43,13 @@ class GetAllDistributionListsBody extends SoapBody
      * @SerializedName("GetAllDistributionListsResponse")
      * @Type("Zimbra\Admin\Message\GetAllDistributionListsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllDistributionListsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAllDistributionListsResponse')]
+    #[Type(name: GetAllDistributionListsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

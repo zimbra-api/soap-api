@@ -43,7 +43,13 @@ class MigrateAccountBody extends SoapBody
      * @SerializedName("MigrateAccountResponse")
      * @Type("Zimbra\Admin\Message\MigrateAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var MigrateAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'MigrateAccountResponse')]
+    #[Type(name: MigrateAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

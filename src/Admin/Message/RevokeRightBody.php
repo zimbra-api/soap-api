@@ -43,7 +43,13 @@ class RevokeRightBody extends SoapBody
      * @SerializedName("RevokeRightResponse")
      * @Type("Zimbra\Admin\Message\RevokeRightResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RevokeRightResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RevokeRightResponse')]
+    #[Type(name: RevokeRightResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class SearchDirectoryBody extends SoapBody
      * @SerializedName("SearchDirectoryResponse")
      * @Type("Zimbra\Admin\Message\SearchDirectoryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SearchDirectoryResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SearchDirectoryResponse')]
+    #[Type(name: SearchDirectoryResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

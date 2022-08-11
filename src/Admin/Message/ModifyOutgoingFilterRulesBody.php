@@ -43,7 +43,13 @@ class ModifyOutgoingFilterRulesBody extends SoapBody
      * @SerializedName("ModifyOutgoingFilterRulesResponse")
      * @Type("Zimbra\Admin\Message\ModifyOutgoingFilterRulesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyOutgoingFilterRulesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyOutgoingFilterRulesResponse')]
+    #[Type(name: ModifyOutgoingFilterRulesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

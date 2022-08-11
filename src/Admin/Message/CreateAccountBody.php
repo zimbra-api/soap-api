@@ -43,7 +43,13 @@ class CreateAccountBody extends SoapBody
      * @SerializedName("CreateAccountResponse")
      * @Type("Zimbra\Admin\Message\CreateAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateAccountResponse')]
+    #[Type(name: CreateAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

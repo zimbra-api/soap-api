@@ -43,7 +43,13 @@ class RenameCosBody extends SoapBody
      * @SerializedName("RenameCosResponse")
      * @Type("Zimbra\Admin\Message\RenameCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RenameCosResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RenameCosResponse')]
+    #[Type(name: RenameCosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class GetSessionsBody extends SoapBody
      * @SerializedName("GetSessionsResponse")
      * @Type("Zimbra\Admin\Message\GetSessionsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetSessionsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetSessionsResponse')]
+    #[Type(name: GetSessionsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

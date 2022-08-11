@@ -43,7 +43,13 @@ class RemoveDistributionListMemberBody extends SoapBody
      * @SerializedName("RemoveDistributionListMemberResponse")
      * @Type("Zimbra\Admin\Message\RemoveDistributionListMemberResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RemoveDistributionListMemberResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RemoveDistributionListMemberResponse')]
+    #[Type(name: RemoveDistributionListMemberResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

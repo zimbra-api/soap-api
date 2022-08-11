@@ -43,7 +43,13 @@ class SetLocalServerOnlineBody extends SoapBody
      * @SerializedName("SetLocalServerOnlineResponse")
      * @Type("Zimbra\Admin\Message\SetLocalServerOnlineResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SetLocalServerOnlineResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SetLocalServerOnlineResponse')]
+    #[Type(name: SetLocalServerOnlineResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

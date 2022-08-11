@@ -43,7 +43,13 @@ class DeleteVolumeBody extends SoapBody
      * @SerializedName("DeleteVolumeResponse")
      * @Type("Zimbra\Admin\Message\DeleteVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteVolumeResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteVolumeResponse')]
+    #[Type(name: DeleteVolumeResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

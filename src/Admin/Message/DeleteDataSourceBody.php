@@ -43,7 +43,13 @@ class DeleteDataSourceBody extends SoapBody
      * @SerializedName("DeleteDataSourceResponse")
      * @Type("Zimbra\Admin\Message\DeleteDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteDataSourceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteDataSourceResponse')]
+    #[Type(name: DeleteDataSourceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

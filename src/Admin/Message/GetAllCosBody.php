@@ -43,7 +43,13 @@ class GetAllCosBody extends SoapBody
      * @SerializedName("GetAllCosResponse")
      * @Type("Zimbra\Admin\Message\GetAllCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllCosResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAllCosResponse')]
+    #[Type(name: GetAllCosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

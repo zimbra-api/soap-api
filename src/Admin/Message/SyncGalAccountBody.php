@@ -43,7 +43,13 @@ class SyncGalAccountBody extends SoapBody
      * @SerializedName("SyncGalAccountResponse")
      * @Type("Zimbra\Admin\Message\SyncGalAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SyncGalAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SyncGalAccountResponse')]
+    #[Type(name: SyncGalAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

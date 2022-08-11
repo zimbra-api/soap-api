@@ -43,7 +43,13 @@ class CountAccountBody extends SoapBody
      * @SerializedName("CountAccountResponse")
      * @Type("Zimbra\Admin\Message\CountAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CountAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CountAccountResponse')]
+    #[Type(name: CountAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

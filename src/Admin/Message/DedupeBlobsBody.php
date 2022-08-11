@@ -43,7 +43,13 @@ class DedupeBlobsBody extends SoapBody
      * @SerializedName("DedupeBlobsResponse")
      * @Type("Zimbra\Admin\Message\DedupeBlobsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DedupeBlobsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DedupeBlobsResponse')]
+    #[Type(name: DedupeBlobsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

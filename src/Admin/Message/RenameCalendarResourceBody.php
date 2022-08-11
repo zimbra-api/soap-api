@@ -43,7 +43,13 @@ class RenameCalendarResourceBody extends SoapBody
      * @SerializedName("RenameCalendarResourceResponse")
      * @Type("Zimbra\Admin\Message\RenameCalendarResourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RenameCalendarResourceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RenameCalendarResourceResponse')]
+    #[Type(name: RenameCalendarResourceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

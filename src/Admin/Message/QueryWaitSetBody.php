@@ -43,7 +43,13 @@ class QueryWaitSetBody extends SoapBody
      * @SerializedName("QueryWaitSetResponse")
      * @Type("Zimbra\Admin\Message\QueryWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var QueryWaitSetResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'QueryWaitSetResponse')]
+    #[Type(name: QueryWaitSetResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

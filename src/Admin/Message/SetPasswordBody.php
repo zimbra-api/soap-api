@@ -43,7 +43,13 @@ class SetPasswordBody extends SoapBody
      * @SerializedName("SetPasswordResponse")
      * @Type("Zimbra\Admin\Message\SetPasswordResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SetPasswordResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'SetPasswordResponse')]
+    #[Type(name: SetPasswordResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

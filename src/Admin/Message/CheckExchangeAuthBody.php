@@ -43,7 +43,13 @@ class CheckExchangeAuthBody extends SoapBody
      * @SerializedName("CheckExchangeAuthResponse")
      * @Type("Zimbra\Admin\Message\CheckExchangeAuthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckExchangeAuthResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckExchangeAuthResponse')]
+    #[Type(name: CheckExchangeAuthResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

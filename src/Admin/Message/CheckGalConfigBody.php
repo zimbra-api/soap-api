@@ -43,7 +43,13 @@ class CheckGalConfigBody extends SoapBody
      * @SerializedName("CheckGalConfigResponse")
      * @Type("Zimbra\Admin\Message\CheckGalConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckGalConfigResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckGalConfigResponse')]
+    #[Type(name: CheckGalConfigResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

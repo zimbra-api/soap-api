@@ -43,7 +43,13 @@ class RenameUCServiceBody extends SoapBody
      * @SerializedName("RenameUCServiceResponse")
      * @Type("Zimbra\Admin\Message\RenameUCServiceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RenameUCServiceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'RenameUCServiceResponse')]
+    #[Type(name: RenameUCServiceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
      * @SerializedName("ModifyDelegatedAdminConstraintsResponse")
      * @Type("Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyDelegatedAdminConstraintsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifyDelegatedAdminConstraintsResponse')]
+    #[Type(name: ModifyDelegatedAdminConstraintsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

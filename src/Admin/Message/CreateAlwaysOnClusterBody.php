@@ -43,7 +43,13 @@ class CreateAlwaysOnClusterBody extends SoapBody
      * @SerializedName("CreateAlwaysOnClusterResponse")
      * @Type("Zimbra\Admin\Message\CreateAlwaysOnClusterResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateAlwaysOnClusterResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateAlwaysOnClusterResponse')]
+    #[Type(name: CreateAlwaysOnClusterResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

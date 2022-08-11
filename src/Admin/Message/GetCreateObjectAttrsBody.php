@@ -43,7 +43,13 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @SerializedName("GetCreateObjectAttrsResponse")
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetCreateObjectAttrsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetCreateObjectAttrsResponse')]
+    #[Type(name: GetCreateObjectAttrsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

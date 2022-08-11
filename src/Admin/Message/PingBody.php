@@ -43,7 +43,13 @@ class PingBody extends SoapBody
      * @SerializedName("PingResponse")
      * @Type("Zimbra\Admin\Message\PingResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PingResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'PingResponse')]
+    #[Type(name: PingResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CheckPasswordStrengthBody extends SoapBody
      * @SerializedName("CheckPasswordStrengthResponse")
      * @Type("Zimbra\Admin\Message\CheckPasswordStrengthResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckPasswordStrengthResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckPasswordStrengthResponse')]
+    #[Type(name: CheckPasswordStrengthResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

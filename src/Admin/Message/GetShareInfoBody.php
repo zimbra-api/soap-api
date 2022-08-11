@@ -43,7 +43,13 @@ class GetShareInfoBody extends SoapBody
      * @SerializedName("GetShareInfoResponse")
      * @Type("Zimbra\Admin\Message\GetShareInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetShareInfoResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetShareInfoResponse')]
+    #[Type(name: GetShareInfoResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

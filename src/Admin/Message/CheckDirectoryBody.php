@@ -43,7 +43,13 @@ class CheckDirectoryBody extends SoapBody
      * @SerializedName("CheckDirectoryResponse")
      * @Type("Zimbra\Admin\Message\CheckDirectoryResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckDirectoryResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckDirectoryResponse')]
+    #[Type(name: CheckDirectoryResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

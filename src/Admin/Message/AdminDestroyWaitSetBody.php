@@ -43,7 +43,13 @@ class AdminDestroyWaitSetBody extends SoapBody
      * @SerializedName("AdminDestroyWaitSetResponse")
      * @Type("Zimbra\Admin\Message\AdminDestroyWaitSetResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AdminDestroyWaitSetResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AdminDestroyWaitSetResponse')]
+    #[Type(name: AdminDestroyWaitSetResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

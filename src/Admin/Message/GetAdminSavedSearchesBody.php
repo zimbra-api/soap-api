@@ -43,7 +43,13 @@ class GetAdminSavedSearchesBody extends SoapBody
      * @SerializedName("GetAdminSavedSearchesResponse")
      * @Type("Zimbra\Admin\Message\GetAdminSavedSearchesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAdminSavedSearchesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAdminSavedSearchesResponse')]
+    #[Type(name: GetAdminSavedSearchesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

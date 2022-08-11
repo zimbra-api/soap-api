@@ -43,7 +43,13 @@ class GetDomainInfoBody extends SoapBody
      * @SerializedName("GetDomainInfoResponse")
      * @Type("Zimbra\Admin\Message\GetDomainInfoResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetDomainInfoResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetDomainInfoResponse')]
+    #[Type(name: GetDomainInfoResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

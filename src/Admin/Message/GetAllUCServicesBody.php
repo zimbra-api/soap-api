@@ -43,7 +43,13 @@ class GetAllUCServicesBody extends SoapBody
      * @SerializedName("GetAllUCServicesResponse")
      * @Type("Zimbra\Admin\Message\GetAllUCServicesResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllUCServicesResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAllUCServicesResponse')]
+    #[Type(name: GetAllUCServicesResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class ReloadLocalConfigBody extends SoapBody
      * @SerializedName("ReloadLocalConfigResponse")
      * @Type("Zimbra\Admin\Message\ReloadLocalConfigResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ReloadLocalConfigResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ReloadLocalConfigResponse')]
+    #[Type(name: ReloadLocalConfigResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

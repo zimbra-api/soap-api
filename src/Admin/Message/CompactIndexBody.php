@@ -43,7 +43,13 @@ class CompactIndexBody extends SoapBody
      * @SerializedName("CompactIndexResponse")
      * @Type("Zimbra\Admin\Message\CompactIndexResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CompactIndexResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CompactIndexResponse')]
+    #[Type(name: CompactIndexResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

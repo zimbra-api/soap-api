@@ -43,7 +43,13 @@ class MailQueueActionBody extends SoapBody
      * @SerializedName("MailQueueActionResponse")
      * @Type("Zimbra\Admin\Message\MailQueueActionResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var MailQueueActionResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'MailQueueActionResponse')]
+    #[Type(name: MailQueueActionResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

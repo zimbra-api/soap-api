@@ -43,7 +43,13 @@ class AutoProvAccountBody extends SoapBody
      * @SerializedName("AutoProvAccountResponse")
      * @Type("Zimbra\Admin\Message\AutoProvAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AutoProvAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AutoProvAccountResponse')]
+    #[Type(name: AutoProvAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

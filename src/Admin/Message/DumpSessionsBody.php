@@ -43,7 +43,13 @@ class DumpSessionsBody extends SoapBody
      * @SerializedName("DumpSessionsResponse")
      * @Type("Zimbra\Admin\Message\DumpSessionsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DumpSessionsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DumpSessionsResponse')]
+    #[Type(name: DumpSessionsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

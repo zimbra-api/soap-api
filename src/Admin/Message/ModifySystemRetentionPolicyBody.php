@@ -43,7 +43,13 @@ class ModifySystemRetentionPolicyBody extends SoapBody
      * @SerializedName("ModifySystemRetentionPolicyResponse")
      * @Type("Zimbra\Admin\Message\ModifySystemRetentionPolicyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifySystemRetentionPolicyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ModifySystemRetentionPolicyResponse')]
+    #[Type(name: ModifySystemRetentionPolicyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

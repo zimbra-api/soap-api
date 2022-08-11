@@ -43,7 +43,13 @@ class CreateCosBody extends SoapBody
      * @SerializedName("CreateCosResponse")
      * @Type("Zimbra\Admin\Message\CreateCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateCosResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateCosResponse')]
+    #[Type(name: CreateCosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

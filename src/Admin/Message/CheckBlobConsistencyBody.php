@@ -43,7 +43,13 @@ class CheckBlobConsistencyBody extends SoapBody
      * @SerializedName("CheckBlobConsistencyResponse")
      * @Type("Zimbra\Admin\Message\CheckBlobConsistencyResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckBlobConsistencyResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CheckBlobConsistencyResponse')]
+    #[Type(name: CheckBlobConsistencyResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class DeleteCalendarResourceBody extends SoapBody
      * @SerializedName("DeleteCalendarResourceResponse")
      * @Type("Zimbra\Admin\Message\DeleteCalendarResourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteCalendarResourceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteCalendarResourceResponse')]
+    #[Type(name: DeleteCalendarResourceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

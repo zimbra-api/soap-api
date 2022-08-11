@@ -43,7 +43,13 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @SerializedName("AddGalSyncDataSourceResponse")
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AddGalSyncDataSourceResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'AddGalSyncDataSourceResponse')]
+    #[Type(name: AddGalSyncDataSourceResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

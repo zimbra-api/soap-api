@@ -43,7 +43,13 @@ class GetVolumeBody extends SoapBody
      * @SerializedName("GetVolumeResponse")
      * @Type("Zimbra\Admin\Message\GetVolumeResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetVolumeResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetVolumeResponse')]
+    #[Type(name: GetVolumeResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

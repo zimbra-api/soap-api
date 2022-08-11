@@ -43,7 +43,13 @@ class GetIndexStatsBody extends SoapBody
      * @SerializedName("GetIndexStatsResponse")
      * @Type("Zimbra\Admin\Message\GetIndexStatsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetIndexStatsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetIndexStatsResponse')]
+    #[Type(name: GetIndexStatsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

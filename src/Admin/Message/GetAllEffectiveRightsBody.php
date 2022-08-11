@@ -43,7 +43,13 @@ class GetAllEffectiveRightsBody extends SoapBody
      * @SerializedName("GetAllEffectiveRightsResponse")
      * @Type("Zimbra\Admin\Message\GetAllEffectiveRightsResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllEffectiveRightsResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'GetAllEffectiveRightsResponse')]
+    #[Type(name: GetAllEffectiveRightsResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

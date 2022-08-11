@@ -43,7 +43,13 @@ class DeleteCosBody extends SoapBody
      * @SerializedName("DeleteCosResponse")
      * @Type("Zimbra\Admin\Message\DeleteCosResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteCosResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'DeleteCosResponse')]
+    #[Type(name: DeleteCosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

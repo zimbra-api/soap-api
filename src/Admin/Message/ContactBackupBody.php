@@ -43,7 +43,13 @@ class ContactBackupBody extends SoapBody
      * @SerializedName("ContactBackupResponse")
      * @Type("Zimbra\Admin\Message\ContactBackupResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ContactBackupResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'ContactBackupResponse')]
+    #[Type(name: ContactBackupResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**

@@ -43,7 +43,13 @@ class CreateGalSyncAccountBody extends SoapBody
      * @SerializedName("CreateGalSyncAccountResponse")
      * @Type("Zimbra\Admin\Message\CreateGalSyncAccountResponse")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateGalSyncAccountResponse
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'CreateGalSyncAccountResponse')]
+    #[Type(name: CreateGalSyncAccountResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $response;
 
     /**
