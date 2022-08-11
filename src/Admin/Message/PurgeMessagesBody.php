@@ -29,7 +29,13 @@ class PurgeMessagesBody extends SoapBody
      * @SerializedName("PurgeMessagesRequest")
      * @Type("Zimbra\Admin\Message\PurgeMessagesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PurgeMessagesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'PurgeMessagesRequest')]
+    #[Type(name: PurgeMessagesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

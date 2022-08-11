@@ -29,7 +29,13 @@ class GetXMPPComponentBody extends SoapBody
      * @SerializedName("GetXMPPComponentRequest")
      * @Type("Zimbra\Admin\Message\GetXMPPComponentRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetXMPPComponentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetXMPPComponentRequest')]
+    #[Type(name: GetXMPPComponentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class AdminCreateWaitSetBody extends SoapBody
      * @SerializedName("AdminCreateWaitSetRequest")
      * @Type("Zimbra\Admin\Message\AdminCreateWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AdminCreateWaitSetRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AdminCreateWaitSetRequest')]
+    #[Type(name: AdminCreateWaitSetRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

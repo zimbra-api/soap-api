@@ -29,7 +29,13 @@ class GetCalendarResourceBody extends SoapBody
      * @SerializedName("GetCalendarResourceRequest")
      * @Type("Zimbra\Admin\Message\GetCalendarResourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetCalendarResourceRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetCalendarResourceRequest')]
+    #[Type(name: GetCalendarResourceRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

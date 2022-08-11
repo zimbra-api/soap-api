@@ -29,7 +29,13 @@ class GetServerBody extends SoapBody
      * @SerializedName("GetServerRequest")
      * @Type("Zimbra\Admin\Message\GetServerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetServerRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetServerRequest')]
+    #[Type(name: GetServerRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

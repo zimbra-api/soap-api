@@ -29,7 +29,13 @@ class AddGalSyncDataSourceBody extends SoapBody
      * @SerializedName("AddGalSyncDataSourceRequest")
      * @Type("Zimbra\Admin\Message\AddGalSyncDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AddGalSyncDataSourceRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AddGalSyncDataSourceRequest')]
+    #[Type(name: AddGalSyncDataSourceRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class ChangePrimaryEmailBody extends SoapBody
      * @SerializedName("ChangePrimaryEmailRequest")
      * @Type("Zimbra\Admin\Message\ChangePrimaryEmailRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ChangePrimaryEmailRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ChangePrimaryEmailRequest')]
+    #[Type(name: ChangePrimaryEmailRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

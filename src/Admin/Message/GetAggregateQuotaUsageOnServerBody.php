@@ -29,7 +29,13 @@ class GetAggregateQuotaUsageOnServerBody extends SoapBody
      * @SerializedName("GetAggregateQuotaUsageOnServerRequest")
      * @Type("Zimbra\Admin\Message\GetAggregateQuotaUsageOnServerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAggregateQuotaUsageOnServerRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAggregateQuotaUsageOnServerRequest')]
+    #[Type(name: GetAggregateQuotaUsageOnServerRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

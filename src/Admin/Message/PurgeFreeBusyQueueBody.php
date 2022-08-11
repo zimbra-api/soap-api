@@ -29,7 +29,13 @@ class PurgeFreeBusyQueueBody extends SoapBody
      * @SerializedName("PurgeFreeBusyQueueRequest")
      * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PurgeFreeBusyQueueRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'PurgeFreeBusyQueueRequest')]
+    #[Type(name: PurgeFreeBusyQueueRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

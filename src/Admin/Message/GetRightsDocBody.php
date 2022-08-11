@@ -29,7 +29,13 @@ class GetRightsDocBody extends SoapBody
      * @SerializedName("GetRightsDocRequest")
      * @Type("Zimbra\Admin\Message\GetRightsDocRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetRightsDocRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetRightsDocRequest')]
+    #[Type(name: GetRightsDocRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

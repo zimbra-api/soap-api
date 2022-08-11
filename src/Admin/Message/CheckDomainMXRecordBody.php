@@ -29,7 +29,13 @@ class CheckDomainMXRecordBody extends SoapBody
      * @SerializedName("CheckDomainMXRecordRequest")
      * @Type("Zimbra\Admin\Message\CheckDomainMXRecordRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckDomainMXRecordRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CheckDomainMXRecordRequest')]
+    #[Type(name: CheckDomainMXRecordRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class GetAllActiveServersBody extends SoapBody
      * @SerializedName("GetAllActiveServersRequest")
      * @Type("Zimbra\Admin\Message\GetAllActiveServersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllActiveServersRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAllActiveServersRequest')]
+    #[Type(name: GetAllActiveServersRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

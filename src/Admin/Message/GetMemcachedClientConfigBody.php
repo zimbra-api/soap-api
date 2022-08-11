@@ -29,7 +29,13 @@ class GetMemcachedClientConfigBody extends SoapBody
      * @SerializedName("GetMemcachedClientConfigRequest")
      * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetMemcachedClientConfigRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetMemcachedClientConfigRequest')]
+    #[Type(name: GetMemcachedClientConfigRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

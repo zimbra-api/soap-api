@@ -29,7 +29,13 @@ class CreateVolumeBody extends SoapBody
      * @SerializedName("CreateVolumeRequest")
      * @Type("Zimbra\Admin\Message\CreateVolumeRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateVolumeRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateVolumeRequest')]
+    #[Type(name: CreateVolumeRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

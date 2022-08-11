@@ -29,7 +29,13 @@ class GetAdminConsoleUICompBody extends SoapBody
      * @SerializedName("GetAdminConsoleUICompRequest")
      * @Type("Zimbra\Admin\Message\GetAdminConsoleUICompRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAdminConsoleUICompRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAdminConsoleUICompRequest')]
+    #[Type(name: GetAdminConsoleUICompRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

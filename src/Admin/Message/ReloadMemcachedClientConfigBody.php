@@ -29,7 +29,13 @@ class ReloadMemcachedClientConfigBody extends SoapBody
      * @SerializedName("ReloadMemcachedClientConfigRequest")
      * @Type("Zimbra\Admin\Message\ReloadMemcachedClientConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ReloadMemcachedClientConfigRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ReloadMemcachedClientConfigRequest')]
+    #[Type(name: ReloadMemcachedClientConfigRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

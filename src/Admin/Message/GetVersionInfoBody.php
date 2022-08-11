@@ -29,7 +29,13 @@ class GetVersionInfoBody extends SoapBody
      * @SerializedName("GetVersionInfoRequest")
      * @Type("Zimbra\Admin\Message\GetVersionInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetVersionInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetVersionInfoRequest')]
+    #[Type(name: GetVersionInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

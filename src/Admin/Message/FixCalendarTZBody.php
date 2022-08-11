@@ -29,7 +29,13 @@ class FixCalendarTZBody extends SoapBody
      * @SerializedName("FixCalendarTZRequest")
      * @Type("Zimbra\Admin\Message\FixCalendarTZRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var FixCalendarTZRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'FixCalendarTZRequest')]
+    #[Type(name: FixCalendarTZRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

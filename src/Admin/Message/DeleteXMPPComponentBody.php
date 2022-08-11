@@ -29,7 +29,13 @@ class DeleteXMPPComponentBody extends SoapBody
      * @SerializedName("DeleteXMPPComponentRequest")
      * @Type("Zimbra\Admin\Message\DeleteXMPPComponentRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteXMPPComponentRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteXMPPComponentRequest')]
+    #[Type(name: DeleteXMPPComponentRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

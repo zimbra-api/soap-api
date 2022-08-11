@@ -29,7 +29,13 @@ class AuthBody extends SoapBody
      * @SerializedName("AuthRequest")
      * @Type("Zimbra\Admin\Message\AuthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AuthRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AuthRequest')]
+    #[Type(name: AuthRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

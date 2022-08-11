@@ -29,7 +29,13 @@ class LockoutMailboxBody extends SoapBody
      * @SerializedName("LockoutMailboxRequest")
      * @Type("Zimbra\Admin\Message\LockoutMailboxRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var LockoutMailboxRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'LockoutMailboxRequest')]
+    #[Type(name: LockoutMailboxRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

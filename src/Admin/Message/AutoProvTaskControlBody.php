@@ -29,7 +29,13 @@ class AutoProvTaskControlBody extends SoapBody
      * @SerializedName("AutoProvTaskControlRequest")
      * @Type("Zimbra\Admin\Message\AutoProvTaskControlRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AutoProvTaskControlRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AutoProvTaskControlRequest')]
+    #[Type(name: AutoProvTaskControlRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

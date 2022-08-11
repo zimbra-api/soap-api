@@ -29,7 +29,13 @@ class PingBody extends SoapBody
      * @SerializedName("PingRequest")
      * @Type("Zimbra\Admin\Message\PingRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PingRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'PingRequest')]
+    #[Type(name: PingRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

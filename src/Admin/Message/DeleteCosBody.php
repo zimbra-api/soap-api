@@ -29,7 +29,13 @@ class DeleteCosBody extends SoapBody
      * @SerializedName("DeleteCosRequest")
      * @Type("Zimbra\Admin\Message\DeleteCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteCosRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteCosRequest')]
+    #[Type(name: DeleteCosRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

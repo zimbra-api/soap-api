@@ -29,7 +29,13 @@ class CheckHostnameResolveBody extends SoapBody
      * @SerializedName("CheckHostnameResolveRequest")
      * @Type("Zimbra\Admin\Message\CheckHostnameResolveRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckHostnameResolveRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CheckHostnameResolveRequest')]
+    #[Type(name: CheckHostnameResolveRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

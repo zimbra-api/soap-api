@@ -29,7 +29,13 @@ class MailQueueActionBody extends SoapBody
      * @SerializedName("MailQueueActionRequest")
      * @Type("Zimbra\Admin\Message\MailQueueActionRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var MailQueueActionRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'MailQueueActionRequest')]
+    #[Type(name: MailQueueActionRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

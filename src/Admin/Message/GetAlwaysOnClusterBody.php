@@ -29,7 +29,13 @@ class GetAlwaysOnClusterBody extends SoapBody
      * @SerializedName("GetAlwaysOnClusterRequest")
      * @Type("Zimbra\Admin\Message\GetAlwaysOnClusterRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAlwaysOnClusterRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAlwaysOnClusterRequest')]
+    #[Type(name: GetAlwaysOnClusterRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

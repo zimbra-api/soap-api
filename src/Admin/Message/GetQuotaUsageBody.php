@@ -29,7 +29,13 @@ class GetQuotaUsageBody extends SoapBody
      * @SerializedName("GetQuotaUsageRequest")
      * @Type("Zimbra\Admin\Message\GetQuotaUsageRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetQuotaUsageRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetQuotaUsageRequest')]
+    #[Type(name: GetQuotaUsageRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class CreateLDAPEntryBody extends SoapBody
      * @SerializedName("CreateLDAPEntryRequest")
      * @Type("Zimbra\Admin\Message\CreateLDAPEntryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateLDAPEntryRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateLDAPEntryRequest')]
+    #[Type(name: CreateLDAPEntryRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

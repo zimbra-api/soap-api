@@ -29,7 +29,13 @@ class VerifyStoreManagerBody extends SoapBody
      * @SerializedName("VerifyStoreManagerRequest")
      * @Type("Zimbra\Admin\Message\VerifyStoreManagerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var VerifyStoreManagerRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'VerifyStoreManagerRequest')]
+    #[Type(name: VerifyStoreManagerRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

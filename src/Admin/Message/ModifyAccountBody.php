@@ -29,7 +29,13 @@ class ModifyAccountBody extends SoapBody
      * @SerializedName("ModifyAccountRequest")
      * @Type("Zimbra\Admin\Message\ModifyAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyAccountRequest')]
+    #[Type(name: ModifyAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

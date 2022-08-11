@@ -29,7 +29,13 @@ class GetUCServiceBody extends SoapBody
      * @SerializedName("GetUCServiceRequest")
      * @Type("Zimbra\Admin\Message\GetUCServiceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetUCServiceRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetUCServiceRequest')]
+    #[Type(name: GetUCServiceRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

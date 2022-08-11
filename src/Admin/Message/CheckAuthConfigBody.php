@@ -29,7 +29,13 @@ class CheckAuthConfigBody extends SoapBody
      * @SerializedName("CheckAuthConfigRequest")
      * @Type("Zimbra\Admin\Message\CheckAuthConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckAuthConfigRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CheckAuthConfigRequest')]
+    #[Type(name: CheckAuthConfigRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class RenameDistributionListBody extends SoapBody
      * @SerializedName("RenameDistributionListRequest")
      * @Type("Zimbra\Admin\Message\RenameDistributionListRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RenameDistributionListRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RenameDistributionListRequest')]
+    #[Type(name: RenameDistributionListRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

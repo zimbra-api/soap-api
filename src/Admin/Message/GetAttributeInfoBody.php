@@ -29,7 +29,13 @@ class GetAttributeInfoBody extends SoapBody
      * @SerializedName("GetAttributeInfoRequest")
      * @Type("Zimbra\Admin\Message\GetAttributeInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAttributeInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAttributeInfoRequest')]
+    #[Type(name: GetAttributeInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

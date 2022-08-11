@@ -30,6 +30,10 @@ class NoOpBody extends SoapBody
      * @Type("Zimbra\Admin\Message\NoOpRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'NoOpRequest')]
+    #[Type(name: NoOpRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class ConfigureZimletBody extends SoapBody
      * @SerializedName("ConfigureZimletRequest")
      * @Type("Zimbra\Admin\Message\ConfigureZimletRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ConfigureZimletRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ConfigureZimletRequest')]
+    #[Type(name: ConfigureZimletRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

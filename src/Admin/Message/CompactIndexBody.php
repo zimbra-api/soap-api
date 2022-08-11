@@ -29,7 +29,13 @@ class CompactIndexBody extends SoapBody
      * @SerializedName("CompactIndexRequest")
      * @Type("Zimbra\Admin\Message\CompactIndexRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CompactIndexRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CompactIndexRequest')]
+    #[Type(name: CompactIndexRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

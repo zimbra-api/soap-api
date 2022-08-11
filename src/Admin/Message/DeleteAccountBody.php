@@ -29,7 +29,13 @@ class DeleteAccountBody extends SoapBody
      * @SerializedName("DeleteAccountRequest")
      * @Type("Zimbra\Admin\Message\DeleteAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteAccountRequest')]
+    #[Type(name: DeleteAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

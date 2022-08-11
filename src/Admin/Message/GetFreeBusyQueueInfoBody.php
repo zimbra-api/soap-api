@@ -29,7 +29,13 @@ class GetFreeBusyQueueInfoBody extends SoapBody
      * @SerializedName("GetFreeBusyQueueInfoRequest")
      * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetFreeBusyQueueInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetFreeBusyQueueInfoRequest')]
+    #[Type(name: GetFreeBusyQueueInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

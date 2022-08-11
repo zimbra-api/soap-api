@@ -29,7 +29,13 @@ class GetMailboxStatsBody extends SoapBody
      * @SerializedName("GetMailboxStatsRequest")
      * @Type("Zimbra\Admin\Message\GetMailboxStatsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetMailboxStatsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetMailboxStatsRequest')]
+    #[Type(name: GetMailboxStatsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class DeleteDistributionListBody extends SoapBody
      * @SerializedName("DeleteDistributionListRequest")
      * @Type("Zimbra\Admin\Message\DeleteDistributionListRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteDistributionListRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteDistributionListRequest')]
+    #[Type(name: DeleteDistributionListRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

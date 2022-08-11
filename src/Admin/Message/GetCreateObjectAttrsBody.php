@@ -29,7 +29,13 @@ class GetCreateObjectAttrsBody extends SoapBody
      * @SerializedName("GetCreateObjectAttrsRequest")
      * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetCreateObjectAttrsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetCreateObjectAttrsRequest')]
+    #[Type(name: GetCreateObjectAttrsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

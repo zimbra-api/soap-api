@@ -29,7 +29,13 @@ class GetAllLocalesBody extends SoapBody
      * @SerializedName("GetAllLocalesRequest")
      * @Type("Zimbra\Admin\Message\GetAllLocalesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllLocalesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAllLocalesRequest')]
+    #[Type(name: GetAllLocalesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

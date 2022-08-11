@@ -29,7 +29,13 @@ class FlushCacheBody extends SoapBody
      * @SerializedName("FlushCacheRequest")
      * @Type("Zimbra\Admin\Message\FlushCacheRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var FlushCacheRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'FlushCacheRequest')]
+    #[Type(name: FlushCacheRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

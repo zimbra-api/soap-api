@@ -29,7 +29,13 @@ class ModifyAlwaysOnClusterBody extends SoapBody
      * @SerializedName("ModifyAlwaysOnClusterRequest")
      * @Type("Zimbra\Admin\Message\ModifyAlwaysOnClusterRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyAlwaysOnClusterRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyAlwaysOnClusterRequest')]
+    #[Type(name: ModifyAlwaysOnClusterRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class CreateDomainBody extends SoapBody
      * @SerializedName("CreateDomainRequest")
      * @Type("Zimbra\Admin\Message\CreateDomainRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CreateDomainRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CreateDomainRequest')]
+    #[Type(name: CreateDomainRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

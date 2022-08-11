@@ -29,7 +29,13 @@ class MailQueueFlushBody extends SoapBody
      * @SerializedName("MailQueueFlushRequest")
      * @Type("Zimbra\Admin\Message\MailQueueFlushRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var MailQueueFlushRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'MailQueueFlushRequest')]
+    #[Type(name: MailQueueFlushRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

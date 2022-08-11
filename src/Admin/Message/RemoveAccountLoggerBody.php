@@ -29,7 +29,13 @@ class RemoveAccountLoggerBody extends SoapBody
      * @SerializedName("RemoveAccountLoggerRequest")
      * @Type("Zimbra\Admin\Message\RemoveAccountLoggerRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RemoveAccountLoggerRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RemoveAccountLoggerRequest')]
+    #[Type(name: RemoveAccountLoggerRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

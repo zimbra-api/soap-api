@@ -29,7 +29,13 @@ class ModifyCosBody extends SoapBody
      * @SerializedName("ModifyCosRequest")
      * @Type("Zimbra\Admin\Message\ModifyCosRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyCosRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyCosRequest')]
+    #[Type(name: ModifyCosRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

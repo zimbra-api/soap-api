@@ -29,7 +29,13 @@ class GetLicenseInfoBody extends SoapBody
      * @SerializedName("GetLicenseInfoRequest")
      * @Type("Zimbra\Admin\Message\GetLicenseInfoRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetLicenseInfoRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetLicenseInfoRequest')]
+    #[Type(name: GetLicenseInfoRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

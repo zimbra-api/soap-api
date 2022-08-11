@@ -29,7 +29,13 @@ class ClearCookieBody extends SoapBody
      * @SerializedName("ClearCookieRequest")
      * @Type("Zimbra\Admin\Message\ClearCookieRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ClearCookieRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ClearCookieRequest')]
+    #[Type(name: ClearCookieRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

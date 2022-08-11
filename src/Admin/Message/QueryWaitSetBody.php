@@ -29,7 +29,13 @@ class QueryWaitSetBody extends SoapBody
      * @SerializedName("QueryWaitSetRequest")
      * @Type("Zimbra\Admin\Message\QueryWaitSetRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var QueryWaitSetRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'QueryWaitSetRequest')]
+    #[Type(name: QueryWaitSetRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

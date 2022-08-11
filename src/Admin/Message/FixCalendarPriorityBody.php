@@ -29,7 +29,13 @@ class FixCalendarPriorityBody extends SoapBody
      * @SerializedName("FixCalendarPriorityRequest")
      * @Type("Zimbra\Admin\Message\FixCalendarPriorityRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var FixCalendarPriorityRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'FixCalendarPriorityRequest')]
+    #[Type(name: FixCalendarPriorityRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class ReIndexBody extends SoapBody
      * @SerializedName("ReIndexRequest")
      * @Type("Zimbra\Admin\Message\ReIndexRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ReIndexRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ReIndexRequest')]
+    #[Type(name: ReIndexRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

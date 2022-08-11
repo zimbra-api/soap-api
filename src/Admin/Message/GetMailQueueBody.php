@@ -29,7 +29,13 @@ class GetMailQueueBody extends SoapBody
      * @SerializedName("GetMailQueueRequest")
      * @Type("Zimbra\Admin\Message\GetMailQueueRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetMailQueueRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetMailQueueRequest')]
+    #[Type(name: GetMailQueueRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

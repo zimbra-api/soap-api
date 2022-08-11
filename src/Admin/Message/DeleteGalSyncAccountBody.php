@@ -29,7 +29,13 @@ class DeleteGalSyncAccountBody extends SoapBody
      * @SerializedName("DeleteGalSyncAccountRequest")
      * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteGalSyncAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteGalSyncAccountRequest')]
+    #[Type(name: DeleteGalSyncAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

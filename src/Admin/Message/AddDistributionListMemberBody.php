@@ -29,7 +29,13 @@ class AddDistributionListMemberBody extends SoapBody
      * @SerializedName("AddDistributionListMemberRequest")
      * @Type("Zimbra\Admin\Message\AddDistributionListMemberRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AddDistributionListMemberRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AddDistributionListMemberRequest')]
+    #[Type(name: AddDistributionListMemberRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

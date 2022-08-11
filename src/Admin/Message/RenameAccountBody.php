@@ -29,7 +29,13 @@ class RenameAccountBody extends SoapBody
      * @SerializedName("RenameAccountRequest")
      * @Type("Zimbra\Admin\Message\RenameAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RenameAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RenameAccountRequest')]
+    #[Type(name: RenameAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

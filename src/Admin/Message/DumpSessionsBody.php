@@ -29,7 +29,13 @@ class DumpSessionsBody extends SoapBody
      * @SerializedName("DumpSessionsRequest")
      * @Type("Zimbra\Admin\Message\DumpSessionsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DumpSessionsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DumpSessionsRequest')]
+    #[Type(name: DumpSessionsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

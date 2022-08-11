@@ -29,7 +29,13 @@ class SetServerOfflineBody extends SoapBody
      * @SerializedName("SetServerOfflineRequest")
      * @Type("Zimbra\Admin\Message\SetServerOfflineRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SetServerOfflineRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SetServerOfflineRequest')]
+    #[Type(name: SetServerOfflineRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

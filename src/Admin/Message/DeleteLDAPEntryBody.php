@@ -29,7 +29,13 @@ class DeleteLDAPEntryBody extends SoapBody
      * @SerializedName("DeleteLDAPEntryRequest")
      * @Type("Zimbra\Admin\Message\DeleteLDAPEntryRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteLDAPEntryRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteLDAPEntryRequest')]
+    #[Type(name: DeleteLDAPEntryRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class GetAdminExtensionZimletsBody extends SoapBody
      * @SerializedName("GetAdminExtensionZimletsRequest")
      * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAdminExtensionZimletsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAdminExtensionZimletsRequest')]
+    #[Type(name: GetAdminExtensionZimletsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
      * @SerializedName("RefreshRegisteredAuthTokensRequest")
      * @Type("Zimbra\Admin\Message\RefreshRegisteredAuthTokensRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RefreshRegisteredAuthTokensRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RefreshRegisteredAuthTokensRequest')]
+    #[Type(name: RefreshRegisteredAuthTokensRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

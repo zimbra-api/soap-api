@@ -29,7 +29,13 @@ class RunUnitTestsBody extends SoapBody
      * @SerializedName("RunUnitTestsRequest")
      * @Type("Zimbra\Admin\Message\RunUnitTestsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RunUnitTestsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RunUnitTestsRequest')]
+    #[Type(name: RunUnitTestsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

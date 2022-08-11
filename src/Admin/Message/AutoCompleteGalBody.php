@@ -29,7 +29,13 @@ class AutoCompleteGalBody extends SoapBody
      * @SerializedName("AutoCompleteGalRequest")
      * @Type("Zimbra\Admin\Message\AutoCompleteGalRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var AutoCompleteGalRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'AutoCompleteGalRequest')]
+    #[Type(name: AutoCompleteGalRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

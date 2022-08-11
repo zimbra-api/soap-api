@@ -29,7 +29,13 @@ class ExportAndDeleteItemsBody extends SoapBody
      * @SerializedName("ExportAndDeleteItemsRequest")
      * @Type("Zimbra\Admin\Message\ExportAndDeleteItemsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ExportAndDeleteItemsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ExportAndDeleteItemsRequest')]
+    #[Type(name: ExportAndDeleteItemsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class GetCurrentVolumesBody extends SoapBody
      * @SerializedName("GetCurrentVolumesRequest")
      * @Type("Zimbra\Admin\Message\GetCurrentVolumesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetCurrentVolumesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetCurrentVolumesRequest')]
+    #[Type(name: GetCurrentVolumesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

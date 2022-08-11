@@ -29,7 +29,13 @@ class PurgeAccountCalendarCacheBody extends SoapBody
      * @SerializedName("PurgeAccountCalendarCacheRequest")
      * @Type("Zimbra\Admin\Message\PurgeAccountCalendarCacheRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var PurgeAccountCalendarCacheRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'PurgeAccountCalendarCacheRequest')]
+    #[Type(name: PurgeAccountCalendarCacheRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

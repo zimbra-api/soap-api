@@ -29,7 +29,13 @@ class ResetAllLoggersBody extends SoapBody
      * @SerializedName("ResetAllLoggersRequest")
      * @Type("Zimbra\Admin\Message\ResetAllLoggersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ResetAllLoggersRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ResetAllLoggersRequest')]
+    #[Type(name: ResetAllLoggersRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

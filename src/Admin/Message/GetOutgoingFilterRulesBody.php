@@ -29,7 +29,13 @@ class GetOutgoingFilterRulesBody extends SoapBody
      * @SerializedName("GetOutgoingFilterRulesRequest")
      * @Type("Zimbra\Admin\Message\GetOutgoingFilterRulesRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetOutgoingFilterRulesRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetOutgoingFilterRulesRequest')]
+    #[Type(name: GetOutgoingFilterRulesRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

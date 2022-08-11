@@ -29,7 +29,13 @@ class RemoveAccountAliasBody extends SoapBody
      * @SerializedName("RemoveAccountAliasRequest")
      * @Type("Zimbra\Admin\Message\RemoveAccountAliasRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var RemoveAccountAliasRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'RemoveAccountAliasRequest')]
+    #[Type(name: RemoveAccountAliasRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

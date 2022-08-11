@@ -29,7 +29,13 @@ class DeleteDataSourceBody extends SoapBody
      * @SerializedName("DeleteDataSourceRequest")
      * @Type("Zimbra\Admin\Message\DeleteDataSourceRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DeleteDataSourceRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DeleteDataSourceRequest')]
+    #[Type(name: DeleteDataSourceRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

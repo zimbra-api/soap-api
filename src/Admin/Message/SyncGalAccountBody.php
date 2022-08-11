@@ -29,7 +29,13 @@ class SyncGalAccountBody extends SoapBody
      * @SerializedName("SyncGalAccountRequest")
      * @Type("Zimbra\Admin\Message\SyncGalAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var SyncGalAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'SyncGalAccountRequest')]
+    #[Type(name: SyncGalAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

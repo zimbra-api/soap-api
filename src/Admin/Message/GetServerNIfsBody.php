@@ -29,7 +29,13 @@ class GetServerNIfsBody extends SoapBody
      * @SerializedName("GetServerNIfsRequest")
      * @Type("Zimbra\Admin\Message\GetServerNIfsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetServerNIfsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetServerNIfsRequest')]
+    #[Type(name: GetServerNIfsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

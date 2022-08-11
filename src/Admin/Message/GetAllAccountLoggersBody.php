@@ -29,7 +29,13 @@ class GetAllAccountLoggersBody extends SoapBody
      * @SerializedName("GetAllAccountLoggersRequest")
      * @Type("Zimbra\Admin\Message\GetAllAccountLoggersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllAccountLoggersRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAllAccountLoggersRequest')]
+    #[Type(name: GetAllAccountLoggersRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

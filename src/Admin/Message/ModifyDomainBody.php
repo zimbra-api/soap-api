@@ -29,7 +29,13 @@ class ModifyDomainBody extends SoapBody
      * @SerializedName("ModifyDomainRequest")
      * @Type("Zimbra\Admin\Message\ModifyDomainRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var ModifyDomainRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'ModifyDomainRequest')]
+    #[Type(name: ModifyDomainRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

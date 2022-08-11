@@ -29,7 +29,13 @@ class CountObjectsBody extends SoapBody
      * @SerializedName("CountObjectsRequest")
      * @Type("Zimbra\Admin\Message\CountObjectsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CountObjectsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CountObjectsRequest')]
+    #[Type(name: CountObjectsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

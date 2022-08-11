@@ -29,7 +29,13 @@ class GetAllFreeBusyProvidersBody extends SoapBody
      * @SerializedName("GetAllFreeBusyProvidersRequest")
      * @Type("Zimbra\Admin\Message\GetAllFreeBusyProvidersRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAllFreeBusyProvidersRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAllFreeBusyProvidersRequest')]
+    #[Type(name: GetAllFreeBusyProvidersRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

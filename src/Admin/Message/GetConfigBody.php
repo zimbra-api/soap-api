@@ -29,7 +29,13 @@ class GetConfigBody extends SoapBody
      * @SerializedName("GetConfigRequest")
      * @Type("Zimbra\Admin\Message\GetConfigRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetConfigRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetConfigRequest')]
+    #[Type(name: GetConfigRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

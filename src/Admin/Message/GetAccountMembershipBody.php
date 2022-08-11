@@ -29,7 +29,13 @@ class GetAccountMembershipBody extends SoapBody
      * @SerializedName("GetAccountMembershipRequest")
      * @Type("Zimbra\Admin\Message\GetAccountMembershipRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetAccountMembershipRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetAccountMembershipRequest')]
+    #[Type(name: GetAccountMembershipRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

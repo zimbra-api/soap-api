@@ -29,7 +29,13 @@ class CheckHealthBody extends SoapBody
      * @SerializedName("CheckHealthRequest")
      * @Type("Zimbra\Admin\Message\CheckHealthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var CheckHealthRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'CheckHealthRequest')]
+    #[Type(name: CheckHealthRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

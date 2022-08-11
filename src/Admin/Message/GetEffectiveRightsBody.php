@@ -29,7 +29,13 @@ class GetEffectiveRightsBody extends SoapBody
      * @SerializedName("GetEffectiveRightsRequest")
      * @Type("Zimbra\Admin\Message\GetEffectiveRightsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetEffectiveRightsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetEffectiveRightsRequest')]
+    #[Type(name: GetEffectiveRightsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

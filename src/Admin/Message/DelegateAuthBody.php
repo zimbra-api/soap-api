@@ -29,7 +29,13 @@ class DelegateAuthBody extends SoapBody
      * @SerializedName("DelegateAuthRequest")
      * @Type("Zimbra\Admin\Message\DelegateAuthRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var DelegateAuthRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'DelegateAuthRequest')]
+    #[Type(name: DelegateAuthRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

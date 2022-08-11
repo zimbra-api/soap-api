@@ -29,7 +29,13 @@ class GetDelegatedAdminConstraintsBody extends SoapBody
      * @SerializedName("GetDelegatedAdminConstraintsRequest")
      * @Type("Zimbra\Admin\Message\GetDelegatedAdminConstraintsRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var GetDelegatedAdminConstraintsRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'GetDelegatedAdminConstraintsRequest')]
+    #[Type(name: GetDelegatedAdminConstraintsRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**

@@ -29,7 +29,13 @@ class MigrateAccountBody extends SoapBody
      * @SerializedName("MigrateAccountRequest")
      * @Type("Zimbra\Admin\Message\MigrateAccountRequest")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var MigrateAccountRequest
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'MigrateAccountRequest')]
+    #[Type(name: MigrateAccountRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $request;
 
     /**
