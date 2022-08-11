@@ -26,7 +26,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
-GetYahooCookieEnvelope extends SoapEnvelope
+class GetYahooCookieEnvelope extends SoapEnvelope
 {
     /**
      * @Accessor(getter="getBody", setter="setBody")
