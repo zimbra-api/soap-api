@@ -28,9 +28,15 @@ class IndexStats
      * 
      * @Accessor(getter="getMaxDocs", setter="setMaxDocs")
      * @SerializedName("maxDocs")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxDocs', setter: 'setMaxDocs')]
+    #[SerializedName(name: 'maxDocs')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxDocs;
 
     /**
@@ -38,9 +44,15 @@ class IndexStats
      * 
      * @Accessor(getter="getNumDeletedDocs", setter="setNumDeletedDocs")
      * @SerializedName("deletedDocs")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumDeletedDocs', setter: 'setNumDeletedDocs')]
+    #[SerializedName(name: 'deletedDocs')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numDeletedDocs;
 
     /**

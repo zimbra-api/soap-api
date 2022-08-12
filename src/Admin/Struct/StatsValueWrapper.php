@@ -30,7 +30,12 @@ class StatsValueWrapper
      * @Accessor(getter="getStats", setter="setStats")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getStats', setter: 'setStats')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'stat', namespace: 'urn:zimbraAdmin')]
     private $stats = [];
 
     /**

@@ -33,7 +33,13 @@ class CalTZInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,9 +47,15 @@ class CalTZInfo
      * 
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
      * @SerializedName("stdoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTzStdOffset', setter: 'setTzStdOffset')]
+    #[SerializedName(name: 'stdoff')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $tzStdOffset;
 
     /**
@@ -51,9 +63,15 @@ class CalTZInfo
      * 
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
      * @SerializedName("dayoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTzDayOffset', setter: 'setTzDayOffset')]
+    #[SerializedName(name: 'dayoff')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $tzDayOffset;
 
     /**
@@ -63,8 +81,13 @@ class CalTZInfo
      * @SerializedName("standard")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzOnsetInfo
      */
+    #[Accessor(getter: 'getStandardTzOnset', setter: 'setStandardTzOnset')]
+    #[SerializedName(name: 'standard')]
+    #[Type(name: TzOnsetInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $standardTzOnset;
 
     /**
@@ -74,8 +97,13 @@ class CalTZInfo
      * @SerializedName("daylight")
      * @Type("Zimbra\Common\Struct\TzOnsetInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzOnsetInfo
      */
+    #[Accessor(getter: 'getDaylightTzOnset', setter: 'setDaylightTzOnset')]
+    #[SerializedName(name: 'daylight')]
+    #[Type(name: TzOnsetInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $daylightTzOnset;
 
     /**
@@ -85,7 +113,13 @@ class CalTZInfo
      * @SerializedName("stdname")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getStandardTZName', setter: 'setStandardTZName')]
+    #[SerializedName(name: 'stdname')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $standardTZName;
 
     /**
@@ -95,7 +129,13 @@ class CalTZInfo
      * @SerializedName("dayname")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDaylightTZName', setter: 'setDaylightTZName')]
+    #[SerializedName(name: 'dayname')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $daylightTZName;
 
     /**

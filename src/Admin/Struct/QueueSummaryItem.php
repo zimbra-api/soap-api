@@ -28,9 +28,15 @@ class QueueSummaryItem
      * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCount', setter: 'setCount')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $count;
 
     /**
@@ -40,7 +46,13 @@ class QueueSummaryItem
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTerm', setter: 'setTerm')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $term;
 
     /**

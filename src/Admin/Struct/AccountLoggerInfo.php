@@ -28,7 +28,13 @@ class AccountLoggerInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -36,7 +42,13 @@ class AccountLoggerInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -45,7 +57,12 @@ class AccountLoggerInfo
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\LoggerInfo>')]
+    #[XmlList(inline: true, entry: 'logger', namespace: 'urn:zimbraAdmin')]
     private $loggers = [];
 
     /**

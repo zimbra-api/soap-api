@@ -30,7 +30,13 @@ class TimeAttr
      * @SerializedName("time")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTime', setter: 'setTime')]
+    #[SerializedName(name: 'time')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $time;
 
     /**

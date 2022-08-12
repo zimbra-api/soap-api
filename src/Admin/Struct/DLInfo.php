@@ -31,7 +31,13 @@ class DLInfo extends AdminObjectInfo
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
+    #[SerializedName(name: 'dynamic')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $dynamic;
 
     /**
@@ -43,7 +49,13 @@ class DLInfo extends AdminObjectInfo
      * @SerializedName("via")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVia', setter: 'setVia')]
+    #[SerializedName(name: 'via')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $via;
 
     /**

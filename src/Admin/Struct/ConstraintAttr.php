@@ -30,7 +30,13 @@ class ConstraintAttr
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,8 +46,13 @@ class ConstraintAttr
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ConstraintInfo
      */
+    #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
+    #[SerializedName(name: 'constraint')]
+    #[Type(name: ConstraintInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $constraint;
 
     /**

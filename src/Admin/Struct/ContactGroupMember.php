@@ -31,7 +31,13 @@ class ContactGroupMember
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -41,7 +47,13 @@ class ContactGroupMember
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'value')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $value;
 
     /**
@@ -51,8 +63,13 @@ class ContactGroupMember
      * @SerializedName("cn")
      * @Type("Zimbra\Admin\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ContactInfo
      */
+    #[Accessor(getter: 'getContact', setter: 'setContact')]
+    #[SerializedName(name: 'cn')]
+    #[Type(name: ContactInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $contact;
 
     /**

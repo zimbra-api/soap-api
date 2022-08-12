@@ -30,7 +30,13 @@ class HostStats
      * @SerializedName("hn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHostName', setter: 'setHostName')]
+    #[SerializedName(name: 'hn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hostName;
 
     /**
@@ -40,8 +46,13 @@ class HostStats
      * @SerializedName("stats")
      * @Type("Zimbra\Admin\Struct\StatsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var StatsInfo
      */
+    #[Accessor(getter: 'getStats', setter: 'setStats')]
+    #[SerializedName(name: 'stats')]
+    #[Type(name: StatsInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $stats;
 
     /**

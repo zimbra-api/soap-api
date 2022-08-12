@@ -28,9 +28,15 @@ class TzFixupRuleMatchDate
      * 
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
+    #[SerializedName(name: 'mon')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $month;
 
     /**
@@ -38,9 +44,15 @@ class TzFixupRuleMatchDate
      * 
      * @Accessor(getter="getMonthDay", setter="setMonthDay")
      * @SerializedName("mday")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMonthDay', setter: 'setMonthDay')]
+    #[SerializedName(name: 'mday')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $monthDay;
 
     /**

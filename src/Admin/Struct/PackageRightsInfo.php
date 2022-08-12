@@ -30,7 +30,13 @@ class PackageRightsInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -39,7 +45,12 @@ class PackageRightsInfo
      * @Accessor(getter="getCmds", setter="setCmds")
      * @Type("array<Zimbra\Admin\Struct\CmdRightsInfo>")
      * @XmlList(inline=true, entry="cmd", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCmds', setter: 'setCmds')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CmdRightsInfo>')]
+    #[XmlList(inline: true, entry: 'cmd', namespace: 'urn:zimbraAdmin')]
     private $cmds = [];
 
     /**

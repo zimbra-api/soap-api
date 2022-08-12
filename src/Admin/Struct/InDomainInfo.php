@@ -30,7 +30,12 @@ class InDomainInfo
      * @Accessor(getter="getDomains", setter="setDomains")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'domain', namespace: 'urn:zimbraAdmin')]
     private $domains = [];
 
     /**
@@ -40,8 +45,13 @@ class InDomainInfo
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var EffectiveRightsInfo
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'rights')]
+    #[Type(name: EffectiveRightsInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $rights;
 
     /**

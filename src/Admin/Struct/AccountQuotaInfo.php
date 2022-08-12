@@ -30,7 +30,13 @@ class AccountQuotaInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class AccountQuotaInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -50,7 +62,13 @@ class AccountQuotaInfo
      * @SerializedName("used")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
+    #[SerializedName(name: 'used')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $quotaUsed;
 
     /**
@@ -60,7 +78,13 @@ class AccountQuotaInfo
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getQuotaLimit', setter: 'setQuotaLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $quotaLimit;
 
     /**

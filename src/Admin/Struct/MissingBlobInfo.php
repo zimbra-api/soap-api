@@ -30,7 +30,13 @@ class MissingBlobInfo
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class MissingBlobInfo
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -50,7 +62,13 @@ class MissingBlobInfo
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -60,7 +78,13 @@ class MissingBlobInfo
      * @SerializedName("volumeId")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
+    #[SerializedName(name: 'volumeId')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $volumeId;
 
     /**
@@ -70,7 +94,13 @@ class MissingBlobInfo
      * @SerializedName("blobPath")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBlobPath', setter: 'setBlobPath')]
+    #[SerializedName(name: 'blobPath')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $blobPath;
 
     /**
@@ -80,7 +110,13 @@ class MissingBlobInfo
      * @SerializedName("external")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
+    #[SerializedName(name: 'external')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $external;
 
     /**
@@ -90,7 +126,13 @@ class MissingBlobInfo
      * @SerializedName("version")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
+    #[SerializedName(name: 'version')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $version;
 
     /**

@@ -31,8 +31,13 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
      * @XmlAttribute
+     * 
      * @var DataSourceType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\DataSourceType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -42,7 +47,13 @@ class DataSourceSpecifier extends AdminAttrsImpl
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**

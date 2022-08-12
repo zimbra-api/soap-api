@@ -31,7 +31,13 @@ class SyncGalAccountSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,12 @@ class SyncGalAccountSpec
      * @Accessor(getter="getDataSources", setter="setDataSources")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
      * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>')]
+    #[XmlList(inline: true, entry: 'datasource', namespace: 'urn:zimbraAdmin')]
     private $dataSources = [];
 
     /**

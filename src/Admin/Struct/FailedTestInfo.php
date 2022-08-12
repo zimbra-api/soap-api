@@ -30,7 +30,13 @@ class FailedTestInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -38,9 +44,15 @@ class FailedTestInfo
      * 
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
+    #[SerializedName(name: 'execSeconds')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $execSeconds;
 
     /**
@@ -50,17 +62,27 @@ class FailedTestInfo
      * @SerializedName("class")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getClassName', setter: 'setClassName')]
+    #[SerializedName(name: 'class')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $className;
 
     /**
      * Text of any exception thrown during the test
      * 
      * @Accessor(getter="getThrowable", setter="setThrowable")
-     * @SerializedName("_content")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getThrowable', setter: 'setThrowable')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $throwable;
 
     /**

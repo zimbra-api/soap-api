@@ -30,7 +30,13 @@ class AccountsAttrib
      * @SerializedName("accounts")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[SerializedName(name: 'accounts')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accounts;
 
     /**

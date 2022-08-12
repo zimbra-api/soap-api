@@ -30,7 +30,13 @@ class LicenseExpirationInfo
      * @SerializedName("date")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'date')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $date;
 
     /**

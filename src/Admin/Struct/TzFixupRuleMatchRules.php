@@ -30,8 +30,13 @@ class TzFixupRuleMatchRules
      * @SerializedName("standard")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatchRule
      */
+    #[Accessor(getter: 'getStandard', setter: 'setStandard')]
+    #[SerializedName(name: 'standard')]
+    #[Type(name: TzFixupRuleMatchRule::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $standard;
 
     /**
@@ -43,6 +48,10 @@ class TzFixupRuleMatchRules
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @var TzFixupRuleMatchRule
      */
+    #[Accessor(getter: 'getDaylight', setter: 'setDaylight')]
+    #[SerializedName(name: 'daylight')]
+    #[Type(name: TzFixupRuleMatchRule::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $daylight;
 
     /**
@@ -50,9 +59,15 @@ class TzFixupRuleMatchRules
      * 
      * @Accessor(getter="getStdOffset", setter="setStdOffset")
      * @SerializedName("stdoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStdOffset', setter: 'setStdOffset')]
+    #[SerializedName(name: 'stdoff')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $stdOffset;
 
     /**
@@ -60,9 +75,15 @@ class TzFixupRuleMatchRules
      * 
      * @Accessor(getter="getDstOffset", setter="setDstOffset")
      * @SerializedName("dayoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDstOffset', setter: 'setDstOffset')]
+    #[SerializedName(name: 'dayoff')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $dstOffset;
 
     /**

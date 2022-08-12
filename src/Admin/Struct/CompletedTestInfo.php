@@ -30,7 +30,13 @@ class CompletedTestInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -38,9 +44,15 @@ class CompletedTestInfo
      * 
      * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
      * @SerializedName("execSeconds")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
+    #[SerializedName(name: 'execSeconds')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $execSeconds;
 
     /**
@@ -50,7 +62,13 @@ class CompletedTestInfo
      * @SerializedName("class")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getClassName', setter: 'setClassName')]
+    #[SerializedName(name: 'class')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $className;
 
     /**

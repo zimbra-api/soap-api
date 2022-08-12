@@ -31,7 +31,13 @@ class RightInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -43,6 +49,10 @@ class RightInfo
      * @XmlAttribute
      * @var RightType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RightType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -52,7 +62,13 @@ class RightInfo
      * @SerializedName("targetType")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
+    #[SerializedName(name: 'targetType')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $targetType;
 
     /**
@@ -62,8 +78,13 @@ class RightInfo
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
+     * 
      * @var RightClass
      */
+    #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
+    #[SerializedName(name: 'rightClass')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RightClass>')]
+    #[XmlAttribute]
     private $rightClass;
 
     /**
@@ -73,7 +94,13 @@ class RightInfo
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDesc', setter: 'setDesc')]
+    #[SerializedName(name: 'desc')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAdmin')]
     private $desc;
 
     /**
@@ -83,8 +110,13 @@ class RightInfo
      * @SerializedName("attrs")
      * @Type("Zimbra\Admin\Struct\RightsAttrs")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RightsAttrs
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[SerializedName(name: 'attrs')]
+    #[Type(name: RightsAttrs::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $attrs;
 
     /**
@@ -94,8 +126,13 @@ class RightInfo
      * @SerializedName("rights")
      * @Type("Zimbra\Admin\Struct\ComboRights")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ComboRights
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'rights')]
+    #[Type(name: ComboRights::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $rights;
 
     /**

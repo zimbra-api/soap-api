@@ -28,9 +28,15 @@ class ReindexProgressInfo
      * 
      * @Accessor(getter="getNumSucceeded", setter="setNumSucceeded")
      * @SerializedName("numSucceeded")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumSucceeded', setter: 'setNumSucceeded')]
+    #[SerializedName(name: 'numSucceeded')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numSucceeded;
 
     /**
@@ -38,9 +44,15 @@ class ReindexProgressInfo
      * 
      * @Accessor(getter="getNumFailed", setter="setNumFailed")
      * @SerializedName("numFailed")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
+    #[SerializedName(name: 'numFailed')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numFailed;
 
     /**
@@ -48,9 +60,15 @@ class ReindexProgressInfo
      * 
      * @Accessor(getter="getNumRemaining", setter="setNumRemaining")
      * @SerializedName("numRemaining")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumRemaining', setter: 'setNumRemaining')]
+    #[SerializedName(name: 'numRemaining')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numRemaining;
 
     /**

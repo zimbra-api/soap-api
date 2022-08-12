@@ -30,7 +30,13 @@ class MailQueueDetails
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -38,9 +44,15 @@ class MailQueueDetails
      * 
      * @Accessor(getter="getTime", setter="setTime")
      * @SerializedName("time")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTime', setter: 'setTime')]
+    #[SerializedName(name: 'time')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $time;
 
     /**
@@ -51,15 +63,27 @@ class MailQueueDetails
      * @SerializedName("scan")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getStillScanning', setter: 'setStillScanning')]
+    #[SerializedName(name: 'scan')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $stillScanning;
 
     /**
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotal', setter: 'setTotal')]
+    #[SerializedName(name: 'total')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $total;
 
     /**
@@ -69,7 +93,13 @@ class MailQueueDetails
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -80,7 +110,12 @@ class MailQueueDetails
      * @Accessor(getter="getQueueSummaries", setter="setQueueSummaries")
      * @Type("array<Zimbra\Admin\Struct\QueueSummary>")
      * @XmlList(inline=true, entry="qs", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getQueueSummaries', setter: 'setQueueSummaries')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\QueueSummary>')]
+    #[XmlList(inline: true, entry: 'qs', namespace: 'urn:zimbraAdmin')]
     private $queueSummaries = [];
 
     /**
@@ -90,6 +125,9 @@ class MailQueueDetails
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getQueueItems', setter: 'setQueueItems')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\QueueItem>')]
+    #[XmlList(inline: true, entry: 'qi', namespace: 'urn:zimbraAdmin')]
     private $queueItems = [];
 
     /**

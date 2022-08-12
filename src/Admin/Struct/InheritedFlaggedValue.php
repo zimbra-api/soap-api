@@ -32,14 +32,25 @@ class InheritedFlaggedValue
      * @SerializedName("inherited")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getInherited', setter: 'setInherited')]
+    #[SerializedName(name: 'inherited')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $inherited;
 
     /**
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

@@ -30,7 +30,13 @@ class ServerQueues
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getServerName', setter: 'setServerName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $serverName;
 
     /**
@@ -39,7 +45,12 @@ class ServerQueues
      * @Accessor(getter="getQueues", setter="setQueues")
      * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
      * @XmlList(inline=true, entry="queue", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getQueues', setter: 'setQueues')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\MailQueueCount>')]
+    #[XmlList(inline: true, entry: 'queue', namespace: 'urn:zimbraAdmin')]
     private $queues = [];
 
     /**

@@ -30,7 +30,13 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("attr")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttr', setter: 'setAttr')]
+    #[SerializedName(name: 'attr')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attr;
 
     /**
@@ -38,8 +44,13 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ConditionOperator>")
      * @XmlAttribute
+     * 
      * @var ConditionOperator
      */
+    #[Accessor(getter: 'getOp', setter: 'setOp')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ConditionOperator>')]
+    #[XmlAttribute]
     private $op;
 
     /**
@@ -47,15 +58,27 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'value')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $value;
 
     /**
      * @Accessor(getter="isNot", setter="setNot")
      * @SerializedName("not")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isNot', setter: 'setNot')]
+    #[SerializedName(name: 'not')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $not;
 
     /**

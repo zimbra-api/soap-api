@@ -30,7 +30,13 @@ class CosInfo implements AdminObjectInterface
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class CosInfo implements AdminObjectInterface
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -50,7 +62,13 @@ class CosInfo implements AdminObjectInterface
      * @SerializedName("isDefaultCos")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsDefaultCos', setter: 'setIsDefaultCos')]
+    #[SerializedName(name: 'isDefaultCos')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isDefaultCos;
 
     /**
@@ -58,6 +76,9 @@ class CosInfo implements AdminObjectInterface
      * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CosInfoAttr>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 
     /**

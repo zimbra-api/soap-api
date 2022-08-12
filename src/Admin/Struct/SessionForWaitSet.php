@@ -30,7 +30,13 @@ class SessionForWaitSet
      * @SerializedName("account")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $account;
 
     /**
@@ -41,7 +47,13 @@ class SessionForWaitSet
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getInterests', setter: 'setInterests')]
+    #[SerializedName(name: 'types')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $interests;
 
     /**
@@ -51,7 +63,13 @@ class SessionForWaitSet
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getToken', setter: 'setToken')]
+    #[SerializedName(name: 'token')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $token;
 
     /**
@@ -59,17 +77,29 @@ class SessionForWaitSet
      * 
      * @Accessor(getter="getMboxSyncToken", setter="setMboxSyncToken")
      * @SerializedName("mboxSyncToken")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMboxSyncToken', setter: 'setMboxSyncToken')]
+    #[SerializedName(name: 'mboxSyncToken')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $mboxSyncToken;
 
     /**
      * @Accessor(getter="getMboxSyncTokenDiff", setter="setMboxSyncTokenDiff")
      * @SerializedName("mboxSyncTokenDiff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMboxSyncTokenDiff', setter: 'setMboxSyncTokenDiff')]
+    #[SerializedName(name: 'mboxSyncTokenDiff')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $mboxSyncTokenDiff;
 
     /**
@@ -79,7 +109,13 @@ class SessionForWaitSet
      * @SerializedName("acctIdError")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAcctIdError', setter: 'setAcctIdError')]
+    #[SerializedName(name: 'acctIdError')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $acctIdError;
 
     /**
@@ -89,8 +125,13 @@ class SessionForWaitSet
      * @SerializedName("WaitSetSession")
      * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var WaitSetSessionInfo
      */
+    #[Accessor(getter: 'getWaitSetSession', setter: 'setWaitSetSession')]
+    #[SerializedName(name: 'WaitSetSession')]
+    #[Type(name: WaitSetSessionInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $waitSetSession;
 
     /**

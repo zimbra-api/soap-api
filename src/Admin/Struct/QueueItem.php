@@ -30,7 +30,13 @@ class QueueItem
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class QueueItem
      * @SerializedName("time")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTime', setter: 'setTime')]
+    #[SerializedName(name: 'time')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $time;
 
     /**
@@ -50,7 +62,13 @@ class QueueItem
      * @SerializedName("fromdomain")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFromdomain', setter: 'setFromdomain')]
+    #[SerializedName(name: 'fromdomain')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $fromdomain;
 
     /**
@@ -60,7 +78,13 @@ class QueueItem
      * @SerializedName("size")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 'size')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -70,7 +94,13 @@ class QueueItem
      * @SerializedName("from")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFrom', setter: 'setFrom')]
+    #[SerializedName(name: 'from')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $from;
 
     /**
@@ -80,7 +110,13 @@ class QueueItem
      * @SerializedName("to")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTo', setter: 'setTo')]
+    #[SerializedName(name: 'to')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $to;
 
     /**
@@ -90,7 +126,13 @@ class QueueItem
      * @SerializedName("host")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHost', setter: 'setHost')]
+    #[SerializedName(name: 'host')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $host;
 
     /**
@@ -100,7 +142,13 @@ class QueueItem
      * @SerializedName("addr")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddr', setter: 'setAddr')]
+    #[SerializedName(name: 'addr')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $addr;
 
     /**
@@ -110,7 +158,13 @@ class QueueItem
      * @SerializedName("reason")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReason', setter: 'setReason')]
+    #[SerializedName(name: 'reason')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $reason;
 
     /**
@@ -119,8 +173,14 @@ class QueueItem
      * @Accessor(getter="getFilter", setter="setFilter")
      * @SerializedName("filter")
      * @Type("string")
+     * 
+     * @var string
      * @XmlAttribute
      */
+    #[Accessor(getter: 'getFilter', setter: 'setFilter')]
+    #[SerializedName(name: 'filter')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $filter;
 
     /**
@@ -130,7 +190,13 @@ class QueueItem
      * @SerializedName("todomain")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTodomain', setter: 'setTodomain')]
+    #[SerializedName(name: 'todomain')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $todomain;
 
     /**
@@ -140,7 +206,13 @@ class QueueItem
      * @SerializedName("received")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReceived', setter: 'setReceived')]
+    #[SerializedName(name: 'received')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $received;
 
     /**

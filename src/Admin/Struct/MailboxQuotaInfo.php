@@ -30,7 +30,13 @@ class MailboxQuotaInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accountId;
 
     /**
@@ -40,7 +46,13 @@ class MailboxQuotaInfo
      * @SerializedName("used")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
+    #[SerializedName(name: 'used')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $quotaUsed;
 
     /**

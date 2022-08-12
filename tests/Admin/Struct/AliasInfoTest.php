@@ -25,13 +25,13 @@ class AliasInfoTest extends ZimbraTestCase
 
         $alias = new StubAliasInfo($name, $id, $targetName, $targetType);
         $this->assertSame($targetName, $alias->getTargetName());
-        $this->assertSame($targetType, $alias->getTargetTyoe());
+        $this->assertSame($targetType, $alias->getTargetType());
 
         $alias = new StubAliasInfo($name, $id, '', TargetType::ACCOUNT(), [new Attr($key, $value)]);
         $alias->setTargetName($targetName)
-            ->setTargetTyoe($targetType);
+            ->setTargetType($targetType);
         $this->assertSame($targetName, $alias->getTargetName());
-        $this->assertSame($targetType, $alias->getTargetTyoe());
+        $this->assertSame($targetType, $alias->getTargetType());
 
         $xml = <<<EOT
 <?xml version="1.0"?>

@@ -30,7 +30,13 @@ class FreeBusyProviderInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class FreeBusyProviderInfo
      * @SerializedName("propagate")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getPropagate', setter: 'setPropagate')]
+    #[SerializedName(name: 'propagate')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $propagate;
 
     /**
@@ -48,9 +60,15 @@ class FreeBusyProviderInfo
      * 
      * @Accessor(getter="getStart", setter="setStart")
      * @SerializedName("start")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStart', setter: 'setStart')]
+    #[SerializedName(name: 'start')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $start;
 
     /**
@@ -58,9 +76,15 @@ class FreeBusyProviderInfo
      * 
      * @Accessor(getter="getEnd", setter="setEnd")
      * @SerializedName("end")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEnd', setter: 'setEnd')]
+    #[SerializedName(name: 'end')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $end;
 
     /**
@@ -70,7 +94,13 @@ class FreeBusyProviderInfo
      * @SerializedName("queue")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQueue', setter: 'setQueue')]
+    #[SerializedName(name: 'queue')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $queue;
 
     /**
@@ -80,7 +110,13 @@ class FreeBusyProviderInfo
      * @SerializedName("prefix")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPrefix', setter: 'setPrefix')]
+    #[SerializedName(name: 'prefix')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $prefix;
 
     /**

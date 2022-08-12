@@ -28,9 +28,15 @@ class MailboxStats
      * 
      * @Accessor(getter="getNumMboxes", setter="setNumMboxes")
      * @SerializedName("numMboxes")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumMboxes', setter: 'setNumMboxes')]
+    #[SerializedName(name: 'numMboxes')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numMboxes;
 
     /**
@@ -38,9 +44,15 @@ class MailboxStats
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("totalSize")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
+    #[SerializedName(name: 'totalSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $totalSize;
 
     /**

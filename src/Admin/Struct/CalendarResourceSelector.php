@@ -31,8 +31,13 @@ class CalendarResourceSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\CalendarResourceBy>")
      * @XmlAttribute
+     * 
      * @var CalendarResourceBy
      */
+    #[Accessor(getter: 'getBy', setter: 'setBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\CalendarResourceBy>')]
+    #[XmlAttribute]
     private $by;
 
     /**
@@ -41,7 +46,12 @@ class CalendarResourceSelector
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

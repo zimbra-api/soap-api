@@ -31,8 +31,13 @@ class TzFixupRuleMatch
      * @SerializedName("any")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SimpleElement
      */
+    #[Accessor(getter: 'getAny', setter: 'setAny')]
+    #[SerializedName(name: 'any')]
+    #[Type(name: SimpleElement::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $any;
 
     /**
@@ -42,8 +47,13 @@ class TzFixupRuleMatch
      * @SerializedName("tzid")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Id
      */
+    #[Accessor(getter: 'getTzid', setter: 'setTzid')]
+    #[SerializedName(name: 'tzid')]
+    #[Type(name: Id::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $tzid;
 
     /**
@@ -53,8 +63,13 @@ class TzFixupRuleMatch
      * @SerializedName("nonDst")
      * @Type("Zimbra\Admin\Struct\Offset")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Offset
      */
+    #[Accessor(getter: 'getNonDst', setter: 'setNonDst')]
+    #[SerializedName(name: 'nonDst')]
+    #[Type(name: Offset::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $nonDst;
 
     /**
@@ -64,8 +79,13 @@ class TzFixupRuleMatch
      * @SerializedName("rules")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatchRules
      */
+    #[Accessor(getter: 'getRules', setter: 'setRules')]
+    #[SerializedName(name: 'rules')]
+    #[Type(name: TzFixupRuleMatchRules::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $rules;
 
     /**
@@ -75,8 +95,13 @@ class TzFixupRuleMatch
      * @SerializedName("dates")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatchDates
      */
+    #[Accessor(getter: 'getDates', setter: 'setDates')]
+    #[SerializedName(name: 'dates')]
+    #[Type(name: TzFixupRuleMatchDates::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dates;
 
     /**

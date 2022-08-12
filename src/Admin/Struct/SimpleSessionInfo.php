@@ -30,7 +30,13 @@ class SimpleSessionInfo
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
+    #[SerializedName(name: 'zid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $zimbraId;
 
     /**
@@ -40,7 +46,13 @@ class SimpleSessionInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -50,7 +62,13 @@ class SimpleSessionInfo
      * @SerializedName("sid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
+    #[SerializedName(name: 'sid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sessionId;
 
     /**
@@ -58,9 +76,15 @@ class SimpleSessionInfo
      * 
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCreatedDate', setter: 'setCreatedDate')]
+    #[SerializedName(name: 'cd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $createdDate;
 
     /**
@@ -68,9 +92,15 @@ class SimpleSessionInfo
      * 
      * @Accessor(getter="getLastAccessedDate", setter="setLastAccessedDate")
      * @SerializedName("ld")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLastAccessedDate', setter: 'setLastAccessedDate')]
+    #[SerializedName(name: 'ld')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $lastAccessedDate;
 
     /**

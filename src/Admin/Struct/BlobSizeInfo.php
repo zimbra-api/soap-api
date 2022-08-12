@@ -30,7 +30,13 @@ class BlobSizeInfo
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPath', setter: 'setPath')]
+    #[SerializedName(name: 'path')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $path;
 
     /**
@@ -40,7 +46,13 @@ class BlobSizeInfo
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -50,7 +62,13 @@ class BlobSizeInfo
      * @SerializedName("fileSize")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
+    #[SerializedName(name: 'fileSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fileSize;
 
     /**
@@ -60,7 +78,13 @@ class BlobSizeInfo
      * @SerializedName("external")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
+    #[SerializedName(name: 'external')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $external;
 
     /**

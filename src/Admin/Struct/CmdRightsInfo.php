@@ -31,7 +31,13 @@ class CmdRightsInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,7 +48,14 @@ class CmdRightsInfo
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'rights')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'right', namespace: 'urn:zimbraAdmin')]
     private $rights = [];
 
     /**
@@ -54,6 +67,11 @@ class CmdRightsInfo
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="note", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getNotes', setter: 'setNotes')]
+    #[SerializedName(name: 'desc')]
+    #[Type(name: 'array<string>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'note', namespace: 'urn:zimbraAdmin')]
     private $notes = [];
 
     /**

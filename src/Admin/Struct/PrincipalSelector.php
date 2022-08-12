@@ -31,8 +31,13 @@ class PrincipalSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")
      * @XmlAttribute
+     * 
      * @var AutoProvPrincipalBy
      */
+    #[Accessor(getter: 'getBy', setter: 'setBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>')]
+    #[XmlAttribute]
     private $by;
 
     /**
@@ -41,7 +46,12 @@ class PrincipalSelector
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

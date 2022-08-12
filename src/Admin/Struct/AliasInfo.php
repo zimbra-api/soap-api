@@ -31,18 +31,29 @@ class AliasInfo extends AdminObjectInfo
      * @SerializedName("targetName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
+    #[SerializedName(name: 'targetName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $targetName;
 
     /**
      * Target type
      * 
-     * @Accessor(getter="getTargetTyoe", setter="setTargetTyoe")
+     * @Accessor(getter="getTargetType", setter="setTargetType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * 
      * @var TargetType
      */
+    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[XmlAttribute]
     private $targetType;
 
     /**
@@ -66,7 +77,7 @@ class AliasInfo extends AdminObjectInfo
         parent::__construct($name, $id, $attrs);
         $this->setTargetName($targetName);
         if ($targetType instanceof TargetType) {
-            $this->setTargetTyoe($targetType);
+            $this->setTargetType($targetType);
         }
     }
 
@@ -97,7 +108,7 @@ class AliasInfo extends AdminObjectInfo
      *
      * @return TargetType
      */
-    public function getTargetTyoe(): ?TargetType
+    public function getTargetType(): ?TargetType
     {
         return $this->targetType;
     }
@@ -108,7 +119,7 @@ class AliasInfo extends AdminObjectInfo
      * @param  TargetType $targetType
      * @return self
      */
-    public function setTargetTyoe(TargetType $targetType): self
+    public function setTargetType(TargetType $targetType): self
     {
         $this->targetType = $targetType;
         return $this;

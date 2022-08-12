@@ -29,9 +29,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class VolumeInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -51,7 +63,13 @@ class VolumeInfo
      * @SerializedName("rootpath")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRootPath', setter: 'setRootPath')]
+    #[SerializedName(name: 'rootpath')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rootPath;
 
     /**
@@ -59,9 +77,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -71,7 +95,13 @@ class VolumeInfo
      * @SerializedName("compressBlobs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCompressBlobs', setter: 'setCompressBlobs')]
+    #[SerializedName(name: 'compressBlobs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $compressBlobs;
 
     /**
@@ -80,9 +110,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
      * @SerializedName("compressionThreshold")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCompressionThreshold', setter: 'setCompressionThreshold')]
+    #[SerializedName(name: 'compressionThreshold')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $compressionThreshold;
 
     /**
@@ -90,9 +126,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getMgbits", setter="setMgbits")
      * @SerializedName("mgbits")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMgbits', setter: 'setMgbits')]
+    #[SerializedName(name: 'mgbits')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $mgbits;
 
     /**
@@ -100,9 +142,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getMbits", setter="setMbits")
      * @SerializedName("mbits")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMbits', setter: 'setMbits')]
+    #[SerializedName(name: 'mbits')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $mbits;
 
     /**
@@ -110,9 +158,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getFgbits", setter="setFgbits")
      * @SerializedName("fgbits")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFgbits', setter: 'setFgbits')]
+    #[SerializedName(name: 'fgbits')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fgbits;
 
     /**
@@ -120,9 +174,15 @@ class VolumeInfo
      * 
      * @Accessor(getter="getFbits", setter="setFbits")
      * @SerializedName("fbits")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFbits', setter: 'setFbits')]
+    #[SerializedName(name: 'fbits')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fbits;
 
     /**
@@ -132,7 +192,13 @@ class VolumeInfo
      * @SerializedName("isCurrent")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isCurrent', setter: 'setCurrent')]
+    #[SerializedName(name: 'isCurrent')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $current;
 
     /**

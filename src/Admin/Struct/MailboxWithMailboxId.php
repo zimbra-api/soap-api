@@ -28,9 +28,15 @@ class MailboxWithMailboxId
      * 
      * @Accessor(getter="getMbxid", setter="setMbxid")
      * @SerializedName("mbxid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMbxid', setter: 'setMbxid')]
+    #[SerializedName(name: 'mbxid')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $mbxid;
 
     /**
@@ -40,7 +46,13 @@ class MailboxWithMailboxId
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accountId;
 
     /**
@@ -48,9 +60,15 @@ class MailboxWithMailboxId
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**

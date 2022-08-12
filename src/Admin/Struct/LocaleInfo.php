@@ -31,7 +31,13 @@ class LocaleInfo implements LocaleInterface
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class LocaleInfo implements LocaleInterface
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -51,7 +63,13 @@ class LocaleInfo implements LocaleInterface
      * @SerializedName("localName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocalName', setter: 'setLocalName')]
+    #[SerializedName(name: 'localName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $localName;
 
     /**

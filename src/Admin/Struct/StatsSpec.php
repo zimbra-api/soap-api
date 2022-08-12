@@ -28,8 +28,13 @@ class StatsSpec
      * @SerializedName("values")
      * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var StatsValueWrapper
      */
+    #[Accessor(getter: 'getValues', setter: 'setValues')]
+    #[SerializedName(name: 'values')]
+    #[Type(name: StatsValueWrapper::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $values;
 
     /**
@@ -37,7 +42,13 @@ class StatsSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -45,7 +56,13 @@ class StatsSpec
      * @SerializedName("limit")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $limit;
 
     /**

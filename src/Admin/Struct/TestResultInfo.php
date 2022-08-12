@@ -29,7 +29,12 @@ class TestResultInfo
      * @Accessor(getter="getCompletedTests", setter="setCompletedTests")
      * @Type("array<Zimbra\Admin\Struct\CompletedTestInfo>")
      * @XmlList(inline=true, entry="completed", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCompletedTests', setter: 'setCompletedTests')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CompletedTestInfo>')]
+    #[XmlList(inline: true, entry: 'completed', namespace: 'urn:zimbraAdmin')]
     private $completedTests = [];
 
     /**
@@ -38,7 +43,12 @@ class TestResultInfo
      * @Accessor(getter="getFailedTests", setter="setFailedTests")
      * @Type("array<Zimbra\Admin\Struct\FailedTestInfo>")
      * @XmlList(inline=true, entry="failure", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFailedTests', setter: 'setFailedTests')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\FailedTestInfo>')]
+    #[XmlList(inline: true, entry: 'failure', namespace: 'urn:zimbraAdmin')]
     private $failedTests = [];
 
     /**

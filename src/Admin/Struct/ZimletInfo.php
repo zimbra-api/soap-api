@@ -28,7 +28,13 @@ class ZimletInfo extends AdminObjectInfo
      * @SerializedName("hasKeyword")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
+    #[SerializedName(name: 'hasKeyword')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hasKeyword;
 
     /**

@@ -29,8 +29,13 @@ class PolicyHolder
      * @SerializedName("policy")
      * @Type("Zimbra\Mail\Struct\Policy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Policy
      */
+    #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]
+    #[SerializedName(name: 'policy')]
+    #[Type(name: Policy::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $policy;
 
     /**

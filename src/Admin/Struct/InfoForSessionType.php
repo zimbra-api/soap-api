@@ -28,9 +28,15 @@ class InfoForSessionType
      * 
      * @Accessor(getter="getActiveAccounts", setter="setActiveAccounts")
      * @SerializedName("activeAccounts")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getActiveAccounts', setter: 'setActiveAccounts')]
+    #[SerializedName(name: 'activeAccounts')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $activeAccounts;
 
     /**
@@ -38,9 +44,15 @@ class InfoForSessionType
      * 
      * @Accessor(getter="getActiveSessions", setter="setActiveSessions")
      * @SerializedName("activeSessions")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getActiveSessions', setter: 'setActiveSessions')]
+    #[SerializedName(name: 'activeSessions')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $activeSessions;
 
     /**
@@ -50,7 +62,12 @@ class InfoForSessionType
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
      * @XmlList(inline=true, entry="zid", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\AccountSessionInfo>')]
+    #[XmlList(inline: true, entry: 'zid', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**
@@ -60,7 +77,12 @@ class InfoForSessionType
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSessions', setter: 'setSessions')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\SessionInfo>')]
+    #[XmlList(inline: true, entry: 's', namespace: 'urn:zimbraAdmin')]
     private $sessions = [];
 
     /**

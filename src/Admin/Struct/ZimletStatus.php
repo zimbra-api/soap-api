@@ -31,7 +31,13 @@ class ZimletStatus
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -41,8 +47,13 @@ class ZimletStatus
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
      * @XmlAttribute
+     * 
      * @var ZimletStatusSetting
      */
+    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletStatusSetting>')]
+    #[XmlAttribute]
     private $status;
 
     /**
@@ -52,7 +63,13 @@ class ZimletStatus
      * @SerializedName("extension")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExtension', setter: 'setExtension')]
+    #[SerializedName(name: 'extension')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $extension;
 
     /**
@@ -60,9 +77,15 @@ class ZimletStatus
      * 
      * @Accessor(getter="getPriority", setter="setPriority")
      * @SerializedName("priority")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
+    #[SerializedName(name: 'priority')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $priority;
 
     /**

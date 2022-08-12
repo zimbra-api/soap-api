@@ -31,9 +31,15 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * 
      * @Accessor(getter="isNot", setter="setNot")
      * @SerializedName("not")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isNot', setter: 'setNot')]
+    #[SerializedName(name: 'not')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $not;
 
     /**
@@ -41,9 +47,15 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * 
      * @Accessor(getter="isOr", setter="setOr")
      * @SerializedName("or")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isOr', setter: 'setOr')]
+    #[SerializedName(name: 'or')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $or;
 
     /**
@@ -53,6 +65,9 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")
      * @XmlList(inline=true, entry="conds", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getCompoundConditions', setter: 'setCompoundConditions')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>')]
+    #[XmlList(inline: true, entry: 'conds', namespace: 'urn:zimbraAdmin')]
     private $compoundConditions = [];
 
     /**
@@ -62,6 +77,9 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")
      * @XmlList(inline=true, entry="cond", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getSingleConditions', setter: 'setSingleConditions')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>')]
+    #[XmlList(inline: true, entry: 'cond', namespace: 'urn:zimbraAdmin')]
     private $singleConditions = [];
 
     /**

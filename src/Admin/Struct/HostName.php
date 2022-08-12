@@ -28,7 +28,13 @@ class HostName
      * @SerializedName("hn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHostName', setter: 'setHostName')]
+    #[SerializedName(name: 'hn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hostName;
 
     /**

@@ -30,8 +30,13 @@ class ServerWithQueueAction
      * @SerializedName("queue")
      * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailQueueWithAction
      */
+    #[Accessor(getter: 'getQueue', setter: 'setQueue')]
+    #[SerializedName(name: 'queue')]
+    #[Type(name: MailQueueWithAction::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $queue;
 
     /**
@@ -41,7 +46,13 @@ class ServerWithQueueAction
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**

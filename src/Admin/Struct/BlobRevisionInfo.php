@@ -30,7 +30,13 @@ class BlobRevisionInfo
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPath', setter: 'setPath')]
+    #[SerializedName(name: 'path')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $path;
 
     /**
@@ -40,7 +46,13 @@ class BlobRevisionInfo
      * @SerializedName("fileSize")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
+    #[SerializedName(name: 'fileSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fileSize;
 
     /**
@@ -50,7 +62,13 @@ class BlobRevisionInfo
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -60,7 +78,13 @@ class BlobRevisionInfo
      * @SerializedName("external")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExternal', setter: 'setExternal')]
+    #[SerializedName(name: 'external')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $external;
 
     /**

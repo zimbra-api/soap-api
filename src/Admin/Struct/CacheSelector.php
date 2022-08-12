@@ -29,7 +29,12 @@ class CacheSelector
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<Zimbra\Admin\Struct\CacheEntrySelector>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CacheEntrySelector>')]
+    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
     private $entries = [];
 
     /**
@@ -40,7 +45,13 @@ class CacheSelector
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $types;
 
     /**
@@ -52,7 +63,13 @@ class CacheSelector
      * @SerializedName("allServers")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
+    #[SerializedName(name: 'allServers')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allServers;
 
     /**
@@ -64,7 +81,13 @@ class CacheSelector
      * @SerializedName("imapServers")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isIncludeImapServers', setter: 'setIncludeImapServers')]
+    #[SerializedName(name: 'imapServers')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $imapServers;
 
     /**

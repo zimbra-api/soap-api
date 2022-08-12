@@ -30,8 +30,13 @@ class MailQueueQuery
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\QueueQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var QueueQuery
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: QueueQuery::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $query;
 
     /**
@@ -41,7 +46,13 @@ class MailQueueQuery
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQueueName', setter: 'setQueueName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $queueName;
 
     /**
@@ -51,7 +62,13 @@ class MailQueueQuery
      * @SerializedName("scan")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getScan', setter: 'setScan')]
+    #[SerializedName(name: 'scan')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $scan;
 
     /**
@@ -59,9 +76,15 @@ class MailQueueQuery
      * 
      * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
      * @SerializedName("wait")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getWaitSeconds', setter: 'setWaitSeconds')]
+    #[SerializedName(name: 'wait')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $waitSeconds;
 
     /**

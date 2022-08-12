@@ -29,7 +29,12 @@ class RightModifierInfo
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**
@@ -39,7 +44,13 @@ class RightModifierInfo
      * @SerializedName("deny")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDeny', setter: 'setDeny')]
+    #[SerializedName(name: 'deny')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $deny;
 
     /**
@@ -49,7 +60,13 @@ class RightModifierInfo
      * @SerializedName("canDelegate")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCanDelegate', setter: 'setCanDelegate')]
+    #[SerializedName(name: 'canDelegate')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $canDelegate;
 
     /**
@@ -59,7 +76,13 @@ class RightModifierInfo
      * @SerializedName("disinheritSubGroups")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDisinheritSubGroups', setter: 'setDisinheritSubGroups')]
+    #[SerializedName(name: 'disinheritSubGroups')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $disinheritSubGroups;
 
     /**
@@ -69,7 +92,13 @@ class RightModifierInfo
      * @SerializedName("subDomain")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSubDomain', setter: 'setSubDomain')]
+    #[SerializedName(name: 'subDomain')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $subDomain;
 
     /**

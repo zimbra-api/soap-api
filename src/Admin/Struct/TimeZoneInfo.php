@@ -24,13 +24,19 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class TimeZoneInfo
 {
     /**
-     * timezone ID. e.g "America/Los_Angeles"
+     * Timezone ID. e.g "America/Los_Angeles"
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class TimeZoneInfo
      * @SerializedName("displayName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'displayName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**

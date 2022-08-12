@@ -30,8 +30,13 @@ class AttachmentIdAttrib
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
+     * 
      * @var string
      */
+    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
+    #[SerializedName(name: 'aid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $aid;
 
     /**

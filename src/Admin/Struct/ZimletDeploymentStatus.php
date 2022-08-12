@@ -31,7 +31,13 @@ class ZimletDeploymentStatus
      * @SerializedName("server")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $server;
 
     /**
@@ -43,6 +49,10 @@ class ZimletDeploymentStatus
      * @XmlAttribute
      * @var ZimletDeployStatus
      */
+    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletDeployStatus>')]
+    #[XmlAttribute]
     private $status;
 
     /**
@@ -52,7 +62,13 @@ class ZimletDeploymentStatus
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getError', setter: 'setError')]
+    #[SerializedName(name: 'error')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $error;
 
     /**

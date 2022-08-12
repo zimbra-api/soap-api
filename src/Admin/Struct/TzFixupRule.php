@@ -30,8 +30,13 @@ class TzFixupRule
      * @SerializedName("match")
      * @Type("Zimbra\Admin\Struct\TzFixupRuleMatch")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatch
      */
+    #[Accessor(getter: 'getMatch', setter: 'setMatch')]
+    #[SerializedName(name: 'match')]
+    #[Type(name: TzFixupRuleMatch::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $match;
 
     /**
@@ -41,8 +46,13 @@ class TzFixupRule
      * @SerializedName("touch")
      * @Type("Zimbra\Admin\Struct\SimpleElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SimpleElement
      */
+    #[Accessor(getter: 'getTouch', setter: 'setTouch')]
+    #[SerializedName(name: 'touch')]
+    #[Type(name: SimpleElement::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $touch;
 
     /**
@@ -52,8 +62,13 @@ class TzFixupRule
      * @SerializedName("replace")
      * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzReplaceInfo
      */
+    #[Accessor(getter: 'getReplace', setter: 'setReplace')]
+    #[SerializedName(name: 'replace')]
+    #[Type(name: TzReplaceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $replace;
 
     /**

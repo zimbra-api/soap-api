@@ -31,7 +31,13 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @SerializedName("hasKeyword")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
+    #[SerializedName(name: 'hasKeyword')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hasKeyword;
 
     /**
@@ -41,7 +47,13 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @SerializedName("extensionClass")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExtensionClass', setter: 'setExtensionClass')]
+    #[SerializedName(name: 'extensionClass')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $extensionClass;
 
     /**
@@ -51,7 +63,13 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
      * @SerializedName("regex")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRegex', setter: 'setRegex')]
+    #[SerializedName(name: 'regex')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $regex;
 
     /**

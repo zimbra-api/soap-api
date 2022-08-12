@@ -31,8 +31,13 @@ class EffectiveRightsTarget
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\TargetType>")
      * @XmlAttribute
+     * 
      * @var TargetType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\TargetType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -42,26 +47,41 @@ class EffectiveRightsTarget
      * @SerializedName("all")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var EffectiveRightsInfo
      */
+    #[Accessor(getter: 'getAll', setter: 'setAll')]
+    #[SerializedName(name: 'all')]
+    #[Type(name: EffectiveRightsInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $all;
 
     /**
-     * Attributes
+     * In domains
      * 
      * @Accessor(getter="getInDomainLists", setter="setInDomainLists")
      * @Type("array<Zimbra\Admin\Struct\InDomainInfo>")
      * @XmlList(inline=true, entry="inDomains", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getInDomainLists', setter: 'setInDomainLists')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\InDomainInfo>')]
+    #[XmlList(inline: true, entry: 'inDomains', namespace: 'urn:zimbraAdmin')]
     private $inDomainLists = [];
 
     /**
-     * Attributes
+     * Entries lists
      * 
      * @Accessor(getter="getEntriesLists", setter="setEntriesLists")
      * @Type("array<Zimbra\Admin\Struct\RightsEntriesInfo>")
      * @XmlList(inline=true, entry="entries", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getEntriesLists', setter: 'setEntriesLists')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\RightsEntriesInfo>')]
+    #[XmlList(inline: true, entry: 'entries', namespace: 'urn:zimbraAdmin')]
     private $entriesLists = [];
 
     /**

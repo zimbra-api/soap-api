@@ -31,7 +31,13 @@ class ExchangeAuthSpec
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
+    #[SerializedName(name: 'url')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $url;
 
     /**
@@ -41,7 +47,13 @@ class ExchangeAuthSpec
      * @SerializedName("user")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAuthUserName', setter: 'setAuthUserName')]
+    #[SerializedName(name: 'user')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $authUserName;
 
     /**
@@ -51,7 +63,13 @@ class ExchangeAuthSpec
      * @SerializedName("pass")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAuthPassword', setter: 'setAuthPassword')]
+    #[SerializedName(name: 'pass')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $authPassword;
 
     /**
@@ -61,8 +79,13 @@ class ExchangeAuthSpec
      * @SerializedName("scheme")
      * @Type("Enum<Zimbra\Common\Enum\AuthScheme>")
      * @XmlAttribute
+     * 
      * @var AuthScheme
      */
+    #[Accessor(getter: 'getScheme', setter: 'setScheme')]
+    #[SerializedName(name: 'scheme')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AuthScheme>')]
+    #[XmlAttribute]
     private $scheme;
 
     /**
@@ -72,7 +95,13 @@ class ExchangeAuthSpec
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**

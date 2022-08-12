@@ -30,7 +30,13 @@ class AccountInfo extends AdminObjectInfo
      * @SerializedName("isExternal")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsExternal', setter: 'setIsExternal')]
+    #[SerializedName(name: 'isExternal')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isExternal;
 
     /**

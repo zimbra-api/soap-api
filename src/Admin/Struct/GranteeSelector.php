@@ -31,8 +31,13 @@ class GranteeSelector
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * 
      * @var GranteeType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -42,8 +47,13 @@ class GranteeSelector
      * @SerializedName("by")
      * @Type("Enum<Zimbra\Common\Enum\GranteeBy>")
      * @XmlAttribute
+     * 
      * @var GranteeBy
      */
+    #[Accessor(getter: 'getBy', setter: 'setBy')]
+    #[SerializedName(name: 'by')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeBy>')]
+    #[XmlAttribute]
     private $by;
 
     /**
@@ -52,7 +62,12 @@ class GranteeSelector
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**
@@ -62,17 +77,30 @@ class GranteeSelector
      * @SerializedName("secret")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSecret', setter: 'setSecret')]
+    #[SerializedName(name: 'secret')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $secret;
 
     /**
-     * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to. Default is 1 (true)
+     * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to.
+     * Default is 1 (true)
      * 
      * @Accessor(getter="getAll", setter="setAll")
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAll', setter: 'setAll')]
+    #[SerializedName(name: 'all')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $all;
 
     /**

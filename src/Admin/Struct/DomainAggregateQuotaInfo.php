@@ -30,7 +30,13 @@ class DomainAggregateQuotaInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class DomainAggregateQuotaInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -50,7 +62,13 @@ class DomainAggregateQuotaInfo
      * @SerializedName("used")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
+    #[SerializedName(name: 'used')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $quotaUsed;
 
     /**

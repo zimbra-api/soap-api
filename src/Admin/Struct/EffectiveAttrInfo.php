@@ -30,7 +30,13 @@ class EffectiveAttrInfo
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,8 +46,13 @@ class EffectiveAttrInfo
      * @SerializedName("constraint")
      * @Type("Zimbra\Admin\Struct\ConstraintInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ConstraintInfo
      */
+    #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
+    #[SerializedName(name: 'constraint')]
+    #[Type(name: ConstraintInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $constraint;
 
     /**
@@ -52,7 +63,14 @@ class EffectiveAttrInfo
      * @Type("array<string>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getValues', setter: 'setValues')]
+    #[SerializedName(name: 'default')]
+    #[Type(name: 'array<string>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'v', namespace: 'urn:zimbraAdmin')]
     private $values = [];
 
     /**

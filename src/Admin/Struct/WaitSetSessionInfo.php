@@ -30,7 +30,13 @@ class WaitSetSessionInfo
      * @SerializedName("interestMask")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getInterestMask', setter: 'setInterestMask')]
+    #[SerializedName(name: 'interestMask')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $interestMask;
 
     /**
@@ -38,9 +44,15 @@ class WaitSetSessionInfo
      * 
      * @Accessor(getter="getHighestChangeId", setter="setHighestChangeId")
      * @SerializedName("highestChangeId")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getHighestChangeId', setter: 'setHighestChangeId')]
+    #[SerializedName(name: 'highestChangeId')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $highestChangeId;
 
     /**
@@ -48,9 +60,15 @@ class WaitSetSessionInfo
      * 
      * @Accessor(getter="getLastAccessTime", setter="setLastAccessTime")
      * @SerializedName("lastAccessTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLastAccessTime', setter: 'setLastAccessTime')]
+    #[SerializedName(name: 'lastAccessTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $lastAccessTime;
 
     /**
@@ -58,9 +76,15 @@ class WaitSetSessionInfo
      * 
      * @Accessor(getter="getCreationTime", setter="setCreationTime")
      * @SerializedName("creationTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCreationTime', setter: 'setCreationTime')]
+    #[SerializedName(name: 'creationTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $creationTime;
 
     /**
@@ -70,7 +94,13 @@ class WaitSetSessionInfo
      * @SerializedName("sessionId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
+    #[SerializedName(name: 'sessionId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sessionId;
 
     /**
@@ -80,7 +110,13 @@ class WaitSetSessionInfo
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getToken', setter: 'setToken')]
+    #[SerializedName(name: 'token')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $token;
 
     /**
@@ -90,7 +126,13 @@ class WaitSetSessionInfo
      * @SerializedName("folderInterests")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderInterests', setter: 'setFolderInterests')]
+    #[SerializedName(name: 'folderInterests')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderInterests;
 
     /**
@@ -100,7 +142,13 @@ class WaitSetSessionInfo
      * @SerializedName("changedFolders")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getChangedFolders', setter: 'setChangedFolders')]
+    #[SerializedName(name: 'changedFolders')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $changedFolders;
 
     /**

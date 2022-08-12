@@ -28,9 +28,15 @@ class TzFixupRuleMatchRule
      * 
      * @Accessor(getter="getMonth", setter="setMonth")
      * @SerializedName("mon")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMonth', setter: 'setMonth')]
+    #[SerializedName(name: 'mon')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $month;
 
     /**
@@ -38,9 +44,15 @@ class TzFixupRuleMatchRule
      * 
      * @Accessor(getter="getWeek", setter="setWeek")
      * @SerializedName("week")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getWeek', setter: 'setWeek')]
+    #[SerializedName(name: 'week')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $week;
 
     /**
@@ -48,9 +60,15 @@ class TzFixupRuleMatchRule
      * 
      * @Accessor(getter="getWeekDay", setter="setWeekDay")
      * @SerializedName("wkday")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getWeekDay', setter: 'setWeekDay')]
+    #[SerializedName(name: 'wkday')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $weekDay;
 
     /**

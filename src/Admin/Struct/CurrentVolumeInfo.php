@@ -28,7 +28,13 @@ class CurrentVolumeInfo
      * @SerializedName("type")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -36,7 +42,13 @@ class CurrentVolumeInfo
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**

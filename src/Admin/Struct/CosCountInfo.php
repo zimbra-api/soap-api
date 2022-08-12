@@ -30,7 +30,13 @@ class CosCountInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class CosCountInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -51,7 +63,12 @@ class CosCountInfo
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("int")
      * @XmlValue(cdata=false)
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'int')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

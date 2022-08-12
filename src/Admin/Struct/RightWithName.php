@@ -30,7 +30,13 @@ class RightWithName
      * @SerializedName("n")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**

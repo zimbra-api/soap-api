@@ -155,7 +155,7 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
-     * @var name
+     * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
     #[SerializedName(name: 'name')]

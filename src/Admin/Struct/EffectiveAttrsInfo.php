@@ -31,7 +31,13 @@ class EffectiveAttrsInfo
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAll', setter: 'setAll')]
+    #[SerializedName(name: 'all')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $all;
 
     /**
@@ -40,7 +46,12 @@ class EffectiveAttrsInfo
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Admin\Struct\EffectiveAttrInfo>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\EffectiveAttrInfo>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $attrs = [];
 
     /**

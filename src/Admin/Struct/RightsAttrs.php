@@ -32,7 +32,13 @@ class RightsAttrs
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAll', setter: 'setAll')]
+    #[SerializedName(name: 'all')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $all;
 
     /**
