@@ -37,7 +37,13 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -47,7 +53,13 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
      * @SerializedName("dynamic")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDynamic', setter: 'setDynamic')]
+    #[SerializedName(name: 'dynamic')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $dynamic;
 
     /**
@@ -56,7 +68,12 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
      * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]
+    #[Type(name: 'array<Zimbra\Common\Struct\KeyValuePair>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraAccount')]
     protected $keyValuePairs = [];
 
     /**

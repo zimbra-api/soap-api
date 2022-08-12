@@ -11,9 +11,7 @@
 namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Common\Struct\GranteeChooser;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, GranteeChooser, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetShareInfoRequest class
@@ -35,7 +33,13 @@ class GetShareInfoRequest extends SoapRequest
      * @SerializedName("internal")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getInternal', setter: 'setInternal')]
+    #[SerializedName(name: 'internal')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $internal;
 
     /**
@@ -47,7 +51,13 @@ class GetShareInfoRequest extends SoapRequest
      * @SerializedName("includeSelf")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIncludeSelf', setter: 'setIncludeSelf')]
+    #[SerializedName(name: 'includeSelf')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $includeSelf;
 
     /**
@@ -57,8 +67,13 @@ class GetShareInfoRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Common\Struct\GranteeChooser")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var GranteeChooser
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeChooser::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $grantee;
 
     /**
@@ -67,9 +82,15 @@ class GetShareInfoRequest extends SoapRequest
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
+     * 
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountSelector
      */
+    #[Accessor(getter: 'getOwner', setter: 'setOwner')]
+    #[SerializedName(name: 'owner')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $owner;
 
     /**

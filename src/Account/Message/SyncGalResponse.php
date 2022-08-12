@@ -12,8 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 use Zimbra\Account\Struct\ContactInfo;
-use Zimbra\Common\Struct\Id;
-use Zimbra\Common\Struct\SoapResponse;
+use Zimbra\Common\Struct\{Id, SoapResponse};
 
 /**
  * SyncGalResponse class
@@ -33,7 +32,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -43,7 +48,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("token")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getToken', setter: 'setToken')]
+    #[SerializedName(name: 'token')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $token;
 
     /**
@@ -54,7 +65,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("galDefinitionLastModified")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGalDefinitionLastModified', setter: 'setGalDefinitionLastModified')]
+    #[SerializedName(name: 'galDefinitionLastModified')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $galDefinitionLastModified;
 
     /**
@@ -64,7 +81,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("throttled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getThrottled', setter: 'setThrottled')]
+    #[SerializedName(name: 'throttled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $throttled;
 
     /**
@@ -74,7 +97,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("fullSyncRecommended")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getFullSyncRecommended', setter: 'setFullSyncRecommended')]
+    #[SerializedName(name: 'fullSyncRecommended')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $fullSyncRecommended;
 
     /**
@@ -84,7 +113,13 @@ class SyncGalResponse extends SoapResponse
      * @SerializedName("remain")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRemain', setter: 'setRemain')]
+    #[SerializedName(name: 'remain')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $remain;
 
     /**
@@ -93,16 +128,26 @@ class SyncGalResponse extends SoapResponse
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
+    #[Type(name: 'array<Zimbra\Account\Struct\ContactInfo>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAccount')]
     private $contacts = [];
 
     /**
-     * details of deleted entries
+     * Details of deleted entries
      * 
      * @Accessor(getter="getDeleted", setter="setDeleted")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="deleted", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDeleted', setter: 'setDeleted')]
+    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[XmlList(inline: true, entry: 'deleted', namespace: 'urn:zimbraAccount')]
     private $deleted = [];
 
     /**

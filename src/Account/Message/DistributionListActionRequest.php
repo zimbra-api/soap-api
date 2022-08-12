@@ -40,8 +40,13 @@ class DistributionListActionRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var DistributionListSelector
      */
+    #[Accessor(getter: 'getDl', setter: 'setDl')]
+    #[SerializedName(name: 'dl')]
+    #[Type(name: DistributionListSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $dl;
 
     /**
@@ -51,8 +56,13 @@ class DistributionListActionRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Zimbra\Account\Struct\DistributionListAction")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var DistributionListAction
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: DistributionListAction::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $action;
 
     /**

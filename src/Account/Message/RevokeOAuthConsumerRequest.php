@@ -29,7 +29,13 @@ class RevokeOAuthConsumerRequest extends SoapRequest
      * @SerializedName("accessToken")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
+    #[SerializedName(name: 'accessToken')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accessToken;
 
     /**

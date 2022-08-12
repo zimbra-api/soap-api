@@ -12,8 +12,7 @@ namespace Zimbra\Account\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\DistributionListSubscribeOp;
-use Zimbra\Common\Struct\DistributionListSelector;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{DistributionListSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * SubscribeDistributionListRequest class
@@ -34,8 +33,13 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
      * @XmlAttribute
+     * 
      * @var DistributionListSubscribeOp
      */
+    #[Accessor(getter: 'getOp', setter: 'setOp')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>')]
+    #[XmlAttribute]
     private $op;
 
     /**
@@ -45,8 +49,13 @@ class SubscribeDistributionListRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Common\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var DistributionListSelector
      */
+    #[Accessor(getter: 'getDl', setter: 'setDl')]
+    #[SerializedName(name: 'dl')]
+    #[Type(name: DistributionListSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $dl;
 
     /**

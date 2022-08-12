@@ -32,8 +32,13 @@ class ClientInfoRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $domain;
 
     /**

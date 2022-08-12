@@ -32,7 +32,12 @@ class ModifyPropertiesRequest extends SoapRequest
      * @Accessor(getter="getProps", setter="setProps")
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlList(inline=true, entry="prop", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getProps', setter: 'setProps')]
+    #[Type(name: 'array<Zimbra\Account\Struct\Prop>')]
+    #[XmlList(inline: true, entry: 'prop', namespace: 'urn:zimbraAccount')]
     private $props = [];
 
     /**

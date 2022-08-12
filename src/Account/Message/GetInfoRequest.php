@@ -35,7 +35,13 @@ class GetInfoRequest extends SoapRequest
      * @SerializedName("sections")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSections', setter: 'setSections')]
+    #[SerializedName(name: 'sections')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sections = [];
 
     /**
@@ -45,7 +51,13 @@ class GetInfoRequest extends SoapRequest
      * @SerializedName("rights")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'rights')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rights = [];
 
     /**

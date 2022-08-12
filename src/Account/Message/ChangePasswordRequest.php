@@ -33,8 +33,13 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $account;
 
     /**
@@ -44,17 +49,29 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("oldPassword")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOldPassword', setter: 'setOldPassword')]
+    #[SerializedName(name: 'oldPassword')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $oldPassword;
 
     /**
-     * New Password to assign
+     * New password to assign
      * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $password;
 
     /**
@@ -64,7 +81,13 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("virtualHost")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
+    #[SerializedName(name: 'virtualHost')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $virtualHost;
 
     /**
@@ -72,7 +95,13 @@ class ChangePasswordRequest extends SoapRequest
      * @SerializedName("dryRun")
      * @Type("bool")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isDryRun', setter: 'setDryRun')]
+    #[SerializedName(name: 'dryRun')]
+    #[Type(name: 'bool')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $dryRun;
 
     /**

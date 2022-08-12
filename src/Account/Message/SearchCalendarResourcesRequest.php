@@ -42,7 +42,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("quick")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getQuick', setter: 'setQuick')]
+    #[SerializedName(name: 'quick')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $quick;
 
     /**
@@ -52,7 +58,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -62,7 +74,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -72,7 +90,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -82,7 +106,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("locale")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocale', setter: 'setLocale')]
+    #[SerializedName(name: 'locale')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $locale;
 
     /**
@@ -92,8 +122,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var CursorInfo
      */
+    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
+    #[SerializedName(name: 'cursor')]
+    #[Type(name: CursorInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $cursor;
 
     /**
@@ -103,7 +138,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
+    #[SerializedName(name: 'galAcctId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $galAccountId;
 
     /**
@@ -113,7 +154,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("name")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var name
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $name;
 
     /**
@@ -123,8 +170,13 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var EntrySearchFilterInfo
      */
+    #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
+    #[SerializedName(name: 'searchFilter')]
+    #[Type(name: EntrySearchFilterInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $searchFilter;
 
     /**

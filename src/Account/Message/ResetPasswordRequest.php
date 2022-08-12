@@ -26,13 +26,19 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class ResetPasswordRequest extends SoapRequest
 {
     /**
-     * New Password to assign
+     * New password to assign
      * 
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $password;
 
     /**

@@ -35,7 +35,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -50,8 +56,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
+     * 
      * @var GalSearchType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[XmlAttribute]
     private  $type;
 
     /**
@@ -62,7 +73,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
+    #[SerializedName(name: 'needExp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needCanExpand;
 
     /**
@@ -72,7 +89,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
+    #[SerializedName(name: 'galAcctId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $galAccountId;
 
     /**
@@ -82,7 +105,13 @@ class AutoCompleteGalRequest extends SoapRequest
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**

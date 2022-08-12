@@ -36,7 +36,12 @@ class ModifyPrefsRequest extends SoapRequest
      * @Accessor(getter="getPrefs", setter="setPrefs")
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
+    #[Type(name: 'array<Zimbra\Account\Struct\Pref>')]
+    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
     private $prefs = [];
 
     /**

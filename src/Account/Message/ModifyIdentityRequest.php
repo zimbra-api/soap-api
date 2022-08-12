@@ -34,8 +34,13 @@ class ModifyIdentityRequest extends SoapRequest
      * @SerializedName("identity")
      * @Type("Zimbra\Account\Struct\Identity")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var Identity
      */
+    #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]
+    #[SerializedName(name: 'identity')]
+    #[Type(name: Identity::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $identity;
 
     /**

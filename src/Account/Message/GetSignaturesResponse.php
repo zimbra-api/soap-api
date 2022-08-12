@@ -31,7 +31,12 @@ class GetSignaturesResponse extends SoapResponse
      * @Accessor(getter="getSignatures", setter="setSignatures")
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlList(inline=true, entry="signature", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]
+    #[Type(name: 'array<Zimbra\Account\Struct\Signature>')]
+    #[XmlList(inline: true, entry: 'signature', namespace: 'urn:zimbraAccount')]
     private $signatures = [];
 
     /**

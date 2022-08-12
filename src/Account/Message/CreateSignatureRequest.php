@@ -36,8 +36,13 @@ class CreateSignatureRequest extends SoapRequest
      * @SerializedName("signature")
      * @Type("Zimbra\Account\Struct\Signature")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var Signature
      */
+    #[Accessor(getter: 'getSignature', setter: 'setSignature')]
+    #[SerializedName(name: 'signature')]
+    #[Type(name: Signature::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $signature;
 
     /**

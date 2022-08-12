@@ -29,23 +29,37 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class SearchGalRequest extends SoapRequest
 {
     /**
-     * If set then search GAL by this ref, which is a dn.  If specified then "name" attribute is ignored.
+     * If set then search GAL by this ref, which is a dn.
+     * If specified then "name" attribute is ignored.
      * 
      * @Accessor(getter="getRef", setter="setRef")
      * @SerializedName("ref")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRef', setter: 'setRef')]
+    #[SerializedName(name: 'ref')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ref;
 
     /**
-     * Query string.  Note: ignored if <b>ref</b> is specified
+     * Query string.
+     * Note: ignored if <ref> is specified
      * 
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -55,8 +69,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
      * @XmlAttribute
+     * 
      * @var GalSearchType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -67,7 +86,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
+    #[SerializedName(name: 'needExp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needCanExpand;
 
     /**
@@ -78,7 +103,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("needIsOwner")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedIsOwner', setter: 'setNeedIsOwner')]
+    #[SerializedName(name: 'needIsOwner')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needIsOwner;
 
     /**
@@ -88,8 +119,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("needIsMember")
      * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
      * @XmlAttribute
+     * 
      * @var MemberOfSelector
      */
+    #[Accessor(getter: 'getNeedIsMember', setter: 'setNeedIsMember')]
+    #[SerializedName(name: 'needIsMember')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\MemberOfSelector>')]
+    #[XmlAttribute]
     private $needIsMember;
 
     /**
@@ -99,7 +135,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("needSMIMECerts")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedSMIMECerts', setter: 'setNeedSMIMECerts')]
+    #[SerializedName(name: 'needSMIMECerts')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needSMIMECerts;
 
     /**
@@ -109,7 +151,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("galAcctId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
+    #[SerializedName(name: 'galAcctId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $galAccountId;
 
     /**
@@ -124,7 +172,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("quick")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getQuick', setter: 'setQuick')]
+    #[SerializedName(name: 'quick')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $quick;
 
     /**
@@ -134,7 +188,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -144,7 +204,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -154,7 +220,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -164,7 +236,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("locale")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocale', setter: 'setLocale')]
+    #[SerializedName(name: 'locale')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraAccount')]
     private $locale;
 
     /**
@@ -174,8 +252,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("cursor")
      * @Type("Zimbra\Common\Struct\CursorInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var CursorInfo
      */
+    #[Accessor(getter: 'getCursor', setter: 'setCursor')]
+    #[SerializedName(name: 'cursor')]
+    #[Type(name: CursorInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $cursor;
 
     /**
@@ -185,8 +268,13 @@ class SearchGalRequest extends SoapRequest
      * @SerializedName("searchFilter")
      * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var EntrySearchFilterInfo
      */
+    #[Accessor(getter: 'getSearchFilter', setter: 'setSearchFilter')]
+    #[SerializedName(name: 'searchFilter')]
+    #[Type(name: EntrySearchFilterInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAccount')]
     private $searchFilter;
 
     /**

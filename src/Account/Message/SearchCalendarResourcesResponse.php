@@ -32,7 +32,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -42,7 +48,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -52,7 +64,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -64,7 +82,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @SerializedName("paginationSupported")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
+    #[SerializedName(name: 'paginationSupported')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $pagingSupported;
 
     /**
@@ -73,7 +97,12 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
      * @Type("array<Zimbra\Account\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCalendarResources', setter: 'setCalendarResources')]
+    #[Type(name: 'array<Zimbra\Account\Struct\CalendarResourceInfo>')]
+    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAccount')]
     private $calendarResources = [];
 
     /**

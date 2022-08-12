@@ -32,6 +32,9 @@ class GetPrefsResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlList(inline=true, entry="pref", namespace="urn:zimbraAccount")
      */
+    #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
+    #[Type(name: 'array<Zimbra\Account\Struct\Pref>')]
+    #[XmlList(inline: true, entry: 'pref', namespace: 'urn:zimbraAccount')]
     private $prefs = [];
 
     /**
