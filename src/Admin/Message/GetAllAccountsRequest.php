@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Admin\Struct\ServerSelector as Server;
+use Zimbra\Admin\Struct\{DomainSelector, ServerSelector};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -34,8 +33,13 @@ class GetAllAccountsRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Server
+     * 
+     * @var ServerSelector
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: ServerSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**
@@ -45,23 +49,28 @@ class GetAllAccountsRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Domain
+     * 
+     * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**
      * Constructor
      * 
-     * @param  Server $server
-     * @param  Domain $domain
+     * @param  ServerSelector $server
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(?Server $server = NULL, ?Domain $domain = NULL)
+    public function __construct(?ServerSelector $server = NULL, ?DomainSelector $domain = NULL)
     {
-        if ($server instanceof Server) {
+        if ($server instanceof ServerSelector) {
             $this->setServer($server);
         }
-        if ($domain instanceof Domain) {
+        if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);
         }
     }
@@ -69,9 +78,9 @@ class GetAllAccountsRequest extends SoapRequest
     /**
      * Get the server.
      *
-     * @return Server
+     * @return ServerSelector
      */
-    public function getServer(): ?Server
+    public function getServer(): ?ServerSelector
     {
         return $this->server;
     }
@@ -79,10 +88,10 @@ class GetAllAccountsRequest extends SoapRequest
     /**
      * Set the server.
      *
-     * @param  Server $server
+     * @param  ServerSelector $server
      * @return self
      */
-    public function setServer(Server $server): self
+    public function setServer(ServerSelector $server): self
     {
         $this->server = $server;
         return $this;
@@ -91,9 +100,9 @@ class GetAllAccountsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @return Domain
+     * @return DomainSelector
      */
-    public function getDomain(): ?Domain
+    public function getDomain(): ?DomainSelector
     {
         return $this->domain;
     }
@@ -101,10 +110,10 @@ class GetAllAccountsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function setDomain(Domain $domain): self
+    public function setDomain(DomainSelector $domain): self
     {
         $this->domain = $domain;
         return $this;

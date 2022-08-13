@@ -27,14 +27,19 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class PurgeFreeBusyQueueRequest extends SoapRequest
 {
     /**
-     * FreeBusy Provider specification
+     * FreeBusy provider specification
      * 
      * @Accessor(getter="getProvider", setter="setProvider")
      * @SerializedName("provider")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var NamedElement
      */
+    #[Accessor(getter: 'getProvider', setter: 'setProvider')]
+    #[SerializedName(name: 'provider')]
+    #[Type(name: NamedElement::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $provider;
 
     /**

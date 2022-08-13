@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ChangePrimaryEmailRequest class
@@ -33,8 +32,13 @@ class ChangePrimaryEmailRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -44,17 +48,23 @@ class ChangePrimaryEmailRequest extends SoapRequest
      * @SerializedName("newName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
+    #[SerializedName(name: 'newName')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $newName;
 
     /**
      * Constructor
      * 
-     * @param Account $account
-     * @param string  $newName
+     * @param AccountSelector $account
+     * @param string $newName
      * @return self
      */
-    public function __construct(Account $account, string $newName = '')
+    public function __construct(AccountSelector $account, string $newName = '')
     {
         $this->setAccount($account)
              ->setNewName($newName);
@@ -63,9 +73,9 @@ class ChangePrimaryEmailRequest extends SoapRequest
     /**
      * Get the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): Account
+    public function getAccount(): AccountSelector
     {
         return $this->account;
     }
@@ -73,10 +83,10 @@ class ChangePrimaryEmailRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;

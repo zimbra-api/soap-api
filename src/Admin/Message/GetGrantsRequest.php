@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
-use Zimbra\Admin\Struct\GranteeSelector;
+use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -37,8 +36,13 @@ class GetGrantsRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Target
+     * 
+     * @var EffectiveRightsTargetSelector
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
     /**
@@ -48,23 +52,28 @@ class GetGrantsRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeSelector
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
      * Constructor
      * 
-     * @param  Target $target
+     * @param  EffectiveRightsTargetSelector $target
      * @param  GranteeSelector $grantee
      * @return self
      */
     public function __construct(
-        ?Target $target = NULL,
+        ?EffectiveRightsTargetSelector $target = NULL,
         ?GranteeSelector $grantee = NULL
     )
     {
-        if ($target instanceof Target) {
+        if ($target instanceof EffectiveRightsTargetSelector) {
             $this->setTarget($target);
         }
         if ($grantee instanceof GranteeSelector) {
@@ -75,9 +84,9 @@ class GetGrantsRequest extends SoapRequest
     /**
      * Get target.
      *
-     * @return Target
+     * @return EffectiveRightsTargetSelector
      */
-    public function getTarget(): ?Target
+    public function getTarget(): ?EffectiveRightsTargetSelector
     {
         return $this->target;
     }
@@ -85,10 +94,10 @@ class GetGrantsRequest extends SoapRequest
     /**
      * Set target.
      *
-     * @param  Target $target
+     * @param  EffectiveRightsTargetSelector $target
      * @return self
      */
-    public function setTarget(Target $target): self
+    public function setTarget(EffectiveRightsTargetSelector $target): self
     {
         $this->target = $target;
         return $this;

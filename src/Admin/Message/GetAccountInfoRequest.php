@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\AccountSelector;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAccountInfoRequest class
@@ -36,8 +35,13 @@ class GetAccountInfoRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**

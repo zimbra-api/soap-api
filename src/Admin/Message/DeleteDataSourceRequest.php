@@ -31,13 +31,19 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
     use AdminAttrsImplTrait;
 
     /**
-     * Id for an existing Account
+     * Id for an existing account
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -47,8 +53,13 @@ class DeleteDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("dataSource")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Id
      */
+    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
+    #[SerializedName(name: 'dataSource')]
+    #[Type(name: Id::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dataSource;
 
     /**

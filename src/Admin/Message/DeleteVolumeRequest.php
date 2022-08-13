@@ -30,9 +30,15 @@ class DeleteVolumeRequest extends SoapRequest
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**

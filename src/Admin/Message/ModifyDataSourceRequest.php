@@ -37,7 +37,13 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -47,8 +53,13 @@ class ModifyDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DataSourceInfo
      */
+    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
+    #[SerializedName(name: 'dataSource')]
+    #[Type(name: DataSourceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dataSource;
 
     /**

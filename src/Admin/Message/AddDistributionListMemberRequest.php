@@ -32,7 +32,13 @@ class AddDistributionListMemberRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,6 +48,9 @@ class AddDistributionListMemberRequest extends SoapRequest
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getMembers', setter: 'setMembers')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'dlm', namespace: 'urn:zimbraAdmin')]
     private $members = [];
 
     /**

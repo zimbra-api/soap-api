@@ -34,7 +34,13 @@ class GetQuotaUsageRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $domain;
 
     /**
@@ -45,7 +51,13 @@ class GetQuotaUsageRequest extends SoapRequest
      * @SerializedName("allServers")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
+    #[SerializedName(name: 'allServers')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allServers;
 
     /**
@@ -53,9 +65,15 @@ class GetQuotaUsageRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -63,9 +81,15 @@ class GetQuotaUsageRequest extends SoapRequest
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -75,7 +99,13 @@ class GetQuotaUsageRequest extends SoapRequest
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -85,7 +115,13 @@ class GetQuotaUsageRequest extends SoapRequest
      * @SerializedName("sortAscending")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
+    #[SerializedName(name: 'sortAscending')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sortAscending;
 
     /**
@@ -96,7 +132,13 @@ class GetQuotaUsageRequest extends SoapRequest
      * @SerializedName("refresh")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
+    #[SerializedName(name: 'refresh')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $refresh;
 
     /**

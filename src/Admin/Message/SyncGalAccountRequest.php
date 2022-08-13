@@ -35,7 +35,12 @@ class SyncGalAccountRequest extends SoapRequest
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\SyncGalAccountSpec>')]
+    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**

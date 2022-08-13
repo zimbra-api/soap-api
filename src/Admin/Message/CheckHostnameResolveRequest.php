@@ -32,7 +32,13 @@ class CheckHostnameResolveRequest extends SoapRequest
      * @SerializedName("hostname")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHostname', setter: 'setHostname')]
+    #[SerializedName(name: 'hostname')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hostname;
 
     /**

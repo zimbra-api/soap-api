@@ -33,8 +33,13 @@ class MigrateAccountRequest extends SoapRequest
      * @SerializedName("migrate")
      * @Type("Zimbra\Admin\Struct\IdAndAction")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var IdAndAction
      */
+    #[Accessor(getter: 'getMigrate', setter: 'setMigrate')]
+    #[SerializedName(name: 'migrate')]
+    #[Type(name: IdAndAction::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $migrate;
 
     /**

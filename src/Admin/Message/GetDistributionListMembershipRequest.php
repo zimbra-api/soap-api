@@ -31,9 +31,15 @@ class GetDistributionListMembershipRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -41,9 +47,15 @@ class GetDistributionListMembershipRequest extends SoapRequest
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -53,8 +65,13 @@ class GetDistributionListMembershipRequest extends SoapRequest
      * @SerializedName("dl")
      * @Type("Zimbra\Admin\Struct\DistributionListSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DistributionList
      */
+    #[Accessor(getter: 'getDl', setter: 'setDl')]
+    #[SerializedName(name: 'dl')]
+    #[Type(name: DistributionList::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dl;
 
     /**

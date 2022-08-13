@@ -13,8 +13,7 @@ namespace Zimbra\Admin\Message;
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Admin\Struct\{AdminAttrs, AdminAttrsImplTrait};
 use Zimbra\Common\Enum\GalMode;
-use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AddGalSyncDataSource request class
@@ -37,8 +36,13 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -48,7 +52,13 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -58,7 +68,13 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("domain")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $domain;
 
     /**
@@ -68,8 +84,13 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalMode>")
      * @XmlAttribute
+     * 
      * @var GalMode
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GalMode>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -79,13 +100,19 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("folder")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
      * Constructor
      * 
-     * @param Account $account
+     * @param AccountSelector $account
      * @param string  $name
      * @param string  $domain
      * @param GalMode  $type
@@ -93,7 +120,7 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
      * @return self
      */
     public function __construct(
-        Account $account,
+        AccountSelector $account,
         string $name = '',
         string $domain = '',
         ?GalMode $type = NULL,
@@ -114,9 +141,9 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * Get the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): Account
+    public function getAccount(): AccountSelector
     {
         return $this->account;
     }
@@ -124,10 +151,10 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;

@@ -32,17 +32,29 @@ class RenameUCServiceRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $id;
 
     /**
-     * new COS name
+     * New name
      * 
      * @Accessor(getter="getNewName", setter="setNewName")
      * @SerializedName("newName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNewName', setter: 'setNewName')]
+    #[SerializedName(name: 'newName')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $newName;
 
     /**

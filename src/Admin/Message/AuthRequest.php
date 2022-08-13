@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AuthRequest class
@@ -32,8 +31,14 @@ class AuthRequest extends SoapRequest
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,8 +47,14 @@ class AuthRequest extends SoapRequest
      * @Accessor(getter="getPassword", setter="setPassword")
      * @SerializedName("password")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $password;
 
     /**
@@ -53,7 +64,13 @@ class AuthRequest extends SoapRequest
      * @SerializedName("authToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
+    #[SerializedName(name: 'authToken')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $authToken;
 
     /**
@@ -63,8 +80,13 @@ class AuthRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -74,7 +96,13 @@ class AuthRequest extends SoapRequest
      * @SerializedName("virtualHost")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
+    #[SerializedName(name: 'virtualHost')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $virtualHost;
 
     /**
@@ -83,8 +111,14 @@ class AuthRequest extends SoapRequest
      * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
      * @SerializedName("persistAuthTokenCookie")
      * @Type("bool")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
+    #[SerializedName(name: 'persistAuthTokenCookie')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $persistAuthTokenCookie;
 
     /**
@@ -94,7 +128,13 @@ class AuthRequest extends SoapRequest
      * @SerializedName("csrfTokenSecured")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
+    #[SerializedName(name: 'csrfTokenSecured')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $csrfSupported;
 
     /**
@@ -104,7 +144,13 @@ class AuthRequest extends SoapRequest
      * @SerializedName("twoFactorCode")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
+    #[SerializedName(name: 'twoFactorCode')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $twoFactorCode;
 
     /**
@@ -113,7 +159,7 @@ class AuthRequest extends SoapRequest
      * @param string  $name
      * @param string  $password
      * @param string  $authToken
-     * @param Account $account
+     * @param AccountSelector $account
      * @param string  $virtualHost
      * @param bool    $persistAuthTokenCookie
      * @param bool    $csrfSupported
@@ -124,7 +170,7 @@ class AuthRequest extends SoapRequest
         ?string $name = NULL,
         ?string $password = NULL,
         ?string $authToken = NULL,
-        ?Account $account = NULL,
+        ?AccountSelector $account = NULL,
         ?string $virtualHost = NULL,
         ?bool $persistAuthTokenCookie = NULL,
         ?bool $csrfSupported = NULL,
@@ -140,7 +186,7 @@ class AuthRequest extends SoapRequest
         if (NULL !== $authToken) {
             $this->setAuthToken($authToken);
         }
-        if ($account instanceof Account) {
+        if ($account instanceof AccountSelector) {
             $this->setAccount($account);
         }
         if (NULL !== $virtualHost) {
@@ -226,9 +272,9 @@ class AuthRequest extends SoapRequest
     /**
      * Get the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): ?Account
+    public function getAccount(): ?AccountSelector
     {
         return $this->account;
     }
@@ -236,10 +282,10 @@ class AuthRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;

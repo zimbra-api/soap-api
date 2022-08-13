@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\DomainSelector as Domain;
+use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -34,17 +34,22 @@ class CountAccountRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Domain
+     * 
+     * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**
      * Constructor
      * 
-     * @param Domain $domain
+     * @param DomainSelector $domain
      * @return self
      */
-    public function __construct(Domain $domain)
+    public function __construct(DomainSelector $domain)
     {
         $this->setDomain($domain);
     }
@@ -52,9 +57,9 @@ class CountAccountRequest extends SoapRequest
     /**
      * Get the domain.
      *
-     * @return Domain
+     * @return DomainSelector
      */
-    public function getDomain(): Domain
+    public function getDomain(): DomainSelector
     {
         return $this->domain;
     }
@@ -62,10 +67,10 @@ class CountAccountRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function setDomain(Domain $domain): self
+    public function setDomain(DomainSelector $domain): self
     {
         $this->domain = $domain;
         return $this;

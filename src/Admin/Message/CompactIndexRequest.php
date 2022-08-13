@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mbox;
+use Zimbra\Admin\Struct\MailboxByAccountIdSelector as Mailbox;
 use Zimbra\Common\Enum\CompactIndexAction as Action;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -28,14 +28,19 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class CompactIndexRequest extends SoapRequest
 {
     /**
-     * Mail box
+     * Mailbox by account id selector
      * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Mbox
+     * 
+     * @var Mailbox
      */
+    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
+    #[SerializedName(name: 'mbox')]
+    #[Type(name: Mailbox::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
     /**
@@ -47,18 +52,23 @@ class CompactIndexRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\CompactIndexAction>")
      * @XmlAttribute
+     * 
      * @var Action
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\CompactIndexAction>')]
+    #[XmlAttribute]
     private $action;
 
     /**
      * Constructor
      * 
-     * @param  Mbox $mbox
+     * @param  Mailbox $mbox
      * @param  Action $action
      * @return self
      */
-    public function __construct(Mbox $mbox, ?Action $action = NULL)
+    public function __construct(Mailbox $mbox, ?Action $action = NULL)
     {
         $this->setMbox($mbox);
         if ($action instanceof Action) {
@@ -69,9 +79,9 @@ class CompactIndexRequest extends SoapRequest
     /**
      * Get the mbox.
      *
-     * @return Mbox
+     * @return Mailbox
      */
-    public function getMbox(): Mbox
+    public function getMbox(): Mailbox
     {
         return $this->mbox;
     }
@@ -79,10 +89,10 @@ class CompactIndexRequest extends SoapRequest
     /**
      * Set the mbox.
      *
-     * @param  Mbox $mbox
+     * @param  Mailbox $mbox
      * @return self
      */
-    public function setMbox(Mbox $mbox): self
+    public function setMbox(Mailbox $mbox): self
     {
         $this->mbox = $mbox;
         return $this;

@@ -34,7 +34,13 @@ class GetRightRequest extends SoapRequest
      * @SerializedName("expandAllAttrs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
+    #[SerializedName(name: 'expandAllAttrs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
@@ -44,7 +50,13 @@ class GetRightRequest extends SoapRequest
      * @SerializedName("right")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $right;
 
     /**

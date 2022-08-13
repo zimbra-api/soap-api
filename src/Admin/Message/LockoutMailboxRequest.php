@@ -12,8 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
 use Zimbra\Common\Enum\LockoutOperation;
-use Zimbra\Common\Struct\AccountNameSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountNameSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * LockoutMailboxRequest request class
@@ -34,8 +33,13 @@ class LockoutMailboxRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountNameSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountNameSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountNameSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -45,18 +49,25 @@ class LockoutMailboxRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\LockoutOperation>")
      * @XmlAttribute
+     * 
      * @var LockoutOperation
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\LockoutOperation>')]
+    #[XmlAttribute]
     private $operation;
 
     /**
      * Constructor
      *
-     * @param  Account $account
+     * @param  AccountNameSelector $account
      * @param  LockoutOperation $operation
      * @return self
      */
-    public function __construct(Account $account, ?LockoutOperation $operation = NULL)
+    public function __construct(
+        AccountNameSelector $account, ?LockoutOperation $operation = NULL
+    )
     {
         $this->setAccount($account);
         if ($operation instanceof LockoutOperation) {
@@ -67,9 +78,9 @@ class LockoutMailboxRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @return Account
+     * @return AccountNameSelector
      */
-    public function getAccount(): ?Account
+    public function getAccount(): ?AccountNameSelector
     {
         return $this->account;
     }
@@ -77,10 +88,10 @@ class LockoutMailboxRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountNameSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountNameSelector $account): self
     {
         $this->account = $account;
         return $this;

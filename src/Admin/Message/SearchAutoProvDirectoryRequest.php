@@ -42,7 +42,13 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("keyAttr")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getKeyAttr', setter: 'setKeyAttr')]
+    #[SerializedName(name: 'keyAttr')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $keyAttr;
 
     /**
@@ -52,7 +58,13 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $query;
 
     /**
@@ -62,7 +74,13 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -70,9 +88,15 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * 
      * @Accessor(getter="getMaxResults", setter="setMaxResults")
      * @SerializedName("maxResults")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxResults', setter: 'setMaxResults')]
+    #[SerializedName(name: 'maxResults')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxResults;
 
     /**
@@ -80,9 +104,15 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -90,9 +120,15 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -103,7 +139,13 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("refresh")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
+    #[SerializedName(name: 'refresh')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $refresh;
 
     /**
@@ -113,8 +155,13 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**

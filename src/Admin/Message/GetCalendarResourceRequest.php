@@ -38,7 +38,13 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
      * @SerializedName("applyCos")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
+    #[SerializedName(name: 'applyCos')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $applyCos;
 
     /**
@@ -50,6 +56,10 @@ class GetCalendarResourceRequest extends SoapRequest implements AttributeSelecto
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @var CalendarResourceSelector
      */
+    #[Accessor(getter: 'getCalResource', setter: 'setCalResource')]
+    #[SerializedName(name: 'calresource')]
+    #[Type(name: CalendarResourceSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $calResource;
 
     /**

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Admin\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -30,9 +30,15 @@ class VerifyStoreManagerRequest extends SoapRequest
      * 
      * @Accessor(getter="getFileSize", setter="setFileSize")
      * @SerializedName("fileSize")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
+    #[SerializedName(name: 'fileSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fileSize;
 
     /**
@@ -40,9 +46,15 @@ class VerifyStoreManagerRequest extends SoapRequest
      * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNum', setter: 'setNum')]
+    #[SerializedName(name: 'num')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $num;
 
     /**
@@ -52,7 +64,13 @@ class VerifyStoreManagerRequest extends SoapRequest
      * @SerializedName("checkBlobs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCheckBlobs', setter: 'setCheckBlobs')]
+    #[SerializedName(name: 'checkBlobs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $checkBlobs;
 
     /**

@@ -32,7 +32,13 @@ class GetAllAdminAccountsRequest extends SoapRequest
      * @SerializedName("applyCos")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]
+    #[SerializedName(name: 'applyCos')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $applyCos;
 
     /**

@@ -32,7 +32,13 @@ class GetLDAPEntriesRequest extends SoapRequest
      * @SerializedName("ldapSearchBase")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLdapSearchBase', setter: 'setLdapSearchBase')]
+    #[SerializedName(name: 'ldapSearchBase')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $ldapSearchBase;
 
     /**
@@ -41,8 +47,14 @@ class GetLDAPEntriesRequest extends SoapRequest
      * @Accessor(getter="getSortBy", setter="setSortBy")
      * @SerializedName("sortBy")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -52,7 +64,13 @@ class GetLDAPEntriesRequest extends SoapRequest
      * @SerializedName("sortAscending")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
+    #[SerializedName(name: 'sortAscending')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sortAscending;
 
     /**
@@ -60,9 +78,15 @@ class GetLDAPEntriesRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -70,9 +94,15 @@ class GetLDAPEntriesRequest extends SoapRequest
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -82,7 +112,13 @@ class GetLDAPEntriesRequest extends SoapRequest
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $query;
 
     /**

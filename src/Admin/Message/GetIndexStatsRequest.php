@@ -26,14 +26,19 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetIndexStatsRequest extends SoapRequest
 {
     /**
-     * Mailbox
+     * Mailbox by account selector
      * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Mailbox
      */
+    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
+    #[SerializedName(name: 'mbox')]
+    #[Type(name: Mailbox::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
     /**

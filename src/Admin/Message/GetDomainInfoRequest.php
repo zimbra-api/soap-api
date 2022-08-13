@@ -37,7 +37,13 @@ class GetDomainInfoRequest extends SoapRequest
      * @SerializedName("applyConfig")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
+    #[SerializedName(name: 'applyConfig')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $applyConfig;
 
     /**
@@ -47,8 +53,13 @@ class GetDomainInfoRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**

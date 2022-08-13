@@ -37,7 +37,13 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("applyConfig")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]
+    #[SerializedName(name: 'applyConfig')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $applyConfig;
 
     /**
@@ -47,8 +53,13 @@ class GetServerRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ServerSelector
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: ServerSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**

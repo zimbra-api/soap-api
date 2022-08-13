@@ -34,8 +34,14 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
      * @Accessor(getter="getDn", setter="setDn")
      * @SerializedName("dn")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDn', setter: 'setDn')]
+    #[SerializedName(name: 'dn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dn;
 
     /**

@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Admin\Struct\EffectiveRightsTargetSelector as Target;
-use Zimbra\Admin\Struct\GranteeSelector as Grantee;
+use Zimbra\Admin\Struct\{EffectiveRightsTargetSelector, GranteeSelector};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -45,7 +44,13 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @SerializedName("expandAllAttrs")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
+    #[SerializedName(name: 'expandAllAttrs')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
@@ -55,8 +60,13 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Target
+     * 
+     * @var EffectiveRightsTargetSelector
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
     /**
@@ -67,25 +77,32 @@ class GetEffectiveRightsRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Grantee
+     * @var GranteeSelector
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
      * Constructor
      * 
-     * @param  Target $target
-     * @param  Grantee $grantee
+     * @param  EffectiveRightsTargetSelector $target
+     * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
      * @return self
      */
     public function __construct(
-        Target $target, ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+        EffectiveRightsTargetSelector $target,
+        ?GranteeSelector $grantee = NULL,
+        ?bool $expandSetAttrs = NULL,
+        ?bool $expandGetAttrs = NULL
     )
     {
         $this->setTarget($target);
-        if ($grantee instanceof Grantee) {
+        if ($grantee instanceof GranteeSelector) {
             $this->setGrantee($grantee);
         }
         $attrs = [];
@@ -137,9 +154,9 @@ class GetEffectiveRightsRequest extends SoapRequest
     /**
      * Set the target.
      *
-     * @return Target
+     * @return EffectiveRightsTargetSelector
      */
-    public function getTarget(): Target
+    public function getTarget(): EffectiveRightsTargetSelector
     {
         return $this->target;
     }
@@ -147,10 +164,10 @@ class GetEffectiveRightsRequest extends SoapRequest
     /**
      * Set the target.
      *
-     * @param  Target $target
+     * @param  EffectiveRightsTargetSelector $target
      * @return self
      */
-    public function setTarget(Target $target): self
+    public function setTarget(EffectiveRightsTargetSelector $target): self
     {
         $this->target = $target;
         return $this;
@@ -159,9 +176,9 @@ class GetEffectiveRightsRequest extends SoapRequest
     /**
      * Set the grantee.
      *
-     * @return Grantee
+     * @return GranteeSelector
      */
-    public function getGrantee(): ?Grantee
+    public function getGrantee(): ?GranteeSelector
     {
         return $this->grantee;
     }
@@ -169,10 +186,10 @@ class GetEffectiveRightsRequest extends SoapRequest
     /**
      * Set the grantee.
      *
-     * @param  Grantee $grantee
+     * @param  GranteeSelector $grantee
      * @return self
      */
-    public function setGrantee(Grantee $grantee): self
+    public function setGrantee(GranteeSelector $grantee): self
     {
         $this->grantee = $grantee;
         return $this;

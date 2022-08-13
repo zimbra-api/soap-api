@@ -32,7 +32,13 @@ class DumpSessionsRequest extends SoapRequest
      * @SerializedName("listSessions")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIncludeAccounts', setter: 'setIncludeAccounts')]
+    #[SerializedName(name: 'listSessions')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $includeAccounts;
 
     /**
@@ -42,7 +48,13 @@ class DumpSessionsRequest extends SoapRequest
      * @SerializedName("groupByAccount")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getGroupByAccount', setter: 'setGroupByAccount')]
+    #[SerializedName(name: 'groupByAccount')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $groupByAccount;
 
     /**

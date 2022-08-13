@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
-use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetAdminSavedSearches request class
@@ -33,7 +32,12 @@ class GetAdminSavedSearchesRequest extends SoapRequest
      * @Accessor(getter="getSearches", setter="setSearches")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSearches', setter: 'setSearches')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraAdmin')]
     private $searches = [];
 
     /**

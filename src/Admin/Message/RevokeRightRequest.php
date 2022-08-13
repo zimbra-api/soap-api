@@ -34,8 +34,13 @@ class RevokeRightRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var EffectiveRightsTargetSelector
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
     /**
@@ -45,8 +50,13 @@ class RevokeRightRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeSelector
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
@@ -56,8 +66,13 @@ class RevokeRightRequest extends SoapRequest
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightModifierInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RightModifierInfo
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: RightModifierInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 
     /**

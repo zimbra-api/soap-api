@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Common\Struct\NamedElement as Server;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * GetMailQueueInfoRequest request class
@@ -34,17 +33,22 @@ class GetMailQueueInfoRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Server
+     * 
+     * @var NamedElement
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: NamedElement::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**
      * Constructor
      *
-     * @param  Server $server
+     * @param  NamedElement $server
      * @return self
      */
-    public function __construct(Server $server)
+    public function __construct(NamedElement $server)
     {
         $this->setServer($server);
     }
@@ -52,9 +56,9 @@ class GetMailQueueInfoRequest extends SoapRequest
     /**
      * Get the server.
      *
-     * @return Server
+     * @return NamedElement
      */
-    public function getServer(): Server
+    public function getServer(): NamedElement
     {
         return $this->server;
     }
@@ -62,10 +66,10 @@ class GetMailQueueInfoRequest extends SoapRequest
     /**
      * Set the server.
      *
-     * @param  Server $server
+     * @param  NamedElement $server
      * @return self
      */
-    public function setServer(Server $server): self
+    public function setServer(NamedElement $server): self
     {
         $this->server = $server;
         return $this;

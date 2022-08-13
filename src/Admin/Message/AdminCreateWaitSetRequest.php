@@ -35,7 +35,13 @@ class AdminCreateWaitSetRequest extends SoapRequest
      * @SerializedName("defTypes")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
+    #[SerializedName(name: 'defTypes')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultInterests;
 
     /**
@@ -45,7 +51,13 @@ class AdminCreateWaitSetRequest extends SoapRequest
      * @SerializedName("allAccounts")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
+    #[SerializedName(name: 'allAccounts')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allAccounts;
 
     /**
@@ -56,7 +68,14 @@ class AdminCreateWaitSetRequest extends SoapRequest
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[SerializedName(name: 'add')]
+    #[Type(name: 'array<Zimbra\Common\Struct\WaitSetAddSpec>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**

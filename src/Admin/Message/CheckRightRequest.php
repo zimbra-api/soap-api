@@ -12,7 +12,11 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Admin\Struct\{
-    AdminAttrs, AdminAttrsImplTrait, CheckedRight, EffectiveRightsTargetSelector, GranteeSelector
+    AdminAttrs,
+    AdminAttrsImplTrait,
+    CheckedRight,
+    EffectiveRightsTargetSelector,
+    GranteeSelector
 };
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -40,8 +44,13 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var EffectiveRightsTargetSelector
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: EffectiveRightsTargetSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
     /**
@@ -51,8 +60,13 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeSelector
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
@@ -62,8 +76,13 @@ class CheckRightRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\CheckedRight")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckedRight
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: CheckedRight::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 
     /**

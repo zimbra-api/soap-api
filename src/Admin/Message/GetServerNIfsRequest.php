@@ -36,8 +36,13 @@ class GetServerNIfsRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\IpType>")
      * @XmlAttribute
+     * 
      * @var IpType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\IpType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -47,8 +52,13 @@ class GetServerNIfsRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Server
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: Server::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**

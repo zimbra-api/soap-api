@@ -11,9 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\CosSelector as Cos;
-use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Admin\Struct\TargetWithType as Target;
+use Zimbra\Admin\Struct\{CosSelector, DomainSelector, TargetWithType};
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -37,8 +35,13 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("target")
      * @Type("Zimbra\Admin\Struct\TargetWithType")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Target
+     * 
+     * @var TargetWithType
      */
+    #[Accessor(getter: 'getTarget', setter: 'setTarget')]
+    #[SerializedName(name: 'target')]
+    #[Type(name: TargetWithType::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $target;
 
     /**
@@ -52,8 +55,13 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Domain
+     * 
+     * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**
@@ -65,25 +73,32 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Cos
+     * 
+     * @var CosSelector
      */
+    #[Accessor(getter: 'getCos', setter: 'setCos')]
+    #[SerializedName(name: 'cos')]
+    #[Type(name: CosSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
     /**
      * Constructor
      * 
-     * @param  Target $target
-     * @param  Domain $domain
-     * @param  Cos $cos
+     * @param  TargetWithType $target
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
      * @return self
      */
-    public function __construct(Target $target, ?Domain $domain = NULL, ?Cos $cos = NULL)
+    public function __construct(
+        TargetWithType $target, ?DomainSelector $domain = NULL, ?CosSelector $cos = NULL
+    )
     {
         $this->setTarget($target);
-        if ($domain instanceof Domain) {
+        if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);
         }
-        if ($cos instanceof Cos) {
+        if ($cos instanceof CosSelector) {
             $this->setCos($cos);
         }
     }
@@ -91,9 +106,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Get the target.
      *
-     * @return Target
+     * @return TargetWithType
      */
-    public function getTarget(): ?Target
+    public function getTarget(): ?TargetWithType
     {
         return $this->target;
     }
@@ -101,10 +116,10 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Set the target.
      *
-     * @param  Target $target
+     * @param  TargetWithType $target
      * @return self
      */
-    public function setTarget(Target $target): self
+    public function setTarget(TargetWithType $target): self
     {
         $this->target = $target;
         return $this;
@@ -113,9 +128,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @return Domain
+     * @return DomainSelector
      */
-    public function getDomain(): ?Domain
+    public function getDomain(): ?DomainSelector
     {
         return $this->domain;
     }
@@ -123,10 +138,10 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function setDomain(Domain $domain): self
+    public function setDomain(DomainSelector $domain): self
     {
         $this->domain = $domain;
         return $this;
@@ -135,9 +150,9 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Set the cos.
      *
-     * @return Cos
+     * @return CosSelector
      */
-    public function getCos(): ?Cos
+    public function getCos(): ?CosSelector
     {
         return $this->cos;
     }
@@ -145,10 +160,10 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Set the cos.
      *
-     * @param  Cos $cos
+     * @param  CosSelector $cos
      * @return self
      */
-    public function setCos(Cos $cos): self
+    public function setCos(CosSelector $cos): self
     {
         $this->cos = $cos;
         return $this;

@@ -33,8 +33,13 @@ class DeleteXMPPComponentRequest extends SoapRequest
      * @SerializedName("xmppcomponent")
      * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Component
      */
+    #[Accessor(getter: 'getComponent', setter: 'setComponent')]
+    #[SerializedName(name: 'xmppcomponent')]
+    #[Type(name: Component::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $component;
 
     /**

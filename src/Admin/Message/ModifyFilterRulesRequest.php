@@ -11,13 +11,10 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Admin\Struct\CosSelector as Cos;
-use Zimbra\Admin\Struct\DomainSelector as Domain;
-use Zimbra\Admin\Struct\ServerSelector as Server;
+use Zimbra\Admin\Struct\{CosSelector, DomainSelector, ServerSelector};
 use Zimbra\Common\Enum\AdminFilterType;
-use Zimbra\Common\Struct\AccountSelector as Account;
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 use Zimbra\Mail\Struct\FilterRule;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
  * ModifyFilterRulesRequest request class
@@ -38,8 +35,13 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\AdminFilterType>")
      * @XmlAttribute
+     * 
      * @var AdminFilterType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AdminFilterType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -49,8 +51,13 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -60,8 +67,12 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Domain
+     * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**
@@ -71,8 +82,13 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Cos
+     * 
+     * @var CosSelector
      */
+    #[Accessor(getter: 'getCos', setter: 'setCos')]
+    #[SerializedName(name: 'cos')]
+    #[Type(name: CosSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
     /**
@@ -82,8 +98,13 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Server
+     * 
+     * @var ServerSelector
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: ServerSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**
@@ -95,40 +116,45 @@ class ModifyFilterRulesRequest extends SoapRequest
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
+    #[SerializedName(name: 'filterRules')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FilterRule>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'filterRule', namespace: 'urn:zimbraMail')]
     private $filterRules = [];
 
     /**
      * Constructor
      * 
      * @param  AdminFilterType $type
-     * @param  Account $account
-     * @param  Domain $domain
-     * @param  Cos $cos
-     * @param  Server $server
+     * @param  AccountSelector $account
+     * @param  DomainSelector $domain
+     * @param  CosSelector $cos
+     * @param  ServerSelector $server
      * @param  array $filterRules
      * @return self
      */
     public function __construct(
         ?AdminFilterType $type = NULL,
-        ?Account $account = NULL,
-        ?Domain $domain = NULL,
-        ?Cos $cos = NULL,
-        ?Server $server = NULL,
+        ?AccountSelector $account = NULL,
+        ?DomainSelector $domain = NULL,
+        ?CosSelector $cos = NULL,
+        ?ServerSelector $server = NULL,
         array $filterRules = []
     )
     {
         $this->setType($type ?? new AdminFilterType('before'))
              ->setFilterRules($filterRules);
-        if ($account instanceof Account) {
+        if ($account instanceof AccountSelector) {
             $this->setAccount($account);
         }
-        if ($domain instanceof Domain) {
+        if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);
         }
-        if ($cos instanceof Cos) {
+        if ($cos instanceof CosSelector) {
             $this->setCos($cos);
         }
-        if ($server instanceof Server) {
+        if ($server instanceof ServerSelector) {
             $this->setServer($server);
         }
     }
@@ -158,9 +184,9 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Get the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): ?Account
+    public function getAccount(): ?AccountSelector
     {
         return $this->account;
     }
@@ -168,10 +194,10 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;
@@ -180,9 +206,9 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Get the server.
      *
-     * @return Server
+     * @return ServerSelector
      */
-    public function getServer(): ?Server
+    public function getServer(): ?ServerSelector
     {
         return $this->server;
     }
@@ -190,10 +216,10 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Set the server.
      *
-     * @param  Server $server
+     * @param  ServerSelector $server
      * @return self
      */
-    public function setServer(Server $server): self
+    public function setServer(ServerSelector $server): self
     {
         $this->server = $server;
         return $this;
@@ -202,9 +228,9 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @return Domain
+     * @return DomainSelector
      */
-    public function getDomain(): ?Domain
+    public function getDomain(): ?DomainSelector
     {
         return $this->domain;
     }
@@ -212,10 +238,10 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function setDomain(Domain $domain): self
+    public function setDomain(DomainSelector $domain): self
     {
         $this->domain = $domain;
         return $this;
@@ -224,9 +250,9 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Get the cos.
      *
-     * @return Cos
+     * @return CosSelector
      */
-    public function getCos(): ?Cos
+    public function getCos(): ?CosSelector
     {
         return $this->cos;
     }
@@ -234,10 +260,10 @@ class ModifyFilterRulesRequest extends SoapRequest
     /**
      * Set the cos.
      *
-     * @param  Cos $cos
+     * @param  CosSelector $cos
      * @return self
      */
-    public function setCos(Cos $cos): self
+    public function setCos(CosSelector $cos): self
     {
         $this->cos = $cos;
         return $this;

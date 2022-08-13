@@ -37,17 +37,30 @@ class GetAllRightsRequest extends SoapRequest
      * @SerializedName("targetType")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
+    #[SerializedName(name: 'targetType')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $targetType;
 
     /**
-     * Flags whether to include all attribute names in the <attrs> elements in GetRightResponse if the right is meant for all attributes
+     * Flags whether to include all attribute names in the <attrs> elements in GetRightResponse
+     * if the right is meant for all attributes
      * 
      * @Accessor(getter="isExpandAllAttrs", setter="setExpandAllAttrs")
      * @SerializedName("expandAllAttrs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isExpandAllAttrs', setter: 'setExpandAllAttrs')]
+    #[SerializedName(name: 'expandAllAttrs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
@@ -60,8 +73,13 @@ class GetAllRightsRequest extends SoapRequest
      * @SerializedName("rightClass")
      * @Type("Enum<Zimbra\Common\Enum\RightClass>")
      * @XmlAttribute
+     * 
      * @var RightClass
      */
+    #[Accessor(getter: 'getRightClass', setter: 'setRightClass')]
+    #[SerializedName(name: 'rightClass')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RightClass>')]
+    #[XmlAttribute]
     private $rightClass;
 
     /**

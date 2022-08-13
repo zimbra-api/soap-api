@@ -32,7 +32,13 @@ class AddDistributionListAliasRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class AddDistributionListAliasRequest extends SoapRequest
      * @SerializedName("alias")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAlias', setter: 'setAlias')]
+    #[SerializedName(name: 'alias')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $alias;
 
     /**

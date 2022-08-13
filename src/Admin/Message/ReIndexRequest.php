@@ -34,8 +34,13 @@ class ReIndexRequest extends SoapRequest
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\ReindexMailboxInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Mbox
      */
+    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
+    #[SerializedName(name: 'mbox')]
+    #[Type(name: Mbox::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
     /**
@@ -48,8 +53,13 @@ class ReIndexRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\ReIndexAction>")
      * @XmlAttribute
+     * 
      * @var Action
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ReIndexAction>')]
+    #[XmlAttribute]
     private $action;
 
     /**

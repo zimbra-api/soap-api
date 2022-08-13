@@ -32,7 +32,13 @@ class UndeployZimletRequest extends SoapRequest
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,7 +48,13 @@ class UndeployZimletRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $action;
 
     /**

@@ -32,7 +32,13 @@ class SetPasswordRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class SetPasswordRequest extends SoapRequest
      * @SerializedName("newPassword")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNewPassword', setter: 'setNewPassword')]
+    #[SerializedName(name: 'newPassword')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $newPassword;
 
     /**

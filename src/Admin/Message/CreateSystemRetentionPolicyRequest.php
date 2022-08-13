@@ -34,8 +34,13 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CosSelector
      */
+    #[Accessor(getter: 'getCos', setter: 'setCos')]
+    #[SerializedName(name: 'cos')]
+    #[Type(name: CosSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
     /**
@@ -43,8 +48,13 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("keep")
      * @Type("Zimbra\Admin\Struct\PolicyHolder")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PolicyHolder
      */
+    #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
+    #[SerializedName(name: 'keep')]
+    #[Type(name: PolicyHolder::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $keep;
 
     /**
@@ -52,8 +62,13 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
      * @SerializedName("purge")
      * @Type("Zimbra\Admin\Struct\PolicyHolder")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PolicyHolder
      */
+    #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]
+    #[SerializedName(name: 'purge')]
+    #[Type(name: PolicyHolder::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $purge;
 
     /**

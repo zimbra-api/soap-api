@@ -35,7 +35,13 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("dn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDn', setter: 'setDn')]
+    #[SerializedName(name: 'dn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dn;
 
     /**

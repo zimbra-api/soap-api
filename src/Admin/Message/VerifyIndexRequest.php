@@ -27,14 +27,19 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class VerifyIndexRequest extends SoapRequest
 {
     /**
-     * Mailbox selector
+     * Mailbox by account id selector
      * 
      * @Accessor(getter="getMbox", setter="setMbox")
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Mailbox
      */
+    #[Accessor(getter: 'getMbox', setter: 'setMbox')]
+    #[SerializedName(name: 'mbox')]
+    #[Type(name: Mailbox::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mbox;
 
     /**

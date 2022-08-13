@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Admin\Struct\GranteeSelector as Grantee;
+use Zimbra\Admin\Struct\GranteeSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -34,7 +34,13 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @SerializedName("expandAllAttrs")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
+    #[SerializedName(name: 'expandAllAttrs')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $expandAllAttrs;
 
     /**
@@ -43,23 +49,28 @@ class GetAllEffectiveRightsRequest extends SoapRequest
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Grantee
+     * 
+     * @var GranteeSelector
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
      * Constructor
      * 
-     * @param  Grantee $grantee
+     * @param  GranteeSelector $grantee
      * @param  bool $expandSetAttrs
      * @param  bool $expandGetAttrs
      * @return self
      */
     public function __construct(
-        ?Grantee $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
+        ?GranteeSelector $grantee = NULL, ?bool $expandSetAttrs = NULL, ?bool $expandGetAttrs = NULL
     )
     {
-        if ($grantee instanceof Grantee) {
+        if ($grantee instanceof GranteeSelector) {
             $this->setGrantee($grantee);
         }
         $attrs = [];
@@ -111,9 +122,9 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     /**
      * Set the grantee.
      *
-     * @return Grantee
+     * @return GranteeSelector
      */
-    public function getGrantee(): ?Grantee
+    public function getGrantee(): ?GranteeSelector
     {
         return $this->grantee;
     }
@@ -121,10 +132,10 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     /**
      * Set the grantee.
      *
-     * @param  Grantee $grantee
+     * @param  GranteeSelector $grantee
      * @return self
      */
-    public function setGrantee(Grantee $grantee): self
+    public function setGrantee(GranteeSelector $grantee): self
     {
         $this->grantee = $grantee;
         return $this;

@@ -35,8 +35,13 @@ class GetZimletRequest extends SoapRequest implements AttributeSelector
      * @SerializedName("zimlet")
      * @Type("Zimbra\Common\Struct\NamedElement")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var NamedElement
      */
+    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
+    #[SerializedName(name: 'zimlet')]
+    #[Type(name: NamedElement::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $zimlet;
 
     /**

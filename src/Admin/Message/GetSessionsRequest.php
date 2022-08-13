@@ -33,8 +33,13 @@ class GetSessionsRequest extends SoapRequest
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\SessionType>")
      * @XmlAttribute
+     * 
      * @var SessionType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\SessionType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -44,8 +49,13 @@ class GetSessionsRequest extends SoapRequest
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")
      * @XmlAttribute
+     * 
      * @var GetSessionsSortBy
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GetSessionsSortBy>')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -53,9 +63,15 @@ class GetSessionsRequest extends SoapRequest
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getOffset', setter: 'setOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $offset;
 
     /**
@@ -63,9 +79,15 @@ class GetSessionsRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -75,7 +97,13 @@ class GetSessionsRequest extends SoapRequest
      * @SerializedName("refresh")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getRefresh', setter: 'setRefresh')]
+    #[SerializedName(name: 'refresh')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $refresh;
 
     /**

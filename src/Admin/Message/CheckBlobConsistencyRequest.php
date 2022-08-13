@@ -37,7 +37,13 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @SerializedName("checkSize")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCheckSize', setter: 'setCheckSize')]
+    #[SerializedName(name: 'checkSize')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $checkSize;
 
     /**
@@ -47,7 +53,13 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @SerializedName("reportUsedBlobs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getReportUsedBlobs', setter: 'setReportUsedBlobs')]
+    #[SerializedName(name: 'reportUsedBlobs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $reportUsedBlobs;
 
     /**
@@ -56,7 +68,12 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @Accessor(getter="getVolumes", setter="setVolumes")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\IntIdAttr>')]
+    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
     private $volumes = [];
 
     /**
@@ -65,7 +82,12 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * @Accessor(getter="getMailboxes", setter="setMailboxes")
      * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\IntIdAttr>')]
+    #[XmlList(inline: true, entry: 'mbox', namespace: 'urn:zimbraAdmin')]
     private $mailboxes = [];
 
     /**

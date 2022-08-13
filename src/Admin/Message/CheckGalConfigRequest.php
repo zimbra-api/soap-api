@@ -35,8 +35,13 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("query")
      * @Type("Zimbra\Admin\Struct\LimitedQuery")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var LimitedQuery
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: LimitedQuery::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $query;
 
     /**
@@ -46,7 +51,13 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
      * @SerializedName("action")
      * @Type("string")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $action;
 
     /**

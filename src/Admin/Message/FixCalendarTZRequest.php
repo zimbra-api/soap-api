@@ -12,8 +12,7 @@ namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
 use Zimbra\Admin\Struct\TzFixup;
-use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * FixCalendarTZRequest class
@@ -36,7 +35,13 @@ class FixCalendarTZRequest extends SoapRequest
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSync', setter: 'setSync')]
+    #[SerializedName(name: 'sync')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sync;
 
     /**
@@ -45,9 +50,15 @@ class FixCalendarTZRequest extends SoapRequest
      * 
      * @Accessor(getter="getAfter", setter="setAfter")
      * @SerializedName("after")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getAfter', setter: 'setAfter')]
+    #[SerializedName(name: 'after')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $after;
 
     /**
@@ -56,7 +67,12 @@ class FixCalendarTZRequest extends SoapRequest
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**
@@ -66,8 +82,13 @@ class FixCalendarTZRequest extends SoapRequest
      * @SerializedName("tzfixup")
      * @Type("Zimbra\Admin\Struct\TzFixup")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixup
      */
+    #[Accessor(getter: 'getTzFixup', setter: 'setTzFixup')]
+    #[SerializedName(name: 'tzfixup')]
+    #[Type(name: TzFixup::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $tzFixup;
 
     /**

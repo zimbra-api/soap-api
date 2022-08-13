@@ -31,9 +31,15 @@ class SetCurrentVolumeRequest extends SoapRequest
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,9 +47,15 @@ class SetCurrentVolumeRequest extends SoapRequest
      * 
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $type;
 
     /**

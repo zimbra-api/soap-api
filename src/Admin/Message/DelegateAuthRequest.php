@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
-use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * DelegateAuthRequest request class
@@ -35,8 +34,13 @@ class DelegateAuthRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -45,19 +49,25 @@ class DelegateAuthRequest extends SoapRequest
      * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("duration")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDuration', setter: 'setDuration')]
+    #[SerializedName(name: 'duration')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $duration;
 
     /**
      * Constructor
      * 
-     * @param  Account $account
-     * @param  int     $duration
+     * @param  AccountSelector $account
+     * @param  int $duration
      * @return self
      */
-    public function __construct(Account $account, ?int $duration = NULL)
+    public function __construct(AccountSelector $account, ?int $duration = NULL)
     {
         $this->setAccount($account);
         if (NULL !== $duration) {
@@ -68,9 +78,9 @@ class DelegateAuthRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): Account
+    public function getAccount(): AccountSelector
     {
         return $this->account;
     }
@@ -78,10 +88,10 @@ class DelegateAuthRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;

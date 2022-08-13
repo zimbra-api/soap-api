@@ -34,8 +34,13 @@ class DeployZimletRequest extends SoapRequest
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\ZimletDeployAction>")
      * @XmlAttribute
+     * 
      * @var ZimletDeployAction
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ZimletDeployAction>')]
+    #[XmlAttribute]
     private $action;
 
     /**
@@ -45,7 +50,13 @@ class DeployZimletRequest extends SoapRequest
      * @SerializedName("flush")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getFlushCache', setter: 'setFlushCache')]
+    #[SerializedName(name: 'flush')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $flushCache;
 
     /**
@@ -55,7 +66,13 @@ class DeployZimletRequest extends SoapRequest
      * @SerializedName("synchronous")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSynchronous', setter: 'setSynchronous')]
+    #[SerializedName(name: 'synchronous')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $synchronous;
 
     /**
@@ -65,8 +82,13 @@ class DeployZimletRequest extends SoapRequest
      * @SerializedName("content")
      * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AttachmentIdAttrib
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[SerializedName(name: 'content')]
+    #[Type(name: AttachmentIdAttrib::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $content;
 
     /**

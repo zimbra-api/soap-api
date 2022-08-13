@@ -33,8 +33,13 @@ class ModifyZimletRequest extends SoapRequest
      * @SerializedName("zimlet")
      * @Type("Zimbra\Admin\Struct\ZimletAclStatusPri")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ZimletAclStatusPri
      */
+    #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
+    #[SerializedName(name: 'zimlet')]
+    #[Type(name: ZimletAclStatusPri::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $zimlet;
 
     /**

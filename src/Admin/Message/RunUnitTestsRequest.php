@@ -34,6 +34,9 @@ class RunUnitTestsRequest extends SoapRequest
      * @Type("array<string>")
      * @XmlList(inline=true, entry="test", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getTests', setter: 'setTests')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'test', namespace: 'urn:zimbraAdmin')]
     private $tests;
 
     /**

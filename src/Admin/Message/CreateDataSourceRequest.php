@@ -36,8 +36,14 @@ class CreateDataSourceRequest extends SoapRequest
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -47,8 +53,13 @@ class CreateDataSourceRequest extends SoapRequest
      * @SerializedName("dataSource")
      * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DataSourceSpecifier
      */
+    #[Accessor(getter: 'getDataSource', setter: 'setDataSource')]
+    #[SerializedName(name: 'dataSource')]
+    #[Type(name: DataSourceSpecifier::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $dataSource;
 
     /**

@@ -11,8 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
-use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\{NamedElement, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * FixCalendarPriorityRequest class
@@ -35,7 +34,13 @@ class FixCalendarPriorityRequest extends SoapRequest
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSync', setter: 'setSync')]
+    #[SerializedName(name: 'sync')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sync;
 
     /**
@@ -44,7 +49,12 @@ class FixCalendarPriorityRequest extends SoapRequest
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**

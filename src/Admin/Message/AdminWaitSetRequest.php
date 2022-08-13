@@ -46,7 +46,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
+    #[SerializedName(name: 'waitSet')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $waitSetId;
 
     /**
@@ -56,7 +62,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("seq")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLastKnownSeqNo', setter: 'setLastKnownSeqNo')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $lastKnownSeqNo;
 
     /**
@@ -66,7 +78,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("block")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getBlock', setter: 'setBlock')]
+    #[SerializedName(name: 'block')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $block;
 
     /**
@@ -76,7 +94,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("expand")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getExpand', setter: 'setExpand')]
+    #[SerializedName(name: 'expand')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $expand;
 
     /**
@@ -86,7 +110,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("defTypes")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
+    #[SerializedName(name: 'defTypes')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultInterests;
 
     /**
@@ -96,7 +126,13 @@ class AdminWaitSetRequest extends SoapRequest
      * @SerializedName("timeout")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
+    #[SerializedName(name: 'timeout')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $timeout;
 
     /**
@@ -107,7 +143,14 @@ class AdminWaitSetRequest extends SoapRequest
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAddAccounts', setter: 'setAddAccounts')]
+    #[SerializedName(name: 'add')]
+    #[Type(name: 'array<Zimbra\Common\Struct\WaitSetAddSpec>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $addAccounts = [];
 
     /**
@@ -118,7 +161,14 @@ class AdminWaitSetRequest extends SoapRequest
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUpdateAccounts', setter: 'setUpdateAccounts')]
+    #[SerializedName(name: 'update')]
+    #[Type(name: 'array<Zimbra\Common\Struct\WaitSetAddSpec>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $updateAccounts = [];
 
     /**
@@ -129,7 +179,14 @@ class AdminWaitSetRequest extends SoapRequest
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRemoveAccounts', setter: 'setRemoveAccounts')]
+    #[SerializedName(name: 'remove')]
+    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'a', namespace: 'urn:zimbraAdmin')]
     private $removeAccounts = [];
 
     /**

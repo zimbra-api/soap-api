@@ -11,7 +11,7 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\DomainSelector as Domain;
+use Zimbra\Admin\Struct\DomainSelector;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
 /**
@@ -33,19 +33,24 @@ class GetAllDistributionListsRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Domain
+     * 
+     * @var DomainSelector
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**
      * Constructor
      * 
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function __construct(?Domain $domain = NULL)
+    public function __construct(?DomainSelector $domain = NULL)
     {
-        if ($domain instanceof Domain) {
+        if ($domain instanceof DomainSelector) {
             $this->setDomain($domain);
         }
     }
@@ -53,9 +58,9 @@ class GetAllDistributionListsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @return Domain
+     * @return DomainSelector
      */
-    public function getDomain(): ?Domain
+    public function getDomain(): ?DomainSelector
     {
         return $this->domain;
     }
@@ -63,10 +68,10 @@ class GetAllDistributionListsRequest extends SoapRequest
     /**
      * Set the domain.
      *
-     * @param  Domain $domain
+     * @param  DomainSelector $domain
      * @return self
      */
-    public function setDomain(Domain $domain): self
+    public function setDomain(DomainSelector $domain): self
     {
         $this->domain = $domain;
         return $this;

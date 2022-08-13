@@ -32,7 +32,13 @@ class RenameLDAPEntryRequest extends SoapRequest
      * @SerializedName("dn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDn', setter: 'setDn')]
+    #[SerializedName(name: 'dn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dn;
 
     /**
@@ -42,7 +48,13 @@ class RenameLDAPEntryRequest extends SoapRequest
      * @SerializedName("new_dn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNewDn', setter: 'setNewDn')]
+    #[SerializedName(name: 'new_dn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $newDn;
 
     /**

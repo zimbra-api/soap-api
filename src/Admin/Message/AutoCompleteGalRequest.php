@@ -32,8 +32,14 @@ class AutoCompleteGalRequest extends SoapRequest
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $domain;
 
     /**
@@ -42,8 +48,14 @@ class AutoCompleteGalRequest extends SoapRequest
      * @Accessor(getter="getName", setter="setName")
      * @SerializedName("name")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -52,9 +64,14 @@ class AutoCompleteGalRequest extends SoapRequest
      * @Accessor(getter="getType", setter="setType")
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
      * @var GalSearchType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GalSearchType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -63,8 +80,14 @@ class AutoCompleteGalRequest extends SoapRequest
      * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
      * @SerializedName("galAcctId")
      * @Type("string")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
+    #[SerializedName(name: 'galAcctId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $galAccountId;
 
     /**
@@ -73,8 +96,14 @@ class AutoCompleteGalRequest extends SoapRequest
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
      * @Type("int")
-     * @XmlAttribute()
+     * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**

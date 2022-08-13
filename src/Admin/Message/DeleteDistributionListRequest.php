@@ -32,7 +32,13 @@ class DeleteDistributionListRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class DeleteDistributionListRequest extends SoapRequest
      * @SerializedName("cascadeDelete")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isCascadeDelete', setter: 'setCascadeDelete')]
+    #[SerializedName(name: 'cascadeDelete')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $cascadeDelete;
 
     /**

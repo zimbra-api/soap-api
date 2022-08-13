@@ -11,9 +11,8 @@
 namespace Zimbra\Admin\Message;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
-use Zimbra\Admin\Struct\LoggerInfo as Logger;
-use Zimbra\Common\Struct\AccountSelector as Account;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Admin\Struct\LoggerInfo;
+use Zimbra\Common\Struct\{AccountSelector, SoapEnvelopeInterface, SoapRequest};
 
 /**
  * AddAccountLoggerRequest request class
@@ -37,8 +36,13 @@ class AddAccountLoggerRequest extends SoapRequest
      * @SerializedName("logger")
      * @Type("Zimbra\Admin\Struct\LoggerInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Logger
+     * 
+     * @var LoggerInfo
      */
+    #[Accessor(getter: 'getLogger', setter: 'setLogger')]
+    #[SerializedName(name: 'logger')]
+    #[Type(name: LoggerInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $logger;
 
     /**
@@ -48,8 +52,13 @@ class AddAccountLoggerRequest extends SoapRequest
      * @SerializedName("account")
      * @Type("Zimbra\Common\Struct\AccountSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
-     * @var Account
+     * 
+     * @var AccountSelector
      */
+    #[Accessor(getter: 'getAccount', setter: 'setAccount')]
+    #[SerializedName(name: 'account')]
+    #[Type(name: AccountSelector::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $account;
 
     /**
@@ -60,20 +69,26 @@ class AddAccountLoggerRequest extends SoapRequest
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $id;
 
     /**
      * Constructor
      *
-     * @param  Logger $logger
-     * @param  Account $account
+     * @param  LoggerInfo $logger
+     * @param  AccountSelector $account
      * @param  string $id
      * @return self
      */
-    public function __construct(Logger $logger, ?Account $account = NULL, ?string $id = NULL)
+    public function __construct(
+        LoggerInfo $logger, ?AccountSelector $account = NULL, ?string $id = NULL
+    )
     {
         $this->setLogger($logger);
-        if ($account instanceof Account) {
+        if ($account instanceof AccountSelector) {
             $this->setAccount($account);
         }
         if (NULL !== $id) {
@@ -84,9 +99,9 @@ class AddAccountLoggerRequest extends SoapRequest
     /**
      * Get the logger.
      *
-     * @return Logger
+     * @return LoggerInfo
      */
-    public function getLogger(): Logger
+    public function getLogger(): LoggerInfo
     {
         return $this->logger;
     }
@@ -94,10 +109,10 @@ class AddAccountLoggerRequest extends SoapRequest
     /**
      * Set the logger.
      *
-     * @param  Logger $logger
+     * @param  LoggerInfo $logger
      * @return self
      */
-    public function setLogger(Logger $logger): self
+    public function setLogger(LoggerInfo $logger): self
     {
         $this->logger = $logger;
         return $this;
@@ -106,9 +121,9 @@ class AddAccountLoggerRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @return Account
+     * @return AccountSelector
      */
-    public function getAccount(): ?Account
+    public function getAccount(): ?AccountSelector
     {
         return $this->account;
     }
@@ -116,10 +131,10 @@ class AddAccountLoggerRequest extends SoapRequest
     /**
      * Set the account.
      *
-     * @param  Account $account
+     * @param  AccountSelector $account
      * @return self
      */
-    public function setAccount(Account $account): self
+    public function setAccount(AccountSelector $account): self
     {
         $this->account = $account;
         return $this;

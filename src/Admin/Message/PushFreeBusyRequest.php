@@ -37,8 +37,13 @@ class PushFreeBusyRequest extends SoapRequest
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\Names")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Names
      */
+    #[Accessor(getter: 'getDomains', setter: 'setDomains')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: Names::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domains;
 
     /**
@@ -47,7 +52,12 @@ class PushFreeBusyRequest extends SoapRequest
      * @Accessor(getter="getAccounts", setter="setAccounts")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
+    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**
