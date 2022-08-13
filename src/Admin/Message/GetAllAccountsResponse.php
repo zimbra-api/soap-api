@@ -32,7 +32,7 @@ class GetAllAccountsResponse extends SoapResponse
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
-     * @var account
+     * @var array
      */
     #[Accessor(getter: 'getAccountList', setter: 'setAccountList')]
     #[Type(name: 'array<Zimbra\Admin\Struct\AccountInfo>')]

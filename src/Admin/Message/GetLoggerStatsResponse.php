@@ -47,7 +47,7 @@ class GetLoggerStatsResponse extends SoapResponse
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
-     * @var note
+     * @var string
      */
     #[Accessor(getter: 'getNote', setter: 'setNote')]
     #[SerializedName(name: 'note')]
