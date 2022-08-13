@@ -31,7 +31,12 @@ class GetAllAccountsResponse extends SoapResponse
      * @Accessor(getter="getAccountList", setter="setAccountList")
      * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
      * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
+     * @var account
      */
+    #[Accessor(getter: 'getAccountList', setter: 'setAccountList')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\AccountInfo>')]
+    #[XmlList(inline: true, entry: 'account', namespace: 'urn:zimbraAdmin')]
     private $accounts = [];
 
     /**

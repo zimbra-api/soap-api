@@ -49,7 +49,7 @@ class MessagePartHitInfo implements SearchHit
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;
@@ -59,7 +59,7 @@ class MessagePartHitInfo implements SearchHit
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -69,7 +69,7 @@ class MessagePartHitInfo implements SearchHit
      * 
      * @Accessor(getter="getConversationId", setter="setConversationId")
      * @SerializedName("cid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $conversationId;
@@ -79,7 +79,7 @@ class MessagePartHitInfo implements SearchHit
      * 
      * @Accessor(getter="getMessageId", setter="setMessageId")
      * @SerializedName("mid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $messageId;

@@ -27,7 +27,7 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class IMAPCopyRequest extends SoapRequest
 {
     /**
-     * Comma separated list of integer ids
+     * Comma separated list of int ids
      * 
      * @Accessor(getter="getIds", setter="setIds")
      * @SerializedName("ids")
@@ -53,7 +53,7 @@ class IMAPCopyRequest extends SoapRequest
      * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $folder;

@@ -43,7 +43,7 @@ class SyncResponse extends SoapResponse
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -63,7 +63,7 @@ class SyncResponse extends SoapResponse
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;

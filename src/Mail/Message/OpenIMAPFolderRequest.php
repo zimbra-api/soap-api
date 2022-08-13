@@ -40,7 +40,7 @@ class OpenIMAPFolderRequest extends SoapRequest
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $limit;

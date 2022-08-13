@@ -59,12 +59,12 @@ class SearchResponse extends SoapResponse
     private $sortBy;
 
     /**
-     * Offset - an integer specifying the 0-based offset into the results list returned as
+     * Offset - an int specifying the 0-based offset into the results list returned as
      * the first result for this search operation.
      * 
      * @Accessor(getter="getQueryOffset", setter="setQueryOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $queryOffset;
@@ -84,7 +84,7 @@ class SearchResponse extends SoapResponse
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $totalSize;

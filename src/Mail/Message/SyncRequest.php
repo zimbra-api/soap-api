@@ -48,7 +48,7 @@ class SyncRequest extends SoapRequest
      * 
      * @Accessor(getter="getCalendarCutoff", setter="setCalendarCutoff")
      * @SerializedName("calCutoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $calendarCutoff;
@@ -59,7 +59,7 @@ class SyncRequest extends SoapRequest
      * 
      * @Accessor(getter="getMsgCutoff", setter="setMsgCutoff")
      * @SerializedName("msgCutoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $msgCutoff;
@@ -89,7 +89,7 @@ class SyncRequest extends SoapRequest
      * 
      * @Accessor(getter="getDeleteLimit", setter="setDeleteLimit")
      * @SerializedName("deleteLimit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $deleteLimit;
@@ -99,7 +99,7 @@ class SyncRequest extends SoapRequest
      * 
      * @Accessor(getter="getChangeLimit", setter="setChangeLimit")
      * @SerializedName("changeLimit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeLimit;

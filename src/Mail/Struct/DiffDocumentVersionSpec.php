@@ -38,7 +38,7 @@ class DiffDocumentVersionSpec
      * 
      * @Accessor(getter="getVersion1", setter="setVersion1")
      * @SerializedName("v1")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $version1;
@@ -48,7 +48,7 @@ class DiffDocumentVersionSpec
      * 
      * @Accessor(getter="getVersion2", setter="setVersion2")
      * @SerializedName("v2")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $version2;

@@ -38,7 +38,7 @@ class ConversationInfo
      * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $num;
@@ -49,7 +49,7 @@ class ConversationInfo
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $totalSize;
@@ -65,7 +65,7 @@ class ConversationInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")

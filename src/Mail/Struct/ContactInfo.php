@@ -63,7 +63,7 @@ class ContactInfo implements ContactInterface, SearchHit
      * 
      * @Accessor(getter="getImapUid", setter="setImapUid")
      * @SerializedName("i4uid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapUid;
@@ -89,7 +89,7 @@ class ContactInfo implements ContactInterface, SearchHit
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")

@@ -31,7 +31,13 @@ class VerifyIndexResponse extends SoapResponse
      * @SerializedName("status")
      * @Type("bool")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'bool')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $status;
 
     /**
@@ -41,7 +47,13 @@ class VerifyIndexResponse extends SoapResponse
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
+    #[SerializedName(name: 'message')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**

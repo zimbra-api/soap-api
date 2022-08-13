@@ -35,7 +35,7 @@ class AddMsgSpec
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -79,7 +79,7 @@ class AddMsgSpec
      * 
      * @Accessor(getter="getDateReceived", setter="setDateReceived")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $dateReceived;

@@ -32,7 +32,13 @@ class GetSessionsResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -40,9 +46,15 @@ class GetSessionsResponse extends SoapResponse
      * 
      * @Accessor(getter="getTotal", setter="setTotal")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotal', setter: 'setTotal')]
+    #[SerializedName(name: 'total')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $total;
 
     /**
@@ -51,7 +63,12 @@ class GetSessionsResponse extends SoapResponse
      * @Accessor(getter="getSessions", setter="setSessions")
      * @Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")
      * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSessions', setter: 'setSessions')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\SimpleSessionInfo>')]
+    #[XmlList(inline: true, entry: 's', namespace: 'urn:zimbraAdmin')]
     private $sessions = [];
 
     /**

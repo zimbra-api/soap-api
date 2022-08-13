@@ -42,7 +42,7 @@ class CalTZInfo implements CalTZInfoInterface
      * 
      * @Accessor(getter="getTzStdOffset", setter="setTzStdOffset")
      * @SerializedName("stdoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $tzStdOffset;
@@ -52,7 +52,7 @@ class CalTZInfo implements CalTZInfoInterface
      * 
      * @Accessor(getter="getTzDayOffset", setter="setTzDayOffset")
      * @SerializedName("dayoff")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $tzDayOffset;

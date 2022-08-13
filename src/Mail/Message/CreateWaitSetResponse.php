@@ -60,7 +60,7 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * 
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sequence;

@@ -26,11 +26,11 @@ use Zimbra\Common\Struct\IntervalRuleInterface;
 class IntervalRule implements IntervalRuleInterface
 {
     /**
-     * Rule interval count - a positive integer
+     * Rule interval count - a positive int
      * 
      * @Accessor(getter="getIval", setter="setIval")
      * @SerializedName("ival")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $ival;

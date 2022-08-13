@@ -65,7 +65,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getCalItemExpandStart", setter="setCalItemExpandStart")
      * @SerializedName("calExpandInstStart")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $calItemExpandStart;
@@ -75,7 +75,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getCalItemExpandEnd", setter="setCalItemExpandEnd")
      * @SerializedName("calExpandInstEnd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $calItemExpandEnd;
@@ -187,7 +187,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
      * @SerializedName("max")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $maxInlinedLength;
@@ -295,7 +295,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getLimit", setter="setLimit")
      * @SerializedName("limit")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $limit;
@@ -306,7 +306,7 @@ trait MailSearchParams
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $offset;

@@ -122,7 +122,7 @@ class GetContactsRequest extends SoapRequest
      * 
      * @Accessor(getter="getMaxMembers", setter="setMaxMembers")
      * @SerializedName("maxMembers")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $maxMembers;

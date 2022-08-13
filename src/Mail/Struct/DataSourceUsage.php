@@ -38,7 +38,7 @@ class DataSourceUsage
      * 
      * @Accessor(getter="getUsage", setter="setUsage")
      * @SerializedName("usage")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $usage;

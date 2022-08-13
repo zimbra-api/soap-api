@@ -64,7 +64,7 @@ class DtTimeInfo implements DtTimeInfoInterface
      * 
      * @Accessor(getter="getUtcTime", setter="setUtcTime")
      * @SerializedName("u")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $utcTime;

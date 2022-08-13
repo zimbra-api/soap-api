@@ -50,7 +50,7 @@ class PartInfo implements PartInfoInterface
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;

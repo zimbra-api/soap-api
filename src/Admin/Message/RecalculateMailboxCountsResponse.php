@@ -32,8 +32,13 @@ class RecalculateMailboxCountsResponse extends SoapResponse
      * @SerializedName("mbox")
      * @Type("Zimbra\Admin\Struct\MailboxQuotaInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Mailbox
      */
+    #[Accessor(getter: 'getMailbox', setter: 'setMailbox')]
+    #[SerializedName(name: 'mbox')]
+    #[Type(name: Mailbox::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $mailbox;
 
     /**

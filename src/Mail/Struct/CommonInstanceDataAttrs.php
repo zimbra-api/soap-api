@@ -62,7 +62,7 @@ class CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
      * @SerializedName("tzo")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $tzOffset;
@@ -210,7 +210,7 @@ class CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;
@@ -274,7 +274,7 @@ class CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getTaskDueDate", setter="setTaskDueDate")
      * @SerializedName("dueDate")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $taskDueDate;
@@ -285,7 +285,7 @@ class CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getTaskTzOffsetDue", setter="setTaskTzOffsetDue")
      * @SerializedName("tzoDue")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $taskTzOffsetDue;

@@ -28,7 +28,7 @@ class ExpandedRecurrenceInstance
      * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $startTime;
@@ -38,7 +38,7 @@ class ExpandedRecurrenceInstance
      * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $duration;
@@ -58,7 +58,7 @@ class ExpandedRecurrenceInstance
      * 
      * @Accessor(getter="getTzOffset", setter="setTzOffset")
      * @SerializedName("tzo")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $tzOffset;

@@ -37,7 +37,7 @@ class ExpandRecurRequest extends SoapRequest
      * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $startTime;
@@ -47,7 +47,7 @@ class ExpandRecurRequest extends SoapRequest
      * 
      * @Accessor(getter="getEndTime", setter="setEndTime")
      * @SerializedName("e")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $endTime;

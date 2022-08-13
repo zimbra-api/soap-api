@@ -31,7 +31,12 @@ class GetAllSkinsResponse extends SoapResponse
      * @Accessor(getter="getSkins", setter="setSkins")
      * @Type("array<Zimbra\Common\Struct\NamedElement>")
      * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSkins', setter: 'setSkins')]
+    #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]
+    #[XmlList(inline: true, entry: 'skin', namespace: 'urn:zimbraAdmin')]
     private $skins = [];
 
     /**

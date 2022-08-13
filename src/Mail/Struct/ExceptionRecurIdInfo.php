@@ -65,7 +65,7 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * 
      * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
      * @SerializedName("rangeType")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $recurrenceRangeType;

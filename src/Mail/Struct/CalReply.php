@@ -64,7 +64,7 @@ class CalReply extends RecurIdInfo
      * 
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sequence;
@@ -74,7 +74,7 @@ class CalReply extends RecurIdInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;

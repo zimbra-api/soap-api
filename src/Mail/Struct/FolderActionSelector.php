@@ -50,7 +50,7 @@ class FolderActionSelector extends ActionSelector
     private $url;
 
     /**
-     * For fb operation - set the excludeFreeBusy boolean for this folder (must specify for fb operation)
+     * For fb operation - set the excludeFreeBusy bool for this folder (must specify for fb operation)
      * 
      * @Accessor(getter="getExcludeFreebusy", setter="setExcludeFreebusy")
      * @SerializedName("excludeFreeBusy")
@@ -127,7 +127,7 @@ class FolderActionSelector extends ActionSelector
      * 
      * @Accessor(getter="getNumDays", setter="setNumDays")
      * @SerializedName("numDays")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $numDays;

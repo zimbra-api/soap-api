@@ -33,42 +33,69 @@ class DedupeBlobsResponse extends SoapResponse
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\DedupStatus>")
      * @XmlAttribute
+     * 
      * @var DedupStatus
      */
+    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\DedupStatus>')]
+    #[XmlAttribute]
     private $status;
 
     /**
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("totalSize")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
+    #[SerializedName(name: 'totalSize')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $totalSize;
 
     /**
      * @Accessor(getter="getTotalCount", setter="setTotalCount")
      * @SerializedName("totalCount")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotalCount', setter: 'setTotalCount')]
+    #[SerializedName(name: 'totalCount')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $totalCount;
 
     /**
-     * volumeBlobsProgress
+     * volume blobs progress
      * 
      * @Accessor(getter="getVolumeBlobsProgress", setter="setVolumeBlobsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="volumeBlobsProgress", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getVolumeBlobsProgress', setter: 'setVolumeBlobsProgress')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\VolumeIdAndProgress>')]
+    #[XmlList(inline: true, entry: 'volumeBlobsProgress', namespace: 'urn:zimbraAdmin')]
     private $volumeBlobsProgress = [];
 
     /**
-     * blobDigestsProgress
+     * blob digests progress
      * 
      * @Accessor(getter="getBlobDigestsProgress", setter="setBlobDigestsProgress")
      * @Type("array<Zimbra\Admin\Struct\VolumeIdAndProgress>")
      * @XmlList(inline=true, entry="blobDigestsProgress", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getBlobDigestsProgress', setter: 'setBlobDigestsProgress')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\VolumeIdAndProgress>')]
+    #[XmlList(inline: true, entry: 'blobDigestsProgress', namespace: 'urn:zimbraAdmin')]
     private $blobDigestsProgress = [];
 
     /**

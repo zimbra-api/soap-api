@@ -35,7 +35,7 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("dur")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $duration;

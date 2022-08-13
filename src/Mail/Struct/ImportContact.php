@@ -38,7 +38,7 @@ class ImportContact
      * 
      * @Accessor(getter="getNumImported", setter="setNumImported")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $numImported;

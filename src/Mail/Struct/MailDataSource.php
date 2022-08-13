@@ -92,7 +92,7 @@ class MailDataSource implements DataSource
      * 
      * @Accessor(getter="getPort", setter="setPort")
      * @SerializedName("port")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $port;
@@ -174,7 +174,7 @@ class MailDataSource implements DataSource
      * 
      * @Accessor(getter="getSmtpPort", setter="setSmtpPort")
      * @SerializedName("smtpPort")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $smtpPort;
@@ -297,7 +297,7 @@ class MailDataSource implements DataSource
      * 
      * @Accessor(getter="getFailingSince", setter="setFailingSince")
      * @SerializedName("failingSince")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $failingSince;

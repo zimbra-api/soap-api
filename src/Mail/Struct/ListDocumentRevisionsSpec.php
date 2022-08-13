@@ -38,7 +38,7 @@ class ListDocumentRevisionsSpec
      * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $version;
@@ -48,7 +48,7 @@ class ListDocumentRevisionsSpec
      * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("count")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $count;

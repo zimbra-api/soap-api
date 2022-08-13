@@ -31,7 +31,12 @@ class GetServerStatsResponse extends SoapResponse
      * @Accessor(getter="getStats", setter="setStats")
      * @Type("array<Zimbra\Admin\Struct\Stat>")
      * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getStats', setter: 'setStats')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\Stat>')]
+    #[XmlList(inline: true, entry: 'stat', namespace: 'urn:zimbraAdmin')]
     private $stats = [];
 
     /**

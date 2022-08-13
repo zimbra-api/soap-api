@@ -32,8 +32,13 @@ class GetRightResponse extends SoapResponse
      * @SerializedName("right")
      * @Type("Zimbra\Admin\Struct\RightInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RightInfo
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: RightInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $right;
 
     /**

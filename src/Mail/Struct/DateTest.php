@@ -40,7 +40,7 @@ class DateTest extends FilterTest
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("date")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;

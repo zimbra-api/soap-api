@@ -28,7 +28,7 @@ class AlarmDataInfo
      * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $nextAlarm;
@@ -38,7 +38,7 @@ class AlarmDataInfo
      * 
      * @Accessor(getter="getAlarmInstanceStart", setter="setAlarmInstanceStart")
      * @SerializedName("alarmInstStart")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $alarmInstanceStart;
@@ -48,7 +48,7 @@ class AlarmDataInfo
      * 
      * @Accessor(getter="getInvId", setter="setInvId")
      * @SerializedName("invId")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $invId;
@@ -58,7 +58,7 @@ class AlarmDataInfo
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;

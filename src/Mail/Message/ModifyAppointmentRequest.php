@@ -44,7 +44,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;
@@ -57,7 +57,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -67,7 +67,7 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;

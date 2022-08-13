@@ -32,8 +32,13 @@ class GetCosResponse extends SoapResponse
      * @SerializedName("cos")
      * @Type("Zimbra\Admin\Struct\CosInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CosInfo
      */
+    #[Accessor(getter: 'getCos', setter: 'setCos')]
+    #[SerializedName(name: 'cos')]
+    #[Type(name: CosInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $cos;
 
     /**

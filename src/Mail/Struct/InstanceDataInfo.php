@@ -29,7 +29,7 @@ class InstanceDataInfo extends InstanceDataAttrs
      * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $startTime;

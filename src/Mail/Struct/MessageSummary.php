@@ -38,7 +38,7 @@ class MessageSummary extends MessageCommon
      * 
      * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
      * @SerializedName("autoSendTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $autoSendTime;

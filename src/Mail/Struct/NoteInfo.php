@@ -39,7 +39,7 @@ class NoteInfo
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -59,7 +59,7 @@ class NoteInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -75,7 +75,7 @@ class NoteInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -95,7 +95,7 @@ class NoteInfo
     private $tagNames;
 
     /**
-     * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * Bounds - x,y[width,height] where x,y,width and height are all ints
      * 
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")
@@ -109,7 +109,7 @@ class NoteInfo
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -129,7 +129,7 @@ class NoteInfo
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -139,7 +139,7 @@ class NoteInfo
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;

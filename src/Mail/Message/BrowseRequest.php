@@ -52,7 +52,7 @@ class BrowseRequest extends SoapRequest
      * 
      * @Accessor(getter="getMax", setter="setMax")
      * @SerializedName("maxToReturn")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $max;

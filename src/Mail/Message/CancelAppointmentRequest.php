@@ -43,7 +43,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;
@@ -53,7 +53,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -63,7 +63,7 @@ class CancelAppointmentRequest extends SoapRequest
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;

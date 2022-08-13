@@ -27,12 +27,18 @@ class CreateDomainResponse extends SoapResponse
 {
     /**
      * Information about the newly created domain
+     * 
      * @Accessor(getter="getDomain", setter="setDomain")
      * @SerializedName("domain")
      * @Type("Zimbra\Admin\Struct\DomainInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DomainInfo
      */
+    #[Accessor(getter: 'getDomain', setter: 'setDomain')]
+    #[SerializedName(name: 'domain')]
+    #[Type(name: DomainInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $domain;
 
     /**

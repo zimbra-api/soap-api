@@ -31,7 +31,12 @@ class GetFreeBusyQueueInfoResponse extends SoapResponse
      * @Accessor(getter="getProviders", setter="setProviders")
      * @Type("array<Zimbra\Admin\Struct\FreeBusyQueueProvider>")
      * @XmlList(inline=true, entry="provider", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getProviders', setter: 'setProviders')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\FreeBusyQueueProvider>')]
+    #[XmlList(inline: true, entry: 'provider', namespace: 'urn:zimbraAdmin')]
     private $providers = [];
 
     /**

@@ -31,8 +31,13 @@ class VerifyStoreManagerResponse extends SoapResponse
      * @SerializedName("storeManagerClass")
      * @Type("string")
      * @XmlAttribute
+     * 
      * @var string
      */
+    #[Accessor(getter: 'getStoreManagerClass', setter: 'setStoreManagerClass')]
+    #[SerializedName(name: 'storeManagerClass')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $storeManagerClass;
 
     /**
@@ -40,10 +45,15 @@ class VerifyStoreManagerResponse extends SoapResponse
      * 
      * @Accessor(getter="getIncomingTime", setter="setIncomingTime")
      * @SerializedName("incomingTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
      * @var int
      */
+    #[Accessor(getter: 'getIncomingTime', setter: 'setIncomingTime')]
+    #[SerializedName(name: 'incomingTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $incomingTime;
 
     /**
@@ -51,10 +61,15 @@ class VerifyStoreManagerResponse extends SoapResponse
      * 
      * @Accessor(getter="getStageTime", setter="setStageTime")
      * @SerializedName("stageTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
      * @var int
      */
+    #[Accessor(getter: 'getStageTime', setter: 'setStageTime')]
+    #[SerializedName(name: 'stageTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $stageTime;
 
     /**
@@ -62,10 +77,15 @@ class VerifyStoreManagerResponse extends SoapResponse
      * 
      * @Accessor(getter="getLinkTime", setter="setLinkTime")
      * @SerializedName("linkTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
      * @var int
      */
+    #[Accessor(getter: 'getLinkTime', setter: 'setLinkTime')]
+    #[SerializedName(name: 'linkTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $linkTime;
 
     /**
@@ -73,10 +93,15 @@ class VerifyStoreManagerResponse extends SoapResponse
      * 
      * @Accessor(getter="getFetchTime", setter="setFetchTime")
      * @SerializedName("fetchTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
      * @var int
      */
+    #[Accessor(getter: 'getFetchTime', setter: 'setFetchTime')]
+    #[SerializedName(name: 'fetchTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $fetchTime;
 
     /**
@@ -84,10 +109,15 @@ class VerifyStoreManagerResponse extends SoapResponse
      * 
      * @Accessor(getter="getDeleteTime", setter="setDeleteTime")
      * @SerializedName("deleteTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
      * @var int
      */
+    #[Accessor(getter: 'getDeleteTime', setter: 'setDeleteTime')]
+    #[SerializedName(name: 'deleteTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $deleteTime;
 
     /**

@@ -31,7 +31,12 @@ class CheckDirectoryResponse extends SoapResponse
      * @Accessor(getter="getPaths", setter="setPaths")
      * @Type("array<Zimbra\Admin\Struct\DirPathInfo>")
      * @XmlList(inline=true, entry="directory", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPaths', setter: 'setPaths')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\DirPathInfo>')]
+    #[XmlList(inline: true, entry: 'directory', namespace: 'urn:zimbraAdmin')]
     private $paths = [];
 
     /**

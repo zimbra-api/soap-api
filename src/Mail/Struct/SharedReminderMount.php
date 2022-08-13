@@ -38,7 +38,7 @@ class SharedReminderMount
      * 
      * @Accessor(getter="getShowReminders", setter="setShowReminders")
      * @SerializedName("reminder")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      */
     private $showReminders;

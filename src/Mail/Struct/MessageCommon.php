@@ -29,7 +29,7 @@ class MessageCommon implements MessageCommonInterface
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;
@@ -39,7 +39,7 @@ class MessageCommon implements MessageCommonInterface
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -77,7 +77,7 @@ class MessageCommon implements MessageCommonInterface
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -101,7 +101,7 @@ class MessageCommon implements MessageCommonInterface
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -111,7 +111,7 @@ class MessageCommon implements MessageCommonInterface
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -121,7 +121,7 @@ class MessageCommon implements MessageCommonInterface
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;

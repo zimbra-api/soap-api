@@ -34,7 +34,14 @@ class ContactBackupResponse extends SoapResponse
      * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getServers', setter: 'setServers')]
+    #[SerializedName(name: 'servers')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\ContactBackupServer>')]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
+    #[XmlList(inline: false, entry: 'server', namespace: 'urn:zimbraAdmin')]
     private $servers = [];
 
     /**

@@ -41,7 +41,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * 
      * @Accessor(getter="getImapUid", setter="setImapUid")
      * @SerializedName("i4uid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapUid;
@@ -102,7 +102,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * 
      * @Accessor(getter="getDraftAutoSendTime", setter="setDraftAutoSendTime")
      * @SerializedName("autoSendTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $draftAutoSendTime;
@@ -112,7 +112,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * 
      * @Accessor(getter="getSentDate", setter="setSentDate")
      * @SerializedName("sd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sentDate;
@@ -122,7 +122,7 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * 
      * @Accessor(getter="getResentDate", setter="setResentDate")
      * @SerializedName("rd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $resentDate;

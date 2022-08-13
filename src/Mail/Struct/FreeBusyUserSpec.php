@@ -29,7 +29,7 @@ class FreeBusyUserSpec
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $folderId;

@@ -39,7 +39,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -59,7 +59,7 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $nextAlarm;

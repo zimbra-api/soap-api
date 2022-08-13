@@ -51,7 +51,7 @@ class InviteAsMP extends MessageCommon
      * 
      * @Accessor(getter="getSentDate", setter="setSentDate")
      * @SerializedName("sd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sentDate;

@@ -34,7 +34,7 @@ class CalendarItemInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -78,7 +78,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -88,7 +88,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;
@@ -98,7 +98,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -118,7 +118,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -128,7 +128,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -138,7 +138,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $nextAlarm;
@@ -148,7 +148,7 @@ class CalendarItemInfo
      * 
      * @Accessor(getter="getOrphan", setter="setOrphan")
      * @SerializedName("orphan")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      */
     private $orphan;

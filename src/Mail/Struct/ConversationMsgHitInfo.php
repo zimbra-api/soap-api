@@ -39,7 +39,7 @@ class ConversationMsgHitInfo
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;
@@ -70,7 +70,7 @@ class ConversationMsgHitInfo
      * 
      * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
      * @SerializedName("autoSendTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $autoSendTime;
@@ -80,7 +80,7 @@ class ConversationMsgHitInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;

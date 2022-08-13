@@ -28,7 +28,7 @@ class ModifyContactSpec
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $id;

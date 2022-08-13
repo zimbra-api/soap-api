@@ -48,7 +48,7 @@ class DocAttachSpec extends AttachSpec
      * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $version;

@@ -36,7 +36,7 @@ class NoteActionSelector extends ActionSelector
     private $content;
 
     /**
-     * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * Bounds - x,y[width,height] where x,y,width and height are all ints
      * 
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")

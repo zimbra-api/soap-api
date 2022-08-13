@@ -29,7 +29,7 @@ class GetModifiedItemsIDsResponse extends SoapResponse
      * IDs of modified items
      * 
      * @Accessor(getter="getIds", setter="setIds")
-     * @Type("array<integer>")
+     * @Type("array<int>")
      * @XmlList(inline=true, entry="ids", namespace="urn:zimbraMail")
      */
     private $ids = [];

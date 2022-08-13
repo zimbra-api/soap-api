@@ -49,13 +49,13 @@ class NewNoteSpec
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
 
     /**
-     * Bounds - x,y[width,height] where x,y,width and height are all integers
+     * Bounds - x,y[width,height] where x,y,width and height are all ints
      * 
      * @Accessor(getter="getBounds", setter="setBounds")
      * @SerializedName("pos")

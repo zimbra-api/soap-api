@@ -58,9 +58,9 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *       INVALID_REQUEST if zid points to an existing object,
  *       Only supported if gt is usr|grp|cos|dom; otherwise server will throw INVALID_REQUEST.
  *
- *   <action op="url" id="{list}" url="{target-url}" [excludeFreeBusy="{exclude-free-busy-boolean}"]/>
+ *   <action op="url" id="{list}" url="{target-url}" [excludeFreeBusy="{exclude-free-busy-bool}"]/>
  *     - set the synchronization url on the folder to {target-url}, empty the folder, and\
- *       synchronize the folder's contents to the remote feed, also sets {exclude-free-busy-boolean}
+ *       synchronize the folder's contents to the remote feed, also sets {exclude-free-busy-bool}
  *
  *   <action op="sync" id="{list}"/>
  *     - synchronize the folder's contents to the remote feed specified by the folder's {url}
@@ -68,8 +68,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  *   <action op="import" id="{list}" url="{target-url}"/>
  *     - add the contents to the remote feed at {target-url} to the folder [1-time action]
  *
- *   <action op="fb" id="{list}" excludeFreeBusy="{exclude-free-busy-boolean}"/>
- *     - set the excludeFreeBusy boolean for this folder (must specify {exclude-free-busy-boolean})
+ *   <action op="fb" id="{list}" excludeFreeBusy="{exclude-free-busy-bool}"/>
+ *     - set the excludeFreeBusy bool for this folder (must specify {exclude-free-busy-bool})
  *
  *   <action op="[!]check" id="{list}"/>
  *     - set or unset the "checked" state of the folder in the UI

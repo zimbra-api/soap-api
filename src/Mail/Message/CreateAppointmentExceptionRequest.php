@@ -41,7 +41,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getNumComponents", setter="setNumComponents")
      * @SerializedName("comp")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $numComponents;
@@ -51,7 +51,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -61,7 +61,7 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;

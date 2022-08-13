@@ -40,7 +40,7 @@ class BrowseData
      * 
      * @Accessor(getter="getFrequency", setter="setFrequency")
      * @SerializedName("freq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $frequency;

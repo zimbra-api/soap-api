@@ -31,7 +31,13 @@ class CountObjectsResponse extends SoapResponse
      * @SerializedName("num")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNum', setter: 'setNum')]
+    #[SerializedName(name: 'num')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $num;
 
     /**
@@ -39,7 +45,13 @@ class CountObjectsResponse extends SoapResponse
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**

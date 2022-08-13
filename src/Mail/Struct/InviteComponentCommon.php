@@ -41,7 +41,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;
@@ -186,7 +186,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * 
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sequence;
@@ -196,7 +196,7 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * 
      * @Accessor(getter="getDateTime", setter="setDateTime")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $dateTime;

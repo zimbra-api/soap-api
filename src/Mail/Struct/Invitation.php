@@ -38,7 +38,7 @@ class Invitation
      * 
      * @Accessor(getter="getSequence", setter="setSequence")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sequence;
@@ -48,7 +48,7 @@ class Invitation
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $id;
@@ -58,7 +58,7 @@ class Invitation
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("compNum")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;

@@ -29,7 +29,7 @@ class GetLastItemIdInMailboxResponse extends SoapResponse
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $id;

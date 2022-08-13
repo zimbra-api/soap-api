@@ -27,12 +27,18 @@ class CreateLDAPEntryResponse extends SoapResponse
 {
     /**
      * Information about the newly created LDAPEntry
+     * 
      * @Accessor(getter="getLDAPEntry", setter="setLDAPEntry")
      * @SerializedName("LDAPEntry")
      * @Type("Zimbra\Admin\Struct\LDAPEntryInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var LDAPEntryInfo
      */
+    #[Accessor(getter: 'getLDAPEntry', setter: 'setLDAPEntry')]
+    #[SerializedName(name: 'LDAPEntry')]
+    #[Type(name: LDAPEntryInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $LDAPEntry;
 
     /**

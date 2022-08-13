@@ -31,7 +31,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * 
      * @Accessor(getter="getSeq", setter="setSeq")
      * @SerializedName("seq")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $seq;
@@ -41,7 +41,7 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;

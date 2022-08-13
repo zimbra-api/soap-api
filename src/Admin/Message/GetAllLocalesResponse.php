@@ -31,7 +31,12 @@ class GetAllLocalesResponse extends SoapResponse
      * @Accessor(getter="getLocales", setter="setLocales")
      * @Type("array<Zimbra\Admin\Struct\LocaleInfo>")
      * @XmlList(inline=true, entry="locale", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getLocales', setter: 'setLocales')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\LocaleInfo>')]
+    #[XmlList(inline: true, entry: 'locale', namespace: 'urn:zimbraAdmin')]
     private $locales = [];
 
     /**

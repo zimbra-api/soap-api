@@ -31,7 +31,13 @@ class CheckHealthResponse extends SoapResponse
      * @SerializedName("healthy")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isHealthy', setter: 'setHealthy')]
+    #[SerializedName(name: 'healthy')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $healthy;
 
     /**

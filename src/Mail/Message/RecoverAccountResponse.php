@@ -39,7 +39,7 @@ class RecoverAccountResponse extends SoapResponse
      * 
      * @Accessor(getter="getRecoveryAttemptsLeft", setter="setRecoveryAttemptsLeft")
      * @SerializedName("recoveryAttemptsLeft")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $recoveryAttemptsLeft;

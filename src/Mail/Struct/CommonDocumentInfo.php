@@ -58,7 +58,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getSize", setter="setSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $size;
@@ -69,7 +69,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -99,7 +99,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -109,7 +109,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getMetadataVersion", setter="setMetadataVersion")
      * @SerializedName("mdver")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $metadataVersion;
@@ -120,7 +120,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -130,7 +130,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -146,7 +146,7 @@ class CommonDocumentInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -200,7 +200,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getVersion", setter="setVersion")
      * @SerializedName("ver")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $version;
@@ -230,7 +230,7 @@ class CommonDocumentInfo
      * 
      * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
      * @SerializedName("cd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $createdDate;

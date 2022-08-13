@@ -89,7 +89,7 @@ class SetAppointmentRequest extends SoapRequest
      * 
      * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
      * @SerializedName("nextAlarm")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $nextAlarm;

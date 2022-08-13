@@ -29,7 +29,7 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * 
      * @Accessor(getter="getStartTime", setter="setStartTime")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $startTime;

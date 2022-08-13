@@ -30,7 +30,12 @@ class CheckDomainMXRecordResponse extends SoapResponse
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
     private $entries = [];
 
     /**
@@ -40,7 +45,13 @@ class CheckDomainMXRecordResponse extends SoapResponse
      * @SerializedName("code")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCode', setter: 'setCode')]
+    #[SerializedName(name: 'code')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -50,7 +61,13 @@ class CheckDomainMXRecordResponse extends SoapResponse
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
+    #[SerializedName(name: 'message')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**

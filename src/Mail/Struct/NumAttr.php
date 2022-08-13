@@ -30,7 +30,7 @@ class NumAttr implements NumAttrInterface
      * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("num")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $num;

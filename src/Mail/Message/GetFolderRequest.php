@@ -71,7 +71,7 @@ class GetFolderRequest extends SoapRequest
      * 
      * @Accessor(getter="getTreeDepth", setter="setTreeDepth")
      * @SerializedName("depth")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $treeDepth;

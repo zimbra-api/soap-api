@@ -32,7 +32,13 @@ class CheckGalConfigResponse extends SoapResponse
      * @SerializedName("code")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCode', setter: 'setCode')]
+    #[SerializedName(name: 'code')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -42,7 +48,13 @@ class CheckGalConfigResponse extends SoapResponse
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
+    #[SerializedName(name: 'message')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**
@@ -51,7 +63,12 @@ class CheckGalConfigResponse extends SoapResponse
      * @Accessor(getter="getGalContacts", setter="setGalContacts")
      * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getGalContacts', setter: 'setGalContacts')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\GalContactInfo>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraAdmin')]
     private $galContacts = [];
 
     /**

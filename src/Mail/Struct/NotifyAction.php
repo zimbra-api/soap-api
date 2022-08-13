@@ -50,7 +50,7 @@ class NotifyAction extends FilterAction
      * 
      * @Accessor(getter="getMaxBodySize", setter="setMaxBodySize")
      * @SerializedName("maxBodySize")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $maxBodySize;

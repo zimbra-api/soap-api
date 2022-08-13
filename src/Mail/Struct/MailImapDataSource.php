@@ -55,7 +55,7 @@ class MailImapDataSource extends MailDataSource implements ImapDataSource
     private $clientSecret;
 
     /**
-     * boolean field for client to denote if it wants to test the data source before creating
+     * bool field for client to denote if it wants to test the data source before creating
      * 
      * @Accessor(getter="isTest", setter="setTest")
      * @SerializedName("test")

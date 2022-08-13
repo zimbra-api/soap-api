@@ -29,7 +29,7 @@ class RecordIMAPSessionResponse extends SoapResponse
      * 
      * @Accessor(getter="getLastItemId", setter="setLastItemId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $lastItemId;

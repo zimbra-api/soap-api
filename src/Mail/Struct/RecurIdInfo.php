@@ -31,7 +31,7 @@ class RecurIdInfo implements RecurIdInfoInterface
      * 
      * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
      * @SerializedName("rangeType")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $recurrenceRangeType;

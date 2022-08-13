@@ -31,7 +31,12 @@ class GetLoggerStatsResponse extends SoapResponse
      * @Accessor(getter="getHostNames", setter="setHostNames")
      * @Type("array<Zimbra\Admin\Struct\HostStats>")
      * @XmlList(inline=true, entry="hostname", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getHostNames', setter: 'setHostNames')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\HostStats>')]
+    #[XmlList(inline: true, entry: 'hostname', namespace: 'urn:zimbraAdmin')]
     private $hostNames = [];
 
     /**
@@ -41,7 +46,13 @@ class GetLoggerStatsResponse extends SoapResponse
      * @SerializedName("note")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var note
      */
+    #[Accessor(getter: 'getNote', setter: 'setNote')]
+    #[SerializedName(name: 'note')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $note;
 
     /**

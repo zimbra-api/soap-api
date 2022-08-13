@@ -28,7 +28,7 @@ class TestDataSource
      * 
      * @Accessor(getter="getSuccess", setter="setSuccess")
      * @SerializedName("success")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $success;

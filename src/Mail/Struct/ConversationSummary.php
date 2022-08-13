@@ -39,7 +39,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $num;
@@ -49,7 +49,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getNumUnread", setter="setNumUnread")
      * @SerializedName("u")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $numUnread;
@@ -59,7 +59,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("total")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $totalSize;
@@ -75,7 +75,7 @@ class ConversationSummary
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -99,7 +99,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -119,7 +119,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -129,7 +129,7 @@ class ConversationSummary
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;

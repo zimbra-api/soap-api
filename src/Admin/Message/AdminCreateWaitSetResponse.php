@@ -32,7 +32,13 @@ class AdminCreateWaitSetResponse extends SoapResponse
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
+    #[SerializedName(name: 'waitSet')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $waitSetId;
 
     /**
@@ -42,7 +48,13 @@ class AdminCreateWaitSetResponse extends SoapResponse
      * @SerializedName("defTypes")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
+    #[SerializedName(name: 'defTypes')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultInterests;
 
     /**
@@ -52,7 +64,13 @@ class AdminCreateWaitSetResponse extends SoapResponse
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $sequence;
 
     /**
@@ -61,7 +79,12 @@ class AdminCreateWaitSetResponse extends SoapResponse
      * @Accessor(getter="getErrors", setter="setErrors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
+    #[Type(name: 'array<Zimbra\Common\Struct\IdAndType>')]
+    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraAdmin')]
     private $errors = [];
 
     /**

@@ -31,7 +31,13 @@ class CheckAuthConfigResponse extends SoapResponse
      * @SerializedName("code")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCode', setter: 'setCode')]
+    #[SerializedName(name: 'code')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $code;
 
     /**
@@ -41,7 +47,13 @@ class CheckAuthConfigResponse extends SoapResponse
      * @SerializedName("bindDn")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBindDn', setter: 'setBindDn')]
+    #[SerializedName(name: 'bindDn')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $bindDn;
 
     /**
@@ -51,7 +63,13 @@ class CheckAuthConfigResponse extends SoapResponse
      * @SerializedName("message")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessage', setter: 'setMessage')]
+    #[SerializedName(name: 'message')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraAdmin')]
     private $message;
 
     /**

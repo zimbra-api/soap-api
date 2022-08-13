@@ -103,7 +103,7 @@ class Folder
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -123,7 +123,7 @@ class Folder
      * 
      * @Accessor(getter="getUnreadCount", setter="setUnreadCount")
      * @SerializedName("u")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $unreadCount;
@@ -133,7 +133,7 @@ class Folder
      * 
      * @Accessor(getter="getImapUnreadCount", setter="setImapUnreadCount")
      * @SerializedName("i4u")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapUnreadCount;
@@ -154,7 +154,7 @@ class Folder
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -164,7 +164,7 @@ class Folder
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;
@@ -174,7 +174,7 @@ class Folder
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -184,7 +184,7 @@ class Folder
      * 
      * @Accessor(getter="getItemCount", setter="setItemCount")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $itemCount;
@@ -194,7 +194,7 @@ class Folder
      * 
      * @Accessor(getter="getImapItemCount", setter="setImapItemCount")
      * @SerializedName("i4n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapItemCount;
@@ -204,7 +204,7 @@ class Folder
      * 
      * @Accessor(getter="getTotalSize", setter="setTotalSize")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $totalSize;
@@ -214,7 +214,7 @@ class Folder
      * 
      * @Accessor(getter="getImapModifiedSequence", setter="setImapModifiedSequence")
      * @SerializedName("i4ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapModifiedSequence;
@@ -224,7 +224,7 @@ class Folder
      * 
      * @Accessor(getter="getImapUidNext", setter="setImapUidNext")
      * @SerializedName("i4next")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapUidNext;
@@ -254,7 +254,7 @@ class Folder
      * 
      * @Accessor(getter="getWebOfflineSyncDays", setter="setWebOfflineSyncDays")
      * @SerializedName("webOfflineSyncDays")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $webOfflineSyncDays;

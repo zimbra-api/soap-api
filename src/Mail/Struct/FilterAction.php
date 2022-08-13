@@ -28,7 +28,7 @@ class FilterAction
      * 
      * @Accessor(getter="getIndex", setter="setIndex")
      * @SerializedName("index")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $index;

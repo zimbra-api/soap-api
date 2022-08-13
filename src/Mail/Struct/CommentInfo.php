@@ -74,7 +74,7 @@ class CommentInfo
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -98,7 +98,7 @@ class CommentInfo
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -118,7 +118,7 @@ class CommentInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;

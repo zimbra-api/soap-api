@@ -32,7 +32,12 @@ class GetCurrentVolumesResponse extends SoapResponse
      * @Accessor(getter="getVolumes", setter="setVolumes")
      * @Type("array<Zimbra\Admin\Struct\CurrentVolumeInfo>")
      * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CurrentVolumeInfo>')]
+    #[XmlList(inline: true, entry: 'volume', namespace: 'urn:zimbraAdmin')]
     private $volumes = [];
 
     /**

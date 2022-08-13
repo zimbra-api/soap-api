@@ -30,7 +30,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
      * 
      * @Accessor(getter="getFolderId", setter="setFolderId")
      * @SerializedName("l")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $folderId;
@@ -40,7 +40,7 @@ class GetModifiedItemsIDsRequest extends SoapRequest
      * 
      * @Accessor(getter="getModSeq", setter="setModSeq")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modSeq;

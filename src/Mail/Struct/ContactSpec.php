@@ -29,7 +29,7 @@ class ContactSpec implements SpecifyContact
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $id;
@@ -45,7 +45,7 @@ class ContactSpec implements SpecifyContact
     private $folder;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")

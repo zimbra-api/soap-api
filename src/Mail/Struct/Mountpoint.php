@@ -48,7 +48,7 @@ class Mountpoint extends Folder
      * 
      * @Accessor(getter="getRemoteFolderId", setter="setRemoteFolderId")
      * @SerializedName("rid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $remoteFolderId;

@@ -41,7 +41,7 @@ class WkDay implements WkDayInterface
      * 
      * @Accessor(getter="getOrdWk", setter="setOrdWk")
      * @SerializedName("ordwk")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $ordWk;

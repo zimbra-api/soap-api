@@ -32,8 +32,13 @@ class GetVersionInfoResponse extends SoapResponse
      * @SerializedName("info")
      * @Type("Zimbra\Admin\Struct\VersionInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var VersionInfo
      */
+    #[Accessor(getter: 'getInfo', setter: 'setInfo')]
+    #[SerializedName(name: 'info')]
+    #[Type(name: VersionInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $info;
 
     /**

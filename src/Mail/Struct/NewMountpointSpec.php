@@ -62,7 +62,7 @@ class NewMountpointSpec
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -142,7 +142,7 @@ class NewMountpointSpec
      * 
      * @Accessor(getter="getRemoteId", setter="setRemoteId")
      * @SerializedName("rid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $remoteId;

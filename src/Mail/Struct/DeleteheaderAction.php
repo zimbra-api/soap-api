@@ -38,7 +38,7 @@ class DeleteheaderAction extends FilterAction
      * 
      * @Accessor(getter="getOffset", setter="setOffset")
      * @SerializedName("offset")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $offset;

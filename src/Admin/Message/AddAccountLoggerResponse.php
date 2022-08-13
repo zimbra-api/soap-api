@@ -31,7 +31,12 @@ class AddAccountLoggerResponse extends SoapResponse
      * @Accessor(getter="getLoggers", setter="setLoggers")
      * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
      * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\LoggerInfo>')]
+    #[XmlList(inline: true, entry: 'logger', namespace: 'urn:zimbraAdmin')]
     private $loggers = [];
 
     /**

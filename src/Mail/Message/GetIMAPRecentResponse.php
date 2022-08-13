@@ -30,7 +30,7 @@ class GetIMAPRecentResponse extends SoapResponse
      * 
      * @Accessor(getter="getNum", setter="setNum")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $num;

@@ -31,7 +31,12 @@ class CheckBlobConsistencyResponse extends SoapResponse
      * @Accessor(getter="getMailboxes", setter="setMailboxes")
      * @Type("array<Zimbra\Admin\Struct\MailboxBlobConsistency>")
      * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\MailboxBlobConsistency>')]
+    #[XmlList(inline: true, entry: 'mbox', namespace: 'urn:zimbraAdmin')]
     private $mailboxes = [];
 
     /**

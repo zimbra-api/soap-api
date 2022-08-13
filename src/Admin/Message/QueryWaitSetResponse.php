@@ -31,7 +31,12 @@ class QueryWaitSetResponse extends SoapResponse
      * @Accessor(getter="getWaitsets", setter="setWaitsets")
      * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
      * @XmlList(inline=true, entry="waitSet", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getWaitsets', setter: 'setWaitsets')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\WaitSetInfo>')]
+    #[XmlList(inline: true, entry: 'waitSet', namespace: 'urn:zimbraAdmin')]
     private $waitsets = [];
 
     /**

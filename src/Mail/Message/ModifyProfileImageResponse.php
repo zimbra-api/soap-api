@@ -29,7 +29,7 @@ class ModifyProfileImageResponse extends SoapResponse
      * 
      * @Accessor(getter="getItemId", setter="setItemId")
      * @SerializedName("itemId")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $itemId;

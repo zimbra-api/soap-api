@@ -31,7 +31,12 @@ class GetAllDistributionListsResponse extends SoapResponse
      * @Accessor(getter="getDls", setter="setDls")
      * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
      * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDls', setter: 'setDls')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\DistributionListInfo>')]
+    #[XmlList(inline: true, entry: 'dl', namespace: 'urn:zimbraAdmin')]
     private $dls = [];
 
     /**

@@ -79,7 +79,7 @@ class MsgSpec
      * 
      * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
      * @SerializedName("max")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $maxInlinedLength;

@@ -43,7 +43,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @Accessor(getter="getImapUid", setter="setImapUid")
      * @SerializedName("i4uid")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $imapUid;
@@ -104,7 +104,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @Accessor(getter="getDraftAutoSendTime", setter="setDraftAutoSendTime")
      * @SerializedName("autoSendTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $draftAutoSendTime;
@@ -114,7 +114,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @Accessor(getter="getSentDate", setter="setSentDate")
      * @SerializedName("sd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $sentDate;
@@ -124,7 +124,7 @@ class MsgWithGroupInfo extends MessageCommon
      * 
      * @Accessor(getter="getResentDate", setter="setResentDate")
      * @SerializedName("rd")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $resentDate;

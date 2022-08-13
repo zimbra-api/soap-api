@@ -32,7 +32,13 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -40,9 +46,15 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
+    #[SerializedName(name: 'searchTotal')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $searchTotal;
 
     /**
@@ -51,7 +63,12 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * @Accessor(getter="getCalResources", setter="setCalResources")
      * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
      * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCalResources', setter: 'setCalResources')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\CalendarResourceInfo>')]
+    #[XmlList(inline: true, entry: 'calresource', namespace: 'urn:zimbraAdmin')]
     private $calResources = [];
 
     /**

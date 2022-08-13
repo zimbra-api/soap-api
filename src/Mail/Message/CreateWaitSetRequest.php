@@ -60,7 +60,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * 
      * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
      * @SerializedName("allAccounts")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      */
     private $allAccounts;

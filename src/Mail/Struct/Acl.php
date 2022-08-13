@@ -29,7 +29,7 @@ class Acl
      * 
      * @Accessor(getter="getInternalGrantExpiry", setter="setInternalGrantExpiry")
      * @SerializedName("internalGrantExpiry")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $internalGrantExpiry;
@@ -39,7 +39,7 @@ class Acl
      * 
      * @Accessor(getter="getGuestGrantExpiry", setter="setGuestGrantExpiry")
      * @SerializedName("guestGrantExpiry")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $guestGrantExpiry;

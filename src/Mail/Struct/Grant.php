@@ -61,7 +61,7 @@ class Grant
      * 
      * @Accessor(getter="getExpiry", setter="setExpiry")
      * @SerializedName("expiry")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $expiry;

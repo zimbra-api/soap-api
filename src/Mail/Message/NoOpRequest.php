@@ -90,7 +90,7 @@ class NoOpRequest extends SoapRequest
      * 
      * @Accessor(getter="getTimeout", setter="setTimeout")
      * @SerializedName("timeout")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $timeout;

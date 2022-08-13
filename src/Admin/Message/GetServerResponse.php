@@ -32,8 +32,13 @@ class GetServerResponse extends SoapResponse
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ServerInfo
      */
+    #[Accessor(getter: 'getServer', setter: 'setServer')]
+    #[SerializedName(name: 'server')]
+    #[Type(name: ServerInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $server;
 
     /**

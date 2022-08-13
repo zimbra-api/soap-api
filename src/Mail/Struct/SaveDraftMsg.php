@@ -29,7 +29,7 @@ class SaveDraftMsg extends Msg
      * 
      * @Accessor(getter="getId", setter="setId")
      * @SerializedName("id")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $id;
@@ -45,7 +45,7 @@ class SaveDraftMsg extends Msg
     private $draftAccountId;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")
@@ -79,7 +79,7 @@ class SaveDraftMsg extends Msg
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -89,7 +89,7 @@ class SaveDraftMsg extends Msg
      * 
      * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
      * @SerializedName("autoSendTime")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $autoSendTime;

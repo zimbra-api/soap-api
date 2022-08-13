@@ -38,7 +38,7 @@ class SnoozeAlarm
      * 
      * @Accessor(getter="getSnoozeUntil", setter="setSnoozeUntil")
      * @SerializedName("until")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $snoozeUntil;

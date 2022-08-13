@@ -49,7 +49,7 @@ class TagInfo
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -69,7 +69,7 @@ class TagInfo
      * 
      * @Accessor(getter="getUnread", setter="setUnread")
      * @SerializedName("u")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $unread;
@@ -79,7 +79,7 @@ class TagInfo
      * 
      * @Accessor(getter="getCount", setter="setCount")
      * @SerializedName("n")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $count;
@@ -89,7 +89,7 @@ class TagInfo
      * 
      * @Accessor(getter="getDate", setter="setDate")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $date;
@@ -99,7 +99,7 @@ class TagInfo
      * 
      * @Accessor(getter="getRevision", setter="setRevision")
      * @SerializedName("rev")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $revision;
@@ -109,7 +109,7 @@ class TagInfo
      * 
      * @Accessor(getter="getChangeDate", setter="setChangeDate")
      * @SerializedName("md")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $changeDate;
@@ -119,7 +119,7 @@ class TagInfo
      * 
      * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
      * @SerializedName("ms")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $modifiedSequence;

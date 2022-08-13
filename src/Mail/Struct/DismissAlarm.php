@@ -38,7 +38,7 @@ class DismissAlarm
      * 
      * @Accessor(getter="getDismissedAt", setter="setDismissedAt")
      * @SerializedName("dismissedAt")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $dismissedAt;

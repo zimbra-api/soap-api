@@ -51,7 +51,7 @@ class AutoCompleteMatch
      * 
      * @Accessor(getter="getRanking", setter="setRanking")
      * @SerializedName("ranking")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $ranking;

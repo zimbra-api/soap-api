@@ -31,7 +31,12 @@ class GetServerNIfsResponse extends SoapResponse
      * @Accessor(getter="getNetworkInterfaces", setter="setNetworkInterfaces")
      * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
      * @XmlList(inline=true, entry="ni", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getNetworkInterfaces', setter: 'setNetworkInterfaces')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\NetworkInformation>')]
+    #[XmlList(inline: true, entry: 'ni', namespace: 'urn:zimbraAdmin')]
     private $networkInterfaces = [];
 
     /**

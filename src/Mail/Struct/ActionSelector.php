@@ -87,7 +87,7 @@ class ActionSelector
      * 
      * @Accessor(getter="getTag", setter="setTag")
      * @SerializedName("tag")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $tag;
@@ -117,7 +117,7 @@ class ActionSelector
      * 
      * @Accessor(getter="getColor", setter="setColor")
      * @SerializedName("color")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $color;
@@ -143,7 +143,7 @@ class ActionSelector
     private $flags;
 
     /**
-     * Tags - Comma separated list of integers.  DEPRECATED - use "tn" instead
+     * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
      * @Accessor(getter="getTags", setter="setTags")
      * @SerializedName("t")

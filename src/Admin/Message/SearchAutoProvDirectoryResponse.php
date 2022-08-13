@@ -32,7 +32,13 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getMore', setter: 'setMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $more;
 
     /**
@@ -40,9 +46,15 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
      * 
      * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
      * @SerializedName("searchTotal")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
+    #[SerializedName(name: 'searchTotal')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $searchTotal;
 
     /**
@@ -51,7 +63,12 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
      * @Accessor(getter="getEntries", setter="setEntries")
      * @Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")
      * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getEntries', setter: 'setEntries')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>')]
+    #[XmlList(inline: true, entry: 'entry', namespace: 'urn:zimbraAdmin')]
     private $entries = [];
 
     /**

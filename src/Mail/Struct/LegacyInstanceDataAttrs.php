@@ -29,7 +29,7 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
      * 
      * @Accessor(getter="getDuration", setter="setDuration")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $duration;

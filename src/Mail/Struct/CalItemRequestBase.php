@@ -40,7 +40,7 @@ abstract class CalItemRequestBase extends SoapRequest
      * 
      * @Accessor(getter="getMaxSize", setter="setMaxSize")
      * @SerializedName("max")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $maxSize;

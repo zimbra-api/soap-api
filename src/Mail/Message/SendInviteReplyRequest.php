@@ -42,7 +42,7 @@ class SendInviteReplyRequest extends SoapRequest
      * 
      * @Accessor(getter="getComponentNum", setter="setComponentNum")
      * @SerializedName("comp")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $componentNum;

@@ -37,7 +37,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     /**
      * @Accessor(getter="getDataSourceQuota", setter="setDataSourceQuota")
      * @SerializedName("dsQuota")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $dataSourceQuota;
@@ -45,7 +45,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     /**
      * @Accessor(getter="getDataSourceTotalQuota", setter="setDataSourceTotalQuota")
      * @SerializedName("dsTotalQuota")
-     * @Type("integer")
+     * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     private $totalQuota;

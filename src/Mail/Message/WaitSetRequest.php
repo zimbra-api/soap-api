@@ -73,7 +73,7 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * 
      * @Accessor(getter="getBlock", setter="setBlock")
      * @SerializedName("block")
-     * @Type("boolean")
+     * @Type("bool")
      * @XmlAttribute
      */
     private $block;
@@ -101,13 +101,13 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * 
      * @Accessor(getter="getTimeout", setter="setTimeout")
      * @SerializedName("timeout")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $timeout;
 
     /**
-     * boolean flag. If true, WaitSetResponse will include details of Pending Modifications.
+     * bool flag. If true, WaitSetResponse will include details of Pending Modifications.
      * 
      * @Accessor(getter="getExpand", setter="setExpand")
      * @SerializedName("expand")

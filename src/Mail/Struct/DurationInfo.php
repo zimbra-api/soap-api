@@ -42,7 +42,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getWeeks", setter="setWeeks")
      * @SerializedName("w")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $weeks;
@@ -52,7 +52,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getDays", setter="setDays")
      * @SerializedName("d")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $days;
@@ -62,7 +62,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getHours", setter="setHours")
      * @SerializedName("h")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $hours;
@@ -72,7 +72,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getMinutes", setter="setMinutes")
      * @SerializedName("m")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $minutes;
@@ -82,7 +82,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getSeconds", setter="setSeconds")
      * @SerializedName("s")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $seconds;
@@ -104,7 +104,7 @@ class DurationInfo implements DurationInfoInterface
      * 
      * @Accessor(getter="getRepeatCount", setter="setRepeatCount")
      * @SerializedName("count")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
      */
     private $repeatCount;

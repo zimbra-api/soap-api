@@ -33,8 +33,13 @@ class GetAllEffectiveRightsResponse extends SoapResponse
      * @SerializedName("grantee")
      * @Type("Zimbra\Admin\Struct\GranteeInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeInfo
      */
+    #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
+    #[SerializedName(name: 'grantee')]
+    #[Type(name: GranteeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $grantee;
 
     /**
@@ -43,7 +48,12 @@ class GetAllEffectiveRightsResponse extends SoapResponse
      * @Accessor(getter="getTargets", setter="setTargets")
      * @Type("array<Zimbra\Admin\Struct\EffectiveRightsTarget>")
      * @XmlList(inline=true, entry="target", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTargets', setter: 'setTargets')]
+    #[Type(name: 'array<Zimbra\Admin\Struct\EffectiveRightsTarget>')]
+    #[XmlList(inline: true, entry: 'target', namespace: 'urn:zimbraAdmin')]
     private $targets = [];
 
     /**

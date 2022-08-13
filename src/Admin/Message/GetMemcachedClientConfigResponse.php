@@ -31,7 +31,13 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @SerializedName("serverList")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getServerList', setter: 'setServerList')]
+    #[SerializedName(name: 'serverList')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $serverList;
 
     /**
@@ -41,7 +47,13 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @SerializedName("hashAlgorithm")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHashAlgorithm', setter: 'setHashAlgorithm')]
+    #[SerializedName(name: 'hashAlgorithm')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $hashAlgorithm;
 
     /**
@@ -51,7 +63,13 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * @SerializedName("binaryProtocol")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getBinaryProtocolEnabled', setter: 'setBinaryProtocolEnabled')]
+    #[SerializedName(name: 'binaryProtocol')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $binaryProtocolEnabled;
 
     /**
@@ -59,9 +77,15 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * 
      * @Accessor(getter="getDefaultExpirySeconds", setter="setDefaultExpirySeconds")
      * @SerializedName("defaultExpirySeconds")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDefaultExpirySeconds', setter: 'setDefaultExpirySeconds')]
+    #[SerializedName(name: 'defaultExpirySeconds')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $defaultExpirySeconds;
 
     /**
@@ -69,9 +93,15 @@ class GetMemcachedClientConfigResponse extends SoapResponse
      * 
      * @Accessor(getter="getDefaultTimeoutMillis", setter="setDefaultTimeoutMillis")
      * @SerializedName("defaultTimeoutMillis")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDefaultTimeoutMillis', setter: 'setDefaultTimeoutMillis')]
+    #[SerializedName(name: 'defaultTimeoutMillis')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $defaultTimeoutMillis;
 
     /**

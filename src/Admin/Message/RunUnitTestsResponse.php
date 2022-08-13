@@ -32,8 +32,13 @@ class RunUnitTestsResponse extends SoapResponse
      * @SerializedName("results")
      * @Type("Zimbra\Admin\Struct\TestResultInfo")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TestResultInfo
      */
+    #[Accessor(getter: 'getResults', setter: 'setResults')]
+    #[SerializedName(name: 'results')]
+    #[Type(name: TestResultInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraAdmin')]
     private $results;
 
     /**
@@ -41,9 +46,15 @@ class RunUnitTestsResponse extends SoapResponse
      * 
      * @Accessor(getter="getNumExecuted", setter="setNumExecuted")
      * @SerializedName("numExecuted")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumExecuted', setter: 'setNumExecuted')]
+    #[SerializedName(name: 'numExecuted')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numExecuted;
 
     /**
@@ -51,9 +62,15 @@ class RunUnitTestsResponse extends SoapResponse
      * 
      * @Accessor(getter="getNumFailed", setter="setNumFailed")
      * @SerializedName("numFailed")
-     * @Type("integer")
+     * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
+    #[SerializedName(name: 'numFailed')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numFailed;
 
     /**
