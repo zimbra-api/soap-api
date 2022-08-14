@@ -35,7 +35,13 @@ class ConvActionSelector extends ActionSelector
      * @SerializedName("acctRelPath")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getAcctRelativePath", setter: "setAcctRelativePath")]
+    #[SerializedName(name: 'acctRelPath')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $acctRelativePath;
 
     /**

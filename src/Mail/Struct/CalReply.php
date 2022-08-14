@@ -31,7 +31,13 @@ class CalReply extends RecurIdInfo
      * @SerializedName("at")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
+    #[SerializedName(name: 'at')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attendee;
 
     /**
@@ -41,7 +47,13 @@ class CalReply extends RecurIdInfo
      * @SerializedName("sentBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
+    #[SerializedName(name: 'sentBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sentBy;
 
     /**
@@ -55,8 +67,13 @@ class CalReply extends RecurIdInfo
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * 
      * @var ParticipationStatus
      */
+    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
+    #[SerializedName(name: 'ptst')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[XmlAttribute]
     private $partStat;
 
     /**
@@ -66,7 +83,13 @@ class CalReply extends RecurIdInfo
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $sequence;
 
     /**
@@ -76,7 +99,13 @@ class CalReply extends RecurIdInfo
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**

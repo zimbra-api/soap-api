@@ -30,7 +30,13 @@ class FilterTest
      * @SerializedName("index")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getIndex', setter: 'setIndex')]
+    #[SerializedName(name: 'index')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $index;
 
     /**
@@ -40,7 +46,13 @@ class FilterTest
      * @SerializedName("negative")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isNegative', setter: 'setNegative')]
+    #[SerializedName(name: 'negative')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $negative;
 
     /**

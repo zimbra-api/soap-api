@@ -32,7 +32,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**
@@ -42,7 +48,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
+    #[SerializedName(name: 'url')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $url;
 
     /**
@@ -52,7 +64,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**
@@ -62,7 +80,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("sentBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
+    #[SerializedName(name: 'sentBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sentBy;
 
     /**
@@ -72,7 +96,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("dir")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDir', setter: 'setDir')]
+    #[SerializedName(name: 'dir')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dir;
 
     /**
@@ -82,7 +112,13 @@ class CalOrganizer implements CalOrganizerInterface
      * @SerializedName("lang")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
+    #[SerializedName(name: 'lang')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $language;
 
     /**
@@ -91,7 +127,12 @@ class CalOrganizer implements CalOrganizerInterface
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\XParam>')]
+    #[XmlList(inline: true, entry: "xparam", namespace: 'urn:zimbraMail')]
     private $xParams = [];
 
     /**

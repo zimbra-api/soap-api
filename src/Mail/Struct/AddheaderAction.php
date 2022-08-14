@@ -30,7 +30,13 @@ class AddheaderAction extends FilterAction
      * @SerializedName("headerName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[SerializedName(name: 'headerName')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $headerName;
 
     /**
@@ -40,7 +46,13 @@ class AddheaderAction extends FilterAction
      * @SerializedName("headerValue")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
+    #[SerializedName(name: 'headerValue')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $headerValue;
 
     /**
@@ -50,7 +62,13 @@ class AddheaderAction extends FilterAction
      * @SerializedName("last")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getLast', setter: 'setLast')]
+    #[SerializedName(name: 'last')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $last;
 
     /**

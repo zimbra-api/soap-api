@@ -30,7 +30,13 @@ class ContactRankingTest extends FilterTest
      * @SerializedName("header")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHeader', setter: 'setHeader')]
+    #[SerializedName(name: 'header')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $header;
 
     /**

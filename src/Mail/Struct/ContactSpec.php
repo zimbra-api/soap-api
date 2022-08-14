@@ -31,7 +31,13 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
@@ -51,7 +63,13 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -61,7 +79,13 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -71,8 +95,13 @@ class ContactSpec implements SpecifyContact
      * @SerializedName("vcard")
      * @Type("Zimbra\Mail\Struct\VCardInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var VCardInfo
      */
+    #[Accessor(getter: "getVcard", setter: "setVcard")]
+    #[SerializedName(name: 'vcard')]
+    #[Type(name: VCardInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $vcard;
 
     /**
@@ -81,7 +110,12 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\NewContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\NewContactAttr>')]
+    #[XmlList(inline: true, entry: "a", namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
     /**
@@ -91,7 +125,12 @@ class ContactSpec implements SpecifyContact
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Mail\Struct\NewContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getContactGroupMembers", setter: 'setContactGroupMembers')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\NewContactGroupMember>')]
+    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 
     /**

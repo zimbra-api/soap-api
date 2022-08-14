@@ -33,7 +33,13 @@ class DocumentSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -43,7 +49,13 @@ class DocumentSpec
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'ct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentType;
 
     /**
@@ -53,7 +65,13 @@ class DocumentSpec
      * @SerializedName("desc")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDescription', setter: 'setDescription')]
+    #[SerializedName(name: 'desc')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $description;
 
     /**
@@ -63,7 +81,13 @@ class DocumentSpec
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -73,7 +97,13 @@ class DocumentSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -83,7 +113,13 @@ class DocumentSpec
      * @SerializedName("ver")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
+    #[SerializedName(name: 'ver')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $version;
 
     /**
@@ -93,7 +129,13 @@ class DocumentSpec
      * @SerializedName("content")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $content;
 
     /**
@@ -103,7 +145,13 @@ class DocumentSpec
      * @SerializedName("descEnabled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDescEnabled', setter: 'setDescEnabled')]
+    #[SerializedName(name: 'descEnabled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $descEnabled;
 
     /**
@@ -114,7 +162,13 @@ class DocumentSpec
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -124,8 +178,13 @@ class DocumentSpec
      * @SerializedName("upload")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Id
      */
+    #[Accessor(getter: "getUpload", setter: "setUpload")]
+    #[SerializedName(name: 'upload')]
+    #[Type(name: Id::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $upload;
 
     /**
@@ -135,8 +194,13 @@ class DocumentSpec
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessagePartSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MessagePartSpec
      */
+    #[Accessor(getter: "getMessagePart", setter: "setMessagePart")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MessagePartSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $messagePart;
 
     /**
@@ -146,8 +210,13 @@ class DocumentSpec
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\IdVersion")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var IdVersion
      */
+    #[Accessor(getter: "getDocRevision", setter: "setDocRevision")]
+    #[SerializedName(name: 'doc')]
+    #[Type(name: IdVersion::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $docRevision;
 
     /**

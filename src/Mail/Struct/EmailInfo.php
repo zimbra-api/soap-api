@@ -33,7 +33,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**
@@ -44,7 +50,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplay', setter: 'setDisplay')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $display;
 
     /**
@@ -54,7 +66,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("p")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
+    #[SerializedName(name: 'p')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $personal;
 
     /**
@@ -65,8 +83,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
+     * 
      * @var AddressType
      */
+    #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AddressType>')]
+    #[XmlAttribute]
     private $addressType;
 
     /**
@@ -76,7 +99,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("isGroup")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getGroup', setter: 'setGroup')]
+    #[SerializedName(name: 'isGroup')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $group;
 
     /**
@@ -86,7 +115,13 @@ class EmailInfo implements EmailInfoInterface
      * @SerializedName("exp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCanExpandGroupMembers', setter: 'setCanExpandGroupMembers')]
+    #[SerializedName(name: 'exp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $canExpandGroupMembers;
 
     /**

@@ -30,7 +30,13 @@ class DocumentInfo extends CommonDocumentInfo
      * @SerializedName("loid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLockOwnerId', setter: 'setLockOwnerId')]
+    #[SerializedName(name: 'loid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $lockOwnerId;
 
     /**
@@ -40,7 +46,13 @@ class DocumentInfo extends CommonDocumentInfo
      * @SerializedName("loe")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLockOwnerEmail', setter: 'setLockOwnerEmail')]
+    #[SerializedName(name: 'loe')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $lockOwnerEmail;
 
     /**
@@ -50,7 +62,13 @@ class DocumentInfo extends CommonDocumentInfo
      * @SerializedName("lt")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLockOwnerTimestamp', setter: 'setLockOwnerTimestamp')]
+    #[SerializedName(name: 'lt')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $lockOwnerTimestamp;
 
     /**

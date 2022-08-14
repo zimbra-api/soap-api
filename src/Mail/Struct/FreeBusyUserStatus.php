@@ -32,7 +32,13 @@ class FreeBusyUserStatus
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,8 +48,13 @@ class FreeBusyUserStatus
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * 
      * @var FreeBusyStatus
      */
+    #[Accessor(getter: 'getFreebusyStatus', setter: 'setFreebusyStatus')]
+    #[SerializedName(name: 'fb')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[XmlAttribute]
     private $freebusyStatus;
 
     /**

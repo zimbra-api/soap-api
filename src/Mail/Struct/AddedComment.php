@@ -30,7 +30,13 @@ class AddedComment
      * @SerializedName("parentId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getParentId', setter: 'setParentId')]
+    #[SerializedName(name: 'parentId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $parentId;
 
     /**
@@ -40,7 +46,13 @@ class AddedComment
      * @SerializedName("text")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getText', setter: 'setText')]
+    #[SerializedName(name: 'text')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $text;
 
     /**

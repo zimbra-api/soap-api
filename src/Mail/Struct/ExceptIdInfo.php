@@ -30,7 +30,13 @@ class ExceptIdInfo
      * @SerializedName("recurId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
+    #[SerializedName(name: 'recurId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $recurrenceId;
 
     /**
@@ -40,7 +46,13 @@ class ExceptIdInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**

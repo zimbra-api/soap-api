@@ -32,7 +32,13 @@ class GeoInfo implements GeoInfoInterface
      * @SerializedName("lat")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLatitude', setter: 'setLatitude')]
+    #[SerializedName(name: 'lat')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $latitude;
 
     /**
@@ -42,7 +48,13 @@ class GeoInfo implements GeoInfoInterface
      * @SerializedName("lon")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLongitude', setter: 'setLongitude')]
+    #[SerializedName(name: 'lon')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $longitude;
 
     /**

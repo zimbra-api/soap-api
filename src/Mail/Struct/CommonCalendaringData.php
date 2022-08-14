@@ -31,13 +31,19 @@ use Zimbra\Common\Enum\{
 abstract class CommonCalendaringData extends InstanceDataAttrs
 {
     /**
-     * x_uid
+     * x uid
      * 
      * @Accessor(getter="getXUid", setter="setXUid")
      * @SerializedName("x_uid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getXUid', setter: 'setXUid')]
+    #[SerializedName(name: 'x_uid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $xUid;
 
     /**
@@ -47,7 +53,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUid', setter: 'setUid')]
+    #[SerializedName(name: 'uid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uid;
 
     /**
@@ -57,7 +69,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -67,7 +85,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -77,7 +101,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -87,7 +117,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -97,7 +133,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -107,7 +149,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
+    #[SerializedName(name: 'md')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeDate;
 
     /**
@@ -117,7 +165,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequence;
 
     /**
@@ -127,7 +181,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -137,7 +197,13 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**

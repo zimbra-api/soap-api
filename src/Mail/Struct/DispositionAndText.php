@@ -31,7 +31,13 @@ class DispositionAndText
      * @SerializedName("disp")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisposition', setter: 'setDisposition')]
+    #[SerializedName(name: 'disp')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $disposition;
 
     /**
@@ -40,7 +46,12 @@ class DispositionAndText
      * @Accessor(getter="getText", setter="setText")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getText', setter: 'setText')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $text;
 
     /**

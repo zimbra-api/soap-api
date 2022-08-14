@@ -30,7 +30,13 @@ class AlarmDataInfo
      * @SerializedName("nextAlarm")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
+    #[SerializedName(name: 'nextAlarm')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $nextAlarm;
 
     /**
@@ -40,7 +46,13 @@ class AlarmDataInfo
      * @SerializedName("alarmInstStart")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getAlarmInstanceStart', setter: 'setAlarmInstanceStart')]
+    #[SerializedName(name: 'alarmInstStart')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $alarmInstanceStart;
 
     /**
@@ -50,7 +62,13 @@ class AlarmDataInfo
      * @SerializedName("invId")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
+    #[SerializedName(name: 'invId')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $invId;
 
     /**
@@ -60,7 +78,13 @@ class AlarmDataInfo
      * @SerializedName("compNum")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
+    #[SerializedName(name: 'compNum')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $componentNum;
 
     /**
@@ -70,7 +94,13 @@ class AlarmDataInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -80,7 +110,13 @@ class AlarmDataInfo
      * @SerializedName("loc")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
+    #[SerializedName(name: 'loc')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $location;
 
     /**
@@ -90,8 +126,13 @@ class AlarmDataInfo
      * @SerializedName("alarm")
      * @Type("Zimbra\Mail\Struct\AlarmInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AlarmInfo
      */
+    #[Accessor(getter: "getAlarm", setter: "setAlarm")]
+    #[SerializedName(name: 'alarm')]
+    #[Type(name: AlarmInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $alarm;
 
     /**

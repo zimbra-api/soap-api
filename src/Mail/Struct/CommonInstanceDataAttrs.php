@@ -41,7 +41,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * 
+     * @var ParticipationStatus
      */
+    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
+    #[SerializedName(name: 'ptst')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[XmlAttribute]
     private $partStat;
 
     /**
@@ -51,7 +57,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("ridZ")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
+    #[SerializedName(name: 'ridZ')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $recurIdZ;
 
     /**
@@ -64,7 +76,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("tzo")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTzOffset', setter: 'setTzOffset')]
+    #[SerializedName(name: 'tzo')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $tzOffset;
 
     /**
@@ -79,8 +97,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("fba")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * 
      * @var FreeBusyStatus
      */
+    #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
+    #[SerializedName(name: 'fba')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[XmlAttribute]
     private $freeBusyActual;
 
     /**
@@ -90,7 +113,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("percentComplete")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTaskPercentComplete', setter: 'setTaskPercentComplete')]
+    #[SerializedName(name: 'percentComplete')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $taskPercentComplete;
 
     /**
@@ -100,7 +129,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("recur")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsRecurring', setter: 'setIsRecurring')]
+    #[SerializedName(name: 'recur')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isRecurring;
 
     /**
@@ -110,7 +145,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("hasEx")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getHasExceptions', setter: 'setHasExceptions')]
+    #[SerializedName(name: 'hasEx')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $hasExceptions;
 
     /**
@@ -120,7 +161,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("priority")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPriority', setter: 'setPriority')]
+    #[SerializedName(name: 'priority')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $priority;
 
     /**
@@ -130,8 +177,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("fb")
      * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
      * @XmlAttribute
+     * 
      * @var FreeBusyStatus
      */
+    #[Accessor(getter: 'getFreeBusyIntended', setter: 'setFreeBusyIntended')]
+    #[SerializedName(name: 'fb')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\FreeBusyStatus>')]
+    #[XmlAttribute]
     private $freeBusyIntended;
 
     /**
@@ -141,8 +193,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("transp")
      * @Type("Enum<Zimbra\Common\Enum\Transparency>")
      * @XmlAttribute
+     * 
      * @var Transparency
      */
+    #[Accessor(getter: 'getTransparency', setter: 'setTransparency')]
+    #[SerializedName(name: 'transp')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\Transparency>')]
+    #[XmlAttribute]
     private $transparency;
 
     /**
@@ -152,7 +209,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -162,7 +225,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("loc")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
+    #[SerializedName(name: 'loc')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $location;
 
     /**
@@ -172,7 +241,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("otherAtt")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getHasOtherAttendees', setter: 'setHasOtherAttendees')]
+    #[SerializedName(name: 'otherAtt')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $hasOtherAttendees;
 
     /**
@@ -182,7 +257,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("alarm")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getHasAlarm', setter: 'setHasAlarm')]
+    #[SerializedName(name: 'alarm')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $hasAlarm;
 
     /**
@@ -192,7 +273,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("isOrg")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
+    #[SerializedName(name: 'isOrg')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isOrganizer;
 
     /**
@@ -202,7 +289,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("invId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getInvId', setter: 'setInvId')]
+    #[SerializedName(name: 'invId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $invId;
 
     /**
@@ -212,7 +305,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("compNum")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
+    #[SerializedName(name: 'compNum')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $componentNum;
 
     /**
@@ -224,8 +323,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("status")
      * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
      * @XmlAttribute
+     * 
      * @var InviteStatus
      */
+    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteStatus>')]
+    #[XmlAttribute]
     private $status;
 
     /**
@@ -235,8 +339,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("class")
      * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
      * @XmlAttribute
+     * 
      * @var InviteClass
      */
+    #[Accessor(getter: 'getCalClass', setter: 'setCalClass')]
+    #[SerializedName(name: 'class')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\InviteClass>')]
+    #[XmlAttribute]
     private $calClass;
 
     /**
@@ -246,7 +355,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("allDay")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAllDay', setter: 'setAllDay')]
+    #[SerializedName(name: 'allDay')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allDay;
 
     /**
@@ -256,7 +371,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("draft")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDraft', setter: 'setDraft')]
+    #[SerializedName(name: 'draft')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $draft;
 
     /**
@@ -266,7 +387,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("neverSent")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeverSent', setter: 'setNeverSent')]
+    #[SerializedName(name: 'neverSent')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $neverSent;
 
     /**
@@ -276,7 +403,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("dueDate")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTaskDueDate', setter: 'setTaskDueDate')]
+    #[SerializedName(name: 'dueDate')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $taskDueDate;
 
     /**
@@ -287,7 +420,13 @@ class CommonInstanceDataAttrs
      * @SerializedName("tzoDue")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTaskTzOffsetDue', setter: 'setTaskTzOffsetDue')]
+    #[SerializedName(name: 'tzoDue')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $taskTzOffsetDue;
 
     /**

@@ -31,7 +31,13 @@ class ActionResult
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class ActionResult
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $operation;
 
     /**
@@ -51,7 +63,13 @@ class ActionResult
      * @SerializedName("nei")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
+    #[SerializedName(name: 'nei')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $nonExistentIds;
 
     /**
@@ -61,7 +79,13 @@ class ActionResult
      * @SerializedName("nci")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getNewlyCreatedIds', setter: 'setNewlyCreatedIds')]
+    #[SerializedName(name: 'nci')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $newlyCreatedIds;
 
     /**
@@ -74,7 +98,10 @@ class ActionResult
      * @return self
      */
     public function __construct(
-        string $id = '', string $operation = '', ?string $nonExistentIds = NULL, ?string $newlyCreatedIds = NULL
+        string $id = '',
+        string $operation = '',
+        ?string $nonExistentIds = NULL,
+        ?string $newlyCreatedIds = NULL
     )
     {
         $this->setId($id)

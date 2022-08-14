@@ -30,7 +30,13 @@ class ConversationTest extends FilterTest
      * @SerializedName("where")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getWhere', setter: 'setWhere')]
+    #[SerializedName(name: 'where')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $where;
 
     /**

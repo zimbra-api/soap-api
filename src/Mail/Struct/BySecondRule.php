@@ -32,7 +32,13 @@ class BySecondRule implements BySecondRuleInterface
      * @SerializedName("seclist")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getList', setter: 'setList')]
+    #[SerializedName(name: 'seclist')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $list;
 
     /**

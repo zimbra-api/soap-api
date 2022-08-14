@@ -31,7 +31,13 @@ class FreeBusyUserInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,12 @@ class FreeBusyUserInfo
      * @Accessor(getter="getFreeSlots", setter="setFreeSlots")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyFREEslot>")
      * @XmlList(inline=true, entry="f", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFreeSlots', setter: 'setFreeSlots')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyFREEslot>')]
+    #[XmlList(inline: true, entry: "f", namespace: 'urn:zimbraMail')]
     private $freeSlots = [];
 
     /**
@@ -49,7 +60,12 @@ class FreeBusyUserInfo
      * @Accessor(getter="getBusySlots", setter="setBusySlots")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYslot>")
      * @XmlList(inline=true, entry="b", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getBusySlots', setter: 'setBusySlots')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYslot>')]
+    #[XmlList(inline: true, entry: "b", namespace: 'urn:zimbraMail')]
     private $busySlots = [];
 
     /**
@@ -58,7 +74,12 @@ class FreeBusyUserInfo
      * @Accessor(getter="getTentativeSlots", setter="setTentativeSlots")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>")
      * @XmlList(inline=true, entry="t", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTentativeSlots', setter: 'setTentativeSlots')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYTENTATIVEslot>')]
+    #[XmlList(inline: true, entry: "t", namespace: 'urn:zimbraMail')]
     private $tentativeSlots = [];
 
     /**
@@ -67,7 +88,12 @@ class FreeBusyUserInfo
      * @Accessor(getter="getUnavailableSlots", setter="setUnavailableSlots")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>")
      * @XmlList(inline=true, entry="u", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUnavailableSlots', setter: 'setUnavailableSlots')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyBUSYUNAVAILABLEslot>')]
+    #[XmlList(inline: true, entry: "u", namespace: 'urn:zimbraMail')]
     private $unavailableSlots = [];
 
     /**
@@ -76,7 +102,12 @@ class FreeBusyUserInfo
      * @Accessor(getter="getNodataSlots", setter="setNodataSlots")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyNODATAslot>")
      * @XmlList(inline=true, entry="n", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getNodataSlots', setter: 'setNodataSlots')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyNODATAslot>')]
+    #[XmlList(inline: true, entry: "n", namespace: 'urn:zimbraMail')]
     private $nodataSlots = [];
 
     /**

@@ -33,7 +33,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**
@@ -43,7 +49,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
+    #[SerializedName(name: 'url')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $url;
 
     /**
@@ -53,7 +65,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**
@@ -63,7 +81,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("sentBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
+    #[SerializedName(name: 'sentBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sentBy;
 
     /**
@@ -73,7 +97,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("dir")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDir', setter: 'setDir')]
+    #[SerializedName(name: 'dir')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dir;
 
     /**
@@ -83,7 +113,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("lang")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
+    #[SerializedName(name: 'lang')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $language;
 
     /**
@@ -93,7 +129,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("cutype")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCuType', setter: 'setCuType')]
+    #[SerializedName(name: 'cutype')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $cuType;
 
     /**
@@ -103,7 +145,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("role")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRole', setter: 'setRole')]
+    #[SerializedName(name: 'role')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $role;
 
     /**
@@ -117,8 +165,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * 
      * @var PartStat
      */
+    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
+    #[SerializedName(name: 'ptst')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[XmlAttribute]
     private $partStat;
 
     /**
@@ -127,7 +180,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("rsvp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getRsvp', setter: 'setRsvp')]
+    #[SerializedName(name: 'rsvp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $rsvp;
 
     /**
@@ -137,7 +196,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("member")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMember', setter: 'setMember')]
+    #[SerializedName(name: 'member')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $member;
 
     /**
@@ -147,7 +212,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("delegatedTo")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDelegatedTo', setter: 'setDelegatedTo')]
+    #[SerializedName(name: 'delegatedTo')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $delegatedTo;
 
     /**
@@ -157,7 +228,13 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @SerializedName("delegatedFrom")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDelegatedFrom', setter: 'setDelegatedFrom')]
+    #[SerializedName(name: 'delegatedFrom')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $delegatedFrom;
 
     /**
@@ -166,7 +243,12 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * @Accessor(getter="getXParams", setter="setXParams")
      * @Type("array<Zimbra\Mail\Struct\XParam>")
      * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\XParam>')]
+    #[XmlList(inline: true, entry: "xparam", namespace: 'urn:zimbraMail')]
     private $xParams;
 
     /**

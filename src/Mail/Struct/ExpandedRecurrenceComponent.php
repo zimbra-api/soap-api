@@ -31,8 +31,13 @@ class ExpandedRecurrenceComponent
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InstanceRecurIdInfo
      */
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName(name: 'exceptId')]
+    #[Type(name: InstanceRecurIdInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptionId;
 
     /**
@@ -42,7 +47,13 @@ class ExpandedRecurrenceComponent
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -52,7 +63,13 @@ class ExpandedRecurrenceComponent
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -62,8 +79,13 @@ class ExpandedRecurrenceComponent
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DurationInfo
      */
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName(name: 'dur')]
+    #[Type(name: DurationInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $duration;
 
     /**
@@ -73,8 +95,13 @@ class ExpandedRecurrenceComponent
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfo
      */
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName(name: 'recur')]
+    #[Type(name: RecurrenceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $recurrence;
 
     /**

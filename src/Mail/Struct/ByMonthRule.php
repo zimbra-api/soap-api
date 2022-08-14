@@ -32,7 +32,13 @@ class ByMonthRule implements ByMonthRuleInterface
      * @SerializedName("molist")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getList', setter: 'setList')]
+    #[SerializedName(name: 'molist')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $list;
 
     /**

@@ -31,7 +31,13 @@ class FolderActionResult extends ActionResult
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
+    #[SerializedName(name: 'zid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $zimbraId;
 
     /**
@@ -41,7 +47,13 @@ class FolderActionResult extends ActionResult
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**
@@ -51,7 +63,13 @@ class FolderActionResult extends ActionResult
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
+    #[SerializedName(name: 'key')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accessKey;
 
     /**

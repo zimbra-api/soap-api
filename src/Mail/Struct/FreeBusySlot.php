@@ -31,7 +31,13 @@ class FreeBusySlot
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -41,7 +47,13 @@ class FreeBusySlot
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -51,7 +63,13 @@ class FreeBusySlot
      * @SerializedName("eventId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'eventId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -61,7 +79,13 @@ class FreeBusySlot
      * @SerializedName("subject")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSubject', setter: 'setSubject')]
+    #[SerializedName(name: 'subject')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $subject;
 
     /**
@@ -71,7 +95,13 @@ class FreeBusySlot
      * @SerializedName("location")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
+    #[SerializedName(name: 'location')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $location;
 
     /**
@@ -81,7 +111,13 @@ class FreeBusySlot
      * @SerializedName("isMeeting")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isMeeting', setter: 'setMeeting')]
+    #[SerializedName(name: 'isMeeting')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isMeeting;
 
     /**
@@ -91,7 +127,13 @@ class FreeBusySlot
      * @SerializedName("isRecurring")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isRecurring', setter: 'setRecurring')]
+    #[SerializedName(name: 'isRecurring')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isRecurring;
 
     /**
@@ -101,7 +143,13 @@ class FreeBusySlot
      * @SerializedName("isException")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isException', setter: 'setException')]
+    #[SerializedName(name: 'isException')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isException;
 
     /**
@@ -111,7 +159,13 @@ class FreeBusySlot
      * @SerializedName("isReminderSet")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isReminderSet', setter: 'setReminderSet')]
+    #[SerializedName(name: 'isReminderSet')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isReminderSet;
 
     /**
@@ -121,7 +175,13 @@ class FreeBusySlot
      * @SerializedName("isPrivate")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isPrivate', setter: 'setPrivate')]
+    #[SerializedName(name: 'isPrivate')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isPrivate;
 
     /**
@@ -131,7 +191,13 @@ class FreeBusySlot
      * @SerializedName("hasPermission")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'hasPermission', setter: 'setHasPermission')]
+    #[SerializedName(name: 'hasPermission')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $hasPermission;
 
     /**

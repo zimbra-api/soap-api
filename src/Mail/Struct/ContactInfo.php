@@ -34,7 +34,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
+    #[SerializedName(name: 'sf')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortField;
 
     /**
@@ -45,7 +51,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("exp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCanExpand', setter: 'setCanExpand')]
+    #[SerializedName(name: 'exp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $canExpand;
 
     /**
@@ -55,7 +67,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -65,17 +83,29 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("i4uid")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
+    #[SerializedName(name: 'i4uid')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $imapUid;
 
     /**
-     * Folder ID.  When creating a contact, this is the ID of the folder to create the contact in
+     * Folder ID. When creating a contact, this is the ID of the folder to create the contact in
      * 
      * @Accessor(getter="getFolder", setter="setFolder")
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
@@ -85,7 +115,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -95,7 +131,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -105,7 +147,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -115,7 +163,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
+    #[SerializedName(name: 'md')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeDate;
 
     /**
@@ -125,7 +179,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequenceId', setter: 'setModifiedSequenceId')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequenceId;
 
     /**
@@ -135,7 +195,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -145,7 +211,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevisionId', setter: 'setRevisionId')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revisionId;
 
     /**
@@ -156,7 +228,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("fileAsStr")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
+    #[SerializedName(name: 'fileAsStr')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $fileAs;
 
     /**
@@ -166,7 +244,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("email")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
+    #[SerializedName(name: 'email')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $email;
 
     /**
@@ -176,7 +260,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("email2")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmail2', setter: 'setEmail2')]
+    #[SerializedName(name: 'email2')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $email2;
 
     /**
@@ -186,7 +276,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("email3")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmail3', setter: 'setEmail3')]
+    #[SerializedName(name: 'email3')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $email3;
 
     /**
@@ -196,7 +292,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -206,7 +308,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("dlist")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDlist', setter: 'setDlist')]
+    #[SerializedName(name: 'dlist')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dlist;
 
     /**
@@ -216,7 +324,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("ref")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReference', setter: 'setReference')]
+    #[SerializedName(name: 'ref')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $reference;
 
     /**
@@ -227,7 +341,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("tooManyMembers")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getTooManyMembers', setter: 'setTooManyMembers')]
+    #[SerializedName(name: 'tooManyMembers')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $tooManyMembers;
 
     /**
@@ -236,7 +356,12 @@ class ContactInfo implements ContactInterface, SearchHit
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[XmlList(inline: true, entry: "meta", namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**
@@ -245,7 +370,12 @@ class ContactInfo implements ContactInterface, SearchHit
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getAttrs", setter: "setAttrs")]
+    #[Type(name: 'array<Zimbra\Common\Struct\ContactAttr>')]
+    #[XmlList(inline: true, entry: "a", namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
     /**
@@ -254,7 +384,12 @@ class ContactInfo implements ContactInterface, SearchHit
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Mail\Struct\ContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getContactGroupMembers", setter: "setContactGroupMembers")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ContactGroupMember>')]
+    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 
     /**
@@ -264,7 +399,13 @@ class ContactInfo implements ContactInterface, SearchHit
      * @SerializedName("memberOf")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getMemberOf", setter: "setMemberOf")]
+    #[SerializedName(name: 'memberOf')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $memberOf;
 
     /**

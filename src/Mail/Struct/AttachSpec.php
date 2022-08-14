@@ -30,7 +30,13 @@ abstract class AttachSpec
      * @SerializedName("optional")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getOptional', setter: 'setOptional')]
+    #[SerializedName(name: 'optional')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $optional;
 
     /**

@@ -29,8 +29,13 @@ class AccountACEinfo
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
      * @XmlAttribute
+     * 
      * @var GranteeType
      */
+    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
+    #[SerializedName(name: 'gt')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GranteeType>')]
+    #[XmlAttribute]
     private $granteeType;
 
     /**
@@ -38,7 +43,13 @@ class AccountACEinfo
      * @SerializedName("right")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRight', setter: 'setRight')]
+    #[SerializedName(name: 'right')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $right;
 
     /**
@@ -46,7 +57,13 @@ class AccountACEinfo
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
+    #[SerializedName(name: 'zid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $zimbraId;
 
     /**
@@ -54,7 +71,13 @@ class AccountACEinfo
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $displayName;
 
     /**
@@ -62,7 +85,13 @@ class AccountACEinfo
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
+    #[SerializedName(name: 'key')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accessKey;
 
     /**
@@ -70,7 +99,13 @@ class AccountACEinfo
      * @SerializedName("pw")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'pw')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $password;
 
     /**
@@ -78,7 +113,13 @@ class AccountACEinfo
      * @SerializedName("deny")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDeny', setter: 'setDeny')]
+    #[SerializedName(name: 'deny')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $deny;
 
     /**

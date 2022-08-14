@@ -33,7 +33,13 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
      * @SerializedName("wklist")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getList', setter: 'setList')]
+    #[SerializedName(name: 'wklist')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $list;
 
     /**

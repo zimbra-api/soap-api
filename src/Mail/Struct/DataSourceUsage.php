@@ -30,7 +30,13 @@ class DataSourceUsage
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class DataSourceUsage
      * @SerializedName("usage")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getUsage', setter: 'setUsage')]
+    #[SerializedName(name: 'usage')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $usage;
 
     /**

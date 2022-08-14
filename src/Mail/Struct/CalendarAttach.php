@@ -32,7 +32,13 @@ class CalendarAttach implements CalendarAttachInterface
      * @SerializedName("uri")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUri', setter: 'setUri')]
+    #[SerializedName(name: 'uri')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uri;
 
     /**
@@ -42,7 +48,13 @@ class CalendarAttach implements CalendarAttachInterface
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'ct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentType;
 
     /**
@@ -51,7 +63,12 @@ class CalendarAttach implements CalendarAttachInterface
      * @Accessor(getter="getBinaryB64Data", setter="setBinaryB64Data")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBinaryB64Data', setter: 'setBinaryB64Data')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $binaryB64Data;
 
     /**

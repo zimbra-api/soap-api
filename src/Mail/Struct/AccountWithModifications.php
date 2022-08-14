@@ -29,7 +29,13 @@ class AccountWithModifications
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -38,7 +44,12 @@ class AccountWithModifications
      * @Accessor(getter="getPendingFolderModifications", setter="setPendingFolderModifications")
      * @Type("array<Zimbra\Mail\Struct\PendingFolderModifications>")
      * @XmlList(inline=true, entry="mods", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPendingFolderModifications', setter: 'setPendingFolderModifications')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\PendingFolderModifications>')]
+    #[XmlList(inline: true, entry: "mods", namespace: 'urn:zimbraMail')]
     private $mods = [];
 
     /**
@@ -48,7 +59,13 @@ class AccountWithModifications
      * @SerializedName("changeid")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLastChangeId', setter: 'setLastChangeId')]
+    #[SerializedName(name: 'changeid')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $lastChangeId;
 
     /**

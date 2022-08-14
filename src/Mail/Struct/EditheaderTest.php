@@ -31,8 +31,13 @@ class EditheaderTest
      * @SerializedName("matchType")
      * @Type("Enum<Zimbra\Common\Enum\MatchType>")
      * @XmlAttribute
+     * 
      * @var MatchType
      */
+    #[Accessor(getter: 'getMatchType', setter: 'setMatchType')]
+    #[SerializedName(name: 'matchType')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\MatchType>')]
+    #[XmlAttribute]
     private $matchType;
 
     /**
@@ -42,7 +47,13 @@ class EditheaderTest
      * @SerializedName("countComparator")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCount', setter: 'setCount')]
+    #[SerializedName(name: 'countComparator')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $count;
 
     /**
@@ -52,7 +63,13 @@ class EditheaderTest
      * @SerializedName("valueComparator")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'valueComparator')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $value;
 
     /**
@@ -62,8 +79,13 @@ class EditheaderTest
      * @SerializedName("relationalComparator")
      * @Type("Enum<Zimbra\Common\Enum\RelationalComparator>")
      * @XmlAttribute
+     * 
      * @var RelationalComparator
      */
+    #[Accessor(getter: 'getRelationalComparator', setter: 'setRelationalComparator')]
+    #[SerializedName(name: 'relationalComparator')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RelationalComparator>')]
+    #[XmlAttribute]
     private $relationalComparator;
 
     /**
@@ -73,8 +95,13 @@ class EditheaderTest
      * @SerializedName("comparator")
      * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
      * @XmlAttribute
+     * 
      * @var ComparisonComparator
      */
+    #[Accessor(getter: 'getComparator', setter: 'setComparator')]
+    #[SerializedName(name: 'comparator')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ComparisonComparator>')]
+    #[XmlAttribute]
     private $comparator;
 
     /**
@@ -84,7 +111,13 @@ class EditheaderTest
      * @SerializedName("headerName")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
+    #[SerializedName(name: 'headerName')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $headerName;
 
     /**
@@ -93,7 +126,12 @@ class EditheaderTest
      * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="headerValue", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getHeaderValue', setter: 'setHeaderValue')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: "headerValue", namespace: 'urn:zimbraMail')]
     private $headerValue = [];
 
     /**

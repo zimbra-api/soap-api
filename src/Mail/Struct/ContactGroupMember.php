@@ -35,8 +35,13 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
      * @XmlAttribute
+     * 
      * @var MemberType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\MemberType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -50,7 +55,13 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'value')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $value;
 
     /**
@@ -60,8 +71,13 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactInterface
      */
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName(name: 'cn')]
+    #[Type(name: ContactInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contact;
 
     /**

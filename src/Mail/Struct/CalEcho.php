@@ -30,8 +30,13 @@ class CalEcho
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\InviteAsMP")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InviteAsMP
      */
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: InviteAsMP::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $invite;
 
     /**

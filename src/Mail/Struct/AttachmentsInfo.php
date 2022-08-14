@@ -30,7 +30,13 @@ class AttachmentsInfo
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
+    #[SerializedName(name: 'aid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attachmentId;
 
     /**
@@ -39,7 +45,12 @@ class AttachmentsInfo
      * @Accessor(getter="getMpAttachments", setter="setMpAttachments")
      * @Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getMpAttachments", setter: "setMpAttachments")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MimePartAttachSpec>')]
+    #[XmlList(inline: true, entry: "mp", namespace: 'urn:zimbraMail')]
     private $mpAttachments = [];
 
     /**
@@ -49,6 +60,9 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getMsgAttachments", setter: "setMsgAttachments")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MsgAttachSpec>')]
+    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
     private $msgAttachments = [];
 
     /**
@@ -58,6 +72,9 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getContactAttachments", setter: "setContactAttachments")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ContactAttachSpec>')]
+    #[XmlList(inline: true, entry: "cn", namespace: 'urn:zimbraMail')]
     private $cnAttachments = [];
 
     /**
@@ -66,7 +83,12 @@ class AttachmentsInfo
      * @Accessor(getter="getDocAttachments", setter="setDocAttachments")
      * @Type("array<Zimbra\Mail\Struct\DocAttachSpec>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getDocAttachments", setter: "setDocAttachments")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DocAttachSpec>')]
+    #[XmlList(inline: true, entry: "doc", namespace: 'urn:zimbraMail')]
     private $docAttachments = [];
 
     /**

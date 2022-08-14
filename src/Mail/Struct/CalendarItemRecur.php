@@ -36,8 +36,13 @@ class CalendarItemRecur
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ExceptionRecurIdInfoInterface
      */
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName(name: 'exceptId')]
+    #[Type(name: ExceptionRecurIdInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptionId;
 
     /**
@@ -47,8 +52,13 @@ class CalendarItemRecur
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfoInterface
      */
+    #[Accessor(getter: "getDtStart", setter: "setDtStart")]
+    #[SerializedName(name: 's')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $dtStart;
 
     /**
@@ -58,8 +68,13 @@ class CalendarItemRecur
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfoInterface
      */
+    #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
+    #[SerializedName(name: 'e')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $dtEnd;
 
     /**
@@ -69,8 +84,13 @@ class CalendarItemRecur
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DurationInfoInterface
      */
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName(name: 'dur')]
+    #[Type(name: DurationInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $duration;
 
     /**
@@ -80,8 +100,13 @@ class CalendarItemRecur
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfoInterface
      */
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName(name: 'recur')]
+    #[Type(name: RecurrenceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $recurrence;
 
     /**

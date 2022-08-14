@@ -30,8 +30,13 @@ class CreateItemNotification
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImapMessageInfo
      */
+    #[Accessor(getter: "getMessageInfo", setter: "setMessageInfo")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: ImapMessageInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msgInfo;
 
     /**

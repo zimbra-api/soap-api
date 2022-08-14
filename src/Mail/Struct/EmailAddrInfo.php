@@ -32,7 +32,13 @@ class EmailAddrInfo
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**
@@ -43,8 +49,13 @@ class EmailAddrInfo
      * @SerializedName("t")
      * @Type("Enum<Zimbra\Common\Enum\AddressType>")
      * @XmlAttribute
+     * 
      * @var AddressType
      */
+    #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AddressType>')]
+    #[XmlAttribute]
     private $addressType;
 
     /**
@@ -54,7 +65,13 @@ class EmailAddrInfo
      * @SerializedName("p")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPersonal', setter: 'setPersonal')]
+    #[SerializedName(name: 'p')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $personal;
 
     /**

@@ -30,7 +30,13 @@ class ContentSpec
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
+    #[SerializedName(name: 'aid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attachmentId;
 
     /**
@@ -40,7 +46,13 @@ class ContentSpec
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
+    #[SerializedName(name: 'mid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $messageId;
 
     /**
@@ -50,16 +62,27 @@ class ContentSpec
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
-     * Inlined content data.  Ignored if "aid" or "mid"/"part" specified
+     * Inlined content data. Ignored if "aid" or "mid"/"part" specified
      * 
      * @Accessor(getter="getText", setter="setText")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getText', setter: 'setText')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $text;
 
     /**

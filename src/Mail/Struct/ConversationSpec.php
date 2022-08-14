@@ -31,7 +31,13 @@ class ConversationSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class ConversationSpec
      * @SerializedName("fetch")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getInlineRule', setter: 'setInlineRule')]
+    #[SerializedName(name: 'fetch')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $inlineRule;
 
     /**
@@ -52,7 +64,13 @@ class ConversationSpec
      * @SerializedName("html")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
+    #[SerializedName(name: 'html')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $wantHtml;
 
     /**
@@ -62,7 +80,13 @@ class ConversationSpec
      * @SerializedName("max")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
+    #[SerializedName(name: 'max')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxInlinedLength;
 
     /**
@@ -73,7 +97,13 @@ class ConversationSpec
      * @SerializedName("needExp")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
+    #[SerializedName(name: 'needExp')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needCanExpand;
 
     /**
@@ -84,6 +114,9 @@ class ConversationSpec
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
+    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[XmlList(inline: true, entry: "header", namespace: 'urn:zimbraMail')]
     private $headers = [];
 
     /**

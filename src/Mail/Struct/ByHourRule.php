@@ -32,7 +32,13 @@ class ByHourRule implements ByHourRuleInterface
      * @SerializedName("hrlist")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getList', setter: 'setList')]
+    #[SerializedName(name: 'hrlist')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $list;
 
     /**

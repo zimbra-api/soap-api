@@ -29,7 +29,12 @@ class FilterVariables extends FilterAction
      * @Accessor(getter="getVariables", setter="setVariables")
      * @Type("array<Zimbra\Mail\Struct\FilterVariable>")
      * @XmlList(inline=true, entry="filterVariable", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getVariables', setter: 'setVariables')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FilterVariable>')]
+    #[XmlList(inline: true, entry: "filterVariable", namespace: 'urn:zimbraMail')]
     private $variables = [];
 
     /**

@@ -32,7 +32,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("echo")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getEcho', setter: 'setEcho')]
+    #[SerializedName(name: 'echo')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $echo;
 
     /**
@@ -42,7 +48,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("max")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxSize', setter: 'setMaxSize')]
+    #[SerializedName(name: 'max')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxSize;
 
     /**
@@ -52,7 +64,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("want")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
+    #[SerializedName(name: 'want')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $wantHtml;
 
     /**
@@ -62,7 +80,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("neuter")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeuter', setter: 'setNeuter')]
+    #[SerializedName(name: 'neuter')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $neuter;
 
     /**
@@ -75,7 +99,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("forcesend")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getForceSend', setter: 'setForceSend')]
+    #[SerializedName(name: 'forcesend')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $forceSend;
 
     /**
@@ -85,8 +115,13 @@ abstract class CalItemRequestBase extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Msg
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: Msg::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

@@ -30,7 +30,13 @@ class FlaggedTest extends FilterTest
      * @SerializedName("flagName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlag', setter: 'setFlag')]
+    #[SerializedName(name: 'flagName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flag;
 
     /**

@@ -30,7 +30,13 @@ class FilterRule
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -40,7 +46,13 @@ class FilterRule
      * @SerializedName("active")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isActive', setter: 'setActive')]
+    #[SerializedName(name: 'active')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $active;
 
     /**
@@ -50,8 +62,13 @@ class FilterRule
      * @SerializedName("filterVariables")
      * @Type("Zimbra\Mail\Struct\FilterVariables")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FilterVariables
      */
+    #[Accessor(getter: "getFilterVariables", setter: "setFilterVariables")]
+    #[SerializedName(name: 'filterVariables')]
+    #[Type(name: FilterVariables::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $filterVariables;
 
     /**
@@ -61,8 +78,13 @@ class FilterRule
      * @SerializedName("filterTests")
      * @Type("Zimbra\Mail\Struct\FilterTests")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FilterTests
      */
+    #[Accessor(getter: "getFilterTests", setter: "setFilterTests")]
+    #[SerializedName(name: 'filterTests')]
+    #[Type(name: FilterTests::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $tests;
 
     /**
@@ -72,8 +94,13 @@ class FilterRule
      * @Type("Zimbra\Mail\Struct\FilterActions")
      * @SerializedName("filterActions")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FilterActions
      */
+    #[Accessor(getter: "getActions", setter: "setActions")]
+    #[SerializedName(name: 'filterActions')]
+    #[Type(name: FilterActions::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $actions;
 
     /**
@@ -83,8 +110,13 @@ class FilterRule
      * @SerializedName("nestedRule")
      * @Type("Zimbra\Mail\Struct\NestedRule")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var NestedRule
      */
+    #[Accessor(getter: "getChild", setter: "setChild")]
+    #[SerializedName(name: 'nestedRule')]
+    #[Type(name: NestedRule::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $child;
 
     /**

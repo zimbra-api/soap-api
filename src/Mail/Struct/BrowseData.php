@@ -25,14 +25,20 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class BrowseData
 {
     /**
-     * Set for domains.  Indicates whether or not the domain was from the "From", "To", or
-     * "Cc" header.  Valid flags are always one of: "f", "t", "ft", "c", "fc", "tc", "ftc"
+     * Set for domains. Indicates whether or not the domain was from the "From", "To", or "Cc" header.
+     * Valid flags are always one of: "f", "t", "ft", "c", "fc", "tc", "ftc"
      * 
      * @Accessor(getter="getBrowseDomainHeader", setter="setBrowseDomainHeader")
      * @SerializedName("h")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBrowseDomainHeader', setter: 'setBrowseDomainHeader')]
+    #[SerializedName(name: 'h')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $browseDomainHeader;
 
     /**
@@ -42,7 +48,13 @@ class BrowseData
      * @SerializedName("freq")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
+    #[SerializedName(name: 'freq')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $frequency;
 
     /**
@@ -54,7 +66,12 @@ class BrowseData
      * @Accessor(getter="getData", setter="setData")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getData', setter: 'setData')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $data;
 
     /**

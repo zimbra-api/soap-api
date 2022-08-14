@@ -30,7 +30,13 @@ class BounceMsgSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,6 +46,9 @@ class BounceMsgSpec
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getEmailAddresses", setter: "setEmailAddresses")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\EmailAddrInfo>')]
+    #[XmlList(inline: true, entry: "e", namespace: 'urn:zimbraMail')]
     private $emailAddresses = [];
 
     /**

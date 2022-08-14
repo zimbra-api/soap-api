@@ -33,7 +33,13 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSeq', setter: 'setSeq')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $seq;
 
     /**
@@ -43,7 +49,13 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -53,7 +65,13 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("at")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
+    #[SerializedName(name: 'at')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attendee;
 
     /**
@@ -63,7 +81,13 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("sentBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSentBy', setter: 'setSentBy')]
+    #[SerializedName(name: 'sentBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sentBy;
 
     /**
@@ -77,8 +101,13 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * @SerializedName("ptst")
      * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
      * @XmlAttribute
+     * 
      * @var ParticipationStatus
      */
+    #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
+    #[SerializedName(name: 'ptst')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ParticipationStatus>')]
+    #[XmlAttribute]
     private $partStat;
 
     /**

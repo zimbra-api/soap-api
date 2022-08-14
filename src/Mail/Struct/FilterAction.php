@@ -30,7 +30,13 @@ class FilterAction
      * @SerializedName("index")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getIndex', setter: 'setIndex')]
+    #[SerializedName(name: 'index')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $index;
 
     /**

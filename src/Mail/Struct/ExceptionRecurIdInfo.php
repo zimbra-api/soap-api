@@ -47,7 +47,13 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dateTime;
 
     /**
@@ -57,7 +63,13 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $timezone;
 
     /**
@@ -67,7 +79,13 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      * @SerializedName("rangeType")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRecurrenceRangeType', setter: 'setRecurrenceRangeType')]
+    #[SerializedName(name: 'rangeType')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $recurrenceRangeType;
 
     /**

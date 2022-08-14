@@ -32,8 +32,13 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @SerializedName("add")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfoInterface
      */
+    #[Accessor(getter: "getAdd", setter: "setAdd")]
+    #[SerializedName(name: 'add')]
+    #[Type(name: RecurrenceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $add;
 
     /**
@@ -43,20 +48,25 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
      * @SerializedName("exclude")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfoInterface
      */
+    #[Accessor(getter: "getExclude", setter: "setExclude")]
+    #[SerializedName(name: 'exclude')]
+    #[Type(name: RecurrenceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exclude;
 
     /**
      * Constructor
      *
-     * @param RecurrenceInfo $add
-     * @param RecurrenceInfo $exclude
+     * @param RecurrenceInfoInterface $add
+     * @param RecurrenceInfoInterface $exclude
      * @return self
      */
     public function __construct(
-        ?RecurrenceInfo $add = NULL,
-        ?RecurrenceInfo $exclude = NULL
+        ?RecurrenceInfoInterface $add = NULL,
+        ?RecurrenceInfoInterface $exclude = NULL
     )
     {
         parent::__construct(-1, '');

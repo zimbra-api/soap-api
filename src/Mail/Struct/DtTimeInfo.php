@@ -46,7 +46,13 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dateTime;
 
     /**
@@ -56,7 +62,13 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $timezone;
 
     /**
@@ -66,7 +78,13 @@ class DtTimeInfo implements DtTimeInfoInterface
      * @SerializedName("u")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getUtcTime', setter: 'setUtcTime')]
+    #[SerializedName(name: 'u')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $utcTime;
 
     /**

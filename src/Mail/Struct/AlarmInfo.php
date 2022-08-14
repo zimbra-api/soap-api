@@ -41,8 +41,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("action")
      * @Type("Enum<Zimbra\Common\Enum\AlarmAction>")
      * @XmlAttribute
+     * 
      * @var AlarmAction
      */
+    #[Accessor(getter: 'getAction', setter: 'setAction')]
+    #[SerializedName(name: 'action')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\AlarmAction>')]
+    #[XmlAttribute]
     private $action;
 
     /**
@@ -52,8 +57,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("trigger")
      * @Type("Zimbra\Mail\Struct\AlarmTriggerInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AlarmTriggerInfoInterface
      */
+    #[Accessor(getter: "getTrigger", setter: "setTrigger")]
+    #[SerializedName(name: 'trigger')]
+    #[Type(name: AlarmTriggerInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $trigger;
 
     /**
@@ -63,8 +73,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("repeat")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DurationInfoInterface
      */
+    #[Accessor(getter: "getRepeat", setter: "setRepeat")]
+    #[SerializedName(name: 'repeat')]
+    #[Type(name: DurationInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $repeat;
 
     /**
@@ -77,7 +92,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName(name: 'desc')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $description;
 
     /**
@@ -87,8 +108,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\CalendarAttach")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalendarAttachInterface
      */
+    #[Accessor(getter: "getAttach", setter: "setAttach")]
+    #[SerializedName(name: 'attach')]
+    #[Type(name: CalendarAttach::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $attach;
 
     /**
@@ -98,7 +124,13 @@ class AlarmInfo implements AlarmInfoInterface
      * @SerializedName("summary")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getSummary", setter: "setSummary")]
+    #[SerializedName(name: 'summary')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $summary;
 
     /**
@@ -107,7 +139,12 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getAttendees", setter: "setAttendees")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalendarAttendee>')]
+    #[XmlList(inline: true, entry: "at", namespace: 'urn:zimbraMail')]
     private $attendees = [];
 
     /**
@@ -116,7 +153,12 @@ class AlarmInfo implements AlarmInfoInterface
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: "getXProps", setter: "setXProps")]
+    #[Type(name: 'array<Zimbra\Mail\Struct\XProp>')]
+    #[XmlList(inline: true, entry: "xprop", namespace: 'urn:zimbraMail')]
     private $xProps = [];
 
     /**
