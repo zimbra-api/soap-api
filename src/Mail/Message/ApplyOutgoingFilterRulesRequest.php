@@ -10,10 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlList};
-use Zimbra\Common\Struct\NamedElement;
-use Zimbra\Mail\Struct\IdsAttr;
-use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
+use Zimbra\Common\Struct\SoapEnvelopeInterface;
 
 /**
  * ApplyOutgoingFilterRulesRequest class
@@ -29,139 +26,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-class ApplyOutgoingFilterRulesRequest extends SoapRequest
+class ApplyOutgoingFilterRulesRequest extends ApplyFilterRulesRequest
 {
-    /**
-     * Filter rules
-     * 
-     * @Accessor(getter="getFilterRules", setter="setFilterRules")
-     * @SerializedName("filterRules")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
-     */
-    private $filterRules = [];
-
-    /**
-     * Comma-separated list of message IDs
-     * 
-     * @Accessor(getter="getMsgIds", setter="setMsgIds")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @var IdsAttr
-     */
-    private $msgIds;
-
-    /**
-     * Query string
-     * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     */
-    private $query;
-
-    /**
-     * Constructor
-     *
-     * @param  array $filterRules
-     * @param  IdsAttr $msgIds
-     * @param  string $query
-     * @return self
-     */
-    public function __construct(
-        array $filterRules = [], ?IdsAttr $msgIds = NULL, ?string $query = NULL
-    )
-    {
-        $this->setFilterRules($filterRules);
-        if ($msgIds instanceof IdsAttr) {
-            $this->setMsgIds($msgIds);
-        }
-        if (NULL !== $query) {
-            $this->setQuery($query);
-        }
-    }
-
-    /**
-     * Add filterRule
-     *
-     * @param  NamedElement $filterRule
-     * @return self
-     */
-    public function addFilterRule(NamedElement $filterRule): self
-    {
-        $this->filterRules[] = $filterRule;
-        return $this;
-    }
-
-    /**
-     * Set filterRules
-     *
-     * @param  array $rules
-     * @return self
-     */
-    public function setFilterRules(array $rules): self
-    {
-        $this->filterRules = array_filter($rules, static fn ($rule) => $rule instanceof NamedElement);
-        return $this;
-    }
-
-    /**
-     * Get filterRules
-     *
-     * @return array
-     */
-    public function getFilterRules(): array
-    {
-        return $this->filterRules;
-    }
-
-    /**
-     * Get query
-     *
-     * @return string
-     */
-    public function getQuery(): ?string
-    {
-        return $this->query;
-    }
-
-    /**
-     * Set query
-     *
-     * @param  string $query
-     * @return self
-     */
-    public function setQuery(string $query): self
-    {
-        $this->query = $query;
-        return $this;
-    }
-
-    /**
-     * Get msgIds
-     *
-     * @return IdsAttr
-     */
-    public function getMsgIds(): ?IdsAttr
-    {
-        return $this->msgIds;
-    }
-
-    /**
-     * Set msgIds
-     *
-     * @param  IdsAttr $msgIds
-     * @return self
-     */
-    public function setMsgIds(IdsAttr $msgIds): self
-    {
-        $this->msgIds = $msgIds;
-        return $this;
-    }
-
     /**
      * {@inheritdoc}
      */

@@ -42,7 +42,13 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -52,7 +58,13 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -63,7 +75,13 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @SerializedName("all")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getAllInstances', setter: 'setAllInstances')]
+    #[SerializedName(name: 'all')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $allInstances;
 
     /**
@@ -73,7 +91,13 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @SerializedName("excludeUid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
+    #[SerializedName(name: 'excludeUid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $excludeUid;
 
     /**
@@ -82,7 +106,12 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
     /**
@@ -91,7 +120,12 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @Accessor(getter="getCancelComponents", setter="setCancelComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
      * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCancelComponents', setter: 'setCancelComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>')]
+    #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
     private $cancelComponents = [];
 
     /**
@@ -100,7 +134,12 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
      * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>')]
+    #[XmlList(inline: true, entry: 'comp', namespace: 'urn:zimbraMail')]
     private $inviteComponents = [];
 
     /**
@@ -109,7 +148,12 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @Accessor(getter="getExceptComponents", setter="setExceptComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getExceptComponents', setter: 'setExceptComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceException>')]
+    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
     private $exceptComponents = [];
 
     /**
@@ -118,7 +162,12 @@ class CheckRecurConflictsRequest extends SoapRequest
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
+    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
     private $freebusyUsers = [];
 
     /**

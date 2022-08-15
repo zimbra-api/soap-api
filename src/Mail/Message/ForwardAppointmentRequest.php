@@ -33,7 +33,13 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -43,8 +49,13 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfo
      */
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName(name: 'exceptId')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptionId;
 
     /**
@@ -54,8 +65,13 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: CalTZInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $timezone;
 
     /**
@@ -65,8 +81,13 @@ class ForwardAppointmentRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Msg
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: Msg::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

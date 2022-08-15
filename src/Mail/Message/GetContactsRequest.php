@@ -44,7 +44,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSync', setter: 'setSync')]
+    #[SerializedName(name: 'sync')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sync;
 
     /**
@@ -54,7 +60,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -64,7 +76,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("sortBy")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -74,7 +92,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("derefGroupMember")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDerefGroupMember', setter: 'setDerefGroupMember')]
+    #[SerializedName(name: 'derefGroupMember')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $derefGroupMember;
 
     /**
@@ -84,7 +108,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("memberOf")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIncludeMemberOf', setter: 'setIncludeMemberOf')]
+    #[SerializedName(name: 'memberOf')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $includeMemberOf;
 
     /**
@@ -94,7 +124,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("returnHiddenAttrs")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getReturnHiddenAttrs', setter: 'setReturnHiddenAttrs')]
+    #[SerializedName(name: 'returnHiddenAttrs')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $returnHiddenAttrs;
 
     /**
@@ -104,7 +140,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("returnCertInfo")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getReturnCertInfo', setter: 'setReturnCertInfo')]
+    #[SerializedName(name: 'returnCertInfo')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $returnCertInfo;
 
     /**
@@ -114,7 +156,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("wantImapUid")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
+    #[SerializedName(name: 'wantImapUid')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $wantImapUid;
 
     /**
@@ -124,7 +172,13 @@ class GetContactsRequest extends SoapRequest
      * @SerializedName("maxMembers")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getMaxMembers', setter: 'setMaxMembers')]
+    #[SerializedName(name: 'maxMembers')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $maxMembers;
 
     /**
@@ -133,7 +187,12 @@ class GetContactsRequest extends SoapRequest
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
+    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attributes = [];
 
     /**
@@ -143,7 +202,12 @@ class GetContactsRequest extends SoapRequest
      * @Accessor(getter="getMemberAttributes", setter="setMemberAttributes")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="ma", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMemberAttributes', setter: 'setMemberAttributes')]
+    #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]
+    #[XmlList(inline: true, entry: 'ma', namespace: 'urn:zimbraMail')]
     private $memberAttributes = [];
 
     /**
@@ -152,7 +216,12 @@ class GetContactsRequest extends SoapRequest
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
+    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $contacts = [];
 
     /**

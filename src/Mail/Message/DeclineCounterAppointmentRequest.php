@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Message;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Mail\Struct\Msg;
 use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 
@@ -35,8 +35,13 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Msg
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: Msg::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

@@ -32,7 +32,13 @@ class SendVerificationCodeRequest extends SoapRequest
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**

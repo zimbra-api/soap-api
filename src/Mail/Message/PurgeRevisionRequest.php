@@ -33,8 +33,13 @@ class PurgeRevisionRequest extends SoapRequest
      * @SerializedName("revision")
      * @Type("Zimbra\Mail\Struct\PurgeRevisionSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var PurgeRevisionSpec
      */
+    #[Accessor(getter: "getRevision", setter: "setRevision")]
+    #[SerializedName(name: 'revision')]
+    #[Type(name: PurgeRevisionSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $revision;
 
     /**

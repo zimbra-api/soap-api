@@ -32,7 +32,13 @@ class GetApptSummariesRequest extends SoapRequest
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -42,7 +48,13 @@ class GetApptSummariesRequest extends SoapRequest
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -52,7 +64,13 @@ class GetApptSummariesRequest extends SoapRequest
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**

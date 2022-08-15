@@ -32,7 +32,13 @@ class OpenIMAPFolderRequest extends SoapRequest
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -42,7 +48,13 @@ class OpenIMAPFolderRequest extends SoapRequest
      * @SerializedName("limit")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getLimit', setter: 'setLimit')]
+    #[SerializedName(name: 'limit')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $limit;
 
     /**
@@ -52,8 +64,13 @@ class OpenIMAPFolderRequest extends SoapRequest
      * @SerializedName("cursor")
      * @Type("Zimbra\Mail\Struct\ImapCursorInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImapCursorInfo
      */
+    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[SerializedName(name: 'cursor')]
+    #[Type(name: ImapCursorInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $cursor;
 
     /**

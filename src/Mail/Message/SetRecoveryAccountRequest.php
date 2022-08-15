@@ -33,8 +33,13 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RecoveryAccountOperation>")
      * @XmlAttribute
+     * 
      * @var RecoveryAccountOperation
      */
+    #[Accessor(getter: 'getOp', setter: 'setOp')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RecoveryAccountOperation>')]
+    #[XmlAttribute]
     private $op;
 
     /**
@@ -44,7 +49,13 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @SerializedName("recoveryAccount")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
+    #[SerializedName(name: 'recoveryAccount')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $recoveryAccount;
 
     /**
@@ -54,7 +65,13 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @SerializedName("recoveryAccountVerificationCode")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
+    #[SerializedName(name: 'recoveryAccountVerificationCode')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $verificationCode;
 
     /**
@@ -64,8 +81,13 @@ class SetRecoveryAccountRequest extends SoapRequest
      * @SerializedName("channel")
      * @Type("Enum<Zimbra\Common\Enum\Channel>")
      * @XmlAttribute
+     * 
      * @var Channel
      */
+    #[Accessor(getter: 'getChannel', setter: 'setChannel')]
+    #[SerializedName(name: 'channel')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\Channel>')]
+    #[XmlAttribute]
     private $channel;
 
     /**

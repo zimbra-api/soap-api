@@ -34,7 +34,13 @@ class CreateContactRequest extends SoapRequest
      * @SerializedName("verbose")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
+    #[SerializedName(name: 'verbose')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $verbose;
 
     /**
@@ -44,7 +50,13 @@ class CreateContactRequest extends SoapRequest
      * @SerializedName("wantImapUid")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
+    #[SerializedName(name: 'wantImapUid')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $wantImapUid;
 
     /**
@@ -54,7 +66,13 @@ class CreateContactRequest extends SoapRequest
      * @SerializedName("wantModSeq")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
+    #[SerializedName(name: 'wantModSeq')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $wantModifiedSequence;
 
     /**
@@ -64,8 +82,13 @@ class CreateContactRequest extends SoapRequest
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactSpec
      */
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName(name: 'cn')]
+    #[Type(name: ContactSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contact;
 
     /**

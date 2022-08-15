@@ -33,8 +33,13 @@ class AddCommentRequest extends SoapRequest
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\AddedComment")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AddedComment
      */
+    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[SerializedName(name: 'comment')]
+    #[Type(name: AddedComment::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $comment;
 
     /**

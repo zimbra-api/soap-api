@@ -32,7 +32,13 @@ class SendDeliveryReportRequest extends SoapRequest
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
+    #[SerializedName(name: 'mid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $messageId;
 
     /**

@@ -34,7 +34,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -44,7 +50,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
+    #[SerializedName(name: 'comp')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $componentNum;
 
     /**
@@ -55,8 +67,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("verb")
      * @Type("Enum<Zimbra\Common\Enum\VerbType>")
      * @XmlAttribute
+     * 
      * @var VerbType
      */
+    #[Accessor(getter: 'getVerb', setter: 'setVerb')]
+    #[SerializedName(name: 'verb')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\VerbType>')]
+    #[XmlAttribute]
     private $verb;
 
     /**
@@ -69,7 +86,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("updateOrganizer")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getUpdateOrganizer', setter: 'setUpdateOrganizer')]
+    #[SerializedName(name: 'updateOrganizer')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $updateOrganizer;
 
     /**
@@ -79,7 +102,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("idnt")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getIdentityId', setter: 'setIdentityId')]
+    #[SerializedName(name: 'idnt')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $identityId;
 
     /**
@@ -89,8 +118,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfo
      */
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName(name: 'exceptId')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptionId;
 
     /**
@@ -100,8 +134,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: CalTZInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $timezone;
 
     /**
@@ -113,8 +152,13 @@ class SendInviteReplyRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\Msg")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Msg
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: Msg::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

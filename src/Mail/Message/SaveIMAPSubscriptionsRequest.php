@@ -31,7 +31,12 @@ class SaveIMAPSubscriptionsRequest extends SoapRequest
      * @Accessor(getter="getSubscriptions", setter="setSubscriptions")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="sub", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSubscriptions', setter: 'setSubscriptions')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'sub', namespace: 'urn:zimbraMail')]
     private $subscriptions = [];
 
     /**

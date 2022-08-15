@@ -33,8 +33,13 @@ class GetCommentsRequest extends SoapRequest
      * @SerializedName("comment")
      * @Type("Zimbra\Mail\Struct\ParentId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ParentId
      */
+    #[Accessor(getter: "getComment", setter: "setComment")]
+    #[SerializedName(name: 'comment')]
+    #[Type(name: ParentId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $comment;
 
     /**

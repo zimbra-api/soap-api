@@ -33,7 +33,13 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -43,7 +49,13 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @SerializedName("comp")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumComponents', setter: 'setNumComponents')]
+    #[SerializedName(name: 'comp')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numComponents;
 
     /**
@@ -53,7 +65,13 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequence;
 
     /**
@@ -63,7 +81,13 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**

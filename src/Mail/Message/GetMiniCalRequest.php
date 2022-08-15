@@ -36,7 +36,13 @@ class GetMiniCalRequest extends SoapRequest
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -46,7 +52,13 @@ class GetMiniCalRequest extends SoapRequest
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -55,7 +67,12 @@ class GetMiniCalRequest extends SoapRequest
      * @Accessor(getter="getFolders", setter="setFolders")
      * @Type("array<Zimbra\Common\Struct\Id>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFolders', setter: 'setFolders')]
+    #[Type(name: 'array<Zimbra\Common\Struct\Id>')]
+    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
     private $folders = [];
 
     /**
@@ -66,8 +83,13 @@ class GetMiniCalRequest extends SoapRequest
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: CalTZInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $timezone;
 
     /**

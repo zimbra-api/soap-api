@@ -41,7 +41,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
      * @Type("array<Zimbra\Mail\Struct\ImapDataSourceNameOrId>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ImapDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraMail')]
     private $imapDataSources = [];
 
     /**
@@ -50,7 +55,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
      * @Type("array<Zimbra\Mail\Struct\Pop3DataSourceNameOrId>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\Pop3DataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraMail')]
     private $pop3DataSources = [];
 
     /**
@@ -59,7 +69,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
      * @Type("array<Zimbra\Mail\Struct\CaldavDataSourceNameOrId>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CaldavDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraMail')]
     private $caldavDataSources = [];
 
     /**
@@ -68,7 +83,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
      * @Type("array<Zimbra\Mail\Struct\YabDataSourceNameOrId>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\YabDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraMail')]
     private $yabDataSources = [];
 
     /**
@@ -77,7 +97,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
      * @Type("array<Zimbra\Mail\Struct\RssDataSourceNameOrId>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\RssDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraMail')]
     private $rssDataSources = [];
 
     /**
@@ -86,7 +111,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
      * @Type("array<Zimbra\Mail\Struct\GalDataSourceNameOrId>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\GalDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraMail')]
     private $galDataSources = [];
 
     /**
@@ -95,7 +125,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
      * @Type("array<Zimbra\Mail\Struct\CalDataSourceNameOrId>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraMail')]
     private $calDataSources = [];
 
     /**
@@ -104,7 +139,12 @@ class DeleteDataSourceRequest extends SoapRequest
      * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
      * @Type("array<Zimbra\Mail\Struct\UnknownDataSourceNameOrId>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\UnknownDataSourceNameOrId>')]
+    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraMail')]
     private $unknownDataSources = [];
 
     /**

@@ -34,7 +34,13 @@ class AddMsgRequest extends SoapRequest
      * @SerializedName("filterSent")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getFilterSent', setter: 'setFilterSent')]
+    #[SerializedName(name: 'filterSent')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $filterSent;
 
     /**
@@ -44,8 +50,13 @@ class AddMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\AddMsgSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AddMsgSpec
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: AddMsgSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

@@ -32,7 +32,13 @@ class GetYahooAuthTokenRequest extends SoapRequest
      * @SerializedName("user")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUser', setter: 'setUser')]
+    #[SerializedName(name: 'user')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $user;
 
     /**
@@ -42,7 +48,13 @@ class GetYahooAuthTokenRequest extends SoapRequest
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $password;
 
     /**

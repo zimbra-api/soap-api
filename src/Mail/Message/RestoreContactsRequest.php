@@ -32,7 +32,13 @@ class RestoreContactsRequest extends SoapRequest
      * @SerializedName("contactsBackupFileName")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContactsBackupFileName', setter: 'setContactsBackupFileName')]
+    #[SerializedName(name: 'contactsBackupFileName')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contactsBackupFileName;
 
     /**
@@ -47,8 +53,13 @@ class RestoreContactsRequest extends SoapRequest
      * @SerializedName("resolve")
      * @Type("Enum<Zimbra\Common\Enum\RestoreResolve>")
      * @XmlAttribute
+     * 
      * @var RestoreResolve
      */
+    #[Accessor(getter: 'getResolve', setter: 'setResolve')]
+    #[SerializedName(name: 'resolve')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RestoreResolve>')]
+    #[XmlAttribute]
     private $resolve;
 
     /**

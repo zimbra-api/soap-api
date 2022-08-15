@@ -33,8 +33,13 @@ class GetMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MsgSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MsgSpec
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MsgSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

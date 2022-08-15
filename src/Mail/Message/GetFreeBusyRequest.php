@@ -35,7 +35,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -45,7 +51,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -56,7 +68,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUid', setter: 'setUid')]
+    #[SerializedName(name: 'uid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uid;
 
     /**
@@ -66,7 +84,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -75,7 +99,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -85,7 +115,13 @@ class GetFreeBusyRequest extends SoapRequest
      * @SerializedName("excludeUid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getExcludeUid', setter: 'setExcludeUid')]
+    #[SerializedName(name: 'excludeUid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $excludeUid;
 
     /**
@@ -94,7 +130,12 @@ class GetFreeBusyRequest extends SoapRequest
      * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
      * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
      * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FreeBusyUserSpec>')]
+    #[XmlList(inline: true, entry: 'usr', namespace: 'urn:zimbraMail')]
     private $freebusyUsers = [];
 
     /**

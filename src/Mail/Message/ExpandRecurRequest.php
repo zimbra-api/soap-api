@@ -39,7 +39,13 @@ class ExpandRecurRequest extends SoapRequest
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -49,7 +55,13 @@ class ExpandRecurRequest extends SoapRequest
      * @SerializedName("e")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
+    #[SerializedName(name: 'e')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $endTime;
 
     /**
@@ -58,7 +70,12 @@ class ExpandRecurRequest extends SoapRequest
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
     /**
@@ -67,7 +84,12 @@ class ExpandRecurRequest extends SoapRequest
      * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
      * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>')]
+    #[XmlList(inline: true, entry: 'comp', namespace: 'urn:zimbraMail')]
     private $inviteComponents = [];
 
     /**
@@ -76,7 +98,12 @@ class ExpandRecurRequest extends SoapRequest
      * @Accessor(getter="getExceptComponents", setter="setExceptComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
      * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getExceptComponents', setter: 'setExceptComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceException>')]
+    #[XmlList(inline: true, entry: 'except', namespace: 'urn:zimbraMail')]
     private $exceptComponents = [];
 
     /**
@@ -85,7 +112,12 @@ class ExpandRecurRequest extends SoapRequest
      * @Accessor(getter="getCancelComponents", setter="setCancelComponents")
      * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
      * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCancelComponents', setter: 'setCancelComponents')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>')]
+    #[XmlList(inline: true, entry: 'cancel', namespace: 'urn:zimbraMail')]
     private $cancelComponents = [];
 
     /**

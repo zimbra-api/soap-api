@@ -52,8 +52,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MsgToSend")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MsgToSend
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MsgToSend::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**
@@ -64,7 +69,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("needCalendarSentByFixup")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNeedCalendarSentbyFixup', setter: 'setNeedCalendarSentbyFixup')]
+    #[SerializedName(name: 'needCalendarSentByFixup')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needCalendarSentbyFixup;
 
     /**
@@ -75,7 +86,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("isCalendarForward")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsCalendarForward', setter: 'setIsCalendarForward')]
+    #[SerializedName(name: 'isCalendarForward')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isCalendarForward;
 
     /**
@@ -85,7 +102,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("noSave")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getNoSaveToSent', setter: 'setNoSaveToSent')]
+    #[SerializedName(name: 'noSave')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $noSaveToSent;
 
     /**
@@ -95,7 +118,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("fetchSavedMsg")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getFetchSavedMsg', setter: 'setFetchSavedMsg')]
+    #[SerializedName(name: 'fetchSavedMsg')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $fetchSavedMsg;
 
     /**
@@ -105,7 +134,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("suid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSendUid', setter: 'setSendUid')]
+    #[SerializedName(name: 'suid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sendUid;
 
     /**
@@ -115,7 +150,13 @@ class SendMsgRequest extends SoapRequest
      * @SerializedName("deliveryReport")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getDeliveryReport', setter: 'setDeliveryReport')]
+    #[SerializedName(name: 'deliveryReport')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $deliveryReport;
 
     /**

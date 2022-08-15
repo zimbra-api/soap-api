@@ -33,7 +33,13 @@ class VerifyCodeRequest extends SoapRequest
      * @SerializedName("a")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAddress', setter: 'setAddress')]
+    #[SerializedName(name: 'a')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $address;
 
     /**
@@ -43,7 +49,13 @@ class VerifyCodeRequest extends SoapRequest
      * @SerializedName("code")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
+    #[SerializedName(name: 'code')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $verificationCode;
 
     /**

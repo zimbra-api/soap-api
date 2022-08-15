@@ -33,8 +33,13 @@ class GetNoteRequest extends SoapRequest
      * @SerializedName("note")
      * @Type("Zimbra\Common\Struct\Id")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Id
      */
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName(name: 'note')]
+    #[Type(name: Id::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $note;
 
     /**

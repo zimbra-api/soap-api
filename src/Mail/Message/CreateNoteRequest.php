@@ -33,8 +33,13 @@ class CreateNoteRequest extends SoapRequest
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NewNoteSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var NewNoteSpec
      */
+    #[Accessor(getter: "getNote", setter: "setNote")]
+    #[SerializedName(name: 'note')]
+    #[Type(name: NewNoteSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $note;
 
     /**

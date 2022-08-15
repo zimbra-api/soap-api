@@ -45,7 +45,13 @@ class SearchRequest extends SoapRequest implements SearchParameters
      * @SerializedName("warmup")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWarmup', setter: 'setWarmup')]
+    #[SerializedName(name: 'warmup')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $warmup;
 
     /**

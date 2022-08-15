@@ -40,7 +40,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("visible")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isVisible', setter: 'setVisible')]
+    #[SerializedName(name: 'visible')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isVisible;
 
     /**
@@ -50,7 +56,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("needGranteeName")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isNeedGranteeName', setter: 'setNeedGranteeName')]
+    #[SerializedName(name: 'needGranteeName')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $needGranteeName;
 
     /**
@@ -61,7 +73,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("view")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getViewConstraint', setter: 'setViewConstraint')]
+    #[SerializedName(name: 'view')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $viewConstraint;
 
     /**
@@ -73,7 +91,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("depth")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTreeDepth', setter: 'setTreeDepth')]
+    #[SerializedName(name: 'depth')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $treeDepth;
 
     /**
@@ -86,7 +110,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("tr")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isTraverseMountpoints', setter: 'setTraverseMountpoints')]
+    #[SerializedName(name: 'tr')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $traverseMountpoints;
 
     /**
@@ -96,8 +126,13 @@ class GetFolderRequest extends SoapRequest
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\GetFolderSpec")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetFolderSpec
      */
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: GetFolderSpec::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $folder;
 
     /**
