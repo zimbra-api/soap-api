@@ -30,7 +30,13 @@ class NestedSearchConversation
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class NestedSearchConversation
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNum', setter: 'setNum')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $num;
 
     /**
@@ -50,7 +62,13 @@ class NestedSearchConversation
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
+    #[SerializedName(name: 'total')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $totalSize;
 
     /**
@@ -60,7 +78,13 @@ class NestedSearchConversation
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -70,7 +94,13 @@ class NestedSearchConversation
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -80,7 +110,13 @@ class NestedSearchConversation
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -89,7 +125,12 @@ class NestedSearchConversation
      * @Accessor(getter="getMessages", setter="setMessages")
      * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMessages', setter: 'setMessages')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MessageHitInfo>')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messages = [];
 
     /**
@@ -103,8 +144,13 @@ class NestedSearchConversation
      * @SerializedName("info")
      * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SearchQueryInfo
      */
+    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[SerializedName(name: 'info')]
+    #[Type(name: SearchQueryInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $queryInfo;
 
     /**

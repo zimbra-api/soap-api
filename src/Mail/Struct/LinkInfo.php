@@ -30,7 +30,13 @@ class LinkInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class LinkInfo
      * @SerializedName("uuid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
+    #[SerializedName(name: 'uuid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uuid;
 
     /**
@@ -50,7 +62,13 @@ class LinkInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -60,7 +78,13 @@ class LinkInfo
      * @SerializedName("view")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
+    #[SerializedName(name: 'view')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultView;
 
     /**
@@ -70,7 +94,13 @@ class LinkInfo
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRights', setter: 'setRights')]
+    #[SerializedName(name: 'perm')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rights;
 
     /**

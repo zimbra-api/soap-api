@@ -30,7 +30,13 @@ class PurgeRevisionSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class PurgeRevisionSpec
      * @SerializedName("ver")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
+    #[SerializedName(name: 'ver')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $version;
 
     /**
@@ -51,7 +63,13 @@ class PurgeRevisionSpec
      * @SerializedName("includeOlderRevisions")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIncludeOlderRevisions', setter: 'setIncludeOlderRevisions')]
+    #[SerializedName(name: 'includeOlderRevisions')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $includeOlderRevisions;
 
     /**

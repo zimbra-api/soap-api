@@ -31,8 +31,13 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalOrganizer
      */
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName(name: 'or')]
+    #[Type(name: CalOrganizer::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $organizer;
 
     /**
@@ -41,7 +46,12 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories = [];
 
     /**
@@ -51,8 +61,13 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GeoInfo
      */
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName(name: 'geo')]
+    #[Type(name: GeoInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $geo;
 
     /**
@@ -62,7 +77,13 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName(name: 'fr')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
     /**
@@ -71,7 +92,12 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @Accessor(getter="getInstances", setter="setInstances")
      * @Type("array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>")
      * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\LegacyInstanceDataInfo>')]
+    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
     private $instances = [];
 
     /**
@@ -81,8 +107,13 @@ class LegacyCalendaringData extends CommonCalendaringData implements Calendaring
      * @SerializedName("alarmData")
      * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AlarmDataInfo
      */
+    #[Accessor(getter: "getAlarmData", setter: "setAlarmData")]
+    #[SerializedName(name: 'alarmData')]
+    #[Type(name: AlarmDataInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $alarmData;
 
     /**

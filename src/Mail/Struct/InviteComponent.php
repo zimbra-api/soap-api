@@ -43,7 +43,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories = [];
 
     /**
@@ -52,7 +57,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getComments", setter="setComments")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getComments', setter: 'setComments')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'comment', namespace: 'urn:zimbraMail')]
     private $comments = [];
 
     /**
@@ -61,7 +71,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'contact', namespace: 'urn:zimbraMail')]
     private $contacts = [];
 
     /**
@@ -71,8 +86,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("geo")
      * @Type("Zimbra\Mail\Struct\GeoInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GeoInfoInterface
      */
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName(name: 'geo')]
+    #[Type(name: GeoInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $geo;
 
     /**
@@ -81,7 +101,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getAttendees", setter="setAttendees")
      * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
      * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttendees', setter: 'setAttendees')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalendarAttendee>')]
+    #[XmlList(inline: true, entry: 'at', namespace: 'urn:zimbraMail')]
     private $attendees = [];
 
     /**
@@ -90,7 +115,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getAlarms", setter="setAlarms")
      * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
      * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAlarms', setter: 'setAlarms')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\AlarmInfo>')]
+    #[XmlList(inline: true, entry: 'alarm', namespace: 'urn:zimbraMail')]
     private $alarms = [];
 
     /**
@@ -99,7 +129,12 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @Accessor(getter="getXProps", setter="setXProps")
      * @Type("array<Zimbra\Mail\Struct\XProp>")
      * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getXProps', setter: 'setXProps')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\XProp>')]
+    #[XmlList(inline: true, entry: 'xprop', namespace: 'urn:zimbraMail')]
     private $xProps = [];
 
     /**
@@ -109,7 +144,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName(name: 'fr')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
     /**
@@ -119,7 +160,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("desc")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getDescription", setter: "setDescription")]
+    #[SerializedName(name: 'desc')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $description;
 
     /**
@@ -129,7 +176,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("descHtml")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getHtmlDescription", setter: "setHtmlDescription")]
+    #[SerializedName(name: 'descHtml')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $htmlDescription;
 
     /**
@@ -139,8 +192,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalOrganizerInterface
      */
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName(name: 'or')]
+    #[Type(name: CalOrganizer::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $organizer;
 
     /**
@@ -150,8 +208,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("recur")
      * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfoInterface
      */
+    #[Accessor(getter: "getRecurrence", setter: "setRecurrence")]
+    #[SerializedName(name: 'recur')]
+    #[Type(name: RecurrenceInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $recurrence;
 
     /**
@@ -161,8 +224,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("exceptId")
      * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ExceptionRecurIdInfoInterface
      */
+    #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
+    #[SerializedName(name: 'exceptId')]
+    #[Type(name: ExceptionRecurIdInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptionId;
 
     /**
@@ -172,8 +240,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("s")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfoInterface
      */
+    #[Accessor(getter: "getDtStart", setter: "setDtStart")]
+    #[SerializedName(name: 's')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $dtStart;
 
     /**
@@ -183,8 +256,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("e")
      * @Type("Zimbra\Mail\Struct\DtTimeInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfoInterface
      */
+    #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
+    #[SerializedName(name: 'e')]
+    #[Type(name: DtTimeInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $dtEnd;
 
     /**
@@ -194,8 +272,13 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
      * @SerializedName("dur")
      * @Type("Zimbra\Mail\Struct\DurationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DurationInfoInterface
      */
+    #[Accessor(getter: "getDuration", setter: "setDuration")]
+    #[SerializedName(name: 'dur')]
+    #[Type(name: DurationInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $duration;
 
     /**

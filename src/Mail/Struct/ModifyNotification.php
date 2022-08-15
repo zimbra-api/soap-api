@@ -30,7 +30,13 @@ class ModifyNotification
      * @SerializedName("change")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeBitmask', setter: 'setChangeBitmask')]
+    #[SerializedName(name: 'change')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeBitmask;
 
     /**

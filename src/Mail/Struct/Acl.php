@@ -65,9 +65,9 @@ class Acl
      * 
      * @var array
      */
-    #[Accessor(getter: "getGrants", setter: "setGrants")]
+    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
     #[Type(name: 'array<Zimbra\Mail\Struct\Grant>')]
-    #[XmlList(inline: true, entry: "grant", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'grant', namespace: 'urn:zimbraMail')]
     private $grants = [];
 
     /**

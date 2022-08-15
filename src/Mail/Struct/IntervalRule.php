@@ -32,7 +32,13 @@ class IntervalRule implements IntervalRuleInterface
      * @SerializedName("ival")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getIval', setter: 'setIval')]
+    #[SerializedName(name: 'ival')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $ival;
 
     /**

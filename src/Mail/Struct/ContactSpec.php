@@ -115,7 +115,7 @@ class ContactSpec implements SpecifyContact
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
     #[Type(name: 'array<Zimbra\Mail\Struct\NewContactAttr>')]
-    #[XmlList(inline: true, entry: "a", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
     /**
@@ -130,7 +130,7 @@ class ContactSpec implements SpecifyContact
      */
     #[Accessor(getter: "getContactGroupMembers", setter: 'setContactGroupMembers')]
     #[Type(name: 'array<Zimbra\Mail\Struct\NewContactGroupMember>')]
-    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 
     /**

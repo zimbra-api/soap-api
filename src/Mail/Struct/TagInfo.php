@@ -31,7 +31,13 @@ class TagInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class TagInfo
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -51,7 +63,13 @@ class TagInfo
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -61,7 +79,13 @@ class TagInfo
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -71,7 +95,13 @@ class TagInfo
      * @SerializedName("u")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getUnread', setter: 'setUnread')]
+    #[SerializedName(name: 'u')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $unread;
 
     /**
@@ -81,7 +111,13 @@ class TagInfo
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCount', setter: 'setCount')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $count;
 
     /**
@@ -91,7 +127,13 @@ class TagInfo
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -101,7 +143,13 @@ class TagInfo
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -111,7 +159,13 @@ class TagInfo
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
+    #[SerializedName(name: 'md')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeDate;
 
     /**
@@ -121,7 +175,13 @@ class TagInfo
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequence;
 
     /**
@@ -130,7 +190,12 @@ class TagInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**
@@ -140,8 +205,13 @@ class TagInfo
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RetentionPolicy
      */
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName(name: 'retentionPolicy')]
+    #[Type(name: RetentionPolicy::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $retentionPolicy;
 
     /**

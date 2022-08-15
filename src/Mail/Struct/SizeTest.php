@@ -31,8 +31,13 @@ class SizeTest extends FilterTest
      * @SerializedName("numberComparison")
      * @Type("Enum<Zimbra\Common\Enum\NumberComparison>")
      * @XmlAttribute
+     * 
      * @var NumberComparison
      */
+    #[Accessor(getter: 'getNumberComparison', setter: 'setNumberComparison')]
+    #[SerializedName(name: 'numberComparison')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\NumberComparison>')]
+    #[XmlAttribute]
     private $numberComparison;
 
     /**
@@ -42,7 +47,13 @@ class SizeTest extends FilterTest
      * @SerializedName("s")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $size;
 
     /**

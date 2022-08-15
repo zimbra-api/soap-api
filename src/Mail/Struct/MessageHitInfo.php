@@ -33,7 +33,13 @@ class MessageHitInfo extends MessageInfo implements SearchHit
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
+    #[SerializedName(name: 'sf')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortField;
 
     /**
@@ -43,7 +49,13 @@ class MessageHitInfo extends MessageInfo implements SearchHit
      * @SerializedName("cm")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
+    #[SerializedName(name: 'cm')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $contentMatched;
 
     /**
@@ -52,7 +64,12 @@ class MessageHitInfo extends MessageInfo implements SearchHit
      * @Accessor(getter="getMessagePartHits", setter="setMessagePartHits")
      * @Type("array<Zimbra\Mail\Struct\Part>")
      * @XmlList(inline=true, entry="hp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMessagePartHits', setter: 'setMessagePartHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\Part>')]
+    #[XmlList(inline: true, entry: 'hp', namespace: 'urn:zimbraMail')]
     private $messagePartHits = [];
 
     /**

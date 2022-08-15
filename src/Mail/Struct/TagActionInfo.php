@@ -30,7 +30,13 @@ class TagActionInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSuccesses', setter: 'setSuccesses')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $successes;
 
     /**
@@ -41,7 +47,13 @@ class TagActionInfo
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSuccessNames', setter: 'setSuccessNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $successNames;
 
     /**
@@ -51,7 +63,13 @@ class TagActionInfo
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $operation;
 
     /**

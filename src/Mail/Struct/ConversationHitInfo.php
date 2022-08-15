@@ -52,7 +52,7 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
      */
     #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ConversationMsgHitInfo>')]
-    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messageHits = [];
 
     /**

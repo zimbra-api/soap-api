@@ -31,8 +31,13 @@ class LogAction extends FilterAction
      * @SerializedName("level")
      * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
      * @XmlAttribute
+     * 
      * @var LoggingLevel
      */
+    #[Accessor(getter: 'getLevel', setter: 'setLevel')]
+    #[SerializedName(name: 'level')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\LoggingLevel>')]
+    #[XmlAttribute]
     private $level;
 
     /**
@@ -41,7 +46,12 @@ class LogAction extends FilterAction
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $content;
 
     /**

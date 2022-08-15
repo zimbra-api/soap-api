@@ -30,7 +30,13 @@ class TestDataSource
      * @SerializedName("success")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
+    #[SerializedName(name: 'success')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $success;
 
     /**
@@ -40,7 +46,13 @@ class TestDataSource
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getError', setter: 'setError')]
+    #[SerializedName(name: 'error')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $error;
 
     /**

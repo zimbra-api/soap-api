@@ -472,7 +472,7 @@ class Folder
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: "meta", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**
@@ -502,7 +502,7 @@ class Folder
      */
     #[Accessor(getter: 'getSubfolders', setter: 'setSubfolders')]
     #[Type(name: 'array<Zimbra\Mail\Struct\Folder>')]
-    #[XmlList(inline: true, entry: "folder", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
     private $subFolders = [];
 
     /**
@@ -516,7 +516,7 @@ class Folder
      */
     #[Accessor(getter: 'getMountpoints', setter: 'setMountpoints')]
     #[Type(name: 'array<Zimbra\Mail\Struct\Mountpoint>')]
-    #[XmlList(inline: true, entry: "link", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'link', namespace: 'urn:zimbraMail')]
     private $mountpoints = [];
 
     /**
@@ -530,7 +530,7 @@ class Folder
      */
     #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
     #[Type(name: 'array<Zimbra\Mail\Struct\SearchFolder>')]
-    #[XmlList(inline: true, entry: "search", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
     private $searchFolders = [];
 
     /**

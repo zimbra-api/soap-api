@@ -31,7 +31,13 @@ class Notification implements NotificationInterface
      * @SerializedName("truncated")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getTruncatedContent', setter: 'setTruncatedContent')]
+    #[SerializedName(name: 'truncated')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $truncatedContent;
 
     /**
@@ -41,7 +47,13 @@ class Notification implements NotificationInterface
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 
     /**

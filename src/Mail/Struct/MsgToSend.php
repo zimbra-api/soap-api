@@ -32,7 +32,13 @@ class MsgToSend extends Msg
      * @SerializedName("did")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDraftId', setter: 'setDraftId')]
+    #[SerializedName(name: 'did')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $draftId;
 
     /**
@@ -42,7 +48,13 @@ class MsgToSend extends Msg
      * @SerializedName("sfd")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSendFromDraft', setter: 'setSendFromDraft')]
+    #[SerializedName(name: 'sfd')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $sendFromDraft;
 
     /**
@@ -52,7 +64,13 @@ class MsgToSend extends Msg
      * @SerializedName("dsId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDataSourceId', setter: 'setDataSourceId')]
+    #[SerializedName(name: 'dsId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dataSourceId;
 
     /**

@@ -30,7 +30,13 @@ class ImportContact
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getListOfCreatedIds', setter: 'setListOfCreatedIds')]
+    #[SerializedName(name: 'ids')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $listOfCreatedIds;
 
     /**
@@ -40,7 +46,13 @@ class ImportContact
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNumImported', setter: 'setNumImported')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $numImported;
 
     /**

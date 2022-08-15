@@ -30,7 +30,13 @@ class SyncDeletedInfo
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getIds', setter: 'setIds')]
+    #[SerializedName(name: 'ids')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ids;
 
     /**
@@ -39,7 +45,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getFolderTypes", setter="setFolderTypes")
      * @Type("array<Zimbra\Mail\Struct\FolderIdsAttr>")
      * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getFolderTypes', setter: 'setFolderTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\FolderIdsAttr>')]
+    #[XmlList(inline: true, entry: 'folder', namespace: 'urn:zimbraMail')]
     private $folderTypes = [];
 
     /**
@@ -48,7 +59,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
      * @Type("array<Zimbra\Mail\Struct\SearchFolderIdsAttr>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\SearchFolderIdsAttr>')]
+    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
     private $searchTypes = [];
 
     /**
@@ -57,7 +73,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getLinkTypes", setter="setLinkTypes")
      * @Type("array<Zimbra\Mail\Struct\MountIdsAttr>")
      * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getLinkTypes', setter: 'setLinkTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MountIdsAttr>')]
+    #[XmlList(inline: true, entry: 'link', namespace: 'urn:zimbraMail')]
     private $linkTypes = [];
 
     /**
@@ -66,7 +87,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getTagTypes", setter="setTagTypes")
      * @Type("array<Zimbra\Mail\Struct\TagIdsAttr>")
      * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTagTypes', setter: 'setTagTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TagIdsAttr>')]
+    #[XmlList(inline: true, entry: 'tag', namespace: 'urn:zimbraMail')]
     private $tagTypes = [];
 
     /**
@@ -75,7 +101,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getConvTypes", setter="setConvTypes")
      * @Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")
      * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getConvTypes', setter: 'setConvTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ConvIdsAttr>')]
+    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
     private $convTypes = [];
 
     /**
@@ -84,7 +115,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getChatTypes", setter="setChatTypes")
      * @Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getChatTypes', setter: 'setChatTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ChatIdsAttr>')]
+    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
     private $chatTypes = [];
 
     /**
@@ -93,7 +129,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getMsgTypes", setter="setMsgTypes")
      * @Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMsgTypes', setter: 'setMsgTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MsgIdsAttr>')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $msgTypes = [];
 
     /**
@@ -102,7 +143,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getContactTypes", setter="setContactTypes")
      * @Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContactTypes', setter: 'setContactTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ContactIdsAttr>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $contactTypes = [];
 
     /**
@@ -111,7 +157,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getApptTypes", setter="setApptTypes")
      * @Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getApptTypes', setter: 'setApptTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ApptIdsAttr>')]
+    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $apptTypes = [];
 
     /**
@@ -120,7 +171,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getTaskTypes", setter="setTaskTypes")
      * @Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTaskTypes', setter: 'setTaskTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TaskIdsAttr>')]
+    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskTypes = [];
 
     /**
@@ -129,7 +185,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getNoteTypes", setter="setNoteTypes")
      * @Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")
      * @XmlList(inline=true, entry="notes", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getNoteTypes', setter: 'setNoteTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\NoteIdsAttr>')]
+    #[XmlList(inline: true, entry: 'notes', namespace: 'urn:zimbraMail')]
     private $noteTypes = [];
 
     /**
@@ -138,7 +199,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getWikiTypes", setter="setWikiTypes")
      * @Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")
      * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getWikiTypes', setter: 'setWikiTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\WikiIdsAttr>')]
+    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
     private $wikiTypes = [];
 
     /**
@@ -147,7 +213,12 @@ class SyncDeletedInfo
      * @Accessor(getter="getDocTypes", setter="setDocTypes")
      * @Type("array<Zimbra\Mail\Struct\DocIdsAttr>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDocTypes', setter: 'setDocTypes')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DocIdsAttr>')]
+    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
     private $docTypes = [];
 
     /**

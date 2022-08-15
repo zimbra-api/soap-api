@@ -32,8 +32,13 @@ class ModifyContactGroupMember extends NewContactGroupMember
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>")
      * @XmlAttribute
+     * 
      * @var ModifyGroupMemberOperation
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ModifyGroupMemberOperation>')]
+    #[XmlAttribute]
     private $operation;
 
     /**

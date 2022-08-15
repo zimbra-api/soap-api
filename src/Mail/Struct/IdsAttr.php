@@ -30,7 +30,13 @@ class IdsAttr
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getIds', setter: 'setIds')]
+    #[SerializedName(name: 'ids')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ids;
 
     /**

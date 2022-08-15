@@ -31,7 +31,13 @@ class TagSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -41,7 +47,13 @@ class TagSpec
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -51,7 +63,13 @@ class TagSpec
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**

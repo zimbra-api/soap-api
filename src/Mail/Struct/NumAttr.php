@@ -32,7 +32,13 @@ class NumAttr implements NumAttrInterface
      * @SerializedName("num")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNum', setter: 'setNum')]
+    #[SerializedName(name: 'num')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $num;
 
     /**

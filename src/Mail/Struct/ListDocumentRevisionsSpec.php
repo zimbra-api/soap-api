@@ -30,7 +30,13 @@ class ListDocumentRevisionsSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class ListDocumentRevisionsSpec
      * @SerializedName("ver")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getVersion', setter: 'setVersion')]
+    #[SerializedName(name: 'ver')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $version;
 
     /**
@@ -50,7 +62,13 @@ class ListDocumentRevisionsSpec
      * @SerializedName("count")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getCount', setter: 'setCount')]
+    #[SerializedName(name: 'count')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $count;
 
     /**

@@ -30,7 +30,13 @@ class MimePartAttachSpec extends AttachSpec
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
+    #[SerializedName(name: 'mid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $messageId;
 
     /**
@@ -40,7 +46,13 @@ class MimePartAttachSpec extends AttachSpec
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**

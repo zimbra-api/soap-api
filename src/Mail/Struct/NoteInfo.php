@@ -31,7 +31,13 @@ class NoteInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class NoteInfo
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -51,7 +63,13 @@ class NoteInfo
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
@@ -61,7 +79,13 @@ class NoteInfo
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -71,7 +95,13 @@ class NoteInfo
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -81,7 +111,13 @@ class NoteInfo
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -91,7 +127,13 @@ class NoteInfo
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -101,7 +143,13 @@ class NoteInfo
      * @SerializedName("pos")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
+    #[SerializedName(name: 'pos')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $bounds;
 
     /**
@@ -111,7 +159,13 @@ class NoteInfo
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -121,7 +175,13 @@ class NoteInfo
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -131,7 +191,13 @@ class NoteInfo
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
+    #[SerializedName(name: 'md')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeDate;
 
     /**
@@ -141,7 +207,13 @@ class NoteInfo
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequence;
 
     /**
@@ -151,7 +223,13 @@ class NoteInfo
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 
     /**
@@ -160,7 +238,12 @@ class NoteInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**

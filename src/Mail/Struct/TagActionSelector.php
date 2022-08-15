@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList
-};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement};
 use Zimbra\Common\Enum\GranteeType;
 
 /**
@@ -33,8 +31,13 @@ class TagActionSelector extends ActionSelector
      * @SerializedName("retentionPolicy")
      * @Type("Zimbra\Mail\Struct\RetentionPolicy")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RetentionPolicy
      */
+    #[Accessor(getter: "getRetentionPolicy", setter: "setRetentionPolicy")]
+    #[SerializedName(name: 'retentionPolicy')]
+    #[Type(name: RetentionPolicy::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $retentionPolicy;
 
     /**

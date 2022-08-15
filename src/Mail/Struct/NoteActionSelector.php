@@ -10,9 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{
-    Accessor, SerializedName, Type, XmlAttribute
-};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 
 /**
  * NoteActionSelector class
@@ -32,7 +30,13 @@ class NoteActionSelector extends ActionSelector
      * @SerializedName("content")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $content;
 
     /**
@@ -42,7 +46,13 @@ class NoteActionSelector extends ActionSelector
      * @SerializedName("pos")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
+    #[SerializedName(name: 'pos')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $bounds;
 
     /**

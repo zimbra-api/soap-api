@@ -32,7 +32,13 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $timezone;
 
     /**
@@ -41,7 +47,12 @@ class SingleDates implements RecurRuleBase, SingleDatesInterface
      * @Accessor(getter="getDtVals", setter="setDtVals")
      * @Type("array<Zimbra\Mail\Struct\DtVal>")
      * @XmlList(inline=true, entry="dtval", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDtVals', setter: 'setDtVals')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DtVal>')]
+    #[XmlList(inline: true, entry: 'dtval', namespace: 'urn:zimbraMail')]
     private $dtVals = [];
 
     /**

@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlList};
 
 /**
  * ModifyContactSpec struct class
@@ -30,7 +30,13 @@ class ModifyContactSpec
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class ModifyContactSpec
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -49,7 +61,12 @@ class ModifyContactSpec
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyContactAttr>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attrs = [];
 
     /**
@@ -59,7 +76,12 @@ class ModifyContactSpec
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ModifyContactGroupMember>')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $contactGroupMembers = [];
 
     /**

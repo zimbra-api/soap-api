@@ -31,18 +31,30 @@ class Misspelling
      * @SerializedName("word")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getWord', setter: 'setWord')]
+    #[SerializedName(name: 'word')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $word;
 
     /**
-     * Comma separated list of suggestions.  Suggested words are listed in decreasing order
-     * of their match score.
+     * Comma separated list of suggestions.
+     * Suggested words are listed in decreasing order of their match score.
      * 
      * @Accessor(getter="getSuggestions", setter="setSuggestions")
      * @SerializedName("suggestions")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSuggestions', setter: 'setSuggestions')]
+    #[SerializedName(name: 'suggestions')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $suggestions;
 
     /**

@@ -31,7 +31,13 @@ class VCardInfo
      * @SerializedName("mid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
+    #[SerializedName(name: 'mid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $messageId;
 
     /**
@@ -41,7 +47,13 @@ class VCardInfo
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
@@ -51,7 +63,13 @@ class VCardInfo
      * @SerializedName("aid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
+    #[SerializedName(name: 'aid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attachId;
 
     /**
@@ -60,7 +78,12 @@ class VCardInfo
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

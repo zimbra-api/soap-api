@@ -30,7 +30,13 @@ abstract class ImportStatusInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ abstract class ImportStatusInfo
      * @SerializedName("isRunning")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getRunning', setter: 'setRunning')]
+    #[SerializedName(name: 'isRunning')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $running;
 
     /**
@@ -51,7 +63,13 @@ abstract class ImportStatusInfo
      * @SerializedName("success")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
+    #[SerializedName(name: 'success')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $success;
 
     /**
@@ -62,7 +80,13 @@ abstract class ImportStatusInfo
      * @SerializedName("error")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getError', setter: 'setError')]
+    #[SerializedName(name: 'error')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $error;
 
     /**

@@ -30,7 +30,13 @@ class SharedReminderMount
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class SharedReminderMount
      * @SerializedName("reminder")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getShowReminders', setter: 'setShowReminders')]
+    #[SerializedName(name: 'reminder')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $showReminders;
 
     /**

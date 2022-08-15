@@ -30,7 +30,13 @@ class Invitation
      * @SerializedName("type")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $calItemType;
 
     /**
@@ -40,7 +46,13 @@ class Invitation
      * @SerializedName("seq")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSequence', setter: 'setSequence')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $sequence;
 
     /**
@@ -50,7 +62,13 @@ class Invitation
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -60,7 +78,13 @@ class Invitation
      * @SerializedName("compNum")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getComponentNum', setter: 'setComponentNum')]
+    #[SerializedName(name: 'compNum')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $componentNum;
 
     /**
@@ -70,7 +94,13 @@ class Invitation
      * @SerializedName("recurId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
+    #[SerializedName(name: 'recurId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $recurrenceId;
 
     /**
@@ -79,7 +109,12 @@ class Invitation
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
     /**
@@ -89,8 +124,13 @@ class Invitation
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InviteComponent
      */
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName(name: 'comp')]
+    #[Type(name: InviteComponent::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $inviteComponent;
 
     /**
@@ -99,7 +139,12 @@ class Invitation
      * @Accessor(getter="getPartInfos", setter="setPartInfos")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPartInfos', setter: 'setPartInfos')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\PartInfo>')]
+    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $partInfos = [];
 
     /**
@@ -108,7 +153,12 @@ class Invitation
      * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
      * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
      * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ShareNotification>')]
+    #[XmlList(inline: true, entry: 'shr', namespace: 'urn:zimbraMail')]
     private $shareNotifications = [];
 
     /**
@@ -117,7 +167,12 @@ class Invitation
      * @Accessor(getter="getDlSubs", setter="setDlSubs")
      * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
      * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDlSubs', setter: 'setDlSubs')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DLSubscriptionNotification>')]
+    #[XmlList(inline: true, entry: 'dlSubs', namespace: 'urn:zimbraMail')]
     private $dlSubs = [];
 
     /**

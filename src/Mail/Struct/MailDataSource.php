@@ -32,7 +32,13 @@ class MailDataSource implements DataSource
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class MailDataSource implements DataSource
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -52,7 +64,13 @@ class MailDataSource implements DataSource
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -62,7 +80,13 @@ class MailDataSource implements DataSource
      * @SerializedName("isEnabled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isEnabled', setter: 'setEnabled')]
+    #[SerializedName(name: 'isEnabled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $enabled;
 
     /**
@@ -72,7 +96,13 @@ class MailDataSource implements DataSource
      * @SerializedName("importOnly")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isImportOnly', setter: 'setImportOnly')]
+    #[SerializedName(name: 'importOnly')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $importOnly;
 
     /**
@@ -83,7 +113,13 @@ class MailDataSource implements DataSource
      * @SerializedName("host")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getHost', setter: 'setHost')]
+    #[SerializedName(name: 'host')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $host;
 
     /**
@@ -94,7 +130,13 @@ class MailDataSource implements DataSource
      * @SerializedName("port")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getPort', setter: 'setPort')]
+    #[SerializedName(name: 'port')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $port;
 
     /**
@@ -105,8 +147,13 @@ class MailDataSource implements DataSource
      * @SerializedName("connectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * 
      * @var ConnectionType
      */
+    #[Accessor(getter: 'getConnectionType', setter: 'setConnectionType')]
+    #[SerializedName(name: 'connectionType')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[XmlAttribute]
     private $connectionType;
 
     /**
@@ -116,7 +163,13 @@ class MailDataSource implements DataSource
      * @SerializedName("username")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUsername', setter: 'setUsername')]
+    #[SerializedName(name: 'username')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $username;
 
     /**
@@ -126,7 +179,13 @@ class MailDataSource implements DataSource
      * @SerializedName("password")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPassword', setter: 'setPassword')]
+    #[SerializedName(name: 'password')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $password;
 
     /**
@@ -136,7 +195,13 @@ class MailDataSource implements DataSource
      * @SerializedName("pollingInterval")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPollingInterval', setter: 'setPollingInterval')]
+    #[SerializedName(name: 'pollingInterval')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $pollingInterval;
 
     /**
@@ -146,7 +211,13 @@ class MailDataSource implements DataSource
      * @SerializedName("emailAddress")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmailAddress', setter: 'setEmailAddress')]
+    #[SerializedName(name: 'emailAddress')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $emailAddress;
 
     /**
@@ -156,7 +227,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpEnabled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isSmtpEnabled', setter: 'setSmtpEnabled')]
+    #[SerializedName(name: 'smtpEnabled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $smtpEnabled;
 
     /**
@@ -166,7 +243,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpHost")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSmtpHost', setter: 'setSmtpHost')]
+    #[SerializedName(name: 'smtpHost')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $smtpHost;
 
     /**
@@ -176,7 +259,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpPort")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSmtpPort', setter: 'setSmtpPort')]
+    #[SerializedName(name: 'smtpPort')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $smtpPort;
 
     /**
@@ -186,8 +275,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpConnectionType")
      * @Type("Enum<Zimbra\Common\Enum\ConnectionType>")
      * @XmlAttribute
+     * 
      * @var ConnectionType
      */
+    #[Accessor(getter: 'getSmtpConnectionType', setter: 'setSmtpConnectionType')]
+    #[SerializedName(name: 'smtpConnectionType')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ConnectionType>')]
+    #[XmlAttribute]
     private $smtpConnectionType;
 
     /**
@@ -197,7 +291,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpAuthRequired")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isSmtpAuthRequired', setter: 'setSmtpAuthRequired')]
+    #[SerializedName(name: 'smtpAuthRequired')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $smtpAuthRequired;
 
     /**
@@ -207,7 +307,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpUsername")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSmtpUsername', setter: 'setSmtpUsername')]
+    #[SerializedName(name: 'smtpUsername')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $smtpUsername;
 
     /**
@@ -217,7 +323,13 @@ class MailDataSource implements DataSource
      * @SerializedName("smtpPassword")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSmtpPassword', setter: 'setSmtpPassword')]
+    #[SerializedName(name: 'smtpPassword')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $smtpPassword;
 
     /**
@@ -229,7 +341,13 @@ class MailDataSource implements DataSource
      * @SerializedName("useAddressForForwardReply")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'isUseAddressForForwardReply', setter: 'setUseAddressForForwardReply')]
+    #[SerializedName(name: 'useAddressForForwardReply')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $useAddressForForwardReply;
 
     /**
@@ -239,7 +357,13 @@ class MailDataSource implements DataSource
      * @SerializedName("defaultSignature")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDefaultSignature', setter: 'setDefaultSignature')]
+    #[SerializedName(name: 'defaultSignature')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $defaultSignature;
 
     /**
@@ -249,7 +373,13 @@ class MailDataSource implements DataSource
      * @SerializedName("forwardReplySignature")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getForwardReplySignature', setter: 'setForwardReplySignature')]
+    #[SerializedName(name: 'forwardReplySignature')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $forwardReplySignature;
 
     /**
@@ -259,7 +389,13 @@ class MailDataSource implements DataSource
      * @SerializedName("fromDisplay")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFromDisplay', setter: 'setFromDisplay')]
+    #[SerializedName(name: 'fromDisplay')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $fromDisplay;
 
     /**
@@ -269,7 +405,13 @@ class MailDataSource implements DataSource
      * @SerializedName("replyToAddress")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReplyToAddress', setter: 'setReplyToAddress')]
+    #[SerializedName(name: 'replyToAddress')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $replyToAddress;
 
     /**
@@ -279,7 +421,13 @@ class MailDataSource implements DataSource
      * @SerializedName("replyToDisplay")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getReplyToDisplay', setter: 'setReplyToDisplay')]
+    #[SerializedName(name: 'replyToDisplay')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $replyToDisplay;
 
     /**
@@ -289,7 +437,13 @@ class MailDataSource implements DataSource
      * @SerializedName("importClass")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getImportClass', setter: 'setImportClass')]
+    #[SerializedName(name: 'importClass')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $importClass;
 
     /**
@@ -299,7 +453,13 @@ class MailDataSource implements DataSource
      * @SerializedName("failingSince")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFailingSince', setter: 'setFailingSince')]
+    #[SerializedName(name: 'failingSince')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $failingSince;
 
     /**
@@ -309,7 +469,13 @@ class MailDataSource implements DataSource
      * @SerializedName("lastError")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getLastError", setter: "setLastError")]
+    #[SerializedName(name: 'lastError')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $lastError;
 
     /**
@@ -319,7 +485,13 @@ class MailDataSource implements DataSource
      * @SerializedName("refreshToken")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRefreshToken', setter: 'setRefreshToken')]
+    #[SerializedName(name: 'refreshToken')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $refreshToken;
 
     /**
@@ -329,7 +501,13 @@ class MailDataSource implements DataSource
      * @SerializedName("refreshTokenUrl")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRefreshTokenUrl', setter: 'setRefreshTokenUrl')]
+    #[SerializedName(name: 'refreshTokenUrl')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $refreshTokenUrl;
 
     /**
@@ -338,7 +516,12 @@ class MailDataSource implements DataSource
      * @Accessor(getter="getAttributes", setter="setAttributes")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAttributes', setter: 'setAttributes')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $attributes = [];
 
     /**

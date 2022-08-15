@@ -31,7 +31,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -41,7 +47,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -51,7 +63,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
@@ -61,7 +79,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("cid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
+    #[SerializedName(name: 'cid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $conversationId;
 
     /**
@@ -73,7 +97,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -83,7 +113,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -93,7 +129,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -103,7 +145,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("rev")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRevision', setter: 'setRevision')]
+    #[SerializedName(name: 'rev')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $revision;
 
     /**
@@ -113,7 +161,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("md")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
+    #[SerializedName(name: 'md')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $changeDate;
 
     /**
@@ -123,7 +177,13 @@ class MessageCommon implements MessageCommonInterface
      * @SerializedName("ms")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
+    #[SerializedName(name: 'ms')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $modifiedSequence;
 
     /**
@@ -132,7 +192,12 @@ class MessageCommon implements MessageCommonInterface
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**

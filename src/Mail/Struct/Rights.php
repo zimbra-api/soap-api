@@ -30,7 +30,13 @@ class Rights
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEffectivePermissions', setter: 'setEffectivePermissions')]
+    #[SerializedName(name: 'perm')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $effectivePermissions;
 
     /**

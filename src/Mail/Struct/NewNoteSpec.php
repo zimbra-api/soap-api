@@ -31,7 +31,13 @@ class NewNoteSpec
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolder', setter: 'setFolder')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folder;
 
     /**
@@ -41,7 +47,13 @@ class NewNoteSpec
      * @SerializedName("content")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $content;
 
     /**
@@ -51,7 +63,13 @@ class NewNoteSpec
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -61,7 +79,13 @@ class NewNoteSpec
      * @SerializedName("pos")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getBounds', setter: 'setBounds')]
+    #[SerializedName(name: 'pos')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $bounds;
 
     /**

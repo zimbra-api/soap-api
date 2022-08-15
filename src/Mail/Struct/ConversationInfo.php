@@ -131,7 +131,7 @@ class ConversationInfo
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: "meta", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**
@@ -161,7 +161,7 @@ class ConversationInfo
      */
     #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ChatMessageInfo>')]
-    #[XmlList(inline: true, entry: "chat", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
     private $chatMessages = [];
 
     /**
@@ -175,7 +175,7 @@ class ConversationInfo
      */
     #[Accessor(getter: 'getMessages', setter: 'setMessages')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MessageInfo>')]
-    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messages = [];
 
     /**

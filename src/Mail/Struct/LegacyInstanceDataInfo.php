@@ -11,7 +11,9 @@
 namespace Zimbra\Mail\Struct;
 
 use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement, XmlList};
-use Zimbra\Common\Enum\{FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency};
+use Zimbra\Common\Enum\{
+    FreeBusyStatus, InviteClass, InviteStatus, ParticipationStatus, Transparency
+};
 
 /**
  * LegacyInstanceDataInfo struct class
@@ -31,7 +33,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $startTime;
 
     /**
@@ -41,7 +49,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("ex")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getIsException', setter: 'setIsException')]
+    #[SerializedName(name: 'ex')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $isException;
 
     /**
@@ -51,8 +65,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("or")
      * @Type("Zimbra\Mail\Struct\CalOrganizer")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalOrganizer
      */
+    #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
+    #[SerializedName(name: 'or')]
+    #[Type(name: CalOrganizer::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $organizer;
 
     /**
@@ -61,7 +80,12 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @Accessor(getter="getCategories", setter="setCategories")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
+    #[Type(name: 'array<string>')]
+    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories = [];
 
     /**
@@ -73,6 +97,10 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @XmlElement(namespace="urn:zimbraMail")
      * @var GeoInfo
      */
+    #[Accessor(getter: "getGeo", setter: "setGeo")]
+    #[SerializedName(name: 'geo')]
+    #[Type(name: GeoInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $geo;
 
     /**
@@ -82,7 +110,13 @@ class LegacyInstanceDataInfo extends LegacyInstanceDataAttrs implements Instance
      * @SerializedName("fr")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName(name: 'fr')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $fragment;
 
     /**

@@ -30,7 +30,13 @@ class MessagePartSpec
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
@@ -40,7 +46,13 @@ class MessagePartSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**

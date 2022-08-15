@@ -240,9 +240,9 @@ class CalendarItemInfo
      * 
      * @var array
      */
-    #[Accessor(getter: "getInvites", setter: "setInvites")]
+    #[Accessor(getter: 'getInvites', setter: 'setInvites')]
     #[Type(name: 'array<Zimbra\Mail\Struct\Invitation>')]
-    #[XmlList(inline: true, entry: "inv", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
     private $invites = [];
 
     /**
@@ -254,11 +254,11 @@ class CalendarItemInfo
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getCalendarReplies", setter: "setCalendarReplies")]
+    #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
     #[SerializedName(name: 'replies')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CalendarReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: "reply", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $calendarReplies = [];
 
     /**
@@ -270,9 +270,9 @@ class CalendarItemInfo
      * 
      * @var array
      */
-    #[Accessor(getter: "getMetadatas", setter: "setMetadatas")]
+    #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: "meta", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**

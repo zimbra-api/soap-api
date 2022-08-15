@@ -33,8 +33,13 @@ class RankingActionSpec
      * @SerializedName("op")
      * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
      * @XmlAttribute
+     * 
      * @var RankingActionOp
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\RankingActionOp>')]
+    #[XmlAttribute]
     private $operation;
 
     /**
@@ -44,7 +49,13 @@ class RankingActionSpec
      * @SerializedName("email")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getEmail', setter: 'setEmail')]
+    #[SerializedName(name: 'email')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $email;
 
     /**

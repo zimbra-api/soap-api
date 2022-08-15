@@ -30,7 +30,13 @@ class ICalContent
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -39,7 +45,12 @@ class ICalContent
      * @Accessor(getter="getIcal", setter="setIcal")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getIcal', setter: 'setIcal')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $ical;
 
     /**

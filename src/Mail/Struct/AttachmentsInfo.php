@@ -48,9 +48,9 @@ class AttachmentsInfo
      * 
      * @var array
      */
-    #[Accessor(getter: "getMpAttachments", setter: "setMpAttachments")]
+    #[Accessor(getter: 'getMpAttachments', setter: 'setMpAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MimePartAttachSpec>')]
-    #[XmlList(inline: true, entry: "mp", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $mpAttachments = [];
 
     /**
@@ -60,9 +60,9 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getMsgAttachments", setter: "setMsgAttachments")]
+    #[Accessor(getter: 'getMsgAttachments', setter: 'setMsgAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MsgAttachSpec>')]
-    #[XmlList(inline: true, entry: "m", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $msgAttachments = [];
 
     /**
@@ -72,9 +72,9 @@ class AttachmentsInfo
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getContactAttachments", setter: "setContactAttachments")]
+    #[Accessor(getter: 'getContactAttachments', setter: 'setContactAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ContactAttachSpec>')]
-    #[XmlList(inline: true, entry: "cn", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $cnAttachments = [];
 
     /**
@@ -86,9 +86,9 @@ class AttachmentsInfo
      * 
      * @var array
      */
-    #[Accessor(getter: "getDocAttachments", setter: "setDocAttachments")]
+    #[Accessor(getter: 'getDocAttachments', setter: 'setDocAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\DocAttachSpec>')]
-    #[XmlList(inline: true, entry: "doc", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
     private $docAttachments = [];
 
     /**

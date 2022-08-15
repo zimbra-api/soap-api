@@ -30,7 +30,13 @@ class MessageSummary extends MessageCommon
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class MessageSummary extends MessageCommon
      * @SerializedName("autoSendTime")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
+    #[SerializedName(name: 'autoSendTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $autoSendTime;
 
     /**
@@ -49,7 +61,12 @@ class MessageSummary extends MessageCommon
      * @Accessor(getter="getEmails", setter="setEmails")
      * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getEmails', setter: 'setEmails')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\EmailInfo>')]
+    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emails = [];
 
     /**
@@ -60,6 +77,10 @@ class MessageSummary extends MessageCommon
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getSubject", setter: "setSubject")]
+    #[SerializedName(name: 'su')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $subject;
 
     /**
@@ -70,6 +91,10 @@ class MessageSummary extends MessageCommon
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getFragment", setter: "setFragment")]
+    #[SerializedName(name: 'fr')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false,namespace: 'urn:zimbraMail')]
     private $fragment;
 
     /**
@@ -79,8 +104,13 @@ class MessageSummary extends MessageCommon
      * @SerializedName("inv")
      * @Type("Zimbra\Mail\Struct\InviteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InviteInfo
      */
+    #[Accessor(getter: "getInvite", setter: "setInvite")]
+    #[SerializedName(name: 'inv')]
+    #[Type(name: InviteInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $invite;
 
     /**

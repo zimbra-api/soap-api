@@ -31,7 +31,13 @@ class RawInvite
      * @SerializedName("uid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUid', setter: 'setUid')]
+    #[SerializedName(name: 'uid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uid;
 
     /**
@@ -41,7 +47,13 @@ class RawInvite
      * @SerializedName("summary")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSummary', setter: 'setSummary')]
+    #[SerializedName(name: 'summary')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $summary;
 
     /**
@@ -50,7 +62,12 @@ class RawInvite
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $content;
 
     /**

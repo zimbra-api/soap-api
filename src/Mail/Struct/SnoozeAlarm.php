@@ -30,7 +30,13 @@ class SnoozeAlarm
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class SnoozeAlarm
      * @SerializedName("until")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSnoozeUntil', setter: 'setSnoozeUntil')]
+    #[SerializedName(name: 'until')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $snoozeUntil;
 
     /**

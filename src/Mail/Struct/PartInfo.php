@@ -32,7 +32,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("part")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
@@ -42,7 +48,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'ct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentType;
 
     /**
@@ -52,7 +64,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("s")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getSize', setter: 'setSize')]
+    #[SerializedName(name: 's')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $size;
 
     /**
@@ -62,7 +80,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("cd")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentDisposition', setter: 'setContentDisposition')]
+    #[SerializedName(name: 'cd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentDisposition;
 
     /**
@@ -72,7 +96,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("filename")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]
+    #[SerializedName(name: 'filename')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentFilename;
 
     /**
@@ -82,7 +112,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("ci")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentId', setter: 'setContentId')]
+    #[SerializedName(name: 'ci')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentId;
 
     /**
@@ -92,7 +128,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("cl")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLocation', setter: 'setLocation')]
+    #[SerializedName(name: 'cl')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $location;
 
     /**
@@ -102,7 +144,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("body")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'body')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $body;
 
     /**
@@ -112,7 +160,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("truncated")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getTruncatedContent', setter: 'setTruncatedContent')]
+    #[SerializedName(name: 'truncated')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $truncatedContent;
 
     /**
@@ -122,7 +176,13 @@ class PartInfo implements PartInfoInterface
      * @SerializedName("content")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName(name: 'content')]
+    #[Type(name: 'string')]
+    #[XmlElement(cdata: false, namespace: 'urn:zimbraMail')]
     private $content;
 
     /**
@@ -131,7 +191,12 @@ class PartInfo implements PartInfoInterface
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @Type("array<Zimbra\Mail\Struct\PartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\PartInfo>')]
+    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $mimeParts = [];
 
     /**

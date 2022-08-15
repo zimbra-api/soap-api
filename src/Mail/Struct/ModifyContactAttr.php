@@ -31,7 +31,13 @@ class ModifyContactAttr extends NewContactAttr
      * @SerializedName("op")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOperation', setter: 'setOperation')]
+    #[SerializedName(name: 'op')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $operation;
 
     /**

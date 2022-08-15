@@ -49,7 +49,7 @@ class AccountWithModifications
      */
     #[Accessor(getter: 'getPendingFolderModifications', setter: 'setPendingFolderModifications')]
     #[Type(name: 'array<Zimbra\Mail\Struct\PendingFolderModifications>')]
-    #[XmlList(inline: true, entry: "mods", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'mods', namespace: 'urn:zimbraMail')]
     private $mods = [];
 
     /**

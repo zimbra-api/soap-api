@@ -32,7 +32,13 @@ class NewSearchFolderSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,7 +48,13 @@ class NewSearchFolderSpec
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $query;
 
     /**
@@ -52,7 +64,13 @@ class NewSearchFolderSpec
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
+    #[SerializedName(name: 'types')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $searchTypes;
 
     /**
@@ -62,8 +80,13 @@ class NewSearchFolderSpec
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * 
      * @var SearchSortBy
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -73,7 +96,13 @@ class NewSearchFolderSpec
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -83,7 +112,13 @@ class NewSearchFolderSpec
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -93,7 +128,13 @@ class NewSearchFolderSpec
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -103,7 +144,13 @@ class NewSearchFolderSpec
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getParentFolderId', setter: 'setParentFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $parentFolderId;
 
     /**

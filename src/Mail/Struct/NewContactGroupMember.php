@@ -10,7 +10,7 @@
 
 namespace Zimbra\Mail\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, XmlElement};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 use Zimbra\Common\Enum\MemberType;
 
 /**
@@ -34,8 +34,13 @@ class NewContactGroupMember
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\MemberType>")
      * @XmlAttribute
+     * 
      * @var MemberType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\MemberType>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -49,7 +54,13 @@ class NewContactGroupMember
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'value')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $value;
 
     /**

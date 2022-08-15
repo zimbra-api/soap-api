@@ -32,7 +32,13 @@ class Grant
      * @SerializedName("perm")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPerm', setter: 'setPerm')]
+    #[SerializedName(name: 'perm')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $perm;
 
     /**
@@ -42,8 +48,13 @@ class Grant
      * @SerializedName("gt")
      * @Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")
      * @XmlAttribute
+     * 
      * @var GrantGranteeType
      */
+    #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
+    #[SerializedName(name: 'gt')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\GrantGranteeType>')]
+    #[XmlAttribute]
     private $granteeType;
 
     /**
@@ -53,7 +64,13 @@ class Grant
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
+    #[SerializedName(name: 'zid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $granteeId;
 
     /**
@@ -63,7 +80,13 @@ class Grant
      * @SerializedName("expiry")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getExpiry', setter: 'setExpiry')]
+    #[SerializedName(name: 'expiry')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $expiry;
 
     /**
@@ -73,7 +96,13 @@ class Grant
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $granteeName;
 
     /**
@@ -83,7 +112,13 @@ class Grant
      * @SerializedName("pw")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getGuestPassword', setter: 'setGuestPassword')]
+    #[SerializedName(name: 'pw')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $guestPassword;
 
     /**
@@ -93,7 +128,13 @@ class Grant
      * @SerializedName("key")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
+    #[SerializedName(name: 'key')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $accessKey;
 
     /**

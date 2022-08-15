@@ -31,7 +31,13 @@ class GetFolderSpec
      * @SerializedName("uuid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUuid', setter: 'setUuid')]
+    #[SerializedName(name: 'uuid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $uuid;
 
     /**
@@ -41,7 +47,13 @@ class GetFolderSpec
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -51,7 +63,13 @@ class GetFolderSpec
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPath', setter: 'setPath')]
+    #[SerializedName(name: 'path')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $path;
 
     /**

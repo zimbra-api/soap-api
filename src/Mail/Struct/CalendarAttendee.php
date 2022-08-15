@@ -246,9 +246,9 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * 
      * @var array
      */
-    #[Accessor(getter: "getXParams", setter: "setXParams")]
+    #[Accessor(getter: 'getXParams', setter: 'setXParams')]
     #[Type(name: 'array<Zimbra\Mail\Struct\XParam>')]
-    #[XmlList(inline: true, entry: "xparam", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'xparam', namespace: 'urn:zimbraMail')]
     private $xParams;
 
     /**

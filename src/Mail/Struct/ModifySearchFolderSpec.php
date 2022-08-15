@@ -32,7 +32,13 @@ class ModifySearchFolderSpec
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -42,7 +48,13 @@ class ModifySearchFolderSpec
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $query;
 
     /**
@@ -52,7 +64,13 @@ class ModifySearchFolderSpec
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
+    #[SerializedName(name: 'types')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $searchTypes;
 
     /**
@@ -62,8 +80,13 @@ class ModifySearchFolderSpec
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * 
      * @var SearchSortBy
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**

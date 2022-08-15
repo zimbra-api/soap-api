@@ -156,7 +156,7 @@ class FolderActionSelector extends ActionSelector
     #[SerializedName(name: 'acl')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ActionGrantSelector>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: "grant", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'grant', namespace: 'urn:zimbraMail')]
     private $grants = [];
 
     /**

@@ -30,7 +30,13 @@ class ShareNotificationInfo
      * @SerializedName("status")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getStatus', setter: 'setStatus')]
+    #[SerializedName(name: 'status')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $status;
 
     /**
@@ -41,7 +47,13 @@ class ShareNotificationInfo
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -51,7 +63,13 @@ class ShareNotificationInfo
      * @SerializedName("d")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getDate', setter: 'setDate')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $date;
 
     /**
@@ -61,8 +79,13 @@ class ShareNotificationInfo
      * @SerializedName("grantor")
      * @Type("Zimbra\Mail\Struct\Grantor")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Grantor
      */
+    #[Accessor(getter: "getGrantor", setter: "setGrantor")]
+    #[SerializedName(name: 'grantor')]
+    #[Type(name: Grantor::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $grantor;
 
     /**
@@ -72,8 +95,13 @@ class ShareNotificationInfo
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\LinkInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var LinkInfo
      */
+    #[Accessor(getter: "getLink", setter: "setLink")]
+    #[SerializedName(name: 'link')]
+    #[Type(name: LinkInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $link;
 
     /**

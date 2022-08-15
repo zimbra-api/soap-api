@@ -113,9 +113,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var array
      */
-    #[Accessor(getter: "getCategories", setter: "setCategories")]
+    #[Accessor(getter: 'getCategories', setter: 'setCategories')]
     #[Type(name: 'array<string>')]
-    #[XmlList(inline: true, entry: "category", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'category', namespace: 'urn:zimbraMail')]
     private $categories;
 
     /**
@@ -159,9 +159,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var array
      */
-    #[Accessor(getter: "getInstances", setter: "setInstances")]
+    #[Accessor(getter: 'getInstances', setter: 'setInstances')]
     #[Type(name: 'array<Zimbra\Mail\Struct\InstanceDataInfo>')]
-    #[XmlList(inline: true, entry: "inst", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'inst', namespace: 'urn:zimbraMail')]
     private $instances = [];
 
     /**
@@ -189,9 +189,9 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * 
      * @var array
      */
-    #[Accessor(getter: "getInvites", setter: "setInvites")]
+    #[Accessor(getter: 'getInvites', setter: 'setInvites')]
     #[Type(name: 'array<Zimbra\Mail\Struct\Invitation>')]
-    #[XmlList(inline: true, entry: "inv", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'inv', namespace: 'urn:zimbraMail')]
     private $invites = [];
 
     /**
@@ -203,11 +203,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      */
-    #[Accessor(getter: "getReplies", setter: "setReplies")]
+    #[Accessor(getter: 'getReplies', setter: 'setReplies')]
     #[SerializedName(name: 'replies')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CalReply>')]
     #[XmlElement(namespace: 'urn:zimbraMail')]
-    #[XmlList(inline: false, entry: "reply", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'reply', namespace: 'urn:zimbraMail')]
     private $replies = [];
 
     /**

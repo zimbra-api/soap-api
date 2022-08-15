@@ -30,7 +30,13 @@ class ParentId
      * @SerializedName("parentId")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getParentId', setter: 'setParentId')]
+    #[SerializedName(name: 'parentId')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $parentId;
 
     /**

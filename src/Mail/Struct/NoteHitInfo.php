@@ -31,7 +31,13 @@ class NoteHitInfo extends NoteInfo implements SearchHit
      * @SerializedName("sf")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSortField', setter: 'setSortField')]
+    #[SerializedName(name: 'sf')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $sortField;
 
     /**

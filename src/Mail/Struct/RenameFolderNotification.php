@@ -30,7 +30,13 @@ class RenameFolderNotification extends ModifyNotification
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $folderId;
 
     /**
@@ -40,7 +46,13 @@ class RenameFolderNotification extends ModifyNotification
      * @SerializedName("path")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getPath', setter: 'setPath')]
+    #[SerializedName(name: 'path')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $path;
 
     /**

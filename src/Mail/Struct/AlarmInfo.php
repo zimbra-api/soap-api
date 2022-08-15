@@ -142,9 +142,9 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var array
      */
-    #[Accessor(getter: "getAttendees", setter: "setAttendees")]
+    #[Accessor(getter: 'getAttendees', setter: 'setAttendees')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CalendarAttendee>')]
-    #[XmlList(inline: true, entry: "at", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'at', namespace: 'urn:zimbraMail')]
     private $attendees = [];
 
     /**
@@ -156,9 +156,9 @@ class AlarmInfo implements AlarmInfoInterface
      * 
      * @var array
      */
-    #[Accessor(getter: "getXProps", setter: "setXProps")]
+    #[Accessor(getter: 'getXProps', setter: 'setXProps')]
     #[Type(name: 'array<Zimbra\Mail\Struct\XProp>')]
-    #[XmlList(inline: true, entry: "xprop", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'xprop', namespace: 'urn:zimbraMail')]
     private $xProps = [];
 
     /**

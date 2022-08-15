@@ -32,7 +32,13 @@ class NewFolderSpec
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -43,8 +49,13 @@ class NewFolderSpec
      * @SerializedName("view")
      * @Type("Enum<Zimbra\Common\Enum\ViewType>")
      * @XmlAttribute
+     * 
      * @var ViewType
      */
+    #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
+    #[SerializedName(name: 'view')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\ViewType>')]
+    #[XmlAttribute]
     private $defaultView;
 
     /**
@@ -54,7 +65,13 @@ class NewFolderSpec
      * @SerializedName("f")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -64,7 +81,13 @@ class NewFolderSpec
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -74,7 +97,13 @@ class NewFolderSpec
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -84,7 +113,13 @@ class NewFolderSpec
      * @SerializedName("url")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getUrl', setter: 'setUrl')]
+    #[SerializedName(name: 'url')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $url;
 
     /**
@@ -94,7 +129,13 @@ class NewFolderSpec
      * @SerializedName("l")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getParentFolderId', setter: 'setParentFolderId')]
+    #[SerializedName(name: 'l')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $parentFolderId;
 
     /**
@@ -104,7 +145,13 @@ class NewFolderSpec
      * @SerializedName("fie")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
+    #[SerializedName(name: 'fie')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $fetchIfExists;
 
     /**
@@ -114,7 +161,13 @@ class NewFolderSpec
      * @SerializedName("sync")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSyncToUrl', setter: 'setSyncToUrl')]
+    #[SerializedName(name: 'sync')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $syncToUrl;
 
     /**
@@ -126,6 +179,11 @@ class NewFolderSpec
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: 'getGrants', setter: 'setGrants')]
+    #[SerializedName(name: 'acl')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ActionGrantSelector>')]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'grant', namespace: 'urn:zimbraMail')]
     private $grants = [];
 
     /**

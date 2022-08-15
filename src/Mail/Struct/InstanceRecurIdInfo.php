@@ -31,7 +31,13 @@ class InstanceRecurIdInfo
      * @SerializedName("range")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRange', setter: 'setRange')]
+    #[SerializedName(name: 'range')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $range;
 
     /**
@@ -55,7 +61,13 @@ class InstanceRecurIdInfo
      * @SerializedName("d")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
+    #[SerializedName(name: 'd')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $dateTime;
 
     /**
@@ -65,7 +77,13 @@ class InstanceRecurIdInfo
      * @SerializedName("tz")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $timezone;
 
     /**

@@ -30,7 +30,13 @@ class ImapMessageInfo extends IMAPItemInfo
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -40,7 +46,13 @@ class ImapMessageInfo extends IMAPItemInfo
      * @SerializedName("f")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getFlags', setter: 'setFlags')]
+    #[SerializedName(name: 'f')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $flags;
 
     /**
@@ -50,7 +62,13 @@ class ImapMessageInfo extends IMAPItemInfo
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**

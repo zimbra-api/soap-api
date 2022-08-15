@@ -29,7 +29,12 @@ class RejectAction extends FilterAction
      * @Accessor(getter="getContent", setter="setContent")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContent', setter: 'setContent')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $content;
 
     /**

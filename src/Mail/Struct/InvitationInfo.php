@@ -31,7 +31,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("ct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentType', setter: 'setContentType')]
+    #[SerializedName(name: 'ct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentType;
 
     /**
@@ -51,7 +63,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("ci")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getContentId', setter: 'setContentId')]
+    #[SerializedName(name: 'ci')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $contentId;
 
     /**
@@ -61,8 +79,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("content")
      * @Type("Zimbra\Mail\Struct\RawInvite")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RawInvite
      */
+    #[Accessor(getter: "getContent", setter: "setContent")]
+    #[SerializedName(name: 'content')]
+    #[Type(name: RawInvite::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $content;
 
     /**
@@ -72,8 +95,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteComponent")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InviteComponent
      */
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName(name: 'comp')]
+    #[Type(name: InviteComponent::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $inviteComponent;
 
     /**
@@ -82,7 +110,12 @@ class InvitationInfo extends InviteComponent
      * @Accessor(getter="getTimezones", setter="setTimezones")
      * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
      * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\CalTZInfo>')]
+    #[XmlList(inline: true, entry: 'tz', namespace: 'urn:zimbraMail')]
     private $timezones = [];
 
     /**
@@ -91,7 +124,12 @@ class InvitationInfo extends InviteComponent
      * @Accessor(getter="getMimeParts", setter="setMimeParts")
      * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MimePartInfo>')]
+    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $mimeParts = [];
 
     /**
@@ -101,8 +139,13 @@ class InvitationInfo extends InviteComponent
      * @SerializedName("attach")
      * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AttachmentsInfo
      */
+    #[Accessor(getter: "getAttachments", setter: "setAttachments")]
+    #[SerializedName(name: 'attach')]
+    #[Type(name: AttachmentsInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $attachments;
 
     /**

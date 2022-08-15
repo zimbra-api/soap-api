@@ -31,7 +31,13 @@ class SearchFolder extends Folder
      * @SerializedName("query")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getQuery', setter: 'setQuery')]
+    #[SerializedName(name: 'query')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $query;
 
     /**
@@ -41,8 +47,13 @@ class SearchFolder extends Folder
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * 
      * @var SearchSortBy
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -53,7 +64,13 @@ class SearchFolder extends Folder
      * @SerializedName("types")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTypes', setter: 'setTypes')]
+    #[SerializedName(name: 'types')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $types;
 
     /**

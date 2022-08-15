@@ -32,7 +32,13 @@ class XNameRule implements XNameRuleInterface
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -42,7 +48,13 @@ class XNameRule implements XNameRuleInterface
      * @SerializedName("value")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[SerializedName(name: 'value')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $value;
 
     /**

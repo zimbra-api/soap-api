@@ -211,7 +211,7 @@ class ConversationSummary
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]
-    #[XmlList(inline: true, entry: "meta", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'meta', namespace: 'urn:zimbraMail')]
     private $metadatas = [];
 
     /**
@@ -257,7 +257,7 @@ class ConversationSummary
      */
     #[Accessor(getter: 'getEmails', setter: 'setEmails')]
     #[Type(name: 'array<Zimbra\Mail\Struct\EmailInfo>')]
-    #[XmlList(inline: true, entry: "e", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'e', namespace: 'urn:zimbraMail')]
     private $emails = [];
 
     /**

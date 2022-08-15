@@ -31,7 +31,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -41,7 +47,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("forAcct")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getDraftAccountId', setter: 'setDraftAccountId')]
+    #[SerializedName(name: 'forAcct')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $draftAccountId;
 
     /**
@@ -51,7 +63,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("t")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTags', setter: 'setTags')]
+    #[SerializedName(name: 't')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tags;
 
     /**
@@ -61,7 +79,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("tn")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
+    #[SerializedName(name: 'tn')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $tagNames;
 
     /**
@@ -71,7 +95,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("rgb")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRgb', setter: 'setRgb')]
+    #[SerializedName(name: 'rgb')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $rgb;
 
     /**
@@ -81,7 +111,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("color")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getColor', setter: 'setColor')]
+    #[SerializedName(name: 'color')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $color;
 
     /**
@@ -91,7 +127,13 @@ class SaveDraftMsg extends Msg
      * @SerializedName("autoSendTime")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getAutoSendTime', setter: 'setAutoSendTime')]
+    #[SerializedName(name: 'autoSendTime')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $autoSendTime;
 
     /**

@@ -26,14 +26,20 @@ class MailCustomMetadata extends MailKeyValuePairs implements CustomMetadataInte
 {
     /**
      * Section
-     * Normally present.  If absent this indicates that CustomMetadata info is present but there are no sections to
-     * report on.
+     * Normally present.
+     * If absent this indicates that CustomMetadata info is present but there are no sections to report on.
      * 
      * @Accessor(getter="getSection", setter="setSection")
      * @SerializedName("section")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSection', setter: 'setSection')]
+    #[SerializedName(name: 'section')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $section;
 
     /**

@@ -30,7 +30,13 @@ class IMAPItemInfo
      * @SerializedName("id")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -40,7 +46,13 @@ class IMAPItemInfo
      * @SerializedName("i4uid")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getImapUid', setter: 'setImapUid')]
+    #[SerializedName(name: 'i4uid')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $imapUid;
 
     /**

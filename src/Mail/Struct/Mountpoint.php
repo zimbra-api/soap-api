@@ -30,7 +30,13 @@ class Mountpoint extends Folder
      * @SerializedName("owner")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOwnerEmail', setter: 'setOwnerEmail')]
+    #[SerializedName(name: 'owner')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ownerEmail;
 
     /**
@@ -40,7 +46,13 @@ class Mountpoint extends Folder
      * @SerializedName("zid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getOwnerAccountId', setter: 'setOwnerAccountId')]
+    #[SerializedName(name: 'zid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ownerAccountId;
 
     /**
@@ -50,7 +62,13 @@ class Mountpoint extends Folder
      * @SerializedName("rid")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getRemoteFolderId', setter: 'setRemoteFolderId')]
+    #[SerializedName(name: 'rid')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $remoteFolderId;
 
     /**
@@ -60,7 +78,13 @@ class Mountpoint extends Folder
      * @SerializedName("ruuid")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRemoteUuid', setter: 'setRemoteUuid')]
+    #[SerializedName(name: 'ruuid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $remoteUuid;
 
     /**
@@ -70,7 +94,13 @@ class Mountpoint extends Folder
      * @SerializedName("oname")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getRemoteFolderName', setter: 'setRemoteFolderName')]
+    #[SerializedName(name: 'oname')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $remoteFolderName;
 
     /**
@@ -80,7 +110,13 @@ class Mountpoint extends Folder
      * @SerializedName("reminder")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getReminderEnabled', setter: 'setReminderEnabled')]
+    #[SerializedName(name: 'reminder')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $reminderEnabled;
 
     /**
@@ -90,7 +126,13 @@ class Mountpoint extends Folder
      * @SerializedName("broken")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getBroken', setter: 'setBroken')]
+    #[SerializedName(name: 'broken')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $broken;
 
     /**

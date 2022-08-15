@@ -32,6 +32,11 @@ class RetentionPolicy
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
+    #[SerializedName(name: 'keep')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\Policy>')]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'policy', namespace: 'urn:zimbraMail')]
     private $keep = [];
 
     /**
@@ -43,6 +48,11 @@ class RetentionPolicy
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      */
+    #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]
+    #[SerializedName(name: 'purge')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\Policy>')]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'policy', namespace: 'urn:zimbraMail')]
     private $purge = [];
 
     /**

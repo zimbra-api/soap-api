@@ -31,8 +31,13 @@ class Policy
      * @SerializedName("type")
      * @Type("Enum<Zimbra\Common\Enum\Type>")
      * @XmlAttribute
+     * 
      * @var EnumType
      */
+    #[Accessor(getter: 'getType', setter: 'setType')]
+    #[SerializedName(name: 'type')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\Type>')]
+    #[XmlAttribute]
     private $type;
 
     /**
@@ -42,7 +47,13 @@ class Policy
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $id;
 
     /**
@@ -52,7 +63,13 @@ class Policy
      * @SerializedName("name")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'name')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
@@ -62,7 +79,13 @@ class Policy
      * @SerializedName("lifetime")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getLifetime', setter: 'setLifetime')]
+    #[SerializedName(name: 'lifetime')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $lifetime;
 
     /**

@@ -51,7 +51,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getAddressBookTests', setter: 'setAddressBookTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\AddressBookTest>')]
-    #[XmlList(inline: true, entry: "addressBookTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'addressBookTest', namespace: 'urn:zimbraMail')]
     private $addressBookTests = [];
 
     /**
@@ -65,7 +65,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getAddressTests', setter: 'setAddressTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\AddressTest>')]
-    #[XmlList(inline: true, entry: "addressTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'addressTest', namespace: 'urn:zimbraMail')]
     private $addressTests = [];
 
     /**
@@ -79,7 +79,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getEnvelopeTests', setter: 'setEnvelopeTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\EnvelopeTest>')]
-    #[XmlList(inline: true, entry: "envelopeTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'envelopeTest', namespace: 'urn:zimbraMail')]
     private $envelopeTests = [];
 
     /**
@@ -92,7 +92,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getAttachmentTests', setter: 'setAttachmentTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\AttachmentTest>')]
-    #[XmlList(inline: true, entry: "attachmentTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'attachmentTest', namespace: 'urn:zimbraMail')]
     private $attachmentTests = [];
 
     /**
@@ -106,7 +106,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getBodyTests', setter: 'setBodyTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\BodyTest>')]
-    #[XmlList(inline: true, entry: "bodyTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'bodyTest', namespace: 'urn:zimbraMail')]
     private $bodyTests = [];
 
     /**
@@ -120,7 +120,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getBulkTests', setter: 'setBulkTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\BulkTest>')]
-    #[XmlList(inline: true, entry: "bulkTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'bulkTest', namespace: 'urn:zimbraMail')]
     private $bulkTests = [];
 
     /**
@@ -134,7 +134,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getContactRankingTests', setter: 'setContactRankingTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ContactRankingTest>')]
-    #[XmlList(inline: true, entry: "contactRankingTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'contactRankingTest', namespace: 'urn:zimbraMail')]
     private $contactRankingTests = [];
 
     /**
@@ -148,7 +148,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getConversationTests', setter: 'setConversationTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ConversationTest>')]
-    #[XmlList(inline: true, entry: "conversationTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'conversationTest', namespace: 'urn:zimbraMail')]
     private $conversationTests = [];
 
     /**
@@ -162,7 +162,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getCurrentDayOfWeekTests', setter: 'setCurrentDayOfWeekTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CurrentDayOfWeekTest>')]
-    #[XmlList(inline: true, entry: "currentDayOfWeekTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'currentDayOfWeekTest', namespace: 'urn:zimbraMail')]
     private $currentDayOfWeekTests = [];
 
     /**
@@ -176,7 +176,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getCurrentTimeTests', setter: 'setCurrentTimeTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CurrentTimeTest>')]
-    #[XmlList(inline: true, entry: "currentTimeTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'currentTimeTest', namespace: 'urn:zimbraMail')]
     private $currentTimeTests = [];
 
     /**
@@ -190,7 +190,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getDateTests', setter: 'setDateTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\DateTest>')]
-    #[XmlList(inline: true, entry: "dateTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'dateTest', namespace: 'urn:zimbraMail')]
     private $dateTests = [];
 
     /**
@@ -204,7 +204,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getFacebookTests', setter: 'setFacebookTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\FacebookTest>')]
-    #[XmlList(inline: true, entry: "facebookTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'facebookTest', namespace: 'urn:zimbraMail')]
     private $facebookTests = [];
 
     /**
@@ -218,7 +218,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getFlaggedTests', setter: 'setFlaggedTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\FlaggedTest>')]
-    #[XmlList(inline: true, entry: "flaggedTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'flaggedTest', namespace: 'urn:zimbraMail')]
     private $flaggedTests = [];
 
     /**
@@ -232,7 +232,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getHeaderExistsTests', setter: 'setHeaderExistsTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\HeaderExistsTest>')]
-    #[XmlList(inline: true, entry: "headerExistsTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'headerExistsTest', namespace: 'urn:zimbraMail')]
     private $headerExistsTests = [];
 
     /**
@@ -246,7 +246,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getHeaderTests', setter: 'setHeaderTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\HeaderTest>')]
-    #[XmlList(inline: true, entry: "headerTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'headerTest', namespace: 'urn:zimbraMail')]
     private $headerTests = [];
 
     /**
@@ -260,7 +260,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getImportanceTests', setter: 'setImportanceTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ImportanceTest>')]
-    #[XmlList(inline: true, entry: "importanceTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'importanceTest', namespace: 'urn:zimbraMail')]
     private $importanceTests = [];
 
     /**
@@ -274,7 +274,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getInviteTests', setter: 'setInviteTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\InviteTest>')]
-    #[XmlList(inline: true, entry: "inviteTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'inviteTest', namespace: 'urn:zimbraMail')]
     private $inviteTests = [];
 
     /**
@@ -288,7 +288,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getLinkedInTests', setter: 'setLinkedInTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\LinkedInTest>')]
-    #[XmlList(inline: true, entry: "linkedinTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'linkedinTest', namespace: 'urn:zimbraMail')]
     private $linkedinTests = [];
 
     /**
@@ -302,7 +302,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getListTests', setter: 'setListTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ListTest>')]
-    #[XmlList(inline: true, entry: "listTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'listTest', namespace: 'urn:zimbraMail')]
     private $listTests = [];
 
     /**
@@ -316,7 +316,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getMeTests', setter: 'setMeTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MeTest>')]
-    #[XmlList(inline: true, entry: "meTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'meTest', namespace: 'urn:zimbraMail')]
     private $meTests = [];
 
     /**
@@ -330,7 +330,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getMimeHeaderTests', setter: 'setMimeHeaderTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MimeHeaderTest>')]
-    #[XmlList(inline: true, entry: "mimeHeaderTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'mimeHeaderTest', namespace: 'urn:zimbraMail')]
     private $mimeHeaderTests = [];
 
     /**
@@ -344,7 +344,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getSizeTests', setter: 'setSizeTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\SizeTest>')]
-    #[XmlList(inline: true, entry: "sizeTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'sizeTest', namespace: 'urn:zimbraMail')]
     private $sizeTests = [];
 
     /**
@@ -358,7 +358,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getSocialcastTests', setter: 'setSocialcastTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\SocialcastTest>')]
-    #[XmlList(inline: true, entry: "socialcastTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'socialcastTest', namespace: 'urn:zimbraMail')]
     private $socialcastTests = [];
 
     /**
@@ -372,7 +372,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getTrueTests', setter: 'setTrueTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\TrueTest>')]
-    #[XmlList(inline: true, entry: "trueTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'trueTest', namespace: 'urn:zimbraMail')]
     private $trueTests = [];
 
     /**
@@ -386,7 +386,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getTwitterTests', setter: 'setTwitterTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\TwitterTest>')]
-    #[XmlList(inline: true, entry: "twitterTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'twitterTest', namespace: 'urn:zimbraMail')]
     private $twitterTests = [];
 
     /**
@@ -400,7 +400,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getCommunityRequestsTests', setter: 'setCommunityRequestsTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CommunityRequestsTest>')]
-    #[XmlList(inline: true, entry: "communityRequestsTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'communityRequestsTest', namespace: 'urn:zimbraMail')]
     private $communityRequestsTests = [];
 
     /**
@@ -414,7 +414,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getCommunityContentTests', setter: 'setCommunityContentTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CommunityContentTest>')]
-    #[XmlList(inline: true, entry: "communityContentTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'communityContentTest', namespace: 'urn:zimbraMail')]
     private $communityContentTests = [];
 
     /**
@@ -428,7 +428,7 @@ class FilterTests
      */
     #[Accessor(getter: 'getCommunityConnectionsTests', setter: 'setCommunityConnectionsTests')]
     #[Type(name: 'array<Zimbra\Mail\Struct\CommunityConnectionsTest>')]
-    #[XmlList(inline: true, entry: "communityConnectionsTest", namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: true, entry: 'communityConnectionsTest', namespace: 'urn:zimbraMail')]
     private $communityConnectionsTests = [];
 
     /**
