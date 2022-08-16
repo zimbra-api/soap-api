@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PurgeAccountCalendarCacheBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PurgeAccountCalendarCacheRequest")
-     * @Type("Zimbra\Admin\Message\PurgeAccountCalendarCacheRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeAccountCalendarCacheRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class PurgeAccountCalendarCacheBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PurgeAccountCalendarCacheResponse")
-     * @Type("Zimbra\Admin\Message\PurgeAccountCalendarCacheResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeAccountCalendarCacheResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

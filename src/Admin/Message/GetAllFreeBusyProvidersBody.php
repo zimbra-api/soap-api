@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllFreeBusyProvidersBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAllFreeBusyProvidersRequest")
-     * @Type("Zimbra\Admin\Message\GetAllFreeBusyProvidersRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllFreeBusyProvidersRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetAllFreeBusyProvidersBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAllFreeBusyProvidersResponse")
-     * @Type("Zimbra\Admin\Message\GetAllFreeBusyProvidersResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllFreeBusyProvidersResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

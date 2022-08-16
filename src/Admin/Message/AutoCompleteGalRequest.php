@@ -29,11 +29,6 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -44,11 +39,6 @@ class AutoCompleteGalRequest extends SoapRequest
 
     /**
      * The name to test for autocompletion
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * Type of addresses to auto-complete on
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
-     * @XmlAttribute
-     * 
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -77,11 +62,6 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * GAL Account ID
      * 
-     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
-     * @SerializedName("galAcctId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
@@ -92,11 +72,6 @@ class AutoCompleteGalRequest extends SoapRequest
 
     /**
      * An integer specifying the maximum number of results to return
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

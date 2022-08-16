@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateSystemRetentionPolicyBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateSystemRetentionPolicyRequest")
-     * @Type("Zimbra\Admin\Message\CreateSystemRetentionPolicyRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateSystemRetentionPolicyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateSystemRetentionPolicyBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateSystemRetentionPolicyResponse")
-     * @Type("Zimbra\Admin\Message\CreateSystemRetentionPolicyResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateSystemRetentionPolicyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

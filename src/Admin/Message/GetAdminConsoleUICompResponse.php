@@ -28,10 +28,6 @@ class GetAdminConsoleUICompResponse extends SoapResponse
     /**
      * zimbraAdminConsoleUIComponents values
      * 
-     * @Accessor(getter="getValues", setter="setValues")
-     * @Type("array<Zimbra\Admin\Struct\InheritedFlaggedValue>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]

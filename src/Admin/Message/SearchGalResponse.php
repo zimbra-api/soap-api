@@ -28,11 +28,6 @@ class SearchGalResponse extends SoapResponse
     /**
      * Name of attribute sorted on.
      * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -44,11 +39,6 @@ class SearchGalResponse extends SoapResponse
     /**
      * The 0-based offset into the results list returned as the first result for this search operation.
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -59,11 +49,6 @@ class SearchGalResponse extends SoapResponse
 
     /**
      * Set if the results are truncated
-     * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -80,11 +65,6 @@ class SearchGalResponse extends SoapResponse
      *      generic key, and it checks cached results instead of issuing another SOAP request to the server.  
      *      If search key was tokenized and expanded with AND or OR, this cannot be assumed.
      * 
-     * @Accessor(getter="getTokenizeKey", setter="setTokenizeKey")
-     * @SerializedName("tokenizeKey")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getTokenizeKey', setter: 'setTokenizeKey')]
@@ -95,10 +75,6 @@ class SearchGalResponse extends SoapResponse
 
     /**
      * Matching contacts
-     * 
-     * @Accessor(getter="getContacts", setter="setContacts")
-     * @Type("array<Zimbra\Admin\Struct\ContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

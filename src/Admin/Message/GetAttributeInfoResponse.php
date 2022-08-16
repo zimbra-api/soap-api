@@ -28,10 +28,6 @@ class GetAttributeInfoResponse extends SoapResponse
     /**
      * Attribute descriptions
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Admin\Struct\AttributeDescription>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]

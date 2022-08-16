@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetDistributionListBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetDistributionListRequest")
-     * @Type("Zimbra\Admin\Message\GetDistributionListRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetDistributionListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetDistributionListBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetDistributionListResponse")
-     * @Type("Zimbra\Admin\Message\GetDistributionListResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetDistributionListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

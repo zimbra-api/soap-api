@@ -29,11 +29,6 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -45,10 +40,6 @@ class RemoveDistributionListMemberRequest extends SoapRequest
     /**
      * Members
      * 
-     * @Accessor(getter="getMembers", setter="setMembers")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
@@ -58,10 +49,6 @@ class RemoveDistributionListMemberRequest extends SoapRequest
 
     /**
      * Specify accounts insteaf of members if you want to remove all addresses that belong to an account from the list
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

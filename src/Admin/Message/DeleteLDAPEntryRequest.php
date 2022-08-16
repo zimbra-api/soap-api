@@ -28,11 +28,6 @@ class DeleteLDAPEntryRequest extends SoapRequest
     /**
      * A valid LDAP DN String (RFC 2253) that describes the DN to delete
      * 
-     * @Accessor(getter="getDn", setter="setDn")
-     * @SerializedName("dn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDn', setter: 'setDn')]

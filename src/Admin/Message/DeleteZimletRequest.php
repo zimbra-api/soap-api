@@ -29,11 +29,6 @@ class DeleteZimletRequest extends SoapRequest
     /**
      * Zimlet name
      * 
-     * @Accessor(getter="getZimlet", setter="setZimlet")
-     * @SerializedName("zimlet")
-     * @Type("Zimbra\Common\Struct\NamedElement")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var NamedElement
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]

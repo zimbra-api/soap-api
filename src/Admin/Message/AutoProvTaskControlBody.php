@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AutoProvTaskControlBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("AutoProvTaskControlRequest")
-     * @Type("Zimbra\Admin\Message\AutoProvTaskControlRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AutoProvTaskControlRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class AutoProvTaskControlBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("AutoProvTaskControlResponse")
-     * @Type("Zimbra\Admin\Message\AutoProvTaskControlResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AutoProvTaskControlResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

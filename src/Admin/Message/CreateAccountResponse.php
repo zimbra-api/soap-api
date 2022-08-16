@@ -28,11 +28,6 @@ class CreateAccountResponse extends SoapResponse
     /**
      * Details of created account
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Admin\Struct\AccountInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyAlwaysOnClusterBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ModifyAlwaysOnClusterRequest")
-     * @Type("Zimbra\Admin\Message\ModifyAlwaysOnClusterRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ModifyAlwaysOnClusterRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ModifyAlwaysOnClusterBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ModifyAlwaysOnClusterResponse")
-     * @Type("Zimbra\Admin\Message\ModifyAlwaysOnClusterResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ModifyAlwaysOnClusterResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

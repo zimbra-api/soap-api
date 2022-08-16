@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetServerNIfsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetServerNIfsRequest")
-     * @Type("Zimbra\Admin\Message\GetServerNIfsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetServerNIfsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetServerNIfsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetServerNIfsResponse")
-     * @Type("Zimbra\Admin\Message\GetServerNIfsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetServerNIfsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

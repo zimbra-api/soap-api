@@ -21,19 +21,12 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class DeleteMailboxEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Admin\Message\DeleteMailboxBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
      * @var DeleteMailboxBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]

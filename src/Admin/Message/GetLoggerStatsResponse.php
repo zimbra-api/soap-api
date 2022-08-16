@@ -28,10 +28,6 @@ class GetLoggerStatsResponse extends SoapResponse
     /**
      * Info by hostname
      * 
-     * @Accessor(getter="getHostNames", setter="setHostNames")
-     * @Type("array<Zimbra\Admin\Struct\HostStats>")
-     * @XmlList(inline=true, entry="hostname", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getHostNames', setter: 'setHostNames')]
@@ -41,11 +37,6 @@ class GetLoggerStatsResponse extends SoapResponse
 
     /**
      * Note.  For instance "Logger is not enabled"
-     * 
-     * @Accessor(getter="getNote", setter="setNote")
-     * @SerializedName("note")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

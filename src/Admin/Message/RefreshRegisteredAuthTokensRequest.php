@@ -28,10 +28,6 @@ class RefreshRegisteredAuthTokensRequest extends SoapRequest
     /**
      * Tokens
      * 
-     * @Accessor(getter="getTokens", setter="setTokens")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="token", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTokens', setter: 'setTokens')]

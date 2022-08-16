@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetServiceStatusBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetServiceStatusRequest")
-     * @Type("Zimbra\Admin\Message\GetServiceStatusRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetServiceStatusRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetServiceStatusBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetServiceStatusResponse")
-     * @Type("Zimbra\Admin\Message\GetServiceStatusResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetServiceStatusResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

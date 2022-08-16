@@ -32,11 +32,6 @@ class GetUCServiceRequest extends SoapRequest implements AttributeSelector
     /**
      * UC Service
      * 
-     * @Accessor(getter="getUCService", setter="setUCService")
-     * @SerializedName("ucservice")
-     * @Type("Zimbra\Admin\Struct\UcServiceSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var UcServiceSelector
      */
     #[Accessor(getter: 'getUCService', setter: 'setUCService')]

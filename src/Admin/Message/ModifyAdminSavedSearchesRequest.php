@@ -33,10 +33,6 @@ class ModifyAdminSavedSearchesRequest extends SoapRequest
     /**
      * Search information
      * 
-     * @Accessor(getter="getSearches", setter="setSearches")
-     * @Type("array<Zimbra\Common\Struct\NamedValue>")
-     * @XmlList(inline=true, entry="search", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSearches', setter: 'setSearches')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class VerifyStoreManagerBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("VerifyStoreManagerRequest")
-     * @Type("Zimbra\Admin\Message\VerifyStoreManagerRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var VerifyStoreManagerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class VerifyStoreManagerBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("VerifyStoreManagerResponse")
-     * @Type("Zimbra\Admin\Message\VerifyStoreManagerResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var VerifyStoreManagerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

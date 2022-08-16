@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ClearCookieBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ClearCookieRequest")
-     * @Type("Zimbra\Admin\Message\ClearCookieRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ClearCookieRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ClearCookieBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ClearCookieResponse")
-     * @Type("Zimbra\Admin\Message\ClearCookieResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ClearCookieResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

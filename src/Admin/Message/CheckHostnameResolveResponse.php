@@ -27,11 +27,6 @@ class CheckHostnameResolveResponse extends SoapResponse
     /**
      * Code
      * 
-     * @Accessor(getter="getCode", setter="setCode")
-     * @SerializedName("code")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
@@ -42,11 +37,6 @@ class CheckHostnameResolveResponse extends SoapResponse
 
     /**
      * Message
-     * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

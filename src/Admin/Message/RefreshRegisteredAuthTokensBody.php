@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RefreshRegisteredAuthTokensBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RefreshRegisteredAuthTokensRequest")
-     * @Type("Zimbra\Admin\Message\RefreshRegisteredAuthTokensRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RefreshRegisteredAuthTokensRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class RefreshRegisteredAuthTokensBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RefreshRegisteredAuthTokensResponse")
-     * @Type("Zimbra\Admin\Message\RefreshRegisteredAuthTokensResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RefreshRegisteredAuthTokensResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

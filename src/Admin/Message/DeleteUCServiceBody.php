@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteUCServiceBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteUCServiceRequest")
-     * @Type("Zimbra\Admin\Message\DeleteUCServiceRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteUCServiceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DeleteUCServiceBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteUCServiceResponse")
-     * @Type("Zimbra\Admin\Message\DeleteUCServiceResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteUCServiceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

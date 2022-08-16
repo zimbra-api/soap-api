@@ -28,11 +28,6 @@ class SearchCalendarResourcesResponse extends SoapResponse
     /**
      * 1 (true) if more calendar resources to return
      * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -44,11 +39,6 @@ class SearchCalendarResourcesResponse extends SoapResponse
     /**
      * Total number of calendar resources that matched search (not affected by limit/offset)
      * 
-     * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
-     * @SerializedName("searchTotal")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
@@ -59,10 +49,6 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * Information about calendar resources
-     * 
-     * @Accessor(getter="getCalResources", setter="setCalResources")
-     * @Type("array<Zimbra\Admin\Struct\CalendarResourceInfo>")
-     * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

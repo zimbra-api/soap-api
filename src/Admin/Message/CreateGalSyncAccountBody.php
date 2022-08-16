@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateGalSyncAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateGalSyncAccountRequest")
-     * @Type("Zimbra\Admin\Message\CreateGalSyncAccountRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateGalSyncAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateGalSyncAccountBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateGalSyncAccountResponse")
-     * @Type("Zimbra\Admin\Message\CreateGalSyncAccountResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateGalSyncAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

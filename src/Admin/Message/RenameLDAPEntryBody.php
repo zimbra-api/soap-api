@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RenameLDAPEntryBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RenameLDAPEntryRequest")
-     * @Type("Zimbra\Admin\Message\RenameLDAPEntryRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RenameLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class RenameLDAPEntryBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RenameLDAPEntryResponse")
-     * @Type("Zimbra\Admin\Message\RenameLDAPEntryResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RenameLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

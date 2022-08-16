@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class LockoutMailboxBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("LockoutMailboxRequest")
-     * @Type("Zimbra\Admin\Message\LockoutMailboxRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var LockoutMailboxRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class LockoutMailboxBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("LockoutMailboxResponse")
-     * @Type("Zimbra\Admin\Message\LockoutMailboxResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var LockoutMailboxResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

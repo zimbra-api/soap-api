@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SetPasswordBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SetPasswordRequest")
-     * @Type("Zimbra\Admin\Message\SetPasswordRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var SetPasswordRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SetPasswordBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SetPasswordResponse")
-     * @Type("Zimbra\Admin\Message\SetPasswordResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var SetPasswordResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

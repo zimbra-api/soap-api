@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class MigrateAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("MigrateAccountRequest")
-     * @Type("Zimbra\Admin\Message\MigrateAccountRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var MigrateAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class MigrateAccountBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("MigrateAccountResponse")
-     * @Type("Zimbra\Admin\Message\MigrateAccountResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var MigrateAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

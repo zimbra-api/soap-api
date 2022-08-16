@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteXMPPComponentBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteXMPPComponentRequest")
-     * @Type("Zimbra\Admin\Message\DeleteXMPPComponentRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteXMPPComponentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DeleteXMPPComponentBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteXMPPComponentResponse")
-     * @Type("Zimbra\Admin\Message\DeleteXMPPComponentResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteXMPPComponentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

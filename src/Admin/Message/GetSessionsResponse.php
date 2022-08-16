@@ -28,11 +28,6 @@ class GetSessionsResponse extends SoapResponse
     /**
      * 1 (true) if more sessions left to return
      * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -44,11 +39,6 @@ class GetSessionsResponse extends SoapResponse
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
      * 
-     * @Accessor(getter="getTotal", setter="setTotal")
-     * @SerializedName("total")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTotal', setter: 'setTotal')]
@@ -59,10 +49,6 @@ class GetSessionsResponse extends SoapResponse
 
     /**
      * Session information
-     * 
-     * @Accessor(getter="getSessions", setter="setSessions")
-     * @Type("array<Zimbra\Admin\Struct\SimpleSessionInfo>")
-     * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

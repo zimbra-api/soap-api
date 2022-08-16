@@ -30,11 +30,6 @@ class MailQueueActionRequest extends SoapRequest
     /**
      * Server with queue action
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerWithQueueAction")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Server
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

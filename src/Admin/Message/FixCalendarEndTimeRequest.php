@@ -32,11 +32,6 @@ class FixCalendarEndTimeRequest extends SoapRequest
      * 1 (true) command blocks until processing finishes 
      * 0 (false) [default]  command returns right away 
      * 
-     * @Accessor(getter="getSync", setter="setSync")
-     * @SerializedName("sync")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
@@ -47,10 +42,6 @@ class FixCalendarEndTimeRequest extends SoapRequest
 
     /**
      * Accounts
-     * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

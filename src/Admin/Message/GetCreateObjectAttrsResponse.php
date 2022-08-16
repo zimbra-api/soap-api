@@ -28,11 +28,6 @@ class GetCreateObjectAttrsResponse extends SoapResponse
     /**
      * Set attributes
      * 
-     * @Accessor(getter="getSetAttrs", setter="setSetAttrs")
-     * @SerializedName("setAttrs")
-     * @Type("Zimbra\Admin\Struct\EffectiveAttrsInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var EffectiveAttrsInfo
      */
     #[Accessor(getter: 'getSetAttrs', setter: 'setSetAttrs')]

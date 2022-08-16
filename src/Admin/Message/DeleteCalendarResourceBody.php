@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteCalendarResourceBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteCalendarResourceRequest")
-     * @Type("Zimbra\Admin\Message\DeleteCalendarResourceRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteCalendarResourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DeleteCalendarResourceBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteCalendarResourceResponse")
-     * @Type("Zimbra\Admin\Message\DeleteCalendarResourceResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteCalendarResourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

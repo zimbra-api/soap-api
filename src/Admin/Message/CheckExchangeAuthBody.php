@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckExchangeAuthBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CheckExchangeAuthRequest")
-     * @Type("Zimbra\Admin\Message\CheckExchangeAuthRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CheckExchangeAuthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CheckExchangeAuthBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CheckExchangeAuthResponse")
-     * @Type("Zimbra\Admin\Message\CheckExchangeAuthResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CheckExchangeAuthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

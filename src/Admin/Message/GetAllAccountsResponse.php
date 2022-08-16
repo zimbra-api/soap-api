@@ -28,10 +28,6 @@ class GetAllAccountsResponse extends SoapResponse
     /**
      * Information on accounts
      * 
-     * @Accessor(getter="getAccountList", setter="setAccountList")
-     * @Type("array<Zimbra\Admin\Struct\AccountInfo>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAccountList', setter: 'setAccountList')]

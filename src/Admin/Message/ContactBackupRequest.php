@@ -30,12 +30,6 @@ class ContactBackupRequest extends SoapRequest
     /**
      * List of servers
      * 
-     * @Accessor(getter="getServers", setter="setServers")
-     * @SerializedName("servers")
-     * @Type("array<Zimbra\Admin\Struct\ServerSelector>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getServers', setter: 'setServers')]
@@ -47,11 +41,6 @@ class ContactBackupRequest extends SoapRequest
 
     /**
      * op can be either start or stop
-     * 
-     * @Accessor(getter="getOp", setter="setOp")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\ContactBackupOp>")
-     * @XmlAttribute
      * 
      * @var ContactBackupOp
      */

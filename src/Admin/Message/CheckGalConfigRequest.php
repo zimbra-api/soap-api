@@ -31,11 +31,6 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
     /**
      * Query
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("Zimbra\Admin\Struct\LimitedQuery")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var LimitedQuery
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -46,11 +41,6 @@ class CheckGalConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * GAL action
-     * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("string")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

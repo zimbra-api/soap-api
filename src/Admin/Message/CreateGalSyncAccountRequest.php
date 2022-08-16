@@ -33,11 +33,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     /**
      * Name of the data source.
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -48,11 +43,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Domain name
-     * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -65,11 +55,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     /**
      * GalMode type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\GalMode>")
-     * @XmlAttribute
-     * 
      * @var GalMode
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -80,11 +65,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Account
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */
@@ -97,11 +77,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     /**
      * password
      * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -113,11 +88,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
     /**
      * Contact folder name
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folder")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -128,11 +98,6 @@ class CreateGalSyncAccountRequest extends SoapRequest implements AdminAttrs
 
     /**
      * The mailhost on which this account resides
-     * 
-     * @Accessor(getter="getMailHost", setter="setMailHost")
-     * @SerializedName("server")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

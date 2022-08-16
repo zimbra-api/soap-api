@@ -32,11 +32,6 @@ class GetCosRequest extends SoapRequest implements AttributeSelector
     /**
      * COS
      * 
-     * @Accessor(getter="getCos", setter="setCos")
-     * @SerializedName("cos")
-     * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]

@@ -31,11 +31,6 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
     /**
      * Name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -46,11 +41,6 @@ class CheckAuthConfigRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Password
-     * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

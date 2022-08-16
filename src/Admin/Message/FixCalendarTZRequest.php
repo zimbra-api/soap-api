@@ -31,11 +31,6 @@ class FixCalendarTZRequest extends SoapRequest
      * 1 (true) command blocks until processing finishes
      * 0 (false) [default]  command returns right away 
      * 
-     * @Accessor(getter="getSync", setter="setSync")
-     * @SerializedName("sync")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
@@ -48,11 +43,6 @@ class FixCalendarTZRequest extends SoapRequest
      * Fix appts/tasks that have instances after this time
      * default = January 1, 2008 00:00:00 in GMT+13:00 timezone.
      * 
-     * @Accessor(getter="getAfter", setter="setAfter")
-     * @SerializedName("after")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getAfter', setter: 'setAfter')]
@@ -64,10 +54,6 @@ class FixCalendarTZRequest extends SoapRequest
     /**
      * Accounts
      * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
@@ -77,11 +63,6 @@ class FixCalendarTZRequest extends SoapRequest
 
     /**
      * Fixup rules wrapper
-     * 
-     * @Accessor(getter="getTzFixup", setter="setTzFixup")
-     * @SerializedName("tzfixup")
-     * @Type("Zimbra\Admin\Struct\TzFixup")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var TzFixup
      */

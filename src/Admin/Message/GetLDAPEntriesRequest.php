@@ -28,11 +28,6 @@ class GetLDAPEntriesRequest extends SoapRequest
     /**
      * LDAP search base.  An LDAP-style filter string that defines an LDAP search base (RFC 2254)
      * 
-     * @Accessor(getter="getLdapSearchBase", setter="setLdapSearchBase")
-     * @SerializedName("ldapSearchBase")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLdapSearchBase', setter: 'setLdapSearchBase')]
@@ -43,11 +38,6 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * Name of attribute to sort on. default is null
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class GetLDAPEntriesRequest extends SoapRequest
     /**
      * Flag whether to sort in ascending order 1 (true) is default
      * 
-     * @Accessor(getter="getSortAscending", setter="setSortAscending")
-     * @SerializedName("sortAscending")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
@@ -75,11 +60,6 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * The number of mailboxes to return (0 is default and means all)
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -92,11 +72,6 @@ class GetLDAPEntriesRequest extends SoapRequest
     /**
      * The starting offset (0, 25, etc)
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -107,11 +82,6 @@ class GetLDAPEntriesRequest extends SoapRequest
 
     /**
      * Query string. Should be an LDAP-style filter string (RFC 2254)
-     * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

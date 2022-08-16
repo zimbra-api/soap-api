@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class NoOpBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("NoOpRequest")
-     * @Type("Zimbra\Admin\Message\NoOpRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @var NoOpRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'NoOpRequest')]
@@ -37,11 +34,6 @@ class NoOpBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("NoOpResponse")
-     * @Type("Zimbra\Admin\Message\NoOpResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var NoOpResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

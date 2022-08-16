@@ -28,11 +28,6 @@ class AddGalSyncDataSourceResponse extends SoapResponse
     /**
      * The account
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Admin\Struct\AccountInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

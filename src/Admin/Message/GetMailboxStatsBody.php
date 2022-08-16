@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetMailboxStatsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetMailboxStatsRequest")
-     * @Type("Zimbra\Admin\Message\GetMailboxStatsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetMailboxStatsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetMailboxStatsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetMailboxStatsResponse")
-     * @Type("Zimbra\Admin\Message\GetMailboxStatsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetMailboxStatsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

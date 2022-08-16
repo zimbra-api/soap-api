@@ -28,11 +28,6 @@ class GetVolumeResponse extends SoapResponse
     /**
      * Volume information
      * 
-     * @Accessor(getter="getVolume", setter="setVolume")
-     * @SerializedName("volume")
-     * @Type("Zimbra\Admin\Struct\VolumeInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var VolumeInfo
      */
     #[Accessor(getter: 'getVolume', setter: 'setVolume')]

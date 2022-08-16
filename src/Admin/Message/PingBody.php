@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PingBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PingRequest")
-     * @Type("Zimbra\Admin\Message\PingRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PingRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class PingBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PingResponse")
-     * @Type("Zimbra\Admin\Message\PingResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PingResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

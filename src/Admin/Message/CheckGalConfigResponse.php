@@ -28,11 +28,6 @@ class CheckGalConfigResponse extends SoapResponse
     /**
      * Code
      * 
-     * @Accessor(getter="getCode", setter="setCode")
-     * @SerializedName("code")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
@@ -44,11 +39,6 @@ class CheckGalConfigResponse extends SoapResponse
     /**
      * Message
      * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMessage', setter: 'setMessage')]
@@ -59,10 +49,6 @@ class CheckGalConfigResponse extends SoapResponse
 
     /**
      * Information for GAL contacts
-     * 
-     * @Accessor(getter="getGalContacts", setter="setGalContacts")
-     * @Type("array<Zimbra\Admin\Struct\GalContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateZimletBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateZimletRequest")
-     * @Type("Zimbra\Admin\Message\CreateZimletRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateZimletRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateZimletBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateZimletResponse")
-     * @Type("Zimbra\Admin\Message\CreateZimletResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CreateZimletResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

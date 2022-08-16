@@ -29,11 +29,6 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class GetSystemRetentionPolicyRequest extends SoapRequest
 {
     /**
-     * @Accessor(getter="getCos", setter="setCos")
-     * @SerializedName("cos")
-     * @Type("Zimbra\Admin\Struct\CosSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]

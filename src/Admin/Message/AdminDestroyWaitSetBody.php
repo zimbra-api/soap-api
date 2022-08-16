@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AdminDestroyWaitSetBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("AdminDestroyWaitSetRequest")
-     * @Type("Zimbra\Admin\Message\AdminDestroyWaitSetRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AdminDestroyWaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class AdminDestroyWaitSetBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("AdminDestroyWaitSetResponse")
-     * @Type("Zimbra\Admin\Message\AdminDestroyWaitSetResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AdminDestroyWaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

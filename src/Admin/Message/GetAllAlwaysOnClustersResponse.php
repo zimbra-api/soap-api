@@ -28,10 +28,6 @@ class GetAllAlwaysOnClustersResponse extends SoapResponse
     /**
      * Information about alwaysOnClusters
      * 
-     * @Accessor(getter="getAlwaysOnClusterList", setter="setAlwaysOnClusterList")
-     * @Type("array<Zimbra\Admin\Struct\AlwaysOnClusterInfo>")
-     * @XmlList(inline=true, entry="alwaysOnCluster", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAlwaysOnClusterList', setter: 'setAlwaysOnClusterList')]

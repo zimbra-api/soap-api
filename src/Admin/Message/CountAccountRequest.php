@@ -30,11 +30,6 @@ class CountAccountRequest extends SoapRequest
     /**
      * Domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]

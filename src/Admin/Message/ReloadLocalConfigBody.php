@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ReloadLocalConfigBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ReloadLocalConfigRequest")
-     * @Type("Zimbra\Admin\Message\ReloadLocalConfigRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ReloadLocalConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ReloadLocalConfigBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ReloadLocalConfigResponse")
-     * @Type("Zimbra\Admin\Message\ReloadLocalConfigResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ReloadLocalConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

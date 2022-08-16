@@ -28,11 +28,6 @@ class GetAllDomainsRequest extends SoapRequest
     /**
      * Apply config flag
      * 
-     * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
-     * @SerializedName("applyConfig")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isApplyConfig', setter: 'setApplyConfig')]

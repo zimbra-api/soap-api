@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllAccountLoggersBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAllAccountLoggersRequest")
-     * @Type("Zimbra\Admin\Message\GetAllAccountLoggersRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllAccountLoggersRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetAllAccountLoggersBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAllAccountLoggersResponse")
-     * @Type("Zimbra\Admin\Message\GetAllAccountLoggersResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllAccountLoggersResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

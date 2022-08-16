@@ -28,11 +28,6 @@ class UndeployZimletRequest extends SoapRequest
     /**
      * Zimlet name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -43,11 +38,6 @@ class UndeployZimletRequest extends SoapRequest
 
     /**
      * Action
-     * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

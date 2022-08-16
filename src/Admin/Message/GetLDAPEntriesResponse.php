@@ -28,10 +28,6 @@ class GetLDAPEntriesResponse extends SoapResponse
     /**
      * LDAP entries
      * 
-     * @Accessor(getter="getLDAPEntries", setter="setLDAPEntries")
-     * @Type("array<Zimbra\Admin\Struct\LDAPEntryInfo>")
-     * @XmlList(inline=true, entry="LDAPEntry", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getLDAPEntries', setter: 'setLDAPEntries')]

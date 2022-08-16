@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CompactIndexBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CompactIndexRequest")
-     * @Type("Zimbra\Admin\Message\CompactIndexRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CompactIndexRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CompactIndexBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CompactIndexResponse")
-     * @Type("Zimbra\Admin\Message\CompactIndexResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CompactIndexResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

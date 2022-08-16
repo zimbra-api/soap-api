@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RemoveAccountAliasBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RemoveAccountAliasRequest")
-     * @Type("Zimbra\Admin\Message\RemoveAccountAliasRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RemoveAccountAliasRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class RemoveAccountAliasBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RemoveAccountAliasResponse")
-     * @Type("Zimbra\Admin\Message\RemoveAccountAliasResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RemoveAccountAliasResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -29,11 +29,6 @@ class ModifyZimletRequest extends SoapRequest
     /**
      * New Zimlet information
      * 
-     * @Accessor(getter="getZimlet", setter="setZimlet")
-     * @SerializedName("zimlet")
-     * @Type("Zimbra\Admin\Struct\ZimletAclStatusPri")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ZimletAclStatusPri
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]

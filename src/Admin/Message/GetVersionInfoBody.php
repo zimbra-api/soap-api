@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetVersionInfoBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetVersionInfoRequest")
-     * @Type("Zimbra\Admin\Message\GetVersionInfoRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetVersionInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetVersionInfoBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetVersionInfoResponse")
-     * @Type("Zimbra\Admin\Message\GetVersionInfoResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetVersionInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

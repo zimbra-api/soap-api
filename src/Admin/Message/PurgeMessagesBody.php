@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PurgeMessagesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PurgeMessagesRequest")
-     * @Type("Zimbra\Admin\Message\PurgeMessagesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeMessagesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class PurgeMessagesBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PurgeMessagesResponse")
-     * @Type("Zimbra\Admin\Message\PurgeMessagesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeMessagesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RemoveAccountLoggerBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RemoveAccountLoggerRequest")
-     * @Type("Zimbra\Admin\Message\RemoveAccountLoggerRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RemoveAccountLoggerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class RemoveAccountLoggerBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RemoveAccountLoggerResponse")
-     * @Type("Zimbra\Admin\Message\RemoveAccountLoggerResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var RemoveAccountLoggerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -29,11 +29,6 @@ class GetAllAccountsRequest extends SoapRequest
     /**
      * Server
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Admin\Struct\ServerSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]
@@ -44,11 +39,6 @@ class GetAllAccountsRequest extends SoapRequest
 
     /**
      * Domain
-     * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var DomainSelector
      */

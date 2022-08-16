@@ -27,11 +27,6 @@ class CheckAuthConfigResponse extends SoapResponse
     /**
      * Code
      * 
-     * @Accessor(getter="getCode", setter="setCode")
-     * @SerializedName("code")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCode', setter: 'setCode')]
@@ -43,11 +38,6 @@ class CheckAuthConfigResponse extends SoapResponse
     /**
      * DN computed from supplied bind DN and name
      * 
-     * @Accessor(getter="getBindDn", setter="setBindDn")
-     * @SerializedName("bindDn")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getBindDn', setter: 'setBindDn')]
@@ -58,11 +48,6 @@ class CheckAuthConfigResponse extends SoapResponse
 
     /**
      * Message
-     * 
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("message")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetMemcachedClientConfigBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetMemcachedClientConfigRequest")
-     * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetMemcachedClientConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetMemcachedClientConfigBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetMemcachedClientConfigResponse")
-     * @Type("Zimbra\Admin\Message\GetMemcachedClientConfigResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetMemcachedClientConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

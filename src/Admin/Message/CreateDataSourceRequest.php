@@ -33,11 +33,6 @@ class CreateDataSourceRequest extends SoapRequest
     /**
      * Id for an existing Account
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,11 +43,6 @@ class CreateDataSourceRequest extends SoapRequest
 
     /**
      * Details of data source
-     * 
-     * @Accessor(getter="getDataSource", setter="setDataSource")
-     * @SerializedName("dataSource")
-     * @Type("Zimbra\Admin\Struct\DataSourceSpecifier")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var DataSourceSpecifier
      */

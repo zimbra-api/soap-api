@@ -28,10 +28,6 @@ class GetAllSkinsResponse extends SoapResponse
     /**
      * Skins
      * 
-     * @Accessor(getter="getSkins", setter="setSkins")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSkins', setter: 'setSkins')]

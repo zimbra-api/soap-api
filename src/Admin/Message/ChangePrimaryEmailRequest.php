@@ -28,11 +28,6 @@ class ChangePrimaryEmailRequest extends SoapRequest
     /**
      * Specifies the account to be changed
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -43,11 +38,6 @@ class ChangePrimaryEmailRequest extends SoapRequest
 
     /**
      * New account name
-     * 
-     * @Accessor(getter="getNewName", setter="setNewName")
-     * @SerializedName("newName")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

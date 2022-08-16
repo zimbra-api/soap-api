@@ -21,19 +21,12 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class GetRightEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Admin\Message\GetRightBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
      * @var GetRightBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]

@@ -31,11 +31,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -46,11 +41,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
-     * 
-     * @Accessor(getter="getMaxResults", setter="setMaxResults")
-     * @SerializedName("maxResults")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -63,11 +53,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * The maximum number of accounts to return (0 is default and means all)
      * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -79,11 +64,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * The starting offset (0, 25, etc)
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -94,11 +74,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * The domain name to limit the search to
-     * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -112,11 +87,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * applyCos - Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
      * 
-     * @Accessor(getter="getApplyCos", setter="setApplyCos")
-     * @SerializedName("applyCos")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
@@ -129,11 +99,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * whether or not to apply the global config attrs to account.
      * specify 0 (false) if only requesting attrs that aren't inherited from global config
      * 
-     * @Accessor(getter="getApplyConfig", setter="setApplyConfig")
-     * @SerializedName("applyConfig")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getApplyConfig', setter: 'setApplyConfig')]
@@ -144,11 +109,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Name of attribute to sort on. Default is the account name.
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -162,11 +122,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
      * Comma-separated list of types to return.
      * Legal values are: accounts|distributionlists|aliases|resources|domains|coses (default is accounts)
      * 
-     * @Accessor(getter="getTypes", setter="setTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
@@ -178,11 +133,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
     /**
      * Whether to sort in ascending order. Default is 1 (true)
      * 
-     * @Accessor(getter="getSortAscending", setter="setSortAscending")
-     * @SerializedName("sortAscending")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getSortAscending', setter: 'setSortAscending')]
@@ -193,11 +143,6 @@ class SearchDirectoryRequest extends SoapRequest implements AttributeSelector
 
     /**
      * Whether response should be count only. Default is 0 (false)
-     * 
-     * @Accessor(getter="getCountOnly", setter="setCountOnly")
-     * @SerializedName("countOnly")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

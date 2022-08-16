@@ -30,11 +30,6 @@ class MailQueueFlushRequest extends SoapRequest
     /**
      * Mta server
      * 
-     * @Accessor(getter="getServer", setter="setServer")
-     * @SerializedName("server")
-     * @Type("Zimbra\Common\Struct\NamedElement")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Server
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

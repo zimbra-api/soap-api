@@ -34,11 +34,6 @@ class GetLoggerStatsRequest extends SoapRequest
     /**
      * Hostname
      * 
-     * @Accessor(getter="getHostName", setter="setHostName")
-     * @SerializedName("hostname")
-     * @Type("Zimbra\Admin\Struct\HostName")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var HostName
      */
     #[Accessor(getter: 'getHostName', setter: 'setHostName')]
@@ -49,11 +44,6 @@ class GetLoggerStatsRequest extends SoapRequest
 
     /**
      * Stats
-     * 
-     * @Accessor(getter="getStats", setter="setStats")
-     * @SerializedName("stats")
-     * @Type("Zimbra\Admin\Struct\StatsSpec")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var StatsSpec
      */
@@ -66,11 +56,6 @@ class GetLoggerStatsRequest extends SoapRequest
     /**
      * Start time
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("startTime")
-     * @Type("Zimbra\Admin\Struct\TimeAttr")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var TimeAttr
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -81,11 +66,6 @@ class GetLoggerStatsRequest extends SoapRequest
 
     /**
      * End time
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("endTime")
-     * @Type("Zimbra\Admin\Struct\TimeAttr")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var TimeAttr
      */

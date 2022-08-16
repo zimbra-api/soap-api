@@ -26,14 +26,8 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
  */
 class RevokeRightRequest extends SoapRequest
 {
-
     /**
      * Target selector
-     * 
-     * @Accessor(getter="getTarget", setter="setTarget")
-     * @SerializedName("target")
-     * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var EffectiveRightsTargetSelector
      */
@@ -46,11 +40,6 @@ class RevokeRightRequest extends SoapRequest
     /**
      * Grantee selector
      * 
-     * @Accessor(getter="getGrantee", setter="setGrantee")
-     * @SerializedName("grantee")
-     * @Type("Zimbra\Admin\Struct\GranteeSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GranteeSelector
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -61,11 +50,6 @@ class RevokeRightRequest extends SoapRequest
 
     /**
      * Right
-     * 
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("right")
-     * @Type("Zimbra\Admin\Struct\RightModifierInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var RightModifierInfo
      */

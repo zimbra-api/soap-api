@@ -29,11 +29,6 @@ class GetSessionsRequest extends SoapRequest
     /**
      * Type - valid values soap|imap|admin
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\SessionType>")
-     * @XmlAttribute
-     * 
      * @var SessionType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -44,11 +39,6 @@ class GetSessionsRequest extends SoapRequest
 
     /**
      * SortBy - valid values: nameAsc|nameDesc|createdAsc|createdDesc|accessedAsc|accessedDesc
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\GetSessionsSortBy>")
-     * @XmlAttribute
      * 
      * @var GetSessionsSortBy
      */
@@ -61,11 +51,6 @@ class GetSessionsRequest extends SoapRequest
     /**
      * Offset - the starting offset (0, 25, etc)
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -77,11 +62,6 @@ class GetSessionsRequest extends SoapRequest
     /**
      * Limit - the number of sessions to return per page (0 is default and means all)
      * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -92,11 +72,6 @@ class GetSessionsRequest extends SoapRequest
 
     /**
      * Refresh. If 1 (true), ignore any cached results and start fresh.
-     * 
-     * @Accessor(getter="getRefresh", setter="setRefresh")
-     * @SerializedName("refresh")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

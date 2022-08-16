@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CountObjectsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CountObjectsRequest")
-     * @Type("Zimbra\Admin\Message\CountObjectsRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CountObjectsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CountObjectsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CountObjectsResponse")
-     * @Type("Zimbra\Admin\Message\CountObjectsResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var CountObjectsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

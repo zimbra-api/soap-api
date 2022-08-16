@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PurgeFreeBusyQueueBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PurgeFreeBusyQueueRequest")
-     * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeFreeBusyQueueRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class PurgeFreeBusyQueueBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PurgeFreeBusyQueueResponse")
-     * @Type("Zimbra\Admin\Message\PurgeFreeBusyQueueResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var PurgeFreeBusyQueueResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

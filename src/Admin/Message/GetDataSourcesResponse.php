@@ -28,10 +28,6 @@ class GetDataSourcesResponse extends SoapResponse
     /**
      * Information on data sources
      * 
-     * @Accessor(getter="getDataSources", setter="setDataSources")
-     * @Type("array<Zimbra\Admin\Struct\DataSourceInfo>")
-     * @XmlList(inline=true, entry="dataSource", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDataSources', setter: 'setDataSources')]

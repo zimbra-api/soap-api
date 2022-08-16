@@ -33,11 +33,6 @@ class GetXMPPComponentRequest extends SoapRequest implements AttributeSelector
     /**
      * XMPP component selector
      * 
-     * @Accessor(getter="getComponent", setter="setComponent")
-     * @SerializedName("xmppcomponent")
-     * @Type("Zimbra\Admin\Struct\XMPPComponentSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var XMPPComponentSelector
      */
     #[Accessor(getter: 'getComponent', setter: 'setComponent')]

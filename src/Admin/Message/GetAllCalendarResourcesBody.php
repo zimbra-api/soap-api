@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllCalendarResourcesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAllCalendarResourcesRequest")
-     * @Type("Zimbra\Admin\Message\GetAllCalendarResourcesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllCalendarResourcesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetAllCalendarResourcesBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAllCalendarResourcesResponse")
-     * @Type("Zimbra\Admin\Message\GetAllCalendarResourcesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetAllCalendarResourcesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

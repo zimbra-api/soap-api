@@ -21,9 +21,6 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn1")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn1")]
@@ -31,11 +28,6 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
 class GetSystemRetentionPolicyEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Admin\Message\GetSystemRetentionPolicyBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
      * @var GetSystemRetentionPolicyBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]

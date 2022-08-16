@@ -32,11 +32,6 @@ class GetGrantsRequest extends SoapRequest
     /**
      * Target
      * 
-     * @Accessor(getter="getTarget", setter="setTarget")
-     * @SerializedName("target")
-     * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var EffectiveRightsTargetSelector
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -47,11 +42,6 @@ class GetGrantsRequest extends SoapRequest
 
     /**
      * Grantee
-     * 
-     * @Accessor(getter="getGrantee", setter="setGrantee")
-     * @SerializedName("grantee")
-     * @Type("Zimbra\Admin\Struct\GranteeSelector")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var GranteeSelector
      */

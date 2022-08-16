@@ -28,10 +28,6 @@ class ComputeAggregateQuotaUsageResponse extends SoapResponse
     /**
      * Aggregate quota information for domain
      * 
-     * @Accessor(getter="getDomainQuotas", setter="setDomainQuotas")
-     * @Type("array<Zimbra\Admin\Struct\DomainAggregateQuotaInfo>")
-     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDomainQuotas', setter: 'setDomainQuotas')]

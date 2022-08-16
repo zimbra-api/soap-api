@@ -29,11 +29,6 @@ class GetConfigRequest extends SoapRequest
     /**
      * Attribute
      * 
-     * @Accessor(getter="getAttr", setter="setAttr")
-     * @SerializedName("a")
-     * @Type("Zimbra\Admin\Struct\Attr")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Attr
      */
     #[Accessor(getter: 'getAttr', setter: 'setAttr')]

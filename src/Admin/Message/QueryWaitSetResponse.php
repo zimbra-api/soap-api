@@ -28,10 +28,6 @@ class QueryWaitSetResponse extends SoapResponse
     /**
      * Information about WaitSets
      * 
-     * @Accessor(getter="getWaitsets", setter="setWaitsets")
-     * @Type("array<Zimbra\Admin\Struct\WaitSetInfo>")
-     * @XmlList(inline=true, entry="waitSet", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getWaitsets', setter: 'setWaitsets')]

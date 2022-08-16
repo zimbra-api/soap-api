@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteGalSyncAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DeleteGalSyncAccountRequest")
-     * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteGalSyncAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DeleteGalSyncAccountBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DeleteGalSyncAccountResponse")
-     * @Type("Zimbra\Admin\Message\DeleteGalSyncAccountResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var DeleteGalSyncAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

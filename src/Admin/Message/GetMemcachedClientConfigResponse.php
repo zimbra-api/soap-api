@@ -27,11 +27,6 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     /**
      * Comma separated list of host:port for memcached servers
      * 
-     * @Accessor(getter="getServerList", setter="setServerList")
-     * @SerializedName("serverList")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getServerList', setter: 'setServerList')]
@@ -42,11 +37,6 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * KETAMA_HASH, etc.
-     * 
-     * @Accessor(getter="getHashAlgorithm", setter="setHashAlgorithm")
-     * @SerializedName("hashAlgorithm")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     /**
      * Flags whether memcached binary protocol is in use or not
      * 
-     * @Accessor(getter="getBinaryProtocolEnabled", setter="setBinaryProtocolEnabled")
-     * @SerializedName("binaryProtocol")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getBinaryProtocolEnabled', setter: 'setBinaryProtocolEnabled')]
@@ -75,11 +60,6 @@ class GetMemcachedClientConfigResponse extends SoapResponse
     /**
      * Default entry expiry in seconds
      * 
-     * @Accessor(getter="getDefaultExpirySeconds", setter="setDefaultExpirySeconds")
-     * @SerializedName("defaultExpirySeconds")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getDefaultExpirySeconds', setter: 'setDefaultExpirySeconds')]
@@ -90,11 +70,6 @@ class GetMemcachedClientConfigResponse extends SoapResponse
 
     /**
      * Default timeout in milliseconds
-     * 
-     * @Accessor(getter="getDefaultTimeoutMillis", setter="setDefaultTimeoutMillis")
-     * @SerializedName("defaultTimeoutMillis")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

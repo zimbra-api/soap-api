@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetCurrentVolumesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetCurrentVolumesRequest")
-     * @Type("Zimbra\Admin\Message\GetCurrentVolumesRequest")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetCurrentVolumesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetCurrentVolumesBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetCurrentVolumesResponse")
-     * @Type("Zimbra\Admin\Message\GetCurrentVolumesResponse")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var GetCurrentVolumesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

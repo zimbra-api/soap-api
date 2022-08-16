@@ -33,11 +33,6 @@ class CreateDomainRequest extends SoapRequest implements AdminAttrs
     /**
      * Name of new domain
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]

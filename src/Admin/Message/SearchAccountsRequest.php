@@ -29,11 +29,6 @@ class SearchAccountsRequest extends SoapRequest
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -44,11 +39,6 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * The maximum number of accounts to return (0 is default and means all)
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,11 +51,6 @@ class SearchAccountsRequest extends SoapRequest
     /**
      * The starting offset (0, 25, etc)
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -76,11 +61,6 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * The domain name to limit the search to
-     * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -94,11 +74,6 @@ class SearchAccountsRequest extends SoapRequest
      * Flag whether or not to apply the COS policy to account.
      * Specify 0 (false) if only requesting attrs that aren't inherited from COS
      * 
-     * @Accessor(getter="getApplyCos", setter="setApplyCos")
-     * @SerializedName("applyCos")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getApplyCos', setter: 'setApplyCos')]
@@ -109,11 +84,6 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Comma-seperated list of attrs to return ("displayName", "zimbraId", "zimbraAccountStatus")
-     * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attrs")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -126,11 +96,6 @@ class SearchAccountsRequest extends SoapRequest
     /**
      * Name of attribute to sort on. Default is the account name.
      * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -142,11 +107,6 @@ class SearchAccountsRequest extends SoapRequest
     /**
      * Comma-separated list of types to return. Legal values are: accounts|resources (default is accounts)
      * 
-     * @Accessor(getter="getTypes", setter="setTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTypes', setter: 'setTypes')]
@@ -157,11 +117,6 @@ class SearchAccountsRequest extends SoapRequest
 
     /**
      * Whether to sort in ascending order. Default is 1 (true)
-     * 
-     * @Accessor(getter="getSortAscending", setter="setSortAscending")
-     * @SerializedName("sortAscending")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
