@@ -32,11 +32,6 @@ class CreateSignatureRequest extends SoapRequest
     /**
      * Details of the signature to be created
      * 
-     * @Accessor(getter="getSignature", setter="setSignature")
-     * @SerializedName("signature")
-     * @Type("Zimbra\Account\Struct\Signature")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var Signature
      */
     #[Accessor(getter: 'getSignature', setter: 'setSignature')]

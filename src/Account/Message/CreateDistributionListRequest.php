@@ -33,11 +33,6 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     /**
      * Name for distribution list
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -49,11 +44,6 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
     /**
      * If 1 (true) then create a dynamic distribution list
      * 
-     * @Accessor(getter="getDynamic", setter="setDynamic")
-     * @SerializedName("dynamic")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getDynamic', setter: 'setDynamic')]
@@ -64,10 +54,6 @@ class CreateDistributionListRequest extends SoapRequest implements KeyValuePairs
 
     /**
      * Key value pairs
-     * 
-     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
-     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

@@ -28,9 +28,7 @@ class GetAvailableSkinsResponse extends SoapResponse
     /**
      * Information about skins
      * 
-     * @Accessor(getter="getSkins", setter="setSkins")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="skin", namespace="urn:zimbraAccount")
+     * @var array
      */
     #[Accessor(getter: 'getSkins', setter: 'setSkins')]
     #[Type(name: 'array<Zimbra\Common\Struct\NamedElement>')]

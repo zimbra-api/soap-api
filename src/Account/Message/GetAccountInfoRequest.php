@@ -29,11 +29,6 @@ class GetAccountInfoRequest extends SoapRequest
     /**
      * Use to identify the account
      * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

@@ -32,11 +32,6 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     /**
      * Whether to return owners, default is 0 (i.e. Don't return owners)
      * 
-     * @Accessor(getter="getNeedOwners", setter="setNeedOwners")
-     * @SerializedName("needOwners")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedOwners', setter: 'setNeedOwners')]
@@ -48,11 +43,6 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
     /**
      * return grants for the specified (comma-seperated) rights. e.g. needRights="sendToDistList,viewDistList"
      * 
-     * @Accessor(getter="getNeedRights", setter="setNeedRights")
-     * @SerializedName("needRights")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getNeedRights', setter: 'setNeedRights')]
@@ -63,11 +53,6 @@ class GetDistributionListRequest extends SoapRequest implements Attrs
 
     /**
      * Specify the distribution list
-     * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("Zimbra\Common\Struct\DistributionListSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var DistributionListSelector
      */

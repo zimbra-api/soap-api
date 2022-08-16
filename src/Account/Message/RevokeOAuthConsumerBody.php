@@ -25,10 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RevokeOAuthConsumerBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("RevokeOAuthConsumerRequest")
-     * @Type("Zimbra\Account\Message\RevokeOAuthConsumerRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
+     * @var RevokeOAuthConsumerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'RevokeOAuthConsumerRequest')]
@@ -37,11 +34,6 @@ class RevokeOAuthConsumerBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("RevokeOAuthConsumerResponse")
-     * @Type("Zimbra\Account\Message\RevokeOAuthConsumerResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var RevokeOAuthConsumerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

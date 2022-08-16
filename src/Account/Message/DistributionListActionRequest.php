@@ -36,11 +36,6 @@ class DistributionListActionRequest extends SoapRequest
     /**
      * Identifies the distribution list to act upon
      * 
-     * @Accessor(getter="getDl", setter="setDl")
-     * @SerializedName("dl")
-     * @Type("Zimbra\Common\Struct\DistributionListSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var DistributionListSelector
      */
     #[Accessor(getter: 'getDl', setter: 'setDl')]
@@ -51,11 +46,6 @@ class DistributionListActionRequest extends SoapRequest
 
     /**
      * Specifies the action to perform
-     * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Account\Struct\DistributionListAction")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var DistributionListAction
      */

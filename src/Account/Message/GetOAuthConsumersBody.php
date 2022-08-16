@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetOAuthConsumersBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetOAuthConsumersRequest")
-     * @Type("Zimbra\Account\Message\GetOAuthConsumersRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var GetOAuthConsumersRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetOAuthConsumersBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetOAuthConsumersResponse")
-     * @Type("Zimbra\Account\Message\GetOAuthConsumersResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var GetOAuthConsumersResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

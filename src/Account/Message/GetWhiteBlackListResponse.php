@@ -27,12 +27,6 @@ class GetWhiteBlackListResponse extends SoapResponse
     /**
      * White list
      * 
-     * @Accessor(getter="getWhiteListEntries", setter="setWhiteListEntries")
-     * @SerializedName("whiteList")
-     * @Type("array<string>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getWhiteListEntries', setter: 'setWhiteListEntries')]
@@ -44,12 +38,6 @@ class GetWhiteBlackListResponse extends SoapResponse
 
     /**
      * Black list
-     * 
-     * @Accessor(getter="getBlackListEntries", setter="setBlackListEntries")
-     * @SerializedName("blackList")
-     * @Type("array<string>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="addr", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

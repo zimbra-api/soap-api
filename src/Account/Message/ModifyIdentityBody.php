@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyIdentityBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ModifyIdentityRequest")
-     * @Type("Zimbra\Account\Message\ModifyIdentityRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var ModifyIdentityRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ModifyIdentityBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ModifyIdentityResponse")
-     * @Type("Zimbra\Account\Message\ModifyIdentityResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var ModifyIdentityResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

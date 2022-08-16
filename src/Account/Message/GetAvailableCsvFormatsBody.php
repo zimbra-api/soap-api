@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAvailableCsvFormatsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetAvailableCsvFormatsRequest")
-     * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var GetAvailableCsvFormatsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetAvailableCsvFormatsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetAvailableCsvFormatsResponse")
-     * @Type("Zimbra\Account\Message\GetAvailableCsvFormatsResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var GetAvailableCsvFormatsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

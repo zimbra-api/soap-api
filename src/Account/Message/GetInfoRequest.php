@@ -31,11 +31,6 @@ class GetInfoRequest extends SoapRequest
      * Comma separated list of sections to return information about.
      * Sections are: mbox,prefs,attrs,zimlets,props,idents,sigs,dsrcs,children
      * 
-     * @Accessor(getter="getSections", setter="setSections")
-     * @SerializedName("sections")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSections', setter: 'setSections')]
@@ -46,11 +41,6 @@ class GetInfoRequest extends SoapRequest
 
     /**
      * Comma separated list of rights to return information about.
-     * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("rights")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var array
      */

@@ -28,11 +28,6 @@ class ClientInfoRequest extends SoapRequest
     /**
      * Domain
      * 
-     * @Accessor(getter="getDomain", setter="setDomain")
-     * @SerializedName("domain")
-     * @Type("Zimbra\Admin\Struct\DomainSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]

@@ -31,11 +31,6 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * The name to test for autocompletion
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -52,11 +47,6 @@ class AutoCompleteGalRequest extends SoapRequest
      * - "all" for combination of all types 
      * if omitted, defaults to "account"
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
-     * @XmlAttribute
-     * 
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -69,11 +59,6 @@ class AutoCompleteGalRequest extends SoapRequest
      * flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
      * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
@@ -85,11 +70,6 @@ class AutoCompleteGalRequest extends SoapRequest
     /**
      * GAL Account ID
      * 
-     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
-     * @SerializedName("galAcctId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
@@ -100,11 +80,6 @@ class AutoCompleteGalRequest extends SoapRequest
 
     /**
      * An int specifying the maximum number of results to return
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

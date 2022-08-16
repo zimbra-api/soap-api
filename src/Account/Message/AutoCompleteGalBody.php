@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AutoCompleteGalBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("AutoCompleteGalRequest")
-     * @Type("Zimbra\Account\Message\AutoCompleteGalRequest")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var AutoCompleteGalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class AutoCompleteGalBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("AutoCompleteGalResponse")
-     * @Type("Zimbra\Account\Message\AutoCompleteGalResponse")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var AutoCompleteGalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

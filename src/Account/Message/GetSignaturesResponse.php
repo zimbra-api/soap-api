@@ -28,10 +28,6 @@ class GetSignaturesResponse extends SoapResponse
     /**
      * Signatures
      * 
-     * @Accessor(getter="getSignatures", setter="setSignatures")
-     * @Type("array<Zimbra\Account\Struct\Signature>")
-     * @XmlList(inline=true, entry="signature", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]

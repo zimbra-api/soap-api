@@ -28,10 +28,6 @@ class CreateSignatureResponse extends SoapResponse
     /**
      * Information about created signature
      * 
-     * @Accessor(getter="getSignature", setter="setSignature")
-     * @SerializedName("signature")
-     * @Type("Zimbra\Account\Struct\NameId")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * @var NameId
      */
     #[Accessor(getter: 'getSignature', setter: 'setSignature')]

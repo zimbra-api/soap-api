@@ -39,11 +39,6 @@ class AuthRequest extends SoapRequest
      * - 0: (default) the cookie will be deleted when the Web browser exits.
      * - 1: The "Expires" attribute of the cookie will be set per rfc6265.
      * 
-     * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
-     * @SerializedName("persistAuthTokenCookie")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getPersistAuthTokenCookie', setter: 'setPersistAuthTokenCookie')]
@@ -57,11 +52,6 @@ class AuthRequest extends SoapRequest
      * - 0: (default) Client does not support CSRF token
      * - 1: The client supports CSRF token.
      * 
-     * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
-     * @SerializedName("csrfTokenSecured")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
@@ -72,11 +62,6 @@ class AuthRequest extends SoapRequest
 
     /**
      * Specifies the account to authenticate against
-     * 
-     * @Accessor(getter="getAccount", setter="setAccount")
-     * @SerializedName("account")
-     * @Type("Zimbra\Common\Struct\AccountSelector")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var AccountSelector
      */
@@ -89,11 +74,6 @@ class AuthRequest extends SoapRequest
     /**
      * Password to use in conjunction with an account
      * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -104,11 +84,6 @@ class AuthRequest extends SoapRequest
 
     /**
      * RecoveryCode to use in conjunction with an account in case of forgot password flow.
-     * 
-     * @Accessor(getter="getRecoveryCode", setter="setRecoveryCode")
-     * @SerializedName("recoveryCode")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -121,11 +96,6 @@ class AuthRequest extends SoapRequest
     /**
      * The preauth
      * 
-     * @Accessor(getter="getPreauth", setter="setPreauth")
-     * @SerializedName("preauth")
-     * @Type("Zimbra\Account\Struct\PreAuth")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var PreAuth
      */
     #[Accessor(getter: 'getPreauth', setter: 'setPreauth')]
@@ -136,11 +106,6 @@ class AuthRequest extends SoapRequest
 
     /**
      * An authToken can be passed instead of account/password/preauth to validate an existing auth token.
-     * 
-     * @Accessor(getter="getAuthToken", setter="setAuthToken")
-     * @SerializedName("authToken")
-     * @Type("Zimbra\Account\Struct\AuthToken")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var AuthToken
      */
@@ -153,11 +118,6 @@ class AuthRequest extends SoapRequest
     /**
      * JWT auth token
      * 
-     * @Accessor(getter="getJwtToken", setter="setJwtToken")
-     * @SerializedName("jwtToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getJwtToken', setter: 'setJwtToken')]
@@ -169,11 +129,6 @@ class AuthRequest extends SoapRequest
     /**
      * If specified (in conjunction with by="name"), virtual-host is used to determine the domain of the account name, if it does not include a domain component.
      * 
-     * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
-     * @SerializedName("virtualHost")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
@@ -184,12 +139,6 @@ class AuthRequest extends SoapRequest
 
     /**
      * Requested preference settings.
-     * 
-     * @Accessor(getter="getPrefs", setter="setPrefs")
-     * @SerializedName("prefs")
-     * @Type("array<Zimbra\Account\Struct\Pref>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -204,12 +153,6 @@ class AuthRequest extends SoapRequest
      * Requested attribute settings.
      * Only attributes that are allowed to be returned by GetInfo will be returned by this call
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @SerializedName("attrs")
-     * @Type("array<Zimbra\Account\Struct\Attr>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -222,10 +165,7 @@ class AuthRequest extends SoapRequest
     /**
      * The requestedSkin. If specified the name of the skin requested by the client.
      * 
-     * @Accessor(getter="getRequestedSkin", setter="setRequestedSkin")
-     * @SerializedName("requestedSkin")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * @var string
      */
     #[Accessor(getter: 'getRequestedSkin', setter: 'setRequestedSkin')]
     #[SerializedName(name: 'requestedSkin')]
@@ -236,10 +176,7 @@ class AuthRequest extends SoapRequest
     /**
      * The TOTP code used for two-factor authentication
      * 
-     * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
-     * @SerializedName("twoFactorCode")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * @var string
      */
     #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
     #[SerializedName(name: 'twoFactorCode')]
@@ -250,10 +187,7 @@ class AuthRequest extends SoapRequest
     /**
      * Whether the client represents a trusted device
      * 
-     * @Accessor(getter="getDeviceTrusted", setter="setDeviceTrusted")
-     * @SerializedName("deviceTrusted")
-     * @Type("bool")
-     * @XmlAttribute
+     * @var bool
      */
     #[Accessor(getter: 'getDeviceTrusted', setter: 'setDeviceTrusted')]
     #[SerializedName(name: 'deviceTrusted')]
@@ -264,10 +198,7 @@ class AuthRequest extends SoapRequest
     /**
      * Whether the client represents a trusted device
      * 
-     * @Accessor(getter="getTrustedDeviceToken", setter="setTrustedDeviceToken")
-     * @SerializedName("trustedToken")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * @var string
      */
     #[Accessor(getter: 'getTrustedDeviceToken', setter: 'setTrustedDeviceToken')]
     #[SerializedName(name: 'trustedToken')]
@@ -278,10 +209,7 @@ class AuthRequest extends SoapRequest
     /**
      * Unique device identifier; used to verify trusted mobile devices
      * 
-     * @Accessor(getter="getDeviceId", setter="setDeviceId")
-     * @SerializedName("deviceId")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * @var string
      */
     #[Accessor(getter: 'getDeviceId', setter: 'setDeviceId')]
     #[SerializedName(name: 'deviceId')]
@@ -290,10 +218,7 @@ class AuthRequest extends SoapRequest
     private $deviceId;
 
     /**
-     * @Accessor(getter="getGenerateDeviceId", setter="setGenerateDeviceId")
-     * @SerializedName("generateDeviceId")
-     * @Type("bool")
-     * @XmlAttribute
+     * @var bool
      */
     #[Accessor(getter: 'getGenerateDeviceId', setter: 'setGenerateDeviceId')]
     #[SerializedName(name: 'generateDeviceId')]
@@ -304,10 +229,7 @@ class AuthRequest extends SoapRequest
     /**
      * type of token to be returned, it can be auth or jwt
      * 
-     * @Accessor(getter="getTokenType", setter="setTokenType")
-     * @SerializedName("tokenType")
-     * @Type("string")
-     * @XmlAttribute
+     * @var string
      */
     #[Accessor(getter: 'getTokenType', setter: 'setTokenType')]
     #[SerializedName(name: 'tokenType')]

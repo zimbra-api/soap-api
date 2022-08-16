@@ -29,9 +29,7 @@ class RevokeRightsRequest extends SoapRequest
     /**
      * Specify Access Control Entries
      * 
-     * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Account\Struct\AccountACEInfo>")
-     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
+     * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
     #[Type(name: 'array<Zimbra\Account\Struct\AccountACEInfo>')]

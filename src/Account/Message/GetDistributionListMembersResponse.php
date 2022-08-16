@@ -29,11 +29,6 @@ class GetDistributionListMembersResponse extends SoapResponse
      * 1 (true) if more members left to return
      * Only present if the list of members is given
      * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -44,11 +39,6 @@ class GetDistributionListMembersResponse extends SoapResponse
 
     /**
      * total number of distribution lists (not affected by limit/offset)
-     * 
-     * @Accessor(getter="getTotal", setter="setTotal")
-     * @SerializedName("total")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,10 +51,6 @@ class GetDistributionListMembersResponse extends SoapResponse
     /**
      * Distribution list members
      * 
-     * @Accessor(getter="getDlMembers", setter="setDlMembers")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDlMembers', setter: 'setDlMembers')]
@@ -74,12 +60,6 @@ class GetDistributionListMembersResponse extends SoapResponse
 
     /**
      * HAB Group members
-     * 
-     * @Accessor(getter="getHABGroupMembers", setter="setHABGroupMembers")
-     * @SerializedName("groupMembers")
-     * @Type("array<Zimbra\Account\Struct\HABGroupMember>")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * @XmlList(inline=false, entry="groupMember", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

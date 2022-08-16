@@ -28,11 +28,6 @@ class SyncGalResponse extends SoapResponse
     /**
      * Flags whether there are more results
      * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -43,11 +38,6 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * New synchronization token
-     * 
-     * @Accessor(getter="getToken", setter="setToken")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class SyncGalResponse extends SoapResponse
      * galDefinitionLastModified is the time at which the GAL definition is last modified.
      * This is returned if the sync does not happen using GAL sync account.
      * 
-     * @Accessor(getter="getGalDefinitionLastModified", setter="setGalDefinitionLastModified")
-     * @SerializedName("galDefinitionLastModified")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getGalDefinitionLastModified', setter: 'setGalDefinitionLastModified')]
@@ -76,11 +61,6 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * True if the SyncGal request is throttled
-     * 
-     * @Accessor(getter="getThrottled", setter="setThrottled")
-     * @SerializedName("throttled")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -93,11 +73,6 @@ class SyncGalResponse extends SoapResponse
     /**
      * True if the fullSync is recommended
      * 
-     * @Accessor(getter="getFullSyncRecommended", setter="setFullSyncRecommended")
-     * @SerializedName("fullSyncRecommended")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getFullSyncRecommended', setter: 'setFullSyncRecommended')]
@@ -108,11 +83,6 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * count of records still to be returned in paginated response
-     * 
-     * @Accessor(getter="getRemain", setter="setRemain")
-     * @SerializedName("remain")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -125,10 +95,6 @@ class SyncGalResponse extends SoapResponse
     /**
      * Details of contact
      * 
-     * @Accessor(getter="getContacts", setter="setContacts")
-     * @Type("array<Zimbra\Account\Struct\ContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
@@ -138,10 +104,6 @@ class SyncGalResponse extends SoapResponse
 
     /**
      * Details of deleted entries
-     * 
-     * @Accessor(getter="getDeleted", setter="setDeleted")
-     * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlList(inline=true, entry="deleted", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

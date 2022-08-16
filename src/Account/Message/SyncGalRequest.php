@@ -28,11 +28,6 @@ class SyncGalRequest extends SoapRequest
     /**
      * The previous synchronization token if applicable
      * 
-     * @Accessor(getter="getToken", setter="setToken")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
@@ -43,11 +38,6 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * GAL sync account ID
-     * 
-     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
-     * @SerializedName("galAcctId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class SyncGalRequest extends SoapRequest
     /**
      * Flag whether only the ID attributes for matching contacts should be returned.
      * 
-     * @Accessor(getter="getIdOnly", setter="setIdOnly")
-     * @SerializedName("idOnly")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getIdOnly', setter: 'setIdOnly')]
@@ -76,11 +61,6 @@ class SyncGalRequest extends SoapRequest
     /**
      * Flag whether count of remaining records should be returned in response or not.
      * 
-     * @Accessor(getter="getCount", setter="setCount")
-     * @SerializedName("getCount")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
@@ -91,11 +71,6 @@ class SyncGalRequest extends SoapRequest
 
     /**
      * An int specifying the maximum number of results to return
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

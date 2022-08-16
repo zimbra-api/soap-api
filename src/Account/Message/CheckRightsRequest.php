@@ -29,10 +29,6 @@ class CheckRightsRequest extends SoapRequest
     /**
      * The targets
      * 
-     * @Accessor(getter="getTargets", setter="setTargets")
-     * @Type("array<Zimbra\Account\Struct\CheckRightsTargetSpec>")
-     * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTargets', setter: 'setTargets')]
