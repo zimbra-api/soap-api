@@ -27,11 +27,6 @@ class FormatInfo
     /**
      * Desired response format. Valid values "xml" (default) and "js"
      * 
-     * @Accessor(getter="getFormat", setter="setFormat")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\RequestFormat>")
-     * @XmlAttribute
-     * 
      * @var RequestFormat
      */
     #[Accessor(getter: 'getFormat', setter: 'setFormat')]

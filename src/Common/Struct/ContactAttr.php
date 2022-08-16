@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class ContactAttr extends KeyValuePair
 {
     /**
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
@@ -38,11 +33,6 @@ class ContactAttr extends KeyValuePair
     private $part;
 
     /**
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("ct")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -52,11 +42,6 @@ class ContactAttr extends KeyValuePair
     private $contentType;
 
     /**
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -66,11 +51,6 @@ class ContactAttr extends KeyValuePair
     private $size;
 
     /**
-     * @Accessor(getter="getContentFilename", setter="setContentFilename")
-     * @SerializedName("filename")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContentFilename', setter: 'setContentFilename')]

@@ -26,11 +26,6 @@ class TzOnsetInfo
     /**
      * Month; 1=January, 2=February, etc.
      * 
-     * @Accessor(getter="getMonth", setter="setMonth")
-     * @SerializedName("mon")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMonth', setter: 'setMonth')]
@@ -41,11 +36,6 @@ class TzOnsetInfo
 
     /**
      * Transition hour (0..23)
-     * 
-     * @Accessor(getter="getHour", setter="setHour")
-     * @SerializedName("hour")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class TzOnsetInfo
     /**
      * Transition minute (0..59)
      * 
-     * @Accessor(getter="getMinute", setter="setMinute")
-     * @SerializedName("min")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMinute', setter: 'setMinute')]
@@ -73,11 +58,6 @@ class TzOnsetInfo
 
     /**
      * Transition second; 0..59, usually 0
-     * 
-     * @Accessor(getter="getSecond", setter="setSecond")
-     * @SerializedName("sec")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +70,6 @@ class TzOnsetInfo
     /**
      * Day of month (1..31)
      * 
-     * @Accessor(getter="getDayOfMonth", setter="setDayOfMonth")
-     * @SerializedName("mday")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getDayOfMonth', setter: 'setDayOfMonth')]
@@ -106,11 +81,6 @@ class TzOnsetInfo
     /**
      * Week number; 1=first, 2=second, 3=third, 4=fourth, -1=last
      * 
-     * @Accessor(getter="getWeek", setter="setWeek")
-     * @SerializedName("week")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getWeek', setter: 'setWeek')]
@@ -121,11 +91,6 @@ class TzOnsetInfo
 
     /**
      * Day of week; 1=Sunday, 2=Monday, etc.
-     * 
-     * @Accessor(getter="getDayOfWeek", setter="setDayOfWeek")
-     * @SerializedName("wkday")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

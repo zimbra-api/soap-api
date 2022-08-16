@@ -27,11 +27,6 @@ class SoapFault implements SoapFaultInterface
     /**
      * Fault code
      * 
-     * @Accessor(getter="getFaultCode", setter="setFaultCode")
-     * @SerializedName("Code")
-     * @Type("Zimbra\Common\Struct\Fault\Code")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
      * @var Code
      */
     #[Accessor(getter: 'getFaultCode', setter: 'setFaultCode')]
@@ -42,11 +37,6 @@ class SoapFault implements SoapFaultInterface
 
     /**
      * Fault reason
-     * 
-     * @Accessor(getter="getFaultReason", setter="setFaultReason")
-     * @SerializedName("Reason")
-     * @Type("Zimbra\Common\Struct\Fault\Reason")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      * 
      * @var Reason
      */

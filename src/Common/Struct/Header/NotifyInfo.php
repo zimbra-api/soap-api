@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class NotifyInfo
 {
     /**
-     * @Accessor(getter="getSequenceNum", setter="setSequenceNum")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]

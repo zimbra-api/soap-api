@@ -25,10 +25,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNa
 abstract class SoapEnvelope implements SoapEnvelopeInterface
 {
     /**
-     * @Accessor(getter="getHeader", setter="setHeader")
-     * @SerializedName("Header")
-     * @Type("Zimbra\Common\Struct\SoapHeader")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * Soap header message
      * 
      * @var SoapHeaderInterface
      */

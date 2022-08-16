@@ -26,11 +26,6 @@ class ShareInfo
     /**
      * Owner ID
      * 
-     * @Accessor(getter="getOwnerId", setter="setOwnerId")
-     * @SerializedName("ownerId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
@@ -41,11 +36,6 @@ class ShareInfo
 
     /**
      * Owner email
-     * 
-     * @Accessor(getter="getOwnerEmail", setter="setOwnerEmail")
-     * @SerializedName("ownerEmail")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class ShareInfo
     /**
      * Owner display name
      * 
-     * @Accessor(getter="getOwnerDisplayName", setter="setOwnerDisplayName")
-     * @SerializedName("ownerName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerDisplayName', setter: 'setOwnerDisplayName')]
@@ -73,11 +58,6 @@ class ShareInfo
 
     /**
      * Folder ID
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("folderId")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +70,6 @@ class ShareInfo
     /**
      * Folder UUID
      * 
-     * @Accessor(getter="getFolderUuid", setter="setFolderUuid")
-     * @SerializedName("folderUuid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderUuid', setter: 'setFolderUuid')]
@@ -105,11 +80,6 @@ class ShareInfo
 
     /**
      * Fully qualified path
-     * 
-     * @Accessor(getter="getFolderPath", setter="setFolderPath")
-     * @SerializedName("folderPath")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -122,11 +92,6 @@ class ShareInfo
     /**
      * Default type
      * 
-     * @Accessor(getter="getDefaultView", setter="setDefaultView")
-     * @SerializedName("view")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
@@ -138,11 +103,6 @@ class ShareInfo
     /**
      * Rights
      * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("rights")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
@@ -153,10 +113,6 @@ class ShareInfo
 
     /**
      * Grantee type
-     * @Accessor(getter="getGranteeType", setter="setGranteeType")
-     * @SerializedName("granteeType")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -169,11 +125,6 @@ class ShareInfo
     /**
      * Grantee ID
      * 
-     * @Accessor(getter="getGranteeId", setter="setGranteeId")
-     * @SerializedName("granteeId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
@@ -184,11 +135,6 @@ class ShareInfo
 
     /**
      * Grantee name
-     * 
-     * @Accessor(getter="getGranteeName", setter="setGranteeName")
-     * @SerializedName("granteeName")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -201,11 +147,6 @@ class ShareInfo
     /**
      * Grantee display name
      * 
-     * @Accessor(getter="getGranteeDisplayName", setter="setGranteeDisplayName")
-     * @SerializedName("granteeDisplayName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getGranteeDisplayName', setter: 'setGranteeDisplayName')]
@@ -217,11 +158,6 @@ class ShareInfo
     /**
      * Returned if the share is already mounted.
      * Contains the folder id of the mountpoint in the local mailbox.
-     * 
-     * @Accessor(getter="getMountpointId", setter="setMountpointId")
-     * @SerializedName("mid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

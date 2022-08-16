@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class UrlAndValue
 {
     /**
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -38,9 +33,7 @@ class UrlAndValue
     private $url;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
     #[Type(name: 'string')]

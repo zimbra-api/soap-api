@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\DistributionListBy;
 class DistributionListSelector
 {
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\DistributionListBy>")
-     * @XmlAttribute
-     * 
      * @var DistributionListBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -39,10 +34,6 @@ class DistributionListSelector
     private $by;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

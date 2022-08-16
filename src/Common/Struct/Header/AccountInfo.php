@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\AccountBy;
 class AccountInfo
 {
     /**
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\AccountBy>")
-     * @XmlAttribute
-     * 
      * @var AccountBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -39,11 +34,6 @@ class AccountInfo
     private $by;
 
     /**
-     * @Accessor(getter="getMountpointTraversed", setter="setMountpointTraversed")
-     * @SerializedName("link")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMountpointTraversed', setter: 'setMountpointTraversed')]
@@ -53,10 +43,6 @@ class AccountInfo
     private $mountpointTraversed;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

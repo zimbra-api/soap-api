@@ -29,11 +29,6 @@ class WaitSetAddSpec
     /**
      * The name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -44,11 +39,6 @@ class WaitSetAddSpec
 
     /**
      * The id
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class WaitSetAddSpec
     /**
      * Last known sync token
      * 
-     * @Accessor(getter="getToken", setter="setToken")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
@@ -77,11 +62,6 @@ class WaitSetAddSpec
     /**
      * Comma-separated list
      * 
-     * @Accessor(getter="getInterests", setter="setInterests")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getInterests', setter: 'setInterests')]
@@ -91,8 +71,6 @@ class WaitSetAddSpec
     private $interests;
 
     /**
-     * @Exclude
-     * 
      * @var array
      */
     #[Exclude]

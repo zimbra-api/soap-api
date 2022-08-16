@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class KeyValuePair
 {
     /**
-     * @Accessor(getter="getKey", setter="setKey")
-     * @SerializedName("n")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getKey', setter: 'setKey')]
@@ -38,10 +33,6 @@ class KeyValuePair
     private $key;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

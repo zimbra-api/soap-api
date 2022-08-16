@@ -26,11 +26,6 @@ trait WithRequestIdTrait
     /**
      * Request id. Used with BatchRequestInterface & BatchResponseInterface
      * 
-     * @Accessor(getter="getRequestId", setter="setRequestId")
-     * @SerializedName("requestId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRequestId', setter: 'setRequestId')]
