@@ -32,8 +32,13 @@ class FolderActionResponse extends SoapResponse
      * @SerializedName("action")
      * @Type("Zimbra\Mail\Struct\FolderActionResult")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FolderActionResult
      */
+    #[Accessor(getter: "getAction", setter: "setAction")]
+    #[SerializedName(name: 'action')]
+    #[Type(name: FolderActionResult::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $action;
 
     /**

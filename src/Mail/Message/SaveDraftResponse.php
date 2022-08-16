@@ -37,8 +37,13 @@ class SaveDraftResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MessageInfo
      */
+    #[Accessor(getter: "getMsgMessage", setter: "setMsgMessage")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MessageInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msgMessage;
 
     /**
@@ -48,8 +53,13 @@ class SaveDraftResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ChatMessageInfo
      */
+    #[Accessor(getter: "getChatMessage", setter: "setChatMessage")]
+    #[SerializedName(name: 'chat')]
+    #[Type(name: ChatMessageInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $chatMessage;
 
     /**

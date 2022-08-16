@@ -33,7 +33,13 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * @SerializedName("waitSet")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
+    #[SerializedName(name: 'waitSet')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $waitSetId;
 
     /**
@@ -43,7 +49,13 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * @SerializedName("canceled")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCanceled', setter: 'setCanceled')]
+    #[SerializedName(name: 'canceled')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $canceled;
 
     /**
@@ -53,7 +65,13 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * @SerializedName("seq")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getSeqNo', setter: 'setSeqNo')]
+    #[SerializedName(name: 'seq')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $seqNo;
 
     /**
@@ -63,7 +81,12 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
      * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\AccountWithModifications>')]
+    #[XmlList(inline: true, entry: 'a', namespace: 'urn:zimbraMail')]
     private $signalledAccounts = [];
 
     /**
@@ -72,7 +95,12 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * @Accessor(getter="getErrors", setter="setErrors")
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getErrors', setter: 'setErrors')]
+    #[Type(name: 'array<Zimbra\Common\Struct\IdAndType>')]
+    #[XmlList(inline: true, entry: 'error', namespace: 'urn:zimbraMail')]
     private $errors = [];
 
     /**

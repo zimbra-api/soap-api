@@ -32,8 +32,13 @@ class CreateTagResponse extends SoapResponse
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var TagInfo
      */
+    #[Accessor(getter: "getTag", setter: "setTag")]
+    #[SerializedName(name: 'tag')]
+    #[Type(name: TagInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $tag;
 
     /**

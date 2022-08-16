@@ -32,8 +32,13 @@ class GetConvResponse extends SoapResponse
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ConversationInfo
      */
+    #[Accessor(getter: "getConversation", setter: "setConversation")]
+    #[SerializedName(name: 'c')]
+    #[Type(name: ConversationInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $conversation;
 
     /**

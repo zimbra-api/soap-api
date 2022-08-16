@@ -31,7 +31,12 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
      * @Accessor(getter="getApptUpdatedAlarms", setter="setApptUpdatedAlarms")
      * @Type("array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getApptUpdatedAlarms', setter: 'setApptUpdatedAlarms')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\UpdatedAppointmentAlarmInfo>')]
+    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $apptUpdatedAlarms = [];
 
     /**
@@ -40,7 +45,12 @@ class DismissCalendarItemAlarmResponse extends SoapResponse
      * @Accessor(getter="getTaskUpdatedAlarms", setter="setTaskUpdatedAlarms")
      * @Type("array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTaskUpdatedAlarms', setter: 'setTaskUpdatedAlarms')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\UpdatedTaskAlarmInfo>')]
+    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskUpdatedAlarms = [];
 
     /**

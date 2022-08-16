@@ -34,8 +34,13 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Folder
      */
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: Folder::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $folder;
 
     /**
@@ -45,8 +50,13 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("link")
      * @Type("Zimbra\Mail\Struct\Mountpoint")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Mountpoint
      */
+    #[Accessor(getter: "getMountpoint", setter: "setMountpoint")]
+    #[SerializedName(name: 'link')]
+    #[Type(name: Mountpoint::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $mountpoint;
 
     /**
@@ -56,8 +66,13 @@ class CreateFolderResponse extends SoapResponse
      * @SerializedName("search")
      * @Type("Zimbra\Mail\Struct\SearchFolder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SearchFolder
      */
+    #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]
+    #[SerializedName(name: 'search')]
+    #[Type(name: SearchFolder::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $searchFolder;
 
     /**

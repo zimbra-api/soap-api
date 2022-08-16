@@ -28,11 +28,17 @@ class ModifyContactResponse extends SoapResponse
     /**
      * Information about modified contact
      * 
+     * @Accessor(getter="getContact", setter="setContact")
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactInfo
      */
+    #[Accessor(getter: "getContact", setter: "setContact")]
+    #[SerializedName(name: 'cn')]
+    #[Type(name: ContactInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contact;
 
     /**

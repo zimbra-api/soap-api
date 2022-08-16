@@ -31,7 +31,12 @@ class GrantPermissionResponse extends SoapResponse
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAces', setter: 'setAces')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\AccountACEinfo>')]
+    #[XmlList(inline: true, entry: 'ace', namespace: 'urn:zimbraMail')]
     private $aces = [];
 
     /**

@@ -31,7 +31,12 @@ class ListDocumentRevisionsResponse extends SoapResponse
      * @Accessor(getter="getRevisions", setter="setRevisions")
      * @Type("array<Zimbra\Mail\Struct\DocumentInfo>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRevisions', setter: 'setRevisions')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DocumentInfo>')]
+    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
     private $revisions = [];
 
     /**
@@ -40,7 +45,12 @@ class ListDocumentRevisionsResponse extends SoapResponse
      * @Accessor(getter="getUsers", setter="setUsers")
      * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
      * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUsers', setter: 'setUsers')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\IdEmailName>')]
+    #[XmlList(inline: true, entry: 'user', namespace: 'urn:zimbraMail')]
     private $users = [];
 
     /**

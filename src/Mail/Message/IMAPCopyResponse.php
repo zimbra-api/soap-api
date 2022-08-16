@@ -31,7 +31,12 @@ class IMAPCopyResponse extends SoapResponse
      * @Accessor(getter="getItems", setter="setItems")
      * @Type("array<Zimbra\Mail\Struct\IMAPItemInfo>")
      * @XmlList(inline=true, entry="item", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getItems', setter: 'setItems')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\IMAPItemInfo>')]
+    #[XmlList(inline: true, entry: 'item', namespace: 'urn:zimbraMail')]
     private $items = [];
 
     /**

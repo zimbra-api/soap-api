@@ -31,7 +31,12 @@ class GetContactsResponse extends SoapResponse
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContacts', setter: 'setContacts')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ContactInfo>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $contacts = [];
 
     /**

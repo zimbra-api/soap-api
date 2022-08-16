@@ -37,8 +37,13 @@ class GetRecurResponse extends SoapResponse
      * @SerializedName("tz")
      * @Type("Zimbra\Mail\Struct\CalTZInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
+    #[Accessor(getter: "getTimezone", setter: "setTimezone")]
+    #[SerializedName(name: 'tz')]
+    #[Type(name: CalTZInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $timezone;
 
     /**
@@ -48,8 +53,13 @@ class GetRecurResponse extends SoapResponse
      * @SerializedName("cancel")
      * @Type("Zimbra\Mail\Struct\CancelItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CancelItemRecur
      */
+    #[Accessor(getter: "getCancelComponent", setter: "setCancelComponent")]
+    #[SerializedName(name: 'cancel')]
+    #[Type(name: CancelItemRecur::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $cancelComponent;
 
     /**
@@ -59,8 +69,13 @@ class GetRecurResponse extends SoapResponse
      * @SerializedName("except")
      * @Type("Zimbra\Mail\Struct\ExceptionItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ExceptionItemRecur
      */
+    #[Accessor(getter: "getExceptComponent", setter: "setExceptComponent")]
+    #[SerializedName(name: 'except')]
+    #[Type(name: ExceptionItemRecur::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $exceptComponent;
 
     /**
@@ -70,8 +85,13 @@ class GetRecurResponse extends SoapResponse
      * @SerializedName("comp")
      * @Type("Zimbra\Mail\Struct\InviteItemRecur")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var InviteItemRecur
      */
+    #[Accessor(getter: "getInviteComponent", setter: "setInviteComponent")]
+    #[SerializedName(name: 'comp')]
+    #[Type(name: InviteItemRecur::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $inviteComponent;
 
     /**

@@ -54,8 +54,13 @@ class SearchResponse extends SoapResponse
      * @SerializedName("sortBy")
      * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
      * @XmlAttribute
+     * 
      * @var SearchSortBy
      */
+    #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
+    #[SerializedName(name: 'sortBy')]
+    #[Type(name: 'Enum<Zimbra\Common\Enum\SearchSortBy>')]
+    #[XmlAttribute]
     private $sortBy;
 
     /**
@@ -66,7 +71,13 @@ class SearchResponse extends SoapResponse
      * @SerializedName("offset")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
+    #[SerializedName(name: 'offset')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $queryOffset;
 
     /**
@@ -76,7 +87,13 @@ class SearchResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getQueryMore', setter: 'setQueryMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $queryMore;
 
     /**
@@ -86,7 +103,13 @@ class SearchResponse extends SoapResponse
      * @SerializedName("total")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
+    #[SerializedName(name: 'total')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $totalSize;
 
     /**
@@ -95,7 +118,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getSimpleHits", setter="setSimpleHits")
      * @Type("array<Zimbra\Common\Struct\SimpleSearchHit>")
      * @XmlList(inline=true, entry="hit", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSimpleHits', setter: 'setSimpleHits')]
+    #[Type(name: 'array<Zimbra\Common\Struct\SimpleSearchHit>')]
+    #[XmlList(inline: true, entry: 'hit', namespace: 'urn:zimbraMail')]
     private $simpleHits = [];
 
     /**
@@ -104,7 +132,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getConversationHits", setter="setConversationHits")
      * @Type("array<Zimbra\Mail\Struct\ConversationHitInfo>")
      * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getConversationHits', setter: 'setConversationHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ConversationHitInfo>')]
+    #[XmlList(inline: true, entry: 'c', namespace: 'urn:zimbraMail')]
     private $conversationHits = [];
 
     /**
@@ -113,7 +146,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getMessageHits", setter="setMessageHits")
      * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MessageHitInfo>')]
+    #[XmlList(inline: true, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messageHits = [];
 
     /**
@@ -122,7 +160,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getChatHits", setter="setChatHits")
      * @Type("array<Zimbra\Mail\Struct\ChatHitInfo>")
      * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getChatHits', setter: 'setChatHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ChatHitInfo>')]
+    #[XmlList(inline: true, entry: 'chat', namespace: 'urn:zimbraMail')]
     private $chatHits = [];
 
     /**
@@ -131,7 +174,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getMessagePartHits", setter="setMessagePartHits")
      * @Type("array<Zimbra\Mail\Struct\MessagePartHitInfo>")
      * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMessagePartHits', setter: 'setMessagePartHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\MessagePartHitInfo>')]
+    #[XmlList(inline: true, entry: 'mp', namespace: 'urn:zimbraMail')]
     private $messagePartHits = [];
 
     /**
@@ -140,7 +188,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getContactHits", setter="setContactHits")
      * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getContactHits', setter: 'setContactHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ContactInfo>')]
+    #[XmlList(inline: true, entry: 'cn', namespace: 'urn:zimbraMail')]
     private $contactHits = [];
 
     /**
@@ -149,7 +202,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getNoteHits", setter="setNoteHits")
      * @Type("array<Zimbra\Mail\Struct\NoteHitInfo>")
      * @XmlList(inline=true, entry="note", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getNoteHits', setter: 'setNoteHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\NoteHitInfo>')]
+    #[XmlList(inline: true, entry: 'note', namespace: 'urn:zimbraMail')]
     private $noteHits = [];
 
     /**
@@ -158,7 +216,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getDocumentHits", setter="setDocumentHits")
      * @Type("array<Zimbra\Mail\Struct\DocumentHitInfo>")
      * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getDocumentHits', setter: 'setDocumentHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\DocumentHitInfo>')]
+    #[XmlList(inline: true, entry: 'doc', namespace: 'urn:zimbraMail')]
     private $documentHits = [];
 
     /**
@@ -167,7 +230,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getWikiHits", setter="setWikiHits")
      * @Type("array<Zimbra\Mail\Struct\WikiHitInfo>")
      * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getWikiHits', setter: 'setWikiHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\WikiHitInfo>')]
+    #[XmlList(inline: true, entry: 'w', namespace: 'urn:zimbraMail')]
     private $wikiHits = [];
 
     /**
@@ -176,7 +244,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getAppointmentHits", setter="setAppointmentHits")
      * @Type("array<Zimbra\Mail\Struct\AppointmentHitInfo>")
      * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getAppointmentHits', setter: 'setAppointmentHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\AppointmentHitInfo>')]
+    #[XmlList(inline: true, entry: 'appt', namespace: 'urn:zimbraMail')]
     private $appointmentHits = [];
 
     /**
@@ -185,7 +258,12 @@ class SearchResponse extends SoapResponse
      * @Accessor(getter="getTaskHits", setter="setTaskHits")
      * @Type("array<Zimbra\Mail\Struct\TaskHitInfo>")
      * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getTaskHits', setter: 'setTaskHits')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TaskHitInfo>')]
+    #[XmlList(inline: true, entry: 'task', namespace: 'urn:zimbraMail')]
     private $taskHits = [];
 
     /**
@@ -199,8 +277,13 @@ class SearchResponse extends SoapResponse
      * @SerializedName("info")
      * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SearchQueryInfo
      */
+    #[Accessor(getter: "getQueryInfo", setter: "setQueryInfo")]
+    #[SerializedName(name: 'info')]
+    #[Type(name: SearchQueryInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $queryInfo;
 
     /**

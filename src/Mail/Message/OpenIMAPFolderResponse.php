@@ -33,7 +33,13 @@ class OpenIMAPFolderResponse extends SoapResponse
      * @SerializedName("more")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getHasMore', setter: 'setHasMore')]
+    #[SerializedName(name: 'more')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $hasMore;
 
     /**
@@ -44,7 +50,14 @@ class OpenIMAPFolderResponse extends SoapResponse
      * @Type("array<Zimbra\Mail\Struct\ImapMessageInfo>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMessages', setter: 'setMessages')]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\ImapMessageInfo>')]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
+    #[XmlList(inline: false, entry: 'm', namespace: 'urn:zimbraMail')]
     private $messages = [];
 
     /**
@@ -54,8 +67,13 @@ class OpenIMAPFolderResponse extends SoapResponse
      * @SerializedName("cursor")
      * @Type("Zimbra\Mail\Struct\ImapCursorInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImapCursorInfo
      */
+    #[Accessor(getter: "getCursor", setter: "setCursor")]
+    #[SerializedName(name: 'cursor')]
+    #[Type(name: ImapCursorInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $cursor;
 
     /**

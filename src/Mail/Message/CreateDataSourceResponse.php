@@ -42,8 +42,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("imap")
      * @Type("Zimbra\Mail\Struct\ImapDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImapDataSourceId
      */
+    #[Accessor(getter: "getImapDataSource", setter: "setImapDataSource")]
+    #[SerializedName(name: 'imap')]
+    #[Type(name: ImapDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $imapDataSource;
 
     /**
@@ -53,8 +58,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("pop3")
      * @Type("Zimbra\Mail\Struct\Pop3DataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Pop3DataSourceId
      */
+    #[Accessor(getter: "getPop3DataSource", setter: "setPop3DataSource")]
+    #[SerializedName(name: 'pop3')]
+    #[Type(name: Pop3DataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $pop3DataSource;
 
     /**
@@ -64,8 +74,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("caldav")
      * @Type("Zimbra\Mail\Struct\CaldavDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CaldavDataSourceId
      */
+    #[Accessor(getter: "getCaldavDataSource", setter: "setCaldavDataSource")]
+    #[SerializedName(name: 'caldav')]
+    #[Type(name: CaldavDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $caldavDataSource;
 
     /**
@@ -75,8 +90,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("yab")
      * @Type("Zimbra\Mail\Struct\YabDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var YabDataSourceId
      */
+    #[Accessor(getter: "getYabDataSource", setter: "setYabDataSource")]
+    #[SerializedName(name: 'yab')]
+    #[Type(name: YabDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $yabDataSource;
 
     /**
@@ -88,6 +108,10 @@ class CreateDataSourceResponse extends SoapResponse
      * @XmlElement(namespace="urn:zimbraMail")
      * @var RssDataSourceId
      */
+    #[Accessor(getter: "getRssDataSource", setter: "setRssDataSource")]
+    #[SerializedName(name: 'rss')]
+    #[Type(name: RssDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $rssDataSource;
 
     /**
@@ -97,8 +121,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("gal")
      * @Type("Zimbra\Mail\Struct\GalDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GalDataSourceId
      */
+    #[Accessor(getter: "getGalDataSource", setter: "setGalDataSource")]
+    #[SerializedName(name: 'gal')]
+    #[Type(name: GalDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $galDataSource;
 
     /**
@@ -108,8 +137,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("cal")
      * @Type("Zimbra\Mail\Struct\CalDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalDataSourceId
      */
+    #[Accessor(getter: "getCalDataSource", setter: "setCalDataSource")]
+    #[SerializedName(name: 'cal')]
+    #[Type(name: CalDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $calDataSource;
 
     /**
@@ -119,8 +153,13 @@ class CreateDataSourceResponse extends SoapResponse
      * @SerializedName("unknown")
      * @Type("Zimbra\Mail\Struct\UnknownDataSourceId")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var UnknownDataSourceId
      */
+    #[Accessor(getter: "getUnknownDataSource", setter: "setUnknownDataSource")]
+    #[SerializedName(name: 'unknown')]
+    #[Type(name: UnknownDataSourceId::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $unknownDataSource;
 
     /**

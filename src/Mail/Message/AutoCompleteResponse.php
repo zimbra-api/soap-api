@@ -32,7 +32,13 @@ class AutoCompleteResponse extends SoapResponse
      * @SerializedName("canBeCached")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getCanBeCached', setter: 'setCanBeCached')]
+    #[SerializedName(name: 'canBeCached')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $canBeCached;
 
     /**
@@ -41,7 +47,12 @@ class AutoCompleteResponse extends SoapResponse
      * @Accessor(getter="getMatches", setter="setMatches")
      * @Type("array<Zimbra\Mail\Struct\AutoCompleteMatch>")
      * @XmlList(inline=true, entry="match", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getMatches', setter: 'setMatches')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\AutoCompleteMatch>')]
+    #[XmlList(inline: true, entry: 'match', namespace: 'urn:zimbraMail')]
     private $matches = [];
 
     /**

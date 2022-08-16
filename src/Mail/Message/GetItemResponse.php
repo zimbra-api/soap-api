@@ -46,8 +46,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Folder")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Folder
      */
+    #[Accessor(getter: "getFolderItem", setter: "setFolderItem")]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: Folder::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $folderItem;
 
     /**
@@ -57,8 +62,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("tag")
      * @Type("Zimbra\Mail\Struct\TagInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var TagInfo
      */
+    #[Accessor(getter: "getTagItem", setter: "setTagItem")]
+    #[SerializedName(name: 'tag')]
+    #[Type(name: TagInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $tagItem;
 
     /**
@@ -68,8 +78,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("note")
      * @Type("Zimbra\Mail\Struct\NoteInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var NoteInfo
      */
+    #[Accessor(getter: "getNoteItem", setter: "setNoteItem")]
+    #[SerializedName(name: 'note')]
+    #[Type(name: NoteInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $noteItem;
 
     /**
@@ -79,8 +94,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("cn")
      * @Type("Zimbra\Mail\Struct\ContactInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactInfo
      */
+    #[Accessor(getter: "getContactItem", setter: "setContactItem")]
+    #[SerializedName(name: 'cn')]
+    #[Type(name: ContactInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $contactItem;
 
     /**
@@ -90,8 +110,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("appt")
      * @Type("Zimbra\Mail\Struct\CalendarItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalendarItemInfo
      */
+    #[Accessor(getter: "getApptItem", setter: "setApptItem")]
+    #[SerializedName(name: 'appt')]
+    #[Type(name: CalendarItemInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $apptItem;
 
     /**
@@ -101,8 +126,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("task")
      * @Type("Zimbra\Mail\Struct\TaskItemInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var TaskItemInfo
      */
+    #[Accessor(getter: "getTaskItem", setter: "setTaskItem")]
+    #[SerializedName(name: 'task')]
+    #[Type(name: TaskItemInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $taskItem;
 
     /**
@@ -112,8 +142,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("c")
      * @Type("Zimbra\Mail\Struct\ConversationSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ConversationSummary
      */
+    #[Accessor(getter: "getConvItem", setter: "setConvItem")]
+    #[SerializedName(name: 'c')]
+    #[Type(name: ConversationSummary::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $convItem;
 
     /**
@@ -123,8 +158,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("w")
      * @Type("Zimbra\Mail\Struct\CommonDocumentInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CommonDocumentInfo
      */
+    #[Accessor(getter: "getWikiItem", setter: "setWikiItem")]
+    #[SerializedName(name: 'w')]
+    #[Type(name: CommonDocumentInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $wikiItem;
 
     /**
@@ -134,8 +174,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("doc")
      * @Type("Zimbra\Mail\Struct\DocumentInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DocumentInfo
      */
+    #[Accessor(getter: "getDocItem", setter: "setDocItem")]
+    #[SerializedName(name: 'doc')]
+    #[Type(name: DocumentInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $docItem;
 
     /**
@@ -145,8 +190,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MessageSummary
      */
+    #[Accessor(getter: "getMsgItem", setter: "setMsgItem")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MessageSummary::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msgItem;
 
     /**
@@ -156,8 +206,13 @@ class GetItemResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ChatSummary
      */
+    #[Accessor(getter: "getChatItem", setter: "setChatItem")]
+    #[SerializedName(name: 'chat')]
+    #[Type(name: ChatSummary::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $chatItem;
 
     /**

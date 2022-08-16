@@ -31,7 +31,13 @@ class ImportAppointmentsResponse extends SoapResponse
      * @SerializedName("ids")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getIds', setter: 'setIds')]
+    #[SerializedName(name: 'ids')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $ids;
 
     /**
@@ -41,7 +47,13 @@ class ImportAppointmentsResponse extends SoapResponse
      * @SerializedName("n")
      * @Type("int")
      * @XmlAttribute
+     * 
+     * @var int
      */
+    #[Accessor(getter: 'getNum', setter: 'setNum')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $num;
 
     /**

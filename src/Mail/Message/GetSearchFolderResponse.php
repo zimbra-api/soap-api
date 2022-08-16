@@ -31,7 +31,12 @@ class GetSearchFolderResponse extends SoapResponse
      * @Accessor(getter="getSearchFolders", setter="setSearchFolders")
      * @Type("array<Zimbra\Mail\Struct\SearchFolder>")
      * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getSearchFolders', setter: 'setSearchFolders')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\SearchFolder>')]
+    #[XmlList(inline: true, entry: 'search', namespace: 'urn:zimbraMail')]
     private $searchFolders = [];
 
     /**

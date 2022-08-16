@@ -31,8 +31,13 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MessageSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MessageSummary
      */
+    #[Accessor(getter: "getMessage", setter: "setMessage")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MessageSummary::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $message;
 
     /**
@@ -41,8 +46,13 @@ class AddMsgResponse extends SoapResponse
      * @SerializedName("chat")
      * @Type("Zimbra\Mail\Struct\ChatSummary")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ChatSummary
      */
+    #[Accessor(getter: "getChatMessage", setter: "setMessage")]
+    #[SerializedName(name: 'chat')]
+    #[Type(name: ChatSummary::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $chatMessage;
 
     /**

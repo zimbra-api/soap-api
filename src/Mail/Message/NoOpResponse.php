@@ -31,7 +31,13 @@ class NoOpResponse extends SoapResponse
      * @SerializedName("waitDisallowed")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getWaitDisallowed', setter: 'setWaitDisallowed')]
+    #[SerializedName(name: 'waitDisallowed')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $waitDisallowed;
 
     /**

@@ -31,7 +31,12 @@ class BrowseResponse extends SoapResponse
      * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
      * @Type("array<Zimbra\Mail\Struct\BrowseData>")
      * @XmlList(inline=true, entry="bd", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getBrowseDatas', setter: 'setBrowseDatas')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\BrowseData>')]
+    #[XmlList(inline: true, entry: 'bd', namespace: 'urn:zimbraMail')]
     private $browseDatas = [];
 
     /**

@@ -32,8 +32,13 @@ class GetMsgResponse extends SoapResponse
      * @SerializedName("m")
      * @Type("Zimbra\Mail\Struct\MsgWithGroupInfo")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MsgWithGroupInfo
      */
+    #[Accessor(getter: "getMsg", setter: "setMsg")]
+    #[SerializedName(name: 'm')]
+    #[Type(name: MsgWithGroupInfo::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $msg;
 
     /**

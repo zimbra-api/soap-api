@@ -31,7 +31,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'imap', namespace: 'urn:zimbraMail')]
     private $imapDataSources = [];
 
     /**
@@ -40,7 +45,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getPop3DataSources', setter: 'setPop3DataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'pop3', namespace: 'urn:zimbraMail')]
     private $pop3DataSources = [];
 
     /**
@@ -49,7 +59,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'caldav', namespace: 'urn:zimbraMail')]
     private $caldavDataSources = [];
 
     /**
@@ -58,7 +73,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getYabDataSources', setter: 'setYabDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'yab', namespace: 'urn:zimbraMail')]
     private $yabDataSources = [];
 
     /**
@@ -67,7 +87,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'rss', namespace: 'urn:zimbraMail')]
     private $rssDataSources = [];
 
     /**
@@ -76,7 +101,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getGalDataSources', setter: 'setGalDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'gal', namespace: 'urn:zimbraMail')]
     private $galDataSources = [];
 
     /**
@@ -85,7 +115,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'cal', namespace: 'urn:zimbraMail')]
     private $calDataSources = [];
 
     /**
@@ -94,7 +129,12 @@ class TestDataSourceResponse extends SoapResponse
      * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
      * @Type("array<Zimbra\Mail\Struct\TestDataSource>")
      * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
+    #[Accessor(getter: 'getUnknownDataSources', setter: 'setUnknownDataSources')]
+    #[Type(name: 'array<Zimbra\Mail\Struct\TestDataSource>')]
+    #[XmlList(inline: true, entry: 'unknown', namespace: 'urn:zimbraMail')]
     private $unknownDataSources = [];
 
     /**

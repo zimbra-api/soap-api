@@ -32,8 +32,13 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
      * @SerializedName("folder")
      * @Type("Zimbra\Mail\Struct\Rights")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Rights
      */
+    #[Accessor(getter: "getFolder", setter: "setFolder")]
+    #[SerializedName(name: 'folder')]
+    #[Type(name: Rights::class)]
+    #[XmlElement(namespace: 'urn:zimbraMail')]
     private $folder;
 
     /**

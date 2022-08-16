@@ -31,7 +31,13 @@ class VerifyCodeResponse extends SoapResponse
      * @SerializedName("success")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
+    #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
+    #[SerializedName(name: 'success')]
+    #[Type(name: 'bool')]
+    #[XmlAttribute]
     private $success = FALSE;
 
     /**
