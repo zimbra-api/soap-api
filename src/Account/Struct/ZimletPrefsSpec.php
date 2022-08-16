@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\ZimletStatus;
 class ZimletPrefsSpec
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -39,11 +34,6 @@ class ZimletPrefsSpec
     private $name;
 
     /**
-     * @Accessor(getter="getPresence", setter="setPresence")
-     * @SerializedName("presence")
-     * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
-     * @XmlAttribute
-     * 
      * @var ZimletStatus
      */
     #[Accessor(getter: 'getPresence', setter: 'setPresence')]

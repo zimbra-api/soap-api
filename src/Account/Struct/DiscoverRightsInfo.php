@@ -26,11 +26,6 @@ class DiscoverRightsInfo
     /**
      * Right the targets relate to
      * 
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("right")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
@@ -41,10 +36,6 @@ class DiscoverRightsInfo
 
     /**
      * Targets
-     * 
-     * @Accessor(getter="getTargets", setter="setTargets")
-     * @Type("array<Zimbra\Account\Struct\DiscoverRightsTarget>")
-     * @XmlList(inline=true, entry="target", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

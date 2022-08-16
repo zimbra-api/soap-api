@@ -29,10 +29,6 @@ class AccountKeyValuePairs implements KeyValuePairs
     /**
      * Key value pairs
      * 
-     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
-     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]

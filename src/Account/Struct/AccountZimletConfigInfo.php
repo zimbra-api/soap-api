@@ -27,11 +27,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     /**
      * Zimlet name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Version string
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("version")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     /**
      * Zimlet description
      * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("description")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
@@ -74,11 +59,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet extension
-     * 
-     * @Accessor(getter="getExtension", setter="setExtension")
-     * @SerializedName("extension")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -91,11 +71,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     /**
      * Zimlet target
      * 
-     * @Accessor(getter="getTarget", setter="setTarget")
-     * @SerializedName("target")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -106,11 +81,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet label
-     * 
-     * @Accessor(getter="getLabel", setter="setLabel")
-     * @SerializedName("label")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -123,11 +93,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
     /**
      * Zimlet global configuration information
      * 
-     * @Accessor(getter="getGlobal", setter="setGlobal")
-     * @SerializedName("global")
-     * @Type("Zimbra\Account\Struct\AccountZimletGlobalConfigInfo")
-     * @XmlElement(namespace="urn:zimbraAccount")
-     * 
      * @var ZimletGlobalConfigInfo
      */
     #[Accessor(getter: 'getGlobal', setter: 'setGlobal')]
@@ -138,11 +103,6 @@ class AccountZimletConfigInfo implements ZimletConfigInfo
 
     /**
      * Zimlet host configuration information
-     * 
-     * @Accessor(getter="getHost", setter="setHost")
-     * @SerializedName("host")
-     * @Type("Zimbra\Account\Struct\AccountZimletHostConfigInfo")
-     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var ZimletHostConfigInfo
      */

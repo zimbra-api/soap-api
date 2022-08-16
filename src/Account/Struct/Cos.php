@@ -26,11 +26,6 @@ class Cos
     /**
      * Class of Service (COS) ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class Cos
 
     /**
      * Class of Service (COS) name
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

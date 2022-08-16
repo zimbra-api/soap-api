@@ -26,11 +26,6 @@ class CheckRightsRightInfo
     /**
      * Flags whether the authed user has the right on the target
      * 
-     * @Accessor(getter="getAllow", setter="setAllow")
-     * @SerializedName("allow")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllow', setter: 'setAllow')]
@@ -41,10 +36,6 @@ class CheckRightsRightInfo
 
     /**
      * Name of right
-     * 
-     * @Accessor(getter="getRight", setter="setRight")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

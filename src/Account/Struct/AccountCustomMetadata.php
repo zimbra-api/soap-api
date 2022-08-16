@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\CustomMetadataInterface;
 class AccountCustomMetadata extends AccountKeyValuePairs implements CustomMetadataInterface
 {
     /**
-     * @Accessor(getter="getSection", setter="setSection")
-     * @SerializedName("section")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSection', setter: 'setSection')]

@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class Prop
 {
     /**
-     * @Accessor(getter="getZimlet", setter="setZimlet")
-     * @SerializedName("zimlet")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
@@ -38,11 +33,6 @@ class Prop
     private $zimlet;
 
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -52,10 +42,6 @@ class Prop
     private $name;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
