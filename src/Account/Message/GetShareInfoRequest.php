@@ -82,7 +82,6 @@ class GetShareInfoRequest extends SoapRequest
      * @Accessor(getter="getOwner", setter="setOwner")
      * @SerializedName("owner")
      * @Type("Zimbra\Common\Struct\AccountSelector")
-     * 
      * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var AccountSelector

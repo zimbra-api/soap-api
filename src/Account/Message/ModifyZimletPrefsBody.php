@@ -29,6 +29,8 @@ class ModifyZimletPrefsBody extends SoapBody
      * @SerializedName("ModifyZimletPrefsRequest")
      * @Type("Zimbra\Account\Message\ModifyZimletPrefsRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var ModifyZimletPrefsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'ModifyZimletPrefsRequest')]

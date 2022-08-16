@@ -344,6 +344,8 @@ class GetInfoResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Prop>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="prop", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getProps', setter: 'setProps')]
     #[SerializedName(name: 'props')]
@@ -360,6 +362,8 @@ class GetInfoResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Identity>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="identity", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getIdentities', setter: 'setIdentities')]
     #[SerializedName(name: 'identities')]
@@ -376,6 +380,8 @@ class GetInfoResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Signature>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="signature", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]
     #[SerializedName(name: 'signatures')]
@@ -408,6 +414,8 @@ class GetInfoResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\ChildAccount>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="childAccount", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getChildAccounts', setter: 'setChildAccounts')]
     #[SerializedName(name: 'childAccounts')]
@@ -424,6 +432,8 @@ class GetInfoResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="targets", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getDiscoveredRights', setter: 'setDiscoveredRights')]
     #[SerializedName(name: 'rights')]

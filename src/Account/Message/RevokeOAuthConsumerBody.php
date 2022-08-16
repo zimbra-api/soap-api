@@ -29,6 +29,8 @@ class RevokeOAuthConsumerBody extends SoapBody
      * @SerializedName("RevokeOAuthConsumerRequest")
      * @Type("Zimbra\Account\Message\RevokeOAuthConsumerRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var RevokeOAuthConsumerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'RevokeOAuthConsumerRequest')]

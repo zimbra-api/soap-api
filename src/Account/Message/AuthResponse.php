@@ -192,6 +192,8 @@ class AuthResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Pref>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
     #[SerializedName(name: 'prefs')]
@@ -206,6 +208,8 @@ class AuthResponse extends SoapResponse
      * @Type("array<Zimbra\Account\Struct\Attr>")
      * @XmlElement(namespace="urn:zimbraAccount")
      * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
     #[SerializedName(name: 'attrs')]

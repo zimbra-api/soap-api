@@ -34,6 +34,8 @@ class GetRightsRequest extends SoapRequest
      * @Accessor(getter="getAces", setter="setAces")
      * @Type("array<Zimbra\Account\Struct\Right>")
      * @XmlList(inline=true, entry="ace", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]
     #[Type(name: 'array<Zimbra\Account\Struct\Right>')]

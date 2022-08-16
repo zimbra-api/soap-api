@@ -29,6 +29,8 @@ class ModifySignatureBody extends SoapBody
      * @SerializedName("ModifySignatureRequest")
      * @Type("Zimbra\Account\Message\ModifySignatureRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var ModifySignatureRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'ModifySignatureRequest')]

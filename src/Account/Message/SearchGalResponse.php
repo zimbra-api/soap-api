@@ -113,6 +113,8 @@ class SearchGalResponse extends SoapResponse
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<Zimbra\Account\Struct\ContactInfo>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
     #[Type(name: 'array<Zimbra\Account\Struct\ContactInfo>')]

@@ -29,6 +29,8 @@ class ResetPasswordBody extends SoapBody
      * @SerializedName("ResetPasswordRequest")
      * @Type("Zimbra\Account\Message\ResetPasswordRequest")
      * @XmlElement(namespace="urn:zimbraAccount")
+     * 
+     * @var ResetPasswordRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'ResetPasswordRequest')]
