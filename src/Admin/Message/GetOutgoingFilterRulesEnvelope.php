@@ -26,6 +26,7 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn1")]
 #[XmlRoot(name: 'soap:Envelope')]
 class GetOutgoingFilterRulesEnvelope extends SoapEnvelope
 {
