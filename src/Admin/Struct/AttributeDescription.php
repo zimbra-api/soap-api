@@ -26,11 +26,6 @@ class AttributeDescription
     /**
      * Attribute name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("n")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class AttributeDescription
 
     /**
      * Attribute description
-     * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("desc")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

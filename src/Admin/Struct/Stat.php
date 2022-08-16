@@ -26,11 +26,6 @@ class Stat
     /**
      * Stat name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class Stat
     /**
      * Stat description
      * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("description")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
@@ -57,10 +47,6 @@ class Stat
 
     /**
      * Stat value
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

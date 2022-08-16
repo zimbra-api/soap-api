@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 abstract class AdminObjectInfo implements AdminObjectInterface
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,11 +33,6 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     private $name;
 
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -52,9 +42,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     private $id;
 
     /**
-     * @Accessor(getter="getAttrList", setter="setAttrList")
-     * @Type("array<Zimbra\Admin\Struct\Attr>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * Attributes
      * 
      * @var array
      */
@@ -125,7 +113,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Set attribute sequence
+     * Set attributes
      *
      * @param array $attrs
      * @return self
@@ -137,7 +125,7 @@ abstract class AdminObjectInfo implements AdminObjectInterface
     }
 
     /**
-     * Get attribute sequence
+     * Get attributes
      *
      * @return array
      */

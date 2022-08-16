@@ -26,11 +26,6 @@ class AccountSessionInfo
     /**
      * Account name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class AccountSessionInfo
     /**
      * Account ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -57,10 +47,6 @@ class AccountSessionInfo
 
     /**
      * Information on sessions
-     * 
-     * @Accessor(getter="getSessions", setter="setSessions")
-     * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
-     * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

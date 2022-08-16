@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class StatsSpec
 {
     /**
-     * @Accessor(getter="getValues", setter="setValues")
-     * @SerializedName("values")
-     * @Type("Zimbra\Admin\Struct\StatsValueWrapper")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var StatsValueWrapper
      */
     #[Accessor(getter: 'getValues', setter: 'setValues')]
@@ -38,11 +33,6 @@ class StatsSpec
     private $values;
 
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -52,11 +42,6 @@ class StatsSpec
     private $name;
 
     /**
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]

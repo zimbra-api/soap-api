@@ -27,11 +27,6 @@ class CalendarResourceSelector
     /**
      * Select the meaning of {cal-resource-selector-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\CalendarResourceBy>")
-     * @XmlAttribute
-     * 
      * @var CalendarResourceBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -42,10 +37,6 @@ class CalendarResourceSelector
 
     /**
      * Specify calendar resource
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

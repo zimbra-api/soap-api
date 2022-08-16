@@ -26,11 +26,6 @@ class VersionInfo
     /**
      * Type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -41,11 +36,6 @@ class VersionInfo
 
     /**
      * Version string
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("version")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class VersionInfo
     /**
      * Release string
      * 
-     * @Accessor(getter="getRelease", setter="setRelease")
-     * @SerializedName("release")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRelease', setter: 'setRelease')]
@@ -74,12 +59,7 @@ class VersionInfo
     /**
      * Build Date - format : YYYYMMDD-hhmm
      * 
-     * @Accessor(getter="getBuildDate", setter="setBuildDate")
-     * @SerializedName("buildDate")
-     * @Type("string")
-     * @XmlAttribute
-     * 
-     * @var string
+3     * @var string
      */
     #[Accessor(getter: 'getBuildDate', setter: 'setBuildDate')]
     #[SerializedName(name: 'buildDate')]
@@ -89,11 +69,6 @@ class VersionInfo
 
     /**
      * Host name
-     * 
-     * @Accessor(getter="getHost", setter="setHost")
-     * @SerializedName("host")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -106,11 +81,6 @@ class VersionInfo
     /**
      * Major version
      * 
-     * @Accessor(getter="getMajorVersion", setter="setMajorVersion")
-     * @SerializedName("majorversion")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMajorVersion', setter: 'setMajorVersion')]
@@ -121,11 +91,6 @@ class VersionInfo
 
     /**
      * Minor version
-     * 
-     * @Accessor(getter="getMinorVersion", setter="setMinorVersion")
-     * @SerializedName("minorversion")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -138,11 +103,6 @@ class VersionInfo
     /**
      * Micro version
      * 
-     * @Accessor(getter="getMicroVersion", setter="setMicroVersion")
-     * @SerializedName("microversion")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getMicroVersion', setter: 'setMicroVersion')]
@@ -153,11 +113,6 @@ class VersionInfo
 
     /**
      * Platform
-     * 
-     * @Accessor(getter="getPlatform", setter="setPlatform")
-     * @SerializedName("platform")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

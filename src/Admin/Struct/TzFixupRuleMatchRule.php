@@ -26,11 +26,6 @@ class TzFixupRuleMatchRule
     /**
      * Match month. Value between 1 (January) and 12 (December)
      * 
-     * @Accessor(getter="getMonth", setter="setMonth")
-     * @SerializedName("mon")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMonth', setter: 'setMonth')]
@@ -42,11 +37,6 @@ class TzFixupRuleMatchRule
     /**
      * Match week. -1 means last week of month else between 1 and 4
      * 
-     * @Accessor(getter="getWeek", setter="setWeek")
-     * @SerializedName("week")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getWeek', setter: 'setWeek')]
@@ -57,11 +47,6 @@ class TzFixupRuleMatchRule
 
     /**
      * Match week day. Value between 1 (Sunday) and 7 (Saturday)
-     * 
-     * @Accessor(getter="getWeekDay", setter="setWeekDay")
-     * @SerializedName("wkday")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

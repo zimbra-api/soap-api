@@ -26,11 +26,6 @@ class BlobSizeInfo
     /**
      * Path
      * 
-     * @Accessor(getter="getPath", setter="setPath")
-     * @SerializedName("path")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
@@ -41,11 +36,6 @@ class BlobSizeInfo
 
     /**
      * Data size
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class BlobSizeInfo
     /**
      * File size
      * 
-     * @Accessor(getter="getFileSize", setter="setFileSize")
-     * @SerializedName("fileSize")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFileSize', setter: 'setFileSize')]
@@ -73,11 +58,6 @@ class BlobSizeInfo
 
     /**
      * Set if the blob is stored in an ExternalStoreManager rather than locally in FileBlobStore
-     * 
-     * @Accessor(getter="getExternal", setter="setExternal")
-     * @SerializedName("external")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -26,11 +26,6 @@ class UsedBlobInfo
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class UsedBlobInfo
 
     /**
      * Revision
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class UsedBlobInfo
     /**
      * Size
      * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -74,11 +59,6 @@ class UsedBlobInfo
     /**
      * Volume ID
      * 
-     * @Accessor(getter="getVolumeId", setter="setVolumeId")
-     * @SerializedName("volumeId")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
@@ -89,11 +69,6 @@ class UsedBlobInfo
 
     /**
      * Blob size information
-     * 
-     * @Accessor(getter="getBlob", setter="setBlob")
-     * @SerializedName("blob")
-     * @Type("Zimbra\Admin\Struct\BlobSizeInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var BlobSizeInfo
      */

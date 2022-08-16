@@ -26,11 +26,6 @@ class GalContactInfo extends AdminAttrsImpl
     /**
      * Global Address List contact ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

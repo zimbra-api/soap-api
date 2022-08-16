@@ -26,11 +26,6 @@ class AccountsAttrib
     /**
      * Comma separated list of account IDs
      * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("accounts")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]

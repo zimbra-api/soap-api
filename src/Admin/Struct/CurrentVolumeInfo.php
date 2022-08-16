@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class CurrentVolumeInfo
 {
     /**
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -38,11 +33,6 @@ class CurrentVolumeInfo
     private $type;
 
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

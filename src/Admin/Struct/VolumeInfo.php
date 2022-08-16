@@ -27,11 +27,6 @@ class VolumeInfo
     /**
      * Volume ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class VolumeInfo
 
     /**
      * Name or description of volume
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class VolumeInfo
     /**
      * Absolute path to root of volume, e.g. /opt/zimbra/store
      * 
-     * @Accessor(getter="getRootPath", setter="setRootPath")
-     * @SerializedName("rootpath")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRootPath', setter: 'setRootPath')]
@@ -75,11 +60,6 @@ class VolumeInfo
     /**
      * Volume type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -90,11 +70,6 @@ class VolumeInfo
 
     /**
      * Specifies whether blobs in this volume are compressed
-     * 
-     * @Accessor(getter="getCompressBlobs", setter="setCompressBlobs")
-     * @SerializedName("compressBlobs")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -108,11 +83,6 @@ class VolumeInfo
      * Long value that specifies the maximum uncompressed file size, in bytes, of blobs
      * that will not be compressed (in other words blobs larger than this threshold are compressed)
      * 
-     * @Accessor(getter="getCompressionThreshold", setter="setCompressionThreshold")
-     * @SerializedName("compressionThreshold")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getCompressionThreshold', setter: 'setCompressionThreshold')]
@@ -123,11 +93,6 @@ class VolumeInfo
 
     /**
      * The mgbits
-     * 
-     * @Accessor(getter="getMgbits", setter="setMgbits")
-     * @SerializedName("mgbits")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -140,11 +105,6 @@ class VolumeInfo
     /**
      * The mbits
      * 
-     * @Accessor(getter="getMbits", setter="setMbits")
-     * @SerializedName("mbits")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMbits', setter: 'setMbits')]
@@ -155,11 +115,6 @@ class VolumeInfo
 
     /**
      * The fgbits
-     * 
-     * @Accessor(getter="getFgbits", setter="setFgbits")
-     * @SerializedName("fgbits")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -172,11 +127,6 @@ class VolumeInfo
     /**
      * The fbits
      * 
-     * @Accessor(getter="getFbits", setter="setFbits")
-     * @SerializedName("fbits")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFbits', setter: 'setFbits')]
@@ -187,11 +137,6 @@ class VolumeInfo
 
     /**
      * Set if the volume is current.
-     * 
-     * @Accessor(getter="isCurrent", setter="setCurrent")
-     * @SerializedName("isCurrent")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -26,11 +26,6 @@ class TzFixupRuleMatchRules
     /**
      * Standard match rule
      * 
-     * @Accessor(getter="getStandard", setter="setStandard")
-     * @SerializedName("standard")
-     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var TzFixupRuleMatchRule
      */
     #[Accessor(getter: 'getStandard', setter: 'setStandard')]
@@ -42,10 +37,6 @@ class TzFixupRuleMatchRules
     /**
      * Daylight saving match rule
      * 
-     * @Accessor(getter="getDaylight", setter="setDaylight")
-     * @SerializedName("daylight")
-     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRule")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * @var TzFixupRuleMatchRule
      */
     #[Accessor(getter: 'getDaylight', setter: 'setDaylight')]
@@ -57,11 +48,6 @@ class TzFixupRuleMatchRules
     /**
      * Offset from UTC in standard time; local = UTC + offset
      * 
-     * @Accessor(getter="getStdOffset", setter="setStdOffset")
-     * @SerializedName("stdoff")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStdOffset', setter: 'setStdOffset')]
@@ -72,11 +58,6 @@ class TzFixupRuleMatchRules
 
     /**
      * Offset from UTC in daylight time; present only if DST is used
-     * 
-     * @Accessor(getter="getDstOffset", setter="setDstOffset")
-     * @SerializedName("dayoff")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

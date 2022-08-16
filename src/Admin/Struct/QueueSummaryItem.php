@@ -26,11 +26,6 @@ class QueueSummaryItem
     /**
      * Count
      * 
-     * @Accessor(getter="getCount", setter="setCount")
-     * @SerializedName("n")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getCount', setter: 'setCount')]
@@ -41,11 +36,6 @@ class QueueSummaryItem
 
     /**
      * Text for item.  e.g. "connect to 10.10.20.40 failed"
-     * 
-     * @Accessor(getter="getTerm", setter="setTerm")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

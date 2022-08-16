@@ -26,11 +26,6 @@ class TargetWithType
     /**
      * Target type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -41,10 +36,6 @@ class TargetWithType
 
     /**
      * Value matching target type if this is part of a response (otherwise blank)
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

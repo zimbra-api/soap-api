@@ -26,11 +26,6 @@ class ServerQueues
     /**
      * MTA server
      * 
-     * @Accessor(getter="getServerName", setter="setServerName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getServerName', setter: 'setServerName')]
@@ -41,10 +36,6 @@ class ServerQueues
 
     /**
      * Queue information
-     * 
-     * @Accessor(getter="getQueues", setter="setQueues")
-     * @Type("array<Zimbra\Admin\Struct\MailQueueCount>")
-     * @XmlList(inline=true, entry="queue", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

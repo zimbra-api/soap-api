@@ -26,11 +26,6 @@ class BufferedCommitInfo
     /**
      * Account ID
      * 
-     * @Accessor(getter="getAid", setter="setAid")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAid', setter: 'setAid')]
@@ -41,11 +36,6 @@ class BufferedCommitInfo
 
     /**
      * Commit ID
-     * 
-     * @Accessor(getter="getCid", setter="setCid")
-     * @SerializedName("cid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

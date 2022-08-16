@@ -27,11 +27,6 @@ class DomainAdminRight
     /**
      * Domain admin right name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,11 +37,6 @@ class DomainAdminRight
 
     /**
      * Right type
-     * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\RightType>")
-     * @XmlAttribute
      * 
      * @var RightType
      */
@@ -59,11 +49,6 @@ class DomainAdminRight
     /**
      * Description
      * 
-     * @Accessor(getter="getDesc", setter="setDesc")
-     * @SerializedName("desc")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDesc', setter: 'setDesc')]
@@ -75,11 +60,7 @@ class DomainAdminRight
     /**
      * Rights
      * 
-     * @Accessor(getter="getRights", setter="setRights")
-     * @SerializedName("rights")
-     * @Type("array<Zimbra\Admin\Struct\RightWithName>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="r", namespace="urn:zimbraAdmin")
+     * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
     #[SerializedName(name: 'rights')]

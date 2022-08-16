@@ -27,11 +27,6 @@ class TzReplaceInfo
     /**
      * TzID from /opt/zimbra/conf/timezones.ics 
      * 
-     * @Accessor(getter="getWellKnownTz", setter="setWellKnownTz")
-     * @SerializedName("wellKnownTz")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * 
      * @var Id
      */
     #[Accessor(getter: 'getWellKnownTz', setter: 'setWellKnownTz')]
@@ -43,10 +38,6 @@ class TzReplaceInfo
     /**
      * Timezone
      * 
-     * @Accessor(getter="getCalTz", setter="setCalTz")
-     * @SerializedName("tz")
-     * @Type("Zimbra\Admin\Struct\CalTZInfo")
-     * @XmlElement(namespace="urn:zimbraAdmin")
      * @var CalTZInfo
      */
     #[Accessor(getter: 'getCalTz', setter: 'setCalTz')]

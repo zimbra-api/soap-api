@@ -26,11 +26,6 @@ class IndexStats
     /**
      * total number of docs in this index
      * 
-     * @Accessor(getter="getMaxDocs", setter="setMaxDocs")
-     * @SerializedName("maxDocs")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMaxDocs', setter: 'setMaxDocs')]
@@ -41,11 +36,6 @@ class IndexStats
 
     /**
      * number of deleted docs for the index
-     * 
-     * @Accessor(getter="getNumDeletedDocs", setter="setNumDeletedDocs")
-     * @SerializedName("deletedDocs")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

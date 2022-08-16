@@ -26,11 +26,6 @@ class WaitSetSessionInfo
     /**
      * Interest bitmask
      * 
-     * @Accessor(getter="getInterestMask", setter="setInterestMask")
-     * @SerializedName("interestMask")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getInterestMask', setter: 'setInterestMask')]
@@ -41,11 +36,6 @@ class WaitSetSessionInfo
 
     /**
      * Mailbox change ID
-     * 
-     * @Accessor(getter="getHighestChangeId", setter="setHighestChangeId")
-     * @SerializedName("highestChangeId")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class WaitSetSessionInfo
     /**
      * Last access time
      * 
-     * @Accessor(getter="getLastAccessTime", setter="setLastAccessTime")
-     * @SerializedName("lastAccessTime")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getLastAccessTime', setter: 'setLastAccessTime')]
@@ -73,11 +58,6 @@ class WaitSetSessionInfo
 
     /**
      * Creation time
-     * 
-     * @Accessor(getter="getCreationTime", setter="setCreationTime")
-     * @SerializedName("creationTime")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +70,6 @@ class WaitSetSessionInfo
     /**
      * Session ID
      * 
-     * @Accessor(getter="getSessionId", setter="setSessionId")
-     * @SerializedName("sessionId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
@@ -105,11 +80,6 @@ class WaitSetSessionInfo
 
     /**
      * Sync Token
-     * 
-     * @Accessor(getter="getToken", setter="setToken")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -122,11 +92,6 @@ class WaitSetSessionInfo
     /**
      * Comma separated list of IDs for folders.
      * 
-     * @Accessor(getter="getFolderInterests", setter="setFolderInterests")
-     * @SerializedName("folderInterests")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderInterests', setter: 'setFolderInterests')]
@@ -137,11 +102,6 @@ class WaitSetSessionInfo
 
     /**
      * Comma separated list of IDs for folders.
-     * 
-     * @Accessor(getter="getChangedFolders", setter="setChangedFolders")
-     * @SerializedName("changedFolders")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

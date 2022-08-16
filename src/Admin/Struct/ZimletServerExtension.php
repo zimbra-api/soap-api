@@ -27,11 +27,6 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     /**
      * Keyword
      * 
-     * @Accessor(getter="getHasKeyword", setter="setHasKeyword")
-     * @SerializedName("hasKeyword")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getHasKeyword', setter: 'setHasKeyword')]
@@ -43,11 +38,6 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
     /**
      * Extension class
      * 
-     * @Accessor(getter="getExtensionClass", setter="setExtensionClass")
-     * @SerializedName("extensionClass")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getExtensionClass', setter: 'setExtensionClass')]
@@ -58,11 +48,6 @@ class ZimletServerExtension implements ZimletServerExtensionInterface
 
     /**
      * Regex
-     * 
-     * @Accessor(getter="getRegex", setter="setRegex")
-     * @SerializedName("regex")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

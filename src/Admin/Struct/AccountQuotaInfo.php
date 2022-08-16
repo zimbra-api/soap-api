@@ -26,11 +26,6 @@ class AccountQuotaInfo
     /**
      * Account name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class AccountQuotaInfo
 
     /**
      * Account ID
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class AccountQuotaInfo
     /**
      * Used quota in bytes, or 0 if no quota used
      * 
-     * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
-     * @SerializedName("used")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
@@ -73,11 +58,6 @@ class AccountQuotaInfo
 
     /**
      * Quota limit in bytes, or 0 if unlimited
-     * 
-     * @Accessor(getter="getQuotaLimit", setter="setQuotaLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

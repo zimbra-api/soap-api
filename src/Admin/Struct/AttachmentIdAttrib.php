@@ -26,11 +26,6 @@ class AttachmentIdAttrib
     /**
      * Attachment ID
      * 
-     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]

@@ -27,10 +27,6 @@ class StatsValueWrapper
     /**
      * Stats specification
      * 
-     * @Accessor(getter="getStats", setter="setStats")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]

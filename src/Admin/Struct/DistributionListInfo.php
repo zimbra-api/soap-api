@@ -26,11 +26,6 @@ class DistributionListInfo extends AdminObjectInfo
     /**
      * Flags whether this is a dynamic distribution list or not
      * 
-     * @Accessor(getter="isDynamic", setter="setDynamic")
-     * @SerializedName("dynamic")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
@@ -42,9 +37,7 @@ class DistributionListInfo extends AdminObjectInfo
     /**
      * dl members
      * 
-     * @Accessor(getter="getMembers", setter="setMembers")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
+     * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
     #[Type(name: 'array<string>')]
@@ -54,11 +47,7 @@ class DistributionListInfo extends AdminObjectInfo
     /**
      * Owner information
      * 
-     * @Accessor(getter="getOwners", setter="setOwners")
-     * @SerializedName("owners")
-     * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
-     * @XmlElement(namespace="urn:zimbraAdmin")
-     * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAdmin")
+     * @var array
      */
     #[Accessor(getter: 'getOwners', setter: 'setOwners')]
     #[SerializedName(name: 'owners')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\LoggingLevel;
 class LoggerInfo
 {
     /**
-     * @Accessor(getter="getCategory", setter="setCategory")
-     * @SerializedName("category")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCategory', setter: 'setCategory')]
@@ -39,11 +34,6 @@ class LoggerInfo
     private $category;
 
     /**
-     * @Accessor(getter="getLevel", setter="setLevel")
-     * @SerializedName("level")
-     * @Type("Enum<Zimbra\Common\Enum\LoggingLevel>")
-     * @XmlAttribute
-     * 
      * @var LoggingLevel
      */
     #[Accessor(getter: 'getLevel', setter: 'setLevel')]

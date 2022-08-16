@@ -27,11 +27,6 @@ class CacheEntrySelector
     /**
      * Select the meaning of {cache-entry-key}
      * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\CacheEntryBy>")
-     * @XmlAttribute
-     * 
      * @var CacheEntryBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -42,10 +37,6 @@ class CacheEntrySelector
 
     /**
      * The key used to identify the cache entry
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

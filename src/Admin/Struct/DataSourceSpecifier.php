@@ -27,11 +27,6 @@ class DataSourceSpecifier extends AdminAttrsImpl
     /**
      * Data source type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\DataSourceType>")
-     * @XmlAttribute
-     * 
      * @var DataSourceType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -42,11 +37,6 @@ class DataSourceSpecifier extends AdminAttrsImpl
 
     /**
      * Data source name
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

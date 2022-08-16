@@ -26,11 +26,6 @@ class ExportAndDeleteMailboxSpec
     /**
      * ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,10 +36,6 @@ class ExportAndDeleteMailboxSpec
 
     /**
      * Items
-     * 
-     * @Accessor(getter="getItems", setter="setItems")
-     * @Type("array<Zimbra\Admin\Struct\ExportAndDeleteItemSpec>")
-     * @XmlList(inline=true, entry="item", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

@@ -27,11 +27,6 @@ class GranteeSelector
     /**
      * Grantee type
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
-     * @XmlAttribute
-     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -42,11 +37,6 @@ class GranteeSelector
 
     /**
      * Grantee by
-     * 
-     * @Accessor(getter="getBy", setter="setBy")
-     * @SerializedName("by")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeBy>")
-     * @XmlAttribute
      * 
      * @var GranteeBy
      */
@@ -59,10 +49,6 @@ class GranteeSelector
     /**
      * The key used to secretentify the grantee
      * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -72,11 +58,6 @@ class GranteeSelector
 
     /**
      * Password for guest grantee or the access key for key grantee For user right only
-     * 
-     * @Accessor(getter="getSecret", setter="setSecret")
-     * @SerializedName("secret")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -89,11 +70,6 @@ class GranteeSelector
     /**
      * For GetGrantsRequest, selects whether to include grants granted to groups the specified grantee belongs to.
      * Default is 1 (true)
-     * 
-     * @Accessor(getter="getAll", setter="setAll")
-     * @SerializedName("all")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

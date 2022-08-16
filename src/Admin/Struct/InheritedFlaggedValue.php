@@ -28,11 +28,6 @@ class InheritedFlaggedValue
      * 1 (true): inherited from a group
      * 0 (false): set directly on the entry
      * 
-     * @Accessor(getter="getInherited", setter="setInherited")
-     * @SerializedName("inherited")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getInherited', setter: 'setInherited')]
@@ -42,10 +37,6 @@ class InheritedFlaggedValue
     private $inherited;
 
     /**
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
-     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

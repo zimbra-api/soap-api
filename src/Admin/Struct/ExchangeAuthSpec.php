@@ -27,11 +27,6 @@ class ExchangeAuthSpec
     /**
      * URL to Exchange server
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -42,11 +37,6 @@ class ExchangeAuthSpec
 
     /**
      * Exchange user
-     * 
-     * @Accessor(getter="getAuthUserName", setter="setAuthUserName")
-     * @SerializedName("user")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,11 +49,6 @@ class ExchangeAuthSpec
     /**
      * Exchange password
      * 
-     * @Accessor(getter="getAuthPassword", setter="setAuthPassword")
-     * @SerializedName("pass")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthPassword', setter: 'setAuthPassword')]
@@ -75,11 +60,6 @@ class ExchangeAuthSpec
     /**
      * Auth scheme
      * 
-     * @Accessor(getter="getScheme", setter="setScheme")
-     * @SerializedName("scheme")
-     * @Type("Enum<Zimbra\Common\Enum\AuthScheme>")
-     * @XmlAttribute
-     * 
      * @var AuthScheme
      */
     #[Accessor(getter: 'getScheme', setter: 'setScheme')]
@@ -90,11 +70,6 @@ class ExchangeAuthSpec
 
     /**
      * Auth type
-     * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("type")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

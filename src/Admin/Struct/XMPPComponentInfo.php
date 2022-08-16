@@ -24,11 +24,6 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class XMPPComponentInfo extends AdminAttrsImpl
 {
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,11 +33,6 @@ class XMPPComponentInfo extends AdminAttrsImpl
     private $name;
 
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -52,11 +42,6 @@ class XMPPComponentInfo extends AdminAttrsImpl
     private $id;
 
     /**
-     * @Accessor(getter="getDomainName", setter="setDomainName")
-     * @SerializedName("x-domainName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDomainName', setter: 'setDomainName')]
@@ -66,11 +51,6 @@ class XMPPComponentInfo extends AdminAttrsImpl
     private $domainName;
 
     /**
-     * @Accessor(getter="getServerName", setter="setServerName")
-     * @SerializedName("x-serverName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getServerName', setter: 'setServerName')]
