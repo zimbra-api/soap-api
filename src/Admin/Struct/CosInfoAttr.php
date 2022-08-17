@@ -26,6 +26,11 @@ class CosInfoAttr extends Attr
     /**
      * Flags that this is a Class Of Service (COS) attribute.
      * 
+     * @Accessor(getter="getCosAttr", setter="setCosAttr")
+     * @SerializedName("c")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCosAttr', setter: 'setCosAttr')]
@@ -36,6 +41,11 @@ class CosInfoAttr extends Attr
 
     /**
      * Flags that the value of this attribute has been suppressed for permissions reasons
+     * 
+     * @Accessor(getter="getPermDenied", setter="setPermDenied")
+     * @SerializedName("pd")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

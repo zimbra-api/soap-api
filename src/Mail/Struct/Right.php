@@ -26,6 +26,11 @@ class Right
     /**
      * Name for right
      * 
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]

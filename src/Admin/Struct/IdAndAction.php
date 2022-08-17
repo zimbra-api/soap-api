@@ -26,6 +26,11 @@ class IdAndAction
     /**
      * Zimbra ID of account
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class IdAndAction
 
     /**
      * bug72174 or wiki or contactGroup
+     * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

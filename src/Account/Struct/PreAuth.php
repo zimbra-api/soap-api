@@ -27,6 +27,10 @@ class PreAuth
     /**
      * Computed preauth value
      * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -36,6 +40,11 @@ class PreAuth
 
     /**
      * Time stamp
+     * 
+     * @Accessor(getter="getTimestamp", setter="setTimestamp")
+     * @SerializedName("timestamp")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -50,6 +59,11 @@ class PreAuth
      * Set to 0 to use the default expiration time for the account.
      * Can be used to sync the auth token expiration time with the external system's notion of expiration
      * (like a Kerberos TGT lifetime, for example).
+     * 
+     * @Accessor(getter="getExpiresTimestamp", setter="setExpiresTimestamp")
+     * @SerializedName("expires")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

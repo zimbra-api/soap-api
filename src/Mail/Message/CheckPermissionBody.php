@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckPermissionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckPermissionRequest")
+     * @Type("Zimbra\Mail\Message\CheckPermissionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CheckPermissionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckPermissionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckPermissionResponse")
+     * @Type("Zimbra\Mail\Message\CheckPermissionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CheckPermissionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,6 +28,10 @@ class GetAllDomainsResponse extends SoapResponse
     /**
      * Information on domains
      * 
+     * @Accessor(getter="getDomainList", setter="setDomainList")
+     * @Type("array<Zimbra\Admin\Struct\DomainInfo>")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDomainList', setter: 'setDomainList')]

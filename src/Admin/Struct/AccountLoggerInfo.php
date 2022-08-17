@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class AccountLoggerInfo
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -33,6 +38,11 @@ class AccountLoggerInfo
     private $name;
 
     /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -43,6 +53,10 @@ class AccountLoggerInfo
 
     /**
      * Logger information
+     * 
+     * @Accessor(getter="getLoggers", setter="setLoggers")
+     * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
+     * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

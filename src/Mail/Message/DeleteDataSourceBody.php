@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteDataSourceBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeleteDataSourceRequest")
+     * @Type("Zimbra\Mail\Message\DeleteDataSourceRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DeleteDataSourceRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeleteDataSourceBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeleteDataSourceResponse")
+     * @Type("Zimbra\Mail\Message\DeleteDataSourceResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DeleteDataSourceResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

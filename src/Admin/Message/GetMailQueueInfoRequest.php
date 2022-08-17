@@ -29,6 +29,11 @@ class GetMailQueueInfoRequest extends SoapRequest
     /**
      * MTA Server
      * 
+     * @Accessor(getter="getServer", setter="setServer")
+     * @SerializedName("server")
+     * @Type("Zimbra\Common\Struct\NamedElement")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var NamedElement
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

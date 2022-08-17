@@ -28,6 +28,11 @@ class RestoreContactsRequest extends SoapRequest
     /**
      * Filename of contact backup file
      * 
+     * @Accessor(getter="getContactsBackupFileName", setter="setContactsBackupFileName")
+     * @SerializedName("contactsBackupFileName")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContactsBackupFileName', setter: 'setContactsBackupFileName')]
@@ -43,6 +48,11 @@ class RestoreContactsRequest extends SoapRequest
      * modify - In case of conflict, merge the existing contact with contact in backup file.
      * replace - In case of conflict, replace the existing contact with contact in backup file.
      * reset - Delete all existing contacts and restore contacts from backup file.
+     * 
+     * @Accessor(getter="getResolve", setter="setResolve")
+     * @SerializedName("resolve")
+     * @Type("Enum<Zimbra\Common\Enum\RestoreResolve>")
+     * @XmlAttribute
      * 
      * @var RestoreResolve
      */

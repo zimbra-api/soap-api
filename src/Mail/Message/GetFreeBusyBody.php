@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetFreeBusyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetFreeBusyRequest")
+     * @Type("Zimbra\Mail\Message\GetFreeBusyRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetFreeBusyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetFreeBusyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetFreeBusyResponse")
+     * @Type("Zimbra\Mail\Message\GetFreeBusyResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetFreeBusyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

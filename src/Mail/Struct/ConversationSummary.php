@@ -27,6 +27,11 @@ class ConversationSummary
     /**
      * Conversation ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class ConversationSummary
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
+     * 
+     * @Accessor(getter="getNum", setter="setNum")
+     * @SerializedName("n")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -49,6 +59,11 @@ class ConversationSummary
     /**
      * Number of unread messages in conversation
      * 
+     * @Accessor(getter="getNumUnread", setter="setNumUnread")
+     * @SerializedName("u")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getNumUnread', setter: 'setNumUnread')]
@@ -59,6 +74,11 @@ class ConversationSummary
 
     /**
      * Total number of messages in conversation including those with the IMAP \Deleted flag set
+     * 
+     * @Accessor(getter="getTotalSize", setter="setTotalSize")
+     * @SerializedName("total")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -71,6 +91,11 @@ class ConversationSummary
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
      * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -81,6 +106,11 @@ class ConversationSummary
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
+     * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,6 +123,11 @@ class ConversationSummary
     /**
      * Comma-separated list of tag names
      * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -103,6 +138,11 @@ class ConversationSummary
 
     /**
      * Date (secs since epoch) of most recent message in the converstation
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -115,6 +155,11 @@ class ConversationSummary
     /**
      * If elided is set, some participants are missing before the first returned <e> element
      * 
+     * @Accessor(getter="getElided", setter="setElided")
+     * @SerializedName("elided")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getElided', setter: 'setElided')]
@@ -125,6 +170,11 @@ class ConversationSummary
 
     /**
      * Modified date in seconds
+     * 
+     * @Accessor(getter="getChangeDate", setter="setChangeDate")
+     * @SerializedName("md")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -137,6 +187,11 @@ class ConversationSummary
     /**
      * Modified sequence
      * 
+     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
+     * @SerializedName("ms")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -148,6 +203,10 @@ class ConversationSummary
     /**
      * Custom metadata
      * 
+     * @Accessor(getter="getMetadatas", setter="setMetadatas")
+     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
@@ -157,6 +216,11 @@ class ConversationSummary
 
     /**
      * Subject of conversation
+     * 
+     * @Accessor(getter="getSubject", setter="setSubject")
+     * @SerializedName("su")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -169,6 +233,11 @@ class ConversationSummary
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
      * 
+     * @Accessor(getter="getFragment", setter="setFragment")
+     * @SerializedName("fr")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
@@ -179,6 +248,10 @@ class ConversationSummary
 
     /**
      * Email addresses
+     * 
+     * @Accessor(getter="getEmails", setter="setEmails")
+     * @Type("array<Zimbra\Mail\Struct\EmailInfo>")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      * 
      * @var array
      */

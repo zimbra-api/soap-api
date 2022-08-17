@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyCosBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ModifyCosRequest")
+     * @Type("Zimbra\Admin\Message\ModifyCosRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ModifyCosRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ModifyCosBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ModifyCosResponse")
+     * @Type("Zimbra\Admin\Message\ModifyCosResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ModifyCosResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

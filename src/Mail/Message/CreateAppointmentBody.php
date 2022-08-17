@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateAppointmentBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateAppointmentRequest")
+     * @Type("Zimbra\Mail\Message\CreateAppointmentRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateAppointmentBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateAppointmentResponse")
+     * @Type("Zimbra\Mail\Message\CreateAppointmentResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

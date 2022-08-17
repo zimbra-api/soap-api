@@ -28,6 +28,11 @@ class DeleteDomainRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

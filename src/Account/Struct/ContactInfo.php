@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\ContactAttr;
 class ContactInfo
 {
     /**
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
@@ -34,6 +39,11 @@ class ContactInfo
     private $sortField;
 
     /**
+     * @Accessor(getter="getCanExpand", setter="setCanExpand")
+     * @SerializedName("exp")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCanExpand', setter: 'setCanExpand')]
@@ -43,6 +53,11 @@ class ContactInfo
     private $canExpand;
 
     /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -52,6 +67,11 @@ class ContactInfo
     private $id;
 
     /**
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -61,6 +81,11 @@ class ContactInfo
     private $folder;
 
     /**
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -70,6 +95,11 @@ class ContactInfo
     private $flags;
 
     /**
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
@@ -79,6 +109,11 @@ class ContactInfo
     private $tags;
 
     /**
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -88,6 +123,11 @@ class ContactInfo
     private $tagNames;
 
     /**
+     * @Accessor(getter="getChangeDate", setter="setChangeDate")
+     * @SerializedName("md")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
@@ -97,6 +137,11 @@ class ContactInfo
     private $changeDate;
 
     /**
+     * @Accessor(getter="getModifiedSequenceId", setter="setModifiedSequenceId")
+     * @SerializedName("ms")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequenceId', setter: 'setModifiedSequenceId')]
@@ -106,6 +151,11 @@ class ContactInfo
     private $modifiedSequenceId;
 
     /**
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
@@ -115,6 +165,11 @@ class ContactInfo
     private $date;
 
     /**
+     * @Accessor(getter="getRevisionId", setter="setRevisionId")
+     * @SerializedName("rev")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getRevisionId', setter: 'setRevisionId')]
@@ -124,6 +179,11 @@ class ContactInfo
     private $revisionId;
 
     /**
+     * @Accessor(getter="getFileAs", setter="setFileAs")
+     * @SerializedName("fileAsStr")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFileAs', setter: 'setFileAs')]
@@ -133,6 +193,11 @@ class ContactInfo
     private $fileAs;
 
     /**
+     * @Accessor(getter="getEmail", setter="setEmail")
+     * @SerializedName("email")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
@@ -142,6 +207,11 @@ class ContactInfo
     private $email;
 
     /**
+     * @Accessor(getter="getEmail2", setter="setEmail2")
+     * @SerializedName("email2")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail2', setter: 'setEmail2')]
@@ -151,6 +221,11 @@ class ContactInfo
     private $email2;
 
     /**
+     * @Accessor(getter="getEmail3", setter="setEmail3")
+     * @SerializedName("email3")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail3', setter: 'setEmail3')]
@@ -160,6 +235,11 @@ class ContactInfo
     private $email3;
 
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -169,6 +249,11 @@ class ContactInfo
     private $type;
 
     /**
+     * @Accessor(getter="getDlist", setter="setDlist")
+     * @SerializedName("dlist")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDlist', setter: 'setDlist')]
@@ -178,6 +263,11 @@ class ContactInfo
     private $dlist;
 
     /**
+     * @Accessor(getter="getReference", setter="setReference")
+     * @SerializedName("ref")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getReference', setter: 'setReference')]
@@ -187,6 +277,11 @@ class ContactInfo
     private $reference;
 
     /**
+     * @Accessor(getter="getTooManyMembers", setter="setTooManyMembers")
+     * @SerializedName("tooManyMembers")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getTooManyMembers', setter: 'setTooManyMembers')]
@@ -196,7 +291,9 @@ class ContactInfo
     private $tooManyMembers;
 
     /**
-     * @var array
+     * @Accessor(getter="getMetadatas", setter="setMetadatas")
+     * @Type("array<Zimbra\Account\Struct\AccountCustomMetadata>")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraAccount")
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Account\Struct\AccountCustomMetadata>')]
@@ -204,7 +301,9 @@ class ContactInfo
     private $metadatas = [];
 
     /**
-     * @var array
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @Type("array<Zimbra\Common\Struct\ContactAttr>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
     #[Type(name: 'array<Zimbra\Common\Struct\ContactAttr>')]
@@ -212,7 +311,9 @@ class ContactInfo
     private $attrs = [];
 
     /**
-     * @var array
+     * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
+     * @Type("array<Zimbra\Account\Struct\ContactGroupMember>")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraAccount")
      */
     #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
     #[Type(name: 'array<Zimbra\Account\Struct\ContactGroupMember>')]
@@ -220,6 +321,11 @@ class ContactInfo
     private $contactGroupMembers = [];
 
     /**
+     * @Accessor(getter="isOwner", setter="setIsOwner")
+     * @SerializedName("isOwner")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
@@ -229,6 +335,11 @@ class ContactInfo
     private $isOwner;
 
     /**
+     * @Accessor(getter="isMember", setter="setIsMember")
+     * @SerializedName("isMember")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isMember', setter: 'setIsMember')]

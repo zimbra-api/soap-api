@@ -26,6 +26,10 @@ class RejectAction extends FilterAction
     /**
      * Content name
      * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]

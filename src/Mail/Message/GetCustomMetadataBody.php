@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetCustomMetadataBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetCustomMetadataRequest")
+     * @Type("Zimbra\Mail\Message\GetCustomMetadataRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCustomMetadataRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetCustomMetadataBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetCustomMetadataResponse")
+     * @Type("Zimbra\Mail\Message\GetCustomMetadataResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCustomMetadataResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

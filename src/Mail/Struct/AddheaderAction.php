@@ -26,6 +26,11 @@ class AddheaderAction extends FilterAction
     /**
      * new header name
      * 
+     * @Accessor(getter="getHeaderName", setter="setHeaderName")
+     * @SerializedName("headerName")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getHeaderName", setter: "setHeaderName")]
@@ -37,6 +42,11 @@ class AddheaderAction extends FilterAction
     /**
      * new header value
      * 
+     * @Accessor(getter="getHeaderValue", setter="setHeaderValue")
+     * @SerializedName("headerValue")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getHeaderValue", setter: "setHeaderValue")]
@@ -47,6 +57,11 @@ class AddheaderAction extends FilterAction
 
     /**
      * Last header
+     * 
+     * @Accessor(getter="getLast", setter="setLast")
+     * @SerializedName("last")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

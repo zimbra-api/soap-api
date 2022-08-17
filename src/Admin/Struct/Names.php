@@ -26,6 +26,11 @@ class Names
     /**
      * Comma separated list of names
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]

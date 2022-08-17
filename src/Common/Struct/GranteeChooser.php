@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class GranteeChooser
 {
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -33,6 +38,11 @@ class GranteeChooser
     private $type;
 
     /**
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,6 +52,11 @@ class GranteeChooser
     private $id;
 
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]

@@ -32,6 +32,11 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * The account
      * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -42,6 +47,11 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Name of the data source
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -54,6 +64,11 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * Name of pre-existing domain
      * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -65,6 +80,11 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
     /**
      * GalMode type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\GalMode>")
+     * @XmlAttribute
+     * 
      * @var GalMode
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -75,6 +95,11 @@ class AddGalSyncDataSourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * Contact folder name
+     * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("folder")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

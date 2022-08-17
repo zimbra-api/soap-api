@@ -27,6 +27,11 @@ class NoteHitInfo extends NoteInfo implements SearchHit
     /**
      * Sort field value
      * 
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]

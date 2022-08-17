@@ -28,6 +28,10 @@ class GetAllXMPPComponentsResponse extends SoapResponse
     /**
      * Information on XMPP components
      * 
+     * @Accessor(getter="getComponents", setter="setComponents")
+     * @Type("array<Zimbra\Admin\Struct\XMPPComponentInfo>")
+     * @XmlList(inline=true, entry="xmppcomponent", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getComponents', setter: 'setComponents')]

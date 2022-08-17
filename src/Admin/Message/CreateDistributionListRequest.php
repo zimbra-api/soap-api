@@ -34,6 +34,11 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
     /**
      * Name for distribution list
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -44,6 +49,11 @@ class CreateDistributionListRequest extends SoapRequest implements AdminAttrs
 
     /**
      * If 1 (true) then create a dynamic distribution list
+     * 
+     * @Accessor(getter="getDynamic", setter="setDynamic")
+     * @SerializedName("dynamic")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

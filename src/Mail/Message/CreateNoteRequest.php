@@ -29,6 +29,11 @@ class CreateNoteRequest extends SoapRequest
     /**
      * New note specification
      * 
+     * @Accessor(getter="getNote", setter="setNote")
+     * @SerializedName("note")
+     * @Type("Zimbra\Mail\Struct\NewNoteSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var NewNoteSpec
      */
     #[Accessor(getter: "getNote", setter: "setNote")]

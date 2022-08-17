@@ -28,6 +28,11 @@ abstract class ObjectInfo
     /**
      * Name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -39,6 +44,11 @@ abstract class ObjectInfo
     /**
      * ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -49,6 +59,10 @@ abstract class ObjectInfo
 
     /**
      * Attributes
+     * 
+     * @Accessor(getter="getAttrList", setter="setAttrList")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

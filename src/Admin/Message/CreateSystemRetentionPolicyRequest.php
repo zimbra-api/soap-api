@@ -30,6 +30,11 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class CreateSystemRetentionPolicyRequest extends SoapRequest
 {
     /**
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
@@ -39,6 +44,11 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     private $cos;
 
     /**
+     * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
+     * @SerializedName("keep")
+     * @Type("Zimbra\Admin\Struct\PolicyHolder")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PolicyHolder
      */
     #[Accessor(getter: 'getKeepPolicy', setter: 'setKeepPolicy')]
@@ -48,6 +58,11 @@ class CreateSystemRetentionPolicyRequest extends SoapRequest
     private $keep;
 
     /**
+     * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
+     * @SerializedName("purge")
+     * @Type("Zimbra\Admin\Struct\PolicyHolder")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PolicyHolder
      */
     #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]

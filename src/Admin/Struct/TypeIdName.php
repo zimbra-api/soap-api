@@ -26,6 +26,11 @@ class TypeIdName
     /**
      * Type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -37,6 +42,11 @@ class TypeIdName
     /**
      * Id
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -47,6 +57,11 @@ class TypeIdName
 
     /**
      * Name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

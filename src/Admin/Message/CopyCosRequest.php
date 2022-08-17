@@ -29,6 +29,11 @@ class CopyCosRequest extends SoapRequest
     /**
      * Destination name for COS
      * 
+     * @Accessor(getter="getNewName", setter="setNewName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
@@ -39,6 +44,11 @@ class CopyCosRequest extends SoapRequest
 
     /**
      * Source COS
+     * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var CosSelector
      */

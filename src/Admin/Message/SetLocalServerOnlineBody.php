@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SetLocalServerOnlineBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SetLocalServerOnlineRequest")
+     * @Type("Zimbra\Admin\Message\SetLocalServerOnlineRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SetLocalServerOnlineRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SetLocalServerOnlineBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SetLocalServerOnlineResponse")
+     * @Type("Zimbra\Admin\Message\SetLocalServerOnlineResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SetLocalServerOnlineResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllSkinsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAllSkinsRequest")
+     * @Type("Zimbra\Admin\Message\GetAllSkinsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllSkinsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAllSkinsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAllSkinsResponse")
+     * @Type("Zimbra\Admin\Message\GetAllSkinsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllSkinsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

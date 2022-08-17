@@ -28,6 +28,10 @@ class CountAccountResponse extends SoapResponse
     /**
      * Account count information by Class Of Service (COS)
      * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @Type("array<Zimbra\Admin\Struct\CosCountInfo>")
+     * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]

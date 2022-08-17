@@ -29,6 +29,10 @@ class GetRightsDocRequest extends SoapRequest
     /**
      * Packages
      * 
+     * @Accessor(getter="getPkgs", setter="setPkgs")
+     * @Type("array<Zimbra\Admin\Struct\PackageSelector>")
+     * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getPkgs', setter: 'setPkgs')]

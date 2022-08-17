@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteMailboxBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeleteMailboxRequest")
+     * @Type("Zimbra\Admin\Message\DeleteMailboxRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteMailboxRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeleteMailboxBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeleteMailboxResponse")
+     * @Type("Zimbra\Admin\Message\DeleteMailboxResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteMailboxResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -30,6 +30,11 @@ class GetAllEffectiveRightsRequest extends SoapRequest
     const EXPAND_SET_ATTRS = 'setAttrs';
 
     /**
+     * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
+     * @SerializedName("expandAllAttrs")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
@@ -40,6 +45,10 @@ class GetAllEffectiveRightsRequest extends SoapRequest
 
     /**
      * Grantee
+     * @Accessor(getter="getGrantee", setter="setGrantee")
+     * @SerializedName("grantee")
+     * @Type("Zimbra\Admin\Struct\GranteeSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var GranteeSelector
      */

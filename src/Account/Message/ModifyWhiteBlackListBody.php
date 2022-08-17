@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyWhiteBlackListBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ModifyWhiteBlackListRequest")
+     * @Type("Zimbra\Account\Message\ModifyWhiteBlackListRequest")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ModifyWhiteBlackListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ModifyWhiteBlackListBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ModifyWhiteBlackListResponse")
+     * @Type("Zimbra\Account\Message\ModifyWhiteBlackListResponse")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ModifyWhiteBlackListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

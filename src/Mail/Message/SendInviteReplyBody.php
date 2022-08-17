@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SendInviteReplyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SendInviteReplyRequest")
+     * @Type("Zimbra\Mail\Message\SendInviteReplyRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SendInviteReplyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SendInviteReplyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SendInviteReplyResponse")
+     * @Type("Zimbra\Mail\Message\SendInviteReplyResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SendInviteReplyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

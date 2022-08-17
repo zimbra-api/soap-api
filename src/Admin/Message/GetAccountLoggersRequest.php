@@ -29,6 +29,11 @@ class GetAccountLoggersRequest extends SoapRequest
     /**
      * Deprecated - use account instead
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -39,6 +44,11 @@ class GetAccountLoggersRequest extends SoapRequest
 
     /**
      * Use to select account
+     * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */

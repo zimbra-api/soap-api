@@ -29,6 +29,11 @@ class GetEffectiveFolderPermsRequest extends SoapRequest
     /**
      * Folder specification
      * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("folder")
+     * @Type("Zimbra\Mail\Struct\FolderSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FolderSpec
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]

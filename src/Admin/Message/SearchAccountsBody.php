@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SearchAccountsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SearchAccountsRequest")
+     * @Type("Zimbra\Admin\Message\SearchAccountsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchAccountsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SearchAccountsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SearchAccountsResponse")
+     * @Type("Zimbra\Admin\Message\SearchAccountsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchAccountsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

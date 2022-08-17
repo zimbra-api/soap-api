@@ -28,6 +28,10 @@ class GetCalendarItemSummariesResponse extends SoapResponse
     /**
      * Appointment summaries
      * 
+     * @Accessor(getter="getApptEntries", setter="setApptEntries")
+     * @Type("array<Zimbra\Mail\Struct\LegacyAppointmentData>")
+     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getApptEntries', setter: 'setApptEntries')]
@@ -37,6 +41,10 @@ class GetCalendarItemSummariesResponse extends SoapResponse
 
     /**
      * Task summaries
+     * 
+     * @Accessor(getter="getTaskEntries", setter="setTaskEntries")
+     * @Type("array<Zimbra\Mail\Struct\LegacyTaskData>")
+     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */

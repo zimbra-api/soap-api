@@ -28,6 +28,10 @@ class DeployZimletResponse extends SoapResponse
     /**
      * Progress information on deployment to servers
      * 
+     * @Accessor(getter="getProgresses", setter="setProgresses")
+     * @Type("array<Zimbra\Admin\Struct\ZimletDeploymentStatus>")
+     * @XmlList(inline=true, entry="progress", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getProgresses', setter: 'setProgresses')]

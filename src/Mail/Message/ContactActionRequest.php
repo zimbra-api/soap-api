@@ -29,6 +29,11 @@ class ContactActionRequest extends SoapRequest
     /**
      * Contact action selector
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Mail\Struct\ContactActionSelector")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

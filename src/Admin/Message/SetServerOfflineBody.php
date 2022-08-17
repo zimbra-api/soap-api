@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SetServerOfflineBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SetServerOfflineRequest")
+     * @Type("Zimbra\Admin\Message\SetServerOfflineRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SetServerOfflineRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SetServerOfflineBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SetServerOfflineResponse")
+     * @Type("Zimbra\Admin\Message\SetServerOfflineResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SetServerOfflineResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class GranteeWithType
     /**
      * Target type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -36,6 +41,10 @@ class GranteeWithType
 
     /**
      * Target name
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

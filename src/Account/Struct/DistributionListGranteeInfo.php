@@ -27,6 +27,11 @@ class DistributionListGranteeInfo
     /**
      * Grantee Type.
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
+     * @XmlAttribute
+     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -38,6 +43,11 @@ class DistributionListGranteeInfo
     /**
      * Grantee id
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,6 +58,11 @@ class DistributionListGranteeInfo
 
     /**
      * Grantee name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

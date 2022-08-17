@@ -28,6 +28,10 @@ class ClientInfoResponse extends SoapResponse
     /**
      * Attributes
      * 
+     * @Accessor(getter="getAttrList", setter="setAttrList")
+     * @Type("array<Zimbra\Admin\Struct\Attr>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]

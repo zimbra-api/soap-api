@@ -42,6 +42,11 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Waitset ID
      * 
+     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
+     * @SerializedName("waitSet")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -52,6 +57,11 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Last known sequence number
+     * 
+     * @Accessor(getter="getLastKnownSeqNo", setter="setLastKnownSeqNo")
+     * @SerializedName("seq")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -64,6 +74,11 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Flag whether or not to block until some account has new data
      * 
+     * @Accessor(getter="getBlock", setter="setBlock")
+     * @SerializedName("block")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getBlock', setter: 'setBlock')]
@@ -74,6 +89,11 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * If true, WaitSetResponse will include details of Pending Modifications.
+     * 
+     * @Accessor(getter="getExpand", setter="setExpand")
+     * @SerializedName("expand")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -86,6 +106,11 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Default interest types: comma-separated list
      * 
+     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
+     * @SerializedName("defTypes")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -97,6 +122,11 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Timeout length
      * 
+     * @Accessor(getter="getTimeout", setter="setTimeout")
+     * @SerializedName("timeout")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
@@ -107,6 +137,12 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to add
+     * 
+     * @Accessor(getter="getAddAccounts", setter="setAddAccounts")
+     * @SerializedName("add")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -120,6 +156,12 @@ class AdminWaitSetRequest extends SoapRequest
     /**
      * Waitsets to update
      * 
+     * @Accessor(getter="getUpdateAccounts", setter="setUpdateAccounts")
+     * @SerializedName("update")
+     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getUpdateAccounts', setter: 'setUpdateAccounts')]
@@ -131,6 +173,12 @@ class AdminWaitSetRequest extends SoapRequest
 
     /**
      * Waitsets to remove
+     * 
+     * @Accessor(getter="getRemoveAccounts", setter="setRemoveAccounts")
+     * @SerializedName("remove")
+     * @Type("array<Zimbra\Common\Struct\Id>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

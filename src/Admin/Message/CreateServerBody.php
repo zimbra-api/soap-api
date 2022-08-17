@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateServerBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateServerRequest")
+     * @Type("Zimbra\Admin\Message\CreateServerRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CreateServerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateServerBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateServerResponse")
+     * @Type("Zimbra\Admin\Message\CreateServerResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CreateServerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

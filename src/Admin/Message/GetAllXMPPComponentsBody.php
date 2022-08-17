@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllXMPPComponentsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAllXMPPComponentsRequest")
+     * @Type("Zimbra\Admin\Message\GetAllXMPPComponentsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllXMPPComponentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAllXMPPComponentsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAllXMPPComponentsResponse")
+     * @Type("Zimbra\Admin\Message\GetAllXMPPComponentsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllXMPPComponentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,6 +28,11 @@ class WkDay implements WkDayInterface
     /**
      * Weekday -  SU|MO|TU|WE|TH|FR|SA
      * 
+     * @Accessor(getter="getDay", setter="setDay")
+     * @SerializedName("day")
+     * @Type("Enum<Zimbra\Common\Enum\WeekDay>")
+     * @XmlAttribute
+     * 
      * @var WeekDay
      */
     #[Accessor(getter: 'getDay', setter: 'setDay')]
@@ -38,6 +43,11 @@ class WkDay implements WkDayInterface
 
     /**
      * Week number.  [[+]|-]num: 1 to 53
+     * 
+     * @Accessor(getter="getOrdWk", setter="setOrdWk")
+     * @SerializedName("ordwk")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

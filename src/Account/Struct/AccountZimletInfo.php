@@ -27,6 +27,11 @@ class AccountZimletInfo implements ZimletInterface
     /**
      * Zimlet context
      * 
+     * @Accessor(getter="getZimletContext", setter="setZimletContext")
+     * @SerializedName("zimletContext")
+     * @Type("Zimbra\Account\Struct\AccountZimletContext")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ZimletContextInterface
      */
     #[Accessor(getter: 'getZimletContext', setter: 'setZimletContext')]
@@ -38,6 +43,11 @@ class AccountZimletInfo implements ZimletInterface
     /**
      * Zimlet description
      * 
+     * @Accessor(getter="getZimlet", setter="setZimlet")
+     * @SerializedName("zimlet")
+     * @Type("Zimbra\Account\Struct\AccountZimletDesc")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ZimletDesc
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]
@@ -48,6 +58,11 @@ class AccountZimletInfo implements ZimletInterface
 
     /**
      * Zimlet config
+     * 
+     * @Accessor(getter="getZimletConfig", setter="setZimletConfig")
+     * @SerializedName("zimletConfig")
+     * @Type("Zimbra\Account\Struct\AccountZimletConfigInfo")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var ZimletConfigInfo
      */

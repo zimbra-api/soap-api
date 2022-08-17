@@ -27,6 +27,11 @@ class ModifyZimletPrefsSpec
     /**
      * Zimlet name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,6 +43,11 @@ class ModifyZimletPrefsSpec
     /**
      * Zimlet presence setting
      * Valid values : "enabled" | "disabled"
+     * 
+     * @Accessor(getter="getPresence", setter="setPresence")
+     * @SerializedName("presence")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletStatus>")
+     * @XmlAttribute
      * 
      * @var ZimletStatus
      */

@@ -26,6 +26,11 @@ class ModifyNotification
     /**
      * Bitmask of modification change
      * 
+     * @Accessor(getter="getChangeBitmask", setter="setChangeBitmask")
+     * @SerializedName("change")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeBitmask', setter: 'setChangeBitmask')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class BeginTrackingIMAPBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("BeginTrackingIMAPRequest")
+     * @Type("Zimbra\Mail\Message\BeginTrackingIMAPRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BeginTrackingIMAPRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class BeginTrackingIMAPBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("BeginTrackingIMAPResponse")
+     * @Type("Zimbra\Mail\Message\BeginTrackingIMAPResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BeginTrackingIMAPResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

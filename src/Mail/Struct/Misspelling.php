@@ -27,6 +27,11 @@ class Misspelling
     /**
      * Misspelled word
      * 
+     * @Accessor(getter="getWord", setter="setWord")
+     * @SerializedName("word")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getWord', setter: 'setWord')]
@@ -38,6 +43,11 @@ class Misspelling
     /**
      * Comma separated list of suggestions.
      * Suggested words are listed in decreasing order of their match score.
+     * 
+     * @Accessor(getter="getSuggestions", setter="setSuggestions")
+     * @SerializedName("suggestions")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

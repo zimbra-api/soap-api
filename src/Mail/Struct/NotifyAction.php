@@ -26,6 +26,11 @@ class NotifyAction extends FilterAction
     /**
      * Email address
      * 
+     * @Accessor(getter="getAddress", setter="setAddress")
+     * @SerializedName("a")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -39,6 +44,11 @@ class NotifyAction extends FilterAction
      * Can contain variables such as ${SUBJECT}, ${TO}, ${CC}, etc
      * (basically ${any-header-name}; case not important), plus ${BODY} (text body of the message).
      * 
+     * @Accessor(getter="getSubject", setter="setSubject")
+     * @SerializedName("su")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSubject', setter: 'setSubject')]
@@ -49,6 +59,11 @@ class NotifyAction extends FilterAction
 
     /**
      * Maximum body size in bytes
+     * 
+     * @Accessor(getter="getMaxBodySize", setter="setMaxBodySize")
+     * @SerializedName("maxBodySize")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -63,6 +78,11 @@ class NotifyAction extends FilterAction
      * Can contain variables such as ${SUBJECT}, ${TO}, ${CC}, etc
      * (basically ${any-header-name}; case not important), plus ${BODY} (text body of the message).
      * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
@@ -73,6 +93,11 @@ class NotifyAction extends FilterAction
 
     /**
      * Optional - Either "*" or a comma-separated list of header names.
+     * 
+     * @Accessor(getter="getOrigHeaders", setter="setOrigHeaders")
+     * @SerializedName("origHeaders")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

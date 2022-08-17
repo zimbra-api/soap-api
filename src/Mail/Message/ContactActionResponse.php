@@ -28,6 +28,11 @@ class ContactActionResponse extends SoapResponse
     /**
      * Action result
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Mail\Struct\FolderActionResult")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FolderActionResult
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

@@ -26,6 +26,11 @@ class Session
     /**
      * Session type - currently only set if value is "admin"
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -37,6 +42,11 @@ class Session
     /**
      * Session ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -46,6 +56,10 @@ class Session
     private $id;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

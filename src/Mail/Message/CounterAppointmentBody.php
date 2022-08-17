@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CounterAppointmentBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CounterAppointmentRequest")
+     * @Type("Zimbra\Mail\Message\CounterAppointmentRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CounterAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CounterAppointmentBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CounterAppointmentResponse")
+     * @Type("Zimbra\Mail\Message\CounterAppointmentResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CounterAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

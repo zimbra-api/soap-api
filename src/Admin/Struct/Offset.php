@@ -26,6 +26,11 @@ class Offset
     /**
      * Offset
      * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]

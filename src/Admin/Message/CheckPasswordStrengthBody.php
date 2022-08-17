@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckPasswordStrengthBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckPasswordStrengthRequest")
+     * @Type("Zimbra\Admin\Message\CheckPasswordStrengthRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckPasswordStrengthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckPasswordStrengthBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckPasswordStrengthResponse")
+     * @Type("Zimbra\Admin\Message\CheckPasswordStrengthResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckPasswordStrengthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

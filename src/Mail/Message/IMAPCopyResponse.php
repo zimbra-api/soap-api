@@ -28,6 +28,10 @@ class IMAPCopyResponse extends SoapResponse
     /**
      * new items
      * 
+     * @Accessor(getter="getItems", setter="setItems")
+     * @Type("array<Zimbra\Mail\Struct\IMAPItemInfo>")
+     * @XmlList(inline=true, entry="item", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getItems', setter: 'setItems')]

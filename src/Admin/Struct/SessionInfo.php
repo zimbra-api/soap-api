@@ -26,6 +26,11 @@ class SessionInfo
     /**
      * Account ID
      * 
+     * @Accessor(getter="getZimbraId", setter="setZimbraId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -36,6 +41,11 @@ class SessionInfo
 
     /**
      * Account name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class SessionInfo
     /**
      * Session ID
      * 
+     * @Accessor(getter="getSessionId", setter="setSessionId")
+     * @SerializedName("sid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
@@ -58,6 +73,11 @@ class SessionInfo
 
     /**
      * Creation date
+     * 
+     * @Accessor(getter="getCreatedDate", setter="setCreatedDate")
+     * @SerializedName("cd")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -70,6 +90,11 @@ class SessionInfo
     /**
      * Last accessed date
      * 
+     * @Accessor(getter="getLastAccessedDate", setter="setLastAccessedDate")
+     * @SerializedName("ld")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLastAccessedDate', setter: 'setLastAccessedDate')]
@@ -80,6 +105,10 @@ class SessionInfo
 
     /**
      * Extra attributes - possibly including "push"
+     * 
+     * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
+     * @Type("array<string, string>")
+     * @XmlAttributeMap
      * 
      * @var array
      */

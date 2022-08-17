@@ -28,6 +28,11 @@ class ActionGrantSelector
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
      * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("perm")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
@@ -38,6 +43,11 @@ class ActionGrantSelector
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
+     * 
+     * @Accessor(getter="getGrantType", setter="setGrantType")
+     * @SerializedName("gt")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
+     * @XmlAttribute
      * 
      * @var GranteeType
      */
@@ -50,6 +60,11 @@ class ActionGrantSelector
     /**
      * Zimbra ID
      * 
+     * @Accessor(getter="getZimbraId", setter="setZimbraId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -60,6 +75,11 @@ class ActionGrantSelector
 
     /**
      * Name or email address of the grantee. Not present if granteeType is all or pub
+     * 
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -72,6 +92,11 @@ class ActionGrantSelector
     /**
      * Retained for backwards compatibility.  Old way of specifying password
      * 
+     * @Accessor(getter="getArgs", setter="setArgs")
+     * @SerializedName("args")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getArgs', setter: 'setArgs')]
@@ -83,6 +108,11 @@ class ActionGrantSelector
     /**
      * Password when granteeType is gst
      * 
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("pw")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -93,6 +123,11 @@ class ActionGrantSelector
 
     /**
      * Optional argument.  Access key when granteeType is "key"
+     * 
+     * @Accessor(getter="getAccessKey", setter="setAccessKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

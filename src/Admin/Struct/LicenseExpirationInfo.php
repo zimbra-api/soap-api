@@ -26,6 +26,11 @@ class LicenseExpirationInfo
     /**
      * Expiration date in format : YYYYMMDD
      * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("date")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]

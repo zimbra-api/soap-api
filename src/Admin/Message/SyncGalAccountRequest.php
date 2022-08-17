@@ -32,6 +32,10 @@ class SyncGalAccountRequest extends SoapRequest
     /**
      * Sync GalAccount specification
      * 
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @Type("array<Zimbra\Admin\Struct\SyncGalAccountSpec>")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]

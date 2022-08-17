@@ -27,6 +27,11 @@ class Policy
     /**
      * Retention policy type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\Type>")
+     * @XmlAttribute
+     * 
      * @var EnumType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -37,6 +42,11 @@ class Policy
 
     /**
      * The id
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class Policy
     /**
      * The name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -59,6 +74,11 @@ class Policy
 
     /**
      * The duration
+     * 
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

@@ -31,6 +31,11 @@ class GetCreateObjectAttrsRequest extends SoapRequest
     /**
      * Target
      * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Admin\Struct\TargetWithType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TargetWithType
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -46,6 +51,11 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * the domain can be speciffied by id or by nam
      * if {target-type} is domain, it is the domain name to be created.
      * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("Zimbra\Admin\Struct\DomainSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DomainSelector
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -59,6 +69,10 @@ class GetCreateObjectAttrsRequest extends SoapRequest
      * 
      * Optional if {target-type} is account/calresource, ignored otherwise
      * If missing, default cos of the domain will be used
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var CosSelector
      */

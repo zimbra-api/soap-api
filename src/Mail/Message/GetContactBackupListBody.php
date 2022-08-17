@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetContactBackupListBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetContactBackupListRequest")
+     * @Type("Zimbra\Mail\Message\GetContactBackupListRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetContactBackupListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetContactBackupListBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetContactBackupListResponse")
+     * @Type("Zimbra\Mail\Message\GetContactBackupListResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetContactBackupListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class ParentId
     /**
      * Item ID of parent
      * 
+     * @Accessor(getter="getParentId", setter="setParentId")
+     * @SerializedName("parentId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]

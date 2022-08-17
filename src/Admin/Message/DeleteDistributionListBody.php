@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteDistributionListBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeleteDistributionListRequest")
+     * @Type("Zimbra\Admin\Message\DeleteDistributionListRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteDistributionListRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeleteDistributionListBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeleteDistributionListResponse")
+     * @Type("Zimbra\Admin\Message\DeleteDistributionListResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteDistributionListResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

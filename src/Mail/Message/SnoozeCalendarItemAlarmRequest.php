@@ -29,6 +29,10 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
     /**
      * Details of appt alarms
      * 
+     * @Accessor(getter="getApptAlarms", setter="setApptAlarms")
+     * @Type("array<Zimbra\Mail\Struct\SnoozeAppointmentAlarm>")
+     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getApptAlarms', setter: 'setApptAlarms')]
@@ -38,6 +42,10 @@ class SnoozeCalendarItemAlarmRequest extends SoapRequest
 
     /**
      * Details of task alarms
+     * 
+     * @Accessor(getter="getTaskAlarms", setter="setTaskAlarms")
+     * @Type("array<Zimbra\Mail\Struct\SnoozeTaskAlarm>")
+     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */

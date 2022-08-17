@@ -27,6 +27,10 @@ class RightsEntriesInfo
     /**
      * Entries
      * 
+     * @Accessor(getter="getEntries", setter="setEntries")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
+     * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getEntries', setter: 'setEntries')]
@@ -36,6 +40,11 @@ class RightsEntriesInfo
 
     /**
      * Effective rights
+     * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("rights")
+     * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var EffectiveRightsInfo
      */

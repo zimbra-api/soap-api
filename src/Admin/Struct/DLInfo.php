@@ -26,6 +26,12 @@ class DLInfo extends AdminObjectInfo
     /**
      * Is dynamic
      * 
+     * Flags whether a group is dynamic or not
+     * @Accessor(getter="isDynamic", setter="setDynamic")
+     * @SerializedName("dynamic")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isDynamic', setter: 'setDynamic')]
@@ -38,6 +44,11 @@ class DLInfo extends AdminObjectInfo
      * Via
      * Present if the account is a member of the returned list because they are either a
      * direct or indirect member of another list that is a member of the returned list.
+     * 
+     * @Accessor(getter="getVia", setter="setVia")
+     * @SerializedName("via")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

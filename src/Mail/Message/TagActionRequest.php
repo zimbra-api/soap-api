@@ -32,6 +32,11 @@ class TagActionRequest extends SoapRequest
      * Supported operations: "read|!read|color|delete|rename|update|retentionpolicy"
      * If op="update", the caller can specify "name" and/or "color"
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Mail\Struct\TagActionSelector")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var TagActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

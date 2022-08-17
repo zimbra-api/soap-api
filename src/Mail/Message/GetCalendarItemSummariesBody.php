@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetCalendarItemSummariesBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetCalendarItemSummariesRequest")
+     * @Type("Zimbra\Mail\Message\GetCalendarItemSummariesRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCalendarItemSummariesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetCalendarItemSummariesBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetCalendarItemSummariesResponse")
+     * @Type("Zimbra\Mail\Message\GetCalendarItemSummariesResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCalendarItemSummariesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

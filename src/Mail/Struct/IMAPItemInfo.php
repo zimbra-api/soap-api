@@ -26,6 +26,11 @@ class IMAPItemInfo
     /**
      * Message ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class IMAPItemInfo
 
     /**
      * IMAP UID
+     * 
+     * @Accessor(getter="getImapUid", setter="setImapUid")
+     * @SerializedName("i4uid")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

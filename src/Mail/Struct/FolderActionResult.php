@@ -27,6 +27,11 @@ class FolderActionResult extends ActionResult
     /**
      * Grantee Zimbra ID
      * 
+     * @Accessor(getter="getZimbraId", setter="setZimbraId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -38,6 +43,11 @@ class FolderActionResult extends ActionResult
     /**
      * Display name
      * 
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -48,6 +58,11 @@ class FolderActionResult extends ActionResult
 
     /**
      * Access key (Password)
+     * 
+     * @Accessor(getter="getAccessKey", setter="setAccessKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

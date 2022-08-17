@@ -28,6 +28,11 @@ class RenameDistributionListRequest extends SoapRequest
     /**
      * Zimbra ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -38,6 +43,11 @@ class RenameDistributionListRequest extends SoapRequest
 
     /**
      * New Distribution List name
+     * 
+     * @Accessor(getter="getNewName", setter="setNewName")
+     * @SerializedName("newName")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

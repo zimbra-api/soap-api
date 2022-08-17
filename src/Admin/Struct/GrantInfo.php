@@ -26,6 +26,11 @@ class GrantInfo
     /**
      * Information on target
      * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Admin\Struct\TypeIdName")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TypeIdName
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -37,6 +42,11 @@ class GrantInfo
     /**
      * Information on grantee
      * 
+     * @Accessor(getter="getGrantee", setter="setGrantee")
+     * @SerializedName("grantee")
+     * @Type("Zimbra\Admin\Struct\GranteeInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeInfo
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -47,6 +57,11 @@ class GrantInfo
 
     /**
      * Information on right
+     * 
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("Zimbra\Admin\Struct\RightModifierInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var RightModifierInfo
      */

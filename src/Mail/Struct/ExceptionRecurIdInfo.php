@@ -43,6 +43,11 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
      *         20050612  June 12, 2005
      *         20050315T18302305Z  March 15, 2005 6:30:23.05 PM UTC
      * 
+     * @Accessor(getter="getDateTime", setter="setDateTime")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
@@ -54,6 +59,11 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
     /**
      * Java timezone identifier
      * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
@@ -64,6 +74,11 @@ class ExceptionRecurIdInfo implements ExceptionRecurIdInfoInterface
 
     /**
      * Range type - 1 means NONE, 2 means THISANDFUTURE, 3 means THISANDPRIOR
+     * 
+     * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
+     * @SerializedName("rangeType")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

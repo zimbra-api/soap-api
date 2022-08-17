@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CountAccountBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CountAccountRequest")
+     * @Type("Zimbra\Admin\Message\CountAccountRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CountAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CountAccountBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CountAccountResponse")
+     * @Type("Zimbra\Admin\Message\CountAccountResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CountAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

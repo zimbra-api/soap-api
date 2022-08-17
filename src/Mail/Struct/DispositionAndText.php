@@ -27,6 +27,11 @@ class DispositionAndText
      * Disposition.  Sections of text that are identical to both versions are indicated with
      * disp="common".  For each conflict the chunk will show disp="first" or disp="second"
      * 
+     * @Accessor(getter="getDisposition", setter="setDisposition")
+     * @SerializedName("disp")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisposition', setter: 'setDisposition')]
@@ -37,6 +42,10 @@ class DispositionAndText
 
     /**
      * Text
+     * 
+     * @Accessor(getter="getText", setter="setText")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

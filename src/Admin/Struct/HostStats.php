@@ -26,6 +26,11 @@ class HostStats
     /**
      * Hostname
      * 
+     * @Accessor(getter="getHostName", setter="setHostName")
+     * @SerializedName("hn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getHostName', setter: 'setHostName')]
@@ -36,6 +41,11 @@ class HostStats
 
     /**
      * Stats information
+     * 
+     * @Accessor(getter="getStats", setter="setStats")
+     * @SerializedName("stats")
+     * @Type("Zimbra\Admin\Struct\StatsInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var StatsInfo
      */

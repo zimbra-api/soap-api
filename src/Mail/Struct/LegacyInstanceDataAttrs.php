@@ -27,6 +27,11 @@ class LegacyInstanceDataAttrs extends CommonInstanceDataAttrs
     /**
      * Duration
      * 
+     * @Accessor(getter="getDuration", setter="setDuration")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]

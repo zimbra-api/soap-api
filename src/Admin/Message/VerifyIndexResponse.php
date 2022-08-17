@@ -27,6 +27,11 @@ class VerifyIndexResponse extends SoapResponse
     /**
      * Result status of verification.  Valid values "true" and "false" (Not "1" and "0")
      * 
+     * @Accessor(getter="isStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isStatus', setter: 'setStatus')]
@@ -37,6 +42,11 @@ class VerifyIndexResponse extends SoapResponse
 
     /**
      * Verification output
+     * 
+     * @Accessor(getter="getMessage", setter="setMessage")
+     * @SerializedName("message")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

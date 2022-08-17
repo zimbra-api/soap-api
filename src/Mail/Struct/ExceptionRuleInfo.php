@@ -28,6 +28,11 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
     /**
      * Dates or rules which ADD instances. ADDs are evaluated before EXCLUDEs
      * 
+     * @Accessor(getter="getAdd", setter="setAdd")
+     * @SerializedName("add")
+     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecurrenceInfoInterface
      */
     #[Accessor(getter: "getAdd", setter: "setAdd")]
@@ -38,6 +43,11 @@ class ExceptionRuleInfo extends RecurIdInfo implements RecurRuleBase, ExceptionR
 
     /**
      * Dates or rules which EXCLUDE instances
+     * 
+     * @Accessor(getter="getExclude", setter="setExclude")
+     * @SerializedName("exclude")
+     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RecurrenceInfoInterface
      */

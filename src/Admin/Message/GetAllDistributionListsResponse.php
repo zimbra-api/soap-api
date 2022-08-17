@@ -28,6 +28,10 @@ class GetAllDistributionListsResponse extends SoapResponse
     /**
      * Information on distribution lists
      * 
+     * @Accessor(getter="getDls", setter="setDls")
+     * @Type("array<Zimbra\Admin\Struct\DistributionListInfo>")
+     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDls', setter: 'setDls')]

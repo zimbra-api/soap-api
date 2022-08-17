@@ -27,6 +27,11 @@ class UcServiceSelector
     /**
      * Selects the meaning of {ucservice-key}
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\UcServiceBy>")
+     * @XmlAttribute
+     * 
      * @var UcServiceBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -37,6 +42,10 @@ class UcServiceSelector
 
     /**
      * Key for choosing ucservice
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

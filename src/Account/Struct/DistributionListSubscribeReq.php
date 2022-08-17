@@ -27,6 +27,11 @@ class DistributionListSubscribeReq
     /**
      * operation
      * 
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
+     * @XmlAttribute
+     * 
      * @var DistributionListSubscribeOp
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -36,6 +41,10 @@ class DistributionListSubscribeReq
     private $op;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -45,6 +54,11 @@ class DistributionListSubscribeReq
 
     /**
      * Flag whether to bcc all other owners on the accept/reject notification emails.
+     * 
+     * @Accessor(getter="getBccOwners", setter="setBccOwners")
+     * @SerializedName("bccOwners")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

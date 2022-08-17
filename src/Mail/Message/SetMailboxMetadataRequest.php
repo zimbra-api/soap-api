@@ -33,6 +33,11 @@ class SetMailboxMetadataRequest extends SoapRequest
     /**
      * New metadata information
      * 
+     * @Accessor(getter="getMetadata", setter="setMetadata")
+     * @SerializedName("meta")
+     * @Type("Zimbra\Mail\Struct\MailCustomMetadata")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MailCustomMetadata
      */
     #[Accessor(getter: "getMetadata", setter: "setMetadata")]

@@ -32,6 +32,11 @@ class GetMiniCalRequest extends SoapRequest
     /**
      * Range start time in milliseconds
      * 
+     * @Accessor(getter="getStartTime", setter="setStartTime")
+     * @SerializedName("s")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -42,6 +47,11 @@ class GetMiniCalRequest extends SoapRequest
 
     /**
      * Range end time in milliseconds
+     * 
+     * @Accessor(getter="getEndTime", setter="setEndTime")
+     * @SerializedName("e")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -54,6 +64,10 @@ class GetMiniCalRequest extends SoapRequest
     /**
      * Local and/or remote calendar folders
      * 
+     * @Accessor(getter="getFolders", setter="setFolders")
+     * @Type("array<Zimbra\Common\Struct\Id>")
+     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFolders', setter: 'setFolders')]
@@ -64,6 +78,11 @@ class GetMiniCalRequest extends SoapRequest
     /**
      * Optional timezone specifier.  References an existing server-known timezone by ID or
      * the full specification of a custom timezone
+     * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("Zimbra\Mail\Struct\CalTZInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CalTZInfo
      */

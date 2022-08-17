@@ -27,6 +27,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Sort field value
      * 
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
@@ -37,6 +42,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
 
     /**
      * Date
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -49,6 +59,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Set if the message matched the specified query string
      * 
+     * @Accessor(getter="getContentMatched", setter="setContentMatched")
+     * @SerializedName("cm")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
@@ -59,6 +74,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
 
     /**
      * Time in millis to show the alarm
+     * 
+     * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
+     * @SerializedName("nextAlarm")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -71,6 +91,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Organizer
      * 
+     * @Accessor(getter="getOrganizer", setter="setOrganizer")
+     * @SerializedName("or")
+     * @Type("Zimbra\Mail\Struct\CalOrganizer")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalOrganizer
      */
     #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
@@ -82,6 +107,10 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Categories
      * 
+     * @Accessor(getter="getCategories", setter="setCategories")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
@@ -91,6 +120,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
 
     /**
      * Information for iCalendar GEO property
+     * 
+     * @Accessor(getter="getGeo", setter="setGeo")
+     * @SerializedName("geo")
+     * @Type("Zimbra\Mail\Struct\GeoInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var GeoInfo
      */
@@ -103,6 +137,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
      * 
+     * @Accessor(getter="getFragment", setter="setFragment")
+     * @SerializedName("fr")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getFragment", setter: "setFragment")]
@@ -114,6 +153,10 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Data for instances
      * 
+     * @Accessor(getter="getInstances", setter="setInstances")
+     * @Type("array<Zimbra\Mail\Struct\InstanceDataInfo>")
+     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]
@@ -123,6 +166,11 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
 
     /**
      * Alarm information
+     * 
+     * @Accessor(getter="getAlarmData", setter="setAlarmData")
+     * @SerializedName("alarmData")
+     * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AlarmDataInfo
      */
@@ -135,6 +183,10 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
     /**
      * Invites
      * 
+     * @Accessor(getter="getInvites", setter="setInvites")
+     * @Type("array<Zimbra\Mail\Struct\Invitation>")
+     * @XmlList(inline=true, entry="inv", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getInvites', setter: 'setInvites')]
@@ -144,6 +196,12 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
 
     /**
      * Replies
+     * 
+     * @Accessor(getter="getReplies", setter="setReplies")
+     * @SerializedName("replies")
+     * @Type("array<Zimbra\Mail\Struct\CalReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      * 
      * @var array
      */

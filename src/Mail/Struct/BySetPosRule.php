@@ -26,8 +26,13 @@ use Zimbra\Common\Struct\BySetPosRuleInterface;
 class BySetPosRule implements BySetPosRuleInterface
 {
     /**
-     * Format [[+]|-]num[,...] where num is from 1 to 366
+     * Format <b>[[+]|-]num[,...]</b> where num is from 1 to 366
      * <bysetpos> MUST only be used in conjunction with another <byXXX> element.
+     * 
+     * @Accessor(getter="getList", setter="setList")
+     * @SerializedName("poslist")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

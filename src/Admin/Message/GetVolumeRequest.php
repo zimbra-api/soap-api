@@ -28,6 +28,11 @@ class GetVolumeRequest extends SoapRequest
     /**
      * ID of volume
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

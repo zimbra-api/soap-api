@@ -21,12 +21,19 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
+ * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
+ * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class VerifyIndexEnvelope extends SoapEnvelope
 {
     /**
+     * @Accessor(getter="getBody", setter="setBody")
+     * @SerializedName("Body")
+     * @Type("Zimbra\Admin\Message\VerifyIndexBody")
+     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * 
      * @var VerifyIndexBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]

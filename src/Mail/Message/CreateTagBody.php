@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateTagBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateTagRequest")
+     * @Type("Zimbra\Mail\Message\CreateTagRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateTagRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateTagBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateTagResponse")
+     * @Type("Zimbra\Mail\Message\CreateTagResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateTagResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

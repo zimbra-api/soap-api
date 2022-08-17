@@ -27,6 +27,11 @@ class FreeBusyUserSpec
     /**
      * Calendar folder ID; if omitted, get f/b on all calendar folders
      * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -38,6 +43,11 @@ class FreeBusyUserSpec
     /**
      * Zimbra ID. Either "name" or "id" must be specified
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,6 +58,11 @@ class FreeBusyUserSpec
 
     /**
      * Email address.  Either "name" or "id" must be specified
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

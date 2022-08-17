@@ -28,6 +28,11 @@ use Zimbra\Common\Enum\Operation;
 class DistributionListAction extends AccountKeyValuePairs
 {
     /**
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\Operation>")
+     * @XmlAttribute
+     * 
      * @var Operation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -37,6 +42,11 @@ class DistributionListAction extends AccountKeyValuePairs
     private $op;
 
     /**
+     * @Accessor(getter="getNewName", setter="setNewName")
+     * @SerializedName("newName")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getNewName', setter: 'setNewName')]
@@ -46,6 +56,11 @@ class DistributionListAction extends AccountKeyValuePairs
     private $newName;
 
     /**
+     * @Accessor(getter="getSubsReq", setter="setSubsReq")
+     * @SerializedName("subsReq")
+     * @Type("Zimbra\Account\Struct\DistributionListSubscribeReq")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var Subscribe
      */
     #[Accessor(getter: 'getSubsReq', setter: 'setSubsReq')]
@@ -55,6 +70,10 @@ class DistributionListAction extends AccountKeyValuePairs
     private $subsReq;
 
     /**
+     * @Accessor(getter="getMembers", setter="setMembers")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
@@ -63,6 +82,10 @@ class DistributionListAction extends AccountKeyValuePairs
     private $members = [];
 
     /**
+     * @Accessor(getter="getOwners", setter="setOwners")
+     * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
+     * @XmlList(inline=true, entry="owner", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getOwners', setter: 'setOwners')]
@@ -71,6 +94,10 @@ class DistributionListAction extends AccountKeyValuePairs
     private $owners = [];
 
     /**
+     * @Accessor(getter="getRights", setter="setRights")
+     * @Type("array<Zimbra\Account\Struct\DistributionListRightSpec>")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]

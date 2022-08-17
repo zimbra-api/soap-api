@@ -31,6 +31,11 @@ class ByMonthDayRule implements ByMonthDayRuleInterface
      * e.g. modaylist="1,+2,-7"
      * means first day of the month, plus the 2nd day of the month, plus the 7th from last day of the month.
      * 
+     * @Accessor(getter="getList", setter="setList")
+     * @SerializedName("modaylist")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]

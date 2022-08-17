@@ -30,6 +30,11 @@ class GetRightRequest extends SoapRequest
      * 0 (false) [default]: do not include all attribute names in the <attrs> elements 
      * 1 (true): include all attribute names in the <attrs> elements 
      * 
+     * @Accessor(getter="getExpandAllAttrs", setter="setExpandAllAttrs")
+     * @SerializedName("expandAllAttrs")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getExpandAllAttrs', setter: 'setExpandAllAttrs')]
@@ -40,6 +45,11 @@ class GetRightRequest extends SoapRequest
 
     /**
      * Right name
+     * 
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

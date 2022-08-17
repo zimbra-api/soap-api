@@ -26,6 +26,10 @@ trait KeyValuePairsTrait
     /**
      * Key value pairs
      * 
+     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline=true, entry="a")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]

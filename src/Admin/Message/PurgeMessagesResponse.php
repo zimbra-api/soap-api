@@ -28,6 +28,10 @@ class PurgeMessagesResponse extends SoapResponse
     /**
      * Information about mailboxes where aged messages have been purged
      * 
+     * @Accessor(getter="getMailboxes", setter="setMailboxes")
+     * @Type("array<Zimbra\Admin\Struct\MailboxWithMailboxId>")
+     * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMailboxes', setter: 'setMailboxes')]

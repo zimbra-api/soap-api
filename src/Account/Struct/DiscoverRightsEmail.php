@@ -26,6 +26,11 @@ class DiscoverRightsEmail
     /**
      * Email address
      * 
+     * @Accessor(getter="getAddr", setter="setAddr")
+     * @SerializedName("addr")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAddr', setter: 'setAddr')]

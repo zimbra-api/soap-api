@@ -28,6 +28,11 @@ class BrowseData
      * Set for domains. Indicates whether or not the domain was from the "From", "To", or "Cc" header.
      * Valid flags are always one of: "f", "t", "ft", "c", "fc", "tc", "ftc"
      * 
+     * @Accessor(getter="getBrowseDomainHeader", setter="setBrowseDomainHeader")
+     * @SerializedName("h")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getBrowseDomainHeader', setter: 'setBrowseDomainHeader')]
@@ -38,6 +43,11 @@ class BrowseData
 
     /**
      * Frequency count
+     * 
+     * @Accessor(getter="getFrequency", setter="setFrequency")
+     * @SerializedName("freq")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -52,6 +62,10 @@ class BrowseData
      * for attachments: content type (application/msword)
      * for objects: object type (url, etc)
      * for domains: domains (stanford.edu, etc)
+     * 
+     * @Accessor(getter="getData", setter="setData")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

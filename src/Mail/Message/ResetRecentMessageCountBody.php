@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ResetRecentMessageCountBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ResetRecentMessageCountRequest")
+     * @Type("Zimbra\Mail\Message\ResetRecentMessageCountRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ResetRecentMessageCountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ResetRecentMessageCountBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ResetRecentMessageCountResponse")
+     * @Type("Zimbra\Mail\Message\ResetRecentMessageCountResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ResetRecentMessageCountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class IMAPCopyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("IMAPCopyRequest")
+     * @Type("Zimbra\Mail\Message\IMAPCopyRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var IMAPCopyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class IMAPCopyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("IMAPCopyResponse")
+     * @Type("Zimbra\Mail\Message\IMAPCopyResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var IMAPCopyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

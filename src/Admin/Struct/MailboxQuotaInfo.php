@@ -26,6 +26,11 @@ class MailboxQuotaInfo
     /**
      * Account ID
      * 
+     * @Accessor(getter="getAccountId", setter="setAccountId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAccountId', setter: 'setAccountId')]
@@ -36,6 +41,11 @@ class MailboxQuotaInfo
 
     /**
      * Quota used
+     * 
+     * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
+     * @SerializedName("used")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

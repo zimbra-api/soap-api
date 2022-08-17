@@ -32,6 +32,11 @@ class DeleteMailboxRequest extends SoapRequest
     /**
      * Mailbox
      * 
+     * @Accessor(getter="getMbox", setter="setMbox")
+     * @SerializedName("mbox")
+     * @Type("Zimbra\Admin\Struct\MailboxByAccountIdSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Mailbox
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]

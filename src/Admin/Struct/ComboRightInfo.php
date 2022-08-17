@@ -25,6 +25,11 @@ use Zimbra\Common\Enum\RightType;
 class ComboRightInfo
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("n")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -34,6 +39,11 @@ class ComboRightInfo
     private $name;
 
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\RightType>")
+     * @XmlAttribute
+     * 
      * @var RightType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -43,6 +53,11 @@ class ComboRightInfo
     private $type;
 
     /**
+     * @Accessor(getter="getTargetType", setter="setTargetType")
+     * @SerializedName("targetType")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]

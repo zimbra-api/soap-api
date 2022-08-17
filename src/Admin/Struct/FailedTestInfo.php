@@ -26,6 +26,11 @@ class FailedTestInfo
     /**
      * Failed test name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class FailedTestInfo
 
     /**
      * Failed test execution time
+     * 
+     * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
+     * @SerializedName("execSeconds")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -48,6 +58,11 @@ class FailedTestInfo
     /**
      * Failed test class name
      * 
+     * @Accessor(getter="getClassName", setter="setClassName")
+     * @SerializedName("class")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getClassName', setter: 'setClassName')]
@@ -58,6 +73,10 @@ class FailedTestInfo
 
     /**
      * Text of any exception thrown during the test
+     * 
+     * @Accessor(getter="getThrowable", setter="setThrowable")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

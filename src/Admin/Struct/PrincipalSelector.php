@@ -27,6 +27,11 @@ class PrincipalSelector
     /**
      * Meaning determined by {principal-selector-by}
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\AutoProvPrincipalBy>")
+     * @XmlAttribute
+     * 
      * @var AutoProvPrincipalBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -37,6 +42,10 @@ class PrincipalSelector
 
     /**
      * The key used to identify the principal
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

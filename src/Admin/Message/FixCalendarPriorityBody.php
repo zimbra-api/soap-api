@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class FixCalendarPriorityBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("FixCalendarPriorityRequest")
+     * @Type("Zimbra\Admin\Message\FixCalendarPriorityRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var FixCalendarPriorityRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class FixCalendarPriorityBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("FixCalendarPriorityResponse")
+     * @Type("Zimbra\Admin\Message\FixCalendarPriorityResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var FixCalendarPriorityResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

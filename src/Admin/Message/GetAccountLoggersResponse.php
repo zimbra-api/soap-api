@@ -28,6 +28,10 @@ class GetAccountLoggersResponse extends SoapResponse
     /**
      * Information for custom loggers created for the given account since the last server start.
      * 
+     * @Accessor(getter="getLoggers", setter="setLoggers")
+     * @Type("array<Zimbra\Admin\Struct\LoggerInfo>")
+     * @XmlList(inline=true, entry="logger", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getLoggers', setter: 'setLoggers')]

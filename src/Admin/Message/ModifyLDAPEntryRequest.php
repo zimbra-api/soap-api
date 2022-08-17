@@ -31,6 +31,11 @@ class ModifyLDAPEntryRequest extends SoapRequest implements AdminAttrs
     /**
      * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
      * 
+     * @Accessor(getter="getDn", setter="setDn")
+     * @SerializedName("dn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDn', setter: 'setDn')]

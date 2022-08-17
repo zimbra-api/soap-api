@@ -27,6 +27,11 @@ class VCardInfo
     /**
      * Message ID.  Use in conjunction with part-identifier
      * 
+     * @Accessor(getter="getMessageId", setter="setMessageId")
+     * @SerializedName("mid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
@@ -37,6 +42,11 @@ class VCardInfo
 
     /**
      * Part identifier.  Use in conjunction with message-id
+     * 
+     * @Accessor(getter="getPart", setter="setPart")
+     * @SerializedName("part")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class VCardInfo
     /**
      * Uploaded attachment ID
      * 
+     * @Accessor(getter="getAttachId", setter="setAttachId")
+     * @SerializedName("aid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
@@ -59,6 +74,10 @@ class VCardInfo
 
     /**
      * inlined VCARD data
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue
      * 
      * @var string
      */

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class FolderActionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("FolderActionRequest")
+     * @Type("Zimbra\Mail\Message\FolderActionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FolderActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class FolderActionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("FolderActionResponse")
+     * @Type("Zimbra\Mail\Message\FolderActionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var FolderActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class MimeHeaderTest extends FilterTest
     /**
      * Comma separated list of header names
      * 
+     * @Accessor(getter="getHeaders", setter="setHeaders")
+     * @SerializedName("header")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
@@ -37,6 +42,11 @@ class MimeHeaderTest extends FilterTest
 
     /**
      * String comparison type - is|contains|matches
+     * 
+     * @Accessor(getter="getStringComparison", setter="setStringComparison")
+     * @SerializedName("stringComparison")
+     * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
+     * @XmlAttribute
      * 
      * @var StringComparison
      */
@@ -49,6 +59,11 @@ class MimeHeaderTest extends FilterTest
     /**
      * Value
      * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -59,6 +74,11 @@ class MimeHeaderTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
+     * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
+     * @SerializedName("caseSensitive")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

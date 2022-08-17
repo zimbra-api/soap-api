@@ -28,6 +28,11 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
      * Designates the zimbra host name for the properties.
      * Must be a valid Zimbra host name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,6 +43,10 @@ class AccountZimletHostConfigInfo implements ZimletHostConfigInfo
 
     /**
      * Host specifice zimlet configuration properties
+     * 
+     * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
+     * @Type("array<Zimbra\Account\Struct\AccountZimletProperty>")
+     * @XmlList(inline=true, entry="property", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

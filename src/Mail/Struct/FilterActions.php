@@ -26,6 +26,10 @@ class FilterActions
     /**
      * Filter variables
      * 
+     * @Accessor(getter="getFilterVariables", setter="setFilterVariables")
+     * @Type("array<Zimbra\Mail\Struct\FilterVariables>")
+     * @XmlList(inline=true, entry="filterVariables", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFilterVariables', setter: 'setFilterVariables')]
@@ -35,6 +39,10 @@ class FilterActions
 
     /**
      * Keep filter actions
+     * 
+     * @Accessor(getter="getKeepActions", setter="setKeepActions")
+     * @Type("array<Zimbra\Mail\Struct\KeepAction>")
+     * @XmlList(inline=true, entry="actionKeep", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -46,6 +54,10 @@ class FilterActions
     /**
      * Discard filter actions
      * 
+     * @Accessor(getter="getDiscardActions", setter="setDiscardActions")
+     * @Type("array<Zimbra\Mail\Struct\DiscardAction>")
+     * @XmlList(inline=true, entry="actionDiscard", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDiscardActions', setter: 'setDiscardActions')]
@@ -55,6 +67,10 @@ class FilterActions
 
     /**
      * File into filter actions
+     * 
+     * @Accessor(getter="getFileIntoActions", setter="setFileIntoActions")
+     * @Type("array<Zimbra\Mail\Struct\FileIntoAction>")
+     * @XmlList(inline=true, entry="actionFileInto", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -66,6 +82,10 @@ class FilterActions
     /**
      * Flag filter actions
      * 
+     * @Accessor(getter="getFlagActions", setter="setFlagActions")
+     * @Type("array<Zimbra\Mail\Struct\FlagAction>")
+     * @XmlList(inline=true, entry="actionFlag", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFlagActions', setter: 'setFlagActions')]
@@ -75,6 +95,10 @@ class FilterActions
 
     /**
      * Tag filter actions
+     * 
+     * @Accessor(getter="getTagActions", setter="setTagActions")
+     * @Type("array<Zimbra\Mail\Struct\TagAction>")
+     * @XmlList(inline=true, entry="actionTag", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -86,6 +110,10 @@ class FilterActions
     /**
      * Redirect filter actions
      * 
+     * @Accessor(getter="getRedirectActions", setter="setRedirectActions")
+     * @Type("array<Zimbra\Mail\Struct\RedirectAction>")
+     * @XmlList(inline=true, entry="actionRedirect", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRedirectActions', setter: 'setRedirectActions')]
@@ -95,6 +123,10 @@ class FilterActions
 
     /**
      * Reply filter actions
+     * 
+     * @Accessor(getter="getReplyActions", setter="setReplyActions")
+     * @Type("array<Zimbra\Mail\Struct\ReplyAction>")
+     * @XmlList(inline=true, entry="actionReply", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -106,6 +138,10 @@ class FilterActions
     /**
      * Notify filter actions
      * 
+     * @Accessor(getter="getNotifyActions", setter="setNotifyActions")
+     * @Type("array<Zimbra\Mail\Struct\NotifyAction>")
+     * @XmlList(inline=true, entry="actionNotify", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getNotifyActions', setter: 'setNotifyActions')]
@@ -115,6 +151,10 @@ class FilterActions
 
     /**
      * RFC compliant notify filter actions
+     * 
+     * @Accessor(getter="getRFCCompliantNotifyActions", setter="setRFCCompliantNotifyActions")
+     * @Type("array<Zimbra\Mail\Struct\RFCCompliantNotifyAction>")
+     * @XmlList(inline=true, entry="actionRFCCompliantNotify", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -126,6 +166,10 @@ class FilterActions
     /**
      * Stop filter actions
      * 
+     * @Accessor(getter="getStopActions", setter="setStopActions")
+     * @Type("array<Zimbra\Mail\Struct\StopAction>")
+     * @XmlList(inline=true, entry="actionStop", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getStopActions', setter: 'setStopActions')]
@@ -135,6 +179,10 @@ class FilterActions
 
     /**
      * Reject filter actions
+     * 
+     * @Accessor(getter="getRejectActions", setter="setRejectActions")
+     * @Type("array<Zimbra\Mail\Struct\RejectAction>")
+     * @XmlList(inline=true, entry="actionReject", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -146,6 +194,10 @@ class FilterActions
     /**
      * Ereject filter actions
      * 
+     * @Accessor(getter="getErejectActions", setter="setErejectActions")
+     * @Type("array<Zimbra\Mail\Struct\ErejectAction>")
+     * @XmlList(inline=true, entry="actionEreject", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getErejectActions', setter: 'setErejectActions')]
@@ -155,6 +207,10 @@ class FilterActions
 
     /**
      * Log filter actions
+     * 
+     * @Accessor(getter="getLogActions", setter="setLogActions")
+     * @Type("array<Zimbra\Mail\Struct\LogAction>")
+     * @XmlList(inline=true, entry="actionLog", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -166,6 +222,10 @@ class FilterActions
     /**
      * Add header filter actions
      * 
+     * @Accessor(getter="getAddheaderActions", setter="setAddheaderActions")
+     * @Type("array<Zimbra\Mail\Struct\AddheaderAction>")
+     * @XmlList(inline=true, entry="actionAddheader", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAddheaderActions', setter: 'setAddheaderActions')]
@@ -176,6 +236,10 @@ class FilterActions
     /**
      * Delete header filter actions
      * 
+     * @Accessor(getter="getDeleteheaderActions", setter="setDeleteheaderActions")
+     * @Type("array<Zimbra\Mail\Struct\DeleteheaderAction>")
+     * @XmlList(inline=true, entry="actionDeleteheader", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDeleteheaderActions', setter: 'setDeleteheaderActions')]
@@ -185,6 +249,10 @@ class FilterActions
 
     /**
      * Replace header filter actions
+     * 
+     * @Accessor(getter="getReplaceheaderActions", setter="setReplaceheaderActions")
+     * @Type("array<Zimbra\Mail\Struct\ReplaceheaderAction>")
+     * @XmlList(inline=true, entry="actionReplaceheader", namespace="urn:zimbraMail")
      * 
      * @var array
      */

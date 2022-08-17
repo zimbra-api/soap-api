@@ -33,6 +33,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * x uid
      * 
+     * @Accessor(getter="getXUid", setter="setXUid")
+     * @SerializedName("x_uid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getXUid', setter: 'setXUid')]
@@ -43,6 +48,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * iCalendar UID
+     * 
+     * @Accessor(getter="getUid", setter="setUid")
+     * @SerializedName("uid")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -55,6 +65,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Flags
      * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -65,6 +80,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
+     * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -77,6 +97,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Comma separated list of tag names
      * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -87,6 +112,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Folder ID
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -99,6 +129,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Size
      * 
+     * @Accessor(getter="getSize", setter="setSize")
+     * @SerializedName("s")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -109,6 +144,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Modified date in seconds
+     * 
+     * @Accessor(getter="getChangeDate", setter="setChangeDate")
+     * @SerializedName("md")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -121,6 +161,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Modified sequence
      * 
+     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
+     * @SerializedName("ms")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -132,6 +177,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
     /**
      * Revision number
      * 
+     * @Accessor(getter="getRevision", setter="setRevision")
+     * @SerializedName("rev")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
@@ -142,6 +192,11 @@ abstract class CommonCalendaringData extends InstanceDataAttrs
 
     /**
      * Appointment ID
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

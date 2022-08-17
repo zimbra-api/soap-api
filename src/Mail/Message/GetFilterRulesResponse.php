@@ -28,6 +28,12 @@ class GetFilterRulesResponse extends SoapResponse
     /**
      * Filter rules
      * 
+     * @Accessor(getter="getFilterRules", setter="setFilterRules")
+     * @SerializedName("filterRules")
+     * @Type("array<Zimbra\Mail\Struct\FilterRule>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]

@@ -28,6 +28,11 @@ class GetAccountMembershipRequest extends SoapRequest
     /**
      * Account
      * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AccountSelector
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

@@ -26,6 +26,11 @@ class SessionForWaitSet
     /**
      * Account ID
      * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -38,6 +43,11 @@ class SessionForWaitSet
      * Interest types - Either all or some combination of the letters: 
      * mcatd Which stand for Message, Contact, Appointment, Task and Document respectively
      * 
+     * @Accessor(getter="getInterests", setter="setInterests")
+     * @SerializedName("types")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getInterests', setter: 'setInterests')]
@@ -48,6 +58,11 @@ class SessionForWaitSet
 
     /**
      * Last known sync token
+     * 
+     * @Accessor(getter="getToken", setter="setToken")
+     * @SerializedName("token")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,6 +75,11 @@ class SessionForWaitSet
     /**
      * Mailbox sync token
      * 
+     * @Accessor(getter="getMboxSyncToken", setter="setMboxSyncToken")
+     * @SerializedName("mboxSyncToken")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getMboxSyncToken', setter: 'setMboxSyncToken')]
@@ -69,6 +89,11 @@ class SessionForWaitSet
     private $mboxSyncToken;
 
     /**
+     * @Accessor(getter="getMboxSyncTokenDiff", setter="setMboxSyncTokenDiff")
+     * @SerializedName("mboxSyncTokenDiff")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getMboxSyncTokenDiff', setter: 'setMboxSyncTokenDiff')]
@@ -80,6 +105,11 @@ class SessionForWaitSet
     /**
      * Account ID stored in WaitSetAccount object.  Differs from account value.
      * 
+     * @Accessor(getter="getAcctIdError", setter="setAcctIdError")
+     * @SerializedName("acctIdError")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAcctIdError', setter: 'setAcctIdError')]
@@ -90,6 +120,11 @@ class SessionForWaitSet
 
     /**
      * WaitSet session Information
+     * 
+     * @Accessor(getter="getWaitSetSession", setter="setWaitSetSession")
+     * @SerializedName("WaitSetSession")
+     * @Type("Zimbra\Admin\Struct\WaitSetSessionInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var WaitSetSessionInfo
      */

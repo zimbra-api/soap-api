@@ -27,6 +27,11 @@ class TzFixupRuleMatch
     /**
      * Simple element
      * 
+     * @Accessor(getter="getAny", setter="setAny")
+     * @SerializedName("any")
+     * @Type("Zimbra\Admin\Struct\SimpleElement")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SimpleElement
      */
     #[Accessor(getter: 'getAny', setter: 'setAny')]
@@ -37,6 +42,11 @@ class TzFixupRuleMatch
 
     /**
      * Tz ID
+     * 
+     * @Accessor(getter="getTzid", setter="setTzid")
+     * @SerializedName("tzid")
+     * @Type("Zimbra\Common\Struct\Id")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var Id
      */
@@ -49,6 +59,11 @@ class TzFixupRuleMatch
     /**
      * Offset
      * 
+     * @Accessor(getter="getNonDst", setter="setNonDst")
+     * @SerializedName("nonDst")
+     * @Type("Zimbra\Admin\Struct\Offset")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Offset
      */
     #[Accessor(getter: 'getNonDst', setter: 'setNonDst')]
@@ -60,6 +75,11 @@ class TzFixupRuleMatch
     /**
      * Rules
      * 
+     * @Accessor(getter="getRules", setter="setRules")
+     * @SerializedName("rules")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchRules")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatchRules
      */
     #[Accessor(getter: 'getRules', setter: 'setRules')]
@@ -70,6 +90,11 @@ class TzFixupRuleMatch
 
     /**
      * Dates
+     * 
+     * @Accessor(getter="getDates", setter="setDates")
+     * @SerializedName("dates")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatchDates")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var TzFixupRuleMatchDates
      */

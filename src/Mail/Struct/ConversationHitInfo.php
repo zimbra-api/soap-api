@@ -28,6 +28,11 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
     /**
      * Sort field value
      * 
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
@@ -38,6 +43,10 @@ class ConversationHitInfo extends ConversationSummary implements SearchHit
 
     /**
      * Hits
+     * 
+     * @Accessor(getter="getMessageHits", setter="setMessageHits")
+     * @Type("array<Zimbra\Mail\Struct\ConversationMsgHitInfo>")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */

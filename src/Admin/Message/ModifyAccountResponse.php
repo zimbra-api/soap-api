@@ -28,6 +28,11 @@ class ModifyAccountResponse extends SoapResponse
     /**
      * Information about the account
      * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Admin\Struct\AccountInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]

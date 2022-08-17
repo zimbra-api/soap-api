@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SearchDirectoryBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SearchDirectoryRequest")
+     * @Type("Zimbra\Admin\Message\SearchDirectoryRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchDirectoryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SearchDirectoryBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SearchDirectoryResponse")
+     * @Type("Zimbra\Admin\Message\SearchDirectoryResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchDirectoryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

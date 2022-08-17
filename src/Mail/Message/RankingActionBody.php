@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RankingActionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RankingActionRequest")
+     * @Type("Zimbra\Mail\Message\RankingActionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RankingActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RankingActionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RankingActionResponse")
+     * @Type("Zimbra\Mail\Message\RankingActionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RankingActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

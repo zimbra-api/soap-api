@@ -26,6 +26,11 @@ class TzFixupRule
     /**
      * Match
      * 
+     * @Accessor(getter="getMatch", setter="setMatch")
+     * @SerializedName("match")
+     * @Type("Zimbra\Admin\Struct\TzFixupRuleMatch")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TzFixupRuleMatch
      */
     #[Accessor(getter: 'getMatch', setter: 'setMatch')]
@@ -37,6 +42,11 @@ class TzFixupRule
     /**
      * Need either "touch" or "replace" but not both 
      * 
+     * @Accessor(getter="getTouch", setter="setTouch")
+     * @SerializedName("touch")
+     * @Type("Zimbra\Admin\Struct\SimpleElement")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SimpleElement
      */
     #[Accessor(getter: 'getTouch', setter: 'setTouch')]
@@ -47,6 +57,11 @@ class TzFixupRule
 
     /**
      * Replace any matching timezone with this timezone. Need either "touch" or "replace" but not both.
+     * 
+     * @Accessor(getter="getReplace", setter="setReplace")
+     * @SerializedName("replace")
+     * @Type("Zimbra\Admin\Struct\TzReplaceInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var TzReplaceInfo
      */

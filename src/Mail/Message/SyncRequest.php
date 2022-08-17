@@ -35,6 +35,11 @@ class SyncRequest extends SoapRequest
     /**
      * Token - not provided for initial sync
      * 
+     * @Accessor(getter="getToken", setter="setToken")
+     * @SerializedName("token")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
@@ -46,6 +51,11 @@ class SyncRequest extends SoapRequest
     /**
      * Calendar date. If present, omit all appointments and tasks that don't have
      * a recurrence ending after that time (specified in ms)
+     * 
+     * @Accessor(getter="getCalendarCutoff", setter="setCalendarCutoff")
+     * @SerializedName("calCutoff")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,6 +69,11 @@ class SyncRequest extends SoapRequest
      * Earliest Message date.  If present, omit all Messages and conversations that
      * are older than time (specified in seconds) "Note:value in seconds, unlike calCutoff which is in milliseconds"
      * 
+     * @Accessor(getter="getMsgCutoff", setter="setMsgCutoff")
+     * @SerializedName("msgCutoff")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getMsgCutoff', setter: 'setMsgCutoff')]
@@ -69,6 +84,11 @@ class SyncRequest extends SoapRequest
 
     /**
      * Root folder ID.  If present, we start sync there rather than at folder 11
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -81,6 +101,11 @@ class SyncRequest extends SoapRequest
     /**
      * If specified and set, deletes are also broken down by item type
      * 
+     * @Accessor(getter="getTypedDeletes", setter="setTypedDeletes")
+     * @SerializedName("typed")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getTypedDeletes', setter: 'setTypedDeletes')]
@@ -92,6 +117,11 @@ class SyncRequest extends SoapRequest
     /**
      * maximum number of deleted item ids returned in a response.
      * 
+     * @Accessor(getter="getDeleteLimit", setter="setDeleteLimit")
+     * @SerializedName("deleteLimit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDeleteLimit', setter: 'setDeleteLimit')]
@@ -102,6 +132,11 @@ class SyncRequest extends SoapRequest
 
     /**
      * maximum number of modified item ids returned in a response.
+     * 
+     * @Accessor(getter="getChangeLimit", setter="setChangeLimit")
+     * @SerializedName("changeLimit")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

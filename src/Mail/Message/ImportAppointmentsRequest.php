@@ -29,6 +29,11 @@ class ImportAppointmentsRequest extends SoapRequest
     /**
      * Optional folder ID to import appointments into
      * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -41,6 +46,11 @@ class ImportAppointmentsRequest extends SoapRequest
      * Content type
      * Only currently supported content type is "text/calendar" (and its nickname "ics")
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -51,6 +61,11 @@ class ImportAppointmentsRequest extends SoapRequest
 
     /**
      * Content specification
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("Zimbra\Mail\Struct\ContentSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ContentSpec
      */

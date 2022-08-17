@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetCommentsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetCommentsRequest")
+     * @Type("Zimbra\Mail\Message\GetCommentsRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCommentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetCommentsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetCommentsResponse")
+     * @Type("Zimbra\Mail\Message\GetCommentsResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetCommentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,6 +28,10 @@ class GetAccountMembershipResponse extends SoapResponse
     /**
      * List membership information
      * 
+     * @Accessor(getter="getDlList", setter="setDlList")
+     * @Type("array<Zimbra\Admin\Struct\DLInfo>")
+     * @XmlList(inline=true, entry="dl", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDlList', setter: 'setDlList')]

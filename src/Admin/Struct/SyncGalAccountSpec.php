@@ -27,6 +27,11 @@ class SyncGalAccountSpec
     /**
      * Account ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,10 @@ class SyncGalAccountSpec
 
     /**
      * SyncGalAccount data source specifications
+     * 
+     * @Accessor(getter="getDataSources", setter="setDataSources")
+     * @Type("array<Zimbra\Admin\Struct\SyncGalAccountDataSourceSpec>")
+     * @XmlList(inline=true, entry="datasource", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

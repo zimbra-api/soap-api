@@ -27,6 +27,11 @@ class ZimletAclStatusPri
     /**
      * Name of Class Of Service (COS)
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -37,6 +42,11 @@ class ZimletAclStatusPri
 
     /**
      * Zimlet ACL
+     * 
+     * @Accessor(getter="getAcl", setter="setAcl")
+     * @SerializedName("acl")
+     * @Type("Zimbra\Admin\Struct\ZimletAcl")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var ZimletAcl
      */
@@ -49,6 +59,11 @@ class ZimletAclStatusPri
     /**
      * Status - valid values for valueattribute - enabled|disabled
      * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Zimbra\Admin\Struct\ValueAttrib")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ValueAttrib
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
@@ -59,6 +74,11 @@ class ZimletAclStatusPri
 
     /**
      * Priority
+     * 
+     * @Accessor(getter="getPriority", setter="setPriority")
+     * @SerializedName("priority")
+     * @Type("Zimbra\Admin\Struct\IntegerValueAttrib")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var IntegerValueAttrib
      */

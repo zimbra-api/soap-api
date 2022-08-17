@@ -27,6 +27,11 @@ class TagSpec
     /**
      * Tag name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,6 +43,11 @@ class TagSpec
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
      * 
+     * @Accessor(getter="getRgb", setter="setRgb")
+     * @SerializedName("rgb")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
@@ -48,6 +58,11 @@ class TagSpec
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
+     * @Accessor(getter="getColor", setter="setColor")
+     * @SerializedName("color")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

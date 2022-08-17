@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class IntegerValueAttrib
 {
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

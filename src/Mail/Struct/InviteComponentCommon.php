@@ -29,6 +29,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Method
      * 
+     * @Accessor(getter="getMethod", setter="setMethod")
+     * @SerializedName("method")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getMethod', setter: 'setMethod')]
@@ -39,6 +44,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Component number of the invite
+     * 
+     * @Accessor(getter="getComponentNum", setter="setComponentNum")
+     * @SerializedName("compNum")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -51,6 +61,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
      * 
+     * @Accessor(getter="getRsvp", setter="setRsvp")
+     * @SerializedName("rsvp")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getRsvp', setter: 'setRsvp')]
@@ -61,6 +76,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Priority (0 - 9; default = 0)
+     * 
+     * @Accessor(getter="getPriority", setter="setPriority")
+     * @SerializedName("priority")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -73,6 +93,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -83,6 +108,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Location
+     * 
+     * @Accessor(getter="getLocation", setter="setLocation")
+     * @SerializedName("loc")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -95,6 +125,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Percent complete for VTODO (0 - 100; default = 0)
      * 
+     * @Accessor(getter="getPercentComplete", setter="setPercentComplete")
+     * @SerializedName("percentComplete")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPercentComplete', setter: 'setPercentComplete')]
@@ -106,6 +141,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * VTODO COMPLETED DATE-TIME in format: yyyyMMddThhmmssZ
      * 
+     * @Accessor(getter="getCompleted", setter="setCompleted")
+     * @SerializedName("completed")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCompleted', setter: 'setCompleted')]
@@ -116,6 +156,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Set if invite has no blob data, i.e. all data is in db metadata
+     * 
+     * @Accessor(getter="getNoBlob", setter="setNoBlob")
+     * @SerializedName("noBlob")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -129,6 +174,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * The "actual" free-busy status of this invite (ie what the client should display).
      * Valid values - F|B|T|U.  i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * 
+     * @Accessor(getter="getFreeBusyActual", setter="setFreeBusyActual")
+     * @SerializedName("fba")
+     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
+     * @XmlAttribute
+     * 
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusyActual', setter: 'setFreeBusyActual')]
@@ -141,6 +191,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * FreeBusy setting F|B|T|U
      * i.e. Free, Busy (default), busy-Tentative, OutOfOffice (busy-unavailable)
      * 
+     * @Accessor(getter="getFreeBusy", setter="setFreeBusy")
+     * @SerializedName("fb")
+     * @Type("Enum<Zimbra\Common\Enum\FreeBusyStatus>")
+     * @XmlAttribute
+     * 
      * @var FreeBusyStatus
      */
     #[Accessor(getter: 'getFreeBusy', setter: 'setFreeBusy')]
@@ -151,6 +206,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Transparency - O|T.  i.e. Opaque or Transparent
+     * 
+     * @Accessor(getter="getTransparency", setter="setTransparency")
+     * @SerializedName("transp")
+     * @Type("Enum<Zimbra\Common\Enum\Transparency>")
+     * @XmlAttribute
      * 
      * @var Transparency
      */
@@ -163,6 +223,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Am I the organizer?  [default 0 (false)]
      * 
+     * @Accessor(getter="getIsOrganizer", setter="setIsOrganizer")
+     * @SerializedName("isOrg")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getIsOrganizer', setter: 'setIsOrganizer')]
@@ -173,6 +238,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * x uid
+     * 
+     * @Accessor(getter="getXUid", setter="setXUid")
+     * @SerializedName("x_uid")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -185,6 +255,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * UID to use when creating appointment.  Optional: client can request the UID to use
      * 
+     * @Accessor(getter="getUid", setter="setUid")
+     * @SerializedName("uid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
@@ -195,6 +270,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Sequence number (default = 0)
+     * 
+     * @Accessor(getter="getSequence", setter="setSequence")
+     * @SerializedName("seq")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -207,6 +287,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Date - used for zdsync
      * 
+     * @Accessor(getter="getDateTime", setter="setDateTime")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]
@@ -217,6 +302,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Mail item ID of appointment
+     * 
+     * @Accessor(getter="getCalItemId", setter="setCalItemId")
+     * @SerializedName("calItemId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -229,6 +319,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Appointment ID (deprecated)
      * 
+     * @Accessor(getter="getDeprecatedApptId", setter="setDeprecatedApptId")
+     * @SerializedName("apptId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDeprecatedApptId', setter: 'setDeprecatedApptId')]
@@ -239,6 +334,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Folder of appointment
+     * 
+     * @Accessor(getter="getCalItemFolder", setter="setCalItemFolder")
+     * @SerializedName("ciFolder")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -253,6 +353,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
      * i.e. TENTative, CONFirmed, CANCelled, COMPleted, INPRogress, WAITING, DEFERRED
      * where waiting and Deferred are custom values not found in the iCalendar spec.
      * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Enum<Zimbra\Common\Enum\InviteStatus>")
+     * @XmlAttribute
+     * 
      * @var InviteStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
@@ -263,6 +368,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Class = PUB|PRI|CON.  i.e. PUBlic (default), PRIvate, CONfidential
+     * 
+     * @Accessor(getter="getCalClass", setter="setCalClass")
+     * @SerializedName("class")
+     * @Type("Enum<Zimbra\Common\Enum\InviteClass>")
+     * @XmlAttribute
      * 
      * @var InviteClass
      */
@@ -275,6 +385,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * URL
      * 
+     * @Accessor(getter="getUrl", setter="setUrl")
+     * @SerializedName("url")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -285,6 +400,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Set if this is invite is an exception
+     * 
+     * @Accessor(getter="getIsException", setter="setIsException")
+     * @SerializedName("ex")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -297,6 +417,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Recurrence-id string in UTC timezone
      * 
+     * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
+     * @SerializedName("ridZ")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRecurIdZ', setter: 'setRecurIdZ')]
@@ -307,6 +432,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Set if is an all day appointment
+     * 
+     * @Accessor(getter="getIsAllDay", setter="setIsAllDay")
+     * @SerializedName("allDay")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -319,6 +449,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Set if invite has changes that haven't been sent to attendees; for organizer only
      * 
+     * @Accessor(getter="getIsDraft", setter="setIsDraft")
+     * @SerializedName("draft")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getIsDraft', setter: 'setIsDraft')]
@@ -329,6 +464,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
 
     /**
      * Set if attendees were never notified of this invite; for organizer only
+     * 
+     * @Accessor(getter="getNeverSent", setter="setNeverSent")
+     * @SerializedName("neverSent")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -341,6 +481,11 @@ class InviteComponentCommon implements InviteComponentCommonInterface
     /**
      * Comma-separated list of changed data in an updated invite.
      * Possible values are "subject", "location", "time" (start time, end time, or duration), and "recurrence".
+     * 
+     * @Accessor(getter="getChanges", setter="setChanges")
+     * @SerializedName("changes")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

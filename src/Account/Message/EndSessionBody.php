@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class EndSessionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("EndSessionRequest")
+     * @Type("Zimbra\Account\Message\EndSessionRequest")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var EndSessionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class EndSessionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("EndSessionResponse")
+     * @Type("Zimbra\Account\Message\EndSessionResponse")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var EndSessionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Enum\ContactBackupStatus;
 class ContactBackupServer
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -34,6 +39,11 @@ class ContactBackupServer
     private $name;
 
     /**
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Enum<Zimbra\Common\Enum\ContactBackupStatus>")
+     * @XmlAttribute
+     * 
      * @var ContactBackupStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]

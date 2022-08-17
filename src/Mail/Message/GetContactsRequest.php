@@ -40,6 +40,11 @@ class GetContactsRequest extends SoapRequest
     /**
      * If set, return modified date (md) on contacts.
      * 
+     * @Accessor(getter="getSync", setter="setSync")
+     * @SerializedName("sync")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
@@ -50,6 +55,11 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * If is present, return only contacts in the specified folder.
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -62,6 +72,11 @@ class GetContactsRequest extends SoapRequest
     /**
      * Sort by
      * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -72,6 +87,11 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * If set, deref contact group members.
+     * 
+     * @Accessor(getter="getDerefGroupMember", setter="setDerefGroupMember")
+     * @SerializedName("derefGroupMember")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -84,6 +104,11 @@ class GetContactsRequest extends SoapRequest
     /**
      * If set, Include the list of contact groups this contact is a member of.
      * 
+     * @Accessor(getter="getIncludeMemberOf", setter="setIncludeMemberOf")
+     * @SerializedName("memberOf")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getIncludeMemberOf', setter: 'setIncludeMemberOf')]
@@ -94,6 +119,11 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * Whether to return contact hidden attrs defined in zimbraContactHiddenAttributes
+     * 
+     * @Accessor(getter="getReturnHiddenAttrs", setter="setReturnHiddenAttrs")
+     * @SerializedName("returnHiddenAttrs")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -106,6 +136,11 @@ class GetContactsRequest extends SoapRequest
     /**
      * Whether to return smime certificate info
      * 
+     * @Accessor(getter="getReturnCertInfo", setter="setReturnCertInfo")
+     * @SerializedName("returnCertInfo")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getReturnCertInfo', setter: 'setReturnCertInfo')]
@@ -116,6 +151,11 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * Set to return IMAP UID.  (default is unset.)
+     * 
+     * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
+     * @SerializedName("wantImapUid")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -128,6 +168,11 @@ class GetContactsRequest extends SoapRequest
     /**
      * Max members
      * 
+     * @Accessor(getter="getMaxMembers", setter="setMaxMembers")
+     * @SerializedName("maxMembers")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getMaxMembers', setter: 'setMaxMembers')]
@@ -138,6 +183,10 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * Attrs - if present, return only the specified attribute(s).
+     * 
+     * @Accessor(getter="getAttributes", setter="setAttributes")
+     * @Type("array<Zimbra\Common\Struct\AttributeName>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -150,6 +199,10 @@ class GetContactsRequest extends SoapRequest
      * If present, return only the specified attribute(s) for derefed members, applicable
      * only when derefGroupMember is set.
      * 
+     * @Accessor(getter="getMemberAttributes", setter="setMemberAttributes")
+     * @Type("array<Zimbra\Common\Struct\AttributeName>")
+     * @XmlList(inline=true, entry="ma", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMemberAttributes', setter: 'setMemberAttributes')]
@@ -159,6 +212,10 @@ class GetContactsRequest extends SoapRequest
 
     /**
      * If present, only get the specified contact(s).
+     * 
+     * @Accessor(getter="getContacts", setter="setContacts")
+     * @Type("array<Zimbra\Common\Struct\Id>")
+     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      * 
      * @var array
      */

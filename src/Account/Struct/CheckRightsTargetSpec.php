@@ -25,6 +25,11 @@ use Zimbra\Common\Enum\{TargetBy, TargetType};
 class CheckRightsTargetSpec
 {
     /**
+     * @Accessor(getter="getTargetType", setter="setTargetType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
+     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getTargetType', setter: 'setTargetType')]
@@ -34,6 +39,11 @@ class CheckRightsTargetSpec
     private $targetType;
 
     /**
+     * @Accessor(getter="getTargetBy", setter="setTargetBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
+     * @XmlAttribute
+     * 
      * @var TargetBy
      */
     #[Accessor(getter: 'getTargetBy', setter: 'setTargetBy')]
@@ -43,6 +53,11 @@ class CheckRightsTargetSpec
     private $targetBy;
 
     /**
+     * @Accessor(getter="getTargetKey", setter="setTargetKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTargetKey', setter: 'setTargetKey')]
@@ -52,6 +67,10 @@ class CheckRightsTargetSpec
     private $targetKey;
 
     /**
+     * @Accessor(getter="getRights", setter="setRights")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]

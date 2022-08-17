@@ -34,6 +34,11 @@ class RemoveAccountLoggerRequest extends SoapRequest
     /**
      * Logger category
      * 
+     * @Accessor(getter="getLogger", setter="setLogger")
+     * @SerializedName("logger")
+     * @Type("Zimbra\Admin\Struct\LoggerInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Logger
      */
     #[Accessor(getter: 'getLogger', setter: 'setLogger')]
@@ -45,6 +50,11 @@ class RemoveAccountLoggerRequest extends SoapRequest
     /**
      * Use to select account
      * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Account
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -55,6 +65,11 @@ class RemoveAccountLoggerRequest extends SoapRequest
 
     /**
      * id
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

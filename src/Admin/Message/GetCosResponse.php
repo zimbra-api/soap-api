@@ -28,6 +28,11 @@ class GetCosResponse extends SoapResponse
     /**
      * Information about Class of Service (COS)
      * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CosInfo
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]

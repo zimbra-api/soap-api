@@ -26,6 +26,11 @@ class NoteActionSelector extends ActionSelector
     /**
      * Content
      * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
@@ -36,6 +41,11 @@ class NoteActionSelector extends ActionSelector
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
+     * 
+     * @Accessor(getter="getBounds", setter="setBounds")
+     * @SerializedName("pos")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

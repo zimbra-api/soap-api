@@ -30,6 +30,11 @@ class ModifySystemRetentionPolicyRequest extends SoapRequest
     /**
      * COS
      * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CosSelector
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
@@ -40,6 +45,11 @@ class ModifySystemRetentionPolicyRequest extends SoapRequest
 
     /**
      * New policy
+     * 
+     * @Accessor(getter="getPolicy", setter="setPolicy")
+     * @SerializedName("policy")
+     * @Type("Zimbra\Mail\Struct\Policy")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Policy
      */

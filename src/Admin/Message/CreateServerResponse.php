@@ -28,6 +28,11 @@ class CreateServerResponse extends SoapResponse
     /**
      * Information about the newly created server
      * 
+     * @Accessor(getter="getServer", setter="setServer")
+     * @SerializedName("server")
+     * @Type("Zimbra\Admin\Struct\ServerInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ServerInfo
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

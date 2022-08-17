@@ -32,6 +32,11 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     /**
      * Target type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
+     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -42,6 +47,11 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * ID
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -54,6 +64,11 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
     /**
      * Name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -64,6 +79,10 @@ class ModifyDelegatedAdminConstraintsRequest extends SoapRequest
 
     /**
      * Constaint attributes
+     * 
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @Type("array<Zimbra\Admin\Struct\ConstraintAttr>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

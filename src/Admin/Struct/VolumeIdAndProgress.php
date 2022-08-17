@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class VolumeIdAndProgress
 {
     /**
+     * @Accessor(getter="getVolumeId", setter="setVolumeId")
+     * @SerializedName("volumeId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getVolumeId', setter: 'setVolumeId')]
@@ -33,6 +38,11 @@ class VolumeIdAndProgress
     private $volumeId;
 
     /**
+     * @Accessor(getter="getProgress", setter="setProgress")
+     * @SerializedName("progress")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getProgress', setter: 'setProgress')]

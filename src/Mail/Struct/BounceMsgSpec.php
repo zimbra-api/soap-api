@@ -26,6 +26,11 @@ class BounceMsgSpec
     /**
      * ID of message to resend
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,10 @@ class BounceMsgSpec
 
     /**
      * Email addresses
+     * 
+     * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
+     * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
+     * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
      * 
      * @var array
      */

@@ -33,6 +33,11 @@ class InstanceDataAttrs extends CommonInstanceDataAttrs
     /**
      * Duration
      * 
+     * @Accessor(getter="getDuration", setter="setDuration")
+     * @SerializedName("dur")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDuration', setter: 'setDuration')]

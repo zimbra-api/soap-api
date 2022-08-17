@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SnoozeCalendarItemAlarmBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SnoozeCalendarItemAlarmRequest")
+     * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SnoozeCalendarItemAlarmRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SnoozeCalendarItemAlarmBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SnoozeCalendarItemAlarmResponse")
+     * @Type("Zimbra\Mail\Message\SnoozeCalendarItemAlarmResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SnoozeCalendarItemAlarmResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

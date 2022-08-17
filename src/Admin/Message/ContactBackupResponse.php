@@ -29,6 +29,12 @@ class ContactBackupResponse extends SoapResponse
     /**
      * List of mailbox ids
      * 
+     * @Accessor(getter="getServers", setter="setServers")
+     * @SerializedName("servers")
+     * @Type("array<Zimbra\Admin\Struct\ContactBackupServer>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="server", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getServers', setter: 'setServers')]

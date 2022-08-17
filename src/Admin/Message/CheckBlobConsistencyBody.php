@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckBlobConsistencyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckBlobConsistencyRequest")
+     * @Type("Zimbra\Admin\Message\CheckBlobConsistencyRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckBlobConsistencyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckBlobConsistencyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckBlobConsistencyResponse")
+     * @Type("Zimbra\Admin\Message\CheckBlobConsistencyResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckBlobConsistencyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class AliasInfo extends AdminObjectInfo
     /**
      * Target name
      * 
+     * @Accessor(getter="getTargetName", setter="setTargetName")
+     * @SerializedName("targetName")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTargetName', setter: 'setTargetName')]
@@ -37,6 +42,11 @@ class AliasInfo extends AdminObjectInfo
 
     /**
      * Target type
+     * 
+     * @Accessor(getter="getTargetType", setter="setTargetType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
      * 
      * @var TargetType
      */

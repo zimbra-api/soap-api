@@ -31,6 +31,11 @@ class CreateLDAPEntryRequest extends SoapRequest implements AdminAttrs
     /**
      * A valid LDAP DN String (RFC 2253) that describes the new DN to create
      * 
+     * @Accessor(getter="getDn", setter="setDn")
+     * @SerializedName("dn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDn', setter: 'setDn')]

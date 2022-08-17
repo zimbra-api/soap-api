@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class VerifyIndexBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("VerifyIndexRequest")
+     * @Type("Zimbra\Admin\Message\VerifyIndexRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var VerifyIndexRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class VerifyIndexBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("VerifyIndexResponse")
+     * @Type("Zimbra\Admin\Message\VerifyIndexResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var VerifyIndexResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

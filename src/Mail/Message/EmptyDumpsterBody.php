@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class EmptyDumpsterBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("EmptyDumpsterRequest")
+     * @Type("Zimbra\Mail\Message\EmptyDumpsterRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var EmptyDumpsterRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class EmptyDumpsterBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("EmptyDumpsterResponse")
+     * @Type("Zimbra\Mail\Message\EmptyDumpsterResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var EmptyDumpsterResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

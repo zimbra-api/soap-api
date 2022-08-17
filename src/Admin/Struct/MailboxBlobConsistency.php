@@ -26,6 +26,11 @@ class MailboxBlobConsistency
     /**
      * Mailbox ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,12 @@ class MailboxBlobConsistency
 
     /**
      * Information about missing blobs
+     * 
+     * @Accessor(getter="getMissingBlobs", setter="setMissingBlobs")
+     * @SerializedName("missingBlobs")
+     * @Type("array<Zimbra\Admin\Struct\MissingBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -49,6 +60,12 @@ class MailboxBlobConsistency
     /**
      * Information about items with incorrect sizes
      * 
+     * @Accessor(getter="getIncorrectSizes", setter="setIncorrectSizes")
+     * @SerializedName("incorrectSizes")
+     * @Type("array<Zimbra\Admin\Struct\IncorrectBlobSizeInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getIncorrectSizes', setter: 'setIncorrectSizes')]
@@ -60,6 +77,12 @@ class MailboxBlobConsistency
 
     /**
      * Information about unexpected blobs
+     * 
+     * @Accessor(getter="getUnexpectedBlobs", setter="setUnexpectedBlobs")
+     * @SerializedName("unexpectedBlobs")
+     * @Type("array<Zimbra\Admin\Struct\UnexpectedBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="blob", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -73,6 +96,12 @@ class MailboxBlobConsistency
     /**
      * Information about items with incorrect revisions
      * 
+     * @Accessor(getter="getIncorrectRevisions", setter="setIncorrectRevisions")
+     * @SerializedName("incorrectRevisions")
+     * @Type("array<Zimbra\Admin\Struct\IncorrectBlobRevisionInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getIncorrectRevisions', setter: 'setIncorrectRevisions')]
@@ -84,6 +113,12 @@ class MailboxBlobConsistency
 
     /**
      * Information about used blobs
+     * 
+     * @Accessor(getter="getUsedBlobs", setter="setUsedBlobs")
+     * @SerializedName("usedBlobs")
+     * @Type("array<Zimbra\Admin\Struct\UsedBlobInfo>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="item", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

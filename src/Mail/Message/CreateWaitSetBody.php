@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateWaitSetBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateWaitSetRequest")
+     * @Type("Zimbra\Mail\Message\CreateWaitSetRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateWaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateWaitSetBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateWaitSetResponse")
+     * @Type("Zimbra\Mail\Message\CreateWaitSetResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateWaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

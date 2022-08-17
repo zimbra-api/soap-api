@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetShareInfoBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetShareInfoRequest")
+     * @Type("Zimbra\Admin\Message\GetShareInfoRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetShareInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetShareInfoBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetShareInfoResponse")
+     * @Type("Zimbra\Admin\Message\GetShareInfoResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetShareInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class DiscoverRightsTarget
     /**
      * Target type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
+     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -37,6 +42,11 @@ class DiscoverRightsTarget
 
     /**
      * Target ID
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class DiscoverRightsTarget
     /**
      * Target name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -60,6 +75,11 @@ class DiscoverRightsTarget
     /**
      * If a discovered target is an account or a group and the entry has a display name set then this is set to that display name.
      * 
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -70,6 +90,10 @@ class DiscoverRightsTarget
 
     /**
      * Email addresses
+     * 
+     * @Accessor(getter="getEmails", setter="setEmails")
+     * @Type("array<Zimbra\Account\Struct\DiscoverRightsEmail>")
+     * @XmlList(inline=true, entry="email", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

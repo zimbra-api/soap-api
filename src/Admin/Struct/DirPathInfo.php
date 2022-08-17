@@ -26,6 +26,11 @@ class DirPathInfo
     /**
      * Path
      * 
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
@@ -36,6 +41,11 @@ class DirPathInfo
 
     /**
      * Flag whether exists
+     * 
+     * @Accessor(getter="isExists", setter="setExists")
+     * @SerializedName("exists")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -48,6 +58,11 @@ class DirPathInfo
     /**
      * Flag whether is directory
      * 
+     * @Accessor(getter="isDirectory", setter="setIsDirectory")
+     * @SerializedName("isDirectory")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isDirectory', setter: 'setIsDirectory')]
@@ -59,6 +74,11 @@ class DirPathInfo
     /**
      * Path is readable
      * 
+     * @Accessor(getter="isReadable", setter="setReadable")
+     * @SerializedName("readable")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isReadable', setter: 'setReadable')]
@@ -69,6 +89,11 @@ class DirPathInfo
 
     /**
      * Path is writable
+     * 
+     * @Accessor(getter="isWritable", setter="setWritable")
+     * @SerializedName("writable")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

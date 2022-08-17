@@ -26,6 +26,11 @@ class ServerWithQueueAction
     /**
      * Mail queue query details
      * 
+     * @Accessor(getter="getQueue", setter="setQueue")
+     * @SerializedName("queue")
+     * @Type("Zimbra\Admin\Struct\MailQueueWithAction")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailQueueWithAction
      */
     #[Accessor(getter: 'getQueue', setter: 'setQueue')]
@@ -36,6 +41,11 @@ class ServerWithQueueAction
 
     /**
      * MTA Server
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

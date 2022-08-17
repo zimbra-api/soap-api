@@ -28,6 +28,11 @@ class DeleteMailboxResponse extends SoapResponse
     /**
      * Details of the deleted mailbox.
      * 
+     * @Accessor(getter="getMbox", setter="setMbox")
+     * @SerializedName("mbox")
+     * @Type("Zimbra\Admin\Struct\MailboxWithMailboxId")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailboxId
      */
     #[Accessor(getter: 'getMbox', setter: 'setMbox')]

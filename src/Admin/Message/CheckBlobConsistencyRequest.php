@@ -33,6 +33,11 @@ class CheckBlobConsistencyRequest extends SoapRequest
      * Set checkSize to 0 (false) to avoid the CPU overhead of uncompressing
      * compressed blobs in order to calculate size.
      * 
+     * @Accessor(getter="getCheckSize", setter="setCheckSize")
+     * @SerializedName("checkSize")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCheckSize', setter: 'setCheckSize')]
@@ -43,6 +48,11 @@ class CheckBlobConsistencyRequest extends SoapRequest
 
     /**
      * If set a complete list of all blobs used by the mailbox(es) is returned
+     * 
+     * @Accessor(getter="getReportUsedBlobs", setter="setReportUsedBlobs")
+     * @SerializedName("reportUsedBlobs")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -55,6 +65,10 @@ class CheckBlobConsistencyRequest extends SoapRequest
     /**
      * Volumes
      * 
+     * @Accessor(getter="getVolumes", setter="setVolumes")
+     * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
+     * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]
@@ -64,6 +78,10 @@ class CheckBlobConsistencyRequest extends SoapRequest
 
     /**
      * Mailboxes
+     * 
+     * @Accessor(getter="getMailboxes", setter="setMailboxes")
+     * @Type("array<Zimbra\Admin\Struct\IntIdAttr>")
+     * @XmlList(inline=true, entry="mbox", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

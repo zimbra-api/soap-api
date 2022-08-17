@@ -32,6 +32,11 @@ class ModifyCosRequest extends SoapRequest implements AdminAttrs
     /**
      * Zimbra ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

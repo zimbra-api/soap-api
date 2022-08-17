@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetContactsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetContactsRequest")
+     * @Type("Zimbra\Mail\Message\GetContactsRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetContactsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetContactsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetContactsResponse")
+     * @Type("Zimbra\Mail\Message\GetContactsResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetContactsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class EnableSharedReminderBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("EnableSharedReminderRequest")
+     * @Type("Zimbra\Mail\Message\EnableSharedReminderRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var EnableSharedReminderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class EnableSharedReminderBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("EnableSharedReminderResponse")
+     * @Type("Zimbra\Mail\Message\EnableSharedReminderResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var EnableSharedReminderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

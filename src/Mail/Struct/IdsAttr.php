@@ -26,6 +26,11 @@ class IdsAttr
     /**
      * IDs
      * 
+     * @Accessor(getter="getIds", setter="setIds")
+     * @SerializedName("ids")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]

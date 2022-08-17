@@ -29,6 +29,10 @@ class MailKeyValuePairs implements KeyValuePairs
     /**
      * Key value pairs
      * 
+     * @Accessor(getter="getKeyValuePairs", setter="setKeyValuePairs")
+     * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getKeyValuePairs', setter: 'setKeyValuePairs')]

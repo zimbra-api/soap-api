@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAdminExtensionZimletsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAdminExtensionZimletsRequest")
+     * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAdminExtensionZimletsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAdminExtensionZimletsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAdminExtensionZimletsResponse")
+     * @Type("Zimbra\Admin\Message\GetAdminExtensionZimletsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAdminExtensionZimletsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckHostnameResolveBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckHostnameResolveRequest")
+     * @Type("Zimbra\Admin\Message\CheckHostnameResolveRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckHostnameResolveRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckHostnameResolveBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckHostnameResolveResponse")
+     * @Type("Zimbra\Admin\Message\CheckHostnameResolveResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckHostnameResolveResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class NameAndValue
 {
     /**
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -33,6 +38,11 @@ class NameAndValue
     private $name;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

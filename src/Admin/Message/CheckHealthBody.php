@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckHealthBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckHealthRequest")
+     * @Type("Zimbra\Admin\Message\CheckHealthRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckHealthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckHealthBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckHealthResponse")
+     * @Type("Zimbra\Admin\Message\CheckHealthResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckHealthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class WildcardExpansionQueryInfo
     /**
      * Wildcard expansion string
      * 
+     * @Accessor(getter="getStr", setter="setStr")
+     * @SerializedName("str")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getStr', setter: 'setStr')]

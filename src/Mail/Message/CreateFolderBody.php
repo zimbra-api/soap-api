@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateFolderBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateFolderRequest")
+     * @Type("Zimbra\Mail\Message\CreateFolderRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateFolderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateFolderBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateFolderResponse")
+     * @Type("Zimbra\Mail\Message\CreateFolderResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateFolderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

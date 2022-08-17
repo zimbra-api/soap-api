@@ -27,6 +27,11 @@ class ZimletStatus
     /**
      * Zimlet name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -37,6 +42,11 @@ class ZimletStatus
 
     /**
      * Status
+     * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletStatusSetting>")
+     * @XmlAttribute
      * 
      * @var ZimletStatusSetting
      */
@@ -49,6 +59,11 @@ class ZimletStatus
     /**
      * Extension
      * 
+     * @Accessor(getter="getExtension", setter="setExtension")
+     * @SerializedName("extension")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getExtension', setter: 'setExtension')]
@@ -59,6 +74,11 @@ class ZimletStatus
 
     /**
      * Priority
+     * 
+     * @Accessor(getter="getPriority", setter="setPriority")
+     * @SerializedName("priority")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

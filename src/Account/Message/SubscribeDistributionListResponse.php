@@ -28,6 +28,11 @@ class SubscribeDistributionListResponse extends SoapResponse
     /**
      * Status of subscription attempt
      * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeStatus>")
+     * @XmlAttribute
+     * 
      * @var SubscribeStatus
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]

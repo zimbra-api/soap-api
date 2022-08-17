@@ -28,6 +28,11 @@ class GetUCServiceResponse extends SoapResponse
     /**
      * Information about ucservice
      * 
+     * @Accessor(getter="getUCService", setter="setUCService")
+     * @SerializedName("ucservice")
+     * @Type("Zimbra\Admin\Struct\UCServiceInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var UCServiceInfo
      */
     #[Accessor(getter: 'getUCService', setter: 'setUCService')]

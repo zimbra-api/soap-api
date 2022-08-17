@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AutoProvAccountBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("AutoProvAccountRequest")
+     * @Type("Zimbra\Admin\Message\AutoProvAccountRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AutoProvAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class AutoProvAccountBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("AutoProvAccountResponse")
+     * @Type("Zimbra\Admin\Message\AutoProvAccountResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AutoProvAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

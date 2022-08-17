@@ -28,6 +28,11 @@ class Grant
     /**
      * Rights - Some combination of (r)ead, (w)rite, (i)nsert, (d)elete, (a)dminister, workflow action (x), view (p)rivate, view (f)reebusy, (c)reate subfolder
      * 
+     * @Accessor(getter="getPerm", setter="setPerm")
+     * @SerializedName("perm")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPerm', setter: 'setPerm')]
@@ -38,6 +43,11 @@ class Grant
 
     /**
      * Grantee Type - usr | grp | cos | dom | all | pub | guest | key
+     * 
+     * @Accessor(getter="getGranteeType", setter="setGranteeType")
+     * @SerializedName("gt")
+     * @Type("Enum<Zimbra\Common\Enum\GrantGranteeType>")
+     * @XmlAttribute
      * 
      * @var GrantGranteeType
      */
@@ -50,6 +60,11 @@ class Grant
     /**
      * Grantee ID
      * 
+     * @Accessor(getter="getGranteeId", setter="setGranteeId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getGranteeId', setter: 'setGranteeId')]
@@ -60,6 +75,11 @@ class Grant
 
     /**
      * Time when this grant expires
+     * 
+     * @Accessor(getter="getExpiry", setter="setExpiry")
+     * @SerializedName("expiry")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -72,6 +92,11 @@ class Grant
     /**
      * Name or email address of the principal being granted rights.
      * 
+     * @Accessor(getter="getGranteeName", setter="setGranteeName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getGranteeName', setter: 'setGranteeName')]
@@ -83,6 +108,11 @@ class Grant
     /**
      * Password for when granteeType is guest
      * 
+     * @Accessor(getter="getGuestPassword", setter="setGuestPassword")
+     * @SerializedName("pw")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getGuestPassword', setter: 'setGuestPassword')]
@@ -93,6 +123,11 @@ class Grant
 
     /**
      * Access key when granteeType is key
+     * 
+     * @Accessor(getter="getAccessKey", setter="setAccessKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

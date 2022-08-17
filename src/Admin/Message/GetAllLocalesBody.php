@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllLocalesBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAllLocalesRequest")
+     * @Type("Zimbra\Admin\Message\GetAllLocalesRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllLocalesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAllLocalesBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAllLocalesResponse")
+     * @Type("Zimbra\Admin\Message\GetAllLocalesResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllLocalesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -31,6 +31,11 @@ class GetItemRequest extends SoapRequest
     /**
      * Item specification
      * 
+     * @Accessor(getter="getItem", setter="setItem")
+     * @SerializedName("item")
+     * @Type("Zimbra\Mail\Struct\ItemSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ItemSpec
      */
     #[Accessor(getter: "getItem", setter: "setItem")]

@@ -27,6 +27,10 @@ class GenerateUUIDResponse extends SoapResponse
     /**
      * Generated globally unique UUID
      * 
+     * @Accessor(getter="getUuid", setter="setUuid")
+     * @Type("string")
+     * @XmlValue
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]

@@ -30,6 +30,11 @@ class BulkAction
      * - read: mark the search result as read
      * - unread: mark the search result as unread
      * 
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\BulkOperation>")
+     * @XmlAttribute
+     * 
      * @var BulkOperation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -41,6 +46,11 @@ class BulkAction
     /**
      * Folder
      * Required if op="move". Folder pathname where all matching items should be moved.
+     * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

@@ -28,6 +28,11 @@ class ImportContactsResponse extends SoapResponse
     /**
      * Information about the import process
      * 
+     * @Accessor(getter="getContact", setter="setContact")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ImportContact")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImportContact
      */
     #[Accessor(getter: "getContact", setter: "setContact")]

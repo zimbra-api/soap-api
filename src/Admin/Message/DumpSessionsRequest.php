@@ -26,7 +26,12 @@ use Zimbra\Common\Struct\{SoapEnvelopeInterface, SoapRequest};
 class DumpSessionsRequest extends SoapRequest
 {
     /**
-     * List sessions flag
+     * List Sessions flag
+     * 
+     * @Accessor(getter="getIncludeAccounts", setter="setIncludeAccounts")
+     * @SerializedName("listSessions")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -38,6 +43,11 @@ class DumpSessionsRequest extends SoapRequest
 
     /**
      * Group by account flag
+     * 
+     * @Accessor(getter="getGroupByAccount", setter="setGroupByAccount")
+     * @SerializedName("groupByAccount")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

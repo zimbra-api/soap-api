@@ -27,6 +27,11 @@ class DateTest extends FilterTest
     /**
      * Date comparison setting - before|after
      * 
+     * @Accessor(getter="getDateComparison", setter="setDateComparison")
+     * @SerializedName("dateComparison")
+     * @Type("Enum<Zimbra\Common\Enum\DateComparison>")
+     * @XmlAttribute
+     * 
      * @var DateComparison
      */
     #[Accessor(getter: 'getDateComparison', setter: 'setDateComparison')]
@@ -37,6 +42,11 @@ class DateTest extends FilterTest
 
     /**
      * Date
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("date")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

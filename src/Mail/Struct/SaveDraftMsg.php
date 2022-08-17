@@ -27,6 +27,11 @@ class SaveDraftMsg extends Msg
     /**
      * Existing draft ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class SaveDraftMsg extends Msg
 
     /**
      * Account ID the draft is for
+     * 
+     * @Accessor(getter="getDraftAccountId", setter="setDraftAccountId")
+     * @SerializedName("forAcct")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class SaveDraftMsg extends Msg
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
@@ -59,6 +74,11 @@ class SaveDraftMsg extends Msg
 
     /**
      * Comma separated list of tag names
+     * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -71,6 +91,11 @@ class SaveDraftMsg extends Msg
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
      * 
+     * @Accessor(getter="getRgb", setter="setRgb")
+     * @SerializedName("rgb")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
@@ -82,6 +107,11 @@ class SaveDraftMsg extends Msg
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
+     * @Accessor(getter="getColor", setter="setColor")
+     * @SerializedName("color")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -92,6 +122,11 @@ class SaveDraftMsg extends Msg
 
     /**
      * Auto send time in milliseconds since the epoch
+     * 
+     * @Accessor(getter="getAutoSendTime", setter="setAutoSendTime")
+     * @SerializedName("autoSendTime")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

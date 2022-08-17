@@ -26,6 +26,11 @@ abstract class AttachSpec
     /**
      * Optional
      * 
+     * @Accessor(getter="getOptional", setter="setOptional")
+     * @SerializedName("optional")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getOptional', setter: 'setOptional')]

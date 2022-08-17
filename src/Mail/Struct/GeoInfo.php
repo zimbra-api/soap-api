@@ -28,6 +28,11 @@ class GeoInfo implements GeoInfoInterface
     /**
      * Latitude (float value)
      * 
+     * @Accessor(getter="getLatitude", setter="setLatitude")
+     * @SerializedName("lat")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getLatitude', setter: 'setLatitude')]
@@ -38,6 +43,11 @@ class GeoInfo implements GeoInfoInterface
 
     /**
      * Longitude (float value)
+     * 
+     * @Accessor(getter="getLongitude", setter="setLongitude")
+     * @SerializedName("lon")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

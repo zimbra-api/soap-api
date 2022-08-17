@@ -38,6 +38,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * If the key attribute contains multiple values then multiple <key> elements will appear in the response.
      * Entries are returned in ascending key order.
      * 
+     * @Accessor(getter="getKeyAttr", setter="setKeyAttr")
+     * @SerializedName("keyAttr")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getKeyAttr', setter: 'setKeyAttr')]
@@ -48,6 +53,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * Query string - should be an LDAP-style filter string (RFC 2254)
+     * 
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,6 +70,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     /**
      * Name to fill the auto provisioning search template configured on the domain 
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -70,6 +85,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * Maximum results that the backend will attempt to fetch from the directory before returning an account.TOO_MANY_SEARCH_RESULTS error.
+     * 
+     * @Accessor(getter="getMaxResults", setter="setMaxResults")
+     * @SerializedName("maxResults")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -82,6 +102,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
     /**
      * The maximum number of accounts to return (0 is default and means all)
      * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -92,6 +117,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * The starting offset (0, 25, etc)
+     * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -105,6 +135,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
      * Refresh - whether to always re-search in LDAP even when 
      * cached entries are available.  0 (false) is the default.
      * 
+     * @Accessor(getter="isRefresh", setter="setRefresh")
+     * @SerializedName("refresh")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isRefresh', setter: 'setRefresh')]
@@ -115,6 +150,11 @@ class SearchAutoProvDirectoryRequest extends SoapRequest implements AttributeSel
 
     /**
      * The domain name to limit the search to
+     * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("Zimbra\Admin\Struct\DomainSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var DomainSelector
      */

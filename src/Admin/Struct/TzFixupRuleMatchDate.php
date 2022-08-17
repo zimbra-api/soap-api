@@ -26,6 +26,11 @@ class TzFixupRuleMatchDate
     /**
      * Match month. Value between 1 (January) and 12 (December)
      * 
+     * @Accessor(getter="getMonth", setter="setMonth")
+     * @SerializedName("mon")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getMonth', setter: 'setMonth')]
@@ -36,6 +41,11 @@ class TzFixupRuleMatchDate
 
     /**
      * Match day of month (1..31)
+     * 
+     * @Accessor(getter="getMonthDay", setter="setMonthDay")
+     * @SerializedName("mday")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

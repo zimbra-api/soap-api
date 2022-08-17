@@ -26,6 +26,10 @@ class ComboRights
     /**
      * Rights information
      * 
+     * @Accessor(getter="getComboRights", setter="setComboRights")
+     * @Type("array<Zimbra\Admin\Struct\ComboRightInfo>")
+     * @XmlList(inline=true, entry="r", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getComboRights', setter: 'setComboRights')]

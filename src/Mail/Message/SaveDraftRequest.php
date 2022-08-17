@@ -40,6 +40,11 @@ class SaveDraftRequest extends SoapRequest
     /**
      * Set to return IMAP UID.  (default is unset.)
      * 
+     * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
+     * @SerializedName("wantImapUid")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantImapUid', setter: 'setWantImapUid')]
@@ -51,6 +56,11 @@ class SaveDraftRequest extends SoapRequest
     /**
      * Set to return Modified Sequence.  (default is unset.)
      * 
+     * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
+     * @SerializedName("wantModSeq")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
@@ -61,6 +71,11 @@ class SaveDraftRequest extends SoapRequest
 
     /**
      * Details of draft to save
+     * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\SaveDraftMsg")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SaveDraftMsg
      */

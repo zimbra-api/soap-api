@@ -26,6 +26,11 @@ class MailboxStats
     /**
      * Total number of mailboxes
      * 
+     * @Accessor(getter="getNumMboxes", setter="setNumMboxes")
+     * @SerializedName("numMboxes")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getNumMboxes', setter: 'setNumMboxes')]
@@ -36,6 +41,11 @@ class MailboxStats
 
     /**
      * Total size of all mailboxes
+     * 
+     * @Accessor(getter="getTotalSize", setter="setTotalSize")
+     * @SerializedName("totalSize")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

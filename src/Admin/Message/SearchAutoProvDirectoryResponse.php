@@ -28,6 +28,11 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     /**
      * 1 (true) if more entries to return
      * 
+     * @Accessor(getter="getMore", setter="setMore")
+     * @SerializedName("more")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -39,6 +44,11 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
     /**
      * Total number of accounts that matched search (not affected by limit/offset)
      * 
+     * @Accessor(getter="getSearchTotal", setter="setSearchTotal")
+     * @SerializedName("searchTotal")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getSearchTotal', setter: 'setSearchTotal')]
@@ -49,6 +59,10 @@ class SearchAutoProvDirectoryResponse extends SoapResponse
 
     /**
      * Entries
+     * 
+     * @Accessor(getter="getEntries", setter="setEntries")
+     * @Type("array<Zimbra\Admin\Struct\AutoProvDirectoryEntry>")
+     * @XmlList(inline=true, entry="entry", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

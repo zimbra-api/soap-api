@@ -29,6 +29,11 @@ class CreateContactResponse extends SoapResponse
      * Details of the contact.  Note that if verbose was not set in the request,
      * the returned <cn> is just a placeholder containing the new contact ID (i.e. <cn id="{id}"/>)
      * 
+     * @Accessor(getter="getContact", setter="setContact")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ContactInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ContactInfo
      */
     #[Accessor(getter: "getContact", setter: "setContact")]

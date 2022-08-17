@@ -26,6 +26,11 @@ class ShareNotificationInfo
     /**
      * Status - "new" if the message is unread or "seen" if the message is read.
      * 
+     * @Accessor(getter="getStatus", setter="setStatus")
+     * @SerializedName("status")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getStatus', setter: 'setStatus')]
@@ -38,6 +43,11 @@ class ShareNotificationInfo
      * The item ID of the share notification message.
      * The message must be in the Inbox folder.
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,6 +58,11 @@ class ShareNotificationInfo
 
     /**
      * Date
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -60,6 +75,11 @@ class ShareNotificationInfo
     /**
      * Grantor information
      * 
+     * @Accessor(getter="getGrantor", setter="setGrantor")
+     * @SerializedName("grantor")
+     * @Type("Zimbra\Mail\Struct\Grantor")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Grantor
      */
     #[Accessor(getter: "getGrantor", setter: "setGrantor")]
@@ -70,6 +90,11 @@ class ShareNotificationInfo
 
     /**
      * Link information
+     * 
+     * @Accessor(getter="getLink", setter="setLink")
+     * @SerializedName("link")
+     * @Type("Zimbra\Mail\Struct\LinkInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var LinkInfo
      */

@@ -28,6 +28,11 @@ abstract class CalItemRequestBase extends SoapRequest
      * If specified, the created appointment is echoed back in the response as if a
      * GetMsgRequest was made
      * 
+     * @Accessor(getter="getEcho", setter="setEcho")
+     * @SerializedName("echo")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getEcho', setter: 'setEcho')]
@@ -38,6 +43,11 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Maximum inlined length
+     * 
+     * @Accessor(getter="getMaxSize", setter="setMaxSize")
+     * @SerializedName("max")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -50,6 +60,11 @@ abstract class CalItemRequestBase extends SoapRequest
     /**
      * Set if want HTML included in echoing
      * 
+     * @Accessor(getter="getWantHtml", setter="setWantHtml")
+     * @SerializedName("want")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
@@ -60,6 +75,11 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Set if want "neuter" set for echoed response
+     * 
+     * @Accessor(getter="getNeuter", setter="setNeuter")
+     * @SerializedName("neuter")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -75,6 +95,11 @@ abstract class CalItemRequestBase extends SoapRequest
      * the end user.
      * The default is 1.
      * 
+     * @Accessor(getter="getForceSend", setter="setForceSend")
+     * @SerializedName("forcesend")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getForceSend', setter: 'setForceSend')]
@@ -85,6 +110,11 @@ abstract class CalItemRequestBase extends SoapRequest
 
     /**
      * Message information
+     * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\Msg")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

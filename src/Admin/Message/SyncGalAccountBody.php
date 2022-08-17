@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SyncGalAccountBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SyncGalAccountRequest")
+     * @Type("Zimbra\Admin\Message\SyncGalAccountRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SyncGalAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SyncGalAccountBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SyncGalAccountResponse")
+     * @Type("Zimbra\Admin\Message\SyncGalAccountResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SyncGalAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class DiffDocumentVersionSpec
     /**
      * ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class DiffDocumentVersionSpec
     /**
      * Revision 1
      * 
+     * @Accessor(getter="getVersion1", setter="setVersion1")
+     * @SerializedName("v1")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getVersion1', setter: 'setVersion1')]
@@ -47,6 +57,11 @@ class DiffDocumentVersionSpec
 
     /**
      * Revision 2
+     * 
+     * @Accessor(getter="getVersion2", setter="setVersion2")
+     * @SerializedName("v2")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

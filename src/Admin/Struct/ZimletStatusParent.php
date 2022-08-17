@@ -26,6 +26,10 @@ class ZimletStatusParent
     /**
      * Status information
      * 
+     * @Accessor(getter="getZimlets", setter="setZimlets")
+     * @Type("array<Zimbra\Admin\Struct\ZimletStatus>")
+     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]

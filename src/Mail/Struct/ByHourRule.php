@@ -28,6 +28,11 @@ class ByHourRule implements ByHourRuleInterface
     /**
      * Comma separated list of hours where hour is a number between 0 and 23
      * 
+     * @Accessor(getter="getList", setter="setList")
+     * @SerializedName("hrlist")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]

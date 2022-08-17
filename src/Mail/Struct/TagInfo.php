@@ -27,6 +27,11 @@ class TagInfo
     /**
      * The folder id
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class TagInfo
 
     /**
      * Name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class TagInfo
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
+     * @Accessor(getter="getColor", setter="setColor")
+     * @SerializedName("color")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -59,6 +74,11 @@ class TagInfo
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
+     * 
+     * @Accessor(getter="getRgb", setter="setRgb")
+     * @SerializedName("rgb")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -71,6 +91,11 @@ class TagInfo
     /**
      * Unread count.  Only present iff value > 0
      * 
+     * @Accessor(getter="getUnread", setter="setUnread")
+     * @SerializedName("u")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getUnread', setter: 'setUnread')]
@@ -81,6 +106,11 @@ class TagInfo
 
     /**
      * Item count.  Only present if value > 0
+     * 
+     * @Accessor(getter="getCount", setter="setCount")
+     * @SerializedName("n")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -93,6 +123,11 @@ class TagInfo
     /**
      * Date
      * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
@@ -103,6 +138,11 @@ class TagInfo
 
     /**
      * Revision
+     * 
+     * @Accessor(getter="getRevision", setter="setRevision")
+     * @SerializedName("rev")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -115,6 +155,11 @@ class TagInfo
     /**
      * Modified date in seconds
      * 
+     * @Accessor(getter="getChangeDate", setter="setChangeDate")
+     * @SerializedName("md")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
@@ -125,6 +170,11 @@ class TagInfo
 
     /**
      * Modified sequence
+     * 
+     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
+     * @SerializedName("ms")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -137,6 +187,10 @@ class TagInfo
     /**
      * Custom metadata
      * 
+     * @Accessor(getter="getMetadatas", setter="setMetadatas")
+     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
@@ -146,6 +200,11 @@ class TagInfo
 
     /**
      * Retention policy
+     * 
+     * @Accessor(getter="getRetentionPolicy", setter="setRetentionPolicy")
+     * @SerializedName("retentionPolicy")
+     * @Type("Zimbra\Mail\Struct\RetentionPolicy")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RetentionPolicy
      */

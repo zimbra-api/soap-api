@@ -35,6 +35,11 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
     /**
      * New account's name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -45,6 +50,11 @@ class CreateCalendarResourceRequest extends SoapRequest implements AdminAttrs
 
     /**
      * New account's password
+     * 
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("password")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

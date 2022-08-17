@@ -26,6 +26,11 @@ class RenameFolderNotification extends ModifyNotification
     /**
      * ID of renamed folder
      * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -36,6 +41,11 @@ class RenameFolderNotification extends ModifyNotification
 
     /**
      * New path of renamed folder
+     * 
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

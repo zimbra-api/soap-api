@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ForwardAppointmentBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ForwardAppointmentRequest")
+     * @Type("Zimbra\Mail\Message\ForwardAppointmentRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ForwardAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ForwardAppointmentBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ForwardAppointmentResponse")
+     * @Type("Zimbra\Mail\Message\ForwardAppointmentResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ForwardAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

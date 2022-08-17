@@ -30,6 +30,11 @@ class AddMsgRequest extends SoapRequest
      * If set, then do outgoing message filtering if the msg is being added to the Sent
      * folder and has been flagged as sent. Default is unset.
      * 
+     * @Accessor(getter="getFilterSent", setter="setFilterSent")
+     * @SerializedName("filterSent")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getFilterSent', setter: 'setFilterSent')]
@@ -40,6 +45,11 @@ class AddMsgRequest extends SoapRequest
 
     /**
      * Specification of the message to add
+     * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\AddMsgSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AddMsgSpec
      */

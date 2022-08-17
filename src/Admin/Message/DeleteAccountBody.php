@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteAccountBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeleteAccountRequest")
+     * @Type("Zimbra\Admin\Message\DeleteAccountRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeleteAccountBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeleteAccountResponse")
+     * @Type("Zimbra\Admin\Message\DeleteAccountResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

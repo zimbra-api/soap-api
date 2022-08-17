@@ -29,6 +29,10 @@ class GetRightsDocResponse extends SoapResponse
     /**
      * Information for packages
      * 
+     * @Accessor(getter="getPackages", setter="setPackages")
+     * @Type("array<Zimbra\Admin\Struct\PackageRightsInfo>")
+     * @XmlList(inline=true, entry="package", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getPackages', setter: 'setPackages')]
@@ -39,6 +43,10 @@ class GetRightsDocResponse extends SoapResponse
     /**
      * Unused admin rights
      * 
+     * @Accessor(getter="getNotUsed", setter="setNotUsed")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="notUsed", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getNotUsed', setter: 'setNotUsed')]
@@ -48,6 +56,12 @@ class GetRightsDocResponse extends SoapResponse
 
     /**
      * Domain admin rights
+     * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template")
+     * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

@@ -26,6 +26,11 @@ class QueueQueryField
     /**
      * Field name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,10 @@ class QueueQueryField
 
     /**
      * Match specifications
+     * 
+     * @Accessor(getter="getMatches", setter="setMatches")
+     * @Type("array<Zimbra\Admin\Struct\ValueAttrib>")
+     * @XmlList(inline=true, entry="match", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

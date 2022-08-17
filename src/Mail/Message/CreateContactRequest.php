@@ -30,6 +30,11 @@ class CreateContactRequest extends SoapRequest
      * If set (defaults to unset) The returned <cn> is just a placeholder
      * containing the new contact ID (i.e. <cn id="{id}"/>)
      * 
+     * @Accessor(getter="getVerbose", setter="setVerbose")
+     * @SerializedName("verbose")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
@@ -40,6 +45,11 @@ class CreateContactRequest extends SoapRequest
 
     /**
      * Set to return IMAP UID.  (default is unset.)
+     * 
+     * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
+     * @SerializedName("wantImapUid")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -52,6 +62,11 @@ class CreateContactRequest extends SoapRequest
     /**
      * Set to return Modified Sequence.  (default is unset.)
      * 
+     * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
+     * @SerializedName("wantModSeq")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
@@ -62,6 +77,11 @@ class CreateContactRequest extends SoapRequest
 
     /**
      * Contact specification
+     * 
+     * @Accessor(getter="getContact", setter="setContact")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ContactSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ContactSpec
      */

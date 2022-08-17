@@ -29,6 +29,11 @@ class ForwardAppointmentRequest extends SoapRequest
     /**
      * Appointment item ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -39,6 +44,11 @@ class ForwardAppointmentRequest extends SoapRequest
 
     /**
      * RECURRENCE-ID information if forwarding a single instance of a recurring appointment
+     * 
+     * @Accessor(getter="getExceptionId", setter="setExceptionId")
+     * @SerializedName("exceptId")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DtTimeInfo
      */
@@ -51,6 +61,11 @@ class ForwardAppointmentRequest extends SoapRequest
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
      * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("Zimbra\Mail\Struct\CalTZInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
     #[Accessor(getter: "getTimezone", setter: "setTimezone")]
@@ -61,6 +76,11 @@ class ForwardAppointmentRequest extends SoapRequest
 
     /**
      * Details of the appointment
+     * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\Msg")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

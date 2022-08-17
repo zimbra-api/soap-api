@@ -26,6 +26,11 @@ class MailQueueCount
     /**
      * Queue name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class MailQueueCount
 
     /**
      * Count of the number of files in a queue directory
+     * 
+     * @Accessor(getter="getCount", setter="setCount")
+     * @SerializedName("n")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

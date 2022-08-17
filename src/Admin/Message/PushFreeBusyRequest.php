@@ -33,6 +33,11 @@ class PushFreeBusyRequest extends SoapRequest
     /**
      * Domain names specification
      * 
+     * @Accessor(getter="getDomains", setter="setDomains")
+     * @SerializedName("domain")
+     * @Type("Zimbra\Admin\Struct\Names")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var Names
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
@@ -43,6 +48,10 @@ class PushFreeBusyRequest extends SoapRequest
 
     /**
      * Account ID
+     * 
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @Type("array<Zimbra\Common\Struct\Id>")
+     * @XmlList(inline=true, entry="account", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

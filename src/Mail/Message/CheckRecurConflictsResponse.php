@@ -28,6 +28,10 @@ class CheckRecurConflictsResponse extends SoapResponse
     /**
      * Information on conflicting instances
      * 
+     * @Accessor(getter="getInstances", setter="setInstances")
+     * @Type("array<Zimbra\Mail\Struct\ConflictRecurrenceInstance>")
+     * @XmlList(inline=true, entry="inst", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getInstances', setter: 'setInstances')]

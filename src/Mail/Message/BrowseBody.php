@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class BrowseBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("BrowseRequest")
+     * @Type("Zimbra\Mail\Message\BrowseRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BrowseRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class BrowseBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("BrowseResponse")
+     * @Type("Zimbra\Mail\Message\BrowseResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BrowseResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

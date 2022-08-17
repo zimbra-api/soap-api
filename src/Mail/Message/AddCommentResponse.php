@@ -28,6 +28,11 @@ class AddCommentResponse extends SoapResponse
     /**
      * Item ID for the comment
      * 
+     * @Accessor(getter="getComment", setter="setComment")
+     * @SerializedName("comment")
+     * @Type("Zimbra\Common\Struct\Id")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Id
      */
     #[Accessor(getter: "getComment", setter: "setComment")]

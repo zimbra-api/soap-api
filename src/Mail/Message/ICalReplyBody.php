@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ICalReplyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ICalReplyRequest")
+     * @Type("Zimbra\Mail\Message\ICalReplyRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ICalReplyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ICalReplyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ICalReplyResponse")
+     * @Type("Zimbra\Mail\Message\ICalReplyResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ICalReplyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

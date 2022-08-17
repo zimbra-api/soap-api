@@ -27,6 +27,11 @@ class ModifyContactAttr extends NewContactAttr
     /**
      * Operation: "+" or "-"
      * 
+     * @Accessor(getter="getOperation", setter="setOperation")
+     * @SerializedName("op")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]

@@ -31,6 +31,10 @@ class DeclineCounterAppointmentRequest extends SoapRequest
      * Details of the Decline Counter.
      * 
      * Should have an <inv> which encodes an iCalendar DECLINECOUNTER object
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\Msg")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

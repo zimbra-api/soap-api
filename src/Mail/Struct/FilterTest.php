@@ -26,6 +26,11 @@ class FilterTest
     /**
      * Index - specifies a guaranteed order for the test elements
      * 
+     * @Accessor(getter="getIndex", setter="setIndex")
+     * @SerializedName("index")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getIndex', setter: 'setIndex')]
@@ -36,6 +41,11 @@ class FilterTest
 
     /**
      * Specifies a "not" condition for the test
+     * 
+     * @Accessor(getter="isNegative", setter="setNegative")
+     * @SerializedName("negative")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

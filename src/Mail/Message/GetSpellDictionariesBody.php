@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetSpellDictionariesBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetSpellDictionariesRequest")
+     * @Type("Zimbra\Mail\Message\GetSpellDictionariesRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetSpellDictionariesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetSpellDictionariesBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetSpellDictionariesResponse")
+     * @Type("Zimbra\Mail\Message\GetSpellDictionariesResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetSpellDictionariesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

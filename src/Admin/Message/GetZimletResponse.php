@@ -28,6 +28,11 @@ class GetZimletResponse extends SoapResponse
     /**
      * Zimlet information
      * 
+     * @Accessor(getter="getZimlet", setter="setZimlet")
+     * @SerializedName("zimlet")
+     * @Type("Zimbra\Admin\Struct\ZimletInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ZimletInfo
      */
     #[Accessor(getter: 'getZimlet', setter: 'setZimlet')]

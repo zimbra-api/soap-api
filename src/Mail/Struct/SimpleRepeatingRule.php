@@ -45,6 +45,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * Frequency - SEC,MIN,HOU,DAI,WEE,MON,YEA
      * 
+     * @Accessor(getter="getFrequency", setter="setFrequency")
+     * @SerializedName("freq")
+     * @Type("Enum<Zimbra\Common\Enum\Frequency>")
+     * @XmlAttribute
+     * 
      * @var Frequency
      */
     #[Accessor(getter: 'getFrequency', setter: 'setFrequency')]
@@ -55,6 +60,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * UNTIL date specification
+     * 
+     * @Accessor(getter="getUntil", setter="setUntil")
+     * @SerializedName("until")
+     * @Type("Zimbra\Mail\Struct\DateTimeStringAttr")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DateTimeStringAttrInterface
      */
@@ -67,6 +77,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * Count of instances to generate
      * 
+     * @Accessor(getter="getCount", setter="setCount")
+     * @SerializedName("count")
+     * @Type("Zimbra\Mail\Struct\NumAttr")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var NumAttrInterface
      */
     #[Accessor(getter: "getCount", setter: "setCount")]
@@ -77,6 +92,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * Interval specification
+     * 
+     * @Accessor(getter="getInterval", setter="setInterval")
+     * @SerializedName("interval")
+     * @Type("Zimbra\Mail\Struct\IntervalRule")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var IntervalRuleInterface
      */
@@ -89,6 +109,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * BYSECOND rule
      * 
+     * @Accessor(getter="getBySecond", setter="setBySecond")
+     * @SerializedName("bysecond")
+     * @Type("Zimbra\Mail\Struct\BySecondRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BySecondRuleInterface
      */
     #[Accessor(getter: "getBySecond", setter: "setBySecond")]
@@ -99,6 +124,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYMINUTE rule
+     * 
+     * @Accessor(getter="getByMinute", setter="setByMinute")
+     * @SerializedName("byminute")
+     * @Type("Zimbra\Mail\Struct\ByMinuteRule")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ByMinuteRuleInterface
      */
@@ -111,6 +141,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * BYHOUR rule
      * 
+     * @Accessor(getter="getByHour", setter="setByHour")
+     * @SerializedName("byhour")
+     * @Type("Zimbra\Mail\Struct\ByHourRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ByHourRuleInterface
      */
     #[Accessor(getter: "getByHour", setter: "setByHour")]
@@ -121,6 +156,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYDAY rule
+     * 
+     * @Accessor(getter="getByDay", setter="setByDay")
+     * @SerializedName("byday")
+     * @Type("Zimbra\Mail\Struct\ByDayRule")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ByDayRuleInterface
      */
@@ -133,6 +173,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * BYMONTHDAY rule
      * 
+     * @Accessor(getter="getByMonthDay", setter="setByMonthDay")
+     * @SerializedName("bymonthday")
+     * @Type("Zimbra\Mail\Struct\ByMonthDayRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ByMonthDayRuleInterface
      */
     #[Accessor(getter: "getByMonthDay", setter: "setByMonthDay")]
@@ -143,6 +188,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYYEARDAY rule
+     * 
+     * @Accessor(getter="getByYearDay", setter="setByYearDay")
+     * @SerializedName("byyearday")
+     * @Type("Zimbra\Mail\Struct\ByYearDayRule")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ByYearDayRuleInterface
      */
@@ -155,6 +205,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * BYWEEKNO rule
      * 
+     * @Accessor(getter="getByWeekNo", setter="setByWeekNo")
+     * @SerializedName("byweekno")
+     * @Type("Zimbra\Mail\Struct\ByWeekNoRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ByWeekNoRuleInterface
      */
     #[Accessor(getter: "getByWeekNo", setter: "setByWeekNo")]
@@ -165,6 +220,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * BYMONTH rule
+     * 
+     * @Accessor(getter="getByMonth", setter="setByMonth")
+     * @SerializedName("bymonth")
+     * @Type("Zimbra\Mail\Struct\ByMonthRule")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ByMonthRuleInterface
      */
@@ -177,6 +237,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * BYSETPOS rule
      * 
+     * @Accessor(getter="getBySetPos", setter="setBySetPos")
+     * @SerializedName("bysetpos")
+     * @Type("Zimbra\Mail\Struct\BySetPosRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BySetPosRuleInterface
      */
     #[Accessor(getter: "getBySetPos", setter: "setBySetPos")]
@@ -188,6 +253,11 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
     /**
      * Week start day - SU,MO,TU,WE,TH,FR,SA
      * 
+     * @Accessor(getter="getWeekStart", setter="setWeekStart")
+     * @SerializedName("wkst")
+     * @Type("Zimbra\Mail\Struct\WkstRule")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var WkstRuleInterface
      */
     #[Accessor(getter: "getWeekStart", setter: "setWeekStart")]
@@ -198,6 +268,10 @@ class SimpleRepeatingRule implements RecurRuleBase, SimpleRepeatingRuleInterface
 
     /**
      * X Name rules
+     * 
+     * @Accessor(getter="getXNames", setter="setXNames")
+     * @Type("array<Zimbra\Mail\Struct\XNameRule>")
+     * @XmlList(inline=true, entry="rule-x-name", namespace="urn:zimbraMail")
      * 
      * @var array
      */

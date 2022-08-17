@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute, Xml
 class SessionInfo
 {
     /**
+     * @Accessor(getter="getSessionProxied", setter="setSessionProxied")
+     * @SerializedName("proxy")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getSessionProxied', setter: 'setSessionProxied')]
@@ -33,6 +38,11 @@ class SessionInfo
     private $sessionProxied;
 
     /**
+     * @Accessor(getter="getSessionId", setter="setSessionId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSessionId', setter: 'setSessionId')]
@@ -42,6 +52,11 @@ class SessionInfo
     private $sessionId;
 
     /**
+     * @Accessor(getter="getSequenceNum", setter="setSequenceNum")
+     * @SerializedName("seq")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getSequenceNum', setter: 'setSequenceNum')]
@@ -51,6 +66,10 @@ class SessionInfo
     private $sequenceNum;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

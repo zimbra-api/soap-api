@@ -28,6 +28,11 @@ class SearchCalendarResourcesResponse extends SoapResponse
     /**
      * Name of attribute sorted on. If not present then sorted by the calendar resource name.
      * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -39,6 +44,11 @@ class SearchCalendarResourcesResponse extends SoapResponse
     /**
      * The 0-based offset into the results list to return as the first result for this search operation.
      * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -49,6 +59,11 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * Flags whether there are more results
+     * 
+     * @Accessor(getter="getMore", setter="setMore")
+     * @SerializedName("more")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -63,6 +78,11 @@ class SearchCalendarResourcesResponse extends SoapResponse
      * 1 (true) - limit and offset in the request was honored
      * 0 (false) - the underlying search does not support pagination. limit and offset in the request was not honored
      * 
+     * @Accessor(getter="getPagingSupported", setter="setPagingSupported")
+     * @SerializedName("paginationSupported")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getPagingSupported', setter: 'setPagingSupported')]
@@ -73,6 +93,10 @@ class SearchCalendarResourcesResponse extends SoapResponse
 
     /**
      * Matching calendar resources
+     * 
+     * @Accessor(getter="getCalendarResources", setter="setCalendarResources")
+     * @Type("array<Zimbra\Account\Struct\CalendarResourceInfo>")
+     * @XmlList(inline=true, entry="calresource", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

@@ -26,6 +26,11 @@ use Zimbra\Common\Enum\GranteeType;
 class DistributionListGranteeSelector
 {
     /**
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
+     * @XmlAttribute
+     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -35,6 +40,11 @@ class DistributionListGranteeSelector
     private $type;
 
     /**
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListGranteeBy>")
+     * @XmlAttribute
+     * 
      * @var DistributionListGranteeBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -44,6 +54,10 @@ class DistributionListGranteeSelector
     private $by;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]

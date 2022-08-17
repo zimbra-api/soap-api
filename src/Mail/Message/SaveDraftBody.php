@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SaveDraftBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SaveDraftRequest")
+     * @Type("Zimbra\Mail\Message\SaveDraftRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SaveDraftRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SaveDraftBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SaveDraftResponse")
+     * @Type("Zimbra\Mail\Message\SaveDraftResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var SaveDraftResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

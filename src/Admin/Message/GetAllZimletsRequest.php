@@ -32,6 +32,11 @@ class GetAllZimletsRequest extends SoapRequest
      * mail:     return only admin extensions 
      * none [default]:   return both mail and admin zimlets
      * 
+     * @Accessor(getter="getExclude", setter="setExclude")
+     * @SerializedName("exclude")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletExcludeType>")
+     * @XmlAttribute
+     * 
      * @var ZimletExcludeType
      */
     #[Accessor(getter: 'getExclude', setter: 'setExclude')]

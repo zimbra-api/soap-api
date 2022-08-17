@@ -27,6 +27,10 @@ class AdminZimletGlobalConfigInfo implements ZimletGlobalConfigInfo
     /**
      * Global zimlet configuration property
      * 
+     * @Accessor(getter="getZimletProperties", setter="setZimletProperties")
+     * @Type("array<Zimbra\Admin\Struct\AdminZimletProperty>")
+     * @XmlList(inline=true, entry="property", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getZimletProperties', setter: 'setZimletProperties')]

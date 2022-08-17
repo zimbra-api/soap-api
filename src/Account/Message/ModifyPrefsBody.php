@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyPrefsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ModifyPrefsRequest")
+     * @Type("Zimbra\Account\Message\ModifyPrefsRequest")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ModifyPrefsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ModifyPrefsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ModifyPrefsResponse")
+     * @Type("Zimbra\Account\Message\ModifyPrefsResponse")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ModifyPrefsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAllRightsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAllRightsRequest")
+     * @Type("Zimbra\Admin\Message\GetAllRightsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllRightsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAllRightsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAllRightsResponse")
+     * @Type("Zimbra\Admin\Message\GetAllRightsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAllRightsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

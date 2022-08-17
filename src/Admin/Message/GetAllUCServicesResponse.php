@@ -28,6 +28,10 @@ class GetAllUCServicesResponse extends SoapResponse
     /**
      * Information about uc services
      * 
+     * @Accessor(getter="getUCServiceList", setter="setUCServiceList")
+     * @Type("array<Zimbra\Admin\Struct\UCServiceInfo>")
+     * @XmlList(inline=true, entry="ucservice", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getUCServiceList', setter: 'setUCServiceList')]

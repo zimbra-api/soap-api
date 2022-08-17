@@ -26,6 +26,11 @@ class CommentInfo
     /**
      * Item ID of parent
      * 
+     * @Accessor(getter="getParentId", setter="setParentId")
+     * @SerializedName("parentId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getParentId', setter: 'setParentId')]
@@ -36,6 +41,11 @@ class CommentInfo
 
     /**
      * Item ID
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class CommentInfo
     /**
      * Item's UUID - a globally unique identifier
      * 
+     * @Accessor(getter="getUuid", setter="setUuid")
+     * @SerializedName("uuid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
@@ -58,6 +73,11 @@ class CommentInfo
 
     /**
      * Creator email address
+     * 
+     * @Accessor(getter="getCreatorEmail", setter="setCreatorEmail")
+     * @SerializedName("email")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -70,6 +90,11 @@ class CommentInfo
     /**
      * Flags
      * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -80,6 +105,11 @@ class CommentInfo
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
+     * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -92,6 +122,11 @@ class CommentInfo
     /**
      * Comma-separated list of tag names
      * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -102,6 +137,11 @@ class CommentInfo
 
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
+     * 
+     * @Accessor(getter="getColor", setter="setColor")
+     * @SerializedName("color")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -114,6 +154,11 @@ class CommentInfo
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
      * 
+     * @Accessor(getter="getRgb", setter="setRgb")
+     * @SerializedName("rgb")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRgb', setter: 'setRgb')]
@@ -125,6 +170,11 @@ class CommentInfo
     /**
      * Timestamp
      * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getDate', setter: 'setDate')]
@@ -135,6 +185,10 @@ class CommentInfo
 
     /**
      * metadata and the subject as text
+     * 
+     * @Accessor(getter="getMetadatas", setter="setMetadatas")
+     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      * 
      * @var array
      */

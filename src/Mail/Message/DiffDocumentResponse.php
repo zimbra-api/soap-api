@@ -28,6 +28,10 @@ class DiffDocumentResponse extends SoapResponse
     /**
      * Difference information in chunks
      * 
+     * @Accessor(getter="getChunks", setter="setChunks")
+     * @Type("array<Zimbra\Mail\Struct\DispositionAndText>")
+     * @XmlList(inline=true, entry="chunk", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getChunks', setter: 'setChunks')]

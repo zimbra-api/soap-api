@@ -28,6 +28,11 @@ class ModifySearchFolderSpec
     /**
      * Search folder id to be edited
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -38,6 +43,11 @@ class ModifySearchFolderSpec
 
     /**
      * New search query
+     * 
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -50,6 +60,11 @@ class ModifySearchFolderSpec
     /**
      * New type for the search folder
      * 
+     * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
+     * @SerializedName("types")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
@@ -60,6 +75,11 @@ class ModifySearchFolderSpec
 
     /**
      * New sort order for
+     * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
+     * @XmlAttribute
      * 
      * @var SearchSortBy
      */

@@ -27,6 +27,10 @@ class HABGroupMember extends HABMember
     /**
      * Member attributes. Currently only these attributes are returned: zimbraId, displayName
      * 
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @Type("array<Zimbra\Common\Struct\NamedValue>")
+     * @XmlList(inline=true, entry="attr", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]

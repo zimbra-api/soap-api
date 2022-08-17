@@ -26,6 +26,11 @@ class InfoForSessionType
     /**
      * Count of number of active accounts
      * 
+     * @Accessor(getter="getActiveAccounts", setter="setActiveAccounts")
+     * @SerializedName("activeAccounts")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getActiveAccounts', setter: 'setActiveAccounts')]
@@ -36,6 +41,11 @@ class InfoForSessionType
 
     /**
      * Count of number of active sessions
+     * 
+     * @Accessor(getter="getActiveSessions", setter="setActiveSessions")
+     * @SerializedName("activeSessions")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -49,6 +59,10 @@ class InfoForSessionType
      * If the request selected "groupByAccount" and "listSessions" then
      * the session information will be grouped under here.
      * 
+     * @Accessor(getter="getAccounts", setter="setAccounts")
+     * @Type("array<Zimbra\Admin\Struct\AccountSessionInfo>")
+     * @XmlList(inline=true, entry="zid", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
@@ -59,6 +73,10 @@ class InfoForSessionType
     /**
      * If the request selected "listSessions" but NOT "groupByAccount" then
      * the session information will be under here.
+     * 
+     * @Accessor(getter="getSessions", setter="setSessions")
+     * @Type("array<Zimbra\Admin\Struct\SessionInfo>")
+     * @XmlList(inline=true, entry="s", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

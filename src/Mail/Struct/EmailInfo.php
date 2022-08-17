@@ -29,6 +29,11 @@ class EmailInfo implements EmailInfoInterface
     /**
      * Email address
      * 
+     * @Accessor(getter="getAddress", setter="setAddress")
+     * @SerializedName("a")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -41,6 +46,11 @@ class EmailInfo implements EmailInfoInterface
      * Display name. If we have personal name, first word in "word1 word2" format, or last
      * word in "word1, word2" format.  If no personal name, take string before "@" in email-address.
      * 
+     * @Accessor(getter="getDisplay", setter="setDisplay")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplay', setter: 'setDisplay')]
@@ -51,6 +61,11 @@ class EmailInfo implements EmailInfoInterface
 
     /**
      * The comment/name part of an address
+     * 
+     * @Accessor(getter="getPersonal", setter="setPersonal")
+     * @SerializedName("p")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -64,6 +79,11 @@ class EmailInfo implements EmailInfoInterface
      * Optional Address type - (f)rom, (t)o, (c)c, (b)cc, (r)eply-to,
      * (s)ender, read-receipt (n)otification, (rf) resent-from
      * 
+     * @Accessor(getter="getAddressType", setter="setAddressType")
+     * @SerializedName("t")
+     * @Type("Enum<Zimbra\Common\Enum\AddressType>")
+     * @XmlAttribute
+     * 
      * @var AddressType
      */
     #[Accessor(getter: 'getAddressType', setter: 'setAddressType')]
@@ -75,6 +95,11 @@ class EmailInfo implements EmailInfoInterface
     /**
      * Set if the email address is a group
      * 
+     * @Accessor(getter="getGroup", setter="setGroup")
+     * @SerializedName("isGroup")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getGroup', setter: 'setGroup')]
@@ -85,6 +110,11 @@ class EmailInfo implements EmailInfoInterface
 
     /**
      * Flags whether can expand group members
+     * 
+     * @Accessor(getter="getCanExpandGroupMembers", setter="setCanExpandGroupMembers")
+     * @SerializedName("exp")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

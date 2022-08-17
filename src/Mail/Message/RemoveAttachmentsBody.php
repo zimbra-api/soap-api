@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RemoveAttachmentsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RemoveAttachmentsRequest")
+     * @Type("Zimbra\Mail\Message\RemoveAttachmentsRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RemoveAttachmentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RemoveAttachmentsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RemoveAttachmentsResponse")
+     * @Type("Zimbra\Mail\Message\RemoveAttachmentsResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RemoveAttachmentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

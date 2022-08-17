@@ -26,6 +26,11 @@ class Invitation
     /**
      * Calendar item type - appt|task
      * 
+     * @Accessor(getter="getCalItemType", setter="setCalItemType")
+     * @SerializedName("type")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
@@ -36,6 +41,11 @@ class Invitation
 
     /**
      * Sequence number
+     * 
+     * @Accessor(getter="getSequence", setter="setSequence")
+     * @SerializedName("seq")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -48,6 +58,11 @@ class Invitation
     /**
      * Original mail item ID for invite
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -58,6 +73,11 @@ class Invitation
 
     /**
      * Component number
+     * 
+     * @Accessor(getter="getComponentNum", setter="setComponentNum")
+     * @SerializedName("compNum")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -70,6 +90,11 @@ class Invitation
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
      * 
+     * @Accessor(getter="getRecurrenceId", setter="setRecurrenceId")
+     * @SerializedName("recurId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
@@ -81,6 +106,10 @@ class Invitation
     /**
      * Timezones
      * 
+     * @Accessor(getter="getTimezones", setter="setTimezones")
+     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
+     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -90,6 +119,11 @@ class Invitation
 
     /**
      * Invite component
+     * 
+     * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
+     * @SerializedName("comp")
+     * @Type("Zimbra\Mail\Struct\InviteComponent")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var InviteComponent
      */
@@ -102,6 +136,10 @@ class Invitation
     /**
      * Mime parts
      * 
+     * @Accessor(getter="getPartInfos", setter="setPartInfos")
+     * @Type("array<Zimbra\Mail\Struct\PartInfo>")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getPartInfos', setter: 'setPartInfos')]
@@ -112,6 +150,10 @@ class Invitation
     /**
      * Share notifications
      * 
+     * @Accessor(getter="getShareNotifications", setter="setShareNotifications")
+     * @Type("array<Zimbra\Mail\Struct\ShareNotification>")
+     * @XmlList(inline=true, entry="shr", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getShareNotifications', setter: 'setShareNotifications')]
@@ -121,6 +163,10 @@ class Invitation
 
     /**
      * Distribution list subscription notifications
+     * 
+     * @Accessor(getter="getDlSubs", setter="setDlSubs")
+     * @Type("array<Zimbra\Mail\Struct\DLSubscriptionNotification>")
+     * @XmlList(inline=true, entry="dlSubs", namespace="urn:zimbraMail")
      * 
      * @var array
      */

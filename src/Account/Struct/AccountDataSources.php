@@ -26,6 +26,10 @@ class AccountDataSources
     /**
      * Imap data sources
      * 
+     * @Accessor(getter="getImapDataSources", setter="setImapDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountImapDataSource>")
+     * @XmlList(inline=true, entry="imap", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getImapDataSources', setter: 'setImapDataSources')]
@@ -35,6 +39,10 @@ class AccountDataSources
 
     /**
      * Pop3 data sources
+     * 
+     * @Accessor(getter="getPop3DataSources", setter="setPop3DataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountPop3DataSource>")
+     * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -46,6 +54,10 @@ class AccountDataSources
     /**
      * Caldav data sources
      * 
+     * @Accessor(getter="getCaldavDataSources", setter="setCaldavDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountCaldavDataSource>")
+     * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCaldavDataSources', setter: 'setCaldavDataSources')]
@@ -55,6 +67,10 @@ class AccountDataSources
 
     /**
      * Yab data sources
+     * 
+     * @Accessor(getter="getYabDataSources", setter="setYabDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountYabDataSource>")
+     * @XmlList(inline=true, entry="yab", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -66,6 +82,10 @@ class AccountDataSources
     /**
      * Rss data sources
      * 
+     * @Accessor(getter="getRssDataSources", setter="setRssDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountRssDataSource>")
+     * @XmlList(inline=true, entry="rss", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRssDataSources', setter: 'setRssDataSources')]
@@ -75,6 +95,10 @@ class AccountDataSources
 
     /**
      * Gal data sources
+     * 
+     * @Accessor(getter="getGalDataSources", setter="setGalDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountGalDataSource>")
+     * @XmlList(inline=true, entry="gal", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -86,6 +110,10 @@ class AccountDataSources
     /**
      * Cal data sources
      * 
+     * @Accessor(getter="getCalDataSources", setter="setCalDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountCalDataSource>")
+     * @XmlList(inline=true, entry="cal", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCalDataSources', setter: 'setCalDataSources')]
@@ -95,6 +123,10 @@ class AccountDataSources
 
     /**
      * Unknown data sources
+     * 
+     * @Accessor(getter="getUnknownDataSources", setter="setUnknownDataSources")
+     * @Type("array<Zimbra\Account\Struct\AccountUnknownDataSource>")
+     * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

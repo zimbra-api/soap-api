@@ -27,6 +27,11 @@ class ZmgDeviceSpec
     /**
      * App ID.
      * 
+     * @Accessor(getter="getAppId", setter="setAppId")
+     * @SerializedName("appId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAppId', setter: 'setAppId')]
@@ -38,6 +43,11 @@ class ZmgDeviceSpec
     /**
      * The registration id of the device for push notifications.
      * 
+     * @Accessor(getter="getRegistrationId", setter="setRegistrationId")
+     * @SerializedName("registrationId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRegistrationId', setter: 'setRegistrationId')]
@@ -48,6 +58,10 @@ class ZmgDeviceSpec
 
     /**
      * The provider for pushing notifications to the device
+     * @Accessor(getter="getPushProvider", setter="setPushProvider")
+     * @SerializedName("pushProvider")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -59,6 +73,11 @@ class ZmgDeviceSpec
 
     /**
      * The name of the operating system installed on the device. Example - ios, android.
+     * 
+     * @Accessor(getter="getOSName", setter="setOSName")
+     * @SerializedName("osName")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -75,6 +94,11 @@ class ZmgDeviceSpec
      *    Example - iOS having versions like 7.0, 8.0.3, 8.1 etc.
      *    Android has OS version like 2.0, 3.1, 4.4, 5.0 etc
      * 
+     * @Accessor(getter="getOSVersion", setter="setOSVersion")
+     * @SerializedName("osVersion")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getOSVersion', setter: 'setOSVersion')]
@@ -87,6 +111,11 @@ class ZmgDeviceSpec
      * The maximum number of bytes allowed for the push notification payload
      *    Example - iOS 7.0 default maxPayloadSize is 256 bytes iOS 8.0 onwards default maxPayloadSize is 2048 bytes
      *    Android default maxPayloadSize is 4096 bytes In case, the maxPayloadSize is not specified the default payload size defined in the above examples will be used while sending push notifications.
+     * 
+     * @Accessor(getter="getMaxPayloadSize", setter="setMaxPayloadSize")
+     * @SerializedName("maxPayloadSize")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

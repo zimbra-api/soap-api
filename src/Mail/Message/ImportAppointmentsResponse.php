@@ -27,6 +27,11 @@ class ImportAppointmentsResponse extends SoapResponse
     /**
      * List of created IDs
      * 
+     * @Accessor(getter="getIds", setter="setIds")
+     * @SerializedName("ids")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
@@ -37,6 +42,11 @@ class ImportAppointmentsResponse extends SoapResponse
 
     /**
      * Number of imported appointments
+     * 
+     * @Accessor(getter="getNum", setter="setNum")
+     * @SerializedName("n")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

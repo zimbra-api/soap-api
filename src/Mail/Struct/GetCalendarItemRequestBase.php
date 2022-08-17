@@ -27,6 +27,11 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     /**
      * Set this to return the modified date (md) on the appointment.
      * 
+     * @Accessor(getter="getSync", setter="setSync")
+     * @SerializedName("sync")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getSync', setter: 'setSync')]
@@ -38,6 +43,11 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     /**
      * If set, MIME parts for body content are returned; default unset
      * 
+     * @Accessor(getter="getIncludeContent", setter="setIncludeContent")
+     * @SerializedName("includeContent")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getIncludeContent', setter: 'setIncludeContent')]
@@ -48,6 +58,11 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
 
     /**
      * If set, information for each invite is included; default set
+     * 
+     * @Accessor(getter="getIncludeInvites", setter="setIncludeInvites")
+     * @SerializedName("includeInvites")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -61,6 +76,11 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
      * iCalendar UID
      * Either id or uid should be specified, but not both
      * 
+     * @Accessor(getter="getUid", setter="setUid")
+     * @SerializedName("uid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
@@ -72,6 +92,11 @@ abstract class GetCalendarItemRequestBase extends SoapRequest
     /**
      * Appointment ID.
      * Either id or uid should be specified, but not both
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

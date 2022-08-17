@@ -27,6 +27,11 @@ class EffectiveRightsTargetSelector
     /**
      * Target type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
+     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -38,6 +43,11 @@ class EffectiveRightsTargetSelector
     /**
      * Target by
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\TargetBy>")
+     * @XmlAttribute
+     * 
      * @var TargetBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -48,6 +58,10 @@ class EffectiveRightsTargetSelector
 
     /**
      * The value
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

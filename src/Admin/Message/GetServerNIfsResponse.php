@@ -28,6 +28,10 @@ class GetServerNIfsResponse extends SoapResponse
     /**
      * Network interface information
      * 
+     * @Accessor(getter="getNetworkInterfaces", setter="setNetworkInterfaces")
+     * @Type("array<Zimbra\Admin\Struct\NetworkInformation>")
+     * @XmlList(inline=true, entry="ni", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getNetworkInterfaces', setter: 'setNetworkInterfaces')]

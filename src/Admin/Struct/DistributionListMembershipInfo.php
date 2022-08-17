@@ -26,6 +26,11 @@ class DistributionListMembershipInfo
     /**
      * Distribution list ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class DistributionListMembershipInfo
 
     /**
      * Distribution list name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class DistributionListMembershipInfo
     /**
      * Present if the dl is a member of the returned list because they are either a direct
      * or indirect member of another list that is a member of the returned list.
+     * 
+     * @Accessor(getter="getVia", setter="setVia")
+     * @SerializedName("via")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

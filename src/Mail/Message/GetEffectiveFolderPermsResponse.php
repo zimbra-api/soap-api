@@ -28,6 +28,11 @@ class GetEffectiveFolderPermsResponse extends SoapResponse
     /**
      * Folder permissions information
      * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("folder")
+     * @Type("Zimbra\Mail\Struct\Rights")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Rights
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]

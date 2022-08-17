@@ -26,6 +26,11 @@ class CalendarResourceInfo extends AccountKeyValuePairs
     /**
      * Name of calendar resource
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class CalendarResourceInfo extends AccountKeyValuePairs
 
     /**
      * ID of calendar resource
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

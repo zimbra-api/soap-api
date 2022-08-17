@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateSignatureBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateSignatureRequest")
+     * @Type("Zimbra\Account\Message\CreateSignatureRequest")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var CreateSignatureRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateSignatureBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateSignatureResponse")
+     * @Type("Zimbra\Account\Message\CreateSignatureResponse")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var CreateSignatureResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

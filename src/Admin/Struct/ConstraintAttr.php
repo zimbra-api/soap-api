@@ -26,6 +26,11 @@ class ConstraintAttr
     /**
      * Constraint name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class ConstraintAttr
 
     /**
      * Constraint information
+     * 
+     * @Accessor(getter="getConstraint", setter="setConstraint")
+     * @SerializedName("constraint")
+     * @Type("Zimbra\Admin\Struct\ConstraintInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var ConstraintInfo
      */

@@ -26,6 +26,11 @@ class QueueItem
     /**
      * id
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class QueueItem
 
     /**
      * Arrival time
+     * 
+     * @Accessor(getter="getTime", setter="setTime")
+     * @SerializedName("time")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class QueueItem
     /**
      * From domain
      * 
+     * @Accessor(getter="getFromdomain", setter="setFromdomain")
+     * @SerializedName("fromdomain")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFromdomain', setter: 'setFromdomain')]
@@ -58,6 +73,11 @@ class QueueItem
 
     /**
      * Size
+     * 
+     * @Accessor(getter="getSize", setter="setSize")
+     * @SerializedName("size")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -70,6 +90,11 @@ class QueueItem
     /**
      * Sender
      * 
+     * @Accessor(getter="getFrom", setter="setFrom")
+     * @SerializedName("from")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFrom', setter: 'setFrom')]
@@ -80,6 +105,11 @@ class QueueItem
 
     /**
      * Comma separated list of recipients
+     * 
+     * @Accessor(getter="getTo", setter="setTo")
+     * @SerializedName("to")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -92,6 +122,11 @@ class QueueItem
     /**
      * Hostname of origin
      * 
+     * @Accessor(getter="getHost", setter="setHost")
+     * @SerializedName("host")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getHost', setter: 'setHost')]
@@ -102,6 +137,11 @@ class QueueItem
 
     /**
      * IP address of origin
+     * 
+     * @Accessor(getter="getAddr", setter="setAddr")
+     * @SerializedName("addr")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -114,6 +154,11 @@ class QueueItem
     /**
      * Reason
      * 
+     * @Accessor(getter="getReason", setter="setReason")
+     * @SerializedName("reason")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getReason', setter: 'setReason')]
@@ -125,8 +170,12 @@ class QueueItem
     /**
      * Content filter
      * 
-     * @var string
+     * @Accessor(getter="getFilter", setter="setFilter")
+     * @SerializedName("filter")
+     * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getFilter', setter: 'setFilter')]
     #[SerializedName(name: 'filter')]
@@ -136,6 +185,11 @@ class QueueItem
 
     /**
      * To domain
+     * 
+     * @Accessor(getter="getTodomain", setter="setTodomain")
+     * @SerializedName("todomain")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -147,6 +201,11 @@ class QueueItem
 
     /**
      * IP address message received from
+     * 
+     * @Accessor(getter="getReceived", setter="setReceived")
+     * @SerializedName("received")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

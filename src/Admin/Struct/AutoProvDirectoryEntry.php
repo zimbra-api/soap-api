@@ -26,6 +26,11 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
     /**
      * dn
      * 
+     * @Accessor(getter="getDn", setter="setDn")
+     * @SerializedName("dn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDn', setter: 'setDn')]
@@ -36,6 +41,10 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
 
     /**
      * Keys
+     * 
+     * @Accessor(getter="getKeys", setter="setKeys")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="key", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

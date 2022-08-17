@@ -29,6 +29,11 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     /**
      * WaitSet ID
      * 
+     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
+     * @SerializedName("waitSet")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -40,6 +45,11 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
     /**
      * 1(true) if canceled
      * 
+     * @Accessor(getter="getCanceled", setter="setCanceled")
+     * @SerializedName("canceled")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCanceled', setter: 'setCanceled')]
@@ -50,6 +60,11 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
 
     /**
      * Sequence number
+     * 
+     * @Accessor(getter="getSeqNo", setter="setSeqNo")
+     * @SerializedName("seq")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -63,6 +78,10 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
      * Information on signaled accounts.
      * If folder IDs are included then changes only affect those folders.
      * 
+     * @Accessor(getter="getSignalledAccounts", setter="setSignalledAccounts")
+     * @Type("array<Zimbra\Mail\Struct\AccountWithModifications>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getSignalledAccounts', setter: 'setSignalledAccounts')]
@@ -72,6 +91,10 @@ class WaitSetResponse extends SoapResponse implements WaitSetResp
 
     /**
      * Error information
+     * 
+     * @Accessor(getter="getErrors", setter="setErrors")
+     * @Type("array<Zimbra\Common\Struct\IdAndType>")
+     * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      * 
      * @var array
      */

@@ -28,6 +28,11 @@ class AuthRequest extends SoapRequest
     /**
      * Name. Only one of {auth-name} or <account> can be specified
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -38,6 +43,11 @@ class AuthRequest extends SoapRequest
 
     /**
      * Password - must be present if not using AuthToken
+     * 
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("password")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -50,6 +60,11 @@ class AuthRequest extends SoapRequest
     /**
      * An authToken can be passed instead of account/password/name to validate an existing auth authToken.
      * 
+     * @Accessor(getter="getAuthToken", setter="setAuthToken")
+     * @SerializedName("authToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
@@ -60,6 +75,11 @@ class AuthRequest extends SoapRequest
 
     /**
      * The account
+     * 
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */
@@ -72,6 +92,11 @@ class AuthRequest extends SoapRequest
     /**
      * Virtual host
      * 
+     * @Accessor(getter="getVirtualHost", setter="setVirtualHost")
+     * @SerializedName("virtualHost")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getVirtualHost', setter: 'setVirtualHost')]
@@ -82,6 +107,11 @@ class AuthRequest extends SoapRequest
 
     /**
      * Controls whether the auth authToken cookie in the response should be persisted when the browser exits.
+     * 
+     * @Accessor(getter="getPersistAuthTokenCookie", setter="setPersistAuthTokenCookie")
+     * @SerializedName("persistAuthTokenCookie")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -94,6 +124,11 @@ class AuthRequest extends SoapRequest
     /**
      * Controls whether the client supports CSRF token
      * 
+     * @Accessor(getter="getCsrfSupported", setter="setCsrfSupported")
+     * @SerializedName("csrfTokenSecured")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCsrfSupported', setter: 'setCsrfSupported')]
@@ -104,6 +139,11 @@ class AuthRequest extends SoapRequest
 
     /**
      * The TOTP code used for two-factor authentication
+     * 
+     * @Accessor(getter="getTwoFactorCode", setter="setTwoFactorCode")
+     * @SerializedName("twoFactorCode")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

@@ -26,6 +26,11 @@ class FreeBusyProviderInfo
     /**
      * Provider name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class FreeBusyProviderInfo
 
     /**
      * Propagate flag
+     * 
+     * @Accessor(getter="getPropagate", setter="setPropagate")
+     * @SerializedName("propagate")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -48,6 +58,11 @@ class FreeBusyProviderInfo
     /**
      * Free/Busy cache start time in seconds since the epoch
      * 
+     * @Accessor(getter="getStart", setter="setStart")
+     * @SerializedName("start")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getStart', setter: 'setStart')]
@@ -58,6 +73,11 @@ class FreeBusyProviderInfo
 
     /**
      * Free/Busy cache end time in seconds since the epoch
+     * 
+     * @Accessor(getter="getEnd", setter="setEnd")
+     * @SerializedName("end")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -70,6 +90,11 @@ class FreeBusyProviderInfo
     /**
      * Queue location
      * 
+     * @Accessor(getter="getQueue", setter="setQueue")
+     * @SerializedName("queue")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getQueue', setter: 'setQueue')]
@@ -80,6 +105,11 @@ class FreeBusyProviderInfo
 
     /**
      * Prefix used in Zimbra ForeignPrincipal
+     * 
+     * @Accessor(getter="getPrefix", setter="setPrefix")
+     * @SerializedName("prefix")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

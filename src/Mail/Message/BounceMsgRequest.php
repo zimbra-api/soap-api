@@ -34,6 +34,11 @@ class BounceMsgRequest extends SoapRequest
     /**
      * Specification of message to be resent
      * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\BounceMsgSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BounceMsgSpec
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]

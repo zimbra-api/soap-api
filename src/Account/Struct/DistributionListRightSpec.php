@@ -25,6 +25,11 @@ use Zimbra\Account\Struct\DistributionListGranteeSelector as GranteeSelector;
 class DistributionListRightSpec
 {
     /**
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
@@ -35,6 +40,10 @@ class DistributionListRightSpec
 
     /**
      * The sequence of grantee
+     * 
+     * @Accessor(getter="getGrantees", setter="setGrantees")
+     * @Type("array<Zimbra\Account\Struct\DistributionListGranteeSelector>")
+     * @XmlList(inline=true, entry="grantee", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

@@ -26,6 +26,11 @@ class CompletedTestInfo
     /**
      * Test name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -37,6 +42,11 @@ class CompletedTestInfo
     /**
      * Number of seconds to execute the test
      * 
+     * @Accessor(getter="getExecSeconds", setter="setExecSeconds")
+     * @SerializedName("execSeconds")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getExecSeconds', setter: 'setExecSeconds')]
@@ -47,6 +57,11 @@ class CompletedTestInfo
 
     /**
      * Test class
+     * 
+     * @Accessor(getter="getClassName", setter="setClassName")
+     * @SerializedName("class")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

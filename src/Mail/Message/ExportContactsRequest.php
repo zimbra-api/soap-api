@@ -28,6 +28,11 @@ class ExportContactsRequest extends SoapRequest
     /**
      * Content type. Currently, the only supported content type is "csv" (comma-separated values)
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -38,6 +43,11 @@ class ExportContactsRequest extends SoapRequest
 
     /**
      * Optional folder id to export contacts from
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -51,6 +61,11 @@ class ExportContactsRequest extends SoapRequest
      * Optional csv format for exported contacts.  the supported formats are defined in
      * $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
      * 
+     * @Accessor(getter="getCsvFormat", setter="setCsvFormat")
+     * @SerializedName("csvfmt")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
@@ -63,6 +78,11 @@ class ExportContactsRequest extends SoapRequest
      * The locale to use when there are multiple {csv-format} locales defined.
      * When it is not specified, the {csv-format} with no locale specification is used.
      * 
+     * @Accessor(getter="getCsvLocale", setter="setCsvLocale")
+     * @SerializedName("csvlocale")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
@@ -73,6 +93,11 @@ class ExportContactsRequest extends SoapRequest
 
     /**
      * Optional delimiter character to use in the resulting csv file - usually "," or ";"
+     * 
+     * @Accessor(getter="getCsvDelimiter", setter="setCsvDelimiter")
+     * @SerializedName("csvsep")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

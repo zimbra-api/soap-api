@@ -28,6 +28,11 @@ class GetShareInfoRequest extends SoapRequest
     /**
      * Grantee
      * 
+     * @Accessor(getter="getGrantee", setter="setGrantee")
+     * @SerializedName("grantee")
+     * @Type("Zimbra\Common\Struct\GranteeChooser")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeChooser
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -38,6 +43,11 @@ class GetShareInfoRequest extends SoapRequest
 
     /**
      * Owner
+     * 
+     * @Accessor(getter="getOwner", setter="setOwner")
+     * @SerializedName("owner")
+     * @Type("Zimbra\Common\Struct\AccountSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AccountSelector
      */

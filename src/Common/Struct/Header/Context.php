@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\AuthTokenControl;
 class Context
 {
     /**
+     * @Accessor(getter="getHopCount", setter="setHopCount")
+     * @SerializedName("hops")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getHopCount', setter: 'setHopCount')]
@@ -34,6 +39,11 @@ class Context
     private $hopCount;
 
     /**
+     * @Accessor(getter="getAuthToken", setter="setAuthToken")
+     * @SerializedName("authToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
@@ -43,6 +53,11 @@ class Context
     private $authToken;
 
     /**
+     * @Accessor(getter="getSession", setter="setSession")
+     * @SerializedName("session")
+     * @Type("Zimbra\Common\Struct\Header\SessionInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var SessionInfo
      */
     #[Accessor(getter: 'getSession', setter: 'setSession')]
@@ -52,6 +67,11 @@ class Context
     private $session;
 
     /**
+     * @Accessor(getter="getLegacySessionId", setter="setLegacySessionId")
+     * @SerializedName("sessionId")
+     * @Type("Zimbra\Common\Struct\Header\SessionInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var SessionInfo
      */
     #[Accessor(getter: 'getLegacySessionId', setter: 'setLegacySessionId')]
@@ -61,6 +81,11 @@ class Context
     private $legacySessionId;
 
     /**
+     * @Accessor(getter="getNoSession", setter="setNoSession")
+     * @SerializedName("nosession")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getNoSession', setter: 'setNoSession')]
@@ -70,6 +95,11 @@ class Context
     private $noSession;
 
     /**
+     * @Accessor(getter="getAccount", setter="setAccount")
+     * @SerializedName("account")
+     * @Type("Zimbra\Common\Struct\Header\AccountInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var AccountInfo
      */
     #[Accessor(getter: 'getAccount', setter: 'setAccount')]
@@ -79,6 +109,11 @@ class Context
     private $account;
 
     /**
+     * @Accessor(getter="getChange", setter="setChange")
+     * @SerializedName("change")
+     * @Type("Zimbra\Common\Struct\Header\ChangeInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var ChangeInfo
      */
     #[Accessor(getter: 'getChange', setter: 'setChange')]
@@ -88,6 +123,11 @@ class Context
     private $change;
 
     /**
+     * @Accessor(getter="getTargetServer", setter="setTargetServer")
+     * @SerializedName("targetServer")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTargetServer', setter: 'setTargetServer')]
@@ -97,6 +137,11 @@ class Context
     private $targetServer;
 
     /**
+     * @Accessor(getter="getUserAgent", setter="setUserAgent")
+     * @SerializedName("userAgent")
+     * @Type("Zimbra\Common\Struct\Header\UserAgentInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var UserAgentInfo
      */
     #[Accessor(getter: 'getUserAgent', setter: 'setUserAgent')]
@@ -106,6 +151,11 @@ class Context
     private $userAgent;
 
     /**
+     * @Accessor(getter="getAuthTokenControl", setter="setAuthTokenControl")
+     * @SerializedName("authTokenControl")
+     * @Type("Zimbra\Common\Struct\AuthTokenControl")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var AuthTokenControl
      */
     #[Accessor(getter: 'getAuthTokenControl', setter: 'setAuthTokenControl')]
@@ -115,6 +165,11 @@ class Context
     private $authTokenControl;
 
     /**
+     * @Accessor(getter="getFormat", setter="setFormat")
+     * @SerializedName("format")
+     * @Type("Zimbra\Common\Struct\Header\FormatInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var FormatInfo
      */
     #[Accessor(getter: 'getFormat', setter: 'setFormat')]
@@ -124,6 +179,11 @@ class Context
     private $format;
 
     /**
+     * @Accessor(getter="getNotify", setter="setNotify")
+     * @SerializedName("notify")
+     * @Type("Zimbra\Common\Struct\Header\NotifyInfo")
+     * @XmlElement(namespace="urn:zimbra")
+     * 
      * @var NotifyInfo
      */
     #[Accessor(getter: 'getNotify', setter: 'setNotify')]
@@ -133,6 +193,11 @@ class Context
     private $notify;
 
     /**
+     * @Accessor(getter="getNoNotify", setter="setNoNotify")
+     * @SerializedName("nonotify")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getNoNotify', setter: 'setNoNotify')]
@@ -142,6 +207,11 @@ class Context
     private $noNotify;
 
     /**
+     * @Accessor(getter="getNoQualify", setter="setNoQualify")
+     * @SerializedName("noqualify")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getNoQualify', setter: 'setNoQualify')]
@@ -151,6 +221,11 @@ class Context
     private $noQualify;
 
     /**
+     * @Accessor(getter="getVia", setter="setVia")
+     * @SerializedName("via")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getVia', setter: 'setVia')]
@@ -160,6 +235,11 @@ class Context
     private $via;
 
     /**
+     * @Accessor(getter="getSoapRequestId", setter="setSoapRequestId")
+     * @SerializedName("soapId")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSoapRequestId', setter: 'setSoapRequestId')]
@@ -169,6 +249,11 @@ class Context
     private $soapRequestId;
 
     /**
+     * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
+     * @SerializedName("csrfToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbra")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]

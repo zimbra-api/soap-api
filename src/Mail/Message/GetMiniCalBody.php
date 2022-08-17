@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetMiniCalBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetMiniCalRequest")
+     * @Type("Zimbra\Mail\Message\GetMiniCalRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetMiniCalRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetMiniCalBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetMiniCalResponse")
+     * @Type("Zimbra\Mail\Message\GetMiniCalResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetMiniCalResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class RecoverAccountResponse extends SoapResponse
     /**
      * Recovery account
      * 
+     * @Accessor(getter="getRecoveryAccount", setter="setRecoveryAccount")
+     * @SerializedName("recoveryAccount")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRecoveryAccount', setter: 'setRecoveryAccount')]
@@ -37,6 +42,11 @@ class RecoverAccountResponse extends SoapResponse
 
     /**
      * attempts remaining before feature suspension
+     * 
+     * @Accessor(getter="getRecoveryAttemptsLeft", setter="setRecoveryAttemptsLeft")
+     * @SerializedName("recoveryAttemptsLeft")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

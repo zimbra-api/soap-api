@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AuthBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("AuthRequest")
+     * @Type("Zimbra\Admin\Message\AuthRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AuthRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class AuthBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("AuthResponse")
+     * @Type("Zimbra\Admin\Message\AuthResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AuthResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

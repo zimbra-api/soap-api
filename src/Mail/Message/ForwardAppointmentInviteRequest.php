@@ -30,6 +30,11 @@ class ForwardAppointmentInviteRequest extends SoapRequest
     /**
      * Invite message item ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -40,6 +45,11 @@ class ForwardAppointmentInviteRequest extends SoapRequest
 
     /**
      * Details of the invite
+     * 
+     * @Accessor(getter="getMsg", setter="setMsg")
+     * @SerializedName("m")
+     * @Type("Zimbra\Mail\Struct\Msg")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

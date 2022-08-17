@@ -27,6 +27,11 @@ class AddMsgSpec
      * Flags - (u)nread, (f)lagged, has (a)ttachment, (r)eplied, (s)ent by me, for(w)arded,
      * (d)raft, deleted (x), (n)otification sent
      * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -37,6 +42,11 @@ class AddMsgSpec
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
+     * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class AddMsgSpec
     /**
      * Comma-separated list of tag names
      * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -59,6 +74,11 @@ class AddMsgSpec
 
     /**
      * Folder pathname (starts with '/') or folder ID
+     * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -71,6 +91,11 @@ class AddMsgSpec
     /**
      * If set, then don't process iCal attachments.  Default is unset.
      * 
+     * @Accessor(getter="getNoICal", setter="setNoICal")
+     * @SerializedName("noICal")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getNoICal', setter: 'setNoICal')]
@@ -81,6 +106,11 @@ class AddMsgSpec
 
     /**
      * (optional) Time the message was originally received, in MILLISECONDS since the epoch
+     * 
+     * @Accessor(getter="getDateReceived", setter="setDateReceived")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -93,6 +123,11 @@ class AddMsgSpec
     /**
      * Uploaded MIME body ID - ID of message uploaded via FileUploadServlet
      * 
+     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
+     * @SerializedName("aid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
@@ -104,6 +139,11 @@ class AddMsgSpec
     /**
      * The entire message's content.  (Omit if you specify an "aid" attribute.)
      * No <mp> elements should be provided within <m>.
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */

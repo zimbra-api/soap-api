@@ -28,6 +28,11 @@ class RenameLDAPEntryRequest extends SoapRequest
     /**
      * A valid LDAP DN String (RFC 2253) that identifies the LDAP object
      * 
+     * @Accessor(getter="getDn", setter="setDn")
+     * @SerializedName("dn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDn', setter: 'setDn')]
@@ -38,6 +43,11 @@ class RenameLDAPEntryRequest extends SoapRequest
 
     /**
      * New DN - a valid LDAP DN String (RFC 2253) that describes the new DN to be given to the LDAP object
+     * 
+     * @Accessor(getter="getNewDn", setter="setNewDn")
+     * @SerializedName("new_dn")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

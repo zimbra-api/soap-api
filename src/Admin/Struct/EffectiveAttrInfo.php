@@ -26,6 +26,11 @@ class EffectiveAttrInfo
     /**
      * Attribute name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("n")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -37,6 +42,11 @@ class EffectiveAttrInfo
     /**
      * Constraint information
      * 
+     * @Accessor(getter="getConstraint", setter="setConstraint")
+     * @SerializedName("constraint")
+     * @Type("Zimbra\Admin\Struct\ConstraintInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ConstraintInfo
      */
     #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
@@ -47,6 +57,12 @@ class EffectiveAttrInfo
 
     /**
      * Inherited default value(or values if the attribute is multi-valued)
+     * 
+     * @Accessor(getter="getValues", setter="setValues")
+     * @SerializedName("default")
+     * @Type("array<string>")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * @XmlList(inline=false, entry="v", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

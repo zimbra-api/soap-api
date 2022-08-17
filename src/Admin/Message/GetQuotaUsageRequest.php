@@ -30,6 +30,11 @@ class GetQuotaUsageRequest extends SoapRequest
     /**
      * Domain - the domain name to limit the search to
      * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -42,6 +47,11 @@ class GetQuotaUsageRequest extends SoapRequest
      * whether to fetch quota usage for all domain accounts from across all mailbox servers,
      * default is false, applicable when domain attribute is specified
      * 
+     * @Accessor(getter="isAllServers", setter="setAllServers")
+     * @SerializedName("allServers")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isAllServers', setter: 'setAllServers')]
@@ -52,6 +62,11 @@ class GetQuotaUsageRequest extends SoapRequest
 
     /**
      * Limit - the number of accounts to return (0 is default and means all)
+     * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -64,6 +79,11 @@ class GetQuotaUsageRequest extends SoapRequest
     /**
      * Offset - the starting offset (0, 25, etc)
      * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -74,6 +94,11 @@ class GetQuotaUsageRequest extends SoapRequest
 
     /**
      * SortBy - valid values: "percentUsed", "totalUsed", "quotaLimit"
+     * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -86,6 +111,11 @@ class GetQuotaUsageRequest extends SoapRequest
     /**
      * Whether to sort in ascending order 0 (false) is default, so highest quotas are returned first
      * 
+     * @Accessor(getter="isSortAscending", setter="setSortAscending")
+     * @SerializedName("sortAscending")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isSortAscending', setter: 'setSortAscending')]
@@ -97,6 +127,11 @@ class GetQuotaUsageRequest extends SoapRequest
     /**
      * Refresh - whether to always recalculate the data even when cached values are available.
      * 0 (false) is the default.
+     * 
+     * @Accessor(getter="isRefresh", setter="setRefresh")
+     * @SerializedName("refresh")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

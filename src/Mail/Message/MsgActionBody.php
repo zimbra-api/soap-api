@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class MsgActionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("MsgActionRequest")
+     * @Type("Zimbra\Mail\Message\MsgActionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MsgActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class MsgActionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("MsgActionResponse")
+     * @Type("Zimbra\Mail\Message\MsgActionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var MsgActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class ICalContent
     /**
      * Item ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,10 @@ class ICalContent
 
     /**
      * ICAL
+     * 
+     * @Accessor(getter="getIcal", setter="setIcal")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

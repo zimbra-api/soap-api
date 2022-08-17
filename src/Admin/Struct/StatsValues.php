@@ -26,6 +26,11 @@ class StatsValues
     /**
      * t
      * 
+     * @Accessor(getter="getT", setter="setT")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getT', setter: 'setT')]
@@ -36,6 +41,10 @@ class StatsValues
 
     /**
      * Stats
+     * 
+     * @Accessor(getter="getStats", setter="setStats")
+     * @Type("array<Zimbra\Admin\Struct\NameAndValue>")
+     * @XmlList(inline=true, entry="stat", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

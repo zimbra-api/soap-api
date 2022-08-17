@@ -28,6 +28,11 @@ class ResetPasswordRequest extends SoapRequest
     /**
      * New password to assign
      * 
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("password")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]

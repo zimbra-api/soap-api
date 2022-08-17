@@ -33,6 +33,11 @@ class GetDataSourcesRequest extends SoapRequest implements AdminAttrs
     /**
      * Account ID for an existing account
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

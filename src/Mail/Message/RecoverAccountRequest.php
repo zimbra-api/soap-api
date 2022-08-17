@@ -29,6 +29,11 @@ class RecoverAccountRequest extends SoapRequest
     /**
      * operation
      * 
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\RecoverAccountOperation>")
+     * @XmlAttribute
+     * 
      * @var RecoverAccountOperation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -40,6 +45,11 @@ class RecoverAccountRequest extends SoapRequest
     /**
      * Email
      * 
+     * @Accessor(getter="getEmail", setter="setEmail")
+     * @SerializedName("email")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
@@ -50,6 +60,11 @@ class RecoverAccountRequest extends SoapRequest
 
     /**
      * Channel
+     * 
+     * @Accessor(getter="getChannel", setter="setChannel")
+     * @SerializedName("channel")
+     * @Type("Enum<Zimbra\Common\Enum\Channel>")
+     * @XmlAttribute
      * 
      * @var Channel
      */

@@ -26,6 +26,11 @@ class CosInfo implements AdminObjectInterface
     /**
      * Name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -36,6 +41,11 @@ class CosInfo implements AdminObjectInterface
 
     /**
      * ID
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class CosInfo implements AdminObjectInterface
     /**
      * Flag whether is the default Class Of Service (COS)
      * 
+     * @Accessor(getter="getIsDefaultCos", setter="setIsDefaultCos")
+     * @SerializedName("isDefaultCos")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getIsDefaultCos', setter: 'setIsDefaultCos')]
@@ -57,6 +72,10 @@ class CosInfo implements AdminObjectInterface
     private $isDefaultCos;
 
     /**
+     * @Accessor(getter="getAttrList", setter="setAttrList")
+     * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]

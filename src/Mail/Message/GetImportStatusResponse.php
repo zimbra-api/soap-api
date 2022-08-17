@@ -38,6 +38,10 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Imap statuses
      * 
+     * @Accessor(getter="getImapStatuses", setter="setImapStatuses")
+     * @Type("array<Zimbra\Mail\Struct\ImapImportStatusInfo>")
+     * @XmlList(inline=true, entry="imap", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getImapStatuses', setter: 'setImapStatuses')]
@@ -47,6 +51,10 @@ class GetImportStatusResponse extends SoapResponse
 
     /**
      * Pop3 statuses
+     * 
+     * @Accessor(getter="getPop3Statuses", setter="setPop3Statuses")
+     * @Type("array<Zimbra\Mail\Struct\Pop3ImportStatusInfo>")
+     * @XmlList(inline=true, entry="pop3", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -58,6 +66,10 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Caldav statuses
      * 
+     * @Accessor(getter="getCaldavStatuses", setter="setCaldavStatuses")
+     * @Type("array<Zimbra\Mail\Struct\CaldavImportStatusInfo>")
+     * @XmlList(inline=true, entry="caldav", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCaldavStatuses', setter: 'setCaldavStatuses')]
@@ -67,6 +79,10 @@ class GetImportStatusResponse extends SoapResponse
 
     /**
      * Yab statuses
+     * 
+     * @Accessor(getter="getYabStatuses", setter="setYabStatuses")
+     * @Type("array<Zimbra\Mail\Struct\YabImportStatusInfo>")
+     * @XmlList(inline=true, entry="yab", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -78,6 +94,10 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Rss statuses
      * 
+     * @Accessor(getter="getRssStatuses", setter="setRssStatuses")
+     * @Type("array<Zimbra\Mail\Struct\RssImportStatusInfo>")
+     * @XmlList(inline=true, entry="rss", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRssStatuses', setter: 'setRssStatuses')]
@@ -87,6 +107,10 @@ class GetImportStatusResponse extends SoapResponse
 
     /**
      * Gal statuses
+     * 
+     * @Accessor(getter="getGalStatuses", setter="setGalStatuses")
+     * @Type("array<Zimbra\Mail\Struct\GalImportStatusInfo>")
+     * @XmlList(inline=true, entry="gal", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -98,6 +122,10 @@ class GetImportStatusResponse extends SoapResponse
     /**
      * Cal statuses
      * 
+     * @Accessor(getter="getCalStatuses", setter="setCalStatuses")
+     * @Type("array<Zimbra\Mail\Struct\CalImportStatusInfo>")
+     * @XmlList(inline=true, entry="cal", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCalStatuses', setter: 'setCalStatuses')]
@@ -107,6 +135,10 @@ class GetImportStatusResponse extends SoapResponse
 
     /**
      * Unknown statuses
+     * 
+     * @Accessor(getter="getUnknownStatuses", setter="setUnknownStatuses")
+     * @Type("array<Zimbra\Mail\Struct\UnknownImportStatusInfo>")
+     * @XmlList(inline=true, entry="unknown", namespace="urn:zimbraMail")
      * 
      * @var array
      */

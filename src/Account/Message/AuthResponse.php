@@ -28,6 +28,11 @@ class AuthResponse extends SoapResponse
     /**
      * The authorization token
      * 
+     * @Accessor(getter="getAuthToken", setter="setAuthToken")
+     * @SerializedName("authToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
@@ -38,6 +43,11 @@ class AuthResponse extends SoapResponse
 
     /**
      * Life time for the authorization
+     * 
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var int
      */
@@ -50,6 +60,11 @@ class AuthResponse extends SoapResponse
     /**
      * trust lifetime, if a trusted token is issued
      * 
+     * @Accessor(getter="getTrustLifetime", setter="setTrustLifetime")
+     * @SerializedName("trustLifetime")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var int
      */
     #[Accessor(getter: 'getTrustLifetime', setter: 'setTrustLifetime')]
@@ -60,6 +75,11 @@ class AuthResponse extends SoapResponse
 
     /**
      * Session information
+     * 
+     * @Accessor(getter="getSession", setter="setSession")
+     * @SerializedName("session")
+     * @Type("Zimbra\Account\Struct\Session")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var Session
      */
@@ -73,6 +93,11 @@ class AuthResponse extends SoapResponse
      * host additional SOAP requests should be directed to.
      * Always returned, might be same as original host request was sent to.
      * 
+     * @Accessor(getter="getRefer", setter="setRefer")
+     * @SerializedName("refer")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRefer', setter: 'setRefer')]
@@ -83,6 +108,11 @@ class AuthResponse extends SoapResponse
 
     /**
      * if requestedSkin specified, the name of the skin to use Always returned, might be same as original host request was sent to.
+     * 
+     * @Accessor(getter="getSkin", setter="setSkin")
+     * @SerializedName("skin")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -95,6 +125,11 @@ class AuthResponse extends SoapResponse
     /**
      * if client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
      * 
+     * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
+     * @SerializedName("csrfToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
@@ -105,6 +140,11 @@ class AuthResponse extends SoapResponse
 
     /**
      * random secure device ID generated for the requesting device
+     * 
+     * @Accessor(getter="getDeviceId", setter="setDeviceId")
+     * @SerializedName("deviceId")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -117,6 +157,11 @@ class AuthResponse extends SoapResponse
     /**
      * trusted device token
      * 
+     * @Accessor(getter="getTrustedToken", setter="setTrustedToken")
+     * @SerializedName("trustedToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTrustedToken', setter: 'setTrustedToken')]
@@ -128,6 +173,11 @@ class AuthResponse extends SoapResponse
     /**
      * indicates whether the authentication account acts as a "Proxy" to a Zimbra account on another system.
      * 
+     * @Accessor(getter="getZmgProxy", setter="setZmgProxy")
+     * @SerializedName("zmgProxy")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getZmgProxy', setter: 'setZmgProxy')]
@@ -137,6 +187,12 @@ class AuthResponse extends SoapResponse
     private $zmgProxy;
 
     /**
+     * @Accessor(getter="getPrefs", setter="setPrefs")
+     * @SerializedName("prefs")
+     * @Type("array<Zimbra\Account\Struct\Pref>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getPrefs', setter: 'setPrefs')]
@@ -147,6 +203,12 @@ class AuthResponse extends SoapResponse
     private $prefs = [];
 
     /**
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("attrs")
+     * @Type("array<Zimbra\Account\Struct\Attr>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -157,6 +219,11 @@ class AuthResponse extends SoapResponse
     private $attrs = [];
 
     /**
+     * @Accessor(getter="getTwoFactorAuthRequired", setter="setTwoFactorAuthRequired")
+     * @SerializedName("twoFactorAuthRequired")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getTwoFactorAuthRequired', setter: 'setTwoFactorAuthRequired')]
@@ -166,6 +233,11 @@ class AuthResponse extends SoapResponse
     private $twoFactorAuthRequired;
 
     /**
+     * @Accessor(getter="getTrustedDevicesEnabled", setter="setTrustedDevicesEnabled")
+     * @SerializedName("trustedDevicesEnabled")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getTrustedDevicesEnabled', setter: 'setTrustedDevicesEnabled')]

@@ -40,6 +40,11 @@ class CountObjectsRequest extends SoapRequest
     /**
      * Object type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\CountObjectsType>")
+     * @XmlAttribute
+     * 
      * @var CountObjectsType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -51,6 +56,10 @@ class CountObjectsRequest extends SoapRequest
     /**
      * Domain
      * 
+     * @Accessor(getter="getDomains", setter="setDomains")
+     * @Type("array<Zimbra\Admin\Struct\DomainSelector>")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
@@ -60,6 +69,11 @@ class CountObjectsRequest extends SoapRequest
 
     /**
      * UCService
+     * 
+     * @Accessor(getter="getUcService", setter="setUcService")
+     * @SerializedName("ucservice")
+     * @Type("Zimbra\Admin\Struct\UcServiceSelector")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var UcServiceSelector
      */
@@ -71,6 +85,11 @@ class CountObjectsRequest extends SoapRequest
 
     /**
      * Get only related if delegated/domain admin
+     * 
+     * @Accessor(getter="getOnlyRelated", setter="setOnlyRelated")
+     * @SerializedName("onlyrelated")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

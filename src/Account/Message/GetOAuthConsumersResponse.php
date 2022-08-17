@@ -28,6 +28,10 @@ class GetOAuthConsumersResponse extends SoapResponse
     /**
      * Consumers
      * 
+     * @Accessor(getter="getConsumers", setter="setConsumers")
+     * @Type("array<Zimbra\Account\Struct\OAuthConsumer>")
+     * @XmlList(inline=true, entry="OAuthConsumer", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getConsumers', setter: 'setConsumers')]

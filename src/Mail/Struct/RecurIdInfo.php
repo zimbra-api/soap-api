@@ -29,6 +29,11 @@ class RecurIdInfo implements RecurIdInfoInterface
     /**
      * Recurrence range type
      * 
+     * @Accessor(getter="getRecurrenceRangeType", setter="setRecurrenceRangeType")
+     * @SerializedName("rangeType")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getRecurrenceRangeType', setter: 'setRecurrenceRangeType')]
@@ -39,6 +44,11 @@ class RecurIdInfo implements RecurIdInfoInterface
 
     /**
      * Recurrence ID in format : YYMMDD[THHMMSS[Z]]
+     * 
+     * @Accessor(getter="getRecurrenceId", setter="setRecurrenceId")
+     * @SerializedName("recurId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -51,6 +61,11 @@ class RecurIdInfo implements RecurIdInfoInterface
     /**
      * Timezone name
      * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTimezone', setter: 'setTimezone')]
@@ -61,7 +76,12 @@ class RecurIdInfo implements RecurIdInfoInterface
 
     /**
      * Recurrence-id in UTC time zone; used in non-all-day appointments only
+     * 
      * Format: YYMMDDTHHMMSSZ
+     * @Accessor(getter="getRecurIdZ", setter="setRecurIdZ")
+     * @SerializedName("ridZ")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

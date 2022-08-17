@@ -28,6 +28,10 @@ class GetAllServersResponse extends SoapResponse
     /**
      * Information about servers
      * 
+     * @Accessor(getter="getServerList", setter="setServerList")
+     * @Type("array<Zimbra\Admin\Struct\ServerInfo>")
+     * @XmlList(inline=true, entry="server", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getServerList', setter: 'setServerList')]

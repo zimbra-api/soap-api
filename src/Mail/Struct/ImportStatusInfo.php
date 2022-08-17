@@ -26,6 +26,11 @@ abstract class ImportStatusInfo
     /**
      * Data source ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ abstract class ImportStatusInfo
 
     /**
      * Whether data is currently being imported from this data source
+     * 
+     * @Accessor(getter="getRunning", setter="setRunning")
+     * @SerializedName("isRunning")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -49,6 +59,11 @@ abstract class ImportStatusInfo
      * Whether the last import completed successfully.
      * (not returned if the import has not run yet)
      * 
+     * @Accessor(getter="getSuccess", setter="setSuccess")
+     * @SerializedName("success")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
@@ -60,6 +75,11 @@ abstract class ImportStatusInfo
     /**
      * If the last import failed, this is the error message that was returned.
      * (not returned if the import has not run yet)
+     * 
+     * @Accessor(getter="getError", setter="setError")
+     * @SerializedName("error")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

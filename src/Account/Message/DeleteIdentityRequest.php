@@ -30,6 +30,11 @@ class DeleteIdentityRequest extends SoapRequest
     /**
      * Details of the identity to delete.
      * 
+     * @Accessor(getter="getIdentity", setter="setIdentity")
+     * @SerializedName("identity")
+     * @Type("Zimbra\Account\Struct\NameId")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var NameId
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]

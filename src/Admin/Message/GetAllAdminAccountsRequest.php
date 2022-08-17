@@ -28,6 +28,11 @@ class GetAllAdminAccountsRequest extends SoapRequest
     /**
      * Apply COS [default 1 (true)]
      * 
+     * @Accessor(getter="isApplyCos", setter="setApplyCos")
+     * @SerializedName("applyCos")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isApplyCos', setter: 'setApplyCos')]

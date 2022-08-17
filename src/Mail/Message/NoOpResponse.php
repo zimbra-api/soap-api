@@ -27,6 +27,11 @@ class NoOpResponse extends SoapResponse
     /**
      * Set if wait was disallowed
      * 
+     * @Accessor(getter="getWaitDisallowed", setter="setWaitDisallowed")
+     * @SerializedName("waitDisallowed")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWaitDisallowed', setter: 'setWaitDisallowed')]

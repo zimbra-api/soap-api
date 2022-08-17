@@ -28,6 +28,11 @@ class GetMailboxStatsResponse extends SoapResponse
     /**
      * Statistics about mailboxes
      * 
+     * @Accessor(getter="getStats", setter="setStats")
+     * @SerializedName("stats")
+     * @Type("Zimbra\Admin\Struct\MailboxStats")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailboxStats
      */
     #[Accessor(getter: 'getStats', setter: 'setStats')]

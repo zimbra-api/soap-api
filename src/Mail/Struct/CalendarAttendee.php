@@ -29,6 +29,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * Email address (without "MAILTO:")
      * 
+     * @Accessor(getter="getAddress", setter="setAddress")
+     * @SerializedName("a")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -39,6 +44,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * URL - has same value as email-address.
+     * 
+     * @Accessor(getter="getUrl", setter="setUrl")
+     * @SerializedName("url")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -51,6 +61,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * Friendly name - "CN" in iCalendar
      * 
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -61,6 +76,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar SENT-BY
+     * 
+     * @Accessor(getter="getSentBy", setter="setSentBy")
+     * @SerializedName("sentBy")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -73,6 +93,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user. the property.
      * 
+     * @Accessor(getter="getDir", setter="setDir")
+     * @SerializedName("dir")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDir', setter: 'setDir')]
@@ -83,6 +108,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
+     * 
+     * @Accessor(getter="getLanguage", setter="setLanguage")
+     * @SerializedName("lang")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -95,6 +125,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * iCalendar CUTYPE (Calendar user type)
      * 
+     * @Accessor(getter="getCuType", setter="setCuType")
+     * @SerializedName("cutype")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCuType', setter: 'setCuType')]
@@ -105,6 +140,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar ROLE
+     * 
+     * @Accessor(getter="getRole", setter="setRole")
+     * @SerializedName("role")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -121,6 +161,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
      * 
+     * @Accessor(getter="getPartStat", setter="setPartStat")
+     * @SerializedName("ptst")
+     * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
+     * @XmlAttribute
+     * 
      * @var PartStat
      */
     #[Accessor(getter: 'getPartStat', setter: 'setPartStat')]
@@ -131,6 +176,10 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * RSVP flag.  Set if response requested, unset if no response requested
+     * @Accessor(getter="getRsvp", setter="setRsvp")
+     * @SerializedName("rsvp")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -143,6 +192,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * iCalendar MEMBER - The group or list membership of the calendar user
      * 
+     * @Accessor(getter="getMember", setter="setMember")
+     * @SerializedName("member")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getMember', setter: 'setMember')]
@@ -153,6 +207,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * iCalendar DELEGATED-TO
+     * 
+     * @Accessor(getter="getDelegatedTo", setter="setDelegatedTo")
+     * @SerializedName("delegatedTo")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -165,6 +224,11 @@ class CalendarAttendee implements CalendarAttendeeInterface
     /**
      * iCalendar DELEGATED-FROM
      * 
+     * @Accessor(getter="getDelegatedFrom", setter="setDelegatedFrom")
+     * @SerializedName("delegatedFrom")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDelegatedFrom', setter: 'setDelegatedFrom')]
@@ -175,6 +239,10 @@ class CalendarAttendee implements CalendarAttendeeInterface
 
     /**
      * Non-standard parameters (XPARAMs)
+     * 
+     * @Accessor(getter="getXParams", setter="setXParams")
+     * @Type("array<Zimbra\Mail\Struct\XParam>")
+     * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
      * 
      * @var array
      */

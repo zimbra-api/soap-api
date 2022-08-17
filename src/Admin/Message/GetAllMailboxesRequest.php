@@ -28,6 +28,11 @@ class GetAllMailboxesRequest extends SoapRequest
     /**
      * The number of mailboxes to return (0 is default and means all)
      * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -38,6 +43,11 @@ class GetAllMailboxesRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

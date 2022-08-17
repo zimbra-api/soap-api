@@ -29,6 +29,11 @@ class VerifyCodeRequest extends SoapRequest
     /**
      * Device email address
      * 
+     * @Accessor(getter="getAddress", setter="setAddress")
+     * @SerializedName("a")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -39,6 +44,11 @@ class VerifyCodeRequest extends SoapRequest
 
     /**
      * recovery account verification code
+     * 
+     * @Accessor(getter="getVerificationCode", setter="setVerificationCode")
+     * @SerializedName("code")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

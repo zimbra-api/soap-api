@@ -27,6 +27,11 @@ class DistributionListInfo extends ObjectInfo
      * Flags whether user is the owner of the group.
      * Only returned if ownerOf on the request is 1 (true)
      * 
+     * @Accessor(getter="isOwner", setter="setIsOwner")
+     * @SerializedName("isOwner")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isOwner', setter: 'setIsOwner')]
@@ -39,6 +44,11 @@ class DistributionListInfo extends ObjectInfo
      * Flags whether user is a member of the group.
      * Only returned if memberOf on the request is 1 (true)
      * 
+     * @Accessor(getter="isMember", setter="setIsMember")
+     * @SerializedName("isMember")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isMember', setter: 'setIsMember')]
@@ -49,6 +59,11 @@ class DistributionListInfo extends ObjectInfo
 
     /**
      * Flags whether the group is dynamic or not
+     * 
+     * @Accessor(getter="isDynamic", setter="setDynamic")
+     * @SerializedName("dynamic")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -61,6 +76,10 @@ class DistributionListInfo extends ObjectInfo
     /**
      * Group members
      * 
+     * @Accessor(getter="getMembers", setter="setMembers")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
@@ -70,6 +89,12 @@ class DistributionListInfo extends ObjectInfo
 
     /**
      * Group owners
+     * 
+     * @Accessor(getter="getOwners", setter="setOwners")
+     * @SerializedName("owners")
+     * @Type("array<Zimbra\Account\Struct\DistributionListGranteeInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -82,6 +107,12 @@ class DistributionListInfo extends ObjectInfo
 
     /**
      * Rights
+     * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("rights")
+     * @Type("array<Zimbra\Account\Struct\DistributionListRightInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="right", namespace="urn:zimbraAccount")
      * 
      * @var array
      */

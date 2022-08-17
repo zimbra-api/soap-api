@@ -26,6 +26,11 @@ class ConversationInfo
     /**
      * Conversation ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class ConversationInfo
 
     /**
      * Number of (nondeleted) messages
+     * 
+     * @Accessor(getter="getNum", setter="setNum")
+     * @SerializedName("n")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -49,6 +59,11 @@ class ConversationInfo
      * Total number of messages (including deleted messages).  Only included if value
      * differs from {num-msgs}
      * 
+     * @Accessor(getter="getTotalSize", setter="setTotalSize")
+     * @SerializedName("total")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
@@ -59,6 +74,11 @@ class ConversationInfo
 
     /**
      * Flags
+     * 
+     * @Accessor(getter="getFlags", setter="setFlags")
+     * @SerializedName("f")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -71,6 +91,11 @@ class ConversationInfo
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
+     * @Accessor(getter="getTags", setter="setTags")
+     * @SerializedName("t")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
@@ -81,6 +106,11 @@ class ConversationInfo
 
     /**
      * Comma-separated list of tag names
+     * 
+     * @Accessor(getter="getTagNames", setter="setTagNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,6 +123,10 @@ class ConversationInfo
     /**
      * metadata and the subject as text
      * 
+     * @Accessor(getter="getMetadatas", setter="setMetadatas")
+     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
+     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
@@ -102,6 +136,11 @@ class ConversationInfo
 
     /**
      * Subject
+     * 
+     * @Accessor(getter="getSubject", setter="setSubject")
+     * @SerializedName("su")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -114,6 +153,10 @@ class ConversationInfo
     /**
      * Chat messages
      * 
+     * @Accessor(getter="getChatMessages", setter="setChatMessages")
+     * @Type("array<Zimbra\Mail\Struct\ChatMessageInfo>")
+     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
@@ -123,6 +166,10 @@ class ConversationInfo
 
     /**
      * Messages
+     * 
+     * @Accessor(getter="getMessages", setter="setMessages")
+     * @Type("array<Zimbra\Mail\Struct\MessageInfo>")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */

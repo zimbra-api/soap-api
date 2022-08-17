@@ -28,6 +28,11 @@ class ModifySystemRetentionPolicyResponse extends SoapResponse
     /**
      * Information about retention policy
      * 
+     * @Accessor(getter="getPolicy", setter="setPolicy")
+     * @SerializedName("policy")
+     * @Type("Zimbra\Mail\Struct\Policy")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var Policy
      */
     #[Accessor(getter: 'getPolicy', setter: 'setPolicy')]

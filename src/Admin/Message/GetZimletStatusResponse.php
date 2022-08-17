@@ -29,6 +29,11 @@ class GetZimletStatusResponse extends SoapResponse
     /**
      * Zimlet information
      * 
+     * @Accessor(getter="getZimlets", setter="setZimlets")
+     * @SerializedName("zimlets")
+     * @Type("Zimbra\Admin\Struct\ZimletStatusParent")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ZimletStatusParent
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]
@@ -39,6 +44,10 @@ class GetZimletStatusResponse extends SoapResponse
 
     /**
      * Class Of Service (COS) Information
+     * 
+     * @Accessor(getter="getCoses", setter="setCoses")
+     * @Type("array<Zimbra\Admin\Struct\ZimletStatusCos>")
+     * @XmlList(inline=true, entry="cos", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */

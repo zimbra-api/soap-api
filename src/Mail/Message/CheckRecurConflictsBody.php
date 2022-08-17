@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckRecurConflictsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckRecurConflictsRequest")
+     * @Type("Zimbra\Mail\Message\CheckRecurConflictsRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CheckRecurConflictsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckRecurConflictsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckRecurConflictsResponse")
+     * @Type("Zimbra\Mail\Message\CheckRecurConflictsResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CheckRecurConflictsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

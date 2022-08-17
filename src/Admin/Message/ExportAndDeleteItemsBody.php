@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ExportAndDeleteItemsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ExportAndDeleteItemsRequest")
+     * @Type("Zimbra\Admin\Message\ExportAndDeleteItemsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ExportAndDeleteItemsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ExportAndDeleteItemsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ExportAndDeleteItemsResponse")
+     * @Type("Zimbra\Admin\Message\ExportAndDeleteItemsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ExportAndDeleteItemsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

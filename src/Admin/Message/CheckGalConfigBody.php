@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckGalConfigBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckGalConfigRequest")
+     * @Type("Zimbra\Admin\Message\CheckGalConfigRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckGalConfigRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckGalConfigBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckGalConfigResponse")
+     * @Type("Zimbra\Admin\Message\CheckGalConfigResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckGalConfigResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

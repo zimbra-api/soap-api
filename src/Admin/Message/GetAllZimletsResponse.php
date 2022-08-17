@@ -28,6 +28,10 @@ class GetAllZimletsResponse extends SoapResponse
     /**
      * Information on zimlets
      * 
+     * @Accessor(getter="getZimlets", setter="setZimlets")
+     * @Type("array<Zimbra\Admin\Struct\ZimletInfo>")
+     * @XmlList(inline=true, entry="zimlet", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getZimlets', setter: 'setZimlets')]

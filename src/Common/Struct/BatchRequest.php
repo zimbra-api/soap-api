@@ -25,6 +25,11 @@ use Zimbra\Common\Enum\OnError;
 abstract class BatchRequest extends SoapRequest implements BatchRequestInterface
 {
     /**
+     * @Accessor(getter="getOnError", setter="setOnError")
+     * @SerializedName("onerror")
+     * @Type("Enum<Zimbra\Common\Enum\OnError>")
+     * @XmlAttribute
+     * 
      * @var OnError
      */
     #[Accessor(getter: 'getOnError', setter: 'setOnError')]

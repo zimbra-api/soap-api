@@ -31,6 +31,11 @@ class GetWorkingHoursRequest extends SoapRequest
     /**
      * Range start in milliseconds since the epoch
      * 
+     * @Accessor(getter="getStartTime", setter="setStartTime")
+     * @SerializedName("s")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -41,6 +46,11 @@ class GetWorkingHoursRequest extends SoapRequest
 
     /**
      * Range end in milliseconds since the epoch
+     * 
+     * @Accessor(getter="getEndTime", setter="setEndTime")
+     * @SerializedName("e")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -53,6 +63,11 @@ class GetWorkingHoursRequest extends SoapRequest
     /**
      * Comma-separated list of Zimbra IDs
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -63,6 +78,11 @@ class GetWorkingHoursRequest extends SoapRequest
 
     /**
      * Comma-separated list of email addresses
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

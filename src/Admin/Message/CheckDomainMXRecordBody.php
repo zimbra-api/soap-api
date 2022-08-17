@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CheckDomainMXRecordBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CheckDomainMXRecordRequest")
+     * @Type("Zimbra\Admin\Message\CheckDomainMXRecordRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckDomainMXRecordRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CheckDomainMXRecordBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CheckDomainMXRecordResponse")
+     * @Type("Zimbra\Admin\Message\CheckDomainMXRecordResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CheckDomainMXRecordResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

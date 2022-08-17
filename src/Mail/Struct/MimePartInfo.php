@@ -26,6 +26,11 @@ class MimePartInfo
     /**
      * Content type
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -36,6 +41,11 @@ class MimePartInfo
 
     /**
      * Content
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class MimePartInfo
     /**
      * Content ID
      * 
+     * @Accessor(getter="getContentId", setter="setContentId")
+     * @SerializedName("ci")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentId', setter: 'setContentId')]
@@ -59,6 +74,10 @@ class MimePartInfo
     /**
      * MIME Parts
      * 
+     * @Accessor(getter="getMimeParts", setter="setMimeParts")
+     * @Type("array<Zimbra\Mail\Struct\MimePartInfo>")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMimeParts', setter: 'setMimeParts')]
@@ -68,6 +87,11 @@ class MimePartInfo
 
     /**
      * Attachments
+     * 
+     * @Accessor(getter="getAttachments", setter="setAttachments")
+     * @SerializedName("attach")
+     * @Type("Zimbra\Mail\Struct\AttachmentsInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AttachmentsInfo
      */

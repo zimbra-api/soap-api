@@ -32,6 +32,11 @@ class ModifySignatureRequest extends SoapRequest
     /**
      * Specifies the changes to the signature
      * 
+     * @Accessor(getter="getSignature", setter="setSignature")
+     * @SerializedName("signature")
+     * @Type("Zimbra\Account\Struct\Signature")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var Signature
      */
     #[Accessor(getter: 'getSignature', setter: 'setSignature')]

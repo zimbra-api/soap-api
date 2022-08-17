@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeleteLDAPEntryBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeleteLDAPEntryRequest")
+     * @Type("Zimbra\Admin\Message\DeleteLDAPEntryRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeleteLDAPEntryBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeleteLDAPEntryResponse")
+     * @Type("Zimbra\Admin\Message\DeleteLDAPEntryResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DeleteLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -26,6 +26,11 @@ class Rights
     /**
      * The effective permissions of the specified folder
      * 
+     * @Accessor(getter="getEffectivePermissions", setter="setEffectivePermissions")
+     * @SerializedName("perm")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEffectivePermissions', setter: 'setEffectivePermissions')]

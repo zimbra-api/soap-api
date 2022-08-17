@@ -30,6 +30,11 @@ class DeleteSignatureRequest extends SoapRequest
     /**
      * The signature to delete
      * 
+     * @Accessor(getter="getSignature", setter="setSignature")
+     * @SerializedName("signature")
+     * @Type("Zimbra\Account\Struct\NameId")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var NameId
      */
     #[Accessor(getter: 'getSignature', setter: 'setSignature')]

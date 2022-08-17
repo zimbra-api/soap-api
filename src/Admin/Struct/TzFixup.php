@@ -24,6 +24,10 @@ use JMS\Serializer\Annotation\{Accessor, Type, XmlList};
 class TzFixup
 {
     /**
+     * @Accessor(getter="getFixupRules", setter="setFixupRules")
+     * @Type("array<Zimbra\Admin\Struct\TzFixupRule>")
+     * @XmlList(inline=true, entry="fixupRule", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFixupRules', setter: 'setFixupRules')]

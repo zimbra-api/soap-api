@@ -26,6 +26,11 @@ class ExportAndDeleteItemSpec
     /**
      * ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class ExportAndDeleteItemSpec
 
     /**
      * Version
+     * 
+     * @Accessor(getter="getVersion", setter="setVersion")
+     * @SerializedName("version")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

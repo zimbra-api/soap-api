@@ -29,6 +29,11 @@ class GetEffectiveRightsResponse extends SoapResponse
     /**
      * Information about grantee
      * 
+     * @Accessor(getter="getGrantee", setter="setGrantee")
+     * @SerializedName("grantee")
+     * @Type("Zimbra\Admin\Struct\GranteeInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeInfo
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -39,6 +44,11 @@ class GetEffectiveRightsResponse extends SoapResponse
 
     /**
      * Information about target
+     * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Admin\Struct\EffectiveRightsTargetInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var Target
      */

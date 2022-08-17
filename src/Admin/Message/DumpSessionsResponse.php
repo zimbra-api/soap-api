@@ -28,6 +28,11 @@ class DumpSessionsResponse extends SoapResponse
     /**
      * Count of active sessions
      * 
+     * @Accessor(getter="getTotalActiveSessions", setter="setTotalActiveSessions")
+     * @SerializedName("activeSessions")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getTotalActiveSessions', setter: 'setTotalActiveSessions')]
@@ -38,6 +43,11 @@ class DumpSessionsResponse extends SoapResponse
 
     /**
      * Information about SOAP sessions
+     * 
+     * @Accessor(getter="getSoapSessions", setter="setSoapSessions")
+     * @SerializedName("soap")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var InfoForSessionType
      */
@@ -50,6 +60,11 @@ class DumpSessionsResponse extends SoapResponse
     /**
      * Information about IMAP sessions
      * 
+     * @Accessor(getter="getImapSessions", setter="setImapSessions")
+     * @SerializedName("imap")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var InfoForSessionType
      */
     #[Accessor(getter: 'getImapSessions', setter: 'setImapSessions')]
@@ -60,6 +75,11 @@ class DumpSessionsResponse extends SoapResponse
 
     /**
      * Information about ADMIN sessions
+     * 
+     * @Accessor(getter="getAdminSessions", setter="setAdminSessions")
+     * @SerializedName("admin")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var InfoForSessionType
      */
@@ -72,6 +92,11 @@ class DumpSessionsResponse extends SoapResponse
     /**
      * Information about WIKI sessions
      * 
+     * @Accessor(getter="getWikiSessions", setter="setWikiSessions")
+     * @SerializedName("wiki")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var InfoForSessionType
      */
     #[Accessor(getter: 'getWikiSessions', setter: 'setWikiSessions')]
@@ -83,6 +108,11 @@ class DumpSessionsResponse extends SoapResponse
     /**
      * Information about SYNCLISTENER sessions
      * 
+     * @Accessor(getter="getSynclistenerSessions", setter="setSynclistenerSessions")
+     * @SerializedName("synclistener")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var InfoForSessionType
      */
     #[Accessor(getter: 'getSynclistenerSessions', setter: 'setSynclistenerSessions')]
@@ -93,6 +123,11 @@ class DumpSessionsResponse extends SoapResponse
 
     /**
      * Information about WaitSet sessions
+     * 
+     * @Accessor(getter="getWaitsetSessions", setter="setWaitsetSessions")
+     * @SerializedName("waitset")
+     * @Type("Zimbra\Admin\Struct\InfoForSessionType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var InfoForSessionType
      */

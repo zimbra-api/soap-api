@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAttributeInfoBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAttributeInfoRequest")
+     * @Type("Zimbra\Admin\Message\GetAttributeInfoRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAttributeInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAttributeInfoBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAttributeInfoResponse")
+     * @Type("Zimbra\Admin\Message\GetAttributeInfoResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAttributeInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

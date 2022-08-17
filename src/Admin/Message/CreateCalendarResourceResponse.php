@@ -28,6 +28,11 @@ class CreateCalendarResourceResponse extends SoapResponse
     /**
      * Details of created resource
      * 
+     * @Accessor(getter="getCalResource", setter="setCalResource")
+     * @SerializedName("calresource")
+     * @Type("Zimbra\Admin\Struct\CalendarResourceInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CalendarResourceInfo
      */
     #[Accessor(getter: 'getCalResource', setter: 'setCalResource')]

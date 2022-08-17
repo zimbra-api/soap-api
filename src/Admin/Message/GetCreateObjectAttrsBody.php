@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetCreateObjectAttrsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetCreateObjectAttrsRequest")
+     * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetCreateObjectAttrsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetCreateObjectAttrsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetCreateObjectAttrsResponse")
+     * @Type("Zimbra\Admin\Message\GetCreateObjectAttrsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetCreateObjectAttrsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

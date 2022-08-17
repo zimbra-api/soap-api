@@ -28,6 +28,10 @@ class GetAllVolumesResponse extends SoapResponse
     /**
      * Information about volumes
      * 
+     * @Accessor(getter="getVolumes", setter="setVolumes")
+     * @Type("array<Zimbra\Admin\Struct\VolumeInfo>")
+     * @XmlList(inline=true, entry="volume", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getVolumes', setter: 'setVolumes')]

@@ -26,6 +26,11 @@ class TimeZoneInfo
     /**
      * Timezone ID. e.g "America/Los_Angeles"
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class TimeZoneInfo
 
     /**
      * Timezone display name, e.g. "Pacific Standard Time"
+     * 
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("displayName")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

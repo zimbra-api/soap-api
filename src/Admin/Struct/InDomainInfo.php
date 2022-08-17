@@ -27,6 +27,10 @@ class InDomainInfo
     /**
      * Domains
      * 
+     * @Accessor(getter="getDomains", setter="setDomains")
+     * @Type("array<Zimbra\Common\Struct\NamedElement>")
+     * @XmlList(inline=true, entry="domain", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDomains', setter: 'setDomains')]
@@ -36,6 +40,11 @@ class InDomainInfo
 
     /**
      * Rights
+     * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @SerializedName("rights")
+     * @Type("Zimbra\Admin\Struct\EffectiveRightsInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var EffectiveRightsInfo
      */

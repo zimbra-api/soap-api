@@ -26,6 +26,11 @@ class ContentSpec
     /**
      * Attachment upload ID of uploaded object to use
      * 
+     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
+     * @SerializedName("aid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
@@ -36,6 +41,11 @@ class ContentSpec
 
     /**
      * Message ID of existing message. Used in conjunction with "part"
+     * 
+     * @Accessor(getter="getMessageId", setter="setMessageId")
+     * @SerializedName("mid")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class ContentSpec
     /**
      * Part identifier. This combined with "mid" identifies a part of an existing message
      * 
+     * @Accessor(getter="getPart", setter="setPart")
+     * @SerializedName("part")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
@@ -58,6 +73,10 @@ class ContentSpec
 
     /**
      * Inlined content data. Ignored if "aid" or "mid"/"part" specified
+     * 
+     * @Accessor(getter="getText", setter="setText")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

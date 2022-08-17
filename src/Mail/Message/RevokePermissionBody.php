@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RevokePermissionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RevokePermissionRequest")
+     * @Type("Zimbra\Mail\Message\RevokePermissionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RevokePermissionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RevokePermissionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RevokePermissionResponse")
+     * @Type("Zimbra\Mail\Message\RevokePermissionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RevokePermissionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

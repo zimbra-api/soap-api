@@ -31,6 +31,11 @@ class InviteInfo implements InviteInfoInterface
     /**
      * Invite type - appt|task
      * 
+     * @Accessor(getter="getCalItemType", setter="setCalItemType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\InviteType>")
+     * @XmlAttribute
+     * 
      * @var InviteType
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
@@ -42,6 +47,10 @@ class InviteInfo implements InviteInfoInterface
     /**
      * Timezones
      * 
+     * @Accessor(getter="getTimezones", setter="setTimezones")
+     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
+     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -51,6 +60,11 @@ class InviteInfo implements InviteInfoInterface
 
     /**
      * Invite components
+     * 
+     * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
+     * @SerializedName("comp")
+     * @Type("Zimbra\Mail\Struct\InviteComponent")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var InviteComponentInterface
      */
@@ -62,6 +76,12 @@ class InviteInfo implements InviteInfoInterface
 
     /**
      * List of replies received from attendees.
+     * 
+     * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
+     * @SerializedName("replies")
+     * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      * 
      * @var array
      */

@@ -28,6 +28,11 @@ class ConvActionResponse extends SoapResponse
     /**
      * Action result
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Zimbra\Mail\Struct\ActionResult")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ActionResult
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

@@ -31,6 +31,11 @@ class EndSessionRequest extends SoapRequest
      * flag whether the {exp} flag is needed in the response for group entries.
      * default is 0 (false)
      * 
+     * @Accessor(getter="isLogOff", setter="setLogOff")
+     * @SerializedName("logoff")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isLogOff', setter: 'setLogOff')]
@@ -41,6 +46,11 @@ class EndSessionRequest extends SoapRequest
 
     /**
      * flag to clear all web sessions of the user default is 0 (false)
+     * 
+     * @Accessor(getter="isClearAllSoapSessions", setter="setClearAllSoapSessions")
+     * @SerializedName("all")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -53,6 +63,11 @@ class EndSessionRequest extends SoapRequest
     /**
      * flag to decide current session will be cleared or not default is 0 (false)
      * 
+     * @Accessor(getter="isExcludeCurrentSession", setter="setExcludeCurrentSession")
+     * @SerializedName("excludeCurrent")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isExcludeCurrentSession', setter: 'setExcludeCurrentSession')]
@@ -63,6 +78,11 @@ class EndSessionRequest extends SoapRequest
 
     /**
      * end session for given session id
+     * 
+     * @Accessor(getter="getSessionId", setter="setSessionId")
+     * @SerializedName("sessionId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

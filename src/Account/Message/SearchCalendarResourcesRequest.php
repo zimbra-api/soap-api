@@ -38,6 +38,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
      * trigger this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
      * 
+     * @Accessor(getter="getQuick", setter="setQuick")
+     * @SerializedName("quick")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getQuick', setter: 'setQuick')]
@@ -48,6 +53,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
+     * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,6 +70,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
      * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -70,6 +85,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * The starting offset (0, 25, etc)
+     * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -82,6 +102,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     /**
      * Client locale identification.
      * 
+     * @Accessor(getter="getLocale", setter="setLocale")
+     * @SerializedName("locale")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getLocale', setter: 'setLocale')]
@@ -92,6 +117,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Cursor specification
+     * 
+     * @Accessor(getter="getCursor", setter="setCursor")
+     * @SerializedName("cursor")
+     * @Type("Zimbra\Common\Struct\CursorInfo")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var CursorInfo
      */
@@ -104,6 +134,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     /**
      * GAL Account ID
      * 
+     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
+     * @SerializedName("galAcctId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getGalAccountId', setter: 'setGalAccountId')]
@@ -115,6 +150,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
     /**
      * If specified, passed through to the GAL search as the search key
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -125,6 +165,11 @@ class SearchCalendarResourcesRequest extends SoapRequest implements AttributeSel
 
     /**
      * Search Filter
+     * 
+     * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
+     * @SerializedName("searchFilter")
+     * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var EntrySearchFilterInfo
      */

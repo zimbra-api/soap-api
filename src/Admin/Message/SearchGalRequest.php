@@ -30,6 +30,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * Domain name
      * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]
@@ -40,6 +45,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -52,6 +62,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * The maximum number of entries to return (0 is default and means all)
      * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -63,6 +78,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * Type of addresses to search.
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
+     * @XmlAttribute
+     * 
      * @var GalSearchType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -73,6 +93,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * GAL account ID
+     * 
+     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
+     * @SerializedName("galAcctId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

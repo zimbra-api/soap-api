@@ -32,6 +32,11 @@ class CalendarItemRecur
     /**
      * Information for iCalendar RECURRENCE-ID
      * 
+     * @Accessor(getter="getExceptionId", setter="setExceptionId")
+     * @SerializedName("exceptId")
+     * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ExceptionRecurIdInfoInterface
      */
     #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
@@ -42,6 +47,11 @@ class CalendarItemRecur
 
     /**
      * Start time
+     * 
+     * @Accessor(getter="getDtStart", setter="setDtStart")
+     * @SerializedName("s")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DtTimeInfoInterface
      */
@@ -54,6 +64,11 @@ class CalendarItemRecur
     /**
      * End time
      * 
+     * @Accessor(getter="getDtEnd", setter="setDtEnd")
+     * @SerializedName("e")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfoInterface
      */
     #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
@@ -65,6 +80,11 @@ class CalendarItemRecur
     /**
      * Duration information
      * 
+     * @Accessor(getter="getDuration", setter="setDuration")
+     * @SerializedName("dur")
+     * @Type("Zimbra\Mail\Struct\DurationInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DurationInfoInterface
      */
     #[Accessor(getter: "getDuration", setter: "setDuration")]
@@ -75,6 +95,11 @@ class CalendarItemRecur
 
     /**
      * Recurrence information
+     * 
+     * @Accessor(getter="getRecurrence", setter="setRecurrence")
+     * @SerializedName("recur")
+     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RecurrenceInfoInterface
      */

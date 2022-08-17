@@ -33,6 +33,11 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
     /**
      * The ID of the conversation to search within. REQUIRED.
      * 
+     * @Accessor(getter="getConversationId", setter="setConversationId")
+     * @SerializedName("cid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
@@ -45,6 +50,11 @@ class SearchConvRequest extends SoapRequest implements SearchParameters
      * If set then the response will contain a top level <c> element representing
      * the conversation with child <m> elements representing messages in the conversation.
      * If unset, no <c> element is included - <m> elements will be top level elements.
+     * 
+     * @Accessor(getter="getNestMessages", setter="setNestMessages")
+     * @SerializedName("nest")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

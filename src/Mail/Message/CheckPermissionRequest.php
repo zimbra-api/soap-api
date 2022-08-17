@@ -30,6 +30,11 @@ class CheckPermissionRequest extends SoapRequest
     /**
      * Target specification
      * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Mail\Struct\TargetSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var TargetSpec
      */
     #[Accessor(getter: "getTarget", setter: "setTarget")]
@@ -40,6 +45,10 @@ class CheckPermissionRequest extends SoapRequest
 
     /**
      * Rights to check
+     * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraMail")
      * 
      * @var array
      */

@@ -26,6 +26,11 @@ class RightViaInfo
     /**
      * Target
      * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("Zimbra\Admin\Struct\TargetWithType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var TargetWithType
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -37,6 +42,11 @@ class RightViaInfo
     /**
      * Target
      * 
+     * @Accessor(getter="getGrantee", setter="setGrantee")
+     * @SerializedName("grantee")
+     * @Type("Zimbra\Admin\Struct\GranteeWithType")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GranteeWithType
      */
     #[Accessor(getter: 'getGrantee', setter: 'setGrantee')]
@@ -47,6 +57,11 @@ class RightViaInfo
 
     /**
      * Target
+     * 
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("Zimbra\Admin\Struct\CheckedRight")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var CheckedRight
      */

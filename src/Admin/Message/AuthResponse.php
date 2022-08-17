@@ -28,6 +28,11 @@ class AuthResponse extends SoapResponse
     /**
      * Auth token
      * 
+     * @Accessor(getter="getAuthToken", setter="setAuthToken")
+     * @SerializedName("authToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAuthToken', setter: 'setAuthToken')]
@@ -39,6 +44,11 @@ class AuthResponse extends SoapResponse
     /**
      * If client is CSRF token enabled , the CSRF token Returned only when client says it is CSRF enabled.
      * 
+     * @Accessor(getter="getCsrfToken", setter="setCsrfToken")
+     * @SerializedName("csrfToken")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsrfToken', setter: 'setCsrfToken')]
@@ -49,6 +59,11 @@ class AuthResponse extends SoapResponse
 
     /**
      * Life time for the authorization
+     * 
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var int
      */

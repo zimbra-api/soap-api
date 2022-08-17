@@ -39,6 +39,10 @@ class DiscoverRightsRequest extends SoapRequest
     /**
      * The rights
      * 
+     * @Accessor(getter="getRights", setter="setRights")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]

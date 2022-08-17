@@ -29,6 +29,10 @@ class ClearCookieRequest extends SoapRequest
     /**
      * Specifies cookies to clean
      * 
+     * @Accessor(getter="getCookies", setter="setCookies")
+     * @Type("array<Zimbra\Admin\Struct\CookieSpec>")
+     * @XmlList(inline=true, entry="cookie", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getCookies', setter: 'setCookies')]

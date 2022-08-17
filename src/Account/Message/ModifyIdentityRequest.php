@@ -30,6 +30,11 @@ class ModifyIdentityRequest extends SoapRequest
      * Specify identity to be modified
      * Must specify either "name" or "id" attribute
      * 
+     * @Accessor(getter="getIdentity", setter="setIdentity")
+     * @SerializedName("identity")
+     * @Type("Zimbra\Account\Struct\Identity")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var Identity
      */
     #[Accessor(getter: 'getIdentity', setter: 'setIdentity')]

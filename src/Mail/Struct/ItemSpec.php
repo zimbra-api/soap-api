@@ -26,6 +26,11 @@ class ItemSpec
     /**
      * Item ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class ItemSpec
 
     /**
      * Folder ID
+     * 
+     * @Accessor(getter="getFolder", setter="setFolder")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class ItemSpec
     /**
      * Name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -58,6 +73,11 @@ class ItemSpec
 
     /**
      * Fully qualified path
+     * 
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

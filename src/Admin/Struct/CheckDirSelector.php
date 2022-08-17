@@ -26,6 +26,11 @@ class CheckDirSelector
     /**
      * Full path to the directory
      * 
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
@@ -36,6 +41,11 @@ class CheckDirSelector
 
     /**
      * Whether to create the directory or not if it doesn't exist
+     * 
+     * @Accessor(getter="isCreate", setter="setCreate")
+     * @SerializedName("create")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

@@ -27,6 +27,11 @@ class SizeTest extends FilterTest
     /**
      * Number comparison setting - over|under
      * 
+     * @Accessor(getter="getNumberComparison", setter="setNumberComparison")
+     * @SerializedName("numberComparison")
+     * @Type("Enum<Zimbra\Common\Enum\NumberComparison>")
+     * @XmlAttribute
+     * 
      * @var NumberComparison
      */
     #[Accessor(getter: 'getNumberComparison', setter: 'setNumberComparison')]
@@ -37,6 +42,11 @@ class SizeTest extends FilterTest
 
     /**
      * size value.  Value can be specified in bytes (no suffix), kilobytes (50K), megabytes (50M) or gigabytes (2G)
+     * 
+     * @Accessor(getter="getSize", setter="setSize")
+     * @SerializedName("s")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

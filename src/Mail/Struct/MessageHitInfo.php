@@ -29,6 +29,11 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     /**
      * Sort field value
      * 
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSortField', setter: 'setSortField')]
@@ -40,6 +45,11 @@ class MessageHitInfo extends MessageInfo implements SearchHit
     /**
      * If the message matched the specified query string
      * 
+     * @Accessor(getter="getContentMatched", setter="setContentMatched")
+     * @SerializedName("cm")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getContentMatched', setter: 'setContentMatched')]
@@ -50,6 +60,10 @@ class MessageHitInfo extends MessageInfo implements SearchHit
 
     /**
      * Hit Parts -- indicators that the named parts matched the search string
+     * 
+     * @Accessor(getter="getMessagePartHits", setter="setMessagePartHits")
+     * @Type("array<Zimbra\Mail\Struct\Part>")
+     * @XmlList(inline=true, entry="hp", namespace="urn:zimbraMail")
      * 
      * @var array
      */

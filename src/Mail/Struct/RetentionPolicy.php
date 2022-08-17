@@ -26,6 +26,12 @@ class RetentionPolicy
     /**
      * "Keep" retention policies
      * 
+     * @Accessor(getter="getKeepPolicy", setter="setKeepPolicy")
+     * @SerializedName("keep")
+     * @Type("array<Zimbra\Mail\Struct\Policy>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
@@ -37,6 +43,12 @@ class RetentionPolicy
 
     /**
      * "Purge" retention policies
+     * 
+     * @Accessor(getter="getPurgePolicy", setter="setPurgePolicy")
+     * @SerializedName("purge")
+     * @Type("array<Zimbra\Mail\Struct\Policy>")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
      * 
      * @var array
      */

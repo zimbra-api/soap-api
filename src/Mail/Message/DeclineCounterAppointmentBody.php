@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DeclineCounterAppointmentBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("DeclineCounterAppointmentRequest")
+     * @Type("Zimbra\Mail\Message\DeclineCounterAppointmentRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DeclineCounterAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class DeclineCounterAppointmentBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("DeclineCounterAppointmentResponse")
+     * @Type("Zimbra\Mail\Message\DeclineCounterAppointmentResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DeclineCounterAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,6 +28,11 @@ class AccountZimletContext implements ZimletContextInterface
     /**
      * Zimlet Base URL
      * 
+     * @Accessor(getter="getZimletBaseUrl", setter="setZimletBaseUrl")
+     * @SerializedName("baseUrl")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getZimletBaseUrl', setter: 'setZimletBaseUrl')]
@@ -39,6 +44,11 @@ class AccountZimletContext implements ZimletContextInterface
     /**
      * Zimlet Priority
      * 
+     * @Accessor(getter="getZimletPriority", setter="setZimletPriority")
+     * @SerializedName("priority")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getZimletPriority', setter: 'setZimletPriority')]
@@ -49,7 +59,12 @@ class AccountZimletContext implements ZimletContextInterface
 
     /**
      * Zimlet presence
+     * 
      * Valid values: mandatory | enabled | disabled
+     * @Accessor(getter="getZimletPresence", setter="setZimletPresence")
+     * @SerializedName("presence")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletPresence>")
+     * @XmlAttribute
      * 
      * @var ZimletPresence
      */

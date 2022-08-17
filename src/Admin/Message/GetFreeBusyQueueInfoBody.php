@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetFreeBusyQueueInfoBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetFreeBusyQueueInfoRequest")
+     * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetFreeBusyQueueInfoRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetFreeBusyQueueInfoBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetFreeBusyQueueInfoResponse")
+     * @Type("Zimbra\Admin\Message\GetFreeBusyQueueInfoResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetFreeBusyQueueInfoResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class ImportanceTest extends FilterTest
     /**
      * Importance - high|normal|low
      * 
+     * @Accessor(getter="getImportance", setter="setImportance")
+     * @SerializedName("imp")
+     * @Type("Enum<Zimbra\Common\Enum\Importance>")
+     * @XmlAttribute
+     * 
      * @var Importance
      */
     #[Accessor(getter: 'getImportance', setter: 'setImportance')]

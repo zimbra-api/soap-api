@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifyDelegatedAdminConstraintsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ModifyDelegatedAdminConstraintsRequest")
+     * @Type("Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ModifyDelegatedAdminConstraintsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ModifyDelegatedAdminConstraintsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ModifyDelegatedAdminConstraintsResponse")
+     * @Type("Zimbra\Admin\Message\ModifyDelegatedAdminConstraintsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ModifyDelegatedAdminConstraintsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -27,6 +27,11 @@ class HeaderTest extends FilterTest
     /**
      * Comma separated list of header names
      * 
+     * @Accessor(getter="getHeaders", setter="setHeaders")
+     * @SerializedName("header")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
@@ -37,6 +42,11 @@ class HeaderTest extends FilterTest
 
     /**
      * String comparison type - is|contains|matches
+     * 
+     * @Accessor(getter="getStringComparison", setter="setStringComparison")
+     * @SerializedName("stringComparison")
+     * @Type("Enum<Zimbra\Common\Enum\StringComparison>")
+     * @XmlAttribute
      * 
      * @var StringComparison
      */
@@ -49,6 +59,11 @@ class HeaderTest extends FilterTest
     /**
      * Value comparison type - gt|ge|lt|le|eq|ne
      * 
+     * @Accessor(getter="getValueComparison", setter="setValueComparison")
+     * @SerializedName("valueComparison")
+     * @Type("Enum<Zimbra\Common\Enum\ValueComparison>")
+     * @XmlAttribute
+     * 
      * @var ValueComparison
      */
     #[Accessor(getter: 'getValueComparison', setter: 'setValueComparison')]
@@ -59,6 +74,11 @@ class HeaderTest extends FilterTest
 
     /**
      * count comparison type - gt|ge|lt|le|eq|ne
+     * 
+     * @Accessor(getter="getCountComparison", setter="setCountComparison")
+     * @SerializedName("countComparison")
+     * @Type("Enum<Zimbra\Common\Enum\CountComparison>")
+     * @XmlAttribute
      * 
      * @var CountComparison
      */
@@ -71,6 +91,11 @@ class HeaderTest extends FilterTest
     /**
      * comparison comparator - i;ascii-numeric|i;ascii-casemap|i;octet
      * 
+     * @Accessor(getter="getValueComparisonComparator", setter="setValueComparisonComparator")
+     * @SerializedName("valueComparisonComparator")
+     * @Type("Enum<Zimbra\Common\Enum\ComparisonComparator>")
+     * 
+     * @XmlAttribute
      * @var ComparisonComparator
      */
     #[Accessor(getter: 'getValueComparisonComparator', setter: 'setValueComparisonComparator')]
@@ -82,6 +107,11 @@ class HeaderTest extends FilterTest
     /**
      * Value
      * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -92,6 +122,11 @@ class HeaderTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
+     * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
+     * @SerializedName("caseSensitive")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

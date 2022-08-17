@@ -30,6 +30,11 @@ class ImportContactsRequest extends SoapRequest
      * Content type.
      * Only currenctly supported content type is "csv"
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -40,6 +45,11 @@ class ImportContactsRequest extends SoapRequest
 
     /**
      * Optional Folder ID to import contacts to
+     * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -53,6 +63,11 @@ class ImportContactsRequest extends SoapRequest
      * The format of csv being imported.  when it's not defined, Zimbra format is assumed.
      * The supported formats are defined in $ZIMBRA_HOME/conf/zimbra-contact-fields.xml
      * 
+     * @Accessor(getter="getCsvFormat", setter="setCsvFormat")
+     * @SerializedName("csvfmt")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsvFormat', setter: 'setCsvFormat')]
@@ -65,6 +80,11 @@ class ImportContactsRequest extends SoapRequest
      * The locale to use when there are multiple <csvfmtt> locales defined.
      * When it is not specified, the <csvfmtt> with no locale specification is used.
      * 
+     * @Accessor(getter="getCsvLocale", setter="setCsvLocale")
+     * @SerializedName("csvlocale")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCsvLocale', setter: 'setCsvLocale')]
@@ -75,6 +95,11 @@ class ImportContactsRequest extends SoapRequest
 
     /**
      * Content specification
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("Zimbra\Mail\Struct\Content")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Content
      */

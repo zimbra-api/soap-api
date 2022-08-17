@@ -26,6 +26,11 @@ class AttachmentsInfo
     /**
      * Attachment upload ID
      * 
+     * @Accessor(getter="getAttachmentId", setter="setAttachmentId")
+     * @SerializedName("aid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachmentId', setter: 'setAttachmentId')]
@@ -37,6 +42,10 @@ class AttachmentsInfo
     /**
      * Mime part attachment details
      * 
+     * @Accessor(getter="getMpAttachments", setter="setMpAttachments")
+     * @Type("array<Zimbra\Mail\Struct\MimePartAttachSpec>")
+     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMpAttachments', setter: 'setMpAttachments')]
@@ -46,6 +55,10 @@ class AttachmentsInfo
 
     /**
      * Msg attachment details
+     * 
+     * @Accessor(getter="getMsgAttachments", setter="setMsgAttachments")
+     * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -57,6 +70,10 @@ class AttachmentsInfo
     /**
      * Contact attachment details
      * 
+     * @Accessor(getter="getContactAttachments", setter="setContactAttachments")
+     * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
+     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getContactAttachments', setter: 'setContactAttachments')]
@@ -66,6 +83,10 @@ class AttachmentsInfo
 
     /**
      * Doc attachment details
+     * 
+     * @Accessor(getter="getDocAttachments", setter="setDocAttachments")
+     * @Type("array<Zimbra\Mail\Struct\DocAttachSpec>")
+     * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
      * 
      * @var array
      */

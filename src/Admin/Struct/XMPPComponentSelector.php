@@ -27,6 +27,11 @@ class XMPPComponentSelector
     /**
      * Select the meaning of {xmpp-comp-selector-key}
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\XmppComponentBy>")
+     * @XmlAttribute
+     * 
      * @var XmppComponentBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -37,6 +42,10 @@ class XMPPComponentSelector
 
     /**
      * The key used to identify the XMPP component
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

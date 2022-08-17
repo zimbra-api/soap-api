@@ -27,6 +27,11 @@ class ModifyProfileImageResponse extends SoapResponse
     /**
      * Item ID of profile image
      * 
+     * @Accessor(getter="getItemId", setter="setItemId")
+     * @SerializedName("itemId")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getItemId', setter: 'setItemId')]

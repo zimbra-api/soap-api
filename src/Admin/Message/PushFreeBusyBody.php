@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PushFreeBusyBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("PushFreeBusyRequest")
+     * @Type("Zimbra\Admin\Message\PushFreeBusyRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PushFreeBusyRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class PushFreeBusyBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("PushFreeBusyResponse")
+     * @Type("Zimbra\Admin\Message\PushFreeBusyResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var PushFreeBusyResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

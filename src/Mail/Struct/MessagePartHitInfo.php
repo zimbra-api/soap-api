@@ -27,6 +27,11 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Message ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class MessagePartHitInfo implements SearchHit
 
     /**
      * Sort field value
+     * 
+     * @Accessor(getter="getSortField", setter="setSortField")
+     * @SerializedName("sf")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Size in bytes
      * 
+     * @Accessor(getter="getSize", setter="setSize")
+     * @SerializedName("s")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -59,6 +74,11 @@ class MessagePartHitInfo implements SearchHit
 
     /**
      * Secs since epoch, from date header in message
+     * 
+     * @Accessor(getter="getDate", setter="setDate")
+     * @SerializedName("d")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -71,6 +91,11 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Converstation id. only present if <m> is not enclosed within a <c> element
      * 
+     * @Accessor(getter="getConversationId", setter="setConversationId")
+     * @SerializedName("cid")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getConversationId', setter: 'setConversationId')]
@@ -81,6 +106,11 @@ class MessagePartHitInfo implements SearchHit
 
     /**
      * Message item ID
+     * 
+     * @Accessor(getter="getMessageId", setter="setMessageId")
+     * @SerializedName("mid")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -93,6 +123,11 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Content type
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -103,6 +138,11 @@ class MessagePartHitInfo implements SearchHit
 
     /**
      * File name
+     * 
+     * @Accessor(getter="getContentName", setter="setContentName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -115,6 +155,11 @@ class MessagePartHitInfo implements SearchHit
     /**
      * MIME part name
      * 
+     * @Accessor(getter="getPart", setter="setPart")
+     * @SerializedName("part")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
@@ -125,6 +170,11 @@ class MessagePartHitInfo implements SearchHit
 
     /**
      * Email address information
+     * 
+     * @Accessor(getter="getEmail", setter="setEmail")
+     * @SerializedName("e")
+     * @Type("Zimbra\Mail\Struct\EmailInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var EmailInfo
      */
@@ -137,7 +187,10 @@ class MessagePartHitInfo implements SearchHit
     /**
      * Subject
      * 
-     * @var string
+     * @Accessor(getter="getSubject", setter="setSubject")
+     * @SerializedName("su")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      */
     #[Accessor(getter: "getSubject", setter: "setSubject")]
     #[SerializedName(name: 'su')]

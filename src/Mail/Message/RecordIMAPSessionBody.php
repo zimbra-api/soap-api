@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RecordIMAPSessionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RecordIMAPSessionRequest")
+     * @Type("Zimbra\Mail\Message\RecordIMAPSessionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecordIMAPSessionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RecordIMAPSessionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RecordIMAPSessionResponse")
+     * @Type("Zimbra\Mail\Message\RecordIMAPSessionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var RecordIMAPSessionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

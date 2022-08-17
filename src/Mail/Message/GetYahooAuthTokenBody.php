@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetYahooAuthTokenBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetYahooAuthTokenRequest")
+     * @Type("Zimbra\Mail\Message\GetYahooAuthTokenRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetYahooAuthTokenRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetYahooAuthTokenBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetYahooAuthTokenResponse")
+     * @Type("Zimbra\Mail\Message\GetYahooAuthTokenResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GetYahooAuthTokenResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

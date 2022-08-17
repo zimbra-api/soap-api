@@ -27,6 +27,11 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     /**
      * Target type
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\TargetType>")
+     * @XmlAttribute
+     * 
      * @var TargetType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -38,6 +43,11 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
     /**
      * ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -48,6 +58,11 @@ class EffectiveRightsTargetInfo extends EffectiveRightsInfo
 
     /**
      * Name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

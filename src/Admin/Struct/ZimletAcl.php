@@ -27,6 +27,11 @@ class ZimletAcl
     /**
      * Name of Class Of Service (COS)
      * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
@@ -37,6 +42,11 @@ class ZimletAcl
 
     /**
      * ACL
+     * 
+     * @Accessor(getter="getAcl", setter="setAcl")
+     * @SerializedName("acl")
+     * @Type("Enum<Zimbra\Common\Enum\AclType>")
+     * @XmlAttribute
      * 
      * @var AclType
      */

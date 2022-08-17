@@ -29,6 +29,11 @@ class CompleteTaskInstanceRequest extends SoapRequest
     /**
      * ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -40,6 +45,11 @@ class CompleteTaskInstanceRequest extends SoapRequest
     /**
      * Exception ID
      * 
+     * @Accessor(getter="getExceptionId", setter="setExceptionId")
+     * @SerializedName("exceptId")
+     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var DtTimeInfo
      */
     #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
@@ -50,6 +60,11 @@ class CompleteTaskInstanceRequest extends SoapRequest
 
     /**
      * Timezone information
+     * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("Zimbra\Mail\Struct\CalTZInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CalTZInfo
      */

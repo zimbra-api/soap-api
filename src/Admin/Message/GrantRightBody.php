@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GrantRightBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GrantRightRequest")
+     * @Type("Zimbra\Admin\Message\GrantRightRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GrantRightRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GrantRightBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GrantRightResponse")
+     * @Type("Zimbra\Admin\Message\GrantRightResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GrantRightResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

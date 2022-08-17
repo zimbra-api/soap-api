@@ -32,6 +32,11 @@ class AutoProvTaskControlRequest extends SoapRequest
     /**
      * Action to perform - one of start|status|stop
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Enum<Zimbra\Common\Enum\AutoProvTaskAction>")
+     * @XmlAttribute
+     * 
      * @var AutoProvTaskAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]

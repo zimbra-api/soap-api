@@ -28,6 +28,11 @@ class GetAllServersRequest extends SoapRequest
     /**
      * Service name.  e.g. mta, antispam, spell.
      * 
+     * @Accessor(getter="getService", setter="setService")
+     * @SerializedName("service")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getService', setter: 'setService')]
@@ -38,6 +43,11 @@ class GetAllServersRequest extends SoapRequest
 
     /**
      * alwaysOnClusterId
+     * 
+     * @Accessor(getter="getAlwaysOnClusterId", setter="setAlwaysOnClusterId")
+     * @SerializedName("alwaysOnClusterId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -50,6 +60,11 @@ class GetAllServersRequest extends SoapRequest
     /**
      * if {apply-config} is 1 (true), then certain unset attrs on a server will get their value from the global config.
      * if {apply-config} is 0 (false), then only attributes directly set on the server will be returned
+     * 
+     * @Accessor(getter="isApplyConfig", setter="setApplyConfig")
+     * @SerializedName("applyConfig")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

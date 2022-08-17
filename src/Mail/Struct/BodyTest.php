@@ -26,6 +26,11 @@ class BodyTest extends FilterTest
     /**
      * Value
      * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -36,6 +41,11 @@ class BodyTest extends FilterTest
 
     /**
      * Case sensitive setting
+     * 
+     * @Accessor(getter="isCaseSensitive", setter="setCaseSensitive")
+     * @SerializedName("caseSensitive")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */

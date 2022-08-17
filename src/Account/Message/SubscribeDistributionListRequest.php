@@ -29,6 +29,11 @@ class SubscribeDistributionListRequest extends SoapRequest
     /**
      * The operation to perform.
      * 
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\DistributionListSubscribeOp>")
+     * @XmlAttribute
+     * 
      * @var DistributionListSubscribeOp
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -39,6 +44,11 @@ class SubscribeDistributionListRequest extends SoapRequest
 
     /**
      * Selector for the distribution list
+     * 
+     * @Accessor(getter="getDl", setter="setDl")
+     * @SerializedName("dl")
+     * @Type("Zimbra\Common\Struct\DistributionListSelector")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var DistributionListSelector
      */

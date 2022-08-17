@@ -27,6 +27,11 @@ class AlwaysOnClusterSelector
     /**
      * Selects the meaning of alwaysOnCluster-key
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\AlwaysOnClusterBy>")
+     * @XmlAttribute
+     * 
      * @var AlwaysOnClusterBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -37,6 +42,10 @@ class AlwaysOnClusterSelector
 
     /**
      * Key for choosing alwaysOnCluster
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

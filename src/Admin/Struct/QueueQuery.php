@@ -26,6 +26,10 @@ class QueueQuery
     /**
      * Queue query field
      * 
+     * @Accessor(getter="getFields", setter="setFields")
+     * @Type("array<Zimbra\Admin\Struct\QueueQueryField>")
+     * @XmlList(inline=true, entry="field", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFields', setter: 'setFields')]
@@ -35,6 +39,11 @@ class QueueQuery
 
     /**
      * Limit the number of queue items to return in the response
+     * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -46,6 +55,11 @@ class QueueQuery
 
     /**
      * Offset
+     * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateLDAPEntryBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateLDAPEntryRequest")
+     * @Type("Zimbra\Admin\Message\CreateLDAPEntryRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CreateLDAPEntryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateLDAPEntryBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateLDAPEntryResponse")
+     * @Type("Zimbra\Admin\Message\CreateLDAPEntryResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CreateLDAPEntryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

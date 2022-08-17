@@ -29,6 +29,11 @@ class ModifyVolumeRequest extends SoapRequest
     /**
      * Volume ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -39,6 +44,11 @@ class ModifyVolumeRequest extends SoapRequest
 
     /**
      * Volume information
+     * 
+     * @Accessor(getter="getVolume", setter="setVolume")
+     * @SerializedName("volume")
+     * @Type("Zimbra\Admin\Struct\VolumeInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var VolumeInfo
      */

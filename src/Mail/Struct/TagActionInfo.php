@@ -26,6 +26,11 @@ class TagActionInfo
     /**
      * Tag IDs for successfully applied operation
      * 
+     * @Accessor(getter="getSuccesses", setter="setSuccesses")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSuccesses', setter: 'setSuccesses')]
@@ -38,6 +43,11 @@ class TagActionInfo
      * Operations of tags affected by successfully applied operation
      * Only present if "tn" was specified in the request
      * 
+     * @Accessor(getter="getSuccessNames", setter="setSuccessNames")
+     * @SerializedName("tn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSuccessNames', setter: 'setSuccessNames')]
@@ -48,6 +58,11 @@ class TagActionInfo
 
     /**
      * Operation - "read|!read|color|delete|rename|update|retentionpolicy"
+     * 
+     * @Accessor(getter="getOperation", setter="setOperation")
+     * @SerializedName("op")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

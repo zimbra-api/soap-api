@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetLDAPEntriesBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetLDAPEntriesRequest")
+     * @Type("Zimbra\Admin\Message\GetLDAPEntriesRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetLDAPEntriesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetLDAPEntriesBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetLDAPEntriesResponse")
+     * @Type("Zimbra\Admin\Message\GetLDAPEntriesResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetLDAPEntriesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

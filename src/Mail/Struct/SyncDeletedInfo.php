@@ -26,6 +26,11 @@ class SyncDeletedInfo
     /**
      * IDs of deleted items
      * 
+     * @Accessor(getter="getIds", setter="setIds")
+     * @SerializedName("ids")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
@@ -37,6 +42,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getFolderTypes", setter="setFolderTypes")
+     * @Type("array<Zimbra\Mail\Struct\FolderIdsAttr>")
+     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFolderTypes', setter: 'setFolderTypes')]
@@ -46,6 +55,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
+     * @Type("array<Zimbra\Mail\Struct\SearchFolderIdsAttr>")
+     * @XmlList(inline=true, entry="search", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -57,6 +70,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getLinkTypes", setter="setLinkTypes")
+     * @Type("array<Zimbra\Mail\Struct\MountIdsAttr>")
+     * @XmlList(inline=true, entry="link", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getLinkTypes', setter: 'setLinkTypes')]
@@ -66,6 +83,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getTagTypes", setter="setTagTypes")
+     * @Type("array<Zimbra\Mail\Struct\TagIdsAttr>")
+     * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -77,6 +98,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getConvTypes", setter="setConvTypes")
+     * @Type("array<Zimbra\Mail\Struct\ConvIdsAttr>")
+     * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getConvTypes', setter: 'setConvTypes')]
@@ -86,6 +111,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getChatTypes", setter="setChatTypes")
+     * @Type("array<Zimbra\Mail\Struct\ChatIdsAttr>")
+     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -97,6 +126,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getMsgTypes", setter="setMsgTypes")
+     * @Type("array<Zimbra\Mail\Struct\MsgIdsAttr>")
+     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getMsgTypes', setter: 'setMsgTypes')]
@@ -106,6 +139,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getContactTypes", setter="setContactTypes")
+     * @Type("array<Zimbra\Mail\Struct\ContactIdsAttr>")
+     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -117,6 +154,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getApptTypes", setter="setApptTypes")
+     * @Type("array<Zimbra\Mail\Struct\ApptIdsAttr>")
+     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getApptTypes', setter: 'setApptTypes')]
@@ -126,6 +167,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getTaskTypes", setter="setTaskTypes")
+     * @Type("array<Zimbra\Mail\Struct\TaskIdsAttr>")
+     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -137,6 +182,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getNoteTypes", setter="setNoteTypes")
+     * @Type("array<Zimbra\Mail\Struct\NoteIdsAttr>")
+     * @XmlList(inline=true, entry="notes", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getNoteTypes', setter: 'setNoteTypes')]
@@ -147,6 +196,10 @@ class SyncDeletedInfo
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
      * 
+     * @Accessor(getter="getWikiTypes", setter="setWikiTypes")
+     * @Type("array<Zimbra\Mail\Struct\WikiIdsAttr>")
+     * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getWikiTypes', setter: 'setWikiTypes')]
@@ -156,6 +209,10 @@ class SyncDeletedInfo
 
     /**
      * Details of deletes broken down by item type (present if "typed" was specified in the request)
+     * 
+     * @Accessor(getter="getDocTypes", setter="setDocTypes")
+     * @Type("array<Zimbra\Mail\Struct\DocIdsAttr>")
+     * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
      * 
      * @var array
      */

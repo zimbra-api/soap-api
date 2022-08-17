@@ -26,6 +26,11 @@ class ExceptIdInfo
     /**
      * Recurrence ID of exception
      * 
+     * @Accessor(getter="getRecurrenceId", setter="setRecurrenceId")
+     * @SerializedName("recurId")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRecurrenceId', setter: 'setRecurrenceId')]
@@ -36,6 +41,11 @@ class ExceptIdInfo
 
     /**
      * Invite ID of exception
+     * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

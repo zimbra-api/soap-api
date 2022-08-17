@@ -30,6 +30,11 @@ class DeployZimletRequest extends SoapRequest
     /**
      * Action - valid values : deployAll|deployLocal|status
      * 
+     * @Accessor(getter="getAction", setter="setAction")
+     * @SerializedName("action")
+     * @Type("Enum<Zimbra\Common\Enum\ZimletDeployAction>")
+     * @XmlAttribute
+     * 
      * @var ZimletDeployAction
      */
     #[Accessor(getter: 'getAction', setter: 'setAction')]
@@ -40,6 +45,11 @@ class DeployZimletRequest extends SoapRequest
 
     /**
      * Flag whether to flush the cache
+     * 
+     * @Accessor(getter="getFlushCache", setter="setFlushCache")
+     * @SerializedName("flush")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -52,6 +62,11 @@ class DeployZimletRequest extends SoapRequest
     /**
      * Synchronous flag
      * 
+     * @Accessor(getter="getSynchronous", setter="setSynchronous")
+     * @SerializedName("synchronous")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getSynchronous', setter: 'setSynchronous')]
@@ -62,6 +77,11 @@ class DeployZimletRequest extends SoapRequest
 
     /**
      * Content
+     * 
+     * @Accessor(getter="getContent", setter="setContent")
+     * @SerializedName("content")
+     * @Type("Zimbra\Admin\Struct\AttachmentIdAttrib")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      * 
      * @var AttachmentIdAttrib
      */

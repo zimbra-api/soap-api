@@ -28,6 +28,11 @@ class CalendarAttach implements CalendarAttachInterface
     /**
      * URI
      * 
+     * @Accessor(getter="getUri", setter="setUri")
+     * @SerializedName("uri")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUri', setter: 'setUri')]
@@ -39,6 +44,11 @@ class CalendarAttach implements CalendarAttachInterface
     /**
      * Content Type for binaryB64Data
      * 
+     * @Accessor(getter="getContentType", setter="setContentType")
+     * @SerializedName("ct")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getContentType', setter: 'setContentType')]
@@ -49,6 +59,10 @@ class CalendarAttach implements CalendarAttachInterface
 
     /**
      * Base64 encoded binary alarrm attach data
+     * 
+     * @Accessor(getter="getBinaryB64Data", setter="setBinaryB64Data")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

@@ -26,6 +26,11 @@ class MailQueueQuery
     /**
      * Query
      * 
+     * @Accessor(getter="getQuery", setter="setQuery")
+     * @SerializedName("query")
+     * @Type("Zimbra\Admin\Struct\QueueQuery")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var QueueQuery
      */
     #[Accessor(getter: 'getQuery', setter: 'setQuery')]
@@ -36,6 +41,11 @@ class MailQueueQuery
 
     /**
      * Queue name
+     * 
+     * @Accessor(getter="getQueueName", setter="setQueueName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -48,6 +58,11 @@ class MailQueueQuery
     /**
      * To fora a queue scan, set this to 1 (true)
      * 
+     * @Accessor(getter="getScan", setter="setScan")
+     * @SerializedName("scan")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getScan', setter: 'setScan')]
@@ -58,6 +73,11 @@ class MailQueueQuery
 
     /**
      * Maximum time to wait for the scan to complete in seconds (default 3)
+     * 
+     * @Accessor(getter="getWaitSeconds", setter="setWaitSeconds")
+     * @SerializedName("wait")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

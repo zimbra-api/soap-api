@@ -28,6 +28,11 @@ class IntervalRule implements IntervalRuleInterface
     /**
      * Rule interval count - a positive int
      * 
+     * @Accessor(getter="getIval", setter="setIval")
+     * @SerializedName("ival")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getIval', setter: 'setIval')]

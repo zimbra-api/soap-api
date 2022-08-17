@@ -28,6 +28,11 @@ class GetYahooCookieRequest extends SoapRequest
     /**
      * User
      * 
+     * @Accessor(getter="getUser", setter="setUser")
+     * @SerializedName("user")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUser', setter: 'setUser')]

@@ -28,6 +28,11 @@ class GetDomainResponse extends SoapResponse
     /**
      * Information about domain
      * 
+     * @Accessor(getter="getDomain", setter="setDomain")
+     * @SerializedName("domain")
+     * @Type("Zimbra\Admin\Struct\DomainInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var DomainInfo
      */
     #[Accessor(getter: 'getDomain', setter: 'setDomain')]

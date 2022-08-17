@@ -28,6 +28,11 @@ class ModifyProfileImageRequest extends SoapRequest
     /**
      * Upload ID of uploaded image to use
      * 
+     * @Accessor(getter="getUploadId", setter="setUploadId")
+     * @SerializedName("uid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUploadId', setter: 'setUploadId')]
@@ -38,6 +43,10 @@ class ModifyProfileImageRequest extends SoapRequest
 
     /**
      * Base64 encoded image data
+     * 
+     * @Accessor(getter="getImageB64Data", setter="setImageB64Data")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

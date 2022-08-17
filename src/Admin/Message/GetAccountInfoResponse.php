@@ -29,6 +29,11 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Account name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -40,6 +45,10 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Currently only these attributes are returned: zimbraId, zimbraMailHost
      * 
+     * @Accessor(getter="getAttrList", setter="setAttrList")
+     * @Type("array<Zimbra\Admin\Struct\Attr>")
+     * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
@@ -50,7 +59,10 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * Class of Service (COS) information for account
      * 
-     * @var CosInfo
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Admin\Struct\CosInfo")
+     * @XmlElement(namespace="urn:zimbraAdmin")
      */
     #[Accessor(getter: 'getCos', setter: 'setCos')]
     #[SerializedName(name: 'cos')]
@@ -60,6 +72,10 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL to talk to for SOAP service for this account.
+     * 
+     * @Accessor(getter="getSoapURLList", setter="setSoapURLList")
+     * @Type("array<string>")
+     * @XmlList(inline=true, entry="soapURL", namespace="urn:zimbraAdmin")
      * 
      * @var array
      */
@@ -71,6 +87,11 @@ class GetAccountInfoResponse extends SoapResponse
     /**
      * URL for the Admin SOAP service
      * 
+     * @Accessor(getter="getAdminSoapURL", setter="setAdminSoapURL")
+     * @SerializedName("adminSoapURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAdminSoapURL', setter: 'setAdminSoapURL')]
@@ -81,6 +102,11 @@ class GetAccountInfoResponse extends SoapResponse
 
     /**
      * URL for Web Mail application
+     * 
+     * @Accessor(getter="getPublicMailURL", setter="setPublicMailURL")
+     * @SerializedName("publicMailURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
      * 
      * @var string
      */

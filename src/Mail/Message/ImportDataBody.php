@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ImportDataBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ImportDataRequest")
+     * @Type("Zimbra\Mail\Message\ImportDataRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImportDataRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ImportDataBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ImportDataResponse")
+     * @Type("Zimbra\Mail\Message\ImportDataResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ImportDataResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

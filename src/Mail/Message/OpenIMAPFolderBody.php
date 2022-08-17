@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class OpenIMAPFolderBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("OpenIMAPFolderRequest")
+     * @Type("Zimbra\Mail\Message\OpenIMAPFolderRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var OpenIMAPFolderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class OpenIMAPFolderBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("OpenIMAPFolderResponse")
+     * @Type("Zimbra\Mail\Message\OpenIMAPFolderResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var OpenIMAPFolderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

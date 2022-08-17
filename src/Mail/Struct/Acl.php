@@ -27,6 +27,11 @@ class Acl
     /**
      * Time when grants to internal grantees expire.
      * 
+     * @Accessor(getter="getInternalGrantExpiry", setter="setInternalGrantExpiry")
+     * @SerializedName("internalGrantExpiry")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getInternalGrantExpiry', setter: 'setInternalGrantExpiry')]
@@ -38,6 +43,11 @@ class Acl
     /**
      * Time when grants to guest grantees expire.
      * 
+     * @Accessor(getter="getGuestGrantExpiry", setter="setGuestGrantExpiry")
+     * @SerializedName("guestGrantExpiry")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getGuestGrantExpiry', setter: 'setGuestGrantExpiry')]
@@ -48,6 +58,10 @@ class Acl
 
     /**
      * Grants
+     * 
+     * @Accessor(getter="getGrants", setter="setGrants")
+     * @Type("array<Zimbra\Mail\Struct\Grant>")
+     * @XmlList(inline=true, entry="grant", namespace="urn:zimbraMail")
      * 
      * @var array
      */

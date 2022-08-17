@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateTaskExceptionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CreateTaskExceptionRequest")
+     * @Type("Zimbra\Mail\Message\CreateTaskExceptionRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateTaskExceptionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CreateTaskExceptionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CreateTaskExceptionResponse")
+     * @Type("Zimbra\Mail\Message\CreateTaskExceptionResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CreateTaskExceptionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

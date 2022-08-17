@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetDomainBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetDomainRequest")
+     * @Type("Zimbra\Admin\Message\GetDomainRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetDomainRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetDomainBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetDomainResponse")
+     * @Type("Zimbra\Admin\Message\GetDomainResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetDomainResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

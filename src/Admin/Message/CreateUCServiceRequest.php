@@ -31,6 +31,11 @@ class CreateUCServiceRequest extends SoapRequest implements AdminAttrs
     /**
      * New server name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAdmin")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Enum\GranteeType;
 class AccountACEInfo
 {
     /**
+     * @Accessor(getter="getGranteeType", setter="setGranteeType")
+     * @SerializedName("gt")
+     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
+     * @XmlAttribute
+     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
@@ -34,6 +39,11 @@ class AccountACEInfo
     private $granteeType;
 
     /**
+     * @Accessor(getter="getRight", setter="setRight")
+     * @SerializedName("right")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
@@ -43,6 +53,11 @@ class AccountACEInfo
     private $right;
 
     /**
+     * @Accessor(getter="getZimbraId", setter="setZimbraId")
+     * @SerializedName("zid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -52,6 +67,11 @@ class AccountACEInfo
     private $zimbraId;
 
     /**
+     * @Accessor(getter="getDisplayName", setter="setDisplayName")
+     * @SerializedName("d")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -61,6 +81,11 @@ class AccountACEInfo
     private $displayName;
 
     /**
+     * @Accessor(getter="getAccessKey", setter="setAccessKey")
+     * @SerializedName("key")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
@@ -70,6 +95,11 @@ class AccountACEInfo
     private $accessKey;
 
     /**
+     * @Accessor(getter="getPassword", setter="setPassword")
+     * @SerializedName("pw")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -79,6 +109,11 @@ class AccountACEInfo
     private $password;
 
     /**
+     * @Accessor(getter="getDeny", setter="setDeny")
+     * @SerializedName("deny")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getDeny', setter: 'setDeny')]
@@ -88,6 +123,11 @@ class AccountACEInfo
     private $deny;
 
     /**
+     * @Accessor(getter="getCheckGranteeType", setter="setCheckGranteeType")
+     * @SerializedName("chkgt")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getCheckGranteeType', setter: 'setCheckGranteeType')]

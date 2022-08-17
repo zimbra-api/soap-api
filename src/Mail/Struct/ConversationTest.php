@@ -26,6 +26,11 @@ class ConversationTest extends FilterTest
     /**
      * Where setting - started|participated
      * 
+     * @Accessor(getter="getWhere", setter="setWhere")
+     * @SerializedName("where")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getWhere', setter: 'setWhere')]

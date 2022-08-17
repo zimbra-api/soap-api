@@ -26,6 +26,11 @@ class Grantor
     /**
      * Zimbra ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -37,6 +42,11 @@ class Grantor
     /**
      * Email address
      * 
+     * @Accessor(getter="getEmail", setter="setEmail")
+     * @SerializedName("email")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getEmail', setter: 'setEmail')]
@@ -47,6 +57,11 @@ class Grantor
 
     /**
      * Grantor display name
+     * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

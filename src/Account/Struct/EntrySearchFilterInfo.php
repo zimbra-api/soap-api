@@ -29,6 +29,11 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
     /**
      * Search filter simple condition
      * 
+     * @Accessor(getter="getCondition", setter="setCondition")
+     * @SerializedName("cond")
+     * @Type("Zimbra\Account\Struct\EntrySearchFilterSingleCond")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var SearchFilterCondition
      */
     #[Accessor(getter: 'getCondition', setter: 'setCondition')]
@@ -39,6 +44,11 @@ class EntrySearchFilterInfo implements EntrySearchFilterInterface
 
     /**
      * Search filter compound condition
+     * 
+     * @Accessor(getter="getConditions", setter="setConditions")
+     * @SerializedName("conds")
+     * @Type("Zimbra\Account\Struct\EntrySearchFilterMultiCond")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var SearchFilterCondition
      */

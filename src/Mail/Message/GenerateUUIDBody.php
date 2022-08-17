@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GenerateUUIDBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GenerateUUIDRequest")
+     * @Type("Zimbra\Mail\Message\GenerateUUIDRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GenerateUUIDRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GenerateUUIDBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GenerateUUIDResponse")
+     * @Type("Zimbra\Mail\Message\GenerateUUIDResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var GenerateUUIDResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

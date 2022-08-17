@@ -33,6 +33,11 @@ class GetRecurResponse extends SoapResponse
     /**
      * Timezone
      * 
+     * @Accessor(getter="getTimezone", setter="setTimezone")
+     * @SerializedName("tz")
+     * @Type("Zimbra\Mail\Struct\CalTZInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var CalTZInfo
      */
     #[Accessor(getter: "getTimezone", setter: "setTimezone")]
@@ -43,6 +48,11 @@ class GetRecurResponse extends SoapResponse
 
     /**
      * Cancel recurrence component
+     * 
+     * @Accessor(getter="getCancelComponent", setter="setCancelComponent")
+     * @SerializedName("cancel")
+     * @Type("Zimbra\Mail\Struct\CancelItemRecur")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CancelItemRecur
      */
@@ -55,6 +65,11 @@ class GetRecurResponse extends SoapResponse
     /**
      * Except recurrence component
      * 
+     * @Accessor(getter="getExceptComponent", setter="setExceptComponent")
+     * @SerializedName("except")
+     * @Type("Zimbra\Mail\Struct\ExceptionItemRecur")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var ExceptionItemRecur
      */
     #[Accessor(getter: "getExceptComponent", setter: "setExceptComponent")]
@@ -65,6 +80,11 @@ class GetRecurResponse extends SoapResponse
 
     /**
      * Invite recurrence component
+     * 
+     * @Accessor(getter="getInviteComponent", setter="setInviteComponent")
+     * @SerializedName("comp")
+     * @Type("Zimbra\Mail\Struct\InviteItemRecur")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var InviteItemRecur
      */

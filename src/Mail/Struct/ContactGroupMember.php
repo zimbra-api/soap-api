@@ -31,6 +31,11 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * G: reference to a GAL entry
      * I: inlined member (member name and email address is embeded in the contact group)
      * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\MemberType>")
+     * @XmlAttribute
+     * 
      * @var MemberType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -46,6 +51,11 @@ class ContactGroupMember implements ContactGroupMemberInterface
      * type="G"     GAL entry reference (returned in SearchGalResponse)
      * type="I"     name and email address in the form of: "{name}" <{email}>
      * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -56,6 +66,11 @@ class ContactGroupMember implements ContactGroupMemberInterface
 
     /**
      * Contact information for dereferenced member.
+     * 
+     * @Accessor(getter="getContact", setter="setContact")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ContactInfo")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ContactInterface
      */

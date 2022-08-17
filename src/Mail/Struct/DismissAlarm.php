@@ -26,6 +26,11 @@ class DismissAlarm
     /**
      * Calendar item ID
      * 
+     * @Accessor(getter="getId", setter="setId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -36,6 +41,11 @@ class DismissAlarm
 
     /**
      * Time alarm was dismissed, in millis
+     * 
+     * @Accessor(getter="getDismissedAt", setter="setDismissedAt")
+     * @SerializedName("dismissedAt")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

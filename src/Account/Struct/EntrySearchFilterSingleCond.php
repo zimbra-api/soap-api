@@ -26,6 +26,11 @@ use Zimbra\Common\Struct\SearchFilterCondition;
 class EntrySearchFilterSingleCond implements SearchFilterCondition
 {
     /**
+     * @Accessor(getter="getAttr", setter="setAttr")
+     * @SerializedName("attr")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAttr', setter: 'setAttr')]
@@ -35,6 +40,11 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $attr;
 
     /**
+     * @Accessor(getter="getOp", setter="setOp")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\ConditionOperator>")
+     * @XmlAttribute
+     * 
      * @var ConditionOperator
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -44,6 +54,11 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $op;
 
     /**
+     * @Accessor(getter="getValue", setter="setValue")
+     * @SerializedName("value")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
@@ -53,6 +68,11 @@ class EntrySearchFilterSingleCond implements SearchFilterCondition
     private $value;
 
     /**
+     * @Accessor(getter="isNot", setter="setNot")
+     * @SerializedName("not")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'isNot', setter: 'setNot')]

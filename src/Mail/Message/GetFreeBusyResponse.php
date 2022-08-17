@@ -28,6 +28,10 @@ class GetFreeBusyResponse extends SoapResponse
     /**
      * Freebusy information for users
      * 
+     * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
+     * @Type("array<Zimbra\Mail\Struct\FreeBusyUserInfo>")
+     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getFreebusyUsers', setter: 'setFreebusyUsers')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class MailQueueActionBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("MailQueueActionRequest")
+     * @Type("Zimbra\Admin\Message\MailQueueActionRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailQueueActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class MailQueueActionBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("MailQueueActionResponse")
+     * @Type("Zimbra\Admin\Message\MailQueueActionResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var MailQueueActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

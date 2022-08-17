@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AddAccountLoggerBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("AddAccountLoggerRequest")
+     * @Type("Zimbra\Admin\Message\AddAccountLoggerRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AddAccountLoggerRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class AddAccountLoggerBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("AddAccountLoggerResponse")
+     * @Type("Zimbra\Admin\Message\AddAccountLoggerResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var AddAccountLoggerResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

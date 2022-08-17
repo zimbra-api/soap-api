@@ -28,6 +28,11 @@ class ByMinuteRule implements ByMinuteRuleInterface
     /**
      * Comma separated list of minutes where minute is a number between 0 and 59
      * 
+     * @Accessor(getter="getList", setter="setList")
+     * @SerializedName("minlist")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]

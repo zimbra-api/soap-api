@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RecalculateMailboxCountsBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RecalculateMailboxCountsRequest")
+     * @Type("Zimbra\Admin\Message\RecalculateMailboxCountsRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RecalculateMailboxCountsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RecalculateMailboxCountsBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RecalculateMailboxCountsResponse")
+     * @Type("Zimbra\Admin\Message\RecalculateMailboxCountsResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RecalculateMailboxCountsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

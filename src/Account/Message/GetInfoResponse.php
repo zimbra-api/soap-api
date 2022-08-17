@@ -39,6 +39,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * The size limit for attachments - Use "-1" to mean unlimited
      * 
+     * @Accessor(getter="getAttachmentSizeLimit", setter="setAttachmentSizeLimit")
+     * @SerializedName("attSizeLimit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getAttachmentSizeLimit', setter: 'setAttachmentSizeLimit')]
@@ -49,6 +54,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * The size limit for documents
+     * 
+     * @Accessor(getter="getDocumentSizeLimit", setter="setDocumentSizeLimit")
+     * @SerializedName("docSizeLimit")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,6 +71,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * Server version: <major>[.<minor>[.<maintenance>]][build] <release> <date>[<type>]
      * 
+     * @Accessor(getter="getVersion", setter="setVersion")
+     * @SerializedName("version")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
@@ -71,6 +86,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Account ID
+     * 
+     * @Accessor(getter="getAccountId", setter="setAccountId")
+     * @SerializedName("id")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -83,6 +103,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * Profile image ID
      * 
+     * @Accessor(getter="getProfileImageId", setter="setProfileImageId")
+     * @SerializedName("profileImageId")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var int
      */
     #[Accessor(getter: 'getProfileImageId', setter: 'setProfileImageId')]
@@ -93,6 +118,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Email address (user@domain)
+     * 
+     * @Accessor(getter="getAccountName", setter="setAccountName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -105,6 +135,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * Crumb
      * 
+     * @Accessor(getter="getCrumb", setter="setCrumb")
+     * @SerializedName("crumb")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getCrumb', setter: 'setCrumb')]
@@ -115,6 +150,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Number of milliseconds until auth token expires
+     * 
+     * @Accessor(getter="getLifetime", setter="setLifetime")
+     * @SerializedName("lifetime")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var int
      */
@@ -127,6 +167,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * 1 (true) if the auth token is a delegated auth token issued to an admin account
      * 
+     * @Accessor(getter="getAdminDelegated", setter="setAdminDelegated")
+     * @SerializedName("adminDelegated")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getAdminDelegated', setter: 'setAdminDelegated')]
@@ -137,6 +182,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Base REST URL for the requested account
+     * 
+     * @Accessor(getter="getRestUrl", setter="setRestUrl")
+     * @SerializedName("rest")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -149,6 +199,12 @@ class GetInfoResponse extends SoapResponse
     /**
      * Mailbox quota used in bytes.
      * 
+     * Returned only if the command successfully executes on the target user's home mail server
+     * @Accessor(getter="getQuotaUsed", setter="setQuotaUsed")
+     * @SerializedName("used")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var int
      */
     #[Accessor(getter: 'getQuotaUsed', setter: 'setQuotaUsed')]
@@ -160,6 +216,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * Time (in millis) of last write op from this session, or from *any* SOAP session if we don't have one
      * Returned only if the command successfully executes on the target user's home mail server
+     * 
+     * @Accessor(getter="getPreviousSessionTime", setter="setPreviousSessionTime")
+     * @SerializedName("prevSession")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var int
      */
@@ -174,6 +235,11 @@ class GetInfoResponse extends SoapResponse
      * or same as {previous-SOAP-session-time} if we don't have one.
      * Returned only if the command successfully executes on the target user's home mail server
      * 
+     * @Accessor(getter="getLastWriteAccessTime", setter="setLastWriteAccessTime")
+     * @SerializedName("accessed")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLastWriteAccessTime', setter: 'setLastWriteAccessTime')]
@@ -186,6 +252,11 @@ class GetInfoResponse extends SoapResponse
      * Number of messages received since the previous soap session, or since the last SOAP write op if we don't have a session.
      * Returned only if the command successfully executes on the target user's home mail server
      * 
+     * @Accessor(getter="getRecentMessageCount", setter="setRecentMessageCount")
+     * @SerializedName("recent")
+     * @Type("int")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var int
      */
     #[Accessor(getter: 'getRecentMessageCount', setter: 'setRecentMessageCount')]
@@ -196,6 +267,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Class of service
+     * 
+     * @Accessor(getter="getCos", setter="setCos")
+     * @SerializedName("cos")
+     * @Type("Zimbra\Account\Struct\Cos")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var Cos
      */
@@ -208,6 +284,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * User-settable preferences
      * 
+     * @Accessor(getter="getPrefs", setter="setPrefs")
+     * @SerializedName("prefs")
+     * @Type("array<Zimbra\Account\Struct\Pref>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="pref", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -222,6 +303,12 @@ class GetInfoResponse extends SoapResponse
      * Account attributes that aren't user-settable, but the front-end needs.
      * Only attributes listed in zimbraAccountClientAttrs will be returned.
      * 
+     * @Accessor(getter="getAttrs", setter="setAttrs")
+     * @SerializedName("attrs")
+     * @Type("array<Zimbra\Account\Struct\Attr>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="attr", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -233,6 +320,12 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Zimlets
+     * 
+     * @Accessor(getter="getZimlets", setter="setZimlets")
+     * @SerializedName("zimlets")
+     * @Type("array<Zimbra\Account\Struct\AccountZimletInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="zimlet", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -246,6 +339,12 @@ class GetInfoResponse extends SoapResponse
     /**
      * Properties
      * 
+     * @Accessor(getter="getProps", setter="setProps")
+     * @SerializedName("props")
+     * @Type("array<Zimbra\Account\Struct\Prop>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="prop", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getProps', setter: 'setProps')]
@@ -257,6 +356,12 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Identities
+     * 
+     * @Accessor(getter="getIdentities", setter="setIdentities")
+     * @SerializedName("identities")
+     * @Type("array<Zimbra\Account\Struct\Identity>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="identity", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -270,6 +375,12 @@ class GetInfoResponse extends SoapResponse
     /**
      * Signatures
      * 
+     * @Accessor(getter="getSignatures", setter="setSignatures")
+     * @SerializedName("signatures")
+     * @Type("array<Zimbra\Account\Struct\Signature>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="signature", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getSignatures', setter: 'setSignatures')]
@@ -282,6 +393,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * Data sources
      * 
+     * @Accessor(getter="getAccountDataSources", setter="setAccountDataSources")
+     * @SerializedName("dataSources")
+     * @Type("Zimbra\Account\Struct\AccountDataSources")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountDataSources
      */
     #[Accessor(getter: 'getAccountDataSources', setter: 'setAccountDataSources')]
@@ -292,6 +408,12 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Child accounts
+     * 
+     * @Accessor(getter="getChildAccounts", setter="setChildAccounts")
+     * @SerializedName("childAccounts")
+     * @Type("array<Zimbra\Account\Struct\ChildAccount>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="childAccount", namespace="urn:zimbraAccount")
      * 
      * @var array
      */
@@ -305,6 +427,12 @@ class GetInfoResponse extends SoapResponse
     /**
      * Discovered Rights - same as for DiscoverRightsResponse
      * 
+     * @Accessor(getter="getDiscoveredRights", setter="setDiscoveredRights")
+     * @SerializedName("rights")
+     * @Type("array<Zimbra\Account\Struct\DiscoverRightsInfo>")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * @XmlList(inline=false, entry="targets", namespace="urn:zimbraAccount")
+     * 
      * @var array
      */
     #[Accessor(getter: 'getDiscoveredRights', setter: 'setDiscoveredRights')]
@@ -317,6 +445,11 @@ class GetInfoResponse extends SoapResponse
     /**
      * URL to talk to for soap service for this account.
      * 
+     * @Accessor(getter="getSoapURL", setter="setSoapURL")
+     * @SerializedName("soapURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getSoapURL', setter: 'setSoapURL')]
@@ -327,6 +460,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Base public URL for the requested account
+     * 
+     * @Accessor(getter="getPublicURL", setter="setPublicURL")
+     * @SerializedName("publicURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -340,6 +478,11 @@ class GetInfoResponse extends SoapResponse
      * URL to talk to in order to change a password.
      * Not returned if not configured via domain attribute zimbraChangePasswordURL
      * 
+     * @Accessor(getter="getChangePasswordURL", setter="setChangePasswordURL")
+     * @SerializedName("changePasswordURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getChangePasswordURL', setter: 'setChangePasswordURL')]
@@ -350,6 +493,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * base URL for accessing the admin console
+     * 
+     * @Accessor(getter="getAdminURL", setter="setAdminURL")
+     * @SerializedName("adminURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var string
      */
@@ -363,6 +511,11 @@ class GetInfoResponse extends SoapResponse
      * Proxy URL for accessing XMPP over BOSH.
      * Should be returned only when zimbraFeatureChatEnabled is set to TRUE for Account/COS
      * 
+     * @Accessor(getter="getBoshURL", setter="setBoshURL")
+     * @SerializedName("boshURL")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getBoshURL', setter: 'setBoshURL')]
@@ -373,6 +526,11 @@ class GetInfoResponse extends SoapResponse
 
     /**
      * Boolean value denoting if this account has logged in over IMAP.
+     * 
+     * @Accessor(getter="getIsTrackingIMAP", setter="setIsTrackingIMAP")
+     * @SerializedName("isTrackingIMAP")
+     * @Type("bool")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
      * 
      * @var bool
      */

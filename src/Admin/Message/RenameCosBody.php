@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class RenameCosBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("RenameCosRequest")
+     * @Type("Zimbra\Admin\Message\RenameCosRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RenameCosRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class RenameCosBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("RenameCosResponse")
+     * @Type("Zimbra\Admin\Message\RenameCosResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var RenameCosResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

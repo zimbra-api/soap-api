@@ -24,6 +24,11 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlAttribute};
 class OAuthConsumer
 {
     /**
+     * @Accessor(getter="getAccessToken", setter="setAccessToken")
+     * @SerializedName("accessToken")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getAccessToken', setter: 'setAccessToken')]
@@ -33,6 +38,11 @@ class OAuthConsumer
     private $accessToken;
 
     /**
+     * @Accessor(getter="getApprovedOn", setter="setApprovedOn")
+     * @SerializedName("approvedOn")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getApprovedOn', setter: 'setApprovedOn')]
@@ -42,6 +52,11 @@ class OAuthConsumer
     private $approvedOn;
 
     /**
+     * @Accessor(getter="getApplicationName", setter="setApplicationName")
+     * @SerializedName("appName")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getApplicationName', setter: 'setApplicationName')]
@@ -51,6 +66,11 @@ class OAuthConsumer
     private $applicationName;
 
     /**
+     * @Accessor(getter="getDevice", setter="setDevice")
+     * @SerializedName("device")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDevice', setter: 'setDevice')]

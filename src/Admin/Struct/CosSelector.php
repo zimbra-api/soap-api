@@ -27,6 +27,11 @@ class CosSelector
     /**
      * Select the meaning of {cos-selector-key}
      * 
+     * @Accessor(getter="getBy", setter="setBy")
+     * @SerializedName("by")
+     * @Type("Enum<Zimbra\Common\Enum\CosBy>")
+     * @XmlAttribute
+     * 
      * @var CosBy
      */
     #[Accessor(getter: 'getBy', setter: 'setBy')]
@@ -37,6 +42,10 @@ class CosSelector
 
     /**
      * The key used to identify the COS
+     * 
+     * @Accessor(getter="getValue", setter="setValue")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

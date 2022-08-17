@@ -27,6 +27,11 @@ class AccountZimletDesc implements ZimletDesc
     /**
      * Zimlet name
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -37,6 +42,11 @@ class AccountZimletDesc implements ZimletDesc
 
     /**
      * Zimlet version
+     * 
+     * @Accessor(getter="getVersion", setter="setVersion")
+     * @SerializedName("version")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -49,6 +59,11 @@ class AccountZimletDesc implements ZimletDesc
     /**
      * Zimlet description
      * 
+     * @Accessor(getter="getDescription", setter="setDescription")
+     * @SerializedName("description")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
@@ -59,6 +74,11 @@ class AccountZimletDesc implements ZimletDesc
 
     /**
      * Zimlet extension
+     * 
+     * @Accessor(getter="getExtension", setter="setExtension")
+     * @SerializedName("extension")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -71,6 +91,11 @@ class AccountZimletDesc implements ZimletDesc
     /**
      * Zimlet target
      * 
+     * @Accessor(getter="getTarget", setter="setTarget")
+     * @SerializedName("target")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getTarget', setter: 'setTarget')]
@@ -82,6 +107,11 @@ class AccountZimletDesc implements ZimletDesc
     /**
      * Zimlet label
      * 
+     * @Accessor(getter="getLabel", setter="setLabel")
+     * @SerializedName("label")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getLabel', setter: 'setLabel')]
@@ -91,6 +121,11 @@ class AccountZimletDesc implements ZimletDesc
     private $label;
 
     /**
+     * @Accessor(getter="getServerExtension", setter="setServerExtension")
+     * @SerializedName("serverExtension")
+     * @Type("Zimbra\Account\Struct\ZimletServerExtension")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var ZimletServerExtension
      */
     #[Accessor(getter: 'getServerExtension', setter: 'setServerExtension')]
@@ -100,6 +135,11 @@ class AccountZimletDesc implements ZimletDesc
     private $serverExtension;
 
     /**
+     * @Accessor(getter="getZimletInclude", setter="setZimletInclude")
+     * @SerializedName("include")
+     * @Type("Zimbra\Account\Struct\AccountZimletInclude")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletInclude
      */
     #[Accessor(getter: 'getZimletInclude', setter: 'setZimletInclude')]
@@ -109,6 +149,11 @@ class AccountZimletDesc implements ZimletDesc
     private $include;
 
     /**
+     * @Accessor(getter="getZimletIncludeCSS", setter="setZimletIncludeCSS")
+     * @SerializedName("includeCSS")
+     * @Type("Zimbra\Account\Struct\AccountZimletIncludeCSS")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletIncludeCSS
      */
     #[Accessor(getter: 'getZimletIncludeCSS', setter: 'setZimletIncludeCSS')]
@@ -118,6 +163,11 @@ class AccountZimletDesc implements ZimletDesc
     private $includeCSS;
 
     /**
+     * @Accessor(getter="getZimletTarget", setter="setZimletTarget")
+     * @SerializedName("zimletTarget")
+     * @Type("Zimbra\Account\Struct\AccountZimletTarget")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var AccountZimletTarget
      */
     #[Accessor(getter: 'getZimletTarget', setter: 'setZimletTarget')]

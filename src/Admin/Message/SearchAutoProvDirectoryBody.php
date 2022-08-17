@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SearchAutoProvDirectoryBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("SearchAutoProvDirectoryRequest")
+     * @Type("Zimbra\Admin\Message\SearchAutoProvDirectoryRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchAutoProvDirectoryRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class SearchAutoProvDirectoryBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("SearchAutoProvDirectoryResponse")
+     * @Type("Zimbra\Admin\Message\SearchAutoProvDirectoryResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var SearchAutoProvDirectoryResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

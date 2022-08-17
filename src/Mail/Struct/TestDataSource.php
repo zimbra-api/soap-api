@@ -26,6 +26,11 @@ class TestDataSource
     /**
      * 0 if data source test failed, 1 if test succeeded
      * 
+     * @Accessor(getter="getSuccess", setter="setSuccess")
+     * @SerializedName("success")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getSuccess', setter: 'setSuccess')]
@@ -36,6 +41,11 @@ class TestDataSource
 
     /**
      * error message passed by DatImport::test method of the datasource being tested
+     * 
+     * @Accessor(getter="getError", setter="setError")
+     * @SerializedName("error")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

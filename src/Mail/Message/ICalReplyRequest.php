@@ -28,6 +28,11 @@ class ICalReplyRequest extends SoapRequest
     /**
      * iCalendar text containing components with method REPLY
      * 
+     * @Accessor(getter="getIcal", setter="setIcal")
+     * @SerializedName("ical")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
      * @var string
      */
     #[Accessor(getter: "getIcal", setter: "setIcal")]

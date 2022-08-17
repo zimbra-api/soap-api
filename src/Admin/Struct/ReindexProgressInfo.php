@@ -26,6 +26,11 @@ class ReindexProgressInfo
     /**
      * Number of reindexes that succeeded
      * 
+     * @Accessor(getter="getNumSucceeded", setter="setNumSucceeded")
+     * @SerializedName("numSucceeded")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getNumSucceeded', setter: 'setNumSucceeded')]
@@ -37,6 +42,11 @@ class ReindexProgressInfo
     /**
      * Number of reindexes that failed
      * 
+     * @Accessor(getter="getNumFailed", setter="setNumFailed")
+     * @SerializedName("numFailed")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getNumFailed', setter: 'setNumFailed')]
@@ -47,6 +57,11 @@ class ReindexProgressInfo
 
     /**
      * Number of reindexes that remaining
+     * 
+     * @Accessor(getter="getNumRemaining", setter="setNumRemaining")
+     * @SerializedName("numRemaining")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */

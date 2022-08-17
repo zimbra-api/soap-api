@@ -32,6 +32,11 @@ class SearchGalRequest extends SoapRequest
      * If set then search GAL by this ref, which is a dn.
      * If specified then "name" attribute is ignored.
      * 
+     * @Accessor(getter="getRef", setter="setRef")
+     * @SerializedName("ref")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getRef', setter: 'setRef')]
@@ -44,6 +49,11 @@ class SearchGalRequest extends SoapRequest
      * Query string.
      * Note: ignored if <ref> is specified
      * 
+     * @Accessor(getter="getName", setter="setName")
+     * @SerializedName("name")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -54,6 +64,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * type of addresses to auto-complete on.
+     * 
+     * @Accessor(getter="getType", setter="setType")
+     * @SerializedName("type")
+     * @Type("Enum<Zimbra\Common\Enum\GalSearchType>")
+     * @XmlAttribute
      * 
      * @var GalSearchType
      */
@@ -67,6 +82,11 @@ class SearchGalRequest extends SoapRequest
      * flag whether the <b>{exp}</b> flag is needed in the response for group entries.
      * Default is unset.
      * 
+     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
+     * @SerializedName("needExp")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
@@ -79,6 +99,11 @@ class SearchGalRequest extends SoapRequest
      * Set this if the "isOwner" flag is needed in the response for group entries.
      * Default is unset.
      * 
+     * @Accessor(getter="getNeedIsOwner", setter="setNeedIsOwner")
+     * @SerializedName("needIsOwner")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedIsOwner', setter: 'setNeedIsOwner')]
@@ -89,6 +114,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Specify if the "isMember" flag is needed in the response for group entries.
+     * 
+     * @Accessor(getter="getNeedIsMember", setter="setNeedIsMember")
+     * @SerializedName("needIsMember")
+     * @Type("Enum<Zimbra\Common\Enum\MemberOfSelector>")
+     * @XmlAttribute
      * 
      * @var MemberOfSelector
      */
@@ -101,6 +131,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * Internal attr, for proxied GSA search from GetSMIMEPublicCerts only
      * 
+     * @Accessor(getter="getNeedSMIMECerts", setter="setNeedSMIMECerts")
+     * @SerializedName("needSMIMECerts")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedSMIMECerts', setter: 'setNeedSMIMECerts')]
@@ -111,6 +146,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * GAL Account ID
+     * 
+     * @Accessor(getter="getGalAccountId", setter="setGalAccountId")
+     * @SerializedName("galAcctId")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -128,6 +168,11 @@ class SearchGalRequest extends SoapRequest
      * trigger this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
      * 
+     * @Accessor(getter="getQuick", setter="setQuick")
+     * @SerializedName("quick")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getQuick', setter: 'setQuick')]
@@ -138,6 +183,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Name of attribute to sort on. default is the calendar resource name.
+     * 
+     * @Accessor(getter="getSortBy", setter="setSortBy")
+     * @SerializedName("sortBy")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */
@@ -150,6 +200,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * The maximum number of calendar resources to return (0 is default and means all)
      * 
+     * @Accessor(getter="getLimit", setter="setLimit")
+     * @SerializedName("limit")
+     * @Type("int")
+     * @XmlAttribute
+     * 
      * @var int
      */
     #[Accessor(getter: 'getLimit', setter: 'setLimit')]
@@ -160,6 +215,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * The starting offset (0, 25, etc)
+     * 
+     * @Accessor(getter="getOffset", setter="setOffset")
+     * @SerializedName("offset")
+     * @Type("int")
+     * @XmlAttribute
      * 
      * @var int
      */
@@ -172,6 +232,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * Client locale identification.
      * 
+     * @Accessor(getter="getLocale", setter="setLocale")
+     * @SerializedName("locale")
+     * @Type("string")
+     * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
      * @var string
      */
     #[Accessor(getter: 'getLocale', setter: 'setLocale')]
@@ -183,6 +248,11 @@ class SearchGalRequest extends SoapRequest
     /**
      * Cursor specification
      * 
+     * @Accessor(getter="getCursor", setter="setCursor")
+     * @SerializedName("cursor")
+     * @Type("Zimbra\Common\Struct\CursorInfo")
+     * @XmlElement(namespace="urn:zimbraAccount")
+     * 
      * @var CursorInfo
      */
     #[Accessor(getter: 'getCursor', setter: 'setCursor')]
@@ -193,6 +263,11 @@ class SearchGalRequest extends SoapRequest
 
     /**
      * Search Filter
+     * 
+     * @Accessor(getter="getSearchFilter", setter="setSearchFilter")
+     * @SerializedName("searchFilter")
+     * @Type("Zimbra\Account\Struct\EntrySearchFilterInfo")
+     * @XmlElement(namespace="urn:zimbraAccount")
      * 
      * @var EntrySearchFilterInfo
      */

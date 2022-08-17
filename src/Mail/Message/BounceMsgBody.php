@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class BounceMsgBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("BounceMsgRequest")
+     * @Type("Zimbra\Mail\Message\BounceMsgRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BounceMsgRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class BounceMsgBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("BounceMsgResponse")
+     * @Type("Zimbra\Mail\Message\BounceMsgResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var BounceMsgResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

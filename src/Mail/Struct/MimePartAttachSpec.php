@@ -26,6 +26,11 @@ class MimePartAttachSpec extends AttachSpec
     /**
      * Message ID
      * 
+     * @Accessor(getter="getMessageId", setter="setMessageId")
+     * @SerializedName("mid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getMessageId', setter: 'setMessageId')]
@@ -36,6 +41,11 @@ class MimePartAttachSpec extends AttachSpec
 
     /**
      * Part
+     * 
+     * @Accessor(getter="getPart", setter="setPart")
+     * @SerializedName("part")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

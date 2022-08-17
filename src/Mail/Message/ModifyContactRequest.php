@@ -33,6 +33,11 @@ class ModifyContactRequest extends SoapRequest
      * specified attrs and group members, otherwise the attrs and group members are merged with the existing contact.
      * Unset by default.
      * 
+     * @Accessor(getter="getReplace", setter="setReplace")
+     * @SerializedName("replace")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getReplace', setter: 'setReplace')]
@@ -45,6 +50,11 @@ class ModifyContactRequest extends SoapRequest
      * If unset, the returned <cn> is just a placeholder containing the contact ID
      * (i.e. <cn id="{id}">). {verbose} is set by default.
      * 
+     * @Accessor(getter="getVerbose", setter="setVerbose")
+     * @SerializedName("verbose")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getVerbose', setter: 'setVerbose')]
@@ -55,6 +65,11 @@ class ModifyContactRequest extends SoapRequest
 
     /**
      * Set to return IMAP UID.  (default is unset.)
+     * 
+     * @Accessor(getter="getWantImapUid", setter="setWantImapUid")
+     * @SerializedName("wantImapUid")
+     * @Type("bool")
+     * @XmlAttribute
      * 
      * @var bool
      */
@@ -67,6 +82,11 @@ class ModifyContactRequest extends SoapRequest
     /**
      * Set to return Modified Sequence.  (default is unset.)
      * 
+     * @Accessor(getter="getWantModifiedSequence", setter="setWantModifiedSequence")
+     * @SerializedName("wantModSeq")
+     * @Type("bool")
+     * @XmlAttribute
+     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantModifiedSequence', setter: 'setWantModifiedSequence')]
@@ -77,6 +97,11 @@ class ModifyContactRequest extends SoapRequest
 
     /**
      * Specification of contact modifications
+     * 
+     * @Accessor(getter="getContact", setter="setContact")
+     * @SerializedName("cn")
+     * @Type("Zimbra\Mail\Struct\ModifyContactSpec")
+     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ModifyContactSpec
      */

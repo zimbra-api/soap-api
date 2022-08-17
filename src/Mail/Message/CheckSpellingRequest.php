@@ -32,6 +32,11 @@ class CheckSpellingRequest extends SoapRequest
      * If not specified, the the dictionary will be either zimbraPrefSpellDictionary or the one for the
      * account's locale, in that order.
      * 
+     * @Accessor(getter="getDictionary", setter="setDictionary")
+     * @SerializedName("dictionary")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getDictionary', setter: 'setDictionary')]
@@ -44,6 +49,11 @@ class CheckSpellingRequest extends SoapRequest
      * Comma-separated list of words to ignore just for this request.  These words are added
      * to the user's personal dictionary of ignore words stored as zimbraPrefSpellIgnoreWord.
      * 
+     * @Accessor(getter="getIgnoreList", setter="setIgnoreList")
+     * @SerializedName("ignore")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getIgnoreList', setter: 'setIgnoreList')]
@@ -54,6 +64,10 @@ class CheckSpellingRequest extends SoapRequest
 
     /**
      * Text to spell check
+     * 
+     * @Accessor(getter="getText", setter="setText")
+     * @Type("string")
+     * @XmlValue(cdata=false)
      * 
      * @var string
      */

@@ -29,6 +29,11 @@ class RankingActionSpec
      * reset: resets the contact ranking table for the account
      * delete: delete the ranking information for the email address
      * 
+     * @Accessor(getter="getOperation", setter="setOperation")
+     * @SerializedName("op")
+     * @Type("Enum<Zimbra\Common\Enum\RankingActionOp>")
+     * @XmlAttribute
+     * 
      * @var RankingActionOp
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
@@ -39,6 +44,11 @@ class RankingActionSpec
 
     /**
      * Email
+     * 
+     * @Accessor(getter="getEmail", setter="setEmail")
+     * @SerializedName("email")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

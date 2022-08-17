@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AutoCompleteBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("AutoCompleteRequest")
+     * @Type("Zimbra\Mail\Message\AutoCompleteRequest")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AutoCompleteRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class AutoCompleteBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("AutoCompleteResponse")
+     * @Type("Zimbra\Mail\Message\AutoCompleteResponse")
+     * @XmlElement(namespace="urn:zimbraMail")
+     * 
      * @var AutoCompleteResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

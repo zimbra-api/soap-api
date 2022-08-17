@@ -27,6 +27,11 @@ class GetFolderSpec
     /**
      * Base folder UUID
      * 
+     * @Accessor(getter="getUuid", setter="setUuid")
+     * @SerializedName("uuid")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getUuid', setter: 'setUuid')]
@@ -38,6 +43,11 @@ class GetFolderSpec
     /**
      * Base folder ID
      * 
+     * @Accessor(getter="getFolderId", setter="setFolderId")
+     * @SerializedName("l")
+     * @Type("string")
+     * @XmlAttribute
+     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -48,6 +58,11 @@ class GetFolderSpec
 
     /**
      * Base folder fully qualified path
+     * 
+     * @Accessor(getter="getPath", setter="setPath")
+     * @SerializedName("path")
+     * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
      */

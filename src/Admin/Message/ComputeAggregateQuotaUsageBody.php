@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ComputeAggregateQuotaUsageBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("ComputeAggregateQuotaUsageRequest")
+     * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ComputeAggregateQuotaUsageRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class ComputeAggregateQuotaUsageBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("ComputeAggregateQuotaUsageResponse")
+     * @Type("Zimbra\Admin\Message\ComputeAggregateQuotaUsageResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ComputeAggregateQuotaUsageResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

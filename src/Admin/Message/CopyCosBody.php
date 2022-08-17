@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CopyCosBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("CopyCosRequest")
+     * @Type("Zimbra\Admin\Message\CopyCosRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CopyCosRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class CopyCosBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("CopyCosResponse")
+     * @Type("Zimbra\Admin\Message\CopyCosResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var CopyCosResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,6 +25,11 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetAdminConsoleUICompBody extends SoapBody
 {
     /**
+     * @Accessor(getter="getRequest", setter="setRequest")
+     * @SerializedName("GetAdminConsoleUICompRequest")
+     * @Type("Zimbra\Admin\Message\GetAdminConsoleUICompRequest")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAdminConsoleUICompRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -34,6 +39,11 @@ class GetAdminConsoleUICompBody extends SoapBody
     private $request;
 
     /**
+     * @Accessor(getter="getResponse", setter="setResponse")
+     * @SerializedName("GetAdminConsoleUICompResponse")
+     * @Type("Zimbra\Admin\Message\GetAdminConsoleUICompResponse")
+     * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var GetAdminConsoleUICompResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
