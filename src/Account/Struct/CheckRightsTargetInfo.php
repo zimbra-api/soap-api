@@ -84,6 +84,8 @@ class CheckRightsTargetInfo
      * @Accessor(getter="getRights", setter="setRights")
      * @Type("array<Zimbra\Account\Struct\CheckRightsRightInfo>")
      * @XmlList(inline=true, entry="right", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
     #[Type(name: 'array<Zimbra\Account\Struct\CheckRightsRightInfo>')]

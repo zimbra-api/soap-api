@@ -59,6 +59,8 @@ class AttachmentsInfo
      * @Accessor(getter="getMsgAttachments", setter="setMsgAttachments")
      * @Type("array<Zimbra\Mail\Struct\MsgAttachSpec>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getMsgAttachments', setter: 'setMsgAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MsgAttachSpec>')]
@@ -71,6 +73,8 @@ class AttachmentsInfo
      * @Accessor(getter="getContactAttachments", setter="setContactAttachments")
      * @Type("array<Zimbra\Mail\Struct\ContactAttachSpec>")
      * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getContactAttachments', setter: 'setContactAttachments')]
     #[Type(name: 'array<Zimbra\Mail\Struct\ContactAttachSpec>')]

@@ -62,6 +62,7 @@ class XMPPComponentSpec extends AdminAttrsImpl
      * @SerializedName("server")
      * @Type("Zimbra\Admin\Struct\ServerSelector")
      * @XmlElement(namespace="urn:zimbraAdmin")
+     * 
      * @var ServerSelector
      */
     #[Accessor(getter: 'getServer', setter: 'setServer')]

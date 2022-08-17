@@ -33,6 +33,8 @@ class RunUnitTestsRequest extends SoapRequest
      * @Accessor(getter="getTests", setter="setTests")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="test", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getTests', setter: 'setTests')]
     #[Type(name: 'array<string>')]

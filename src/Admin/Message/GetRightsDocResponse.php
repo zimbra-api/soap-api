@@ -62,6 +62,8 @@ class GetRightsDocResponse extends SoapResponse
      * @Type("array<Zimbra\Admin\Struct\DomainAdminRight>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="right", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
     #[SerializedName(name: 'domainAdmin-copypaste-to-zimbra-rights-domainadmin-xml-template')]

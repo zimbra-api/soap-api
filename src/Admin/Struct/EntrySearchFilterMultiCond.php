@@ -64,6 +64,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @Accessor(getter="getCompoundConditions", setter="setCompoundConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>")
      * @XmlList(inline=true, entry="conds", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getCompoundConditions', setter: 'setCompoundConditions')]
     #[Type(name: 'array<Zimbra\Admin\Struct\EntrySearchFilterMultiCond>')]
@@ -76,6 +78,8 @@ class EntrySearchFilterMultiCond implements SearchFilterCondition
      * @Accessor(getter="getSingleConditions", setter="setSingleConditions")
      * @Type("array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>")
      * @XmlList(inline=true, entry="cond", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getSingleConditions', setter: 'setSingleConditions')]
     #[Type(name: 'array<Zimbra\Admin\Struct\EntrySearchFilterSingleCond>')]

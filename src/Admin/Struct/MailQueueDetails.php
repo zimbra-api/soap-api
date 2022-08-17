@@ -124,6 +124,8 @@ class MailQueueDetails
      * @Accessor(getter="getQueueItems", setter="setQueueItems")
      * @Type("array<Zimbra\Admin\Struct\QueueItem>")
      * @XmlList(inline=true, entry="qi", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getQueueItems', setter: 'setQueueItems')]
     #[Type(name: 'array<Zimbra\Admin\Struct\QueueItem>')]

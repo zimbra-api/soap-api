@@ -178,6 +178,8 @@ class NewFolderSpec
      * @Type("array<Zimbra\Mail\Struct\ActionGrantSelector>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="grant", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getGrants', setter: 'setGrants')]
     #[SerializedName(name: 'acl')]

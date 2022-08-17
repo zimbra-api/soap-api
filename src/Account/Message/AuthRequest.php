@@ -226,6 +226,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("requestedSkin")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getRequestedSkin', setter: 'setRequestedSkin')]
     #[SerializedName(name: 'requestedSkin')]
@@ -240,6 +242,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("twoFactorCode")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getTwoFactorCode', setter: 'setTwoFactorCode')]
     #[SerializedName(name: 'twoFactorCode')]
@@ -254,6 +258,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("deviceTrusted")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
     #[Accessor(getter: 'getDeviceTrusted', setter: 'setDeviceTrusted')]
     #[SerializedName(name: 'deviceTrusted')]
@@ -268,6 +274,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("trustedToken")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getTrustedDeviceToken', setter: 'setTrustedDeviceToken')]
     #[SerializedName(name: 'trustedToken')]
@@ -282,6 +290,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("deviceId")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraAccount")
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getDeviceId', setter: 'setDeviceId')]
     #[SerializedName(name: 'deviceId')]
@@ -294,6 +304,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("generateDeviceId")
      * @Type("bool")
      * @XmlAttribute
+     * 
+     * @var bool
      */
     #[Accessor(getter: 'getGenerateDeviceId', setter: 'setGenerateDeviceId')]
     #[SerializedName(name: 'generateDeviceId')]
@@ -308,6 +320,8 @@ class AuthRequest extends SoapRequest
      * @SerializedName("tokenType")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getTokenType', setter: 'setTokenType')]
     #[SerializedName(name: 'tokenType')]

@@ -75,6 +75,8 @@ class CosInfo implements AdminObjectInterface
      * @Accessor(getter="getAttrList", setter="setAttrList")
      * @Type("array<Zimbra\Admin\Struct\CosInfoAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAttrList', setter: 'setAttrList')]
     #[Type(name: 'array<Zimbra\Admin\Struct\CosInfoAttr>')]

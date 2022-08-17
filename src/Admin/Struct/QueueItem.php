@@ -173,9 +173,9 @@ class QueueItem
      * @Accessor(getter="getFilter", setter="setFilter")
      * @SerializedName("filter")
      * @Type("string")
+     * @XmlAttribute
      * 
      * @var string
-     * @XmlAttribute
      */
     #[Accessor(getter: 'getFilter', setter: 'setFilter')]
     #[SerializedName(name: 'filter')]

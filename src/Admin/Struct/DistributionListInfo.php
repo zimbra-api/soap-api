@@ -45,6 +45,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
     #[Type(name: 'array<string>')]
@@ -59,6 +61,8 @@ class DistributionListInfo extends AdminObjectInfo
      * @Type("array<Zimbra\Admin\Struct\GranteeInfo>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="owner", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getOwners', setter: 'setOwners')]
     #[SerializedName(name: 'owners')]

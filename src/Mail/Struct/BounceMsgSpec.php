@@ -45,6 +45,8 @@ class BounceMsgSpec
      * @Accessor(getter="getEmailAddresses", setter="setEmailAddresses")
      * @Type("array<Zimbra\Mail\Struct\EmailAddrInfo>")
      * @XmlList(inline=true, entry="e", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getEmailAddresses', setter: 'setEmailAddresses')]
     #[Type(name: 'array<Zimbra\Mail\Struct\EmailAddrInfo>')]

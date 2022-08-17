@@ -306,6 +306,8 @@ class ContactInfo
      * @Accessor(getter="getAttrs", setter="setAttrs")
      * @Type("array<Zimbra\Common\Struct\ContactAttr>")
      * @XmlList(inline=true, entry="a", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
     #[Type(name: 'array<Zimbra\Common\Struct\ContactAttr>')]
@@ -316,6 +318,8 @@ class ContactInfo
      * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
      * @Type("array<Zimbra\Admin\Struct\ContactGroupMember>")
      * @XmlList(inline=true, entry="m", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getContactGroupMembers', setter: 'setContactGroupMembers')]
     #[Type(name: 'array<Zimbra\Admin\Struct\ContactGroupMember>')]

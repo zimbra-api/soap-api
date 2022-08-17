@@ -34,7 +34,7 @@ class SoapHeader implements SoapHeaderInterface
      * @Type("Zimbra\Common\Struct\Header\Context")
      * @XmlElement(namespace="urn:zimbra")
      * 
-     * var Context
+     * @var Context
      */
     #[Accessor(getter: 'getContext', setter: 'setContext')]
     #[SerializedName(name: 'context')]

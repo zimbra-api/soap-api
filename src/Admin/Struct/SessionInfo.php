@@ -109,6 +109,8 @@ class SessionInfo
      * @Accessor(getter="getExtraAttributes", setter="setExtraAttributes")
      * @Type("array<string, string>")
      * @XmlAttributeMap
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getExtraAttributes', setter: 'setExtraAttributes')]
     #[Type(name: 'array<string, string>')]

@@ -66,6 +66,8 @@ class CmdRightsInfo
      * @Type("array<string>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="note", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getNotes', setter: 'setNotes')]
     #[SerializedName(name: 'desc')]

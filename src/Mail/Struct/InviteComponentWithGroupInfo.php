@@ -57,6 +57,8 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getComments", setter="setComments")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getComments', setter: 'setComments')]
     #[Type(name: 'array<string>')]
@@ -69,6 +71,8 @@ class InviteComponentWithGroupInfo extends InviteComponentCommon
      * @Accessor(getter="getContacts", setter="setContacts")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
     #[Type(name: 'array<string>')]

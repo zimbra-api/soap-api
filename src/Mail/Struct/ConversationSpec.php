@@ -113,6 +113,8 @@ class ConversationSpec
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Common\Struct\AttributeName>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
     #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]

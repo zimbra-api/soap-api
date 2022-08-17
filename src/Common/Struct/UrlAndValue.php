@@ -41,6 +41,8 @@ class UrlAndValue
      * @Accessor(getter="getValue", setter="setValue")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getValue', setter: 'setValue')]
     #[Type(name: 'string')]

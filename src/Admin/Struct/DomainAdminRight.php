@@ -80,6 +80,8 @@ class DomainAdminRight
      * @Type("array<Zimbra\Admin\Struct\RightWithName>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="r", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getRights', setter: 'setRights')]
     #[SerializedName(name: 'rights')]

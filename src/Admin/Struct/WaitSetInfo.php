@@ -97,6 +97,8 @@ class WaitSetInfo
      * @Type("array<Zimbra\Common\Struct\IdAndType>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="error", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getErrors', setter: 'setErrors')]
     #[SerializedName(name: 'errors')]
@@ -177,6 +179,8 @@ class WaitSetInfo
      * @Type("array<Zimbra\Admin\Struct\BufferedCommitInfo>")
      * @XmlElement(namespace="urn:zimbraAdmin")
      * @XmlList(inline=false, entry="commit", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getBufferedCommits', setter: 'setBufferedCommits')]
     #[SerializedName(name: 'buffered')]

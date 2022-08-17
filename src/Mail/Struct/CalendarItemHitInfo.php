@@ -202,6 +202,8 @@ abstract class CalendarItemHitInfo extends CommonCalendaringData implements Sear
      * @Type("array<Zimbra\Mail\Struct\CalReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getReplies', setter: 'setReplies')]
     #[SerializedName(name: 'replies')]

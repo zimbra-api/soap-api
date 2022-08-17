@@ -45,6 +45,8 @@ class AutoProvDirectoryEntry extends AdminKeyValuePairs
      * @Accessor(getter="getKeys", setter="setKeys")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="key", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getKeys', setter: 'setKeys')]
     #[Type(name: 'array<string>')]

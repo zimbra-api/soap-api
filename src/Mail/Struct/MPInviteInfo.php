@@ -64,6 +64,8 @@ class MPInviteInfo
      * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
     #[SerializedName(name: 'replies')]

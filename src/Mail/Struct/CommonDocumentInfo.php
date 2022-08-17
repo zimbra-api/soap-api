@@ -367,6 +367,8 @@ class CommonDocumentInfo
      * @Accessor(getter="getMetadatas", setter="setMetadatas")
      * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
      * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getMetadatas', setter: 'setMetadatas')]
     #[Type(name: 'array<Zimbra\Mail\Struct\MailCustomMetadata>')]

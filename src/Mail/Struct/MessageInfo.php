@@ -303,6 +303,8 @@ class MessageInfo extends MessageCommon implements MessageInfoInterface
      * @Accessor(getter="getHeaders", setter="setHeaders")
      * @Type("array<Zimbra\Common\Struct\KeyValuePair>")
      * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
     #[Type(name: 'array<Zimbra\Common\Struct\KeyValuePair>')]

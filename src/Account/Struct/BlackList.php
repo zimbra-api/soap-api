@@ -28,6 +28,8 @@ class BlackList
      * @Accessor(getter="getAddrs", setter="setAddrs")
      * @Type("array<Zimbra\Common\Struct\OpValue>")
      * @XmlList(inline=true, entry="addr", namespace="urn:zimbraAccount")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAddrs', setter: 'setAddrs')]
     #[Type(name: 'array<Zimbra\Common\Struct\OpValue>')]

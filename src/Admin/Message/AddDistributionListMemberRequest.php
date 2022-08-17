@@ -47,6 +47,8 @@ class AddDistributionListMemberRequest extends SoapRequest
      * @Accessor(getter="getMembers", setter="setMembers")
      * @Type("array<string>")
      * @XmlList(inline=true, entry="dlm", namespace="urn:zimbraAdmin")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getMembers', setter: 'setMembers')]
     #[Type(name: 'array<string>')]

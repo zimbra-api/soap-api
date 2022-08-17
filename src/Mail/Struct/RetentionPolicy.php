@@ -31,6 +31,8 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: "getKeepPolicy", setter: "setKeepPolicy")]
     #[SerializedName(name: 'keep')]
@@ -47,6 +49,8 @@ class RetentionPolicy
      * @Type("array<Zimbra\Mail\Struct\Policy>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="policy", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getPurgePolicy', setter: 'setPurgePolicy')]
     #[SerializedName(name: 'purge')]
