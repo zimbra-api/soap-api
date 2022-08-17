@@ -47,6 +47,8 @@ class ModifyProfileImageRequest extends SoapRequest
      * @Accessor(getter="getImageB64Data", setter="setImageB64Data")
      * @Type("string")
      * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getImageB64Data', setter: 'setImageB64Data')]
     #[Type(name: 'string')]

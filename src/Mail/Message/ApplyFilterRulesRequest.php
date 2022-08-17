@@ -72,6 +72,8 @@ class ApplyFilterRulesRequest extends SoapRequest
      * @SerializedName("query")
      * @Type("string")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var string
      */
     #[Accessor(getter: "getQuery", setter: "setQuery")]
     #[SerializedName(name: 'query')]

@@ -44,6 +44,8 @@ class GetDataSourceUsageResponse extends SoapResponse
      * @SerializedName("dsQuota")
      * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var int
      */
     #[Accessor(getter: "getDataSourceQuota", setter: "setDataSourceQuota")]
     #[SerializedName(name: 'dsQuota')]
@@ -56,6 +58,8 @@ class GetDataSourceUsageResponse extends SoapResponse
      * @SerializedName("dsTotalQuota")
      * @Type("int")
      * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * 
+     * @var int
      */
     #[Accessor(getter: "getDataSourceTotalQuota", setter: "setDataSourceTotalQuota")]
     #[SerializedName(name: 'dsTotalQuota')]

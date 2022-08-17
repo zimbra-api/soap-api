@@ -32,6 +32,8 @@ class GetContactBackupListResponse extends SoapResponse
      * @Type("array<string>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="backup", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getBackup', setter: 'setBackup')]
     #[SerializedName(name: 'backups')]

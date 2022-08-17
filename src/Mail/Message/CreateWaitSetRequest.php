@@ -85,6 +85,8 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
      * @XmlElement(namespace="urn:zimbraMail")
      * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
+     * 
+     * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
     #[SerializedName(name: 'add')]

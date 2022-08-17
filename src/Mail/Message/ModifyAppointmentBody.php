@@ -43,6 +43,8 @@ class ModifyAppointmentBody extends SoapBody
      * @SerializedName("ModifyAppointmentResponse")
      * @Type("Zimbra\Mail\Message\ModifyAppointmentResponse")
      * @XmlElement(namespace="urn:zimbraMail")
+     * 
+     * @var ModifyAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
     #[SerializedName(name: 'ModifyAppointmentResponse')]

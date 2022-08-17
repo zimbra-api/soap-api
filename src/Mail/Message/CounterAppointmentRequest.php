@@ -35,6 +35,8 @@ class CounterAppointmentRequest extends SoapRequest
      * @SerializedName("id")
      * @Type("string")
      * @XmlAttribute
+     * 
+     * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
     #[SerializedName(name: 'id')]
