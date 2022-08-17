@@ -26,11 +26,6 @@ class CalendarItemInfo
     /**
      * Flags
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -41,11 +36,6 @@ class CalendarItemInfo
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,11 +48,6 @@ class CalendarItemInfo
     /**
      * Comma separated list of tag names
      * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -73,11 +58,6 @@ class CalendarItemInfo
 
     /**
      * iCalendar UID
-     * 
-     * @Accessor(getter="getUid", setter="setUid")
-     * @SerializedName("uid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -90,11 +70,6 @@ class CalendarItemInfo
     /**
      * Appointment ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -105,11 +80,6 @@ class CalendarItemInfo
 
     /**
      * Revision number
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -122,11 +92,6 @@ class CalendarItemInfo
     /**
      * Size
      * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSize', setter: 'setSize')]
@@ -137,11 +102,6 @@ class CalendarItemInfo
 
     /**
      * Date
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -154,11 +114,6 @@ class CalendarItemInfo
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -169,11 +124,6 @@ class CalendarItemInfo
 
     /**
      * Modified date in seconds
-     * 
-     * @Accessor(getter="getChangeDate", setter="setChangeDate")
-     * @SerializedName("md")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -186,11 +136,6 @@ class CalendarItemInfo
     /**
      * Modified sequence
      * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -201,11 +146,6 @@ class CalendarItemInfo
 
     /**
      * Next alarm time
-     * 
-     * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
-     * @SerializedName("nextAlarm")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -218,11 +158,6 @@ class CalendarItemInfo
     /**
      * Has exceptions but no series
      * 
-     * @Accessor(getter="getOrphan", setter="setOrphan")
-     * @SerializedName("orphan")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getOrphan', setter: 'setOrphan')]
@@ -234,10 +169,6 @@ class CalendarItemInfo
     /**
      * Invites
      * 
-     * @Accessor(getter="getInvites", setter="setInvites")
-     * @Type("array<Zimbra\Mail\Struct\Invitation>")
-     * @XmlList(inline=true, entry="inv", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInvites', setter: 'setInvites')]
@@ -248,11 +179,7 @@ class CalendarItemInfo
     /**
      * Replies
      * 
-     * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
-     * @SerializedName("replies")
-     * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
+     * @var array
      */
     #[Accessor(getter: 'getCalendarReplies', setter: 'setCalendarReplies')]
     #[SerializedName(name: 'replies')]
@@ -263,10 +190,6 @@ class CalendarItemInfo
 
     /**
      * Metadata
-     * 
-     * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      * 
      * @var array
      */

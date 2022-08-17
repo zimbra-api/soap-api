@@ -28,11 +28,6 @@ class ActionSelector
      * Comma separated list of item IDs to act on.  Required except for TagActionRequest,
      * where the tags items can be specified using their tag names as an alternative.
      * 
-     * @Accessor(getter="getIds", setter="setIds")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
@@ -65,11 +60,6 @@ class ActionSelector
      *    rejectSubsReq  reject subscription/un-subscription request
      *    resetimapuid   reset IMAP item UIDs
      * 
-     * @Accessor(getter="getOperation", setter="setOperation")
-     * @SerializedName("op")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOperation', setter: 'setOperation')]
@@ -87,11 +77,6 @@ class ActionSelector
      * o:   include items in any other folder
      * A leading '-' means to negate the constraint (e.g. "-t" means all messages not in Trash)
      * 
-     * @Accessor(getter="getConstraint", setter="setConstraint")
-     * @SerializedName("tcon")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getConstraint', setter: 'setConstraint')]
@@ -102,11 +87,6 @@ class ActionSelector
 
     /**
      * Deprecated - use "tn" instead
-     * 
-     * @Accessor(getter="getTag", setter="setTag")
-     * @SerializedName("tag")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -119,11 +99,6 @@ class ActionSelector
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -134,11 +109,6 @@ class ActionSelector
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -151,11 +121,6 @@ class ActionSelector
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -166,11 +131,6 @@ class ActionSelector
 
     /**
      * Name
-     * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -183,11 +143,6 @@ class ActionSelector
     /**
      * Flags
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -198,11 +153,6 @@ class ActionSelector
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -215,11 +165,6 @@ class ActionSelector
     /**
      * Comma-separated list of tag names
      * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -231,11 +176,6 @@ class ActionSelector
     /**
      * Flag to signify that any non-existent ids should be returned
      * 
-     * @Accessor(getter="getNonExistentIds", setter="setNonExistentIds")
-     * @SerializedName("nei")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getNonExistentIds', setter: 'setNonExistentIds')]
@@ -246,11 +186,6 @@ class ActionSelector
 
     /**
      * Flag to signify that ids of new items should be returned applies to COPY action
-     * 
-     * @Accessor(getter="getNewlyCreatedIds", setter="setNewlyCreatedIds")
-     * @SerializedName("nci")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

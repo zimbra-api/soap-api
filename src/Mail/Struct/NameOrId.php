@@ -26,11 +26,6 @@ class NameOrId
     /**
      * The name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -41,11 +36,6 @@ class NameOrId
 
     /**
      * ID
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

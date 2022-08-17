@@ -26,11 +26,6 @@ class UpdatedAlarmInfo
     /**
      * Calendar item ID
      * 
-     * @Accessor(getter="getCalItemId", setter="setCalItemId")
-     * @SerializedName("calItemId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
@@ -41,11 +36,6 @@ class UpdatedAlarmInfo
 
     /**
      * Updated alarm information
-     * 
-     * @Accessor(getter="getAlarmData", setter="setAlarmData")
-     * @SerializedName("alarmData")
-     * @Type("Zimbra\Mail\Struct\AlarmDataInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var AlarmDataInfo
      */

@@ -27,11 +27,6 @@ class ConversationSpec
     /**
      * Conversation ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class ConversationSpec
      * if value is "1" or "all" the full expanded message structure is inlined for the
      * first (or for all) messages in the conversation.
      * 
-     * @Accessor(getter="getInlineRule", setter="setInlineRule")
-     * @SerializedName("fetch")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getInlineRule', setter: 'setInlineRule')]
@@ -60,11 +50,6 @@ class ConversationSpec
     /**
      * Set to return defanged HTML content by default.  (default is unset)
      * 
-     * @Accessor(getter="getWantHtml", setter="setWantHtml")
-     * @SerializedName("html")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getWantHtml', setter: 'setWantHtml')]
@@ -75,11 +60,6 @@ class ConversationSpec
 
     /**
      * Maximum inlined length
-     * 
-     * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
-     * @SerializedName("max")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -93,11 +73,6 @@ class ConversationSpec
      * Set to return group info (isGroup and exp flags) on <b>&lt;e></b> elements in the
      * response (default is unset.)
      * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
@@ -110,9 +85,7 @@ class ConversationSpec
      * Requested headers.  if <header>s are requested, any matching headers are
      * inlined into the response (not available when raw is set)
      * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
+     * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
     #[Type(name: 'array<Zimbra\Common\Struct\AttributeName>')]

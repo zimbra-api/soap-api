@@ -29,11 +29,6 @@ class ByWeekNoRule implements ByWeekNoRuleInterface
      * BYWEEKNO Week list.  Format : [[+]|-]num[,...] where num is between 1 and 53
      * e.g. wklist="1,+2,-1" means first week, 2nd week, and last week of the year.
      * 
-     * @Accessor(getter="getList", setter="setList")
-     * @SerializedName("wklist")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getList', setter: 'setList')]

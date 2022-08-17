@@ -26,11 +26,6 @@ class Part
     /**
      * Part
      * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]

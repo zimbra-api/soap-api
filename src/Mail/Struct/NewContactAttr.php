@@ -27,41 +27,45 @@ class NewContactAttr
     /**
      * Attribute name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("n")
-     * @Type("string")
-     * @XmlAttribute
+     * @var string
      */
+    #[Accessor(getter: 'getName', setter: 'setName')]
+    #[SerializedName(name: 'n')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $name;
 
     /**
      * Upload ID
      * 
-     * @Accessor(getter="getAttachId", setter="setAttachId")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
+     * @var string
      */
+    #[Accessor(getter: 'getAttachId', setter: 'setAttachId')]
+    #[SerializedName(name: 'aid')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $attachId;
 
     /**
      * Item ID.  Used in combination with subpart-name
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
+     * @var int
      */
+    #[Accessor(getter: 'getId', setter: 'setId')]
+    #[SerializedName(name: 'id')]
+    #[Type(name: 'int')]
+    #[XmlAttribute]
     private $id;
 
     /**
      * Subpart Name
      * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
+     * @var string
      */
+    #[Accessor(getter: 'getPart', setter: 'setPart')]
+    #[SerializedName(name: 'part')]
+    #[Type(name: 'string')]
+    #[XmlAttribute]
     private $part;
 
     /**
@@ -69,10 +73,12 @@ class NewContactAttr
      * 
      * Date related attributes like "birthday" and "anniversary" SHOULD use "yyyy-MM-dd" format or,
      * if the year isn't specified "--MM-dd" format
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
+     * 
+     * @var string
      */
+    #[Accessor(getter: 'getValue', setter: 'setValue')]
+    #[Type(name: 'string')]
+    #[XmlValue(cdata: false)]
     private $value;
 
     /**

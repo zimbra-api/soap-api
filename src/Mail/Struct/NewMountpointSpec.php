@@ -28,11 +28,6 @@ class NewMountpointSpec
     /**
      * Mountpoint name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -45,11 +40,6 @@ class NewMountpointSpec
      * (optional) Default type for the folder; used by web client to decide which view to use;
      * possible values are the same as <SearchRequest>'s {types}: <b>conversation|message|contact|etc</b>
      * 
-     * @Accessor(getter="getDefaultView", setter="setDefaultView")
-     * @SerializedName("view")
-     * @Type("Enum<Zimbra\Common\Enum\ViewType>")
-     * @XmlAttribute
-     * 
      * @var ViewType
      */
     #[Accessor(getter: 'getDefaultView', setter: 'setDefaultView')]
@@ -60,11 +50,6 @@ class NewMountpointSpec
 
     /**
      * Flags
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -77,11 +62,6 @@ class NewMountpointSpec
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -92,11 +72,6 @@ class NewMountpointSpec
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -109,11 +84,6 @@ class NewMountpointSpec
     /**
      * URL (RSS, iCal, etc.) this folder syncs its contents to
      * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUrl', setter: 'setUrl')]
@@ -124,11 +94,6 @@ class NewMountpointSpec
 
     /**
      * Parent folder ID
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -141,11 +106,6 @@ class NewMountpointSpec
     /**
      * If set, the server will fetch the folder if it already exists rather than throwing mail.ALREADY_EXISTS
      * 
-     * @Accessor(getter="getFetchIfExists", setter="setFetchIfExists")
-     * @SerializedName("fie")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getFetchIfExists', setter: 'setFetchIfExists')]
@@ -156,11 +116,6 @@ class NewMountpointSpec
 
     /**
      * If set, client should display reminders for shared appointments/tasks
-     * 
-     * @Accessor(getter="getReminderEnabled", setter="setReminderEnabled")
-     * @SerializedName("reminder")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -173,11 +128,6 @@ class NewMountpointSpec
     /**
      * Zimbra ID (guid) of the owner of the linked-to resource
      * 
-     * @Accessor(getter="getOwnerId", setter="setOwnerId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getOwnerId', setter: 'setOwnerId')]
@@ -188,11 +138,6 @@ class NewMountpointSpec
 
     /**
      * Primary email address of the owner of the linked-to resource
-     * 
-     * @Accessor(getter="getOwnerName", setter="setOwnerName")
-     * @SerializedName("owner")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -205,11 +150,6 @@ class NewMountpointSpec
     /**
      * Item ID of the linked-to resource in the remote mailbox
      * 
-     * @Accessor(getter="getRemoteId", setter="setRemoteId")
-     * @SerializedName("rid")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRemoteId', setter: 'setRemoteId')]
@@ -220,11 +160,6 @@ class NewMountpointSpec
 
     /**
      * Path to shared item
-     * 
-     * @Accessor(getter="getPath", setter="setPath")
-     * @SerializedName("path")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

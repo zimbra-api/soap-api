@@ -26,11 +26,6 @@ class DocumentInfo extends CommonDocumentInfo
     /**
      * Lock owner account ID
      * 
-     * @Accessor(getter="getLockOwnerId", setter="setLockOwnerId")
-     * @SerializedName("loid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLockOwnerId', setter: 'setLockOwnerId')]
@@ -42,11 +37,6 @@ class DocumentInfo extends CommonDocumentInfo
     /**
      * Lock owner account email address
      * 
-     * @Accessor(getter="getLockOwnerEmail", setter="setLockOwnerEmail")
-     * @SerializedName("loe")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLockOwnerEmail', setter: 'setLockOwnerEmail')]
@@ -57,11 +47,6 @@ class DocumentInfo extends CommonDocumentInfo
 
     /**
      * Lock timestamp
-     * 
-     * @Accessor(getter="getLockOwnerTimestamp", setter="setLockOwnerTimestamp")
-     * @SerializedName("lt")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

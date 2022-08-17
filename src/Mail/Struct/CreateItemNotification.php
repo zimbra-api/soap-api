@@ -26,11 +26,6 @@ class CreateItemNotification
     /**
      * Message info of created item
      * 
-     * @Accessor(getter="getMessageInfo", setter="setMessageInfo")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\ImapMessageInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ImapMessageInfo
      */
     #[Accessor(getter: "getMessageInfo", setter: "setMessageInfo")]

@@ -26,11 +26,6 @@ class SnoozeAlarm
     /**
      * Calendar item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class SnoozeAlarm
 
     /**
      * When to show the alarm again in milliseconds since the epoch
-     * 
-     * @Accessor(getter="getSnoozeUntil", setter="setSnoozeUntil")
-     * @SerializedName("until")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

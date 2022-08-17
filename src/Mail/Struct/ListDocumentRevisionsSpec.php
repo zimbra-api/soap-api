@@ -26,11 +26,6 @@ class ListDocumentRevisionsSpec
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class ListDocumentRevisionsSpec
     /**
      * Version
      * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getVersion', setter: 'setVersion')]
@@ -57,11 +47,6 @@ class ListDocumentRevisionsSpec
 
     /**
      * Maximum number of revisions to return starting from <version>
-     * 
-     * @Accessor(getter="getCount", setter="setCount")
-     * @SerializedName("count")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

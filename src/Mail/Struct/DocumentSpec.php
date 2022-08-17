@@ -29,11 +29,6 @@ class DocumentSpec
     /**
      * File name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -44,11 +39,6 @@ class DocumentSpec
 
     /**
      * Content Type
-     * 
-     * @Accessor(getter="getContentType", setter="setContentType")
-     * @SerializedName("ct")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class DocumentSpec
     /**
      * Absolute Folder path
      * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("desc")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDescription', setter: 'setDescription')]
@@ -76,11 +61,6 @@ class DocumentSpec
 
     /**
      * Folder ID
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -93,11 +73,6 @@ class DocumentSpec
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -108,11 +83,6 @@ class DocumentSpec
 
     /**
      * Last known version
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -125,11 +95,6 @@ class DocumentSpec
     /**
      * Inlined document content string
      * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getContent', setter: 'setContent')]
@@ -140,11 +105,6 @@ class DocumentSpec
 
     /**
      * Active sync status
-     * 
-     * @Accessor(getter="getDescEnabled", setter="setDescEnabled")
-     * @SerializedName("descEnabled")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -158,11 +118,6 @@ class DocumentSpec
      * Flags - Any of the flags specified in soap.txt, with the addition of <b>"t"</b>, which
      * specifies that the document is a note.
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -173,11 +128,6 @@ class DocumentSpec
 
     /**
      * Upload specification
-     * 
-     * @Accessor(getter="getUpload", setter="setUpload")
-     * @SerializedName("upload")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Id
      */
@@ -190,11 +140,6 @@ class DocumentSpec
     /**
      * Message part specification
      * 
-     * @Accessor(getter="getMessagePart", setter="setMessagePart")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MessagePartSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MessagePartSpec
      */
     #[Accessor(getter: "getMessagePart", setter: "setMessagePart")]
@@ -205,11 +150,6 @@ class DocumentSpec
 
     /**
      * Information on document version to restore to
-     * 
-     * @Accessor(getter="getDocRevision", setter="setDocRevision")
-     * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\IdVersion")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var IdVersion
      */

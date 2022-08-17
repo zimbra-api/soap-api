@@ -26,11 +26,6 @@ class Content
     /**
      * Attachment upload ID of uploaded object to use
      * 
-     * @Accessor(getter="getAttachUploadId", setter="setAttachUploadId")
-     * @SerializedName("aid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttachUploadId', setter: 'setAttachUploadId')]
@@ -41,10 +36,6 @@ class Content
 
     /**
      * Inlined content data.  Ignored if "aid" is specified
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

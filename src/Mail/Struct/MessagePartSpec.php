@@ -26,11 +26,6 @@ class MessagePartSpec
     /**
      * Part ID
      * 
-     * @Accessor(getter="getPart", setter="setPart")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPart', setter: 'setPart')]
@@ -41,11 +36,6 @@ class MessagePartSpec
 
     /**
      * Message ID
-     * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

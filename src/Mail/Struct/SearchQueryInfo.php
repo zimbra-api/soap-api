@@ -27,10 +27,6 @@ class SearchQueryInfo
     /**
      * Suggest query info
      * 
-     * @Accessor(getter="getSuggests", setter="setSuggests")
-     * @Type("array<Zimbra\Mail\Struct\SuggestedQueryString>")
-     * @XmlList(inline=true, entry="suggest", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSuggests', setter: 'setSuggests')]
@@ -40,10 +36,6 @@ class SearchQueryInfo
 
     /**
      * Wildcard query info
-     * 
-     * @Accessor(getter="getWildcards", setter="setWildcards")
-     * @Type("array<Zimbra\Common\Struct\WildcardExpansionQueryInfo>")
-     * @XmlList(inline=true, entry="wildcard", namespace="urn:zimbraMail")
      * 
      * @var array
      */

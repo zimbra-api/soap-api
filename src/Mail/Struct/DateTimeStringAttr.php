@@ -28,11 +28,6 @@ class DateTimeStringAttr implements DateTimeStringAttrInterface
     /**
      * Date in format : YYYYMMDD[ThhmmssZ]
      * 
-     * @Accessor(getter="getDateTime", setter="setDateTime")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDateTime', setter: 'setDateTime')]

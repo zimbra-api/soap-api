@@ -26,11 +26,6 @@ class DocAttachSpec extends AttachSpec
     /**
      * Document path.  If specified "id" and "ver" attributes are ignored
      * 
-     * @Accessor(getter="getPath", setter="setPath")
-     * @SerializedName("path")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPath', setter: 'setPath')]
@@ -42,11 +37,6 @@ class DocAttachSpec extends AttachSpec
     /**
      * Item ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -57,11 +47,6 @@ class DocAttachSpec extends AttachSpec
 
     /**
      * Optional Version.
-     * 
-     * @Accessor(getter="getVersion", setter="setVersion")
-     * @SerializedName("ver")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

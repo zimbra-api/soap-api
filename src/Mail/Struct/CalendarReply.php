@@ -29,11 +29,6 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     /**
      * Sequence number
      * 
-     * @Accessor(getter="getSeq", setter="setSeq")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSeq', setter: 'setSeq')]
@@ -44,11 +39,6 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * DTSTAMP date in milliseconds
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,11 +51,6 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
     /**
      * Attendee address
      * 
-     * @Accessor(getter="getAttendee", setter="setAttendee")
-     * @SerializedName("at")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAttendee', setter: 'setAttendee')]
@@ -76,11 +61,6 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
 
     /**
      * iCalendar SENT-BY
-     * 
-     * @Accessor(getter="getSentBy", setter="setSentBy")
-     * @SerializedName("sentBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -96,11 +76,6 @@ class CalendarReply extends RecurIdInfo implements CalendarReplyInterface
      * Meanings:
      * "NE"eds-action, "TE"ntative, "AC"cept, "DE"clined, "DG" (delegated), "CO"mpleted (todo), "IN"-process (todo),
      * "WA"iting (custom value only for todo), "DF" (deferred; custom value only for todo)
-     * 
-     * @Accessor(getter="getPartStat", setter="setPartStat")
-     * @SerializedName("ptst")
-     * @Type("Enum<Zimbra\Common\Enum\ParticipationStatus>")
-     * @XmlAttribute
      * 
      * @var ParticipationStatus
      */

@@ -27,11 +27,6 @@ class NoteInfo
     /**
      * The id
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -42,11 +37,6 @@ class NoteInfo
 
     /**
      * Revision
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -59,11 +49,6 @@ class NoteInfo
     /**
      * Folder ID
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -74,11 +59,6 @@ class NoteInfo
 
     /**
      * Date
-     * 
-     * @Accessor(getter="getDate", setter="setDate")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -91,11 +71,6 @@ class NoteInfo
     /**
      * Flags
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -106,11 +81,6 @@ class NoteInfo
 
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
-     * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -123,11 +93,6 @@ class NoteInfo
     /**
      * Comma-separated list of tag names
      * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -138,11 +103,6 @@ class NoteInfo
 
     /**
      * Bounds - x,y[width,height] where x,y,width and height are all ints
-     * 
-     * @Accessor(getter="getBounds", setter="setBounds")
-     * @SerializedName("pos")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -155,11 +115,6 @@ class NoteInfo
     /**
      * color numeric; range 0-127; defaults to 0 if not present; client can display only 0-7
      * 
-     * @Accessor(getter="getColor", setter="setColor")
-     * @SerializedName("color")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getColor', setter: 'setColor')]
@@ -170,11 +125,6 @@ class NoteInfo
 
     /**
      * RGB color in format #rrggbb where r,g and b are hex digits
-     * 
-     * @Accessor(getter="getRgb", setter="setRgb")
-     * @SerializedName("rgb")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -187,11 +137,6 @@ class NoteInfo
     /**
      * Modified date in seconds
      * 
-     * @Accessor(getter="getChangeDate", setter="setChangeDate")
-     * @SerializedName("md")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
@@ -202,11 +147,6 @@ class NoteInfo
 
     /**
      * Modified sequence
-     * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -219,11 +159,6 @@ class NoteInfo
     /**
      * Content
      * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]
@@ -234,10 +169,6 @@ class NoteInfo
 
     /**
      * Custom metadata information
-     * 
-     * @Accessor(getter="getMetadatas", setter="setMetadatas")
-     * @Type("array<Zimbra\Mail\Struct\MailCustomMetadata>")
-     * @XmlList(inline=true, entry="meta", namespace="urn:zimbraMail")
      * 
      * @var array
      */

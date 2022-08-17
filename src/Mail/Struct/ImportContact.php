@@ -26,11 +26,6 @@ class ImportContact
     /**
      * Comma-separated list of created IDs
      * 
-     * @Accessor(getter="getListOfCreatedIds", setter="setListOfCreatedIds")
-     * @SerializedName("ids")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getListOfCreatedIds', setter: 'setListOfCreatedIds')]
@@ -41,11 +36,6 @@ class ImportContact
 
     /**
      * Number imported
-     * 
-     * @Accessor(getter="getNumImported", setter="setNumImported")
-     * @SerializedName("n")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

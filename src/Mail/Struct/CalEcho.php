@@ -26,11 +26,6 @@ class CalEcho
     /**
      * Invite
      * 
-     * @Accessor(getter="getInvite", setter="setInvite")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\InviteAsMP")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var InviteAsMP
      */
     #[Accessor(getter: "getInvite", setter: "setInvite")]

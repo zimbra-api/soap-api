@@ -26,11 +26,6 @@ class FileIntoAction extends FilterAction
     /**
      * Folder path
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folderPath")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]
@@ -43,11 +38,6 @@ class FileIntoAction extends FilterAction
      * If true, item will be copied to the new location,
      * leaving the original in place. See https://tools.ietf.org/html/rfc3894
      * "Sieve Extension: Copying Without Side Effects"
-     * 
-     * @Accessor(getter="isCopy", setter="setCopy")
-     * @SerializedName("copy")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

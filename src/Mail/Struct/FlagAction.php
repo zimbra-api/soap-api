@@ -26,11 +26,6 @@ class FlagAction extends FilterAction
     /**
      * Flag name - flagged|read|priority
      * 
-     * @Accessor(getter="getFlag", setter="setFlag")
-     * @SerializedName("flagName")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlag', setter: 'setFlag')]

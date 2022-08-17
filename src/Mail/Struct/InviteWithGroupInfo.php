@@ -28,11 +28,6 @@ class InviteWithGroupInfo
     /**
      * Invite type - appt|task
      * 
-     * @Accessor(getter="getCalItemType", setter="setCalItemType")
-     * @SerializedName("type")
-     * @Type("Enum<Zimbra\Common\Enum\InviteType>")
-     * @XmlAttribute
-     * 
      * @var InviteType
      */
     #[Accessor(getter: 'getCalItemType', setter: 'setCalItemType')]
@@ -44,10 +39,6 @@ class InviteWithGroupInfo
     /**
      * Timezones
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -58,10 +49,6 @@ class InviteWithGroupInfo
     /**
      * Invite components
      * 
-     * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @Type("array<Zimbra\Mail\Struct\InviteComponentWithGroupInfo>")
-     * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
@@ -71,12 +58,6 @@ class InviteWithGroupInfo
 
     /**
      * Replies
-     * 
-     * @Accessor(getter="getCalendarReplies", setter="setCalendarReplies")
-     * @SerializedName("replies")
-     * @Type("array<Zimbra\Mail\Struct\CalendarReply>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      * 
      * @var array
      */

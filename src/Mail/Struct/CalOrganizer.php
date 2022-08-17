@@ -28,11 +28,6 @@ class CalOrganizer implements CalOrganizerInterface
     /**
      * Email address (without "MAILTO:")
      * 
-     * @Accessor(getter="getAddress", setter="setAddress")
-     * @SerializedName("a")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -43,11 +38,6 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * URL - has same value as email-address.
-     * 
-     * @Accessor(getter="getUrl", setter="setUrl")
-     * @SerializedName("url")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -60,11 +50,6 @@ class CalOrganizer implements CalOrganizerInterface
     /**
      * Friendly name - "CN" in iCalendar
      * 
-     * @Accessor(getter="getDisplayName", setter="setDisplayName")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -75,11 +60,6 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * iCalendar SENT-BY
-     * 
-     * @Accessor(getter="getSentBy", setter="setSentBy")
-     * @SerializedName("sentBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -92,11 +72,6 @@ class CalOrganizer implements CalOrganizerInterface
     /**
      * iCalendar DIR - Reference to a directory entry associated with the calendar user.
      * 
-     * @Accessor(getter="getDir", setter="setDir")
-     * @SerializedName("dir")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDir', setter: 'setDir')]
@@ -108,11 +83,6 @@ class CalOrganizer implements CalOrganizerInterface
     /**
      * iCalendar LANGUAGE - As defined in RFC5646 * (e.g. "en-US")
      * 
-     * @Accessor(getter="getLanguage", setter="setLanguage")
-     * @SerializedName("lang")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLanguage', setter: 'setLanguage')]
@@ -123,10 +93,6 @@ class CalOrganizer implements CalOrganizerInterface
 
     /**
      * Non-standard parameters (XPARAMs)
-     * 
-     * @Accessor(getter="getXParams", setter="setXParams")
-     * @Type("array<Zimbra\Mail\Struct\XParam>")
-     * @XmlList(inline=true, entry="xparam", namespace="urn:zimbraMail")
      * 
      * @var array
      */

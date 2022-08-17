@@ -32,11 +32,6 @@ trait MailSearchParams
     /**
      * Set to 1 (true) to include items with the Deleted calItemExpandStart set in results
      * 
-     * @Accessor(getter="getIncludeTagDeleted", setter="setIncludeTagDeleted")
-     * @SerializedName("includeTagDeleted")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getIncludeTagDeleted', setter: 'setIncludeTagDeleted')]
@@ -47,11 +42,6 @@ trait MailSearchParams
 
     /**
      * Set to 1 (true) to include items with the Muted calItemExpandStart set in results
-     * 
-     * @Accessor(getter="getIncludeTagMuted", setter="setIncludeTagMuted")
-     * @SerializedName("includeTagMuted")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -65,11 +55,6 @@ trait MailSearchParams
      * Comma separated list of allowable Task statuses.
      * Valid values : NEED, INPR, WAITING, DEFERRED, COMP
      * 
-     * @Accessor(getter="getAllowableTaskStatus", setter="setAllowableTaskStatus")
-     * @SerializedName("allowableTaskStatus")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAllowableTaskStatus', setter: 'setAllowableTaskStatus')]
@@ -80,11 +65,6 @@ trait MailSearchParams
 
     /**
      * Start time in milliseconds for the range to include instances for calendar items from.
-     * 
-     * @Accessor(getter="getCalItemExpandStart", setter="setCalItemExpandStart")
-     * @SerializedName("calExpandInstStart")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -97,11 +77,6 @@ trait MailSearchParams
     /**
      * End time in milliseconds for the range to include instances for calendar items from.
      * 
-     * @Accessor(getter="getCalItemExpandEnd", setter="setCalItemExpandEnd")
-     * @SerializedName("calExpandInstEnd")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getCalItemExpandEnd', setter: 'setCalItemExpandEnd')]
@@ -113,11 +88,6 @@ trait MailSearchParams
     /**
      * Query string
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: "getQuery", setter: "setQuery")]
@@ -128,11 +98,6 @@ trait MailSearchParams
 
     /**
      * Set this flat to 1 (true) to search dumpster data instead of live data.
-     * 
-     * @Accessor(getter="getInDumpster", setter="setInDumpster")
-     * @SerializedName("inDumpster")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -147,11 +112,6 @@ trait MailSearchParams
      * Legal values are: conversation|message|contact|appointment|task|wiki|document
      * Default is "conversation".
      * 
-     * @Accessor(getter="getSearchTypes", setter="setSearchTypes")
-     * @SerializedName("types")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSearchTypes', setter: 'setSearchTypes')]
@@ -162,11 +122,6 @@ trait MailSearchParams
 
     /**
      * Deprecated. Use {searchTypes} instead
-     * 
-     * @Accessor(getter="getGroupBy", setter="setGroupBy")
-     * @SerializedName("groupBy")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -184,11 +139,6 @@ trait MailSearchParams
      * cursor this catch-up index prior to the search by giving up the freshness of the search results, i.e. recent
      * messages may not be included in the search results.
      * 
-     * @Accessor(getter="getQuick", setter="setQuick")
-     * @SerializedName("quick")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getQuick', setter: 'setQuick')]
@@ -202,11 +152,6 @@ trait MailSearchParams
      * Default value is "dateDesc"
      * Possible values:
      * none|dateAsc|dateDesc|subjAsc|subjDesc|nameAsc|nameDesc|rcptAsc|rcptDesc|calTzAsc|calTzDesc|flagAsc|flagDesc|priorityAsc|priorityDesc|idAsc|idDesc|readAsc|readDesc
-     * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
-     * @XmlAttribute
      * 
      * @var SearchSortBy
      */
@@ -229,11 +174,6 @@ trait MailSearchParams
      * if fetch="hits", all hits are expanded
      * if fetch="hits!", all hits are expanded if there are any, otherwise the first message is expanded
      * 
-     * @Accessor(getter="getFetch", setter="setFetch")
-     * @SerializedName("fetch")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFetch', setter: 'setFetch')]
@@ -244,11 +184,6 @@ trait MailSearchParams
 
     /**
      * Inlined hits will be marked as read
-     * 
-     * @Accessor(getter="getMarkRead", setter="setMarkRead")
-     * @SerializedName("read")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -262,11 +197,6 @@ trait MailSearchParams
      * If specified, inlined body content in limited to the given length;
      * if the part is truncated, truncated="1" is specified on the <mp> in question
      * 
-     * @Accessor(getter="getMaxInlinedLength", setter="setMaxInlinedLength")
-     * @SerializedName("max")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMaxInlinedLength', setter: 'setMaxInlinedLength')]
@@ -277,11 +207,6 @@ trait MailSearchParams
 
     /**
      * Set to 1 (true) to cause inlined hits to return HTML parts if available
-     * 
-     * @Accessor(getter="getWantHtml", setter="setWantHtml")
-     * @SerializedName("html")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -294,11 +219,6 @@ trait MailSearchParams
     /**
      * If 'needExp' is set in the request, two additional flags may be included in <e> elements for messages returned inline.
      * 
-     * @Accessor(getter="getNeedCanExpand", setter="setNeedCanExpand")
-     * @SerializedName("needExp")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getNeedCanExpand', setter: 'setNeedCanExpand')]
@@ -309,11 +229,6 @@ trait MailSearchParams
 
     /**
      * Set to 0 (false) to stop images in inlined HTML parts from being "neutered"
-     * 
-     * @Accessor(getter="getNeuterImages", setter="setNeuterImages")
-     * @SerializedName("neuter")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -335,11 +250,6 @@ trait MailSearchParams
      *    - returned sent messages will contain the sets of both "From:" Senders and "To:" Recipients
      *    - returned conversations will contain an aggregated list of "From:" Senders and "To:" Recipients from messages in the conversation (maximum of 8 of each)
      * 
-     * @Accessor(getter="getWantRecipients", setter="setWantRecipients")
-     * @SerializedName("recip")
-     * @Type("Enum<Zimbra\Common\Enum\WantRecipsSetting>")
-     * @XmlAttribute
-     * 
      * @var WantRecipsSetting
      */
     #[Accessor(getter: 'getWantRecipients', setter: 'setWantRecipients')]
@@ -350,11 +260,6 @@ trait MailSearchParams
 
     /**
      * Prefetch
-     * 
-     * @Accessor(getter="getPrefetch", setter="setPrefetch")
-     * @SerializedName("prefetch")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -369,11 +274,6 @@ trait MailSearchParams
      * NORMAL [default]: Everything
      * IDS: Only IDs
      * 
-     * @Accessor(getter="getResultMode", setter="setResultMode")
-     * @SerializedName("resultMode")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getResultMode', setter: 'setResultMode')]
@@ -386,11 +286,6 @@ trait MailSearchParams
      * By default, only matching messages are included in conversation results.
      * Set to 1 (true) to include all messages in the conversation, even if they don't match the search,
      * including items in Trash and Junk folders.
-     * 
-     * @Accessor(getter="getFullConversation", setter="setFullConversation")
-     * @SerializedName("fullConversation")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -407,11 +302,6 @@ trait MailSearchParams
      * (date, after, before) and the "item:" operator should not be specified as default fields because of quirks in
      * the search grammar.
      * 
-     * @Accessor(getter="getField", setter="setField")
-     * @SerializedName("field")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getField', setter: 'setField')]
@@ -422,11 +312,6 @@ trait MailSearchParams
 
     /**
      * The maximum number of results to return. It defaults to 10 if not specified, and is capped by 1000
-     * 
-     * @Accessor(getter="getLimit", setter="setLimit")
-     * @SerializedName("limit")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -440,11 +325,6 @@ trait MailSearchParams
      * Specifies the 0-based offset into the results list to return as the first result for this search operation.
      * For example, limit=10 offset=30 will return the 31st through 40th results inclusive.
      * 
-     * @Accessor(getter="getOffset", setter="setOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getOffset', setter: 'setOffset')]
@@ -456,10 +336,6 @@ trait MailSearchParams
     /**
      * if <header>s are requested, any matching headers are included in inlined message hits
      * 
-     * @Accessor(getter="getHeaders", setter="setHeaders")
-     * @Type("array<Zimbra\Common\Struct\AttributeName>")
-     * @XmlList(inline=true, entry="header", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getHeaders', setter: 'setHeaders')]
@@ -469,11 +345,6 @@ trait MailSearchParams
 
     /**
      * Timezone specification
-     * 
-     * @Accessor(getter="getCalTz", setter="setCalTz")
-     * @SerializedName("tz")
-     * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CalTZInfoInterface
      */
@@ -492,11 +363,6 @@ trait MailSearchParams
      * ISO Language Codes: http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt
      * ISO Country Codes: http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html
      * 
-     * @Accessor(getter="getLocale", setter="setLocale")
-     * @SerializedName("locale")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: "getLocale", setter: "setLocale")]
@@ -508,10 +374,6 @@ trait MailSearchParams
     /**
      * Cursor specification
      * 
-     * @Accessor(getter="getCursor", setter="setCursor")
-     * @SerializedName("cursor")
-     * @Type("Zimbra\Common\Struct\CursorInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @var CursorInfo
      */
     #[Accessor(getter: "getCursor", setter: "setCursor")]
@@ -522,11 +384,6 @@ trait MailSearchParams
 
     /**
      * used by clients if they want mail content with/without quoted text
-     * 
-     * @Accessor(getter="getWantContent", setter="setWantContent")
-     * @SerializedName("wantContent")
-     * @Type("Enum<Zimbra\Common\Enum\MsgContent>")
-     * @XmlAttribute
      * 
      * @var MsgContent
      */
@@ -539,11 +396,6 @@ trait MailSearchParams
     /**
      * If set, Include the list of contact groups this contact is a member of.
      * Note: use sparingly, there is a performance penalty associated with computing this information
-     * 
-     * @Accessor(getter="getIncludeMemberOf", setter="setIncludeMemberOf")
-     * @SerializedName("memberOf")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

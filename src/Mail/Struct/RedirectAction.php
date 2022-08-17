@@ -26,11 +26,6 @@ class RedirectAction extends FilterAction
     /**
      * Email address
      * 
-     * @Accessor(getter="getAddress", setter="setAddress")
-     * @SerializedName("a")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAddress', setter: 'setAddress')]
@@ -43,11 +38,6 @@ class RedirectAction extends FilterAction
      * If true, item's copy will be redirected,
      * leaving the original in place.See https://tools.ietf.org/html/rfc3894
      * "Sieve Extension: Copying Without Side Effects"
-     * 
-     * @Accessor(getter="isCopy", setter="setCopy")
-     * @SerializedName("copy")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

@@ -29,11 +29,6 @@ class DurationInfo implements DurationInfoInterface
     /**
      * Set if the duration is negative.
      * 
-     * @Accessor(getter="getDurationNegative", setter="setDurationNegative")
-     * @SerializedName("neg")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getDurationNegative', setter: 'setDurationNegative')]
@@ -46,11 +41,6 @@ class DurationInfo implements DurationInfoInterface
      * Weeks component of the duration
      * Special note: if WEEKS are specified, NO OTHER OFFSET MAY BE SPECIFIED (weeks must be alone, per RFC2445)
      * 
-     * @Accessor(getter="getWeeks", setter="setWeeks")
-     * @SerializedName("w")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getWeeks', setter: 'setWeeks')]
@@ -61,11 +51,6 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Days component of the duration
-     * 
-     * @Accessor(getter="getDays", setter="setDays")
-     * @SerializedName("d")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -78,11 +63,6 @@ class DurationInfo implements DurationInfoInterface
     /**
      * Hours component of the duration
      * 
-     * @Accessor(getter="getHours", setter="setHours")
-     * @SerializedName("h")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getHours', setter: 'setHours')]
@@ -94,11 +74,6 @@ class DurationInfo implements DurationInfoInterface
     /**
      * Minutes component of the duration
      * 
-     * @Accessor(getter="getMinutes", setter="setMinutes")
-     * @SerializedName("m")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getMinutes', setter: 'setMinutes')]
@@ -109,11 +84,6 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Seconds component of the duration
-     * 
-     * @Accessor(getter="getSeconds", setter="setSeconds")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -127,11 +97,6 @@ class DurationInfo implements DurationInfoInterface
      * Specifies whether the alarm is related to the start of end.
      * Valid values are : START|END
      * 
-     * @Accessor(getter="getRelated", setter="setRelated")
-     * @SerializedName("related")
-     * @Type("Enum<Zimbra\Common\Enum\AlarmRelated>")
-     * @XmlAttribute
-     * 
      * @var AlarmRelated
      */
     #[Accessor(getter: 'getRelated', setter: 'setRelated')]
@@ -142,11 +107,6 @@ class DurationInfo implements DurationInfoInterface
 
     /**
      * Alarm repeat count
-     * 
-     * @Accessor(getter="getRepeatCount", setter="setRepeatCount")
-     * @SerializedName("count")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

@@ -27,11 +27,6 @@ class RawInvite
     /**
      * UID
      * 
-     * @Accessor(getter="getUid", setter="setUid")
-     * @SerializedName("uid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUid', setter: 'setUid')]
@@ -43,11 +38,6 @@ class RawInvite
     /**
      * Summary
      * 
-     * @Accessor(getter="getSummary", setter="setSummary")
-     * @SerializedName("summary")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSummary', setter: 'setSummary')]
@@ -58,10 +48,6 @@ class RawInvite
 
     /**
      * Raw iCalendar data
-     * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

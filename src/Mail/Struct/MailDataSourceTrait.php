@@ -26,11 +26,6 @@ trait MailDataSourceTrait
     /**
      * Imap data source
      * 
-     * @Accessor(getter="getImapDataSource", setter="setImapDataSource")
-     * @SerializedName("imap")
-     * @Type("Zimbra\Mail\Struct\MailImapDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MailImapDataSource
      */
     #[Accessor(getter: "getImapDataSource", setter: "setImapDataSource")]
@@ -41,11 +36,6 @@ trait MailDataSourceTrait
 
     /**
      * Pop3 data source
-     * 
-     * @Accessor(getter="getPop3DataSource", setter="setPop3DataSource")
-     * @SerializedName("pop3")
-     * @Type("Zimbra\Mail\Struct\MailPop3DataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MailPop3DataSource
      */
@@ -58,11 +48,6 @@ trait MailDataSourceTrait
     /**
      * Caldav data source
      * 
-     * @Accessor(getter="getCaldavDataSource", setter="setCaldavDataSource")
-     * @SerializedName("caldav")
-     * @Type("Zimbra\Mail\Struct\MailCaldavDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MailCaldavDataSource
      */
     #[Accessor(getter: "getCaldavDataSource", setter: "setCaldavDataSource")]
@@ -73,11 +58,6 @@ trait MailDataSourceTrait
 
     /**
      * Yab data source
-     * 
-     * @Accessor(getter="getYabDataSource", setter="setYabDataSource")
-     * @SerializedName("yab")
-     * @Type("Zimbra\Mail\Struct\MailYabDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MailYabDataSource
      */
@@ -90,11 +70,6 @@ trait MailDataSourceTrait
     /**
      * Rss data source
      * 
-     * @Accessor(getter="getRssDataSource", setter="setRssDataSource")
-     * @SerializedName("rss")
-     * @Type("Zimbra\Mail\Struct\MailRssDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MailRssDataSource
      */
     #[Accessor(getter: "getRssDataSource", setter: "setRssDataSource")]
@@ -106,10 +81,6 @@ trait MailDataSourceTrait
     /**
      * Gal data source
      * 
-     * @Accessor(getter="getGalDataSource", setter="setGalDataSource")
-     * @SerializedName("gal")
-     * @Type("Zimbra\Mail\Struct\MailGalDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @var MailGalDataSource
      */
     #[Accessor(getter: "getGalDataSource", setter: "setGalDataSource")]
@@ -121,11 +92,6 @@ trait MailDataSourceTrait
     /**
      * Cal data source
      * 
-     * @Accessor(getter="getCalDataSource", setter="setCalDataSource")
-     * @SerializedName("cal")
-     * @Type("Zimbra\Mail\Struct\MailCalDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MailCalDataSource
      */
     #[Accessor(getter: "getCalDataSource", setter: "setCalDataSource")]
@@ -136,11 +102,6 @@ trait MailDataSourceTrait
 
     /**
      * Unknown data source
-     * 
-     * @Accessor(getter="getUnknownDataSource", setter="setUnknownDataSource")
-     * @SerializedName("unknown")
-     * @Type("Zimbra\Mail\Struct\MailUnknownDataSource")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MailUnknownDataSource
      */

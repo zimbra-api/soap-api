@@ -28,11 +28,6 @@ class NumAttr implements NumAttrInterface
     /**
      * Number
      * 
-     * @Accessor(getter="getNum", setter="setNum")
-     * @SerializedName("num")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getNum', setter: 'setNum')]

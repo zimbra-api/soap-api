@@ -26,11 +26,6 @@ class DeleteItemNotification
     /**
      * ID of deleted item
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class DeleteItemNotification
 
     /**
      * Type of deleted item
-     * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

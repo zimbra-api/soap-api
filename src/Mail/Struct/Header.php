@@ -27,11 +27,6 @@ class Header
     /**
      * Header name
      * 
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getName', setter: 'setName')]
@@ -42,10 +37,6 @@ class Header
 
     /**
      * Header value
-     * 
-     * @Accessor(getter="getValue", setter="setValue")
-     * @Type("string")
-     * @XmlValue(cdata=false)
      * 
      * @var string
      */

@@ -26,11 +26,6 @@ class ModifyContactSpec
     /**
      * ID - specified when modifying a contact
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class ModifyContactSpec
 
     /**
      * Comma-separated list of tag names
-     * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -58,10 +48,6 @@ class ModifyContactSpec
     /**
      * Contact attributes.  Cannot specify <vcard> as well as these
      * 
-     * @Accessor(getter="getAttrs", setter="setAttrs")
-     * @Type("array<Zimbra\Mail\Struct\ModifyContactAttr>")
-     * @XmlList(inline=true, entry="a", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttrs', setter: 'setAttrs')]
@@ -72,10 +58,6 @@ class ModifyContactSpec
     /**
      * Valid only if the contact being created is a contact group
      * (has attribute type="group")
-     * 
-     * @Accessor(getter="getContactGroupMembers", setter="setContactGroupMembers")
-     * @Type("array<Zimbra\Mail\Struct\ModifyContactGroupMember>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */

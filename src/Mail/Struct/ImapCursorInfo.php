@@ -27,11 +27,6 @@ class ImapCursorInfo
      * ID of the last IMAP item of the last page returned by OpenImapFolderRequest.
      * If this item is deleted, the cursor is cleared.
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]

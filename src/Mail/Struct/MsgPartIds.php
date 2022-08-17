@@ -26,11 +26,6 @@ class MsgPartIds
     /**
      * Message ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class MsgPartIds
 
     /**
      * Comma separated list of part IDs to remove
-     * 
-     * @Accessor(getter="getPartIds", setter="setPartIds")
-     * @SerializedName("part")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

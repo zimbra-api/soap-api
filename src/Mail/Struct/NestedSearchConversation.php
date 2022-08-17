@@ -26,11 +26,6 @@ class NestedSearchConversation
     /**
      * Conversation ID
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -41,11 +36,6 @@ class NestedSearchConversation
 
     /**
      * Number of messages in conversation without IMAP \Deleted flag set
-     * 
-     * @Accessor(getter="getNum", setter="setNum")
-     * @SerializedName("n")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -58,11 +48,6 @@ class NestedSearchConversation
     /**
      * Total number of messages in conversation
      * 
-     * @Accessor(getter="getTotalSize", setter="setTotalSize")
-     * @SerializedName("total")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
@@ -73,11 +58,6 @@ class NestedSearchConversation
 
     /**
      * Same flags as on <m> ("sarwfdxnu!?"), aggregated from all the conversation's messages
-     * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -90,11 +70,6 @@ class NestedSearchConversation
     /**
      * Tags - Comma separated list of ints.  DEPRECATED - use "tn" instead
      * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTags', setter: 'setTags')]
@@ -106,11 +81,6 @@ class NestedSearchConversation
     /**
      * Comma-separated list of tag names
      * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -121,10 +91,6 @@ class NestedSearchConversation
 
     /**
      * Message search hits
-     * 
-     * @Accessor(getter="getMessages", setter="setMessages")
-     * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -139,11 +105,6 @@ class NestedSearchConversation
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.  If expanded is
      * unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
-     * @Accessor(getter="getQueryInfo", setter="setQueryInfo")
-     * @SerializedName("info")
-     * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SearchQueryInfo
      */

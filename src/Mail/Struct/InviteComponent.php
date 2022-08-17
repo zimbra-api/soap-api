@@ -40,10 +40,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Categories - for iCalendar CATEGORY properties
      * 
-     * @Accessor(getter="getCategories", setter="setCategories")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="category", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getCategories', setter: 'setCategories')]
@@ -53,10 +49,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Comments - for iCalendar COMMENT properties
-     * 
-     * @Accessor(getter="getComments", setter="setComments")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -68,10 +60,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Contacts - for iCalendar CONTACT properties
      * 
-     * @Accessor(getter="getContacts", setter="setContacts")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="contact", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getContacts', setter: 'setContacts')]
@@ -81,11 +69,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * for iCalendar GEO property
-     * 
-     * @Accessor(getter="getGeo", setter="setGeo")
-     * @SerializedName("geo")
-     * @Type("Zimbra\Mail\Struct\GeoInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var GeoInfoInterface
      */
@@ -98,10 +81,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Attendees
      * 
-     * @Accessor(getter="getAttendees", setter="setAttendees")
-     * @Type("array<Zimbra\Mail\Struct\CalendarAttendee>")
-     * @XmlList(inline=true, entry="at", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAttendees', setter: 'setAttendees')]
@@ -111,10 +90,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Alarm information
-     * 
-     * @Accessor(getter="getAlarms", setter="setAlarms")
-     * @Type("array<Zimbra\Mail\Struct\AlarmInfo>")
-     * @XmlList(inline=true, entry="alarm", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -126,10 +101,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * XPROP properties
      * 
-     * @Accessor(getter="getXProps", setter="setXProps")
-     * @Type("array<Zimbra\Mail\Struct\XProp>")
-     * @XmlList(inline=true, entry="xprop", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getXProps', setter: 'setXProps')]
@@ -139,11 +110,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * First few bytes of the message (probably between 40 and 100 bytes)
-     * 
-     * @Accessor(getter="getFragment", setter="setFragment")
-     * @SerializedName("fr")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -156,11 +122,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Present if noBlob is set and invite has a plain text description
      * 
-     * @Accessor(getter="getDescription", setter="setDescription")
-     * @SerializedName("desc")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: "getDescription", setter: "setDescription")]
@@ -171,11 +132,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Present if noBlob is set and invite has an HTML description
-     * 
-     * @Accessor(getter="getHtmlDescription", setter="setHtmlDescription")
-     * @SerializedName("descHtml")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
      * 
      * @var string
      */
@@ -188,11 +144,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Organizer
      * 
-     * @Accessor(getter="getOrganizer", setter="setOrganizer")
-     * @SerializedName("or")
-     * @Type("Zimbra\Mail\Struct\CalOrganizer")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CalOrganizerInterface
      */
     #[Accessor(getter: "getOrganizer", setter: "setOrganizer")]
@@ -203,11 +154,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Recurrence information
-     * 
-     * @Accessor(getter="getRecurrence", setter="setRecurrence")
-     * @SerializedName("recur")
-     * @Type("Zimbra\Mail\Struct\RecurrenceInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var RecurrenceInfoInterface
      */
@@ -220,11 +166,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * Recurrence id, if this is an exception
      * 
-     * @Accessor(getter="getExceptionId", setter="setExceptionId")
-     * @SerializedName("exceptId")
-     * @Type("Zimbra\Mail\Struct\ExceptionRecurIdInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ExceptionRecurIdInfoInterface
      */
     #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
@@ -235,11 +176,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Start date-time (required)
-     * 
-     * @Accessor(getter="getDtStart", setter="setDtStart")
-     * @SerializedName("s")
-     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DtTimeInfoInterface
      */
@@ -252,11 +188,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
     /**
      * End date-time
      * 
-     * @Accessor(getter="getDtEnd", setter="setDtEnd")
-     * @SerializedName("e")
-     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DtTimeInfoInterface
      */
     #[Accessor(getter: "getDtEnd", setter: "setDtEnd")]
@@ -267,11 +198,6 @@ class InviteComponent extends InviteComponentCommon implements InviteComponentIn
 
     /**
      * Duration
-     * 
-     * @Accessor(getter="getDuration", setter="setDuration")
-     * @SerializedName("dur")
-     * @Type("Zimbra\Mail\Struct\DurationInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var DurationInfoInterface
      */

@@ -26,11 +26,6 @@ class ContactRankingTest extends FilterTest
     /**
      * Header name
      * 
-     * @Accessor(getter="getHeader", setter="setHeader")
-     * @SerializedName("header")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getHeader', setter: 'setHeader')]

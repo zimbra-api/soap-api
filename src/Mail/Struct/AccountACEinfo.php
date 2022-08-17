@@ -25,11 +25,6 @@ use Zimbra\Common\Enum\GranteeType;
 class AccountACEinfo
 {
     /**
-     * @Accessor(getter="getGranteeType", setter="setGranteeType")
-     * @SerializedName("gt")
-     * @Type("Enum<Zimbra\Common\Enum\GranteeType>")
-     * @XmlAttribute
-     * 
      * @var GranteeType
      */
     #[Accessor(getter: 'getGranteeType', setter: 'setGranteeType')]
@@ -39,11 +34,6 @@ class AccountACEinfo
     private $granteeType;
 
     /**
-     * @Accessor(getter="getRight", setter="setRight")
-     * @SerializedName("right")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getRight', setter: 'setRight')]
@@ -53,11 +43,6 @@ class AccountACEinfo
     private $right;
 
     /**
-     * @Accessor(getter="getZimbraId", setter="setZimbraId")
-     * @SerializedName("zid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getZimbraId', setter: 'setZimbraId')]
@@ -67,11 +52,6 @@ class AccountACEinfo
     private $zimbraId;
 
     /**
-     * @Accessor(getter="getDisplayName", setter="setDisplayName")
-     * @SerializedName("d")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDisplayName', setter: 'setDisplayName')]
@@ -81,11 +61,6 @@ class AccountACEinfo
     private $displayName;
 
     /**
-     * @Accessor(getter="getAccessKey", setter="setAccessKey")
-     * @SerializedName("key")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getAccessKey', setter: 'setAccessKey')]
@@ -95,11 +70,6 @@ class AccountACEinfo
     private $accessKey;
 
     /**
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("pw")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getPassword', setter: 'setPassword')]
@@ -109,11 +79,6 @@ class AccountACEinfo
     private $password;
 
     /**
-     * @Accessor(getter="getDeny", setter="setDeny")
-     * @SerializedName("deny")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getDeny', setter: 'setDeny')]
