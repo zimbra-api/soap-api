@@ -39,7 +39,7 @@ class AttributeReader implements Reader
      */
     public function getClassAnnotation(ReflectionClass $class, $annotationName)
     {
-        $this->buildAnnotation($class->getAttributes($annotationName));
+        return $this->buildAnnotation($class->getAttributes($annotationName));
     }
 
     /**

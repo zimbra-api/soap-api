@@ -2,7 +2,7 @@
 
 namespace Zimbra\Tests\Common\Struct;
 
-use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNamespace, XmlRoot};
+use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlRoot};
 use Zimbra\Common\Struct\Fault\{Code, Reason};
 use Zimbra\Common\Struct\{
     SoapEnvelope, SoapFault, SoapBody, SoapBodyInterface, SoapRequestInterface, SoapResponseInterface
@@ -73,6 +73,7 @@ EOT;
 /**
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlRoot(name: 'soap:Envelope')]
 class FaultEnvelope extends SoapEnvelope
 {
     /**
@@ -81,6 +82,10 @@ class FaultEnvelope extends SoapEnvelope
      * @Type("Zimbra\Tests\Common\Struct\FaultBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: FaultBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

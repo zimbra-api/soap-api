@@ -112,6 +112,7 @@ EOT;
 /**
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlRoot(name: 'soap:Envelope')]
 class FooEnvelope extends SoapEnvelope
 {
     /**
@@ -120,6 +121,10 @@ class FooEnvelope extends SoapEnvelope
      * @Type("Zimbra\Tests\Common\Struct\FooBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: FooBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

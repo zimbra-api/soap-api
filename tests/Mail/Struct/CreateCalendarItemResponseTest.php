@@ -134,6 +134,7 @@ EOT;
 /**
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  */
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class StubCreateCalendarItemResponse extends CreateCalendarItemResponse
 {
 }

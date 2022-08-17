@@ -74,6 +74,8 @@ EOT;
  * @XmlNamespace(uri="urn:zimbra", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbra', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class BatchEnvelope extends SoapEnvelope
 {
     /**
@@ -82,6 +84,10 @@ class BatchEnvelope extends SoapEnvelope
      * @Type("Zimbra\Tests\Common\Struct\BatchBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: BatchBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     public function getBody() : SoapBodyInterface
@@ -104,6 +110,10 @@ class BatchBody extends SoapBody
      * @Type("Zimbra\Tests\Common\Struct\FooBatchRequest")
      * @XmlElement(namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'BatchRequest')]
+    #[Type(name: FooBatchRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private ?SoapRequestInterface $request = NULL;
 
     /**
@@ -112,6 +122,10 @@ class BatchBody extends SoapBody
      * @Type("Zimbra\Tests\Common\Struct\FooBatchResponse")
      * @XmlElement(namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'BatchResponse')]
+    #[Type(name: FooBatchResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private ?SoapResponseInterface $response = NULL;
 
     public function __construct(?FooBatchRequest $request = NULL, ?FooBatchResponse $response = NULL)
@@ -153,6 +167,9 @@ class FooBatchRequest extends BatchRequest
      * @Type("array<Zimbra\Tests\Common\Struct\FooRequest>")
      * @XmlList(inline=true, entry="FooRequest", namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getRequests', setter: 'setRequests')]
+    #[Type(name: 'array<Zimbra\Tests\Common\Struct\FooRequest>')]
+    #[XmlList(inline: true, entry: "FooRequest", namespace: 'urn:zimbra')]
     private $requests = [];
 
     public function setRequests(array $requests): self
@@ -181,6 +198,9 @@ class FooBatchResponse implements BatchResponseInterface
      * @Type("array<Zimbra\Tests\Common\Struct\FooResponse>")
      * @XmlList(inline=true, entry="FooResponse", namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getResponses', setter: 'setResponses')]
+    #[Type(name: 'array<Zimbra\Tests\Common\Struct\FooResponse>')]
+    #[XmlList(inline: true, entry: "FooResponse", namespace: 'urn:zimbra')]
     private $responses = [];
 
     public function __construct(array $responses = [])

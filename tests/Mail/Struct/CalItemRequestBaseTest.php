@@ -106,6 +106,7 @@ EOT;
 /**
  * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
  */
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 class CalItemRequest extends CalItemRequestBase
 {
     protected function envelopeInit(): SoapEnvelopeInterface
