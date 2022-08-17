@@ -14,7 +14,6 @@ use Doctrine\Common\Annotations\Reader;
 use Metadata\Driver\DriverInterface;
 use JMS\Serializer\Builder\DriverFactoryInterface;
 use JMS\Serializer\Metadata\Driver\AnnotationDriver;
-use JMS\Serializer\Metadata\Driver\AttributeDriver\AttributeReader;
 use JMS\Serializer\Metadata\Driver\DefaultValuePropertyDriver;
 use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
@@ -37,8 +36,9 @@ class AttributeDriverFactory implements DriverFactoryInterface
     public function createDriver(array $metadataDirs, Reader $annotationReader): DriverInterface
     {
         $propertyNamingStrategy = new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy());
-        $annotationReader = new AttributeReader($annotationReader);
-        $driver = new AnnotationDriver($annotationReader, $propertyNamingStrategy, new Parser());
+        $driver = new AnnotationDriver(
+            new AttributeReader(), $propertyNamingStrategy, new Parser()
+        );
 
         return new DefaultValuePropertyDriver($driver);
     }
