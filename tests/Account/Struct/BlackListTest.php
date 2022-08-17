@@ -39,9 +39,7 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAccount", prefix="urn")
- */
+#[XmlNamespace(uri: 'urn:zimbraAccount', prefix: 'urn')]
 class MockBlackList extends BlackList
 {
 }

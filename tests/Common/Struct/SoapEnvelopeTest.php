@@ -78,30 +78,30 @@ class EnvelopeTest extends ZimbraTestCase
         $byId = AccountBy::ID()->getValue();
         $requestFormat = RequestFormat::XML()->getValue();
         $xml = <<<EOT
-<?xml version="1.0"?>
-    <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
-        <soap:Header xmlns:zm="urn:zimbra">
-            <zm:context hops="$hopCount">
-                <zm:authToken>$authToken</zm:authToken>
-                <zm:session proxy="true" id="$id" seq="$sequence">$value</zm:session>
-                <zm:sessionId proxy="false" id="$id" seq="$sequence">$value</zm:sessionId>
-                <zm:nosession>$noSession</zm:nosession>
-                <zm:account by="$byId" link="true">$value</zm:account>
-                <zm:change token="$changeId" type="$changeType"/>
-                <zm:targetServer>$targetServer</zm:targetServer>
-                <zm:userAgent name="$name" version="$version"/>
-                <zm:authTokenControl voidOnExpired="true"/>
-                <zm:format type="$requestFormat"/>
-                <zm:notify seq="$sequence"/>
-                <zm:nonotify>$noNotify</zm:nonotify>
-                <zm:noqualify>$noQualify</zm:noqualify>
-                <zm:via>$via</zm:via>
-                <zm:soapId>$soapRequestId</zm:soapId>
-                <zm:csrfToken>$csrfToken</zm:csrfToken>
-            </zm:context>
-         </soap:Header>
-        <soap:Body/>
-   </soap:Envelope>
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Header xmlns:zm="urn:zimbra">
+        <zm:context hops="$hopCount">
+            <zm:authToken>$authToken</zm:authToken>
+            <zm:session proxy="true" id="$id" seq="$sequence">$value</zm:session>
+            <zm:sessionId proxy="false" id="$id" seq="$sequence">$value</zm:sessionId>
+            <zm:nosession>$noSession</zm:nosession>
+            <zm:account by="$byId" link="true">$value</zm:account>
+            <zm:change token="$changeId" type="$changeType"/>
+            <zm:targetServer>$targetServer</zm:targetServer>
+            <zm:userAgent name="$name" version="$version"/>
+            <zm:authTokenControl voidOnExpired="true"/>
+            <zm:format type="$requestFormat"/>
+            <zm:notify seq="$sequence"/>
+            <zm:nonotify>$noNotify</zm:nonotify>
+            <zm:noqualify>$noQualify</zm:noqualify>
+            <zm:via>$via</zm:via>
+            <zm:soapId>$soapRequestId</zm:soapId>
+            <zm:csrfToken>$csrfToken</zm:csrfToken>
+        </zm:context>
+     </soap:Header>
+    <soap:Body/>
+</soap:Envelope>
 EOT;
 
         $this->assertXmlStringEqualsXmlString($xml, $this->serializer->serialize($envelope, 'xml'));
@@ -109,17 +109,13 @@ EOT;
     }
 }
 
-/**
- * @XmlRoot(name="soap:Envelope")
- */
+#[XmlRoot(name: 'soap:Envelope')]
 class FooEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Tests\Common\Struct\FooBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: FooBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

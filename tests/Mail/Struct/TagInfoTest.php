@@ -118,9 +118,7 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- */
+#[XmlNamespace(uri: 'urn:zimbraMail', prefix: 'urn')]
 class StubTagInfo extends TagInfo
 {
 }

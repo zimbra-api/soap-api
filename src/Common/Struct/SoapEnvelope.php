@@ -20,7 +20,7 @@ use JMS\Serializer\Annotation\{Accessor, SerializedName, Type, XmlElement, XmlNa
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
  */
-#[XmlNamespace(uri: 'http://www.w3.org/2003/05/soap-envelope', prefix: "soap")]
+#[XmlNamespace(uri: 'http://www.w3.org/2003/05/soap-envelope', prefix: 'soap')]
 abstract class SoapEnvelope implements SoapEnvelopeInterface
 {
     /**

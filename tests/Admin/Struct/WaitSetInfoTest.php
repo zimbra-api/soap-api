@@ -116,9 +116,7 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
 class StubWaitSetInfo extends WaitSetInfo
 {
 }

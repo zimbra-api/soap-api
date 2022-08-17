@@ -84,9 +84,7 @@ EOT;
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
- */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: 'urn')]
 class StubTzFixupRuleMatch extends TzFixupRuleMatch
 {
 }

@@ -61,18 +61,14 @@ class StubApi extends AbstractApi
     }
 }
 
-/**
- * @XmlNamespace(uri="urn:zimbra", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
- */
+#[XmlNamespace(uri: 'urn:zimbra', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class FooEnvelope extends SoapEnvelope
 {
-    /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Tests\Common\Soap\FooBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: FooBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**
@@ -100,20 +96,16 @@ class FooEnvelope extends SoapEnvelope
 
 class FooBody extends SoapBody
 {
-    /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("FooRequest")
-     * @Type("Zimbra\Tests\Common\Soap\FooRequest")
-     * @XmlElement(namespace="urn:zimbra")
-     */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'FooRequest')]
+    #[Type(name: FooRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private $request;
 
-    /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("FooResponse")
-     * @Type("Zimbra\Tests\Common\Soap\FooResponse")
-     * @XmlElement(namespace="urn:zimbra")
-     */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'FooResponse')]
+    #[Type(name: FooResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private $response;
 
     /**
