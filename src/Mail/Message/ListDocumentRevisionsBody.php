@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ListDocumentRevisionsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ListDocumentRevisionsRequest")
-     * @Type("Zimbra\Mail\Message\ListDocumentRevisionsRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ListDocumentRevisionsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ListDocumentRevisionsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ListDocumentRevisionsResponse")
-     * @Type("Zimbra\Mail\Message\ListDocumentRevisionsResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ListDocumentRevisionsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CancelTaskBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CancelTaskRequest")
-     * @Type("Zimbra\Mail\Message\CancelTaskRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CancelTaskRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CancelTaskBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CancelTaskResponse")
-     * @Type("Zimbra\Mail\Message\CancelTaskResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CancelTaskResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

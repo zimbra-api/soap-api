@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateMountpointBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateMountpointRequest")
-     * @Type("Zimbra\Mail\Message\CreateMountpointRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateMountpointRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateMountpointBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateMountpointResponse")
-     * @Type("Zimbra\Mail\Message\CreateMountpointResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateMountpointResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

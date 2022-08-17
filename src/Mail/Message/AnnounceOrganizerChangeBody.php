@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AnnounceOrganizerChangeBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("AnnounceOrganizerChangeRequest")
-     * @Type("Zimbra\Mail\Message\AnnounceOrganizerChangeRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var AnnounceOrganizerChangeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class AnnounceOrganizerChangeBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("AnnounceOrganizerChangeResponse")
-     * @Type("Zimbra\Mail\Message\AnnounceOrganizerChangeResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var AnnounceOrganizerChangeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

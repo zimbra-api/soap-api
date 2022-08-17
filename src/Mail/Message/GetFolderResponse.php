@@ -28,11 +28,6 @@ class GetFolderResponse extends SoapResponse
     /**
      * Information about folder
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\Folder")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Folder
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]
@@ -44,11 +39,6 @@ class GetFolderResponse extends SoapResponse
     /**
      * Information about mountpoint
      * 
-     * @Accessor(getter="getMountpoint", setter="setMountpoint")
-     * @SerializedName("link")
-     * @Type("Zimbra\Mail\Struct\Mountpoint")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Mountpoint
      */
     #[Accessor(getter: "getMountpoint", setter: "setMountpoint")]
@@ -59,11 +49,6 @@ class GetFolderResponse extends SoapResponse
 
     /**
      * Information about search folder
-     * 
-     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
-     * @SerializedName("search")
-     * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SearchFolder
      */

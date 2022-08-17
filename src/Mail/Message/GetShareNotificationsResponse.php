@@ -28,10 +28,6 @@ class GetShareNotificationsResponse extends SoapResponse
     /**
      * Share notification information
      * 
-     * @Accessor(getter="getShares", setter="setShares")
-     * @Type("array<Zimbra\Mail\Struct\ShareNotificationInfo>")
-     * @XmlList(inline=true, entry="share", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getShares', setter: 'setShares')]

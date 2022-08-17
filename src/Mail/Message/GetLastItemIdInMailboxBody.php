@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetLastItemIdInMailboxBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetLastItemIdInMailboxRequest")
-     * @Type("Zimbra\Mail\Message\GetLastItemIdInMailboxRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetLastItemIdInMailboxRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetLastItemIdInMailboxBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetLastItemIdInMailboxResponse")
-     * @Type("Zimbra\Mail\Message\GetLastItemIdInMailboxResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetLastItemIdInMailboxResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

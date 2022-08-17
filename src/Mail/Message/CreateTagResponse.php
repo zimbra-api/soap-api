@@ -28,11 +28,6 @@ class CreateTagResponse extends SoapResponse
     /**
      * Information about the newly created tag
      * 
-     * @Accessor(getter="getTag", setter="setTag")
-     * @SerializedName("tag")
-     * @Type("Zimbra\Mail\Struct\TagInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var TagInfo
      */
     #[Accessor(getter: "getTag", setter: "setTag")]

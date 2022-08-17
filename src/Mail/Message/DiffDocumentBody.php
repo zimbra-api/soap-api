@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DiffDocumentBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DiffDocumentRequest")
-     * @Type("Zimbra\Mail\Message\DiffDocumentRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DiffDocumentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DiffDocumentBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DiffDocumentResponse")
-     * @Type("Zimbra\Mail\Message\DiffDocumentResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DiffDocumentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

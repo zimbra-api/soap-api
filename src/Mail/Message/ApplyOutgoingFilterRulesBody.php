@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ApplyOutgoingFilterRulesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ApplyOutgoingFilterRulesRequest")
-     * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ApplyOutgoingFilterRulesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ApplyOutgoingFilterRulesBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ApplyOutgoingFilterRulesResponse")
-     * @Type("Zimbra\Mail\Message\ApplyOutgoingFilterRulesResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ApplyOutgoingFilterRulesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,11 +28,6 @@ class GetTaskSummariesRequest extends SoapRequest
     /**
      * Range start
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -44,11 +39,6 @@ class GetTaskSummariesRequest extends SoapRequest
     /**
      * Range end
      * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getEndTime', setter: 'setEndTime')]
@@ -59,11 +49,6 @@ class GetTaskSummariesRequest extends SoapRequest
 
     /**
      * Folder ID
-     * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

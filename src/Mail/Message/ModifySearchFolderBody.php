@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ModifySearchFolderBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ModifySearchFolderRequest")
-     * @Type("Zimbra\Mail\Message\ModifySearchFolderRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ModifySearchFolderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ModifySearchFolderBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ModifySearchFolderResponse")
-     * @Type("Zimbra\Mail\Message\ModifySearchFolderResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ModifySearchFolderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

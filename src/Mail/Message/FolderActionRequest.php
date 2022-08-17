@@ -118,11 +118,6 @@ class FolderActionRequest extends SoapRequest
     /**
      * Select action to perform on folder
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\FolderActionSelector")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var FolderActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

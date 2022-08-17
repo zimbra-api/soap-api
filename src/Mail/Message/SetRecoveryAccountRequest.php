@@ -29,11 +29,6 @@ class SetRecoveryAccountRequest extends SoapRequest
     /**
      * op can be sendCode, validateCode, resendCode or reset.
      * 
-     * @Accessor(getter="getOp", setter="setOp")
-     * @SerializedName("op")
-     * @Type("Enum<Zimbra\Common\Enum\RecoveryAccountOperation>")
-     * @XmlAttribute
-     * 
      * @var RecoveryAccountOperation
      */
     #[Accessor(getter: 'getOp', setter: 'setOp')]
@@ -44,11 +39,6 @@ class SetRecoveryAccountRequest extends SoapRequest
 
     /**
      * recovery account
-     * 
-     * @Accessor(getter="getRecoveryAccount", setter="setRecoveryAccount")
-     * @SerializedName("recoveryAccount")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,11 +51,6 @@ class SetRecoveryAccountRequest extends SoapRequest
     /**
      * recovery account verification code
      * 
-     * @Accessor(getter="getVerificationCode", setter="setVerificationCode")
-     * @SerializedName("recoveryAccountVerificationCode")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getVerificationCode', setter: 'setVerificationCode')]
@@ -76,11 +61,6 @@ class SetRecoveryAccountRequest extends SoapRequest
 
     /**
      * recovery channel
-     * 
-     * @Accessor(getter="getChannel", setter="setChannel")
-     * @SerializedName("channel")
-     * @Type("Enum<Zimbra\Common\Enum\Channel>")
-     * @XmlAttribute
      * 
      * @var Channel
      */

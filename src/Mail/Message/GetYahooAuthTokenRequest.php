@@ -28,11 +28,6 @@ class GetYahooAuthTokenRequest extends SoapRequest
     /**
      * User
      * 
-     * @Accessor(getter="getUser", setter="setUser")
-     * @SerializedName("user")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getUser', setter: 'setUser')]
@@ -43,11 +38,6 @@ class GetYahooAuthTokenRequest extends SoapRequest
 
     /**
      * Password
-     * 
-     * @Accessor(getter="getPassword", setter="setPassword")
-     * @SerializedName("password")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */

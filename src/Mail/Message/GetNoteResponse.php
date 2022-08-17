@@ -28,11 +28,6 @@ class GetNoteResponse extends SoapResponse
     /**
      * Note information
      * 
-     * @Accessor(getter="getNote", setter="setNote")
-     * @SerializedName("note")
-     * @Type("Zimbra\Mail\Struct\NoteInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var NoteInfo
      */
     #[Accessor(getter: "getNote", setter: "setNote")]

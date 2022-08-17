@@ -41,11 +41,6 @@ class SyncResponse extends SoapResponse
     /**
      * Change date
      * 
-     * @Accessor(getter="getChangeDate", setter="setChangeDate")
-     * @SerializedName("md")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getChangeDate', setter: 'setChangeDate')]
@@ -57,11 +52,6 @@ class SyncResponse extends SoapResponse
     /**
      * New sync token
      * 
-     * @Accessor(getter="getToken", setter="setToken")
-     * @SerializedName("token")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getToken', setter: 'setToken')]
@@ -72,11 +62,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * size
-     * 
-     * @Accessor(getter="getSize", setter="setSize")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -90,11 +75,6 @@ class SyncResponse extends SoapResponse
      * If set, the response does not bring the client completely up to date.
      * More changes are still queued, and another SyncRequest (using the new returned token) is necessary.
      * 
-     * @Accessor(getter="getMore", setter="setMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getMore', setter: 'setMore')]
@@ -105,11 +85,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Information on deletes
-     * 
-     * @Accessor(getter="getDeleted", setter="setDeleted")
-     * @SerializedName("deleted")
-     * @Type("Zimbra\Mail\Struct\SyncDeletedInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SyncDeletedInfo
      */
@@ -122,10 +97,6 @@ class SyncResponse extends SoapResponse
     /**
      * Sync folder items
      * 
-     * @Accessor(getter="getFolderItems", setter="setFolderItems")
-     * @Type("array<Zimbra\Mail\Struct\SyncFolder>")
-     * @XmlList(inline=true, entry="folder", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getFolderItems', setter: 'setFolderItems')]
@@ -135,10 +106,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Tag items
-     * 
-     * @Accessor(getter="getTagItems", setter="setTagItems")
-     * @Type("array<Zimbra\Mail\Struct\TagInfo>")
-     * @XmlList(inline=true, entry="tag", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -150,10 +117,6 @@ class SyncResponse extends SoapResponse
     /**
      * Note items
      * 
-     * @Accessor(getter="getNoteItems", setter="setNoteItems")
-     * @Type("array<Zimbra\Mail\Struct\NoteInfo>")
-     * @XmlList(inline=true, entry="note", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getNoteItems', setter: 'setNoteItems')]
@@ -163,10 +126,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Contact items
-     * 
-     * @Accessor(getter="getContactItems", setter="setContactItems")
-     * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -178,10 +137,6 @@ class SyncResponse extends SoapResponse
     /**
      * Calendar items
      * 
-     * @Accessor(getter="getApptItems", setter="setApptItems")
-     * @Type("array<Zimbra\Mail\Struct\CalendarItemInfo>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getApptItems', setter: 'setApptItems')]
@@ -191,10 +146,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Task items
-     * 
-     * @Accessor(getter="getTaskItems", setter="setTaskItems")
-     * @Type("array<Zimbra\Mail\Struct\TaskItemInfo>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -206,10 +157,6 @@ class SyncResponse extends SoapResponse
     /**
      * Conversation items
      * 
-     * @Accessor(getter="getConvItems", setter="setConvItems")
-     * @Type("array<Zimbra\Mail\Struct\ConversationSummary>")
-     * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getConvItems', setter: 'setConvItems')]
@@ -219,10 +166,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Wiki items
-     * 
-     * @Accessor(getter="getWikiItems", setter="setWikiItems")
-     * @Type("array<Zimbra\Mail\Struct\CommonDocumentInfo>")
-     * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -234,10 +177,6 @@ class SyncResponse extends SoapResponse
     /**
      * Document items
      * 
-     * @Accessor(getter="getDocItems", setter="setDocItems")
-     * @Type("array<Zimbra\Mail\Struct\DocumentInfo>")
-     * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getDocItems', setter: 'setDocItems')]
@@ -248,10 +187,6 @@ class SyncResponse extends SoapResponse
     /**
      * Message items
      * 
-     * @Accessor(getter="getMsgItems", setter="setMsgItems")
-     * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMsgItems', setter: 'setMsgItems')]
@@ -261,10 +196,6 @@ class SyncResponse extends SoapResponse
 
     /**
      * Chat items
-     * 
-     * @Accessor(getter="getChatItems", setter="setChatItems")
-     * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
-     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
      * 
      * @var array
      */

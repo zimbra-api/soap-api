@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ExpandRecurBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ExpandRecurRequest")
-     * @Type("Zimbra\Mail\Message\ExpandRecurRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ExpandRecurRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ExpandRecurBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ExpandRecurResponse")
-     * @Type("Zimbra\Mail\Message\ExpandRecurResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ExpandRecurResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

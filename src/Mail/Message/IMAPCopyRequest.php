@@ -29,11 +29,6 @@ class IMAPCopyRequest extends SoapRequest
     /**
      * Comma separated list of int ids
      * 
-     * @Accessor(getter="getIds", setter="setIds")
-     * @SerializedName("ids")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getIds', setter: 'setIds')]
@@ -46,11 +41,6 @@ class IMAPCopyRequest extends SoapRequest
      * Mail item type.
      * Valid values are case insensitive types from MailItemType enum
      * 
-     * @Accessor(getter="getType", setter="setType")
-     * @SerializedName("t")
-     * @Type("Enum<Zimbra\Common\Enum\MailItemType>")
-     * @XmlAttribute
-     * 
      * @var MailItemType
      */
     #[Accessor(getter: 'getType', setter: 'setType')]
@@ -61,11 +51,6 @@ class IMAPCopyRequest extends SoapRequest
 
     /**
      * Target folder ID
-     * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

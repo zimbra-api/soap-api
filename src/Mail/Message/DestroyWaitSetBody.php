@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DestroyWaitSetBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DestroyWaitSetRequest")
-     * @Type("Zimbra\Mail\Message\DestroyWaitSetRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DestroyWaitSetRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DestroyWaitSetBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DestroyWaitSetResponse")
-     * @Type("Zimbra\Mail\Message\DestroyWaitSetResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DestroyWaitSetResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

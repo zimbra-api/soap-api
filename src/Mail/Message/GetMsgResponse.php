@@ -28,11 +28,6 @@ class GetMsgResponse extends SoapResponse
     /**
      * Message information
      * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MsgWithGroupInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MsgWithGroupInfo
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]

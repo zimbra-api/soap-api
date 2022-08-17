@@ -42,11 +42,6 @@ class BulkAction
      * Folder
      * Required if op="move". Folder pathname where all matching items should be moved.
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolder', setter: 'setFolder')]

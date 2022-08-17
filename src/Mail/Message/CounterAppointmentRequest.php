@@ -31,10 +31,7 @@ class CounterAppointmentRequest extends SoapRequest
     /**
      * Invite ID of default invite
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
+     * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
     #[SerializedName(name: 'id')]
@@ -44,11 +41,6 @@ class CounterAppointmentRequest extends SoapRequest
 
     /**
      * Component number of default component
-     * 
-     * @Accessor(getter="getComponentNum", setter="setComponentNum")
-     * @SerializedName("comp")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -64,11 +56,6 @@ class CounterAppointmentRequest extends SoapRequest
      * attempting to propose.  If the appointment was updated on the server between the fetch and modify, an
      * INVITE_OUT_OF_DATE exception will be thrown.
      * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -80,11 +67,6 @@ class CounterAppointmentRequest extends SoapRequest
     /**
      * Revision
      * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getRevision', setter: 'setRevision')]
@@ -95,11 +77,6 @@ class CounterAppointmentRequest extends SoapRequest
 
     /**
      * Details of counter proposal.
-     * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

@@ -32,11 +32,6 @@ class ModifyAppointmentRequest extends CalItemRequestBase
     /**
      * Invite ID of default invite
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -47,11 +42,6 @@ class ModifyAppointmentRequest extends CalItemRequestBase
 
     /**
      * Component number of default component
-     * 
-     * @Accessor(getter="getComponentNum", setter="setComponentNum")
-     * @SerializedName("comp")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -67,11 +57,6 @@ class ModifyAppointmentRequest extends CalItemRequestBase
      * attempting to modify.  If the appointment was updated on the server between the fetch and modify, an
      * INVITE_OUT_OF_DATE exception will be thrown.
      * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -82,11 +67,6 @@ class ModifyAppointmentRequest extends CalItemRequestBase
 
     /**
      * Revision
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

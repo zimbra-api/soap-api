@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class AddCommentBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("AddCommentRequest")
-     * @Type("Zimbra\Mail\Message\AddCommentRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var AddCommentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class AddCommentBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("AddCommentResponse")
-     * @Type("Zimbra\Mail\Message\AddCommentResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var AddCommentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

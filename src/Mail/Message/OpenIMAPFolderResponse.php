@@ -29,11 +29,6 @@ class OpenIMAPFolderResponse extends SoapResponse
     /**
      * Flag whether can be cached
      * 
-     * @Accessor(getter="getHasMore", setter="setHasMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getHasMore', setter: 'setHasMore')]
@@ -44,12 +39,6 @@ class OpenIMAPFolderResponse extends SoapResponse
 
     /**
      * Messages
-     * 
-     * @Accessor(getter="getMessages", setter="setMessages")
-     * @SerializedName("folder")
-     * @Type("array<Zimbra\Mail\Struct\ImapMessageInfo>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -62,11 +51,6 @@ class OpenIMAPFolderResponse extends SoapResponse
 
     /**
      * Cursor to be used by the next request, if more results exist
-     * 
-     * @Accessor(getter="getCursor", setter="setCursor")
-     * @SerializedName("cursor")
-     * @Type("Zimbra\Mail\Struct\ImapCursorInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ImapCursorInfo
      */

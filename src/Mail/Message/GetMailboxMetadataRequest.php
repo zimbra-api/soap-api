@@ -29,11 +29,6 @@ class GetMailboxMetadataRequest extends SoapRequest
     /**
      * Metadata section specification
      * 
-     * @Accessor(getter="getMetadata", setter="setMetadata")
-     * @SerializedName("meta")
-     * @Type("Zimbra\Common\Struct\SectionAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SectionAttr
      */
     #[Accessor(getter: "getMetadata", setter: "setMetadata")]

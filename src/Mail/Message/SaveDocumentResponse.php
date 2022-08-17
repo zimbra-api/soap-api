@@ -28,11 +28,6 @@ class SaveDocumentResponse extends SoapResponse
     /**
      * Details of saved document revision
      * 
-     * @Accessor(getter="getDoc", setter="setDoc")
-     * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\IdVersionName")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var IdVersionName
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]

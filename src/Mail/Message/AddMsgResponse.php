@@ -27,10 +27,6 @@ class AddMsgResponse extends SoapResponse
 {
     /**
      * Details of added message
-     * @Accessor(getter="getMessage", setter="setMessage")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MessageSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var MessageSummary
      */
@@ -42,10 +38,6 @@ class AddMsgResponse extends SoapResponse
 
     /**
      * Details of added chat message
-     * @Accessor(getter="getChatMessage", setter="setMessage")
-     * @SerializedName("chat")
-     * @Type("Zimbra\Mail\Struct\ChatSummary")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ChatSummary
      */

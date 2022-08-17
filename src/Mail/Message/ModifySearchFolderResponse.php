@@ -28,11 +28,6 @@ class ModifySearchFolderResponse extends SoapResponse
     /**
      * Information about search folder, if and only if Search folder was modified.
      * 
-     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
-     * @SerializedName("search")
-     * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SearchFolder
      */
     #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]

@@ -51,11 +51,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     /**
      * Waitset ID
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("waitSet")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -67,11 +62,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     /**
      * Last known lastKnownSeqNo number
      * 
-     * @Accessor(getter="getLastKnownSeqNo", setter="setLastKnownSeqNo")
-     * @SerializedName("seq")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getLastKnownSeqNo', setter: 'setLastKnownSeqNo')]
@@ -82,11 +72,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
 
     /**
      * Flag whether or not to block until some account has new data
-     * 
-     * @Accessor(getter="getBlock", setter="setBlock")
-     * @SerializedName("block")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -107,10 +92,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
      * all: all types (equiv to "f,m,c,a,t,d")
      * 
      * This is used if types isn't specified for an account
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -123,11 +104,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     /**
      * Timeout length
      * 
-     * @Accessor(getter="getTimeout", setter="setTimeout")
-     * @SerializedName("timeout")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTimeout', setter: 'setTimeout')]
@@ -139,11 +115,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     /**
      * bool flag. If true, WaitSetResponse will include details of Pending Modifications.
      * 
-     * @Accessor(getter="getExpand", setter="setExpand")
-     * @SerializedName("expand")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getExpand', setter: 'setExpand')]
@@ -154,12 +125,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
 
     /**
      * Waitsets to add
-     * 
-     * @Accessor(getter="getAddAccounts", setter="setAddAccounts")
-     * @SerializedName("add")
-     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -173,12 +138,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
     /**
      * Waitsets to update
      * 
-     * @Accessor(getter="getUpdateAccounts", setter="setUpdateAccounts")
-     * @SerializedName("update")
-     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getUpdateAccounts', setter: 'setUpdateAccounts')]
@@ -190,12 +149,6 @@ class WaitSetRequest extends SoapRequest implements WaitSetReq
 
     /**
      * Waitsets to remove
-     * 
-     * @Accessor(getter="getRemoveAccounts", setter="setRemoveAccounts")
-     * @SerializedName("remove")
-     * @Type("array<Zimbra\Common\Struct\Id>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
      * 
      * @var array
      */

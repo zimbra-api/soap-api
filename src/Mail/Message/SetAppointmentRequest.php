@@ -34,11 +34,6 @@ class SetAppointmentRequest extends SoapRequest
     /**
      * Flags
      * 
-     * @Accessor(getter="getFlags", setter="setFlags")
-     * @SerializedName("f")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFlags', setter: 'setFlags')]
@@ -49,11 +44,6 @@ class SetAppointmentRequest extends SoapRequest
 
     /**
      * Tags (Deprecated - use <b>{tag-names}</b> instead)
-     * 
-     * @Accessor(getter="getTags", setter="setTags")
-     * @SerializedName("t")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -66,11 +56,6 @@ class SetAppointmentRequest extends SoapRequest
     /**
      * Comma separated list of tag names
      * 
-     * @Accessor(getter="getTagNames", setter="setTagNames")
-     * @SerializedName("tn")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getTagNames', setter: 'setTagNames')]
@@ -82,11 +67,6 @@ class SetAppointmentRequest extends SoapRequest
     /**
      * ID of folder to create appointment in
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -97,11 +77,6 @@ class SetAppointmentRequest extends SoapRequest
 
     /**
      * Set if all alarms have been dismissed; if this is set, nextAlarm should not be set
-     * 
-     * @Accessor(getter="getNoNextAlarm", setter="setNoNextAlarm")
-     * @SerializedName("noNextAlarm")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -117,11 +92,6 @@ class SetAppointmentRequest extends SoapRequest
      * - if noNextAlarm isn't set, keep current next alarm time (this is a backward compatibility case)
      * - if noNextAlarm is set, indicates all alarms have been dismissed
      * 
-     * @Accessor(getter="getNextAlarm", setter="setNextAlarm")
-     * @SerializedName("nextAlarm")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getNextAlarm', setter: 'setNextAlarm')]
@@ -132,11 +102,6 @@ class SetAppointmentRequest extends SoapRequest
 
     /**
      * Default calendar item information
-     * 
-     * @Accessor(getter="getDefaultId", setter="setDefaultId")
-     * @SerializedName("default")
-     * @Type("Zimbra\Mail\Struct\SetCalendarItemInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SetCalendarItemInfo
      */
@@ -149,10 +114,6 @@ class SetAppointmentRequest extends SoapRequest
     /**
      * Calendar item information for exceptions
      * 
-     * @Accessor(getter="getExceptions", setter="setExceptions")
-     * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
-     * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getExceptions', setter: 'setExceptions')]
@@ -162,10 +123,6 @@ class SetAppointmentRequest extends SoapRequest
 
     /**
      * Calendar item information for cancellations
-     * 
-     * @Accessor(getter="getCancellations", setter="setCancellations")
-     * @Type("array<Zimbra\Mail\Struct\SetCalendarItemInfo>")
-     * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -180,12 +137,6 @@ class SetAppointmentRequest extends SoapRequest
      * no <reply> elements inside, existing replies will be removed, replaced with an empty set.
      * If <replies> contains one or more <reply> elements, existing replies are replaced with the
      * ones provided.
-     * 
-     * @Accessor(getter="getReplies", setter="setReplies")
-     * @SerializedName("replies")
-     * @Type("array<Zimbra\Mail\Struct\CalReply>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="reply", namespace="urn:zimbraMail")
      * 
      * @var array
      */

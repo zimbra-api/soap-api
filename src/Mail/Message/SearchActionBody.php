@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SearchActionBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SearchActionRequest")
-     * @Type("Zimbra\Mail\Message\SearchActionRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SearchActionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SearchActionBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SearchActionResponse")
-     * @Type("Zimbra\Mail\Message\SearchActionResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SearchActionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

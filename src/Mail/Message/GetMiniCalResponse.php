@@ -28,10 +28,6 @@ class GetMiniCalResponse extends SoapResponse
     /**
      * Matching busy dates in format : yyyymmdd
      * 
-     * @Accessor(getter="getBusyDates", setter="setBusyDates")
-     * @Type("array<string>")
-     * @XmlList(inline=true, entry="date", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getBusyDates', setter: 'setBusyDates')]
@@ -41,10 +37,6 @@ class GetMiniCalResponse extends SoapResponse
 
     /**
      * Error for each calendar folder that couldn't be accessed
-     * 
-     * @Accessor(getter="getErrors", setter="setErrors")
-     * @Type("array<Zimbra\Mail\Struct\MiniCalError>")
-     * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      * 
      * @var array
      */

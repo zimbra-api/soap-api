@@ -28,10 +28,6 @@ class GetCommentsResponse extends SoapResponse
     /**
      * Users
      * 
-     * @Accessor(getter="getUsers", setter="setUsers")
-     * @Type("array<Zimbra\Mail\Struct\IdEmailName>")
-     * @XmlList(inline=true, entry="user", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getUsers', setter: 'setUsers')]
@@ -41,10 +37,6 @@ class GetCommentsResponse extends SoapResponse
 
     /**
      * Comment information
-     * 
-     * @Accessor(getter="getComments", setter="setComments")
-     * @Type("array<Zimbra\Mail\Struct\CommentInfo>")
-     * @XmlList(inline=true, entry="comment", namespace="urn:zimbraMail")
      * 
      * @var array
      */

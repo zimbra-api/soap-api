@@ -28,10 +28,6 @@ class BrowseResponse extends SoapResponse
     /**
      * Browse data
      * 
-     * @Accessor(getter="getBrowseDatas", setter="setBrowseDatas")
-     * @Type("array<Zimbra\Mail\Struct\BrowseData>")
-     * @XmlList(inline=true, entry="bd", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getBrowseDatas', setter: 'setBrowseDatas')]

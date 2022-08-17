@@ -33,11 +33,6 @@ class SaveDraftResponse extends SoapResponse
     /**
      * Information on saved draft
      * 
-     * @Accessor(getter="getMsgMessage", setter="setMsgMessage")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MessageInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MessageInfo
      */
     #[Accessor(getter: "getMsgMessage", setter: "setMsgMessage")]
@@ -48,11 +43,6 @@ class SaveDraftResponse extends SoapResponse
 
     /**
      * Information on saved chat draft
-     * 
-     * @Accessor(getter="getChatMessage", setter="setChatMessage")
-     * @SerializedName("chat")
-     * @Type("Zimbra\Mail\Struct\ChatMessageInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var ChatMessageInfo
      */

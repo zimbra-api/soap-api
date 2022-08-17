@@ -28,11 +28,6 @@ class CreateSearchFolderResponse extends SoapResponse
     /**
      * Details of newly created search folder
      * 
-     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
-     * @SerializedName("search")
-     * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SearchFolder
      */
     #[Accessor(getter: "getSearchFolder", setter: "setSearchFolder")]

@@ -31,11 +31,6 @@ class CancelAppointmentRequest extends SoapRequest
     /**
      * ID of default invite
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -46,11 +41,6 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Component number of default invite
-     * 
-     * @Accessor(getter="getComponentNum", setter="setComponentNum")
-     * @SerializedName("comp")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -63,11 +53,6 @@ class CancelAppointmentRequest extends SoapRequest
     /**
      * Modified sequence
      * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -78,11 +63,6 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Revision
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -95,11 +75,6 @@ class CancelAppointmentRequest extends SoapRequest
     /**
      * Instance recurrence ID information
      * 
-     * @Accessor(getter="getInstance", setter="setInstance")
-     * @SerializedName("inst")
-     * @Type("Zimbra\Mail\Struct\InstanceRecurIdInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var InstanceRecurIdInfo
      */
     #[Accessor(getter: "getInstance", setter: "setInstance")]
@@ -111,11 +86,6 @@ class CancelAppointmentRequest extends SoapRequest
     /**
      * Definition for TZID referenced by DATETIME in instance
      * 
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("tz")
-     * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CalTZInfo
      */
     #[Accessor(getter: "getTimezone", setter: "setTimezone")]
@@ -126,11 +96,6 @@ class CancelAppointmentRequest extends SoapRequest
 
     /**
      * Message
-     * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

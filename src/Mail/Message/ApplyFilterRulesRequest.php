@@ -34,12 +34,6 @@ class ApplyFilterRulesRequest extends SoapRequest
     /**
      * Filter rules
      * 
-     * @Accessor(getter="getFilterRules", setter="setFilterRules")
-     * @SerializedName("filterRules")
-     * @Type("array<Zimbra\Common\Struct\NamedElement>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="filterRule", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getFilterRules', setter: 'setFilterRules')]
@@ -52,11 +46,6 @@ class ApplyFilterRulesRequest extends SoapRequest
     /**
      * Comma-separated list of message IDs
      * 
-     * @Accessor(getter="getMsgIds", setter="setMsgIds")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\IdsAttr")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var IdsAttr
      */
     #[Accessor(getter: "getMsgIds", setter: "setMsgIds")]
@@ -68,10 +57,7 @@ class ApplyFilterRulesRequest extends SoapRequest
     /**
      * Query string
      * 
-     * @Accessor(getter="getQuery", setter="setQuery")
-     * @SerializedName("query")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * @var string
      */
     #[Accessor(getter: "getQuery", setter: "setQuery")]
     #[SerializedName(name: 'query')]

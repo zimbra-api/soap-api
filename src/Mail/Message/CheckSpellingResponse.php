@@ -29,11 +29,6 @@ class CheckSpellingResponse extends SoapResponse
      * The "available" attribute specifies whether the server-side spell checking
      * interface is available or not.
      * 
-     * @Accessor(getter="isAvailable", setter="setAvailable")
-     * @SerializedName("available")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'isAvailable', setter: 'setAvailable')]
@@ -44,10 +39,6 @@ class CheckSpellingResponse extends SoapResponse
 
     /**
      * Information for misspelled words
-     * 
-     * @Accessor(getter="getMisspelledWords", setter="setMisspelledWords")
-     * @Type("array<Zimbra\Mail\Struct\Misspelling>")
-     * @XmlList(inline=true, entry="misspelled", namespace="urn:zimbraMail")
      * 
      * @var array
      */

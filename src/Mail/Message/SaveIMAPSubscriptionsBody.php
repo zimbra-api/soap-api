@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SaveIMAPSubscriptionsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SaveIMAPSubscriptionsRequest")
-     * @Type("Zimbra\Mail\Message\SaveIMAPSubscriptionsRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SaveIMAPSubscriptionsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SaveIMAPSubscriptionsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SaveIMAPSubscriptionsResponse")
-     * @Type("Zimbra\Mail\Message\SaveIMAPSubscriptionsResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SaveIMAPSubscriptionsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

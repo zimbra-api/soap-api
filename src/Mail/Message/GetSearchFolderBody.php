@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetSearchFolderBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetSearchFolderRequest")
-     * @Type("Zimbra\Mail\Message\GetSearchFolderRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetSearchFolderRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetSearchFolderBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetSearchFolderResponse")
-     * @Type("Zimbra\Mail\Message\GetSearchFolderResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetSearchFolderResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

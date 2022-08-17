@@ -28,11 +28,6 @@ class SearchActionRequest extends SoapRequest
     /**
      * Search request
      * 
-     * @Accessor(getter="getSearchRequest", setter="setSearchRequest")
-     * @SerializedName("SearchRequest")
-     * @Type("Zimbra\Mail\Message\SearchRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SearchRequest
      */
     #[Accessor(getter: "getSearchRequest", setter: "setSearchRequest")]
@@ -43,11 +38,6 @@ class SearchActionRequest extends SoapRequest
 
     /**
      * Bulk action
-     * 
-     * @Accessor(getter="getBulkAction", setter="setBulkAction")
-     * @SerializedName("BulkAction")
-     * @Type("Zimbra\Mail\Struct\BulkAction")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var BulkAction
      */

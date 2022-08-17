@@ -28,10 +28,6 @@ class GetDataSourceUsageResponse extends SoapResponse
     /**
      * GetDataSourceUsage data
      * 
-     * @Accessor(getter="getUsages", setter="setUsages")
-     * @Type("array<Zimbra\Mail\Struct\DataSourceUsage>")
-     * @XmlList(inline=true, entry="dataSourceUsage", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getUsages', setter: 'setUsages')]
@@ -40,10 +36,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     private $usages = [];
 
     /**
-     * @Accessor(getter="getDataSourceQuota", setter="setDataSourceQuota")
-     * @SerializedName("dsQuota")
-     * @Type("int")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * @var int
      */
     #[Accessor(getter: "getDataSourceQuota", setter: "setDataSourceQuota")]
     #[SerializedName(name: 'dsQuota')]
@@ -52,10 +45,7 @@ class GetDataSourceUsageResponse extends SoapResponse
     private $dataSourceQuota;
 
     /**
-     * @Accessor(getter="getDataSourceTotalQuota", setter="setDataSourceTotalQuota")
-     * @SerializedName("dsTotalQuota")
-     * @Type("int")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
+     * @var int
      */
     #[Accessor(getter: "getDataSourceTotalQuota", setter: "setDataSourceTotalQuota")]
     #[SerializedName(name: 'dsTotalQuota')]

@@ -28,10 +28,6 @@ class GetMsgMetadataResponse extends SoapResponse
     /**
      * Chat message metadata
      * 
-     * @Accessor(getter="getChatMessages", setter="setChatMessages")
-     * @Type("array<Zimbra\Mail\Struct\ChatSummary>")
-     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getChatMessages', setter: 'setChatMessages')]
@@ -41,10 +37,6 @@ class GetMsgMetadataResponse extends SoapResponse
 
     /**
      * Message metadata
-     * 
-     * @Accessor(getter="getMsgMessages", setter="setMsgMessages")
-     * @Type("array<Zimbra\Mail\Struct\MessageSummary>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
      * 
      * @var array
      */

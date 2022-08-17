@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateNoteBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateNoteRequest")
-     * @Type("Zimbra\Mail\Message\CreateNoteRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateNoteRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateNoteBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateNoteResponse")
-     * @Type("Zimbra\Mail\Message\CreateNoteResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateNoteResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

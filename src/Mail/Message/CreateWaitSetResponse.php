@@ -29,11 +29,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     /**
      * WaitSet ID
      * 
-     * @Accessor(getter="getWaitSetId", setter="setWaitSetId")
-     * @SerializedName("waitSet")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getWaitSetId', setter: 'setWaitSetId')]
@@ -54,11 +49,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
      * 
      * This is used if types isn't specified for an account
      * 
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getDefaultInterests', setter: 'setDefaultInterests')]
@@ -70,11 +60,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
     /**
      * Sequence
      * 
-     * @Accessor(getter="getSequence", setter="setSequence")
-     * @SerializedName("seq")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getSequence', setter: 'setSequence')]
@@ -85,10 +70,6 @@ class CreateWaitSetResponse extends SoapResponse implements CreateWaitSetResp
 
     /**
      * Error information
-     * 
-     * @Accessor(getter="getErrors", setter="setErrors")
-     * @Type("array<Zimbra\Common\Struct\IdAndType>")
-     * @XmlList(inline=true, entry="error", namespace="urn:zimbraMail")
      * 
      * @var array
      */

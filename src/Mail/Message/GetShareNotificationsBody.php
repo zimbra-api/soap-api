@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetShareNotificationsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetShareNotificationsRequest")
-     * @Type("Zimbra\Mail\Message\GetShareNotificationsRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetShareNotificationsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetShareNotificationsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetShareNotificationsResponse")
-     * @Type("Zimbra\Mail\Message\GetShareNotificationsResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetShareNotificationsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

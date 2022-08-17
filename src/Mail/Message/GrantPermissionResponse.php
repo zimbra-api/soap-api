@@ -28,10 +28,6 @@ class GrantPermissionResponse extends SoapResponse
     /**
      * Permissions that were successfully granted
      * 
-     * @Accessor(getter="getAces", setter="setAces")
-     * @Type("array<Zimbra\Mail\Struct\AccountACEinfo>")
-     * @XmlList(inline=true, entry="ace", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAces', setter: 'setAces')]

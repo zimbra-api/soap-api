@@ -27,11 +27,6 @@ class ExportContactsResponse extends SoapResponse
     /**
      * Content of the export
      * 
-     * @Accessor(getter="getContent", setter="setContent")
-     * @SerializedName("content")
-     * @Type("string")
-     * @XmlElement(cdata=false, namespace="urn:zimbraMail")
-     * 
      * @var string
      */
     #[Accessor(getter: "getContent", setter: "setContent")]

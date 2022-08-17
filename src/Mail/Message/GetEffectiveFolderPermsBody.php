@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetEffectiveFolderPermsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetEffectiveFolderPermsRequest")
-     * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetEffectiveFolderPermsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetEffectiveFolderPermsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetEffectiveFolderPermsResponse")
-     * @Type("Zimbra\Mail\Message\GetEffectiveFolderPermsResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetEffectiveFolderPermsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

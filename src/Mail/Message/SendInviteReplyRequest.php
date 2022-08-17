@@ -30,11 +30,6 @@ class SendInviteReplyRequest extends SoapRequest
     /**
      * Unique ID of the invite (and component therein) you are replying to
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -45,11 +40,6 @@ class SendInviteReplyRequest extends SoapRequest
 
     /**
      * component number of the invite
-     * 
-     * @Accessor(getter="getComponentNum", setter="setComponentNum")
-     * @SerializedName("comp")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -62,11 +52,6 @@ class SendInviteReplyRequest extends SoapRequest
     /**
      * Verb - <b>ACCEPT, DECLINE, TENTATIVE</b>, COMPLETED, DELEGATED
      * (Completed/Delegated are NOT supported as of 9/12/2005)
-     * 
-     * @Accessor(getter="getVerb", setter="setVerb")
-     * @SerializedName("verb")
-     * @Type("Enum<Zimbra\Common\Enum\VerbType>")
-     * @XmlAttribute
      * 
      * @var VerbType
      */
@@ -82,11 +67,6 @@ class SendInviteReplyRequest extends SoapRequest
      * as being true if an <b>&lt;m></b> element is present.
      * Also take a note that, if RSVP setting in original invite is not present or FALSE then updateOrganizer will be treated as FALSE.
      * 
-     * @Accessor(getter="getUpdateOrganizer", setter="setUpdateOrganizer")
-     * @SerializedName("updateOrganizer")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getUpdateOrganizer', setter: 'setUpdateOrganizer')]
@@ -97,11 +77,6 @@ class SendInviteReplyRequest extends SoapRequest
 
     /**
      * Identity ID to use to send reply
-     * 
-     * @Accessor(getter="getIdentityId", setter="setIdentityId")
-     * @SerializedName("idnt")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -114,11 +89,6 @@ class SendInviteReplyRequest extends SoapRequest
     /**
      * If supplied then reply to just one instance of the specified Invite (default is all instances)
      * 
-     * @Accessor(getter="getExceptionId", setter="setExceptionId")
-     * @SerializedName("exceptId")
-     * @Type("Zimbra\Mail\Struct\DtTimeInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DtTimeInfo
      */
     #[Accessor(getter: "getExceptionId", setter: "setExceptionId")]
@@ -129,11 +99,6 @@ class SendInviteReplyRequest extends SoapRequest
 
     /**
      * Definition for TZID referenced by DATETIME in <exceptId>
-     * 
-     * @Accessor(getter="getTimezone", setter="setTimezone")
-     * @SerializedName("tz")
-     * @Type("Zimbra\Mail\Struct\CalTZInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var CalTZInfo
      */
@@ -147,11 +112,6 @@ class SendInviteReplyRequest extends SoapRequest
      * Embedded message, if the user wants to send a custom update message.
      * The client is responsible for setting the message recipient list in this case (which should include Organizer,
      * if the client wants to tell the organizer about this response)
-     * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\Msg")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var Msg
      */

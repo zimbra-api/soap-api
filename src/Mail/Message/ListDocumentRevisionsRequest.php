@@ -31,11 +31,6 @@ class ListDocumentRevisionsRequest extends SoapRequest
     /**
      * Specification for the list of document revisions
      * 
-     * @Accessor(getter="getDoc", setter="setDoc")
-     * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\ListDocumentRevisionsSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ListDocumentRevisionsSpec
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]

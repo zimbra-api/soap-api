@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SendDeliveryReportBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SendDeliveryReportRequest")
-     * @Type("Zimbra\Mail\Message\SendDeliveryReportRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SendDeliveryReportRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SendDeliveryReportBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SendDeliveryReportResponse")
-     * @Type("Zimbra\Mail\Message\SendDeliveryReportResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SendDeliveryReportResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

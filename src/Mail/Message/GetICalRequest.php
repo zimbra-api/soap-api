@@ -31,11 +31,6 @@ class GetICalRequest extends SoapRequest
     /**
      * If specified, gets the iCalendar representation for one invite
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -47,11 +42,6 @@ class GetICalRequest extends SoapRequest
     /**
      * Range start in milliseconds
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -62,11 +52,6 @@ class GetICalRequest extends SoapRequest
 
     /**
      * Range end in milliseconds
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

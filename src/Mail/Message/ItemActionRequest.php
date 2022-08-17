@@ -29,11 +29,6 @@ class ItemActionRequest extends SoapRequest
     /**
      * Specify the action to perform
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\ActionSelector")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ActionSelector
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

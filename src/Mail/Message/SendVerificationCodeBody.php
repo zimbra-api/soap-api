@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SendVerificationCodeBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SendVerificationCodeRequest")
-     * @Type("Zimbra\Mail\Message\SendVerificationCodeRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SendVerificationCodeRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SendVerificationCodeBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SendVerificationCodeResponse")
-     * @Type("Zimbra\Mail\Message\SendVerificationCodeResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SendVerificationCodeResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

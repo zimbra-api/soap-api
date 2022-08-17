@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateAppointmentExceptionBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateAppointmentExceptionRequest")
-     * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateAppointmentExceptionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CreateAppointmentExceptionBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateAppointmentExceptionResponse")
-     * @Type("Zimbra\Mail\Message\CreateAppointmentExceptionResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateAppointmentExceptionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

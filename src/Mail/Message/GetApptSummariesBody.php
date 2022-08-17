@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetApptSummariesBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetApptSummariesRequest")
-     * @Type("Zimbra\Mail\Message\GetApptSummariesRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetApptSummariesRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetApptSummariesBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetApptSummariesResponse")
-     * @Type("Zimbra\Mail\Message\GetApptSummariesResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetApptSummariesResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetIMAPRecentBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetIMAPRecentRequest")
-     * @Type("Zimbra\Mail\Message\GetIMAPRecentRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetIMAPRecentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetIMAPRecentBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetIMAPRecentResponse")
-     * @Type("Zimbra\Mail\Message\GetIMAPRecentResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetIMAPRecentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

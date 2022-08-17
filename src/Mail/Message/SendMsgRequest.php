@@ -48,11 +48,6 @@ class SendMsgRequest extends SoapRequest
     /**
      * Message
      * 
-     * @Accessor(getter="getMsg", setter="setMsg")
-     * @SerializedName("m")
-     * @Type("Zimbra\Mail\Struct\MsgToSend")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var MsgToSend
      */
     #[Accessor(getter: "getMsg", setter: "setMsg")]
@@ -64,11 +59,6 @@ class SendMsgRequest extends SoapRequest
     /**
      * If set then Add SENT-BY parameter to ORGANIZER and/or ATTENDEE properties in
      * iCalendar part when sending message on behalf of another user.  Default is unset.
-     * 
-     * @Accessor(getter="getNeedCalendarSentbyFixup", setter="setNeedCalendarSentbyFixup")
-     * @SerializedName("needCalendarSentByFixup")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -82,11 +72,6 @@ class SendMsgRequest extends SoapRequest
      * Indicates whether this a forward of calendar invitation in which
      * case the server sends Forward Invitation Notification, default is unset.
      * 
-     * @Accessor(getter="getIsCalendarForward", setter="setIsCalendarForward")
-     * @SerializedName("isCalendarForward")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getIsCalendarForward', setter: 'setIsCalendarForward')]
@@ -97,11 +82,6 @@ class SendMsgRequest extends SoapRequest
 
     /**
      * If set, a copy will not be saved to sent regardless of account/identity settings
-     * 
-     * @Accessor(getter="getNoSaveToSent", setter="setNoSaveToSent")
-     * @SerializedName("noSave")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -114,11 +94,6 @@ class SendMsgRequest extends SoapRequest
     /**
      * If set, return the copy of the sent message, if it was saved, in the response.
      * 
-     * @Accessor(getter="getFetchSavedMsg", setter="setFetchSavedMsg")
-     * @SerializedName("fetchSavedMsg")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getFetchSavedMsg', setter: 'setFetchSavedMsg')]
@@ -130,11 +105,6 @@ class SendMsgRequest extends SoapRequest
     /**
      * Send UID
      * 
-     * @Accessor(getter="getSendUid", setter="setSendUid")
-     * @SerializedName("suid")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getSendUid', setter: 'setSendUid')]
@@ -145,11 +115,6 @@ class SendMsgRequest extends SoapRequest
 
     /**
      * If set, delivery receipt notification will be sent.
-     * 
-     * @Accessor(getter="getDeliveryReport", setter="setDeliveryReport")
-     * @SerializedName("deliveryReport")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */

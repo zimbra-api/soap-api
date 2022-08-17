@@ -50,11 +50,6 @@ class SearchResponse extends SoapResponse
      * ADDITIONAL SORT MODES FOR TASKS: valid only if types="task" (and task alone):
      * taskDueAsc|taskDueDesc|taskStatusAsc|taskStatusDesc|taskPercCompletedAsc|taskPercCompletedDesc
      * 
-     * @Accessor(getter="getSortBy", setter="setSortBy")
-     * @SerializedName("sortBy")
-     * @Type("Enum<Zimbra\Common\Enum\SearchSortBy>")
-     * @XmlAttribute
-     * 
      * @var SearchSortBy
      */
     #[Accessor(getter: 'getSortBy', setter: 'setSortBy')]
@@ -67,11 +62,6 @@ class SearchResponse extends SoapResponse
      * Offset - an int specifying the 0-based offset into the results list returned as
      * the first result for this search operation.
      * 
-     * @Accessor(getter="getQueryOffset", setter="setQueryOffset")
-     * @SerializedName("offset")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getQueryOffset', setter: 'setQueryOffset')]
@@ -82,11 +72,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Set if there are more search results remaining.
-     * 
-     * @Accessor(getter="getQueryMore", setter="setQueryMore")
-     * @SerializedName("more")
-     * @Type("bool")
-     * @XmlAttribute
      * 
      * @var bool
      */
@@ -99,11 +84,6 @@ class SearchResponse extends SoapResponse
     /**
      * All messages
      * 
-     * @Accessor(getter="getTotalSize", setter="setTotalSize")
-     * @SerializedName("total")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getTotalSize', setter: 'setTotalSize')]
@@ -115,10 +95,6 @@ class SearchResponse extends SoapResponse
     /**
      * Simple search hits
      * 
-     * @Accessor(getter="getSimpleHits", setter="setSimpleHits")
-     * @Type("array<Zimbra\Common\Struct\SimpleSearchHit>")
-     * @XmlList(inline=true, entry="hit", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getSimpleHits', setter: 'setSimpleHits')]
@@ -128,10 +104,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Conversation search hits
-     * 
-     * @Accessor(getter="getConversationHits", setter="setConversationHits")
-     * @Type("array<Zimbra\Mail\Struct\ConversationHitInfo>")
-     * @XmlList(inline=true, entry="c", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -143,10 +115,6 @@ class SearchResponse extends SoapResponse
     /**
      * Message search hits
      * 
-     * @Accessor(getter="getMessageHits", setter="setMessageHits")
-     * @Type("array<Zimbra\Mail\Struct\MessageHitInfo>")
-     * @XmlList(inline=true, entry="m", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMessageHits', setter: 'setMessageHits')]
@@ -156,10 +124,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Chat search hits
-     * 
-     * @Accessor(getter="getChatHits", setter="setChatHits")
-     * @Type("array<Zimbra\Mail\Struct\ChatHitInfo>")
-     * @XmlList(inline=true, entry="chat", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -171,10 +135,6 @@ class SearchResponse extends SoapResponse
     /**
      * Message part search hits
      * 
-     * @Accessor(getter="getMessagePartHits", setter="setMessagePartHits")
-     * @Type("array<Zimbra\Mail\Struct\MessagePartHitInfo>")
-     * @XmlList(inline=true, entry="mp", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getMessagePartHits', setter: 'setMessagePartHits')]
@@ -184,10 +144,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Contact search hits
-     * 
-     * @Accessor(getter="getContactHits", setter="setContactHits")
-     * @Type("array<Zimbra\Mail\Struct\ContactInfo>")
-     * @XmlList(inline=true, entry="cn", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -199,10 +155,6 @@ class SearchResponse extends SoapResponse
     /**
      * Note search hits
      * 
-     * @Accessor(getter="getNoteHits", setter="setNoteHits")
-     * @Type("array<Zimbra\Mail\Struct\NoteHitInfo>")
-     * @XmlList(inline=true, entry="note", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getNoteHits', setter: 'setNoteHits')]
@@ -212,10 +164,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Document search hits
-     * 
-     * @Accessor(getter="getDocumentHits", setter="setDocumentHits")
-     * @Type("array<Zimbra\Mail\Struct\DocumentHitInfo>")
-     * @XmlList(inline=true, entry="doc", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -227,10 +175,6 @@ class SearchResponse extends SoapResponse
     /**
      * Document search hits
      * 
-     * @Accessor(getter="getWikiHits", setter="setWikiHits")
-     * @Type("array<Zimbra\Mail\Struct\WikiHitInfo>")
-     * @XmlList(inline=true, entry="w", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getWikiHits', setter: 'setWikiHits')]
@@ -241,10 +185,6 @@ class SearchResponse extends SoapResponse
     /**
      * Appointment search hits
      * 
-     * @Accessor(getter="getAppointmentHits", setter="setAppointmentHits")
-     * @Type("array<Zimbra\Mail\Struct\AppointmentHitInfo>")
-     * @XmlList(inline=true, entry="appt", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getAppointmentHits', setter: 'setAppointmentHits')]
@@ -254,10 +194,6 @@ class SearchResponse extends SoapResponse
 
     /**
      * Task search hits
-     * 
-     * @Accessor(getter="getTaskHits", setter="setTaskHits")
-     * @Type("array<Zimbra\Mail\Struct\TaskHitInfo>")
-     * @XmlList(inline=true, entry="task", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -272,11 +208,6 @@ class SearchResponse extends SoapResponse
      * If expanded is set, then the wildcard was expanded and the matches are included in the search.  If expanded is
      * unset then the wildcard was not specific enough and therefore no wildcard matches are included
      * (exact-match is included in results).
-     * 
-     * @Accessor(getter="getQueryInfo", setter="setQueryInfo")
-     * @SerializedName("info")
-     * @Type("Zimbra\Mail\Struct\SearchQueryInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SearchQueryInfo
      */

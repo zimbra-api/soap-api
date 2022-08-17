@@ -29,11 +29,6 @@ class SetAppointmentResponse extends SoapResponse
     /**
      * Appointment ID
      * 
-     * @Accessor(getter="getCalItemId", setter="setCalItemId")
-     * @SerializedName("calItemId")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getCalItemId', setter: 'setCalItemId')]
@@ -44,11 +39,6 @@ class SetAppointmentResponse extends SoapResponse
 
     /**
      * Deprecated - appointment ID
-     * 
-     * @Accessor(getter="getDeprecatedApptId", setter="setDeprecatedApptId")
-     * @SerializedName("apptId")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -61,10 +51,6 @@ class SetAppointmentResponse extends SoapResponse
     /**
      * Information about default invite
      * 
-     * @Accessor(getter="getDefaultId", setter="setDefaultId")
-     * @SerializedName("default")
-     * @Type("Zimbra\Common\Struct\Id")
-     * @XmlElement(namespace="urn:zimbraMail")
      * @var Id
      */
     #[Accessor(getter: "getDefaultId", setter: "setDefaultId")]
@@ -75,10 +61,6 @@ class SetAppointmentResponse extends SoapResponse
 
     /**
      * Information about exceptions
-     * 
-     * @Accessor(getter="getExceptions", setter="setExceptions")
-     * @Type("array<Zimbra\Mail\Struct\ExceptIdInfo>")
-     * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
      * 
      * @var array
      */

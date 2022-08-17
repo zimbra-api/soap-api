@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetPermissionBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetPermissionRequest")
-     * @Type("Zimbra\Mail\Message\GetPermissionRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetPermissionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetPermissionBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetPermissionResponse")
-     * @Type("Zimbra\Mail\Message\GetPermissionResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetPermissionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

@@ -28,11 +28,6 @@ class GetModifiedItemsIDsRequest extends SoapRequest
     /**
      * Root folder ID.  If present, we start sync there rather than at folder 11
      * 
-     * @Accessor(getter="getFolderId", setter="setFolderId")
-     * @SerializedName("l")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getFolderId', setter: 'setFolderId')]
@@ -43,11 +38,6 @@ class GetModifiedItemsIDsRequest extends SoapRequest
 
     /**
      * value passed by IMAP client in CHANGEDSINCE modifier
-     * 
-     * @Accessor(getter="getModSeq", setter="setModSeq")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

@@ -25,12 +25,7 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CreateTaskBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CreateTaskRequest")
-     * @Type("Zimbra\Mail\Message\CreateTaskRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
-     * @var CreateTaskRequest
+3     * @var CreateTaskRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
     #[SerializedName(name: 'CreateTaskRequest')]
@@ -39,11 +34,6 @@ class CreateTaskBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CreateTaskResponse")
-     * @Type("Zimbra\Mail\Message\CreateTaskResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CreateTaskResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

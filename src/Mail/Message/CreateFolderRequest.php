@@ -29,11 +29,6 @@ class CreateFolderRequest extends SoapRequest
     /**
      * New folder specification
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\NewFolderSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var NewFolderSpec
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]

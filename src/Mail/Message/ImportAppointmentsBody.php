@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class ImportAppointmentsBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("ImportAppointmentsRequest")
-     * @Type("Zimbra\Mail\Message\ImportAppointmentsRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ImportAppointmentsRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class ImportAppointmentsBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("ImportAppointmentsResponse")
-     * @Type("Zimbra\Mail\Message\ImportAppointmentsResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var ImportAppointmentsResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

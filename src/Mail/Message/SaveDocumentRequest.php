@@ -54,11 +54,6 @@ class SaveDocumentRequest extends SoapRequest
     /**
      * Document specification
      * 
-     * @Accessor(getter="getDoc", setter="setDoc")
-     * @SerializedName("doc")
-     * @Type("Zimbra\Mail\Struct\DocumentSpec")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DocumentSpec
      */
     #[Accessor(getter: "getDoc", setter: "setDoc")]

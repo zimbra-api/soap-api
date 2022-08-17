@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class CancelAppointmentBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("CancelAppointmentRequest")
-     * @Type("Zimbra\Mail\Message\CancelAppointmentRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CancelAppointmentRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class CancelAppointmentBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("CancelAppointmentResponse")
-     * @Type("Zimbra\Mail\Message\CancelAppointmentResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var CancelAppointmentResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

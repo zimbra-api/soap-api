@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetMailboxMetadataBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetMailboxMetadataRequest")
-     * @Type("Zimbra\Mail\Message\GetMailboxMetadataRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetMailboxMetadataRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetMailboxMetadataBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetMailboxMetadataResponse")
-     * @Type("Zimbra\Mail\Message\GetMailboxMetadataResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetMailboxMetadataResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

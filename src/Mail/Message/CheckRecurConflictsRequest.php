@@ -38,11 +38,6 @@ class CheckRecurConflictsRequest extends SoapRequest
     /**
      * Start time in millis.  If not specified, defaults to current time
      * 
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("s")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getStartTime', setter: 'setStartTime')]
@@ -53,11 +48,6 @@ class CheckRecurConflictsRequest extends SoapRequest
 
     /**
      * End time in millis.  If not specified, unlimited
-     * 
-     * @Accessor(getter="getEndTime", setter="setEndTime")
-     * @SerializedName("e")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -71,11 +61,6 @@ class CheckRecurConflictsRequest extends SoapRequest
      * Set this to get all instances, even those without conflicts.  By default only
      * instances that have conflicts are returned.
      * 
-     * @Accessor(getter="getAllInstances", setter="setAllInstances")
-     * @SerializedName("all")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllInstances', setter: 'setAllInstances')]
@@ -86,11 +71,6 @@ class CheckRecurConflictsRequest extends SoapRequest
 
     /**
      * UID of appointment to exclude from free/busy search
-     * 
-     * @Accessor(getter="getExcludeUid", setter="setExcludeUid")
-     * @SerializedName("excludeUid")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -103,10 +83,6 @@ class CheckRecurConflictsRequest extends SoapRequest
     /**
      * Timezones
      * 
-     * @Accessor(getter="getTimezones", setter="setTimezones")
-     * @Type("array<Zimbra\Mail\Struct\CalTZInfo>")
-     * @XmlList(inline=true, entry="tz", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getTimezones', setter: 'setTimezones')]
@@ -116,10 +92,6 @@ class CheckRecurConflictsRequest extends SoapRequest
 
     /**
      * Cancel expanded recurrences
-     * 
-     * @Accessor(getter="getCancelComponents", setter="setCancelComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceCancel>")
-     * @XmlList(inline=true, entry="cancel", namespace="urn:zimbraMail")
      * 
      * @var array
      */
@@ -131,10 +103,6 @@ class CheckRecurConflictsRequest extends SoapRequest
     /**
      * Invite expanded recurrences
      * 
-     * @Accessor(getter="getInviteComponents", setter="setInviteComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceInvite>")
-     * @XmlList(inline=true, entry="comp", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getInviteComponents', setter: 'setInviteComponents')]
@@ -145,10 +113,6 @@ class CheckRecurConflictsRequest extends SoapRequest
     /**
      * Except expanded recurrences
      * 
-     * @Accessor(getter="getExceptComponents", setter="setExceptComponents")
-     * @Type("array<Zimbra\Mail\Struct\ExpandedRecurrenceException>")
-     * @XmlList(inline=true, entry="except", namespace="urn:zimbraMail")
-     * 
      * @var array
      */
     #[Accessor(getter: 'getExceptComponents', setter: 'setExceptComponents')]
@@ -158,10 +122,6 @@ class CheckRecurConflictsRequest extends SoapRequest
 
     /**
      * Freebusy user specifications
-     * 
-     * @Accessor(getter="getFreebusyUsers", setter="setFreebusyUsers")
-     * @Type("array<Zimbra\Mail\Struct\FreeBusyUserSpec>")
-     * @XmlList(inline=true, entry="usr", namespace="urn:zimbraMail")
      * 
      * @var array
      */

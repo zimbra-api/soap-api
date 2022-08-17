@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class GetWorkingHoursBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("GetWorkingHoursRequest")
-     * @Type("Zimbra\Mail\Message\GetWorkingHoursRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetWorkingHoursRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class GetWorkingHoursBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("GetWorkingHoursResponse")
-     * @Type("Zimbra\Mail\Message\GetWorkingHoursResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var GetWorkingHoursResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

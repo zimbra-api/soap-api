@@ -29,11 +29,6 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     /**
      * ID of default invite
      * 
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("string")
-     * @XmlAttribute
-     * 
      * @var string
      */
     #[Accessor(getter: 'getId', setter: 'setId')]
@@ -44,11 +39,6 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 
     /**
      * Component of default invite
-     * 
-     * @Accessor(getter="getNumComponents", setter="setNumComponents")
-     * @SerializedName("comp")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */
@@ -61,11 +51,6 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
     /**
      * Change sequence of fetched series
      * 
-     * @Accessor(getter="getModifiedSequence", setter="setModifiedSequence")
-     * @SerializedName("ms")
-     * @Type("int")
-     * @XmlAttribute
-     * 
      * @var int
      */
     #[Accessor(getter: 'getModifiedSequence', setter: 'setModifiedSequence')]
@@ -76,11 +61,6 @@ class CreateAppointmentExceptionRequest extends CalItemRequestBase
 
     /**
      * Revision of fetched series
-     * 
-     * @Accessor(getter="getRevision", setter="setRevision")
-     * @SerializedName("rev")
-     * @Type("int")
-     * @XmlAttribute
      * 
      * @var int
      */

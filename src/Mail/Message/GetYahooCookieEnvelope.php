@@ -21,19 +21,18 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class GetYahooCookieEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Mail\Message\GetYahooCookieBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
+     * @var GetYahooCookieBody
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: GetYahooCookieBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     /**

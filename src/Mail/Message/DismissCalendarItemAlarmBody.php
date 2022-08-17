@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class DismissCalendarItemAlarmBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("DismissCalendarItemAlarmRequest")
-     * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DismissCalendarItemAlarmRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class DismissCalendarItemAlarmBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("DismissCalendarItemAlarmResponse")
-     * @Type("Zimbra\Mail\Message\DismissCalendarItemAlarmResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var DismissCalendarItemAlarmResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

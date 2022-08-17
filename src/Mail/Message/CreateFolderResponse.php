@@ -30,11 +30,6 @@ class CreateFolderResponse extends SoapResponse
     /**
      * Information about created folder
      * 
-     * @Accessor(getter="getFolder", setter="setFolder")
-     * @SerializedName("folder")
-     * @Type("Zimbra\Mail\Struct\Folder")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Folder
      */
     #[Accessor(getter: "getFolder", setter: "setFolder")]
@@ -46,11 +41,6 @@ class CreateFolderResponse extends SoapResponse
     /**
      * Information about created mountpoint
      * 
-     * @Accessor(getter="getMountpoint", setter="setMountpoint")
-     * @SerializedName("link")
-     * @Type("Zimbra\Mail\Struct\Mountpoint")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var Mountpoint
      */
     #[Accessor(getter: "getMountpoint", setter: "setMountpoint")]
@@ -61,11 +51,6 @@ class CreateFolderResponse extends SoapResponse
 
     /**
      * Information about created search folder
-     * 
-     * @Accessor(getter="getSearchFolder", setter="setSearchFolder")
-     * @SerializedName("search")
-     * @Type("Zimbra\Mail\Struct\SearchFolder")
-     * @XmlElement(namespace="urn:zimbraMail")
      * 
      * @var SearchFolder
      */

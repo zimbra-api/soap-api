@@ -21,19 +21,12 @@ use Zimbra\Common\Struct\{SoapBodyInterface, SoapEnvelope, SoapHeaderInterface};
  * @category   Message
  * @author     Nguyen Van Nguyen - nguyennv1981@gmail.com
  * @copyright  Copyright © 2020-present by Nguyen Van Nguyen.
- * @XmlNamespace(uri="urn:zimbraMail", prefix="urn")
- * @XmlRoot(name="soap:Envelope")
  */
 #[XmlNamespace(uri: 'urn:zimbraMail', prefix: "urn")]
 #[XmlRoot(name: 'soap:Envelope')]
 class BounceMsgEnvelope extends SoapEnvelope
 {
     /**
-     * @Accessor(getter="getBody", setter="setBody")
-     * @SerializedName("Body")
-     * @Type("Zimbra\Mail\Message\BounceMsgBody")
-     * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
-     * 
      * @var BounceMsgBody
      */
     #[Accessor(getter: 'getBody', setter: 'setBody')]

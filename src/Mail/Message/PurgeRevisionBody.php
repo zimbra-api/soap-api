@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class PurgeRevisionBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("PurgeRevisionRequest")
-     * @Type("Zimbra\Mail\Message\PurgeRevisionRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var PurgeRevisionRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class PurgeRevisionBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("PurgeRevisionResponse")
-     * @Type("Zimbra\Mail\Message\PurgeRevisionResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var PurgeRevisionResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]

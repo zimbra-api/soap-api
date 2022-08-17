@@ -29,11 +29,6 @@ class TagActionResponse extends SoapResponse
      * The <action> element contains information about the tags affected by
      * the operation if and only if the operation was successful
      * 
-     * @Accessor(getter="getAction", setter="setAction")
-     * @SerializedName("action")
-     * @Type("Zimbra\Mail\Struct\TagActionInfo")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var TagActionInfo
      */
     #[Accessor(getter: "getAction", setter: "setAction")]

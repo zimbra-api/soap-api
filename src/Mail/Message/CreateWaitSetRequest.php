@@ -40,10 +40,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * all: all types (equiv to "f,m,c,a,t,d")
      * 
      * This is used if types isn't specified for an account
-     * @Accessor(getter="getDefaultInterests", setter="setDefaultInterests")
-     * @SerializedName("defTypes")
-     * @Type("string")
-     * @XmlAttribute
      * 
      * @var string
      */
@@ -64,11 +60,6 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
      * waitset using the sequence number you provide (the server's ability to do this is limited by the RedoLogs that
      * are available)
      * 
-     * @Accessor(getter="getAllAccounts", setter="setAllAccounts")
-     * @SerializedName("allAccounts")
-     * @Type("bool")
-     * @XmlAttribute
-     * 
      * @var bool
      */
     #[Accessor(getter: 'getAllAccounts', setter: 'setAllAccounts')]
@@ -80,11 +71,7 @@ class CreateWaitSetRequest extends SoapRequest implements CreateWaitSetReq
     /**
      * Waitsets to add
      * 
-     * @Accessor(getter="getAccounts", setter="setAccounts")
-     * @SerializedName("add")
-     * @Type("array<Zimbra\Common\Struct\WaitSetAddSpec>")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * @XmlList(inline=false, entry="a", namespace="urn:zimbraMail")
+     * @var array
      */
     #[Accessor(getter: 'getAccounts', setter: 'setAccounts')]
     #[SerializedName(name: 'add')]

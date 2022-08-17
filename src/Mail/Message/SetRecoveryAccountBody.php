@@ -25,11 +25,6 @@ use Zimbra\Common\Struct\{SoapBody, SoapRequestInterface, SoapResponseInterface}
 class SetRecoveryAccountBody extends SoapBody
 {
     /**
-     * @Accessor(getter="getRequest", setter="setRequest")
-     * @SerializedName("SetRecoveryAccountRequest")
-     * @Type("Zimbra\Mail\Message\SetRecoveryAccountRequest")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SetRecoveryAccountRequest
      */
     #[Accessor(getter: 'getRequest', setter: 'setRequest')]
@@ -39,11 +34,6 @@ class SetRecoveryAccountBody extends SoapBody
     private $request;
 
     /**
-     * @Accessor(getter="getResponse", setter="setResponse")
-     * @SerializedName("SetRecoveryAccountResponse")
-     * @Type("Zimbra\Mail\Message\SetRecoveryAccountResponse")
-     * @XmlElement(namespace="urn:zimbraMail")
-     * 
      * @var SetRecoveryAccountResponse
      */
     #[Accessor(getter: 'getResponse', setter: 'setResponse')]
