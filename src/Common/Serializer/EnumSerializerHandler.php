@@ -17,7 +17,6 @@ use JMS\Serializer\{
     Context,
     GraphNavigatorInterface,
 };
-use MyCLabs\Enum\Enum;
 use BackedEnum;
 
 /**
@@ -60,7 +59,7 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
      * @return \DOMText
      */
     public static function serializeEnum(
-        SerializationVisitorInterface $visitor, object $enum, array $type, Context $context
+        SerializationVisitorInterface $visitor, BackedEnum $enum, array $type, Context $context
     ): \DOMText
     {
         $mappedClass = self::getEnumClass($type);
@@ -73,26 +72,20 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
                 $mappedClass
             ));
         }
-        if ($enum instanceof BackedEnum) {
-            return $visitor->visitString($enum->value, $type);
-        }
-        return $visitor->visitString($enum->getValue(), $type);
+        return $visitor->visitString($enum->value, $type);
     }
 
     /**
-     * Deserialize Enum type
+     * Deserialize BackedEnum type
      *
-     * @return Enum
+     * @return BackedEnum
      */
     public static function deserializeEnum(
         DeserializationVisitorInterface $visitor, $data, array $type, Context $context
-    )
+    ): ?BackedEnum
     {
         $enumClass = self::getEnumClass($type);
-        // if (is_subclass_of($enumClass, BackedEnum::class)) {
-        //     return $enumClass((string) $data);
-        // }
-        return $enumClass::from((string) $data);
+        return $enumClass::tryFrom((string) $data);
     }
 
     private static function getEnumClass(array $type): string
@@ -102,7 +95,7 @@ class EnumSerializerHandler implements SubscribingHandlerInterface
         }
 
         $enumClass = $type['params'][0]['name'];
-        if (!(is_subclass_of($enumClass, Enum::class) || is_subclass_of($enumClass, BackedEnum::class))) {
+        if (!is_subclass_of($enumClass, BackedEnum::class)) {
             throw new \TypeError(sprintf('Class "%s" is not an Enum', $enumClass));
         }
         return $enumClass;
