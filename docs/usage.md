@@ -42,6 +42,8 @@ Example: Batch request for `getAccountInfo`
  * @XmlNamespace(uri="urn:zimbraAdmin", prefix="urn")
  * @XmlRoot(name="soap:Envelope")
  */
+#[XmlNamespace(uri: 'urn:zimbraAdmin', prefix: "urn")]
+#[XmlRoot(name: 'soap:Envelope')]
 class BatchGetAccountInfosEnvelope extends SoapEnvelope
 {
     /**
@@ -50,6 +52,10 @@ class BatchGetAccountInfosEnvelope extends SoapEnvelope
      * @Type("BatchGetAccountInfosBody")
      * @XmlElement(namespace="http://www.w3.org/2003/05/soap-envelope")
      */
+    #[Accessor(getter: 'getBody', setter: 'setBody')]
+    #[SerializedName(name: 'Body')]
+    #[Type(name: BatchGetAccountInfosBody::class)]
+    #[XmlElement(namespace: 'http://www.w3.org/2003/05/soap-envelope')]
     private $body;
 
     public function __construct(?BatchGetAccountInfosBody $body = NULL, ?SoapHeader $header = NULL)
@@ -79,6 +85,10 @@ class BatchGetAccountInfosBody extends SoapBody
      * @Type("BatchGetAccountInfosRequest")
      * @XmlElement(namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getRequest', setter: 'setRequest')]
+    #[SerializedName(name: 'BatchRequest')]
+    #[Type(name: BatchGetAccountInfosRequest::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private $request;
 
     /**
@@ -87,6 +97,10 @@ class BatchGetAccountInfosBody extends SoapBody
      * @Type("BatchGetAccountInfosResponse")
      * @XmlElement(namespace="urn:zimbra")
      */
+    #[Accessor(getter: 'getResponse', setter: 'setResponse')]
+    #[SerializedName(name: 'BatchResponse')]
+    #[Type(name: BatchGetAccountInfosResponse::class)]
+    #[XmlElement(namespace: 'urn:zimbra')]
     private $response;
 
     public function __construct(
@@ -129,6 +143,9 @@ class BatchGetAccountInfosRequest extends BatchRequest
      * @Type("array<Zimbra\Admin\Message\GetAccountInfoRequest>")
      * @XmlList(inline=true, entry="GetAccountInfoRequest", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getRequests', setter: 'setRequests')]
+    #[Type(name: 'array<Zimbra\Admin\Message\GetAccountInfoRequest>')]
+    #[XmlList(inline: true, entry: "GetAccountInfoRequest", namespace: 'urn:zimbraAdmin')]
     private $requests = [];
 
     public function __construct(array $requests = [])
@@ -138,7 +155,9 @@ class BatchGetAccountInfosRequest extends BatchRequest
 
     public function setRequests(array $requests): self
     {
-        $this->requests = array_filter($requests, static fn($request) => $request instanceof GetAccountInfoRequest);
+        $this->requests = array_filter(
+            $requests, static fn($request) => $request instanceof GetAccountInfoRequest
+        );
         return $this;
     }
 
@@ -161,6 +180,9 @@ class BatchGetAccountInfosResponse implements BatchResponseInterface
      * @Type("array<Zimbra\Admin\Message\GetAccountInfoResponse>")
      * @XmlList(inline=true, entry="GetAccountInfoResponse", namespace="urn:zimbraAdmin")
      */
+    #[Accessor(getter: 'getResponses', setter: 'setResponses')]
+    #[Type(name: 'array<Zimbra\Admin\Message\GetAccountInfoResponse>')]
+    #[XmlList(inline: true, entry: "GetAccountInfoResponse", namespace: 'urn:zimbraAdmin')]
     private $responses = [];
 
     public function __construct(array $responses = [])
@@ -170,7 +192,9 @@ class BatchGetAccountInfosResponse implements BatchResponseInterface
 
     public function setResponses(array $responses): self
     {
-        $this->responses = array_filter($responses, static fn($response) => $response instanceof GetAccountInfoResponse);
+        $this->responses = array_filter(
+            $responses, static fn($response) => $response instanceof GetAccountInfoResponse
+        );
         return $this;
     }
 
